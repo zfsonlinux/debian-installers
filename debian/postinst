@@ -237,10 +237,10 @@ fi
 # Now add any other OSes to the end of menu.lst.
 OLDIFS="$IFS"
 IFS="$newline"
-for os in $(cat /tmp/os-probed); do
+for os in "$(cat /tmp/os-probed)"; do
 	IFS="$OLDIFS"
 	title=$(echo "$os" | cut -d: -f2)
-	type=$(echo "$os" | cut -d: -f4 | sed 's/_/ /g')
+	type=$(echo "$os" | cut -d: -f4)
 	partition=$(mapdevfs $(echo "$os" | cut -d: -f1))
 	grubdrive=$(convert "$partition") || true
 	if [ -n "$grubdrive" ]; then
