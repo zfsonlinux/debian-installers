@@ -23,11 +23,6 @@ clean:
 install: build
 	dh_testdir
 	dh_testroot
-	dh_installdirs
-	for file in apt-update apt-install ; do \
-		cp debian/$$file debian/base-installer/bin/$$file ; \
-		chmod a+rx debian/base-installer/bin/$$file ; \
-	done
 
 # Build architecture-independent files here.
 binary-indep: install
