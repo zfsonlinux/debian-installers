@@ -23,7 +23,7 @@ update_mtab() {
     mtab=/target/etc/mtab
     grep /target /proc/mounts | (
 	while read devpath mountpoint fstype options n1 n2 ; do
-	    devpath=`mapdevfs $devpath`
+	    devpath=`mapdevfs $devpath || echo $devpath`
 	    mountpoint=`echo $mountpoint | sed s%^/target%%`
 	    # The sed line remove the mount point for root.
 	    if [ -z "$mountpoint" ] ; then
