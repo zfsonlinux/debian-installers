@@ -59,7 +59,7 @@ if [ "$1" = "configure" ]; then
     	NAMES="${HOSTNAME}.$RET $NAMES"
     fi
 
-    if db_get mirror/distribution ; then
+    if db_get mirror/distribution && [ "$RET" ] ; then
 	DISTRIBUTION=$RET
     fi
 
