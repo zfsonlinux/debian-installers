@@ -260,6 +260,17 @@ get_arch_kernel () {
 		*) log "warning: Unknown $ARCH subarchitecture '$MODEL'." ;;
 		esac
 	;;
+	ia64)
+		version=2.4.20 #hack, hack!
+		# Running a UP kernel for install atm, so don't know how to detect
+		# whether SMP is needed.  Assume SMP for now.
+		if grep -q Itanium /proc/cpuinfo; then
+			family=itanium
+		else
+			family=mckinley
+		fi
+		trykernel=kernel-image-$version-$family-smp
+	;;
 	*)
 	log "warning: Unknown architecture '$ARCH'."
 	;;
