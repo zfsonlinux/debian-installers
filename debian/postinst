@@ -164,14 +164,16 @@ install_base_system () {
 
 configure_apt () {
 	# let apt inside the chroot see the cdrom
-	umount /target$DIRECTORY 2>/dev/null || true
 	if [ "$PROTOCOL" = file ] ; then
+		if [ -n "$DIRECTORY" ]; then
+			umount /target$DIRECTORY 2>/dev/null || true
+		fi
 		if [ "`uname -r | grep '^2.2.'`" != "" ]; then
 		    CDDEV=`grep -i /cdrom /proc/mounts | cut -d' ' -f 1 | grep loop`
 		    if [ "" != "$CDDEV" ]  && \
 			db_get iso-scan/filename && [ "$RET" ] ; then
 		    	mount -r -o loop /hd-media/$RET /target/$DIRECTORY
-		    elif db_get cdrom-detect/cdrom_device && [ "$RET" ]; then
+		    elif db_get cdrom-detect/cdrom_device && [ -n "$RET" ]; then
 			umount $RET
 			mount -r -t iso9660 $RET /target/$DIRECTORY
 		    else
