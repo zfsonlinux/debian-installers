@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-14 18:15+0200\n"
+"POT-Creation-Date: 2004-03-14 18:26+0000\n"
 "PO-Revision-Date: 2004-02-18 21:59+0100\n"
 "Last-Translator: Håvard Korsvoll <korsvoll@skulelinux.no>\n"
 "Language-Team: Norwegian (Bokmål) <i18n-nn@lister.ping.uio.no>\n"
@@ -29,49 +29,58 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: templates:4
+#: ../templates:4
 msgid "Device for boot loader installation:"
 msgstr "Eining for installsjon av oppstartslastar:"
 
 #. Type: string
 #. Description
-#: templates:4
+#: ../templates:4
 msgid ""
 "Now it is time to make the newly installed Debian system bootable, by "
 "installing the GRUB bootloader on a bootable device. The usual way to do "
 "this is to install GRUB on the master boot record of your first hard drive."
-msgstr "No er det tid for å gjera det mogeleg å starta opp det nyinstallerte debiansystemet Dette gjer vi ved å innstallera oppstartslastaren GRUB på ei eining som er oppstartbar. Den vanlege måten å gjera dette på er å installera GRUB på hovudoppstartssporet (MBR) på den første harddisken din."
+msgstr ""
+"No er det tid for å gjera det mogeleg å starta opp det nyinstallerte "
+"debiansystemet Dette gjer vi ved å innstallera oppstartslastaren GRUB på ei "
+"eining som er oppstartbar. Den vanlege måten å gjera dette på er å "
+"installera GRUB på hovudoppstartssporet (MBR) på den første harddisken din."
 
 #. Type: string
 #. Description
-#: templates:4
+#: ../templates:4
 msgid ""
 "Note that GRUB counts devices differently than the Linux kernel, so the "
 "first drive is usually '(hd0)'. If you want it on the second partition of "
 "the first drive, use '(hd0,1)'. Leave this at default if unsure."
-msgstr "Merk at GRUB tel einingar annleis enn linuxkjerna gjer. Den første harddisken er vanlegvis «(hd0)». Viss du vil ha GRUB på den andre partisjonen på den første disken, bruk «(hd0,1)». Bruk det førehandsvalte viss du er usikker."
+msgstr ""
+"Merk at GRUB tel einingar annleis enn linuxkjerna gjer. Den første "
+"harddisken er vanlegvis «(hd0)». Viss du vil ha GRUB på den andre "
+"partisjonen på den første disken, bruk «(hd0,1)». Bruk det førehandsvalte "
+"viss du er usikker."
 
 #. Type: string
 #. Description
-#: templates:4
+#: ../templates:4
 msgid ""
 "Warning: by default, this will change how your computer boots, overwriting "
 "your existing master boot record with GRUB. Continuing may make other "
 "operating systems installed on this computer unbootable."
 msgstr ""
 "Åtvaring: Som standard vil dette endra korleis datamaskina di startar opp. "
-"Installasjonen vil skriva over det eksisterande hovudoppstartssporet med GRUB. "
-"Ved å halda fram kan andre operativsystem som er installert på denne maskina få problem med å starta opp."
+"Installasjonen vil skriva over det eksisterande hovudoppstartssporet med "
+"GRUB. Ved å halda fram kan andre operativsystem som er installert på denne "
+"maskina få problem med å starta opp."
 
 #. Type: boolean
 #. Description
-#: templates:20
+#: ../templates:20
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Installeringa av GRUB feila. Vil du halda fram likevel?"
 
 #. Type: boolean
 #. Description
-#: templates:20
+#: ../templates:20
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -83,74 +92,73 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: templates:27
+#: ../templates:27
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Klarer ikkje å installera GRUB på ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: templates:27
+#: ../templates:27
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Køyring av kommandoen «grub-install ${BOOTDEV}» feila."
 
 #. Type: error
 #. Description
-#: templates:34
+#: ../templates:34
 msgid "Unable to configure GRUB"
 msgstr "Klarer ikkje å setja opp GRUB"
 
 #. Type: error
 #. Description
-#: templates:34
+#: ../templates:34
 msgid "Executing 'update-grub' failed."
 msgstr "Køyring av kommandoen «update-grub» feila."
 
 #. Type: error
 #. Description
-#: templates:34
+#: ../templates:34
 msgid "This is a fatal error."
 msgstr "Dette er ein fatal feil."
 
 #. Type: text
 #. Description
-#: templates:41
+#: ../templates:41
 msgid "Installing GRUB boot loader"
 msgstr "Installerer oppstartssystemet GRUB"
 
 #. Type: text
 #. Description
-#: templates:45
+#: ../templates:45
 msgid "Installing the 'grub' package..."
 msgstr "Installerer grub-pakka ..."
 
 #. Type: text
 #. Description
-#: templates:49
+#: ../templates:49
 msgid "Determining GRUB boot device..."
 msgstr "Avgjer oppstartseining for GRUB ..."
 
 #. Type: text
 #. Description
-#: templates:53
+#: ../templates:53
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Køyrer «grub-install ${BOOTDEV}» ..."
 
 #. Type: text
 #. Description
-#: templates:57
+#: ../templates:57
 msgid "Running \"update-grub\"..."
 msgstr "Køyrer «update-grub» ..."
 
 #. Type: text
 #. Description
-#: templates:61
+#: ../templates:61
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Oppdaterer /etc/kernel-img.conf ..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: templates:66
+#: ../templates:66
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installer GRUB på ein harddisk"
-
