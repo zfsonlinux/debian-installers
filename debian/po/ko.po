@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-05-16 08:27+0200\n"
-"PO-Revision-Date: 2004-04-12 20:42+0900\n"
+"PO-Revision-Date: 2004-05-16 23:31+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Korean\n"
 "MIME-Version: 1.0\n"
@@ -43,14 +43,11 @@ msgstr "GRUB 부트로더를 마스터 부트 레코드에 설치하시겠습니
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
 "the master boot record of your first hard drive."
-msgstr ""
-"이 컴퓨터에는 데비안이 유일한 운영 체제입니다. 그렇다면, 부트 로더를 첫 번째 "
-"하드 드라이브의 마스터 부트 레코드에 설치해도 안전합니다."
+msgstr "이 컴퓨터에는 지금 설치하고 있는 데비안이 유일한 운영 체제입니다. 그렇다면, 부트 로더를 첫 번째 하드 드라이브의 마스터 부트 레코드에 설치해도 안전합니다."
 
 #. Type: boolean
 #. Description
@@ -60,7 +57,7 @@ msgid ""
 "present on your computer, modifying the master boot record will make that "
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
-msgstr ""
+msgstr "경고: 이 컴퓨터에 들어 있는 운영 체제중에 이 설치 프로그램에서 찾아내지 못한 운영 체제가 있는 경우, 마스터 부트 레코드를 고치면 일시적으로 그 운영 체제가 부팅하지 못할 것입니다. 하지만 나중에 GRUB을 수동으로 설정하면 부팅하도록 만들 수 있습니다."
 
 #. Type: string
 #. Description
@@ -91,7 +88,7 @@ msgid ""
 "in /dev. For example, \"(hd0)\" will install GRUB to the master boot record "
 "of your first hard drive, while \"/dev/hda2\" will install it to the second "
 "parrtition of your first IDE drive."
-msgstr ""
+msgstr "해당 장치는 GRUB 방식의 \"(hdn)\" 형식으로 지정할 수도 있고, 아니면 /dev 아래 있는 장치 이름으로도 지정할 수 있습니다. 예를 들어, \"(hd0)\"은 첫 번째 하드 드라이브의 마스터 부트 레코드에 GRUB을 설치하고, \"/dev/hda2\"는 첫 번째 IDE 드라이브의 두 번째 파티션에 설치합니다."
 
 #. Type: boolean
 #. Description
@@ -189,10 +186,3 @@ msgstr "/etc/kernel-img.conf 업데이트 중입니다..."
 #: ../templates:93
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "GRUB 부트로더를 하드 디스크에 설치"
-
-#~ msgid ""
-#~ "The device can be specified using GRUB's \"(hdn)\" notation, or as a "
-#~ "device in /dev."
-#~ msgstr ""
-#~ "장치는 GRUB 식으로 \"(hdn)\"과 같이 표기하거나, /dev 안 에 있는 장치 이름"
-#~ "을 써서 지정할 수 있습니다."
