@@ -24,13 +24,13 @@ info() {
 }
 
 get_serial_console() {
-  local defconsole=$(sed -e 's/.*console=/console=/' /proc/cmdline);
-  if echo "${defconsole}" | grep -q console=ttyS; then
-    local PORT=$(echo "${defconsole}" | sed -e 's%^console=ttyS%%' -e 's%,.*%%')
-    local SPEED=$(echo "${defconsole}" | sed -e 's%^console=ttyS[0-9]\+,%%' -e 's% .*%%')
-    local SERIAL="${PORT},${SPEED}"
-    echo "console=$SERIAL"
-  fi
+	local defconsole=$(sed -e 's/.*console=/console=/' /proc/cmdline);
+	if echo "${defconsole}" | grep -q console=ttyS; then
+		local PORT=$(echo "${defconsole}" | sed -e 's%^console=ttyS%%' -e 's%,.*%%')
+		local SPEED=$(echo "${defconsole}" | sed -e 's%^console=ttyS[0-9]\+,%%' -e 's% .*%%')
+		local SERIAL="${PORT},${SPEED}"
+		echo "console=$SERIAL"
+	fi
 }
 
 serial="$(get_serial_console)"
@@ -195,8 +195,7 @@ update_grub () {
 }
 
 is_floppy () {
-	# FIXME: this is lame, and does not yet support /dev devices.
-	echo "$1" | grep -q '(fd'
+	echo "$1" | grep -q '(fd' || echo "$1" | grep -q "/dev/fd" || echo "$1" | grep -q floppy
 }
 
 findfstype () {
@@ -363,11 +362,11 @@ if ! is_floppy "$bootdev"; then
 	fi
 fi
 
-info "Running chroot /target /sbin/grub-install $floppyparam \"$bootdev\""
-if chroot /target /sbin/grub-install $floppyparam "$bootdev" >> $log 2>&1 ; then
+info "Running chroot /target /sbin/grub-install --recheck $floppyparam \"$bootdev\""
+if chroot /target /sbin/grub-install --recheck $floppyparam "$bootdev" >> $log 2>&1 ; then
 	info "grub-install ran successfully"
 else
-	error "Running 'grub-install $floppyparam \"$bootdev\"' failed."
+	error "Running 'grub-install --recheck $floppyparam \"$bootdev\"' failed."
 	db_subst grub-installer/grub-install-failed BOOTDEV "$bootdev"
 	db_input critical grub-installer/grub-install-failed || [ $? -eq 30 ]
 	db_go || true
