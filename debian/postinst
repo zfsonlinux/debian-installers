@@ -86,6 +86,14 @@ do_bootfloppy = no
 do_initrd = yes
 EOF
 
+# Avoid the possibility of getting a root shell without giving passord
+# when booting the 2.4 kernel
+# This must be done after initrd-tools is installed, but before the
+# kernel is installed.
+#cat >> /target/etc/mkinitrd/mkinitrd.conf <<EOF
+#DELAY=0
+#EOF
+
     test -d $LOGDIR || mkdir -p $LOGDIR
 
     debootstrap \
