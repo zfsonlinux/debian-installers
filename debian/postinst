@@ -356,9 +356,9 @@ get_arch_kernel () {
 
 pick_kernel () {
 	# Fetch the current default
-	if db_get debian-installer/kernel/image-$KERNEL_MAJOR && [ "$RET" ]; then
+	if db_get base-installer/kernel/image-$KERNEL_MAJOR && [ "$RET" ]; then
 		KERNEL="$RET"
-	elif db_get debian-installer/kernel/image && [ "$RET" ]; then
+	elif db_get base-installer/kernel/image && [ "$RET" ]; then
 		KERNEL="$RET"
 	fi
 
@@ -427,24 +427,24 @@ pick_kernel () {
 	info "Using kernel '$KERNEL'"
 
 	# Pass the kernel name on
-	db_set debian-installer/kernel/image "$KERNEL"
+	db_set base-installer/kernel/image "$KERNEL"
 }
 
 install_kernel () {
-	if db_get "debian-installer/kernel/linux/initrd-$KERNEL_MAJOR" ; then
+	if db_get "base-installer/kernel/linux/initrd-$KERNEL_MAJOR" ; then
 		if [ "$RET" = true ]; then
 			do_initrd=yes
 		else
 			do_initrd=no
 		fi
-	elif db_get debian-installer/kernel/linux/initrd ; then
+	elif db_get base-installer/kernel/linux/initrd ; then
 		if [ "$RET" = "true" ]; then
 			do_initrd=yes
 		else
 			do_initrd=no
 		fi
 	else
-		warning "Failed to get debconf answer 'debian-installer/kernel/linux/initrd'."
+		warning "Failed to get debconf answer 'base-installer/kernel/linux/initrd'."
 		do_initrd=yes
 	fi
 

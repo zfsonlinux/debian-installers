@@ -4,6 +4,10 @@ base-installer (1.14) UNRELEASED; urgency=low
   * Frans Pop
     - Add sanity check in postinst for empty COMPONENTS to guard against
       ugly and difficult to trace errors from debootstrap. Closes: #283510.
+  * Joey Hess
+    - Moved debian-installer/kernel/image, debian-installer/kernel/image-2.6,
+      debian-installer/kernel/linux/initrd,
+      debian-installer/kernel/linux/initrd-2.6 from rootskel.
   * Colin Watson
     - Merge experimental kernel selection improvements branch:
       + Consolidate all the uname calls to find the kernel version into one
@@ -20,12 +24,9 @@ base-installer (1.14) UNRELEASED; urgency=low
     - Fix arch_get_kernel output on s390, and explicitly disallow -s390-tape
       and -s390x (documenting why).
     - Map lasat subarchitecture to r5k-lasat flavour on mipsel.
+    - Rename debian-installer/kernel/* to base-installer/kernel/*.
   * Martin Michlmayr
     - Add tests for various mips and mipsel subarchitectures.
-  * Joey Hess
-    - Moved debian-installer/kernel/image, debian-installer/kernel/image-2.6,
-      debian-installer/kernel/linux/initrd,
-      debian-installer/kernel/linux/initrd-2.6 from rootskel.
 
  -- Frans Pop <aragorn@tiscali.nl>  Wed,  1 Dec 2004 14:53:07 +0100
 
