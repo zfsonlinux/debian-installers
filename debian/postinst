@@ -224,25 +224,25 @@ get_arch_kernel () {
 		esac
 	;;
 	powerpc)
-		version=2.4.22 #hack, hack!
+		version=2.4.22
 		MODEL=`/bin/archdetect`
 		case "$MODEL" in
 		"powerpc/powermac_newworld")
 			trykernel=kernel-image-$version-powerpc
 		;;
-		# what's below is probably nonsense,
-		# porters have to start building 2.4 kernels for d-i!
-		# But at least the infrastructure will be there and these
-		# are the latest versions in the archive.
+		# maybe oldworld pmac needs the -powerpc-small kernel we
+		# booted with ?
 		"powerpc/powermac_oldworld")
 			trykernel=kernel-image-$version-powerpc
 		;;
 		"powerpc/prep")
-			trykernel=kernel-image-2.2.20-prep
+			trykernel=kernel-image-$version-powerpc-prep
 		;;
-		# do we need a special case here for powerpc/chrp_pegasos?
-		"powerpc/chrp")
-			trykernel=kernel-image-2.2.20-chrp
+		"powerpc/chrp"|"powerpc/chrp_pegasos")
+			trykernel=kernel-image-$version-powerpc-chrp
+		;;
+		"powerpc/chrp_rs6k")
+			trykernel=kernel-image-$version-powerpc-chrp-rs6k
 		;;
 		"powerpc/amiga")
 			trykernel=kernel-image-2.4.20-apus
