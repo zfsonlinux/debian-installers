@@ -631,7 +631,7 @@ EOF
 		# initrd-tools; it's fixed in more recent versions
 		mkinitrdconf=/target/etc/mkinitrd/mkinitrd.conf
 		if [ -f $mkinitrdconf ] ; then
-			sed -e 's/^DELAY=.*/DELAY=0/' -e "s#^ROOT=.*/ROOT='$rootpart $rootpartfs'" < $mkinitrdconf > $mkinitrdconf.new &&
+			sed -e 's/^DELAY=.*/DELAY=0/' -e "s#^ROOT=.*#ROOT='$rootpart $rootpartfs'#" < $mkinitrdconf > $mkinitrdconf.new &&
 				mv $mkinitrdconf.new  $mkinitrdconf
 		else
 			echo 'DELAY=0' >> $mkinitrdconf
