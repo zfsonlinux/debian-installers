@@ -1,4 +1,4 @@
-#    Chinese (Simplified) translation for tools/grub-installer
+#    Chinese (Simplified) translation for debian-installer/grub-installer
 #
 #    Translators, if you are not familiar with the PO format, gettext
 #    documentation is worth reading, especially sections dedicated to
@@ -18,11 +18,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer/tools/grub-installer\n"
+"Project-Id-Version: debian-installer/packages/arch/i386/grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-20 09:04+0200\n"
-"PO-Revision-Date: 2004-05-21 18:23+1200\n"
-"Last-Translator: Carlos Z.F. Liu <carlos_liu@yahoo.com>\n"
+"PO-Revision-Date: 2004-06-21 17:57-0500\n"
+"Last-Translator: Ming Hua <minghua@rice.edu>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,7 +102,6 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../templates:28
-#, fuzzy
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -115,9 +114,13 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"设备可以使用 GRUB 的“(hdn)”标记方式，或者是 /dev 目录下的设备名称。例如，使"
-"用“(hd0)”将会把 GRUB 安装到您的第一块硬盘的主引导记录上，而“/dev/hda2”将把它"
-"安装到您的第一个 IDE 驱动器的第二分区中。"
+"设备可以使用 GRUB 的“(hdn,m)”标记方式，或者是 /dev 目录下的设备名称。举例如下：\n"
+" - “(hd0)”或“/dev/hda”将会把 GRUB 安装到您的第一块硬盘 (IDE) 的主引导记录\n"
+"   上；\n"
+" - “(hd0,1)”或“/dev/hda2”将安装到您的第一个 IDE 驱动器的第二分区上；\n"
+" - “(hd2,4)”或“/dev/sdc5”将安装到您的第三个驱动器 (这里是 SCSI)的第一扩展\n"
+"   分区上；\n"
+" - “(fd0)”或“/dev/fd0”将安装到软盘上。"
 
 #. Type: boolean
 #. Description
@@ -214,9 +217,3 @@ msgstr "正在更新 /etc/kernel-img.conf..."
 #: ../templates:98
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "将 GRUB 安装至硬盘"
-
-#~ msgid ""
-#~ "The device can be specified using GRUB's \"(hdn)\" notation, or as a "
-#~ "device in /dev."
-#~ msgstr ""
-#~ "设备名称可以使用 GRUB 的“(hdn)”标记方式，或者是 /dev 目录下的设备名称。"
