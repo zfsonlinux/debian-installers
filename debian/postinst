@@ -251,7 +251,7 @@ configure_apt () {
 
 create_devices () {
 	# RAID
-	if grep -q ^md /proc/mdstat ; then
+	if [ -e /proc/mdstat ] && grep -q ^md /proc/mdstat ; then
 		apt-install mdadm
 	fi
 	# LVM: create VG and LV devices
