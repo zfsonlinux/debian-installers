@@ -422,7 +422,7 @@ pick_kernel () {
 		KERNEL=$arch_kernel
 	elif [ "" != "$arch_kernel" ] ; then
 		kernels=`grep $arch_kernel $KERNEL_LIST | sort -r | tr '\n' ',' | sed -e 's/,$//'`
-		if [ "kernels" ]; then
+		if [ "$kernels" ]; then
 			db_subst base-installer/kernel/which-kernel KERNELS "$kernels"
 
 			# try to default to running kernel version.
