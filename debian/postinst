@@ -461,7 +461,12 @@ get_arch_kernel () {
 	;;
 	mips)
 		# big endian MIPS
-		version=$(uname -r | cut -d - -f 1)
+		kernel_major=$(uname -r | cut -d . -f 1,2)
+		# use the more generic package versioning for 2.6 ff.
+		case "$kernel_major" in
+		2.4) version=$(uname -r | cut -d - -f 1) ;;
+		*) version=$kernel_major ;;
+		esac
 		case "$SUBARCH" in
 		r4k-ip22) trykernel=kernel-image-$version-r4k-ip22 ;;
 		r5k-ip22) trykernel=kernel-image-$version-r5k-ip22 ;;
@@ -477,7 +482,12 @@ get_arch_kernel () {
 	;;
 	mipsel)
 		# little endian MIPS
-		version=$(uname -r | cut -d - -f 1)
+		kernel_major=$(uname -r | cut -d . -f 1,2)
+		# use the more generic package versioning for 2.6 ff.
+		case "$kernel_major" in
+		2.4) version=$(uname -r | cut -d - -f 1) ;;
+		*) version=$kernel_major ;;
+		esac
 		case "$SUBARCH" in
 		r3k-kn02) trykernel=kernel-image-$version-r3k-kn02 ;;
 		r4k-kn04) trykernel=kernel-image-$version-r4k-kn04 ;;
