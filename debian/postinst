@@ -2,6 +2,12 @@
 
 . /usr/share/debconf/confmodule
 
+logfile=/var/log/messages
+
+log() {
+    logger -t base-installer "$@"
+}
+
 ETCDIR=/target/etc
 LOGDIR=/target/var/log
 
@@ -133,7 +139,14 @@ db_progress STEP 1
 db_progress INFO base-installer/apt/progress/step_install
 
 if [ -f /var/lib/apt-install/queue ] ; then
-    apt-install `cat /var/lib/apt-install/queue` || true
+    # We need to install these one by one in case one of them fails.
+    for PKG in `cat /var/lib/apt-install/queue`; do
+        if apt-install $PKG >> $logfile 2>&1 ; then
+	    log "Installed $PKG successfully into /target/"
+	else
+	    log "Failed to $PKG successfully into /target/: $?"
+	fi
+    done
 fi
 
 db_progress STEP 1
