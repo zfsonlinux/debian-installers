@@ -529,8 +529,8 @@ get_arch_kernel () {
 		esac
 	;;
 	s390)
-		version=2.4.26
-		trykernel=kernel-image-$version-1-s390
+		version=$(uname -r)
+		trykernel=kernel-image-$version
 	;;
 	*)
 	warning "Unknown architecture '$ARCH'."
