@@ -107,6 +107,29 @@ case "$ARCH" in
 		fi
 		;;
 	esac
+   powerpc)
+      version=2.4.22 #hack, hack!
+      MODEL=`/usr/bin/ppcdetect`
+      case "$MODEL" in
+          NewWorld)
+              kernel=kernel-image-$version-powerpc
+              ;;
+          # what's below is probably nonsene, porters have to start building 2.4 kernels for d-i!
+          # But at least the infrastructure will be there and these are the latest versions in 
+          # the archive.
+          OldWorld)
+              kernel=kernel-image-$version-powerpc
+              ;;
+          PReP)
+              kernel=kernel-image-2.2.20-prep
+              ;;
+          CHRP)
+              kernel=kernel-image-2.2.20-chrp
+              ;;
+          *)
+              log "warning: Unknown powerpc subarchitecture '$MODEL'."
+              ;;
+      esac
 	;;
     *)
         log "warning: Unknown arcitecture '$ARCH'."
