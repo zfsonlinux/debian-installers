@@ -216,6 +216,22 @@ configure_apt () {
 	echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
 }
 
+create_devices () {
+	# LVM: create VG and LV devices
+	if pvdisplay | grep -iq "physical volume ---" ; then
+		apt-install lvm2
+		mount -t proc proc /target/proc
+		mkdir -p /target/dev/mapper
+		if [ ! -e /target/dev/mapper/control ] ; then
+			major=$(grep "[0-9] misc$" /proc/devices | sed 's/[ ]\+misc//')
+			minor=$(grep "[0-9] device-mapper$" /proc/misc | sed 's/[ ]\+device-mapper//')
+			mknod /target/dev/mapper/control c $major $minor
+		fi
+		chroot /target vgscan --mknodes
+		umount /target/proc
+	fi
+}
+
 kernel_update_list () {
 	# Using 'uniq' to avoid listing the same kernel more then once.
 	chroot /target apt-cache search kernel-image | grep ^kernel-image | \
@@ -647,6 +663,7 @@ waypoint 1	get_mirror_info
 waypoint 100	install_base_system
 waypoint 1	configure_apt
 waypoint 3	apt_update
+waypoint 2	create_devices
 waypoint 1	pick_kernel
 waypoint 10	install_kernel
 case "$ARCH" in
