@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: debian-installer/tools/grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-05-16 08:27+0200\n"
-"PO-Revision-Date: 2004-04-19 22:11+0800\n"
+"PO-Revision-Date: 2004-05-22 00:16+0800\n"
 "Last-Translator: Tetralet <tetralet@pchome.com.tw>\n"
 "Language-Team: Chinese/Traditional <tetralet@pchome.com.tw>\n"
 "MIME-Version: 1.0\n"
@@ -54,13 +54,12 @@ msgstr "要將 GRUB 開機程式安裝至主要開機記錄 (MBR) 上嗎？"
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
 "the master boot record of your first hard drive."
 msgstr ""
-"看來現正所安裝的 Debian 是這台電腦中唯一的作業系統。如果沒錯，那麼把開機程式"
+"看來現正所安裝的 Debian 是這台電腦中唯一的作業系統。如果沒錯，那麼把 GRUB 開機程式"
 "安裝在第一個硬碟的主要開機記錄 (MBR) 上應該不會出什麼問題。"
 
 #. Type: boolean
@@ -71,7 +70,9 @@ msgid ""
 "present on your computer, modifying the master boot record will make that "
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
-msgstr ""
+msgstr "警告：如果安裝程式無法偵測到已存在於您的電腦上的其它作業系統，"
+"修改主要開機記錄 (MBR) 將會使得該作業系統暫時無法開機，"
+"雖然 GRUB 在事後還是可以藉由手動設定來啟動它。"
 
 #. Type: string
 #. Description
@@ -102,7 +103,9 @@ msgid ""
 "in /dev. For example, \"(hd0)\" will install GRUB to the master boot record "
 "of your first hard drive, while \"/dev/hda2\" will install it to the second "
 "parrtition of your first IDE drive."
-msgstr ""
+msgstr "可以使用 GRUB 的『(hdn)』表示法，或是以 /dev 裡的裝置來指定磁碟。"
+"比如說，『(hd0)』將會把 GRUB 安裝到您的第一顆硬碟的主要開機記錄 (MBR) 上；"
+"而『/dev/hda2』則會將其安裝到您第一顆 IDE 磁碟的第二個分割區上。"
 
 #. Type: boolean
 #. Description
