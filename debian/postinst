@@ -81,7 +81,9 @@ info "Installing grub on '$bootdev'"
 update_mtab
 
 if ! is_floppy "$bootdev"; then
-	floppyparam="--no-floppy"
+	if chroot /target /sbin/grub-install -h 2>&1 | grep -q no-floppy; then
+		floppyparam="--no-floppy"
+	fi
 fi
 
 if chroot /target /sbin/grub-install $floppyparam "$bootdev" >> $log 2>&1 ; then
