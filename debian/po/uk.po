@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer-templates_uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-10 01:43-0400\n"
+"POT-Creation-Date: 2004-04-10 14:34-0400\n"
 "PO-Revision-Date: 2004-04-10 15:06+0300\n"
 "Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
 "Language-Team: Ukrainian\n"
@@ -24,7 +24,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.3.1\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
@@ -35,8 +36,7 @@ msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
 msgstr ""
-"Наступні операційні системи були знайдені на вашому комп'ютері: "
-"${OS_LIST}"
+"Наступні операційні системи були знайдені на вашому комп'ютері: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -46,7 +46,11 @@ msgid ""
 "install the boot loader to the master boot record of your first hard drive. "
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
-msgstr "Якщо всі ваші операційні системи перераховані у списку, то ви можете безпечно встановити системний завантажувач у головний завантажувальний запис (MBR) вашого першого жорсткого диску. При завантаженні комп'ютера ви зможете вибрати одну з цих операційних систем або нову систему Debian."
+msgstr ""
+"Якщо всі ваші операційні системи перераховані у списку, то ви можете "
+"безпечно встановити системний завантажувач у головний завантажувальний запис "
+"(MBR) вашого першого жорсткого диску. При завантаженні комп'ютера ви зможете "
+"вибрати одну з цих операційних систем або нову систему Debian."
 
 #. Type: boolean
 #. Description
@@ -63,7 +67,8 @@ msgid ""
 "of your first hard drive."
 msgstr ""
 "Здається, що Debian буде єдиною операційною системою на цьому комп'ютері. "
-"Якщо це так, то ви можете безпечно встановити системний завантажувач у головний завантажувальний запис (MBR) вашого першого жорсткого диску."
+"Якщо це так, то ви можете безпечно встановити системний завантажувач у "
+"головний завантажувальний запис (MBR) вашого першого жорсткого диску."
 
 #. Type: string
 #. Description
@@ -81,20 +86,30 @@ msgid ""
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
 msgstr ""
-"Вам потрібно зробити можливим завантаження щойно встановленої системи "
-"Debian шляхом встановлення завантажувача GRUB на завантажувальний пристрій. "
+"Вам потрібно зробити можливим завантаження щойно встановленої системи Debian "
+"шляхом встановлення завантажувача GRUB на завантажувальний пристрій. "
 "Звичайно це робиться шляхом встановлення GRUB в головний завантажувальний "
-"запис (MBR) вашого першого жорсткого диску. Якщо бажаєте, ви можете встановити GRUB в іншому місті жорсткого диску, на іншому диску або навіть на дискеті."
+"запис (MBR) вашого першого жорсткого диску. Якщо бажаєте, ви можете "
+"встановити GRUB в іншому місті жорсткого диску, на іншому диску або навіть "
+"на дискеті."
+
+#. Type: string
+#. Description
+#: ../templates:24
+msgid ""
+"The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
+"in /dev/"
+msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:34
+#: ../templates:37
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Не вдалося встановити GRUB. Все рівно продовжувати?"
 
 #. Type: boolean
 #. Description
-#: ../templates:34
+#: ../templates:37
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -107,80 +122,80 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:41
+#: ../templates:44
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Не можливо встановити GRUB в ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:41
+#: ../templates:44
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Не вдалося виконати команду „grub-install ${BOOTDEV}“."
 
 #. Type: error
 #. Description
-#: ../templates:48
+#: ../templates:51
 msgid "Unable to configure GRUB"
 msgstr "Не вдалося налаштувати GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:48
+#: ../templates:51
 msgid "Executing 'update-grub' failed."
 msgstr "Не вдалося виконати команду „update-grub“."
 
 #. Type: error
 #. Description
-#: ../templates:48
+#: ../templates:51
 msgid "This is a fatal error."
 msgstr "Це фатальна помилка."
 
 #. Type: text
 #. Description
-#: ../templates:55
+#: ../templates:58
 msgid "Installing GRUB boot loader"
 msgstr "Встановлення завантажувача GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:59
+#: ../templates:62
 msgid "Looking for other operating systems..."
 msgstr "Пошук інших операційних систем..."
 
 #. Type: text
 #. Description
-#: ../templates:63
+#: ../templates:66
 msgid "Installing the 'grub' package..."
 msgstr "Встановлення пакунку „grub“..."
 
 #. Type: text
 #. Description
-#: ../templates:67
+#: ../templates:70
 msgid "Determining GRUB boot device..."
 msgstr "Визначення завантажувального пристрою для GRUB..."
 
 #. Type: text
 #. Description
-#: ../templates:71
+#: ../templates:74
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Запуск „grub-install ${BOOTDEV}“..."
 
 #. Type: text
 #. Description
-#: ../templates:75
+#: ../templates:78
 msgid "Running \"update-grub\"..."
 msgstr "Запуск „update-grub“..."
 
 #. Type: text
 #. Description
-#: ../templates:79
+#: ../templates:82
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Оновлення /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:84
+#: ../templates:87
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Встановити завантажувач GRUB на жорсткий диск"
 
@@ -215,4 +230,3 @@ msgstr "Встановити завантажувач GRUB на жорсткий
 #~ "завантажувальному пристрої. Звичайно це перший жорсткий диск. Зверніть "
 #~ "увагу на те, що GRUB нумерує пристрої інакше, ніж ядро Linux, так що "
 #~ "перший з них звичайно '(hd0)'. Залиште за замовчанням, якщо не впевнені."
-

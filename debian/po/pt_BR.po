@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-10 01:43-0400\n"
+"POT-Creation-Date: 2004-04-10 14:34-0400\n"
 "PO-Revision-Date: 2004-04-10 10:16-0300\n"
 "Last-Translator: André Luís Lopes <andrelop@debian.org>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
@@ -25,9 +25,8 @@ msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
 msgstr ""
-"Os outros sistemas opaeracionais listados a seguir foram detectados "
-"neste computador : "
-"${OS_LIST}"
+"Os outros sistemas opaeracionais listados a seguir foram detectados neste "
+"computador : ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -38,11 +37,11 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
-"Caso todos os seus sistemas operacionais estejam listados acima, deverá "
-"ser seguro instalar o carregador de inicialização no registro de "
-"inicialização principal de seu primeiro disco rígido. Quando seu "
-"computador iniciar, você poderá optar por iniciar qualquer um dos "
-"sistemas operacionais ou o seu novo sistema Debian."
+"Caso todos os seus sistemas operacionais estejam listados acima, deverá ser "
+"seguro instalar o carregador de inicialização no registro de inicialização "
+"principal de seu primeiro disco rígido. Quando seu computador iniciar, você "
+"poderá optar por iniciar qualquer um dos sistemas operacionais ou o seu novo "
+"sistema Debian."
 
 #. Type: boolean
 #. Description
@@ -60,10 +59,9 @@ msgid ""
 "so, it should be safe to install the boot loader to the master boot record "
 "of your first hard drive."
 msgstr ""
-"Parece que o Debian será o único sistema operacional neste computador. "
-"Caso isso seja verdade, deverá ser seguro instalar o carregador de "
-"inicialização no registro de inicialização principal de seu primeiro "
-"disco rígido."
+"Parece que o Debian será o único sistema operacional neste computador. Caso "
+"isso seja verdade, deverá ser seguro instalar o carregador de inicialização "
+"no registro de inicialização principal de seu primeiro disco rígido."
 
 #. Type: string
 #. Description
@@ -83,20 +81,28 @@ msgid ""
 msgstr ""
 "Você precisa fazer com que seu novo sistema Debian instalado seja "
 "inicializável, instalando o carregador de inicialização GRUB em um "
-"dispositivo inicializável. A maneira usual de fazer isso é instalar "
-"o GRUB no setor de inicialização principal de seu primeiro disco rígido. "
-"Caso prefira, você pode instalar o GRUB em outro local de seu disco "
-"rígido, em outro disco ou até mesmo em um disquete."
+"dispositivo inicializável. A maneira usual de fazer isso é instalar o GRUB "
+"no setor de inicialização principal de seu primeiro disco rígido. Caso "
+"prefira, você pode instalar o GRUB em outro local de seu disco rígido, em "
+"outro disco ou até mesmo em um disquete."
+
+#. Type: string
+#. Description
+#: ../templates:24
+msgid ""
+"The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
+"in /dev/"
+msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:34
+#: ../templates:37
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "A instalação do GRUB falhou. Continuar mesmo assim ?"
 
 #. Type: boolean
 #. Description
-#: ../templates:34
+#: ../templates:37
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -109,80 +115,80 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:41
+#: ../templates:44
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Impossível instalar o GRUB em ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:41
+#: ../templates:44
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "A execução de 'grub-install ${BOOTDEV}' falhou."
 
 #. Type: error
 #. Description
-#: ../templates:48
+#: ../templates:51
 msgid "Unable to configure GRUB"
 msgstr "Impossível configurar o GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:48
+#: ../templates:51
 msgid "Executing 'update-grub' failed."
 msgstr "A execução de 'update-grub' falhou."
 
 #. Type: error
 #. Description
-#: ../templates:48
+#: ../templates:51
 msgid "This is a fatal error."
 msgstr "Esse é um erro fatal."
 
 #. Type: text
 #. Description
-#: ../templates:55
+#: ../templates:58
 msgid "Installing GRUB boot loader"
 msgstr "Instalando o carregador de inicialização GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:59
+#: ../templates:62
 msgid "Looking for other operating systems..."
 msgstr "Procurando por outros sistemas operacionais ..."
 
 #. Type: text
 #. Description
-#: ../templates:63
+#: ../templates:66
 msgid "Installing the 'grub' package..."
 msgstr "Instalando o pacote 'grub' ..."
 
 #. Type: text
 #. Description
-#: ../templates:67
+#: ../templates:70
 msgid "Determining GRUB boot device..."
 msgstr "Determinando o dispositivo de inicialização do GRUB ..."
 
 #. Type: text
 #. Description
-#: ../templates:71
+#: ../templates:74
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Executando \"grub-install ${BOOTDEV}\" ..."
 
 #. Type: text
 #. Description
-#: ../templates:75
+#: ../templates:78
 msgid "Running \"update-grub\"..."
 msgstr "Executando \"update-grub\" ..."
 
 #. Type: text
 #. Description
-#: ../templates:79
+#: ../templates:82
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Atualizando /etc/kernel-img.conf ..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:84
+#: ../templates:87
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Instalar o GRUB em um disco rígido"
 

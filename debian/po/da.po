@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: da\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-10 01:43-0400\n"
+"POT-Creation-Date: 2004-04-10 14:34-0400\n"
 "PO-Revision-Date: 2004-04-10 13:19+0200\n"
 "Last-Translator: Claus Hindsgaul <claus_h@image.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -25,9 +25,7 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr ""
-"Følgende andre styresystemer blev fundet på denne computer: "
-"${OS_LIST}"
+msgstr "Følgende andre styresystemer blev fundet på denne computer: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -38,9 +36,10 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
-"Hvis alle dine styresystemer er nævnt herover, skulle det være sikkert "
-"at installere opstartsindlæseren i din første harddisks opstartsspor (\"master boot record\"). Når din computer starter op, vil du få mulighed "
-"for at vælge mellem disse styresystemer samt dit nye Debiansystem."
+"Hvis alle dine styresystemer er nævnt herover, skulle det være sikkert at "
+"installere opstartsindlæseren i din første harddisks opstartsspor (\"master "
+"boot record\"). Når din computer starter op, vil du få mulighed for at vælge "
+"mellem disse styresystemer samt dit nye Debiansystem."
 
 #. Type: boolean
 #. Description
@@ -76,21 +75,30 @@ msgid ""
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
 msgstr ""
-"Du skal sætte dit nyinstallerede Debiansystem i stand til at starte "
-"op ved at installere opstartsindlæseren GRUB på en enhed, computeren kan "
-"starte op fra. Det gøres normalt ved at installere GRUB på din første harddisks opstartsspor (\"master boot record\"). Hvis du foretrækker det, "
-"kan du installere GRUB andre steder på drevet, på et andet drev eller "
-"sågar på en diskette."
+"Du skal sætte dit nyinstallerede Debiansystem i stand til at starte op ved "
+"at installere opstartsindlæseren GRUB på en enhed, computeren kan starte op "
+"fra. Det gøres normalt ved at installere GRUB på din første harddisks "
+"opstartsspor (\"master boot record\"). Hvis du foretrækker det, kan du "
+"installere GRUB andre steder på drevet, på et andet drev eller sågar på en "
+"diskette."
+
+#. Type: string
+#. Description
+#: ../templates:24
+msgid ""
+"The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
+"in /dev/"
+msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:34
+#: ../templates:37
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Kunne ikke installere GRUB. Fortsæt alligevel?"
 
 #. Type: boolean
 #. Description
-#: ../templates:34
+#: ../templates:37
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -102,80 +110,80 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:41
+#: ../templates:44
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Kunne ikke installere GRUB i ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:41
+#: ../templates:44
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Kørsel af 'grub-install ${BOOTDEV}' mislykkedes."
 
 #. Type: error
 #. Description
-#: ../templates:48
+#: ../templates:51
 msgid "Unable to configure GRUB"
 msgstr "Kunne ikke sætte GRUB op"
 
 #. Type: error
 #. Description
-#: ../templates:48
+#: ../templates:51
 msgid "Executing 'update-grub' failed."
 msgstr "Kørsel af 'update-grub' mislykkedes."
 
 #. Type: error
 #. Description
-#: ../templates:48
+#: ../templates:51
 msgid "This is a fatal error."
 msgstr "Dette er en fatal fejl."
 
 #. Type: text
 #. Description
-#: ../templates:55
+#: ../templates:58
 msgid "Installing GRUB boot loader"
 msgstr "Installerer GRUB-opstartsindlæseren"
 
 #. Type: text
 #. Description
-#: ../templates:59
+#: ../templates:62
 msgid "Looking for other operating systems..."
 msgstr "Leder efter andre styresystemer..."
 
 #. Type: text
 #. Description
-#: ../templates:63
+#: ../templates:66
 msgid "Installing the 'grub' package..."
 msgstr "Installerer 'grub'-pakken..."
 
 #. Type: text
 #. Description
-#: ../templates:67
+#: ../templates:70
 msgid "Determining GRUB boot device..."
 msgstr "Udpeger GRUB-opstartsenhed..."
 
 #. Type: text
 #. Description
-#: ../templates:71
+#: ../templates:74
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Kører \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../templates:75
+#: ../templates:78
 msgid "Running \"update-grub\"..."
 msgstr "Kører \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:79
+#: ../templates:82
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Opdaterer /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:84
+#: ../templates:87
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installér opstartsindlæseren GRUB på en harddisk"
 
@@ -212,4 +220,3 @@ msgstr "Installér opstartsindlæseren GRUB på en harddisk"
 
 #~ msgid "On which device should GRUB be installed?"
 #~ msgstr "På hvilken enhed skal GRUB installeres?"
-

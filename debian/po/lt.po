@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-10 01:43-0400\n"
+"POT-Creation-Date: 2004-04-10 14:34-0400\n"
 "PO-Revision-Date: 2004-04-10 13:38+0300\n"
 "Last-Translator: Kęstutis Biliūnas <kebil@kaunas.init.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
@@ -24,8 +24,7 @@ msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
 msgstr ""
-"Šiame kompiuteryje aptiktos tokios kitos operacinės sistemos: "
-"${OS_LIST}"
+"Šiame kompiuteryje aptiktos tokios kitos operacinės sistemos: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -36,10 +35,11 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
-"Jei visos Jūsų operacinės sistemos yra aukščiau išvardintos, tuomet yra saugu "
-"įdiegti pradinį įkėliklį į pirmojo kietojo disko pagrindinį įkelties įrašą (master "
-"boot record). Kuomet Jūsų kompiuteris ruošis įkelti operacinę sistemą, Jūs "
-"galėsite pasirinkti vieną iš šių operacinių sistemų arba naują Debian sistemą."
+"Jei visos Jūsų operacinės sistemos yra aukščiau išvardintos, tuomet yra "
+"saugu įdiegti pradinį įkėliklį į pirmojo kietojo disko pagrindinį įkelties "
+"įrašą (master boot record). Kuomet Jūsų kompiuteris ruošis įkelti operacinę "
+"sistemą, Jūs galėsite pasirinkti vieną iš šių operacinių sistemų arba naują "
+"Debian sistemą."
 
 #. Type: boolean
 #. Description
@@ -55,9 +55,9 @@ msgid ""
 "so, it should be safe to install the boot loader to the master boot record "
 "of your first hard drive."
 msgstr ""
-"Atrodo, kad Debian'as bus vienintelė operacinė sistema šiame kompiuteryje. Jei "
-"taip, tuomet yra saugu įdiegti pradinį įkėliklį į pirmojo kietojo disko pagrindinį "
-"įkelties įrašą (master boot record)."
+"Atrodo, kad Debian'as bus vienintelė operacinė sistema šiame kompiuteryje. "
+"Jei taip, tuomet yra saugu įdiegti pradinį įkėliklį į pirmojo kietojo disko "
+"pagrindinį įkelties įrašą (master boot record)."
 
 #. Type: string
 #. Description
@@ -76,20 +76,28 @@ msgid ""
 "even to a floppy."
 msgstr ""
 "Jūs turite naujai įdiegtą sistemą padaryti įkeliama, įdiegiant GRUB pradinį "
-"įkėliklį į pradinei įkelčiai tinkantį įrenginį. Paprastai tai daroma įdiegiant GRUB "
-"į pirmojo kietojo disko pagrindinį įkelties įrašą (master boot record). Jūs galite "
-"įdiegti GRUB ir kitoje disko vietoje, ar kitame diske, ar net lanksčiame diskelyje, "
-"jei tai Jums labiau patinka."
+"įkėliklį į pradinei įkelčiai tinkantį įrenginį. Paprastai tai daroma "
+"įdiegiant GRUB į pirmojo kietojo disko pagrindinį įkelties įrašą (master "
+"boot record). Jūs galite įdiegti GRUB ir kitoje disko vietoje, ar kitame "
+"diske, ar net lanksčiame diskelyje, jei tai Jums labiau patinka."
+
+#. Type: string
+#. Description
+#: ../templates:24
+msgid ""
+"The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
+"in /dev/"
+msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:34
+#: ../templates:37
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Nepavyko įdiegti GRUB.  Tęsti nepaisant to?"
 
 #. Type: boolean
 #. Description
-#: ../templates:34
+#: ../templates:37
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -101,80 +109,79 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:41
+#: ../templates:44
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Negaliu įdiegti GRUB į ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:41
+#: ../templates:44
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "'grub-install ${BOOTDEV}' vykdymas nepavyko."
 
 #. Type: error
 #. Description
-#: ../templates:48
+#: ../templates:51
 msgid "Unable to configure GRUB"
 msgstr "Negaliu atlikt  GRUB konfigūravimo"
 
 #. Type: error
 #. Description
-#: ../templates:48
+#: ../templates:51
 msgid "Executing 'update-grub' failed."
 msgstr "'update-grub' vykdymas nepavyko."
 
 #. Type: error
 #. Description
-#: ../templates:48
+#: ../templates:51
 msgid "This is a fatal error."
 msgstr "Tai lemtinga klaida."
 
 #. Type: text
 #. Description
-#: ../templates:55
+#: ../templates:58
 msgid "Installing GRUB boot loader"
 msgstr "Diegiamas pradinis įkėliklis GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:59
+#: ../templates:62
 msgid "Looking for other operating systems..."
 msgstr "Ieškoma kitų operacinių sistemų..."
 
 #. Type: text
 #. Description
-#: ../templates:63
+#: ../templates:66
 msgid "Installing the 'grub' package..."
 msgstr "Diegiamas paketas 'grub'..."
 
 #. Type: text
 #. Description
-#: ../templates:67
+#: ../templates:70
 msgid "Determining GRUB boot device..."
 msgstr "Nustatomas GRUB įkelties įrenginys..."
 
 #. Type: text
 #. Description
-#: ../templates:71
+#: ../templates:74
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "\"grub-install ${BOOTDEV}\" vykdymas..."
 
 #. Type: text
 #. Description
-#: ../templates:75
+#: ../templates:78
 msgid "Running \"update-grub\"..."
 msgstr "\"update-grub\" vykdymas..."
 
 #. Type: text
 #. Description
-#: ../templates:79
+#: ../templates:82
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Atnaujinamas /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:84
+#: ../templates:87
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Pradinio įkėliklio GRUB diegimas į kietąjį diską"
-
