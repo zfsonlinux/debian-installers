@@ -415,10 +415,8 @@ main(int argc, char *argv[])
 {
     char **args;
     int i;
-#if defined(di_log) /* Using libd-i library >= 0.16 */
-    di_system_init("run-debootstrap");
-#endif /* di_log */
 
+    di_system_init("run-debootstrap");
     debconf = debconfclient_new();
     args = (char **)malloc(sizeof(char *) * (argc + 1));
     args[0] = "/usr/sbin/debootstrap";
