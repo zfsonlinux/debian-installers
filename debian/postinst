@@ -8,6 +8,6 @@ db_go || true
 db_get grub-installer/bootdev
 bootdev=$RET
 
-chroot /target /sbin/grub-install '(hd0)'
+chroot /target /sbin/grub-install $bootdev
 chroot /target /usr/bin/touch /boot/grub/menu.lst
 chroot /target /sbin/update-grub
