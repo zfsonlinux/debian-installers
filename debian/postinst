@@ -89,6 +89,17 @@ if [ -f /target/etc/fstab ] ; then
     echo "# UNCONFIGURED FSTAB FOR BASE SYSTEM" >> /target/etc/fstab
 fi
 
+# Language specific
+case "`debconf-get debian-installer/language`" in
+  ja)
+    # Japanese
+    apt-install jfbterm || true
+    apt-install unifont || true
+    ;;
+  *)
+    ;;
+esac
+
 /usr/sbin/run-debootstrap \
         --components="${COMPONENTS}" \
         --debian-installer \
