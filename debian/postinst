@@ -319,8 +319,14 @@ get_arch_kernel () {
 		power3|i-star|s-star)
 			family=power3
 			;;
-		power4|ppc970)
+		power4)
 			family=power4
+			;;
+		ppc970)
+			case "$kernel_major" in
+			2.6) family=g5 ;;
+			2.4) family=power4 ;;
+			esac
 			;;
 		*)
 			family=powerpc
