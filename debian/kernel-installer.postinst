@@ -42,6 +42,13 @@ do_bootfloppy = no
 do_initrd = $do_initrd
 EOF
 
+# undocumented hacks, copied from base-installer/debian/postinst, to
+# prevent dash postinst prompting with "GET dash/sh"
+unset DEBIAN_HAS_FRONTEND
+unset DEBIAN_FRONTEND
+unset DEBCONF_FRONTEND
+unset DEBCONF_REDIR
+
 if [ yes = "$do_initrd" ] ; then
     # Make sure initrd-tools is installed before we change its configuration
     apt-install initrd-tools 2>> /var/log/messages
@@ -56,13 +63,6 @@ if [ yes = "$do_initrd" ] ; then
 	echo 'DELAY=0' >> $mkinitrdconf
     fi
 fi
-
-# undocumented hacks, copied from base-installer/debian/postinst, to
-# prevent dash postinst prompting with "GET dash/sh"
-unset DEBIAN_HAS_FRONTEND
-unset DEBIAN_FRONTEND
-unset DEBCONF_FRONTEND
-unset DEBCONF_REDIR
 
 if db_get debian-installer/kernel/image ; then
     if [ -z "$RET" ] ; then
