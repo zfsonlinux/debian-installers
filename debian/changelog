@@ -11,8 +11,11 @@ grub-installer (1.02) UNRELEASED; urgency=low
   * Joey Hess
     - Use the user-params command to get parameters the user manually 
       entered on the command line, and add these into the grub config file.
+    - Add an isinstallable script that checks whether /boot is on lvm.
+      If so, grub will not be installed, and the installer can skip on to
+      lilo.
 
- -- Christian Perrier <bubulle@debian.org>  Wed, 18 Aug 2004 10:03:45 +0200
+ -- Joey Hess <joeyh@debian.org>  Fri, 27 Aug 2004 20:26:23 -0400
 
 grub-installer (1.01) unstable; urgency=low
 

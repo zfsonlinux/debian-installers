@@ -1,0 +1,20 @@
+#!/bin/sh
+
+log() {
+	logger -t grub-installer "$@"
+}
+
+findfs () {
+	mount | grep "on /target${1%/} " | cut -d' ' -f1
+}
+
+bootfs=$(findfs /boot)
+[ -n "$bootfs" ] || bootfs="$(findfs /)"
+# Check for the control file to work around lvdisplay refusal to work with
+# certian lvm device names.
+if lvdisplay "$bootfs" >/dev/null 2>&1 || [ -e "$(dirname $bootfs)/control" ]; then
+	log "/boot is a lvm volume ($bootfs), cannot install grub"
+	exit 1
+fi
+
+exit 0
