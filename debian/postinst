@@ -353,7 +353,11 @@ EOF
 			IFS="$newline"
 			for entry in $(linux-boot-prober "$partition"); do
 				IFS="$OLDIFS"
-				bootpart=$(mapdevfs $(echo "$entry" | cut -d: -f2))
+				bootpart=$(echo "$entry" | cut -d: -f2)
+				mappedbootpart=$(mapdevfs "$bootpart") || true
+				if [ -z "$mappedbootpart" ]; then
+					mappedbootpart="$bootpart"
+				fi
 				label=$(echo "$entry" | cut -d : -f3)
 				if [ -z "$label" ]; then
 					label="$title"
@@ -363,7 +367,7 @@ EOF
 				if echo "$kernel" | grep -q '^/boot/'; then
 					kernel=$(echo "$kernel" | sed 's!^/boot!!')
 					initrd=$(echo "$initrd" | sed 's!^/boot!!')
-					grubdrive=$(convert "$bootpart") || true
+					grubdrive=$(convert "$mappedbootpart") || true
 				else
 					# kernel and initrd not on boot partition
 					grubdrive=$(convert "$mappedpartition") || true
