@@ -329,14 +329,24 @@ fi
 # some have subarchitectures that are incompatible at the kernel level. This
 # function should cope with both cases.
 check_usable_kernel () {
-	best_flavour="$(arch_get_kernel_flavour)" || return 1
-	arch_check_usable_kernel "$1" "$best_flavour" || return 1
+	if ! best_flavour="$(arch_get_kernel_flavour)"; then
+		info "arch_get_kernel_flavour failed"
+		return 1
+	fi
+	if ! arch_check_usable_kernel "$1" "$best_flavour"; then
+		info "kernel $1 not usable on $best_flavour"
+		return 1
+	fi
+	info "kernel $1 usable on $best_flavour"
 	return 0
 }
 
 # Returns a kernel that seems appropriate for the machine.
 get_arch_kernel () {
-	flavour="$(arch_get_kernel_flavour)" || return
+	if ! flavour="$(arch_get_kernel_flavour)"; then
+		info "arch_get_kernel_flavour failed"
+		return
+	fi
 	arch_get_kernel "$flavour"
 }
 
@@ -379,6 +389,7 @@ pick_kernel () {
 	fi
 
 	arch_kernel=$(get_arch_kernel)
+	info "arch_kernel: $arch_kernel"
 	if kernel_present $arch_kernel ; then
 		KERNEL=$arch_kernel
 	elif [ "" != "$arch_kernel" ] ; then
