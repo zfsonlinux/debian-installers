@@ -550,6 +550,11 @@ EOF
 	info "Installing kernel '$KERNEL'."
 	apt-install "$KERNEL" 2>> $LOGFILE || kernel_install_failed=$?
 
+	# /proc/filesystems will accomodate this past the second bootup.
+	if [ "$do_initrd" = yes ]; then
+		sed -e 's/^ROOT=.*/ROOT=probe/' $mkinitrdconf > $mkinitrdconf.new && mv $mkinitrdconf.new $mkinitrdconf
+	fi
+
 	if [ -f /target/etc/kernel-img.conf.$$ ]; then
 		# Revert old kernel-img.conf
 		mv /target/etc/kernel-img.conf.$$ /target/etc/kernel-img.conf
