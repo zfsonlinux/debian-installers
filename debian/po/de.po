@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: grub-installer 0.33\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-20 09:04+0200\n"
-"PO-Revision-Date: 2004-05-23 21:49GMT\n"
+"PO-Revision-Date: 2004-07-01 13:18GMT\n"
 "Last-Translator: Dennis Stampfer <seppy@debian.org>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -107,7 +107,6 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../templates:28
-#, fuzzy
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -120,10 +119,15 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Das Gerät kann mit den \"(hdn)\" Bezeichnungen von GRUB oder als Gerätedatei "
-"in /dev angegeben werden. Beispielsweise wird bei \"(hd0)\" GRUB in den "
-"Master Boot Record Ihrer ersten Festplatte geschrieben. \"/dev/hda2\" wird "
-"GRUB auf die zweite Partition der ersten Festplatte installieren."
+"Das Gerät kann mit den \"(hdn)\" Bezeichnungen von GRUB oder als "
+"Gerätedatei in /dev angegeben werden. Im Folgenden sind einige Beispiele: "
+" - \"(hd0)\" oder \"/dev/hda\" installiert GRUB in den Master-Boot-Record "
+"   Ihrer ersten Festplatte (IDE);\n"
+" - \"(hd0,1)\" oder \"/dev/hda2\" installiert GRUB auf die zweite Partition Ihrer "
+"   ersten IDE Festplatte;\n"
+" - \"(hd2,4)\" oder \"/dev/scd5\" installiert GRUB auf die erste erweiterte Partition "
+"   Ihrer dritten Festplatte (in diesem Fall SCSI);\n"
+" - \"(fd0)\" oder \"/dev/fd0\" installiert GRUB auf einer Diskette."
 
 #. Type: boolean
 #. Description
@@ -222,3 +226,4 @@ msgstr "Aktualisiere /etc/kernel-img.conf..."
 #: ../templates:98
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installiere den GRUB Bootloader auf einer Festplatte"
+
