@@ -19,10 +19,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer_packages_arch_i386_grub-installer_el\n"
+"Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-04-10 18:11-0400\n"
-"PO-Revision-Date: 2004-04-07 00:35EEST\n"
+"PO-Revision-Date: 2004-04-13 19:28EEST\n"
 "Last-Translator: Konstantinos Margaritis <markos@debian.org>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -37,6 +37,8 @@ msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
 msgstr ""
+"Ανιχνεύθηκαν τα ακόλουθα λειτουργικά συστήματα στον υπολογιστή σας: "
+"${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -47,13 +49,16 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
+"Αν εμφανίζονται όλα τα λειτουργικά συστήματα που έχετε εγκατεστημένα, τότε "
+"είναι ασφαλές να εγκαταστήσετε το φορτωτή εκκίνησης στον πρώτο σκληρό σας "
+"δίσκο.  Κατά την εκκίνηση του υπολογιστή σας, θα μπορείτε να επιλέξετε ένα από "
+"αυτά τα λειτουργικά συστήματα, ή το νέο σας σύστημα Debian."
 
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "Εγκατάσταση του προγράμματος εκκίνησης GRUB"
+msgstr "Να εγκατασταθεί ο φορτωτής εκκίνησης GRUB στο master boot record;"
 
 #. Type: boolean
 #. Description
@@ -63,6 +68,9 @@ msgid ""
 "this computer. If so, it should be safe to install the boot loader to the "
 "master boot record of your first hard drive."
 msgstr ""
+"Από ό,τι φαίνεται, αυτή η εγκατάσταση του Debian είναι το μόνο λειτουργικό σύστημα "
+"στον υπολογιστή αυτό. Αν είναι όντως έτσι, είναι ασφαλής η εγκατάσταση του "
+"φορτωτή εκκίνησης στο master boot record του πρώτου δίσκου σας."
 
 #. Type: string
 #. Description
@@ -73,7 +81,6 @@ msgstr "Μονάδα για εγκατάσταση του προγράμματο
 #. Type: string
 #. Description
 #: ../templates:24
-#, fuzzy
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -81,10 +88,11 @@ msgid ""
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
 msgstr ""
-"Στο σημείο αυτό, έχετε τη δυνατότητα να κάνετε το σύστημα εκκινήσιμο, "
-"εγκαθιστώντας το φορτωτή εκκίνησης GRUB σε μια εκκινήσιμη συσκευή. Ο συνήθης "
-"τρόπος είναι να εγκαταστήσετε το GRUB στο master boot record του πρώτου "
-"σκληρού δίσκου."
+"Θα πρέπει να κάνετε το σύστημα εκκινήσιμο, εγκαθιστώντας το φορτωτή εκκίνησης "
+"GRUB σε μια εκκινήσιμη συσκευή. Ο συνήθης τρόπος είναι να εγκαταστήσετε το "
+"GRUB στο master boot record του πρώτου σκληρού δίσκου. Αν επιθυμείτε, μπορείτε "
+"να εγκαταστήσετε το GRUB σε κάποιο άλλο σημείο του δίσκου, ή σε κάποιο άλλο "
+"δίσκο ή ακόμη και σε μια δισκέτα."
 
 #. Type: string
 #. Description
@@ -93,6 +101,8 @@ msgid ""
 "The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
 "in /dev."
 msgstr ""
+"Η μονάδα μπορεί να καθοριστεί με τη σύνταξη του GRUB \"(hdn)\", ή ως μια μονάδα "
+"στον κατάλογο /dev."
 
 #. Type: boolean
 #. Description
@@ -191,23 +201,3 @@ msgstr "Ενημέρωση του /etc/kernel-img.conf..."
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Εγκατάσταση του προγράμματος εκκίνησης GRUB"
 
-#~ msgid ""
-#~ "Note that GRUB counts devices differently than the Linux kernel, so the "
-#~ "first drive is usually '(hd0)'. If you want it on the second partition of "
-#~ "the first drive, use '(hd0,1)'. Leave this at default if unsure."
-#~ msgstr ""
-#~ "Σημειώστε ότι το GRUB καταμετρά τις συσκευές με διαφορετικο τρόπο από ότι "
-#~ "το Linux, έτσι ο πρώτος δίσκος είναι συνήθως ο 'hd0'. Αν θέλετε το GRUB "
-#~ "στο δεύτερο διαμέρισμα στον πρώτο δίσκο, δώστε '(hd0,1)'. Αν δεν είστε "
-#~ "σίγουροι, αφήστε την προκαθορισμένη ρύθμιση."
-
-#~ msgid ""
-#~ "Warning: by default, this will change how your computer boots, "
-#~ "overwriting your existing master boot record with GRUB. Continuing may "
-#~ "make other operating systems installed on this computer unbootable."
-#~ msgstr ""
-#~ "Προειδοποίηση: εξ ορισμού, αυτή η εργασία θα επιφέρει αλλαγή στον τρόπο "
-#~ "εκκίνησης του υπολογιστή σας, αντικαθιστώντας το υπάρχον master boot "
-#~ "record με το GRUB. Η συνέχιση αυτής της διαδικασίας μπορεί να καταστήσει "
-#~ "αδύνατη τη φόρτωση πιθανών άλλων λειτουργικών συστημάτων στον υπολογιστή "
-#~ "αυτό."
