@@ -305,8 +305,7 @@ get_arch_kernel () {
 		apusversion=2.4.25
 		case "$SUBARCH" in
 		powermac_newworld) trykernel=kernel-image-$version-powerpc-pmac ;;
-		# Let's use the same kernel we booted with on oldworld.
-		powermac_oldworld) trykernel=kernel-image-$version-powerpc-small-pmac ;;
+		powermac_oldworld) trykernel=kernel-image-$version-powerpc-pmac ;;
 		prep) trykernel=kernel-image-$version-powerpc-prep ;;
 		chrp | chrp_pegasos) trykernel=kernel-image-$version-powerpc-chrp ;;
 		chrp_rs6k) trykernel=kernel-image-$version-powerpc-chrp-rs6k ;;
