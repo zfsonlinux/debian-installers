@@ -50,13 +50,13 @@ if [ "$1" = "configure" ]; then
     # Default hostname is 'localhost'
     HOSTNAME=localhost
     NAMES=localhost
-    db_get netcfg/get_hostname
+    db_get netcfg/get_hostname || true
     if [ "$RET" ]; then
         NAMES="$RET $NAMES"
         HOSTNAME=$RET
     fi
  
-    db_get netcfg/get_domain
+    db_get netcfg/get_domain || true
     if [ "$RET" -a "$HOSTNAME" ] ; then
     	NAMES="${HOSTNAME}.$RET $NAMES"
     fi
