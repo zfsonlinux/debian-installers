@@ -1,5 +1,9 @@
 base-installer (0.015) UNSTABLE; urgency=low
 
+  * Mario Lang
+    - in base-installer postinst, if /sbin/brltty exists, brltty=... was
+      passed in kernel cmdline, and brltty is running, add it to debootstrap
+      --include list.
   * Petter Reinholdtsen
     - In kernel-installer, set DELAY=0 in
       /target/etc/mkinitrd/mkinitrd.conf to disable the possibility of

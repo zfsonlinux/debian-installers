@@ -53,6 +53,17 @@ if db_get mirror/distribution && [ "$RET" ] ; then
     DISTRIBUTION=$RET
 fi
 
+if [ -x /sbin/brltty -a -f /proc/cmdline ]; then
+    if grep brltty= /proc/cmdline >/dev/null && \
+       ps aux | grep -v grep | grep brltty >/dev/null; then
+	if [ "${INCLUDES}" ]; then
+	    INCLUDES="brltty,${INCLUDES}"
+	else
+	    INCLUDES="brltty"
+	fi
+    fi
+fi
+
 if [ "${INCLUDES}" ]; then
     INCLUDE="--include=${INCLUDES}"
 fi
