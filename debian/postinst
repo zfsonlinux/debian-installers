@@ -217,6 +217,10 @@ configure_apt () {
 }
 
 create_devices () {
+	# RAID
+	if grep -q ^md /proc/mdstat ; then
+		apt-install mdadm
+	fi
 	# LVM: create VG and LV devices
 	if pvdisplay | grep -iq "physical volume ---" ; then
 		apt-install lvm2

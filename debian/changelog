@@ -4,6 +4,8 @@ base-installer (0.085) UNRELEASED; urgency=low
     - Create LVM devices before installing the kernel, otherwise mkinitrd
       will fail if the root device is on LVM (closes: #232827, #237466,
       #247051, #247213, #245546, #249311).
+    - Install mdadm before installing the kernel otherwise mkinitrd will
+      fail (closes: #247819, #250820, #253843).
 
  -- Martin Michlmayr <tbm@cyrius.com>  Fri, 18 Jun 2004 18:27:34 +0100
 
