@@ -3,6 +3,8 @@ base-installer (0.086) UNRELEASED; urgency=low
   * Martin Michlmayr
     - Only install LVM and create LVM device nodes when the device
       mapper module is loaded.
+    - "vgscan --mknodes" can return 5 under some circumstances, so
+      use || true in order not to error out.
 
  -- Martin Michlmayr <tbm@cyrius.com>  Sun, 20 Jun 2004 20:24:40 +0100
 

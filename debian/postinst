@@ -231,7 +231,7 @@ create_devices () {
 			minor=$(grep "[0-9] device-mapper$" /proc/misc | sed 's/[ ]\+device-mapper//')
 			mknod /target/dev/mapper/control c $major $minor
 		fi
-		chroot /target vgscan --mknodes
+		chroot /target vgscan --mknodes || true
 		umount /target/proc
 	fi
 }
