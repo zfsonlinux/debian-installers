@@ -183,7 +183,7 @@ configure_apt () {
 			fi
 		fi
 		if [ "`uname -r | grep '^2.2.'`" != "" ]; then
-			CDDEV=`grep -i /cdrom /proc/mounts | cut -d' ' -f 1 | grep loop`
+			CDDEV=`grep -i /cdrom /proc/mounts | cut -d' ' -f 1 | grep loop || true`
 			if [ "" != "$CDDEV" ]  && \
 				db_get iso-scan/filename && [ "$RET" ] ; then
 				mount -r -o loop /hd-media/$RET /target/$DIRECTORY
