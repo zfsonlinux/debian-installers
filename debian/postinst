@@ -294,6 +294,9 @@ get_arch_kernel () {
 	;;
 	powerpc)
 		version=2.4.25
+		# The APUS kernels are in a separate source package, so may
+		# sometimes have a different version number.
+		apusversion=2.4.25
 		case "$SUBARCH" in
 		powermac_newworld) trykernel=kernel-image-$version-powerpc-pmac ;;
 		# Let's use the same kernel we booted with on oldworld.
@@ -301,7 +304,7 @@ get_arch_kernel () {
 		prep) trykernel=kernel-image-$version-powerpc-prep ;;
 		chrp | chrp_pegasos) trykernel=kernel-image-$version-powerpc-chrp ;;
 		chrp_rs6k) trykernel=kernel-image-$version-powerpc-chrp-rs6k ;;
-		amiga) trykernel=kernel-image-2.4.20-apus ;;
+		amiga) trykernel=kernel-image-$apusversion-apus ;;
 
 		*) log "warning: Unknown $ARCH subarchitecture '$SUBARCH'." ;;
 		esac
