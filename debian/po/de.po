@@ -11,13 +11,14 @@
 #    Developers do not need to manually edit POT or PO files.
 # Thorsten Sauter <tsauter@gmx.net>, 2003.
 # Alwin Meschede <ameschede@gmx.de>, 2003.
+# Dennis Stampfer <seppy@debian.org>, 2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer 0.33\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-04-10 15:38-0400\n"
-"PO-Revision-Date: 2004-04-04 16:16GMT\n"
+"PO-Revision-Date: 2004-04-10 22:39GMT\n"
 "Last-Translator: Dennis Stampfer <seppy@debian.org>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -32,6 +33,8 @@ msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
 msgstr ""
+"Es wurden folgende zusätzliche Betriebssysteme auf diesem Computer gefunden: "
+"${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -42,13 +45,16 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
+"Sind alle installierten Betriebssysteme oben aufgelistet, sollte es kein "
+"Problem sein, den Bootloader in den Master Boot Record Ihrer ersten "
+"Festplatte zu installieren. Wenn Ihr Computer startet, werden Sie die "
+"Möglichkeit haben, eines dieser Betriebssysteme zu wählen und zu starten."
 
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "Installiere den GRUB Bootloader auf einer Festplatte"
+msgstr "Den GRUB Bootloader in den Master Boot Record installieren?"
 
 #. Type: boolean
 #. Description
@@ -58,6 +64,9 @@ msgid ""
 "so, it should be safe to install the boot loader to the master boot record "
 "of your first hard drive."
 msgstr ""
+"Es scheint, als sei Debian das einzige Betriebssystem auf diesem Computer. "
+"Wenn dies der Fall ist, sollte es kein Problem sein, den Bootloader in den "
+"Master Boot Record Ihrer ersten Festplatte zu installieren."
 
 #. Type: string
 #. Description
@@ -68,7 +77,6 @@ msgstr "Gerät für die Bootloader-Installation:"
 #. Type: string
 #. Description
 #: ../templates:24
-#, fuzzy
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -78,7 +86,9 @@ msgid ""
 msgstr ""
 "Es ist Zeit, das neu installierte Debian bootbar zu machen, indem der GRUB "
 "Bootloader auf einem bootbaren Medium installiert wird. Gewöhnlich wird dazu "
-"GRUB im Master Boot Record Ihrer ersten Festplatte installiert."
+"GRUB im Master Boot Record Ihrer ersten Festplatte installiert. Wenn Sie möchten, "
+"können Sie GRUB auch auf einer anderen Partition, Laufwerk oder auch auf einer "
+"Diskette installieren."
 
 #. Type: string
 #. Description
@@ -87,6 +97,8 @@ msgid ""
 "The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
 "in /dev."
 msgstr ""
+"Das Gerät kann über GRUBs \"(hdn)\"-Notation oder als Gerät in /dev "
+"angegeben werden."
 
 #. Type: boolean
 #. Description
@@ -186,22 +198,3 @@ msgstr "Aktualisiere /etc/kernel-img.conf..."
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installiere den GRUB Bootloader auf einer Festplatte"
 
-#~ msgid ""
-#~ "Note that GRUB counts devices differently than the Linux kernel, so the "
-#~ "first drive is usually '(hd0)'. If you want it on the second partition of "
-#~ "the first drive, use '(hd0,1)'. Leave this at default if unsure."
-#~ msgstr ""
-#~ "Beachten Sie bitte, dass GRUB Geräte anders als der Linux Kernel zählt. "
-#~ "Daher ist das erste Laufwerk meist '(hd0)'. Wenn Sie auf einer zweiten "
-#~ "Partition installieren möchten, müssen Sie '(hd0,1)' benutzen. Belassen "
-#~ "Sie den Wert bei der Vorgabe, wenn Sie sich nicht sicher sind."
-
-#~ msgid ""
-#~ "Warning: by default, this will change how your computer boots, "
-#~ "overwriting your existing master boot record with GRUB. Continuing may "
-#~ "make other operating systems installed on this computer unbootable."
-#~ msgstr ""
-#~ "Warnung: Bei den Standardeinstellungen wird verändert, wie Ihr Computer "
-#~ "startet und Ihr bestehender Master Boot Record mit GRUB überschrieben. "
-#~ "Ein Fortfahren könnte andere auf dem Computer installierte "
-#~ "Betriebssysteme nicht mehr booten lassen."
