@@ -2,6 +2,7 @@
 set -e
 
 . /usr/share/debconf/confmodule
+db_capb backup
 
 LOGFILE=/var/log/messages
 ETCDIR=/target/etc
@@ -52,7 +53,7 @@ check_target () {
 	   [ -e /target/bin/sh -o -L /target/bin/sh ]; then
 		db_reset base-installer/use_unclean_target
 		db_input medium base-installer/use_unclean_target || true
-		db_go || true
+		db_go || exit 10
 		db_get base-installer/use_unclean_target
 		if [ "$RET" = false ]; then
 			exit_error base-installer/unclean_target_cancel
@@ -444,7 +445,7 @@ pick_kernel () {
 	fi
 
 	db_input medium base-installer/kernel/which-kernel || [ $? -eq 30 ]
-	db_go || true
+	db_go || exit 10
 
 	db_get base-installer/kernel/which-kernel
 	KERNEL=$RET
