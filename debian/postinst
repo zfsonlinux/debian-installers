@@ -246,8 +246,7 @@ configure_apt () {
 	APTSOURCE="$PROTOCOL://$MIRROR$DIRECTORY"
 
 	[ ! -d /target/etc/apt ] && mkdir -p /target/etc/apt
-	# Append rather than overwrite to allow custom hooks to add apt lines.
-	echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" >> /target/etc/apt/sources.list
+	echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
 }
 
 create_devices () {
