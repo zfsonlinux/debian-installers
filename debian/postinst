@@ -518,24 +518,6 @@ EOF
 		info "Not installing initrd-tools."
 	fi
 
-	# Advance progress bar to 15% of allocated space for install_kernel
-	update_progress 15 100
-
-	# Installing mkvmlinuz on the powerpc subarches that need it.
-	if [ "$ARCH" = "powerpc" ] && [ "$target_kernel_major" = "2.6" ]; then
-		case "$SUBARCH" in
-			prep | chrp | chrp_pegasos)
-				info "Installing mkvmlinuz."
-				db_subst base-installer/section/install_kernel_package SUBST0 "mkvmlinuz"
-				db_progress INFO base-installer/section/install_kernel_package
-				apt-install mkvmlinuz 2>> $LOGFILE || true
-				cat >> /target/etc/kernel-img.conf <<EOF
-postinst_hook = /usr/sbin/mkvmlinuz
-EOF
-			;;
-		esac
-	fi
-
 	# Advance progress bar to 30% of allocated space for install_kernel
 	update_progress 30 100
 
