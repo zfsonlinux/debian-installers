@@ -7,7 +7,6 @@ logfile=/var/log/messages
 log() {
     msg="kernel-installer: $*"
     echo "$msg" >> $logfile
-    echo "$msg" 1>&2
 }
 error() {
     log "error: $*"
@@ -43,7 +42,7 @@ kernels=`$chroot apt-cache search kernel-image | grep ^kernel-image | \
   /target/usr/bin/sort -r | cut -d" " -f1 | /target/usr/bin/uniq | \
   tr '\n' ',' | sed -e 's/,$//'`
 
-log "info: Found kernels '$kernels'"
+info "Found kernels '$kernels'"
 
 if [ "$kernels" ] ; then
     db_subst kernel-chooser/which-kernel kernels "$kernels"
@@ -116,7 +115,7 @@ db_go || true
 db_get kernel-chooser/which-kernel
 kernel=$RET
 
-log "info: Using kernel '$kernel'"
+info "Using kernel '$kernel'"
 
 # Pass the kernel name on to kernel-installer
 db_set debian-installer/kernel/image "$kernel"
