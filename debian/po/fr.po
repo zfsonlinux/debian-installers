@@ -11,9 +11,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: base-installer_0.036\n"
-"POT-Creation-Date: 2003-11-03 01:43-0700\n"
-"PO-Revision-Date: 2003-11-07 16:25+0100\n"
+"Project-Id-Version: base-installer_0.040\n"
+"POT-Creation-Date: 2003-11-16 23:53-0700\n"
+"PO-Revision-Date: 2003-11-17 10:12+0100\n"
 "Last-Translator: Michel Grentzinger <mic.grentz@online.fr>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,268 +21,277 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Report-Msgid-Bugs-To: \n"
 
-#. Type: note
+#. Type: error
 #. Description
 #: ../base-installer.templates:3
-msgid "Installing base system into /target/ failed"
-msgstr "Échec de l'installation du système de base dans /target/"
+msgid "Failed to install the base system"
+msgstr "Échec lors de l'installation du système de base"
 
-#. Type: note
+#. Type: error
+#. Description
+#: ../base-installer.templates:3
+msgid "The base system installation into /target/ failed."
+msgstr "Échec de l'installation du système de base dans /target/."
+
+#. Type: error
 #. Description
 #: ../base-installer.templates:3
 msgid ""
-"Check /target/var/log/debootstrap.log and /target/var/log/debootstrap.err."
-"log for the details."
+"Please check /target/var/log/debootstrap.log and /target/var/log/debootstrap."
+"err.log for the details."
 msgstr ""
 "Veuillez consulter les fichiers /target/var/log/debootstrap.log et /target/"
 "var/log/debootstrap.err.log pour obtenir des précisions."
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:9
-msgid "debootstrap exited with an error (return value ${EXITCODE})."
-msgstr "Erreur (code ${EXITCODE}) pendant l'exécution de debootstrap"
+#: ../base-installer.templates:11
+msgid ""
+"The debootstrap program exited with an error (return value ${EXITCODE})."
+msgstr ""
+"Le programme debootstrap s'est terminé avec une erreur (valeur de retour "
+"${EXITCODE})."
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:16
-msgid "Base installation error"
+#: ../base-installer.templates:18
+msgid "Base system installation error"
 msgstr "Erreur dans l'installation du système de base"
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:16
-msgid "debootstrap exited abnormally."
-msgstr "Debootstrap s'est terminé de façon anormale."
+#: ../base-installer.templates:18
+msgid "The debootstrap program exited abnormally."
+msgstr "Le programme debootstrap s'est terminé de façon anormale."
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:16
-msgid "You might find more information in /target/var/log/debootstrap.log"
+#: ../base-installer.templates:18
+msgid "You might find more information in /target/var/log/debootstrap.log."
 msgstr ""
 "Vous devriez trouver plus d'informations dans /target/var/log/debootstrap."
 "log."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:25
 msgid "The following error occurred:"
 msgstr "L'erreur suivante s'est produite :"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:25
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:25
 msgid ""
 "You might find more information in /target/var/log/debootstrap.log or /"
-"target/var/log/debootstrap.err.log"
+"target/var/log/debootstrap.err.log."
 msgstr ""
 "Vous devriez trouver plus d'informations dans /target/var/log/debootstrap."
 "log ou dans /target/var/log/debootstrap.err.log."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:33
+#: ../base-installer.templates:35
 msgid "Unknown download style."
 msgstr "Méthode de chargement inconnue."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:38
+#: ../base-installer.templates:40
 msgid "Unknown mirror style."
 msgstr "Type de miroir inconnu."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:43
+#: ../base-installer.templates:45
 msgid "${SUBST0} was not pre-downloaded."
 msgstr "${SUBST0} n'a pas été préchargé."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:48
+#: ../base-installer.templates:50
 msgid "Unknown location ${SUBST0}."
 msgstr "Emplacement inconnu pour ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:53
+#: ../base-installer.templates:55
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Échec de la récupération du fichier « Release » de ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:58
+#: ../base-installer.templates:60
 msgid "Invalid Release file, no valid components."
 msgstr "Fichier « Release » invalide, aucun composant n'est valide."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:63
+#: ../base-installer.templates:65
 msgid "Invalid Release file, no entry for ${SUBST0}."
 msgstr "Fichier « Release » invalide, pas d'entrée pour ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:68
+#: ../base-installer.templates:70
 msgid "Couldn't download ${SUBST0}."
 msgstr "Impossible de télécharger ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:73
+#: ../base-installer.templates:75
 msgid "No ${SUBST0}. Cannot create devices."
 msgstr "Pas de ${SUBST0} : impossible de créer les périphériques."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:78
+#: ../base-installer.templates:80
 msgid "Unknown dselect method."
 msgstr "Méthode inconnue pour dselect."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:83
+#: ../base-installer.templates:85
 msgid "Debootstrap Error"
 msgstr "Erreur de debootstrap"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:83
+#: ../base-installer.templates:85
 msgid "Interrupt caught ... exiting."
 msgstr "Réception d'une interruption ... abandon."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:92
-msgid "Retrieving Release file"
-msgstr "Réception du fichier « Release »"
+#: ../base-installer.templates:94
+msgid "Retrieving Release file..."
+msgstr "Réception du fichier « Release » ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:96
-msgid "Retrieving Packages files"
-msgstr "Réception des fichiers « Packages »"
+#: ../base-installer.templates:98
+msgid "Retrieving Packages files..."
+msgstr "Réception des fichiers « Packages » ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:100
-msgid "Retrieving packages"
-msgstr "Réception des paquets"
+#: ../base-installer.templates:102
+msgid "Retrieving packages..."
+msgstr "Réception des paquets..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:104
-msgid "Retrieving Packages file"
-msgstr "Réception du fichier « Packages »"
+#: ../base-installer.templates:106
+msgid "Retrieving Packages file..."
+msgstr "Réception du fichier « Packages » ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:108
-msgid "Extracting packages"
-msgstr "Extraction des paquets"
+#: ../base-installer.templates:110
+msgid "Extracting packages..."
+msgstr "Extraction des paquets..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:112
-msgid "Installing base system"
-msgstr "Installation du système de base"
+#: ../base-installer.templates:114
+msgid "Installing base system..."
+msgstr "Installation du système de base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:120
-msgid "Validating ${SUBST0}"
-msgstr "Validation de ${SUBST0}"
+#: ../base-installer.templates:122
+msgid "Validating ${SUBST0}..."
+msgstr "Validation de ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:124
-msgid "Retrieving ${SUBST0}"
-msgstr "Réception de ${SUBST0}"
+#: ../base-installer.templates:126
+msgid "Retrieving ${SUBST0}..."
+msgstr "Réception de ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:128
-msgid "Extracting ${SUBST0}"
-msgstr "Extraction de ${SUBST0}"
+#: ../base-installer.templates:130
+msgid "Extracting ${SUBST0}..."
+msgstr "Extraction de ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:132
+#: ../base-installer.templates:134
 msgid "Installing core packages..."
 msgstr "Installation des paquets essentiels..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:136
+#: ../base-installer.templates:138
 msgid "Unpacking required packages..."
 msgstr "Décompression des paquets sélectionnés..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:140
+#: ../base-installer.templates:142
 msgid "Configuring required packages..."
 msgstr "Configuration des paquets sélectionnés..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:146
 msgid "Installing base packages..."
 msgstr "Installation des paquets de base..."
 
 #. Type: note
 #. Description
-#: ../base-installer.templates:148
-msgid "Base system installed successfully."
-msgstr "Le système de base est correctement installé."
+#: ../base-installer.templates:150
+msgid "Base system successfully installed"
+msgstr "Le système de base est correctement installé"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:152
+#: ../base-installer.templates:154
 msgid "Installing extra packages"
 msgstr "Installation des paquets supplémentaires"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:156
-msgid "Configuring APT sources"
-msgstr "Configuration des sources d'APT"
+#: ../base-installer.templates:158
+msgid "Configuring APT sources..."
+msgstr "Configuration des sources d'APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:160
-msgid "Updating the list of available packages"
-msgstr "Mise à jour de la liste des paquets disponibles"
+#: ../base-installer.templates:162
+msgid "Updating the list of available packages..."
+msgstr "Mise à jour de la liste des paquets disponibles..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
-msgid "Installing the extra packages"
-msgstr "Installation des paquets supplémentaires"
+#: ../base-installer.templates:166
+msgid "Installing the extra packages..."
+msgstr "Installation des paquets supplémentaires..."
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../base-installer.templates:169
+#: ../base-installer.templates:171
 msgid "Install the base system"
 msgstr "Installer le système de base"
 
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:3
-msgid "No kernel package is selected for installation"
-msgstr "Aucun noyau n'a été choisi pour être installé."
+msgid "Unable to install a kernel"
+msgstr "Impossible d'installer un noyau"
 
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:3
-msgid "Unable to install a kernel."
-msgstr "Impossible d'installer un noyau."
+msgid "No kernel package is selected for installation."
+msgstr "Aucun noyau n'a été choisi pour être installé."
 
 #. Type: error
 #. Description
@@ -297,8 +306,8 @@ msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
 msgstr ""
-"Une erreur s'est produite lors de la tentative d'installation du noyau vers le "
-"système cible."
+"Une erreur s'est produite lors de la tentative d'installation du noyau vers "
+"le système cible."
 
 #. Type: error
 #. Description
@@ -316,41 +325,40 @@ msgstr "Cette erreur est probablement fatale."
 #. Description
 #: ../kernel-installer.templates:11
 msgid ""
-"You might try to select \"Install the kernel\" again on the main menu. That "
-"will allow you to select another kernel to install."
+"You might try to select the kernel installation step again on the main menu. "
+"That will allow you to select another kernel to install."
 msgstr ""
-"Vous devriez à nouveau choisir « Installer le noyau » dans le menu "
+"Vous devriez à nouveau choisir l'étape d'installation du noyau dans le menu "
 "principal. Cela vous permettra de tenter l'installation d'un autre noyau."
 
 #. Type: select
 #. Description
 #: ../kernel-installer.templates:25
-msgid "Select which kernel to install into /target/"
+msgid "Kernel to install into /target/:"
 msgstr "Noyau à installer dans /target/ :"
 
 #. Type: select
 #. Description
 #: ../kernel-installer.templates:25
 msgid ""
-"These are the kernels available from the APT sources.  One of them needs to "
-"be installed to be able to boot the system from hard drive."
+"The list shows the kernels available from the APT sources.  Please choose "
+"one of them in order to make the system bootable from the hard drive."
 msgstr ""
-"Voici les noyaux disponibles à partir des sources d'installation (APT). L'un "
-"d'eux doit être installé afin que le système puisse démarrer à partir du "
-"disque dur."
+"La liste montre les noyaux disponibles à partir des sources d'installation "
+"(APT). Veuillez choisir l'un d'entre eux afin que le système puisse démarrer "
+"à partir du disque dur."
 
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:31
-msgid "No installable kernel was found in the APT sources defined"
-msgstr ""
-"Aucun noyau installable dans les sources APT définies"
+msgid "No installable kernel found"
+msgstr "Aucun noyau installable n'a été trouvé"
 
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:31
-msgid "This is rather strange, and probably fatal."
-msgstr "C'est plutôt bizarre et probablement fatal."
+msgid "No installable kernel was found in the defined APT sources."
+msgstr "Aucun noyau installable n'a été trouvé parmi les sources APT définies."
 
 #. Type: error
 #. Description
@@ -361,8 +369,11 @@ msgstr "Le noyau actuel par défaut est « ${KERNEL} »."
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:31
-msgid "You will have to continue as best as you can.  Good luck."
-msgstr "Vous allez devoir continuer du mieux que vous pouvez. Bonne chance !"
+msgid ""
+"You may try to continue though this rather strange error is probably fatal."
+msgstr ""
+"Vous devriez essayer de poursuivre même si cette erreur est plutôt bizarre "
+"et probablement fatale."
 
 #. Type: text
 #. Description
@@ -400,6 +411,10 @@ msgstr "Installation du paquet du noyau ${KERNEL}"
 #: ../kernel-installer.templates:61
 msgid "Install the kernel"
 msgstr "Installer le noyau"
+
+#~ msgid "You will have to continue as best as you can.  Good luck."
+#~ msgstr ""
+#~ "Vous allez devoir continuer du mieux que vous pouvez. Bonne chance !"
 
 #~ msgid "Downloading packages"
 #~ msgstr "Téléchargement des paquets"
