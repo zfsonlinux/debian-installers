@@ -93,6 +93,7 @@ else
 
     echo "deb ${PROTOCOL}://${MIRROR}${DIRECTORY} ${DISTRIBUTION} main" > /target/etc/apt/sources.list
 
+    PATH=$PATH:/target/usr/bin:/target/bin:/target/usr/sbin:/target/sbin \
     LD_LIBRARY_PATH=/target/lib:/target/usr/lib \
     /target/usr/bin/apt-get \
         -o Dir::State=/target/var/lib/apt \
@@ -100,8 +101,9 @@ else
         -o Dir::Cache=/target/var/cache/apt \
         -o Dir::Etc=/target/etc/apt \
         -o Dir::Bin::methods=/target/usr/lib/apt/methods \
-        -o Dir::Bin::gzip=/target/usr/bin \
-        -o Dir::Bin::dpkg=/target/usr/bin \
+        -o Dir::Bin::gzip=/target/bin/gzip \
+        -o Dir::Bin::dpkg=/target/usr/bin/dpkg \
+        -o Dpkg::Options::=--root=/target \
         update
 fi
 exit 0

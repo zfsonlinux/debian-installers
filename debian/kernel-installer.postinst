@@ -2,19 +2,22 @@
 
 . /usr/share/debconf/confmodule
 
+db_get debian-installer/kernel/initrd
+if [ "$RET" == "true" ]; then do_initrd=yes; else do_initrd=no; fi
+
 cat > /target/etc/kernel-img.conf <<EOF
 # Do not create symbolic links in /
 do_symlinks = yes
-
-# postinst_hook =
-# postrm_hook =
+relative_links = yes
+image_in_boot = yes
 do_bootloader = no
 do_bootfloppy = no
-do_initrd = yes
+do_initrd = $do_initrd
 EOF
 
 db_get debian-installer/kernel/image
 
+PATH=$PATH:/target/usr/bin:/target/bin:/target/usr/sbin:/target/sbin \
 LD_LIBRARY_PATH=/target/lib:/target/usr/lib \
 /target/usr/bin/apt-get \
     -o Dir::State=/target/var/lib/apt \
@@ -22,8 +25,9 @@ LD_LIBRARY_PATH=/target/lib:/target/usr/lib \
     -o Dir::Cache=/target/var/cache/apt \
     -o Dir::Etc=/target/etc/apt \
     -o Dir::Bin::methods=/target/usr/lib/apt/methods \
-    -o Dir::Bin::gzip=/target/usr/bin \
-    -o Dir::Bin::dpkg=/target/usr/bin \
-    install $RET
+    -o Dir::Bin::gzip=/target/bin/gzip \
+    -o Dir::Bin::dpkg=/target/usr/bin/dpkg \
+    -o Dpkg::Options::=--root=/target \
+    -y install $RET
 
 exit 0

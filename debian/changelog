@@ -4,6 +4,12 @@ base-installer (0.014) UNRELEASED; urgency=low
     - remove kernel installation from base-installer
     - add apt-get update to base-installer
     - add kernel-installer
+  * Richard Hirst
+    - fix apt-get args for gzip and dpkg binaries
+    - get apt-get to tell dpkg to run in /target
+    - add target bin/sbin dirs to PATH for aptget/dpkg
+    - actually use rootskel initrd template for /etc/kernel-img.conf
+    - add relative_links=yes, image_in_boot=yes to kernel-img.conf
 
  -- Bastian Blank <waldi@debian.org>  Sun, 08 Dec 2002 00:19:21 +0100
 
