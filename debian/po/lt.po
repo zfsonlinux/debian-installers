@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-20 09:04+0200\n"
-"PO-Revision-Date: 2004-05-16 10:44+0300\n"
+"PO-Revision-Date: 2004-06-20 12:40+0300\n"
 "Last-Translator: Kęstutis Biliūnas <kebil@kaunas.init.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
@@ -23,8 +23,7 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr ""
-"Šiame kompiuteryje aptiktos tokios kitos operacinės sistemos: ${OS_LIST}"
+msgstr "Šiame kompiuteryje aptiktos tokios kitos operacinės sistemos: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -98,7 +97,6 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../templates:28
-#, fuzzy
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -111,11 +109,14 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Įrenginys gali būti nurodytas naudojant GRUB žymėjimą \"(hdn)\", arba kaip "
-"įprastai nurodomi įrenginiai /dev. Pavyzdžiui, \"(hd0)\" atveju GRUB bus "
-"įdiegtas į pirmojo kietojo disko pagrindinį įkelties įrašą (master boot "
-"record), tuo tarpu nurodžius \"/dev/hda2\" bus įdiegtas pirmojo IDE disko "
-"antrąjame skirsnyje."
+"Įrenginys gali būti nurodytas naudojant GRUB žymėjimą \"(hdn,m)\", arba kaip "
+"įprastai nurodomi įrenginiai /dev. Žemiau yra keletas pavyzdžių:\n"
+" - \"(hd0) ar \"/dev/hda\" atveju GRUB bus diegiamas į pirmojo kietojo\n"
+"   disko (IDE) pagrindinį įkelties įrašą (master boot record);\n"
+" - \"(hd0,1)\" ar \"/dev/hda2\" naudos pirmojo IDE disko antrąjį skirsnį;\n"
+" - \"(hd2,4)\" ar \"/dev/sdc5\" naudos trečiojo SCSI disko pirmąjį loginį\n"
+"   skirsnį;\n"
+" - \"(fd0)\" ar \"/dev/fd0\" diegs GRUB į lankstųjį diskelį."
 
 #. Type: boolean
 #. Description
@@ -213,3 +214,4 @@ msgstr "Atnaujinamas /etc/kernel-img.conf..."
 #: ../templates:98
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Pradinio įkėliklio GRUB diegimas į kietąjį diską"
+
