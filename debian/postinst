@@ -549,7 +549,11 @@ get_arch_kernel () {
 		esac
 	;;
 	hppa)
-		version=$(uname -r | cut -d - -f 1)
+		kernel_major=$(uname -r | cut -d . -f 1,2)
+		case "$kernel_major" in
+		2.4) version=$(uname -r | cut -d - -f 1) ;;
+		2.6) version=$(uname -r | cut -d - -f 1,2) ;;
+		esac
 		MODEL=`uname -m`
 		# Don't know how to detect whether SMP is needed, but
 		# apparently it's OK to assume SMP.
