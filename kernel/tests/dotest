@@ -19,14 +19,6 @@ warning () {
 	echo "warning: $*" >&2
 }
 
-uname () {
-	if [ "$#" = 1 ] && [ "x$1" = x-m ]; then
-		echo "$UNAME_M"
-	else
-		command uname "$@"
-	fi
-}
-
 dmesg () {
 	# The only use made of this is for dodgy CPU detection.
 	if [ "$PROCESSORS" != 1 ]; then

@@ -1,6 +1,5 @@
 arch_get_kernel_flavour () {
-	MODEL=`uname -m`
-	case "$MODEL" in
+	case "$MACHINE" in
 		sparc)		echo sparc32 ;;
 		sparc64)	echo sparc64 ;;
 	esac

@@ -1,6 +1,5 @@
 arch_get_kernel_flavour () {
-	MODEL=`uname -m`
-	case "$MODEL" in
+	case "$MACHINE" in
 		parisc)		echo parisc32 ;;
 		parisc64)	echo parisc64 ;;
 	esac

@@ -73,7 +73,6 @@ run_test () {
 
 	unset SUBARCH FLAVOUR KERNEL_24 KERNEL_26 USABLE UNUSABLE || true
 	PROCESSORS=1
-	UNAME_M="$(uname -m)"
 	MAJORS=2.4
 
 	while read name value; do
@@ -84,8 +83,8 @@ run_test () {
 			processors)
 				PROCESSORS="$value"
 				;;
-			uname-m)
-				UNAME_M="$value"
+			machine)
+				MACHINE="$value"
 				;;
 			majors)
 				MAJORS="$value"
@@ -108,7 +107,7 @@ run_test () {
 		esac
 	done < "$TEST"
 
-	export ARCH SUBARCH PROCESSORS UNAME_M
+	export ARCH SUBARCH PROCESSORS MACHINE
 	export MAJORS FLAVOUR KERNEL_24 KERNEL_26
 	export USABLE UNUSABLE
 
