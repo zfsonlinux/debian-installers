@@ -16,6 +16,9 @@ EXCLUDES=
 KERNEL=
 KERNEL_LIST=/tmp/available_kernels.txt
 
+db_get debian-installer/kernel/subarchitecture
+SUBARCH="$RET"
+
 log() {
     logger -t base-installer "$@"
 }
@@ -270,48 +273,38 @@ get_arch_kernel () {
 	;;
 	powerpc)
 		version=2.4.25
-		MODEL=`/bin/archdetect`
-		case "$MODEL" in
-		"powerpc/powermac_newworld")
-			trykernel=kernel-image-$version-powerpc-pmac
-		;;
+		case "$SUBARCH" in
+		powermac_newworld) trykernel=kernel-image-$version-powerpc-pmac ;;
 		# Let's use the same kernel we booted with on oldworld.
-		"powerpc/powermac_oldworld")
-			trykernel=kernel-image-$version-powerpc-small-pmac
-		;;
-		"powerpc/prep")
-			trykernel=kernel-image-$version-powerpc-prep
-		;;
-		"powerpc/chrp"|"powerpc/chrp_pegasos")
-			trykernel=kernel-image-$version-powerpc-chrp
-		;;
-		"powerpc/chrp_rs6k")
-			trykernel=kernel-image-$version-powerpc-chrp-rs6k
-		;;
-		"powerpc/amiga")
-			trykernel=kernel-image-2.4.20-apus
-		;;
-		*)
-			log "warning: Unknown $ARCH subarchitecture '$MODEL'."
-		;;
+		powermac_oldworld) trykernel=kernel-image-$version-powerpc-small-pmac ;;
+		prep) trykernel=kernel-image-$version-powerpc-prep ;;
+		chrp | chrp_pegasos) trykernel=kernel-image-$version-powerpc-chrp ;;
+		chrp_rs6k) trykernel=kernel-image-$version-powerpc-chrp-rs6k ;;
+		amiga) trykernel=kernel-image-2.4.20-apus ;;
+
+		*) log "warning: Unknown $ARCH subarchitecture '$SUBARCH'." ;;
 		esac
 	;;
-	mips*)
+	mips)
+		# big endian MIPS
 		version=2.4.22
-		MODEL=`/bin/archdetect`
-		case "$MODEL" in
-		# big endian
-		mips/r4k-ip22) trykernel=kernel-image-$version-r4k-ip22 ;;
-		mips/r5k-ip22) trykernel=kernel-image-$version-r5k-ip22 ;;
-		mips/sb1-swarm-bn) trykernel=kernel-image-$version-sb1-swarm-bn ;;
+		case "$SUBARCH" in
+		r4k-ip22) trykernel=kernel-image-$version-r4k-ip22 ;;
+		r5k-ip22) trykernel=kernel-image-$version-r5k-ip22 ;;
+		sb1-swarm-bn) trykernel=kernel-image-$version-sb1-swarm-bn ;;
 
-		# little endian
-		mipsel/r3k-kn02) trykernel=kernel-image-$version-r3k-kn02 ;;
-		mipsel/r4k-kn04) trykernel=kernel-image-$version-r4k-kn04 ;;
-		mipsel/sb1-swarm-bn) trykernel=kernel-image-$version-sb1-swarm-bn ;;
+		*) log "warning: Unknown $ARCH subarchitecture '$SUBARCH'." ;;
+		esac
+	;;
+	mipsel)
+		# little endian MIPS
+		version=2.4.19
+		case "$SUBARCH" in
+		r3k-kn02) trykernel=kernel-image-$version-r3k-kn02 ;;
+		r4k-kn04) trykernel=kernel-image-$version-r4k-kn04 ;;
+		sb1-swarm-bn) trykernel=kernel-image-$version-sb1-swarm-bn ;;
 
-		# sorry, no luck
-		*) log "warning: Unknown $ARCH subarchitecture '$MODEL'." ;;
+		*) log "warning: Unknown $ARCH subarchitecture '$SUBARCH'." ;;
 		esac
 	;;
 	ia64)
@@ -339,14 +332,11 @@ get_arch_kernel () {
 		fi
 	;;
 	m68k)
-		MODEL=`/bin/archdetect | cut -d'/' -f 2`
-		case "$MODEL" in
+		case "$SUBARCH" in
 		amiga|atari|mac|bvme6000|mvme147|mvme16x)    
-	#		trykernel=kernel-image-*-$MODEL ;;
-			trykernel=$MODEL ;;
-		*)
-		log "warning: Unknown m68k model '$MODEL'."
-		;;
+	#		trykernel=kernel-image-*-$SUBARCH ;;
+			trykernel=$SUBARCH ;;
+		*) log "warning: Unknown $ARCH subarchitecture '$SUBARCH'." ;;
 		esac
 	;;
 	*)
