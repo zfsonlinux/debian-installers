@@ -10,10 +10,6 @@
 #include <cdebconf/debconfclient.h>
 #include <debian-installer.h>
 
-#ifndef _
-#define _(s) (s)
-#endif
-
 #define DEBCONF_BASE          "base-installer/debootstrap/"
 
 volatile int child_exit = 0;
@@ -99,7 +95,7 @@ find_template(const char *prefix, char *code)
     for (p = code; *p; p++)
         *p = tolower(*p);
     asprintf(&p, DEBCONF_BASE "%s/%s", prefix, code);
-    if (debconf->command(debconf, "METAGET", p, "description", NULL) == 0)
+    if (debconf_metaget(debconf, p, "description") == 0)
         return p;
     else
     {
@@ -192,8 +188,8 @@ exec_debootstrap(char **argv){
                     if (template != NULL)
                     {
                         n_subst(template, arg_count, args);
-                        debconf->command(debconf, "INPUT critical", template, NULL);
-                        debconf->command(debconf, "GO", NULL);
+                        debconf_input(debconf, "critical", template);
+                        debconf_go(debconf);
                     }
                     else if (strstr(line, "EF:") == line)
                     {
@@ -201,10 +197,13 @@ exec_debootstrap(char **argv){
                         if (ptr == NULL)
                             return -1;
                         // fallback error message
-                        debconf->command(debconf, "SUBST", DEBCONF_BASE "fallback-error", "ERROR", ptr, NULL);
-                        debconf->command(debconf, "FSET", DEBCONF_BASE "fallback-error", "seen", "false", NULL);
-                        debconf->command(debconf, "INPUT critical", DEBCONF_BASE "fallback-error", NULL);
-                        debconf->command(debconf, "GO", NULL);
+                        debconf_subst(debconf, DEBCONF_BASE "fallback-error",
+				      "ERROR", ptr);
+                        debconf_fset(debconf, DEBCONF_BASE "fallback-error",
+				     "seen", "false");
+                        debconf_input(debconf, "critical",
+				      DEBCONF_BASE "fallback-error");
+                        debconf_go(debconf);
                         free(ptr);
                     }
                     else
@@ -250,15 +249,18 @@ exec_debootstrap(char **argv){
                         if (template != NULL)
                         {
                             n_subst(template, arg_count, args);
-                            debconf->commandf(debconf, "PROGRESS START %d %d %s", plow, phigh, template);
+                            debconf_progress_start(debconf, plow, phigh,
+						   template);
                         }
                         else if (strstr(line, "PF:") == line)
                         {
                             ptr = n_sprintf(line+4, arg_count, args);
                             if (ptr == NULL)
                                 return -1;
-                            debconf->command(debconf, "SUBST", DEBCONF_BASE "fallback-progress", "PROGRESS", ptr, NULL);
-                            debconf->commandf(debconf, "PROGRESS START %d %d " DEBCONF_BASE "fallback-progress", plow, phigh);
+                            debconf_subst(debconf, DEBCONF_BASE "fallback-progress",
+					  "PROGRESS", ptr);
+                            debconf_progress_start(debconf, plow, phigh,
+						   DEBCONF_BASE "fallback-progress");
                             free(ptr);
                         }
                         else
@@ -269,9 +271,9 @@ exec_debootstrap(char **argv){
                     }
                     else
                     {
-                        debconf->commandf(debconf, "PROGRESS SET %d", plow);
+                        debconf_progress_set(debconf, plow);
                         if (plow == phigh)
-                            debconf->command(debconf, "PROGRESS STOP", NULL);
+                            debconf_progress_stop(debconf);
                     }
                     free(template);
                     break;
@@ -283,9 +285,9 @@ exec_debootstrap(char **argv){
                     template = find_template("info", ptr);
                     if (strcmp(ptr, "basesuccess") == 0 && template != NULL)
                     {
-                        debconf->command(debconf, "FSET", template, "seen false", NULL);
-                        debconf->command(debconf, "INPUT low", template, NULL);
-                        debconf->command(debconf, "GO", NULL);
+                        debconf_fset(debconf, template, "seen", "false");
+                        debconf_input(debconf, "low", template);
+                        debconf_go(debconf);
                         child_exit = 1;
                         break;
                     }
@@ -298,7 +300,7 @@ exec_debootstrap(char **argv){
                     if (template != NULL)
                     {
                         n_subst(template, arg_count, args);
-                        debconf->command(debconf, "PROGRESS INFO", template, NULL);
+                        debconf_progress_info(debconf, template);
                     }
                     else if (strstr(line, "IF:") == line)
                     {
@@ -306,8 +308,10 @@ exec_debootstrap(char **argv){
                         if (ptr == NULL)
                             return -1;
                         // fallback error message
-                        debconf->command(debconf, "SUBST", DEBCONF_BASE "fallback-info", "INFO", ptr, NULL);
-                        debconf->command(debconf, "PROGRESS INFO", DEBCONF_BASE "fallback-info", NULL);
+                        debconf_subst(debconf, DEBCONF_BASE "fallback-info",
+				      "INFO", ptr);
+                        debconf_progress_info(debconf,
+					      DEBCONF_BASE "fallback-info");
                         free(ptr);
                     }
                     else
@@ -320,26 +324,28 @@ exec_debootstrap(char **argv){
         line = NULL;
     }
 
-    debconf->command(debconf, "PROGRESS STOP", NULL);
+    debconf_progress_stop(debconf);
 
     if (waitpid(pid, &status, 0) != -1 && (WIFEXITED(status) != 0))
     {
         rv = WEXITSTATUS(status);
         if (rv != 0)
         {
-            debconf->commandf(debconf, "SUBST %serror-exitcode EXITCODE %d", DEBCONF_BASE, rv);
-            debconf->command(debconf, "FSET", DEBCONF_BASE "error-exitcode", "seen", "false", NULL);
-            debconf->command(debconf, "INPUT critical", DEBCONF_BASE "error-exitcode", NULL);
-            debconf->command(debconf, "GO", NULL);
+            debconf->commandf(debconf, "SUBST %serror-exitcode EXITCODE %d",
+			      DEBCONF_BASE, rv);
+            debconf_fset(debconf, DEBCONF_BASE "error-exitcode", "seen",
+			 "false");
+            debconf_input(debconf, "critical", DEBCONF_BASE "error-exitcode");
+            debconf_go(debconf);
         }
         return rv;
     }
     else
     {
         kill(SIGKILL, pid);
-        debconf->command(debconf, "FSET", DEBCONF_BASE "error-abnormal", "seen", "false", NULL);
-        debconf->command(debconf, "INPUT critical", DEBCONF_BASE "error-abnormal", NULL);
-        debconf->command(debconf, "GO", NULL);
+        debconf_fset(debconf, DEBCONF_BASE "error-abnormal", "seen", "false");
+        debconf_input(debconf, "critical", DEBCONF_BASE "error-abnormal");
+        debconf_go(debconf);
         return 1;
     }
 }
