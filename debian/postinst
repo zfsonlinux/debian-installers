@@ -20,17 +20,17 @@ if [ "$1" = "configure" ]; then
         MIRROR=""
         DIRECTORY="cdrom/"
         if [ -s /cdrom/.disk/base_components ]; then
-            COMPONENTS=`cat /cdrom/.disk/base_components | tr '\n' ,`
+            COMPONENTS=`grep -v '^#' /cdrom/.disk/base_components | tr '\n' ,`
         else
             COMPONENTS="*"
         fi
 
         if [ -s /cdrom/.disk/base_include ]; then
-            INCLUDES=`cat base_include | tr '\n' ,`
+            INCLUDES=`grep -v '^#' base_include | tr '\n' ,`
         fi
 
         if [ -s /cdrom/.disk/base_exclude ]; then
-            EXCLUDES=`cat base_exclude | tr '\n' ,`
+            EXCLUDES=`grep -v '^#' base_exclude | tr '\n' ,`
         fi
     else
 
