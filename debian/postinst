@@ -391,7 +391,7 @@ pick_kernel () {
 	arch_kernel=$(get_arch_kernel)
 	if kernel_present $arch_kernel ; then
 		KERNEL=$arch_kernel
-	else
+	elif [ "" != "$arch_kernel" ] ; then
 		kernels=`grep $arch_kernel $KERNEL_LIST | sort -r | tr '\n' ',' | sed -e 's/,$//'`
 		if [ "kernels" ]; then
 			db_subst base-installer/kernel/which-kernel KERNELS "$kernels"
