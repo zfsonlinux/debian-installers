@@ -1,3 +1,4 @@
+# translation of fi.po to Finnish
 #
 #    Translators, if you are not familiar with the PO format, gettext
 #    documentation is worth reading, especially sections dedicated to
@@ -10,24 +11,26 @@
 #         or http://www.debian.org/intl/l10n/po-debconf/README-trans
 #
 #    Developers do not need to manually edit POT or PO files.
+# Tapio Lehtonen <tale@debian.org>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: grub-installer\n"
+"Project-Id-Version: fi\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-01-15 09:32+0100\n"
-"PO-Revision-Date: 2003-12-26 18:47+0200\n"
-"Last-Translator: Tommi Vainikainen <thv+debian@iki.fi>\n"
+"PO-Revision-Date: 2004-01-15 17:20+0200\n"
+"Last-Translator: Tapio Lehtonen <tale@debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0.2\n"
 
 #. Type: string
 #. Description
 #: ../templates:4
 msgid "Device for boot loader installation:"
-msgstr "Laite, jolle käynnistyslatain asennetaan:"
+msgstr "Laite, jolle alkulatausohjelma asennetaan:"
 
 #. Type: string
 #. Description
@@ -38,16 +41,16 @@ msgid ""
 "the Linux kernel, so the first one is usually '(hd0)'. Leave this at default "
 "if unsure."
 msgstr ""
-"GRUBin tarvitsee asentaa 1. vaiheen käynnistyslataimen käynnistyvälle "
-"laitteelle. Tämä on yleensä ensimmäinen kiintolevy. Huomaa, että GRUB laskee "
-"laitteet eri tavoin kuin Linux-ydin, joten ensimmäinen on yleensä '(hd0)'. "
-"Jätä tämä oletusarvoonsa jos olet epävarma."
+"GRUB:n on asennettava ensimmäisen vaiheen alkulatausohjelma "
+"käynnistyskelpoiselle laitteelle. Tämä on tavallisesti ensimmäinen kiintolevy. "
+"Huomaa, että GRUB numeroi laitteet eri tavalla kuin Linux-ydin, joten ensimmäinen "
+"on yleensä \"(hd0)\". Käytä oletusarvoa jos olet epävarma."
 
 #. Type: boolean
 #. Description
 #: ../templates:13
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "GRUB:n asennus epäonnistui.  Jatketaanko siitä huolimatta?"
+msgstr "GRUB:n asennus epäonnistui. Jatketaanko silti?"
 
 #. Type: boolean
 #. Description
@@ -57,16 +60,15 @@ msgid ""
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"Grub-pakettia ei voitu asentaa hakemistoon /target/.  Sitä kuitenkin "
-"tarvitaan, jotta GRUB voidaan asentaa käynnistyslataimeksi.  Asennusongelma "
-"ei välttämättä  liity grubiin, ja se voi toimia jatkettaessa tästä "
-"huolimatta."
+"Grub-pakettia ei voitu asentaa hakemistoon /target/. GRUB:n asentaminen "
+"alkulatausohjelmaksi on pakollinen vaihe. Asennuspulma saattaa kuitenkin "
+"olla muualla kuin GRUB:ssa, joten asennuksen jatkaminen voi olla mahdollista."
 
 #. Type: error
 #. Description
 #: ../templates:20
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "Ei voitu asentaa GRUBia laitteelle ${BOOTDEV}"
+msgstr "GRUB:ia ei voitu asentaa laitteelle ${BOOTDEV}"
 
 #. Type: error
 #. Description
@@ -78,7 +80,7 @@ msgstr "Komennon \"grub-install ${BOOTDEV}\" suoritus epäonnistui."
 #. Description
 #: ../templates:27
 msgid "Unable to configure GRUB"
-msgstr "Ei voitu konfiguroida GRUBia"
+msgstr "GRUB:in asetuksia ei voida tehdä."
 
 #. Type: error
 #. Description
@@ -90,55 +92,51 @@ msgstr "Komennon \"update-grub\" suoritus epäonnistui."
 #. Description
 #: ../templates:27
 msgid "This is a fatal error."
-msgstr "Tämä on keskeyttävä virhe."
+msgstr "Tämä on vakava virhe."
 
 #. Type: text
 #. Description
 #: ../templates:34
 msgid "Installing GRUB boot loader"
-msgstr "Asennetaan GRUB-käynnistyslatainta"
+msgstr "Asennetaan GRUB-alkulatausohjelma"
 
 #. Type: text
 #. Description
 #: ../templates:38
-#, fuzzy
 msgid "Installing the 'grub' package..."
-msgstr "Asennetaan \"grub\"-paketti."
+msgstr "Asennetaan \"grub\"-paketti..."
 
 #. Type: text
 #. Description
 #: ../templates:42
-#, fuzzy
 msgid "Determining GRUB boot device..."
-msgstr "Selvitetään GRUB-käynnistyslaitetta."
+msgstr "Selvitetään GRUB-käynnistyslaitetta..."
 
 #. Type: text
 #. Description
 #: ../templates:46
-#, fuzzy
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "Suoritetaan \"grub-install ${BOOTDEV}\"."
+msgstr "Suoritetaan \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #: ../templates:50
-#, fuzzy
 msgid "Running \"update-grub\"..."
-msgstr "Suoritetaan \"update-grub\"."
+msgstr "Suoritetaan \"update-grub\"..."
 
 #. Type: text
 #. Description
 #: ../templates:54
-#, fuzzy
 msgid "Updating /etc/kernel-img.conf..."
-msgstr "Päivitetään /etc/kernel-img.conf."
+msgstr "Päivitetään /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
 #: ../templates:59
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "Asenna GRUB-käynnistyslatain kiintolevylle"
+msgstr "Asenna GRUB-alkulatausohjelma kiintolevylle"
 
 #~ msgid "On which device should GRUB be installed?"
 #~ msgstr "Mille laitteelle GRUB asennetaan?"
+
