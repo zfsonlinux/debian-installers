@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-24 08:43+0200\n"
+"POT-Creation-Date: 2004-06-20 09:04+0200\n"
 "PO-Revision-Date: 2004-05-16 16:41-0300\n"
 "Last-Translator: André Luís Lopes <andrelop@debian.org>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
@@ -106,11 +106,18 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../templates:28
+#, fuzzy
 msgid ""
-"The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
-"in /dev. For example, \"(hd0)\" will install GRUB to the master boot record "
-"of your first hard drive, while \"/dev/hda2\" will install it to the second "
-"partition of your first IDE drive."
+"The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
+"device in /dev. Below are some examples:\n"
+" - \"(hd0)\" or \"/dev/hda\" will install GRUB to the master boot record of\n"
+"   your first hard drive (IDE);\n"
+" - \"(hd0,1)\" or \"/dev/hda2\" will use the second partition of your first\n"
+"   IDE drive;\n"
+" - \"(hd2,4)\" or \"/dev/sdc5\" will use the first extended partition of "
+"your\n"
+"   third drive (SCSI here);\n"
+" - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
 "O dispositivo pode ser especificado usando a notação \"(hdn)\" do GRUB ou "
 "como um dispositivo em /dev. Por exemplo, \"(hd0)\" irá instalar o GRUB no "
@@ -119,13 +126,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:43
+#: ../templates:48
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "A instalação do GRUB falhou. Continuar mesmo assim ?"
 
 #. Type: boolean
 #. Description
-#: ../templates:43
+#: ../templates:48
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -138,80 +145,80 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:50
+#: ../templates:55
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Impossível instalar o GRUB em ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:50
+#: ../templates:55
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "A execução de 'grub-install ${BOOTDEV}' falhou."
 
 #. Type: error
 #. Description
-#: ../templates:57
+#: ../templates:62
 msgid "Unable to configure GRUB"
 msgstr "Impossível configurar o GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:57
+#: ../templates:62
 msgid "Executing 'update-grub' failed."
 msgstr "A execução de 'update-grub' falhou."
 
 #. Type: error
 #. Description
-#: ../templates:57
+#: ../templates:62
 msgid "This is a fatal error."
 msgstr "Esse é um erro fatal."
 
 #. Type: text
 #. Description
-#: ../templates:64
+#: ../templates:69
 msgid "Installing GRUB boot loader"
 msgstr "Instalando o carregador de inicialização GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:68
+#: ../templates:73
 msgid "Looking for other operating systems..."
 msgstr "Procurando por outros sistemas operacionais ..."
 
 #. Type: text
 #. Description
-#: ../templates:72
+#: ../templates:77
 msgid "Installing the 'grub' package..."
 msgstr "Instalando o pacote 'grub' ..."
 
 #. Type: text
 #. Description
-#: ../templates:76
+#: ../templates:81
 msgid "Determining GRUB boot device..."
 msgstr "Determinando o dispositivo de inicialização do GRUB ..."
 
 #. Type: text
 #. Description
-#: ../templates:80
+#: ../templates:85
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Executando \"grub-install ${BOOTDEV}\" ..."
 
 #. Type: text
 #. Description
-#: ../templates:84
+#: ../templates:89
 msgid "Running \"update-grub\"..."
 msgstr "Executando \"update-grub\" ..."
 
 #. Type: text
 #. Description
-#: ../templates:88
+#: ../templates:93
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Atualizando /etc/kernel-img.conf ..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:93
+#: ../templates:98
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Instalar o GRUB em um disco rígido"
 

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-24 08:43+0200\n"
+"POT-Creation-Date: 2004-06-20 09:04+0200\n"
 "PO-Revision-Date: 2004-06-13 15:27+0200\n"
 "Last-Translator: Safir Šećerović <safir@open.net.ba>\n"
 "Language-Team: Bosnian <lokal@lugbih.org>\n"
@@ -30,7 +30,8 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr "Slijedeći operativni sistemi su detektovani na ovom računaru: ${OS_LIST}"
+msgstr ""
+"Slijedeći operativni sistemi su detektovani na ovom računaru: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -61,8 +62,8 @@ msgid ""
 "the master boot record of your first hard drive."
 msgstr ""
 "Izgleda da je ova instalacija Debiana jedini operativni sistem na ovom "
-"računaru. Ako je tako, trebalo bi biti sigurno instalirati GRUB boot loader na "
-"master boot record vašeg prvog hard diska."
+"računaru. Ako je tako, trebalo bi biti sigurno instalirati GRUB boot loader "
+"na master boot record vašeg prvog hard diska."
 
 #. Type: boolean
 #. Description
@@ -73,10 +74,10 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
-"Upozorenje: Ako installer nije uspjeo detektovati drugi operativni sistem koji je "
-"prisutan na vašem računaru, mijenjanje master boot recorda će privremeno "
-"onemogućiti podizanje tog operativnog sistema, mada se GRUB može ručno "
-"podesiti kasnije kako bi se mogao podizati."
+"Upozorenje: Ako installer nije uspjeo detektovati drugi operativni sistem "
+"koji je prisutan na vašem računaru, mijenjanje master boot recorda će "
+"privremeno onemogućiti podizanje tog operativnog sistema, mada se GRUB može "
+"ručno podesiti kasnije kako bi se mogao podizati."
 
 #. Type: string
 #. Description
@@ -103,26 +104,33 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../templates:28
+#, fuzzy
 msgid ""
-"The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
-"in /dev. For example, \"(hd0)\" will install GRUB to the master boot record "
-"of your first hard drive, while \"/dev/hda2\" will install it to the second "
-"partition of your first IDE drive."
+"The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
+"device in /dev. Below are some examples:\n"
+" - \"(hd0)\" or \"/dev/hda\" will install GRUB to the master boot record of\n"
+"   your first hard drive (IDE);\n"
+" - \"(hd0,1)\" or \"/dev/hda2\" will use the second partition of your first\n"
+"   IDE drive;\n"
+" - \"(hd2,4)\" or \"/dev/sdc5\" will use the first extended partition of "
+"your\n"
+"   third drive (SCSI here);\n"
+" - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
 "Uređaj se može navesti koristeći GRUB-ovu \"(hdn)\" notaciju, ili kao uređaj "
-"u /dev direktoriju. Na primjer, \"(hd0)\" će instalirati GRUB na master boot record "
-"vašeg prvog hard diska, dok \"/dev/hda2\" će instalirati GRUB na drugu particiju "
-"vašeg prvog IDE hard diska."
+"u /dev direktoriju. Na primjer, \"(hd0)\" će instalirati GRUB na master boot "
+"record vašeg prvog hard diska, dok \"/dev/hda2\" će instalirati GRUB na "
+"drugu particiju vašeg prvog IDE hard diska."
 
 #. Type: boolean
 #. Description
-#: ../templates:43
+#: ../templates:48
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Instaliranje GRUB-a nije uspjelo.  Nastaviti dalje?"
 
 #. Type: boolean
 #. Description
-#: ../templates:43
+#: ../templates:48
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -134,43 +142,43 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:50
+#: ../templates:55
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Ne mogu instalirati GRUB na ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:50
+#: ../templates:55
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Izvršavanje 'grub-install ${BOOTDEV}' nije uspjelo."
 
 #. Type: error
 #. Description
-#: ../templates:57
+#: ../templates:62
 msgid "Unable to configure GRUB"
 msgstr "Ne mogu podesiti GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:57
+#: ../templates:62
 msgid "Executing 'update-grub' failed."
 msgstr "Izvršavanje 'update-grub' nije uspjelo."
 
 #. Type: error
 #. Description
-#: ../templates:57
+#: ../templates:62
 msgid "This is a fatal error."
 msgstr "Ovo je fatalna greška."
 
 #. Type: text
 #. Description
-#: ../templates:64
+#: ../templates:69
 msgid "Installing GRUB boot loader"
 msgstr "Instaliram GRUB boot loader"
 
 #. Type: text
 #. Description
-#: ../templates:68
+#: ../templates:73
 msgid "Looking for other operating systems..."
 msgstr "Tražim druge operativne sisteme..."
 
@@ -178,38 +186,37 @@ msgstr "Tražim druge operativne sisteme..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:72
+#: ../templates:77
 msgid "Installing the 'grub' package..."
 msgstr "Instaliram paket 'grub'..."
 
 #. Type: text
 #. Description
-#: ../templates:76
+#: ../templates:81
 msgid "Determining GRUB boot device..."
 msgstr "Određujem GRUB boot uređaj..."
 
 #. Type: text
 #. Description
-#: ../templates:80
+#: ../templates:85
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Izvršavam \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../templates:84
+#: ../templates:89
 msgid "Running \"update-grub\"..."
 msgstr "Izvršavam \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:88
+#: ../templates:93
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Ažuriram /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:93
+#: ../templates:98
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Instaliraj GRUB boot loader na hard disk"
-

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tools_grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-24 08:43+0200\n"
+"POT-Creation-Date: 2004-06-20 09:04+0200\n"
 "PO-Revision-Date: 2004-01-08 12:34+0300\n"
 "Last-Translator: Ossama Khayat <okhayat@yahoo.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
@@ -88,21 +88,27 @@ msgstr ""
 #. Description
 #: ../templates:28
 msgid ""
-"The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
-"in /dev. For example, \"(hd0)\" will install GRUB to the master boot record "
-"of your first hard drive, while \"/dev/hda2\" will install it to the second "
-"partition of your first IDE drive."
+"The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
+"device in /dev. Below are some examples:\n"
+" - \"(hd0)\" or \"/dev/hda\" will install GRUB to the master boot record of\n"
+"   your first hard drive (IDE);\n"
+" - \"(hd0,1)\" or \"/dev/hda2\" will use the second partition of your first\n"
+"   IDE drive;\n"
+" - \"(hd2,4)\" or \"/dev/sdc5\" will use the first extended partition of "
+"your\n"
+"   third drive (SCSI here);\n"
+" - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:43
+#: ../templates:48
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "فشل تثبيت GRUB.  استمر على أية حال؟"
 
 #. Type: boolean
 #. Description
-#: ../templates:43
+#: ../templates:48
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -114,77 +120,77 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:50
+#: ../templates:55
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "لا يمكن تثبيت GRUB في ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:50
+#: ../templates:55
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "فشل تنفيذ 'grub-install ${BOOTDEV}'"
 
 #. Type: error
 #. Description
-#: ../templates:57
+#: ../templates:62
 msgid "Unable to configure GRUB"
 msgstr "لم يمكن إعداد GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:57
+#: ../templates:62
 msgid "Executing 'update-grub' failed."
 msgstr "فشل تنفيذ 'update-grub'."
 
 #. Type: error
 #. Description
-#: ../templates:57
+#: ../templates:62
 msgid "This is a fatal error."
 msgstr "هذا خطأ فادح."
 
 #. Type: text
 #. Description
-#: ../templates:64
+#: ../templates:69
 msgid "Installing GRUB boot loader"
 msgstr "جاري تثبيت محمّل الإقلاع GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:68
+#: ../templates:73
 msgid "Looking for other operating systems..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../templates:72
+#: ../templates:77
 #, fuzzy
 msgid "Installing the 'grub' package..."
 msgstr "جاري تثبيت حزمة 'grub'."
 
 #. Type: text
 #. Description
-#: ../templates:76
+#: ../templates:81
 #, fuzzy
 msgid "Determining GRUB boot device..."
 msgstr "تقرير جهاز إقلاع GRUB."
 
 #. Type: text
 #. Description
-#: ../templates:80
+#: ../templates:85
 #, fuzzy
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "جاري تشغيل \"grub-install·${BOOTDEV}\"."
 
 #. Type: text
 #. Description
-#: ../templates:84
+#: ../templates:89
 #, fuzzy
 msgid "Running \"update-grub\"..."
 msgstr "جاري تشغيل \"update-grub\"."
 
 #. Type: text
 #. Description
-#: ../templates:88
+#: ../templates:93
 #, fuzzy
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "جاري تحديث /etc/kernel-img.conf."
@@ -192,7 +198,7 @@ msgstr "جاري تحديث /etc/kernel-img.conf."
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:93
+#: ../templates:98
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "تثبيت محمل الإقلاع GRUB على قرص صلب"
 
