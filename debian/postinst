@@ -31,6 +31,7 @@ else
 	db_go
 	db_get
 	if [ true != "$RET" ] ; then
+		db_progress STOP
 		exit 1
 	fi
 fi
@@ -60,6 +61,7 @@ else
     db_subst grub-installer/grub-install-failed BOOTDEV "$bootdev"
     db_input critical grub-installer/grub-install-failed || [ $? -eq 30 ]
     db_go
+    db_progress STOP
     exit 1
 fi
 
@@ -77,6 +79,7 @@ else
     error "Running 'update-grub' failed." 1>&2
     db_input critical grub-installer/update-grub-failed || [ $? -eq 30 ]
     db_go
+    db_progress STOP
     exit 1
 fi
 
