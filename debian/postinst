@@ -9,7 +9,7 @@ ARCH=`udpkg --print-architecture`
 PROTOCOL=
 MIRROR=
 DIRECTORY=
-COMPONENTS="main,local"
+COMPONENTS=
 DISTRIBUTION=sarge
 
 if [ -f /cdrom/.disk/base_installable ]; then
@@ -47,6 +47,8 @@ else
             export http_proxy
         fi
     fi
+
+    COMPONENTS="main"
 fi
 
 if db_get mirror/distribution && [ "$RET" ] ; then
