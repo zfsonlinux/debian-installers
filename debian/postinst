@@ -325,7 +325,7 @@ get_arch_kernel () {
 		chrp_rs6k) trykernel=kernel-image-$version-$family-chrp-rs6k ;;
 		amiga) trykernel=kernel-image-$apusversion-apus ;;
 
-		*) log "warning: Unknown $ARCH subarchitecture '$SUBARCH'." ;;
+		*) warning "Unknown $ARCH subarchitecture '$SUBARCH'." ;;
 		esac
 	;;
 	mips)
@@ -336,7 +336,7 @@ get_arch_kernel () {
 		r5k-ip22) trykernel=kernel-image-$version-r5k-ip22 ;;
 		sb1-swarm-bn) trykernel=kernel-image-$version-sb1-swarm-bn ;;
 
-		*) log "warning: Unknown $ARCH subarchitecture '$SUBARCH'." ;;
+		*) warning "Unknown $ARCH subarchitecture '$SUBARCH'." ;;
 		esac
 	;;
 	mipsel)
@@ -348,7 +348,7 @@ get_arch_kernel () {
 		cobalt) trykernel=kernel-image-$version-r5k-cobalt ;;
 		sb1-swarm-bn) trykernel=kernel-image-$version-sb1-swarm-bn ;;
 
-		*) log "warning: Unknown $ARCH subarchitecture '$SUBARCH'." ;;
+		*) warning "Unknown $ARCH subarchitecture '$SUBARCH'." ;;
 		esac
 	;;
 	ia64)
@@ -380,7 +380,7 @@ get_arch_kernel () {
 		amiga|atari|mac|bvme6000|mvme147|mvme16x)    
 	#		trykernel=kernel-image-*-$SUBARCH ;;
 			trykernel=$SUBARCH ;;
-		*) log "warning: Unknown $ARCH subarchitecture '$SUBARCH'." ;;
+		*) warning "Unknown $ARCH subarchitecture '$SUBARCH'." ;;
 		esac
 	;;
 	arm)
@@ -389,11 +389,11 @@ get_arch_kernel () {
 		case "$SUBARCH" in
 		netwinder|bast|riscpc|riscstation|lart)    
 			trykernel=kernel-image-$version-$SUBARCH ;;
-		*) log "warning: Unknown $ARCH subarchitecture '$SUBARCH'." ;;
+		*) warning "Unknown $ARCH subarchitecture '$SUBARCH'." ;;
 		esac
 	;;
 	*)
-	log "warning: Unknown architecture '$ARCH'."
+	warning "Unknown architecture '$ARCH'."
 	;;
 	esac
 
@@ -512,6 +512,7 @@ link_in_boot = $link_in_boot
 EOF
 
 	if [ yes = "$do_initrd" ] ; then
+		info "Installing initrd-tools."
 		# Make sure initrd-tools is installed before we change its
 		# configuration
 		if ! apt-install initrd-tools 2>> $LOGFILE ; then
@@ -529,8 +530,11 @@ EOF
 		else
 			echo 'DELAY=0' >> $mkinitrdconf
 		fi
+	else
+		info "Not installing initrd-tools."
 	fi
 
+	info "Installing kernel '$KERNEL'."
 	apt-install "$KERNEL" 2>> $LOGFILE || kernel_install_failed=$?
 
 	if [ -f /target/etc/kernel-img.conf.$$ ]; then
@@ -585,20 +589,23 @@ queue_language_debs () {
 	
 install_extra () {
 	queue_language_debs
+
+	info "Installing extra packages into /target/."
 	
 	if [ -f /var/lib/apt-install/queue ] ; then
 		# We need to install these one by one in case one fails.
 		for PKG in `cat /var/lib/apt-install/queue`; do
 			if apt-install $PKG >> $LOGFILE 2>&1 ; then
-				log "Installed $PKG successfully into /target/"
+				info "Installed $PKG successfully into /target/"
 			else
-				log "Failed to install $PKG into /target/: $?"
+				warning "Failed to install $PKG into /target/: $?"
 			fi
 		done
 	fi
 }
 
 cleanup () {
+	info "Cleaning up"
 	rm -f $KERNEL_LIST
 }
 
