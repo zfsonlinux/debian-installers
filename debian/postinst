@@ -604,9 +604,11 @@ waypoint 3	apt_update
 waypoint 1	pick_kernel
 waypoint 10	install_kernel
 case "$ARCH" in
-i386*)
-waypoint 1	install_pcmcia_modules
-;;
+	i386*)
+		if [ -d /proc/bus/pccard/drivers ]; then
+			waypoint 1	install_pcmcia_modules
+		fi
+	;;
 esac
 waypoint 5	install_extra
 waypoint 0	cleanup

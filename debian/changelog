@@ -14,6 +14,9 @@ base-installer (0.064) UNRELEASED; urgency=low
   * Joey Hess
     - Add a check to make sure /target is mounted, to avoid installing
       to ram.
+    - Only install the pcmcia kernel modules on i386 if there is a
+      /proc/bus/pccard/drivers (same test that hw-detect uses to install
+      pcmcia-cs).
 
  -- Joshua Kwan <joshk@triplehelix.org>  Wed, 24 Mar 2004 19:32:55 -0800
 
