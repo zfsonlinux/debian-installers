@@ -1,9 +1,12 @@
+# italian translation of grub-installer, part of the Debian Installer
+# Stefano Melchior <stefano.melchior@openlabs.it>, 2003, 2004
+# Giuseppe Sacco <eppesuig@debian.org>, 2004
 msgid ""
 msgstr ""
-"Project-Id-Version: grub-installer 0.36\n"
+"Project-Id-Version: grub-installer 0.52\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-07-19 12:05+0200\n"
-"PO-Revision-Date: 2004-05-24 01:25+0200\n"
+"PO-Revision-Date: 2004-07-25 10:05+0200\n"
 "Last-Translator: Stefano Melchior <stefano.melchior@openlabs.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -89,7 +92,6 @@ msgstr ""
 "su un floppy."
 
 #: ../templates:28
-#, fuzzy
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -102,10 +104,14 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Il device può essere specificato utilizzando la notazione di GRUB \"(hdn)\", "
-"oppure come un device nella notazione /dev. Per esempio, \"(hd0)\" "
-"installerà GRUB sul master boot record del primo disco fisso, mentre \"/dev/"
-"hda2\" lo farà sulla seconda partizione del primo disco IDE."
+"Il device può essere specificato utilizzando la notazione di GRUB \"(hdn,m)\", oppure come un device in /dev. Ecco alcuni esempi:\n"
+" - \"(hd0)\" o \"/dev/hda\" installerà GRUB nel master boot record del primo\n"
+"   disco fisso (IDE);\n"
+" - \"(hd0,1)\" o \"/dev/hda2\" userà la seconda partizione del primo disco\n"
+"   IDE;\n"
+" - \"(hd2,4)\" o \"/dev/sdc5\" userà la prima partizione estesa di terzo\n"
+"   disco SCSI;\n"
+" - \"(fd0)\" o \"/dev/fd0\" installerà GRUB su dischetto."
 
 #. Type: boolean
 #. Description
@@ -160,7 +166,7 @@ msgstr "Questo è un errore fatale."
 #. Description
 #: ../templates:69
 msgid "Installing GRUB boot loader"
-msgstr "Installazione in corso del boot loader GRUB"
+msgstr "Installazione del boot loader GRUB"
 
 #. Type: text
 #. Description
