@@ -3,6 +3,11 @@ base-installer (1.05) UNRELEASED; urgency=low
   * Martin Michlmayr
     - Don't hardcode the kernel version for ARM but use the version of the
       running kernel.
+  * Joey Hess
+    - Resetting questions breaks preseeding, as the preseeded value is lost
+      and the question is marked as not seen. So only reset questions after
+      displaying them so the preseeding can take effect the first time.
+    - Preseeding of base-installer/use_unclean_target will now work.
 
  -- Martin Michlmayr <tbm@cyrius.com>  Tue, 31 Aug 2004 15:53:44 +0100
 
