@@ -1,10 +1,10 @@
 # Daniel Costa <dacosta@vodafone.pt>, 22-12-2003
 msgid ""
 msgstr ""
-"Project-Id-Version: grub-installer-0.40\n"
+"Project-Id-Version: grub-installer-0.50\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-05-24 08:43+0200\n"
-"PO-Revision-Date: 2004-04-11 15:14+0000\n"
+"PO-Revision-Date: 2004-05-27 22:31+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "MIME-Version: 1.0\n"
@@ -44,15 +44,14 @@ msgstr "Instalar o gestor de arranque GRUB no master boot record?"
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
 "the master boot record of your first hard drive."
 msgstr ""
-"Parece que a instalação de Debian é o único sistema operativo neste "
-"computador. Se for assim, então deve ser seguro instalar o novo gestor de "
-"arranque no master boot record do seu primeiro disco rígido."
+"Parece que esta instalação de Debian é o único sistema operativo neste "
+"computador. Se for assim, então deve ser seguro instalar o gestor de "
+"arranque GRUB no master boot record do seu primeiro disco rígido."
 
 #. Type: boolean
 #. Description
@@ -63,6 +62,10 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
+"Aviso: Se o instalador falhou a detecção de outro sistema operativo que "
+"esteja presente no seu computador, modificar o master boot record vai deixar "
+"esse sistema operativo temporariamente não iniciável, embora o GRUB possa "
+"ser configurado manualmente para posteriormente o iniciar."
 
 #. Type: string
 #. Description
@@ -95,6 +98,10 @@ msgid ""
 "of your first hard drive, while \"/dev/hda2\" will install it to the second "
 "partition of your first IDE drive."
 msgstr ""
+"O dispositivo pode ser especificado utilizando a notação GRUB \"(hdn)\", ou "
+"como dispositivo em /dev. Por exemplo, \"(hd0)\" vai instalar o GRUB no "
+"master boot record do seu primeiro disco rígido, enquanto que \"/dev/hda2\" "
+"vai instala-lo na segunda partição do seu primeiro disco IDE."
 
 #. Type: boolean
 #. Description
