@@ -133,7 +133,7 @@ convert () {
     fi
 }
 
-# Make sure mtab in the chroot reflect the currently mounted partitions.
+# Make sure mtab in the chroot reflects the currently mounted partitions.
 update_mtab() {
     mtab=/target/etc/mtab
     grep /target /proc/mounts | (
@@ -226,9 +226,7 @@ db_progress INFO grub-installer/progress/step_config_loader
 # noninteractive mode.  Newer versions of the grub package support
 # '-y' for noninteractive installs.  But we'll keep it as-is for
 # Skolelinux.
-if chroot /target /usr/bin/yes | chroot /target /sbin/update-grub >> $log 2>&1 ; then
-    :
-else
+if ! chroot /target /usr/bin/yes | chroot /target /sbin/update-grub >> $log 2>&1 ; then
     error "Running 'update-grub' failed." 1>&2
     db_input critical grub-installer/update-grub-failed || [ $? -eq 30 ]
     db_go || true
@@ -252,6 +250,7 @@ for os in $(cat /tmp/os-probed); do
 
 title		$title
 root		$grubdrive
+savedefault
 makeactive
 chainloader	+1
 
