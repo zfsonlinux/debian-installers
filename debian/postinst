@@ -50,19 +50,18 @@ if [ "$1" = "configure" ]; then
     # Default hostname is 'localhost'
     HOSTNAME=localhost
     NAMES=localhost
-    db_get netcfg/get_hostname || true
-    if [ "$RET" ]; then
+    if db_get netcfg/get_hostname && [ "$RET" ]; then
         NAMES="$RET $NAMES"
         HOSTNAME=$RET
     fi
  
-    db_get netcfg/get_domain || true
-    if [ "$RET" -a "$HOSTNAME" ] ; then
+    if db_get netcfg/get_domain && [ "$RET" -a "$HOSTNAME" ] ; then
     	NAMES="${HOSTNAME}.$RET $NAMES"
     fi
 
-    db_get mirror/distribution
-    DISTRIBUTION=$RET
+    if db_get mirror/distribution ; then
+	DISTRIBUTION=$RET
+    fi
 
     test -d /target/etc || mkdir -p /target/etc
 
