@@ -1,5 +1,5 @@
 Template: kernel-installer/no-kernel
-Type: note
+Type: error
 _Description: No kernel package is selected for installation
  Unable to install a kernel.
  .
@@ -8,7 +8,7 @@ _Description: No kernel package is selected for installation
  kernel to install.
 
 Template: kernel-installer/failed-install
-Type: note
+Type: error
 _Description: Unable to install the selected kernel
  An error was returned while trying to install the kernel into the
  target system.
@@ -29,7 +29,7 @@ _Description: Select which kernel to install into /target/
  needs to be installed to be able to boot the system from hard drive.
 
 Template: kernel-installer/no-kernels-found
-Type: note
+Type: error
 _Description: No installable kernel was found in the APT sources defined
  This is rather strange, and probably fatal.
  .
@@ -55,12 +55,7 @@ _Description: Setting up the kernel environment
 
 Template: kernel-installer/progress/step_install
 Type: text
-_Description: Installing the kernel package
- The kernel in package
- .
- ${KERNEL}
- .
- is installed.
+_Description: Installing the kernel package ${KERNEL}
 
 Template: main-menu/kernel-installer
 Type: text
