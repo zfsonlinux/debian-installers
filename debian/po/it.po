@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: grub-installer 0.27\n"
+"Project-Id-Version: grub-installer 0.36\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-02-03 10:43+0100\n"
-"PO-Revision-Date: 2003-12-27 23:11+0100\n"
+"PO-Revision-Date: 2004-03-14 17:04+0100\n"
 "Last-Translator: Stefano Melchior <stefano.melchior@openlabs.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgid ""
 "Now it is time to make the newly installed Debian system bootable, by "
 "installing the GRUB bootloader on a bootable device. The usual way to do "
 "this is to install GRUB on the master boot record of your first hard drive."
-msgstr ""
+msgstr "Questo è il momento di rendere il nuovo sistema Debian avviabile, installando il boot loader GRUB nel device di avvio. Il modo normale di fare questo è installare GRUB nel master boot record del primo disco fisso."
 
 #. Type: string
 #. Description
@@ -32,7 +32,7 @@ msgid ""
 "Note that GRUB counts devices differently than the Linux kernel, so the "
 "first drive is usually '(hd0)'. If you want it on the second partition of "
 "the first drive, use '(hd0,1)'. Leave this at default if unsure."
-msgstr ""
+msgstr "Notare che la conta dei dischi di GRUB è fatta diversamente dal kernel Linux, quindi il primo disco è normalmente '(hd0)'. Se lo si volesse nella seconda partizione del primo disco, usare '(hd0,1)'. Lasciare il valore predefinito se si è incerti."
 
 #. Type: string
 #. Description
@@ -41,7 +41,7 @@ msgid ""
 "Warning: by default, this will change how your computer boots, overwriting "
 "your existing master boot record with GRUB. Continuing may make other "
 "operating systems installed on this computer unbootable."
-msgstr ""
+msgstr "Attenzione: normalmente questo cambierò il modo nel quale il computer si accende, sovrascrivendo l'attuale master boot record con GRUB. Continuare potrebbe rendere altri sistemi operativi, installati su questo computer, non avviabili."
 
 #. Type: boolean
 #. Description
@@ -101,35 +101,30 @@ msgstr "Installazione in corso del caricatore di avvio GRUB"
 #. Type: text
 #. Description
 #: ../templates:45
-#, fuzzy
 msgid "Installing the 'grub' package..."
 msgstr "Installazione del pacchetto 'grub' in corso."
 
 #. Type: text
 #. Description
 #: ../templates:49
-#, fuzzy
 msgid "Determining GRUB boot device..."
 msgstr "Determinazione del dispositivo di avvio di GRUB in corso."
 
 #. Type: text
 #. Description
 #: ../templates:53
-#, fuzzy
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Esecuzione di \"grub-install ${BOOTDEV}\" in corso."
 
 #. Type: text
 #. Description
 #: ../templates:57
-#, fuzzy
 msgid "Running \"update-grub\"..."
 msgstr "Esecuzione di \"update-grub\" in corso."
 
 #. Type: text
 #. Description
 #: ../templates:61
-#, fuzzy
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Aggiornamento di /etc/kernel-img.conf in corso."
 
@@ -139,15 +134,3 @@ msgstr "Aggiornamento di /etc/kernel-img.conf in corso."
 #: ../templates:66
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installa il boot loader GRUB su un disco rigido"
-
-#~ msgid ""
-#~ "GRUB needs to install the stage 1 boot loader on a bootable device. This "
-#~ "is usually the first hard drive. Note that GRUB counts devices "
-#~ "differently than the Linux kernel, so the first one is usually '(hd0)'. "
-#~ "Leave this at default if unsure."
-#~ msgstr ""
-#~ "GRUB ha bisogno di installare il boot loader stage 1 su un device "
-#~ "avviabile. Solitamente questa è il primo disco rigido. Si noti che GRUB "
-#~ "conta i dispositivi in modo diverso dal kernel Linux, in modo che il "
-#~ "primo è solitamente \"(hd0)\". Lasciare quello predefinito se non si è "
-#~ "sicuri."
