@@ -31,6 +31,18 @@ else
     do_initrd=yes
 fi
 
+link_in_boot=
+
+ARCH=`udpkg --print-architecture`
+
+case "$ARCH" in
+    sparc)
+	# For sparc we over ride the default so we can support /boot on a
+	# seperate partition
+	link_in_boot="link_in_boot=yes"
+	;;
+esac
+
 info "Setting do_initrd='$do_initrd'."
 
 cat > /target/etc/kernel-img.conf <<EOF
@@ -41,6 +53,7 @@ image_in_boot = yes
 do_bootloader = no
 do_bootfloppy = no
 do_initrd = $do_initrd
+$link_in_boot
 EOF
 
 if [ yes = "$do_initrd" ] ; then
