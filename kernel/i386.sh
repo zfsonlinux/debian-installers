@@ -40,8 +40,7 @@ arch_check_usable_kernel () {
 arch_get_kernel () {
 	if [ -e /proc/speakup ]; then
 		# Override and use speakup kernel. There's only one.
-		# Note: 'uname -r' already contains the -speakup extension.
-		echo "kernel-image-$(uname -r)"
+		echo "kernel-image-$KERNEL_VERSION-speakup"
 		return
 	fi
 

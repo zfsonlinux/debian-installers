@@ -17,6 +17,8 @@ EXCLUDES=
 KERNEL=
 KERNEL_LIST=/tmp/available_kernels.txt
 KERNEL_MAJOR="$(uname -r | cut -d . -f 1,2)"
+KERNEL_VERSION="$(uname -r | cut -d - -f 1)"
+KERNEL_ABI="$(uname -r | cut -d - -f 1,2)"
 
 # Avoid debconf sending email during the base install process.
 DEBCONF_ADMIN_EMAIL=""

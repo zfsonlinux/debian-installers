@@ -18,6 +18,5 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	version="$(uname -r | cut -d - -f 1)"
-	echo "kernel-image-$version-$1"
+	echo "kernel-image-$KERNEL_VERSION-$1"
 }

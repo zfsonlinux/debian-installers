@@ -7,7 +7,6 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	version="$(uname -r)"
-	echo "kernel-image-$version"
+	echo "kernel-image-$KERNEL_ABI-s390"
 }
 

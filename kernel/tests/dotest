@@ -44,8 +44,10 @@ for KERNEL_MAJOR in $MAJORS; do
 			WANT_KERNEL="$KERNEL_26"
 			;;
 	esac
-	WANT_KERNEL="kernel-image-$WANT_KERNEL"
 	export KERNEL_MAJOR
+	export KERNEL_VERSION="$(echo "$WANT_KERNEL" | cut -d - -f 1)"
+	export KERNEL_ABI="$(echo "$WANT_KERNEL" | cut -d - -f 1,2)"
+	WANT_KERNEL="kernel-image-$WANT_KERNEL"
 
 	# Is the correct kernel flavour selected?
 

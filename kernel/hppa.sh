@@ -19,8 +19,8 @@ arch_check_usable_kernel () {
 
 arch_get_kernel () {
 	case "$KERNEL_MAJOR" in
-		2.4)	version="$(uname -r | cut -d - -f 1)" ;;
-		2.6)	version="$(uname -r | cut -d - -f 1,2)" ;;
+		2.4)	version="$KERNEL_VERSION" ;;
+		2.6)	version="$KERNEL_ABI" ;;
 		*)	warning "Unknown kernel major '$KERNEL_MAJOR'." ;;
 	esac
 	# Don't know how to detect whether SMP is needed, but

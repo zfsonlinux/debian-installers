@@ -37,5 +37,21 @@ Each architecture must define the following functions in kernel/$ARCH.sh:
     No return value; must not fail. (If there's a problem, one of the two
     functions above should already have failed.)
 
+Shell variables all functions may expect:
+
+  ARCH
+    The architecture (as returned by udpkg --print-architecture).
+  SUBARCH
+    The subarchitecture (as returned by archdetect).
+  KERNEL_MAJOR
+    The major version of the running kernel, e.g. 2.4 or 2.6.
+  KERNEL_VERSION
+    The full version of the running kernel, e.g. 2.6.8.
+  KERNEL_ABI
+    The full version and module ABI of the running kernel, e.g. 2.6.8-1.
+    Not appropriate on all architectures.
+
 Please update the regression tests in the tests/ directory when making
-changes here.
+changes here. In particular, calls to inspect the kernel version or
+files in /proc need support in the test suite so that the full test
+suite can be run for all architectures on any architecture.
