@@ -75,16 +75,6 @@ _Description: Unable to install initrd-tools
  .
  Check /var/log/messages or see virtual console 3 for the details.
 
-Template: base-installer/debootstrap/error/baddload
-Type: error
-_Description: Debootstrap Error
- Unknown download style.
-
-Template: base-installer/debootstrap/error/badmirror
-Type: error
-_Description: Debootstrap Error
- Unknown mirror style.
-
 Template: base-installer/debootstrap/error/notpredl
 Type: error
 _Description: Debootstrap Error
@@ -103,27 +93,17 @@ _Description: Debootstrap Error
 Template: base-installer/debootstrap/error/invalidrel
 Type: error
 _Description: Debootstrap Error
- Invalid Release file, no valid components.
+ Invalid Release file: no valid components.
 
 Template: base-installer/debootstrap/error/missingrelentry
 Type: error
 _Description: Debootstrap Error
- Invalid Release file, no entry for ${SUBST0}.
+ Invalid Release file: no entry for ${SUBST0}.
 
 Template: base-installer/debootstrap/error/couldntdl
 Type: error
 _Description: Debootstrap Error
  Couldn't download ${SUBST0}.
-
-Template: base-installer/debootstrap/error/nodevtgz
-Type: error
-_Description: Debootstrap Error
- No ${SUBST0}. Cannot create devices.
-
-Template: base-installer/debootstrap/error/unknowndselect
-Type: error
-_Description: Debootstrap Error
- Unknown dselect method.
 
 Template: base-installer/debootstrap/error/interrupted
 Type: error
