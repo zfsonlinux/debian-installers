@@ -1,0 +1,29 @@
+#! /bin/sh -e
+
+. /usr/share/debconf/confmodule
+
+cat > /target/etc/kernel-img.conf <<EOF
+# Do not create symbolic links in /
+do_symlinks = yes
+
+# postinst_hook =
+# postrm_hook =
+do_bootloader = no
+do_bootfloppy = no
+do_initrd = yes
+EOF
+
+db_get debian-installer/kernel/image
+
+LD_LIBRARY_PATH=/target/lib:/target/usr/lib \
+/target/usr/bin/apt-get \
+    -o Dir::State=/target/var/lib/apt \
+    -o Dir::State::status=/target/var/lib/dpkg/status \
+    -o Dir::Cache=/target/var/cache/apt \
+    -o Dir::Etc=/target/etc/apt \
+    -o Dir::Bin::methods=/target/usr/lib/apt/methods \
+    -o Dir::Bin::gzip=/target/usr/bin \
+    -o Dir::Bin::dpkg=/target/usr/bin \
+    install $RET
+
+exit 0

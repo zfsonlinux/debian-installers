@@ -1,152 +1,107 @@
 #! /bin/sh -e
 
+. /usr/share/debconf/confmodule
+
+ETCDIR=/target/etc
 LOGDIR=/target/var/log
 
+ARCH=`udpkg --print-architecture`
 PROTOCOL=
 MIRROR=
 DIRECTORY=
 COMPONENTS="main,local"
 DISTRIBUTION=sarge
-ARCH=`udpkg --print-architecture`
 
-if [ "$1" = "configure" ]; then
-    . /usr/share/debconf/confmodule
-
-    if [ -f /cdrom/.disk/base_installable ]; then
-
-        PROTOCOL=file
-        MIRROR=""
-        DIRECTORY="/cdrom/"
-        if [ -s /cdrom/.disk/base_components ]; then
-            COMPONENTS=`grep -v '^#' /cdrom/.disk/base_components | tr '\n' , | sed 's/,$//'`
-        else
-            COMPONENTS="*"
-        fi
-
-        if [ -s /cdrom/.disk/base_include ]; then
-            INCLUDES=`grep -v '^#' /cdrom/.disk/base_include | tr '\n' , | sed 's/,$//'`
-        fi
-
-        if [ -s /cdrom/.disk/base_exclude ]; then
-            EXCLUDES=`grep -v '^#' /cdrom/.disk/base_exclude | tr '\n' , | sed 's/,$//'`
-        fi
+if [ -f /cdrom/.disk/base_installable ]; then
+    PROTOCOL=file
+    MIRROR=""
+    DIRECTORY="/cdrom/"
+    if [ -s /cdrom/.disk/base_components ]; then
+        COMPONENTS=`grep -v '^#' /cdrom/.disk/base_components | tr '\n' , | sed 's/,$//'`
     else
+        COMPONENTS="*"
+    fi
 
-        db_get mirror/protocol
-        PROTOCOL="$RET"
+    if [ -s /cdrom/.disk/base_include ]; then
+        INCLUDES=`grep -v '^#' /cdrom/.disk/base_include | tr '\n' , | sed 's/,$//'`
+    fi
 
-        db_get mirror/$PROTOCOL/hostname
-        MIRROR="$RET"
+    if [ -s /cdrom/.disk/base_exclude ]; then
+        EXCLUDES=`grep -v '^#' /cdrom/.disk/base_exclude | tr '\n' , | sed 's/,$//'`
+    fi
+else
+    db_get mirror/protocol
+    PROTOCOL="$RET"
 
-        db_get mirror/$PROTOCOL/directory
-        DIRECTORY="$RET"
+    db_get mirror/$PROTOCOL/hostname
+    MIRROR="$RET"
 
-        if [ "$PROTOCOL" = "http" ]; then
-            # try to find http proxy
-            db_get mirror/http/proxy
-            http_proxy="$RET" || true
-            if [ "$http_proxy" ]; then
-                export http_proxy
-            fi
+    db_get mirror/$PROTOCOL/directory
+    DIRECTORY="$RET"
+
+    if [ "$PROTOCOL" = "http" ]; then
+        # try to find http proxy
+        db_get mirror/http/proxy
+        http_proxy="$RET" || true
+        if [ "$http_proxy" ]; then
+            export http_proxy
         fi
     fi
+fi
 
-    if db_get mirror/distribution && [ "$RET" ] ; then
-	DISTRIBUTION=$RET
-    fi
+if db_get mirror/distribution && [ "$RET" ] ; then
+    DISTRIBUTION=$RET
+fi
 
-    if [ "$ARCH" = "hppa" ] ; then
-        # Might want -64 here; check uname -r, or /proc/version?
-        KERNEL_IMAGE=kernel-image-2.4.19-32,initrd-tools,dash,cramfsprogs,zlib1g,fileutils
-    else
-        if [ woody = "$DISTRIBUTION" ] ; then
-            KERNEL_IMAGE=kernel-image-2.4.18-386,initrd-tools,ash,cramfsprogs,zlib1g
-        else
-            KERNEL_IMAGE=kernel-image-2.4.19-386,initrd-tools,dash,cramfsprogs,zlib1g
-	fi
-    fi
+if [ "${INCLUDES}" ]; then
+    INCLUDE="--include=${INCLUDES}"
+fi
+if [ "${EXCLUDES}" ]; then
+    EXCLUDE="--exclude=${EXCLUDES}"
+fi
 
-    INCLUDE=`echo "--include=${KERNEL_IMAGE},${INCLUDES}" | sed 's/,$//'`
-    if [ "${EXCLUDES}" ]; then
-        EXCLUDE="--exclude=${EXCLUDES}"
-    else
-        EXCLUDE=
-    fi
+unset DEBIAN_HAS_FRONTEND
+unset DEBIAN_FRONTEND
+unset DEBCONF_FRONTEND
+unset DEBCONF_REDIR
 
-    # Default hostname is 'localhost'
-    HOSTNAME=localhost
-    NAMES=localhost
-    if db_get netcfg/get_hostname && [ "$RET" ]; then
-        NAMES="$RET $NAMES"
-        HOSTNAME=$RET
-    fi
- 
-    if db_get netcfg/get_domain && [ "$RET" -a "$HOSTNAME" ] ; then
-    	NAMES="${HOSTNAME}.$RET $NAMES"
-    fi
+test -d $ETCDIR || mkdir -p $ETCDIR
+test -d $LOGDIR || mkdir -p $LOGDIR
 
-    test -d /target/etc || mkdir -p /target/etc
+cp /target/etc/fstab /target/etc/fstab.orig
+echo "# UNCONFIGURED FSTAB FOR BASE SYSTEM" >> /target/etc/fstab
 
-    echo "$HOSTNAME" > /target/etc/hostname
-    echo "$HOSTNAME" > /proc/sys/kernel/hostname 
-    echo "127.0.0.1 $NAMES" > /target/etc/hosts
+debootstrap \
+    --components="${COMPONENTS}" \
+    --boot-floppies ${INCLUDE} \
+    ${EXCLUDE} ${DISTRIBUTION} /target \
+    ${PROTOCOL}://${MIRROR}${DIRECTORY} \
+    3>&1 > $LOGDIR/debootstrap.log \
+    2> $LOGDIR/debootstrap.err.log </dev/null
 
-    unset DEBIAN_HAS_FRONTEND
-    unset DEBIAN_FRONTEND
-    unset DEBCONF_FRONTEND
-    unset DEBCONF_REDIR
+mv /target/etc/fstab.orig /target/etc/fstab
 
-    # This is a hack to avoid heaps of messages like 'Note
-    # /etc/modules.conf is more recent than /lib/modules/*/modules.dep'
-    touch /etc/modules.conf
-    depmod -a
+if [ -f /cdrom/.disk/base_installable ]; then
+    DEBOOTSTRAPLIST="/target/var/lib/apt/lists/debootstrap.invalid_dists_${DISTRIBUTION}"
+else
+    APTDIR=`echo $DIRECTORY | tr "/" "_"`
+    DEBOOTSTRAPLIST="/target/var/lib/apt/lists/debootstrap.invalid_dists_${DISTRIBUTION}"
+    APTLIST="/target/var/lib/apt/lists/${MIRROR}${APTDIR}_dists_${DISTRIBUTION}"
 
-    if [ "$ARCH" = "hppa" ] ; then
-        cat > /target/etc/kernel-img.conf <<EOF
-# Created by d-i.  Create symlinks in /boot, no initrd yet
-do_symlinks = yes
-image_in_boot = yes
-relative_links = yes
-do_bootloader = no
-do_bootfloppy = no
-EOF
-    else
-        cat > /target/etc/kernel-img.conf <<EOF
-# Do not create symbolic links in /
-do_symlinks = yes
+    mv ${DEBOOTSTRAPLIST}_Release ${APTLIST}_Release
+    mv ${DEBOOTSTRAPLIST}_main_binary-${ARCH}_Packages ${APTLIST}_main_binary-${ARCH}_Packages
 
-# postinst_hook =
-# postrm_hook = 
-do_bootloader = no
-do_bootfloppy = no
-do_initrd = yes
-EOF
-    fi
+    echo "deb ${PROTOCOL}://${MIRROR}${DIRECTORY} ${DISTRIBUTION} main" > /target/etc/apt/sources.list
 
-# Avoid the possibility of getting a root shell without giving passord
-# when booting the 2.4 kernel
-# This must be done after initrd-tools is installed, but before the
-# kernel is installed.
-#cat >> /target/etc/mkinitrd/mkinitrd.conf <<EOF
-#DELAY=0
-#EOF
-
-    test -d $LOGDIR || mkdir -p $LOGDIR
-
-    # Make lilo not try to install itself
-    echo "# UNCONFIGURED FSTAB FOR BASE SYSTEM" >> /target/etc/fstab
-
-    debootstrap \
-	--components="${COMPONENTS}" \
-	--boot-floppies ${INCLUDE} \
-	${EXCLUDE} ${DISTRIBUTION} /target \
-	${PROTOCOL}://${MIRROR}${DIRECTORY} \
-	3>&1 > $LOGDIR/debootstrap.log \
-	2> $LOGDIR/debootstrap.err.log </dev/null
-
-    # Make lilo not try to install itself
-    grep -v "# UNCONFIGURED FSTAB FOR BASE SYSTEM" < /target/etc/fstab > /target/etc/fstab.new
-    mv /target/etc/fstab.new /target/etc/fstab
-
+    LD_LIBRARY_PATH=/target/lib:/target/usr/lib \
+    /target/usr/bin/apt-get \
+        -o Dir::State=/target/var/lib/apt \
+        -o Dir::State::status=/target/var/lib/dpkg/status \
+        -o Dir::Cache=/target/var/cache/apt \
+        -o Dir::Etc=/target/etc/apt \
+        -o Dir::Bin::methods=/target/usr/lib/apt/methods \
+        -o Dir::Bin::gzip=/target/usr/bin \
+        -o Dir::Bin::dpkg=/target/usr/bin \
+        update
 fi
 exit 0
