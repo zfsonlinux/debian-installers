@@ -385,13 +385,13 @@ pick_kernel () {
 
 	# Try to make current rootskel setting the default, make sure it is
 	# available first.
-	if kernel_present "$KERNEL" ; then
-		# Current selection is available, nothing to do
-		:
-	elif [ "$arch_kernel" ] && kernel_present "$arch_kernel"; then
+	if [ "$arch_kernel" ] && kernel_present "$arch_kernel"; then
 		# Recommended kernel for this architecture exists; use that.
 		info "arch_kernel: $arch_kernel (present)"
 		KERNEL="$arch_kernel"
+	elif kernel_present "$KERNEL"; then
+		# Current selection is available, nothing to do
+		:
 	else
 		# No recommendations available; try to guess.
 		info "arch_kernel: $arch_kernel (absent)"
