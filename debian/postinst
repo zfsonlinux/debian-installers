@@ -369,7 +369,15 @@ for os in $(cat /tmp/os-probed); do
 title		$title
 root		$grubdrive
 savedefault
+EOF
+				# Only set makeactive if grub is installed
+				# in the mbr.
+				if [ "$bootdev" = "(hd0)" ]; then
+					cat >> $tmpfile <<EOF
 makeactive
+EOF
+				fi
+				cat >> $tmpfile <<EOF
 chainloader	+1
 
 EOF
