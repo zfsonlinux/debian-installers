@@ -81,16 +81,22 @@ get_mirror_info () {
 			EXCLUDES=`grep -v '^#' /cdrom/.disk/base_exclude | tr '\n' , | sed 's/,$//'`
 		fi
 	else
-		db_get mirror/protocol
+		mirror_error=""
+		
+		db_get mirror/protocol || mirror_error=1
 		PROTOCOL="$RET"
 
-		db_get mirror/$PROTOCOL/hostname
+		db_get mirror/$PROTOCOL/hostname || mirror_error=1
 		MIRROR="$RET"
 
-		db_get mirror/$PROTOCOL/directory
+		db_get mirror/$PROTOCOL/directory || mirror_error=1
 		DIRECTORY="$RET"
 
 		COMPONENTS="main"
+
+		if [ "$mirror_error" = 1 ] || [ -z "$PROTOCOL" ] || [ -z "$MIRROR" ]; then
+			exit_error base-installer/cannot_install
+		fi
 	fi
 
 	if db_get mirror/suite && [ "$RET" ] ; then
