@@ -125,6 +125,7 @@ fi
 COMPONENTS=`echo $COMPONENTS | tr , " "`
 APTSOURCE="$PROTOCOL://$MIRROR$DIRECTORY"
 
+[ ! -d /target/etc/apt ] && mkdir -p /target/etc/apt
 echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
 
 apt-update
