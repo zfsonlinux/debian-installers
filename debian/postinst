@@ -315,28 +315,35 @@ create_devices () {
 	fi
 }
 
-kernel_update_list () {
-	# Using 'uniq' to avoid listing the same kernel more then once.
-	chroot /target apt-cache search kernel-image | grep ^kernel-image | \
-	cut -d" " -f1 | uniq > $KERNEL_LIST
-}
-
-kernel_present () {
-	grep -q "^$1\$" $KERNEL_LIST
-}
-
 # Test whether a kernel is usable at all. For the purposes of this test, we
 # assume that SMP is usable on UP and vice versa (is this safe?).
 # Some architectures just have a hierarchy of optimized kernels, whereas
 # some have subarchitectures that are incompatible at the kernel level. This
 # function should cope with both cases.
 check_usable_kernel () {
-	if ! arch_check_usable_kernel "$1" "$FLAVOUR"; then
+	if arch_check_usable_kernel "$1" "$FLAVOUR"; then
+		info "kernel $1 usable on $FLAVOUR"
+		return 0
+	else
 		info "kernel $1 not usable on $FLAVOUR"
 		return 1
 	fi
-	info "kernel $1 usable on $FLAVOUR"
-	return 0
+}
+
+kernel_update_list () {
+	# Using 'uniq' to avoid listing the same kernel more then once.
+	chroot /target apt-cache search kernel-image | grep ^kernel-image | \
+	cut -d" " -f1 | uniq > "$KERNEL_LIST.unfiltered"
+	kernels=`sort -r "$KERNEL_LIST.unfiltered" | tr '\n' ' ' | sed -e 's/ $//'`
+	for candidate in $kernels; do
+		if check_usable_kernel "$candidate"; then
+			echo "$candidate"
+		fi
+	done > "$KERNEL_LIST"
+}
+
+kernel_present () {
+	grep -q "^$1\$" $KERNEL_LIST
 }
 
 # Returns a kernel that seems appropriate for the machine.
@@ -352,11 +359,16 @@ pick_kernel () {
 		KERNEL="$RET"
 	fi
 
+	kernel_update_list
+
 	# Using 'sort -r' to get the newest kernel version at the start of the
 	# list (ie 2.4.20 above 2.2.20).  This is in conflict with getting the
 	# most generic architecture first (386 above 686).
-	kernel_update_list
-	kernels=`sort -r $KERNEL_LIST| tr '\n' ',' | sed -e 's/,$//'`
+	# For now, only present kernels we believe to be usable. We may have
+	# to rethink this later, but if there are no usable kernels it
+	# should be accompanied by an error message. The default must still
+	# be usable if possible.
+	kernels=`sort -r "$KERNEL_LIST" | tr '\n' ',' | sed -e 's/,$//'`
 
 	info "Found kernels '$kernels'"
 
@@ -367,40 +379,31 @@ pick_kernel () {
 		exit_error base-installer/kernel/no-kernels-found
 	fi
 
+	arch_kernel=$(get_arch_kernel)
+
 	# Try to make current rootskel setting the default, make sure it is
 	# available first.
 	if kernel_present "$KERNEL" ; then
 		# Current selection is available, nothing to do
 		:
+	elif [ "$arch_kernel" ] && kernel_present "$arch_kernel"; then
+		# Recommended kernel for this architecture exists; use that.
+		info "arch_kernel: $arch_kernel (present)"
+		KERNEL="$arch_kernel"
 	else
-		# If possible, find one with at least the same major number
-		# as the currently running kernel.
-		KERNEL=$(echo "$kernels" | sed 's/,/\n/g' | grep -- "-$KERNEL_MAJOR" | head -n 1)
+		# No recommendations available; try to guess.
+		info "arch_kernel: $arch_kernel (absent)"
+
+		# Try to default to running kernel version.
+		KVERS=`uname -r | cut -d'-' -f 1`
+		KERNEL="$(echo "$kernels" | sed 's/,/\n/g' | grep -- "-$KVERS" | head -n 1)"
 		if [ -z "$KERNEL" ]; then
-			# Take the first on the list.
-			KERNEL=$(echo "$kernels" | cut -d, -f1)
-		fi
-	fi
-
-	arch_kernel=$(get_arch_kernel)
-	info "arch_kernel: $arch_kernel"
-	if kernel_present $arch_kernel ; then
-		KERNEL=$arch_kernel
-	elif [ "" != "$arch_kernel" ] ; then
-		kernels=`grep $arch_kernel $KERNEL_LIST | sort -r | tr '\n' ',' | sed -e 's/,$//'`
-		if [ "$kernels" ]; then
-			db_subst base-installer/kernel/which-kernel KERNELS "$kernels"
-
-			# Try to default to running kernel version.
-			KVERS=`uname -r | cut -d'-' -f 1`
-			if [ "$KVERS" != "" ]; then
-				kernellist=`grep $arch_kernel $KERNEL_LIST | sort -r | tr '\n' ' '` 
-				for akernel in $kernellist; do
-					if [ "" != "`echo $akernel | grep '^kernel-image-'$KVERS`" ]; then
-						KERNEL=$akernel
-						break
-					fi
-				done
+			# If possible, find one with at least the same major number
+			# as the currently running kernel.
+			KERNEL="$(echo "$kernels" | sed 's/,/\n/g' | grep -- "-$KERNEL_MAJOR" | head -n 1)"
+			if [ -z "$KERNEL" ]; then
+				# Take the first on the list.
+				KERNEL=$(echo "$kernels" | cut -d, -f1)
 			fi
 		fi
 	fi
