@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer 0.27\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-15 09:16+0100\n"
+"POT-Creation-Date: 2004-02-03 10:01+0100\n"
 "PO-Revision-Date: 2004-01-18 16:52+100\n"
 "Last-Translator: André Dahlqvist <andre.dahlqvist@telia.com>\n"
 "Language-Team: Swedish <debian-boot@lists.debian.org>\n"
@@ -33,25 +33,38 @@ msgstr "Enhet för installation av startladdaren (boot loader):"
 #. Description
 #: ../templates:4
 msgid ""
-"GRUB needs to install the stage 1 boot loader on a bootable device. This is "
-"usually the first hard drive. Note that GRUB counts devices differently than "
-"the Linux kernel, so the first one is usually '(hd0)'. Leave this at default "
-"if unsure."
+"Now it is time to make the newly installed Debian system bootable, by "
+"installing the GRUB bootloader on a bootable device. The usual way to do "
+"this is to install GRUB on the master boot record of your first hard drive."
 msgstr ""
-"GRUB måste installera första delen av startladdaren (boot loader) på en "
-"startbar enhet. Detta är vanligtvis första hårddisken. Notera att GRUB "
-"räknar enheter annorlunda än Linuxkärnan, så den första är vanligtvis \"(hd0)"
-"\". Behåll standardvärdet om du är osäker."
+
+#. Type: string
+#. Description
+#: ../templates:4
+msgid ""
+"Note that GRUB counts devices differently than the Linux kernel, so the "
+"first drive is usually '(hd0)'. If you want it on the second partition of "
+"the first drive, use '(hd0,1)'. Leave this at default if unsure."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:4
+msgid ""
+"Warning: By default, this will change how your computer boots, overwriting "
+"your existing master boot record with GRUB. Continuing may make other "
+"operating systems installed on this computer unbootable!"
+msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:13
+#: ../templates:20
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Installationen av GRUB misslyckades. Fortsätt ändå?"
 
 #. Type: boolean
 #. Description
-#: ../templates:13
+#: ../templates:20
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -63,73 +76,84 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:20
+#: ../templates:27
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Kunde inte installera GRUB på ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:20
+#: ../templates:27
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Misslyckades att köra \"grub-install\" ${BOOTDEV}'."
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:34
 msgid "Unable to configure GRUB"
 msgstr "Kunde inte konfigurera GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:34
 msgid "Executing 'update-grub' failed."
 msgstr "Misslyckad körning av \"update-grub\"."
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:34
 msgid "This is a fatal error."
 msgstr "Detta är ett ödesdigert fel."
 
 #. Type: text
 #. Description
-#: ../templates:34
+#: ../templates:41
 msgid "Installing GRUB boot loader"
 msgstr "Installerar startladdaren (boot loader) GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:38
+#: ../templates:45
 msgid "Installing the 'grub' package..."
 msgstr "Installerar paketet \"grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:42
+#: ../templates:49
 msgid "Determining GRUB boot device..."
 msgstr "Fastställer startenhet för GRUB..."
 
 #. Type: text
 #. Description
-#: ../templates:46
+#: ../templates:53
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Kör \"grub-install\" ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../templates:50
+#: ../templates:57
 msgid "Running \"update-grub\"..."
 msgstr "Kör \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:54
+#: ../templates:61
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Uppdaterar /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:59
+#: ../templates:66
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installera startladdaren (boot loader) GRUB på en hårddisk"
+
+#~ msgid ""
+#~ "GRUB needs to install the stage 1 boot loader on a bootable device. This "
+#~ "is usually the first hard drive. Note that GRUB counts devices "
+#~ "differently than the Linux kernel, so the first one is usually '(hd0)'. "
+#~ "Leave this at default if unsure."
+#~ msgstr ""
+#~ "GRUB måste installera första delen av startladdaren (boot loader) på en "
+#~ "startbar enhet. Detta är vanligtvis första hårddisken. Notera att GRUB "
+#~ "räknar enheter annorlunda än Linuxkärnan, så den första är vanligtvis "
+#~ "\"(hd0)\". Behåll standardvärdet om du är osäker."

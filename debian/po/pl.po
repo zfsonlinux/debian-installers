@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-15 09:16+0100\n"
+"POT-Creation-Date: 2004-02-03 10:01+0100\n"
 "PO-Revision-Date: 2004-01-19 20:24+0100\n"
 "Last-Translator: Bartosz Feñski <fenio@o2.pl>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
@@ -33,26 +33,38 @@ msgstr "Urz±dzenie do instalacji programu uruchomienowego:"
 #. Description
 #: ../templates:4
 msgid ""
-"GRUB needs to install the stage 1 boot loader on a bootable device. This is "
-"usually the first hard drive. Note that GRUB counts devices differently than "
-"the Linux kernel, so the first one is usually '(hd0)'. Leave this at default "
-"if unsure."
+"Now it is time to make the newly installed Debian system bootable, by "
+"installing the GRUB bootloader on a bootable device. The usual way to do "
+"this is to install GRUB on the master boot record of your first hard drive."
 msgstr ""
-"GRUB potrzebuje zainstalowaæ pierwszy etap programu uruchomieniowego na "
-"urz±dzeniu uruchomieniowym. To jest zazwyczaj pierwszy dysk twardy. Zwróæ "
-"uwagê, ¿e GRUB oznacza urz±dzenia inaczej ni¿ j±dro Linuksa i pierwszy dysk "
-"twardy to zazwyczaj '(hd0)'. Zostaw domy¶lne ustawienie je¶li nie jeste¶ "
-"pewien."
+
+#. Type: string
+#. Description
+#: ../templates:4
+msgid ""
+"Note that GRUB counts devices differently than the Linux kernel, so the "
+"first drive is usually '(hd0)'. If you want it on the second partition of "
+"the first drive, use '(hd0,1)'. Leave this at default if unsure."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:4
+msgid ""
+"Warning: By default, this will change how your computer boots, overwriting "
+"your existing master boot record with GRUB. Continuing may make other "
+"operating systems installed on this computer unbootable!"
+msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:13
+#: ../templates:20
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Instalacja GRUBa nie powiod³a siê. Kontynuowaæ mimo tego?"
 
 #. Type: boolean
 #. Description
-#: ../templates:13
+#: ../templates:20
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -64,73 +76,85 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:20
+#: ../templates:27
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Nie mo¿na zainstalowaæ GRUBa w ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:20
+#: ../templates:27
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Uruchomienie 'grub install ${BOOTDEV}' nie powiod³o siê."
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:34
 msgid "Unable to configure GRUB"
 msgstr "Nie mo¿na skonfigurowaæ GRUBa"
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:34
 msgid "Executing 'update-grub' failed."
 msgstr "Uruchomienie 'update-grub' nie powiod³o siê."
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:34
 msgid "This is a fatal error."
 msgstr "B³±d krytyczny."
 
 #. Type: text
 #. Description
-#: ../templates:34
+#: ../templates:41
 msgid "Installing GRUB boot loader"
 msgstr "Instalacja programu uruchomieniowego GRUB."
 
 #. Type: text
 #. Description
-#: ../templates:38
+#: ../templates:45
 msgid "Installing the 'grub' package..."
 msgstr "Instalowanie pakiety 'grub'..."
 
 #. Type: text
 #. Description
-#: ../templates:42
+#: ../templates:49
 msgid "Determining GRUB boot device..."
 msgstr "Ustalanie urz±dzenia uruchomieniowego GRUB..."
 
 #. Type: text
 #. Description
-#: ../templates:46
+#: ../templates:53
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Uruchamianie \"grub install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../templates:50
+#: ../templates:57
 msgid "Running \"update-grub\"..."
 msgstr "Uruchamianie \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:54
+#: ../templates:61
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Aktualizacja /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:59
+#: ../templates:66
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Instaluj program uruchomieniowy GRUB na dysku twardym"
+
+#~ msgid ""
+#~ "GRUB needs to install the stage 1 boot loader on a bootable device. This "
+#~ "is usually the first hard drive. Note that GRUB counts devices "
+#~ "differently than the Linux kernel, so the first one is usually '(hd0)'. "
+#~ "Leave this at default if unsure."
+#~ msgstr ""
+#~ "GRUB potrzebuje zainstalowaæ pierwszy etap programu uruchomieniowego na "
+#~ "urz±dzeniu uruchomieniowym. To jest zazwyczaj pierwszy dysk twardy. Zwróæ "
+#~ "uwagê, ¿e GRUB oznacza urz±dzenia inaczej ni¿ j±dro Linuksa i pierwszy "
+#~ "dysk twardy to zazwyczaj '(hd0)'. Zostaw domy¶lne ustawienie je¶li nie "
+#~ "jeste¶ pewien."

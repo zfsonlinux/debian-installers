@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer/tools/grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-15 09:16+0100\n"
+"POT-Creation-Date: 2004-02-03 10:01+0100\n"
 "PO-Revision-Date: 2004-01-16 18:53-0600\n"
 "Last-Translator: Ming Hua <minghua@rice.edu>\n"
 "MIME-Version: 1.0\n"
@@ -33,24 +33,38 @@ msgstr "安装启动管理器的设备："
 #. Description
 #: ../templates:4
 msgid ""
-"GRUB needs to install the stage 1 boot loader on a bootable device. This is "
-"usually the first hard drive. Note that GRUB counts devices differently than "
-"the Linux kernel, so the first one is usually '(hd0)'. Leave this at default "
-"if unsure."
+"Now it is time to make the newly installed Debian system bootable, by "
+"installing the GRUB bootloader on a bootable device. The usual way to do "
+"this is to install GRUB on the master boot record of your first hard drive."
 msgstr ""
-"GRUB 需要将 stage 1 引导管理器装到一个可以启动的设备上。这通常是使用第一个硬"
-"盘驱动器。注意， GRUB 对设备的计数与 Linux 内核不同，第一个硬盘通常是 "
-"'(hd0)'。如果不确定，就保留默认值。"
+
+#. Type: string
+#. Description
+#: ../templates:4
+msgid ""
+"Note that GRUB counts devices differently than the Linux kernel, so the "
+"first drive is usually '(hd0)'. If you want it on the second partition of "
+"the first drive, use '(hd0,1)'. Leave this at default if unsure."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:4
+msgid ""
+"Warning: By default, this will change how your computer boots, overwriting "
+"your existing master boot record with GRUB. Continuing may make other "
+"operating systems installed on this computer unbootable!"
+msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:13
+#: ../templates:20
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "GRUB 安装失败。仍然继续吗？"
 
 #. Type: boolean
 #. Description
-#: ../templates:13
+#: ../templates:20
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -61,73 +75,83 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:20
+#: ../templates:27
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "无法将 GRUB 装到 ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:20
+#: ../templates:27
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "执行 'grub-install ${BOOTDEV}' 失败。"
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:34
 msgid "Unable to configure GRUB"
 msgstr "无法配置 GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:34
 msgid "Executing 'update-grub' failed."
 msgstr "执行 'update-grub' 失败。"
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:34
 msgid "This is a fatal error."
 msgstr "这是一个严重错误。"
 
 #. Type: text
 #. Description
-#: ../templates:34
+#: ../templates:41
 msgid "Installing GRUB boot loader"
 msgstr "安装 GRUB 引导管理器"
 
 #. Type: text
 #. Description
-#: ../templates:38
+#: ../templates:45
 msgid "Installing the 'grub' package..."
 msgstr "正在安装 'grub' 软件包..."
 
 #. Type: text
 #. Description
-#: ../templates:42
+#: ../templates:49
 msgid "Determining GRUB boot device..."
 msgstr "正在确定 GRUB 启动设备..."
 
 #. Type: text
 #. Description
-#: ../templates:46
+#: ../templates:53
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "运行 \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../templates:50
+#: ../templates:57
 msgid "Running \"update-grub\"..."
 msgstr "正在运行 \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:54
+#: ../templates:61
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "正在更新 /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:59
+#: ../templates:66
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "安装 GRUB 引导管理器到硬盘上"
+
+#~ msgid ""
+#~ "GRUB needs to install the stage 1 boot loader on a bootable device. This "
+#~ "is usually the first hard drive. Note that GRUB counts devices "
+#~ "differently than the Linux kernel, so the first one is usually '(hd0)'. "
+#~ "Leave this at default if unsure."
+#~ msgstr ""
+#~ "GRUB 需要将 stage 1 引导管理器装到一个可以启动的设备上。这通常是使用第一个"
+#~ "硬盘驱动器。注意， GRUB 对设备的计数与 Linux 内核不同，第一个硬盘通常是 "
+#~ "'(hd0)'。如果不确定，就保留默认值。"

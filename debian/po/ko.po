@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-15 09:16+0100\n"
+"POT-Creation-Date: 2004-02-03 10:01+0100\n"
 "PO-Revision-Date: 2003-12-15 23:28+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Korean\n"
@@ -33,25 +33,38 @@ msgstr "부트 로더를 설치할 장치:"
 #. Description
 #: ../templates:4
 msgid ""
-"GRUB needs to install the stage 1 boot loader on a bootable device. This is "
-"usually the first hard drive. Note that GRUB counts devices differently than "
-"the Linux kernel, so the first one is usually '(hd0)'. Leave this at default "
-"if unsure."
+"Now it is time to make the newly installed Debian system bootable, by "
+"installing the GRUB bootloader on a bootable device. The usual way to do "
+"this is to install GRUB on the master boot record of your first hard drive."
 msgstr ""
-"부팅 가능한 장치에 GRUB의 stage 1 부트 로더를 설치해야 합니다. 부팅 가능한 장"
-"치는 보통 첫 번째 하드 드라이브입니다. GRUB에서는 리눅스 커널과 다른 방법으"
-"로 디바이스 번호를 붙인다는 것에 유의하십시오. 첫 번째 하드 드라이브는 보통 "
-"'(hd0)'입니다. 확실히 모르겠다면 그냥 기본값으로 남겨 두십시오."
+
+#. Type: string
+#. Description
+#: ../templates:4
+msgid ""
+"Note that GRUB counts devices differently than the Linux kernel, so the "
+"first drive is usually '(hd0)'. If you want it on the second partition of "
+"the first drive, use '(hd0,1)'. Leave this at default if unsure."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:4
+msgid ""
+"Warning: By default, this will change how your computer boots, overwriting "
+"your existing master boot record with GRUB. Continuing may make other "
+"operating systems installed on this computer unbootable!"
+msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:13
+#: ../templates:20
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "GRUB 설치가 실패했습니다.  그래도 계속 하시겠습니까?"
 
 #. Type: boolean
 #. Description
-#: ../templates:13
+#: ../templates:20
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -63,71 +76,71 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:20
+#: ../templates:27
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "GRUB을 ${BOOTDEV}에 설치할 수 없습니다"
 
 #. Type: error
 #. Description
-#: ../templates:20
+#: ../templates:27
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "'grub-install ${BOOTDEV}' 실행이 실패했습니다."
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:34
 msgid "Unable to configure GRUB"
 msgstr "GRUB을 설정할 수 없습니다"
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:34
 msgid "Executing 'update-grub' failed."
 msgstr "'update-grub' 실행이 실패했습니다."
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:34
 msgid "This is a fatal error."
 msgstr "치명적인 오류입니다."
 
 #. Type: text
 #. Description
-#: ../templates:34
+#: ../templates:41
 msgid "Installing GRUB boot loader"
 msgstr "GRUB 부트 로더 설치"
 
 #. Type: text
 #. Description
-#: ../templates:38
+#: ../templates:45
 #, fuzzy
 msgid "Installing the 'grub' package..."
 msgstr "'grub' 패키지를 설치하는 중입니다."
 
 #. Type: text
 #. Description
-#: ../templates:42
+#: ../templates:49
 #, fuzzy
 msgid "Determining GRUB boot device..."
 msgstr "GRUB 부트 장치를 결정하는 중입니다."
 
 #. Type: text
 #. Description
-#: ../templates:46
+#: ../templates:53
 #, fuzzy
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "\"grub-install ${BOOTDEV}\" 실행 중입니다."
 
 #. Type: text
 #. Description
-#: ../templates:50
+#: ../templates:57
 #, fuzzy
 msgid "Running \"update-grub\"..."
 msgstr "\"update-grub\" 실행 중입니다."
 
 #. Type: text
 #. Description
-#: ../templates:54
+#: ../templates:61
 #, fuzzy
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "/etc/kernel-img.conf 업데이트 중입니다."
@@ -135,6 +148,17 @@ msgstr "/etc/kernel-img.conf 업데이트 중입니다."
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:59
+#: ../templates:66
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "GRUB 부트로더를 하드 디스크에 설치"
+
+#~ msgid ""
+#~ "GRUB needs to install the stage 1 boot loader on a bootable device. This "
+#~ "is usually the first hard drive. Note that GRUB counts devices "
+#~ "differently than the Linux kernel, so the first one is usually '(hd0)'. "
+#~ "Leave this at default if unsure."
+#~ msgstr ""
+#~ "부팅 가능한 장치에 GRUB의 stage 1 부트 로더를 설치해야 합니다. 부팅 가능"
+#~ "한 장치는 보통 첫 번째 하드 드라이브입니다. GRUB에서는 리눅스 커널과 다른 "
+#~ "방법으로 디바이스 번호를 붙인다는 것에 유의하십시오. 첫 번째 하드 드라이브"
+#~ "는 보통 '(hd0)'입니다. 확실히 모르겠다면 그냥 기본값으로 남겨 두십시오."
