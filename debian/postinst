@@ -423,14 +423,18 @@ get_arch_kernel () {
 	;;
 	ia64)
 		version=2.4
-		# Running a UP kernel for install atm, so don't know how to detect
-		# whether SMP is needed.  Assume SMP for now.
 		if grep -q 'Itanium 2' /proc/cpuinfo; then
 			family=mckinley
 		else
 			family=itanium
 		fi
-		trykernel=kernel-image-$version-$family-smp
+		CPUS=$(grep ^processor /proc/cpuinfo | tail -1 | cut -d':' -f2)
+		if [ -z $CPUS ] || [ $CPUS -ne 0 ]; then
+			flavor=$family-smp
+		else
+			flavor=$family
+		fi
+		trykernel=kernel-image-$version-$flavor
 	;;
 	alpha)
 		version=2.4.26-1
