@@ -39,7 +39,6 @@ binary-indep: build install
 	dh_testdir
 	dh_testroot
 	dh_installdebconf
-	cp debian/isinstallable debian/grub-installer/DEBIAN/
 	dh_installdeb 
 	dh_gencontrol -- -fdebian/files~
 	dpkg-distaddfile $(FILENAME) debian-installer $(PRIORITY)
