@@ -5,8 +5,10 @@ grub-installer (0.0.6) UNRELEASED; urgency=low
       Gaute Hvoslef Kvalnes.
     - The boot loader installers now depend on kernel-installer, not base-
       installer.
+    - Call 'apt-install grub' in postinst to make sure it is installed in
+      /target/ before it is used (Closes: #181792).
 
- -- Petter Reinholdtsen <pere@debian.org>  Wed,  5 Feb 2003 00:38:10 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Fri, 21 Feb 2003 17:23:05 +0100
 
 grub-installer (0.0.5) unstable; urgency=low
 

@@ -2,11 +2,23 @@
 
 . /usr/share/debconf/confmodule
 
+if apt-install grub ; then
+	:
+else
+	# Hm, unable to install grub into /target/, what should we do?
+	db_input critical grub-installer/apt-install-failed || [ $? -eq 30 ]
+	db_go
+	db_get
+	if [ true != "$RET" ] ; then
+		exit 1
+	fi
+fi
+
 if [ "$defaultbootdev" ] ; then
     db_subst grub-installer/bootdev bootdev "$defaultbootdev"
 fi
-db_input medium grub-installer/bootdev || true
-db_go || true
+db_input medium grub-installer/bootdev || [ $? -eq 30 ]
+db_go
 
 db_get grub-installer/bootdev
 bootdev=$RET
