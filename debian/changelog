@@ -1,4 +1,11 @@
-base-installer (0.055) UNRELEASED; urgency=low
+base-installer (0.055) unstable; urgency=low
+
+  * Joey Hess
+    - Test /target/bin/sh and /target/bin/awk and if they exist or are broken
+      links, warn the user that the target is unclean and install may fail.
+      At high priority level, cancel the install with an error, suggesting
+      that the user format or erase the target.
+      Closes: #220550, #218606, #212967, #221430, #233168
 
   * Translations
     - Ming Hua
@@ -6,7 +13,7 @@ base-installer (0.055) UNRELEASED; urgency=low
     - Håvard Korsvoll
       - Updated Norwegian, nynorsk translation (nn.po).
 
- -- Ming Hua <minghua@rice.edu>  Tue, 24 Feb 2004 15:59:56 -0600
+ -- Joey Hess <joeyh@debian.org>  Wed, 25 Feb 2004 14:37:39 -0500
 
 base-installer (0.054) unstable; urgency=low
 
