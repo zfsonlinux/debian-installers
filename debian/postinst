@@ -312,6 +312,7 @@ get_arch_kernel () {
 		else
 			SMP=no
 		fi
+
 		case "$VENDOR" in
 		" AuthenticAMD"*)
 			case "$FAMILY" in
@@ -359,6 +360,11 @@ get_arch_kernel () {
 			trykernel=kernel-image-$version-386
 		;;
 		esac
+		
+		if [ -e /proc/speakup ]; then
+			# Override and use speakup kernel. There's only one.
+			trykernel=kernel-image-$(uname -r)-speakup
+		fi
 	;;
 	amd64)
 		version=2.6
