@@ -95,16 +95,29 @@ case "$ARCH" in
     i386*)
         version=2.4
         MODEL=`grep 'model name' /proc/cpuinfo | cut -d: -f2`
+	if dmesg | grep -q ^Processors:; then
+	    CPUS=`dmesg | grep ^Processors: | cut -d: -f2`
+	else
+	    CPUS=1
+	fi
 	case "$MODEL" in 
 	    " Intel(R) Pentium(R) 4"*)
-	    trykernel=kernel-image-$version-686
-	    ;;
+		if test $CPUS -eq 1; then
+		    trykernel=kernel-image-$version-686
+		else
+		    trykernel=kernel-image-$version-686-smp
+		fi
+		;;
 	    " AMD Athlon(tm) Processor"*)
-	    trykernel=kernel-image-$version-k7
-	    ;;
+		if test $CPUS -eq 1; then
+		    trykernel=kernel-image-$version-k7
+		else
+		    trykernel=kernel-image-$version-k7-smp
+		fi
+		;;
 	    *)
-	    trykernel=kernel-image-$version-386
-	    ;;
+		trykernel=kernel-image-$version-386
+		;;
 	esac
         ;;
     sparc)
