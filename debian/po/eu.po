@@ -16,13 +16,14 @@ msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-20 09:04+0200\n"
-"PO-Revision-Date: 2004-06-06 21:09+0200\n"
+"PO-Revision-Date: 2004-06-20 14:08+0200\n"
 "Last-Translator: Piarres Beobide Egaña <pi@beobide.net>\n"
 "Language-Team: Euskara <librezale@librezale.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.3.1\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. Type: boolean
 #. Description
@@ -31,7 +32,7 @@ msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
 msgstr ""
-"Hurrengo beste sistema eragile hauek aurkitu dir ordenagailu honetan: "
+"Hurrengo beste sistema eragile hauek aurkitu dira ordenagailu honetan: "
 "${OS_LIST}"
 
 #. Type: boolean
@@ -42,17 +43,13 @@ msgid ""
 "install the boot loader to the master boot record of your first hard drive. "
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
-msgstr ""
-"Zure sistema eragile guztiak zerrendaturik badaude, ziurra da lehen diskako "
-"abiarazte grabatze nagusian (MBR) instalatzea. Zure ordenagailua abiaraztean "
-"hautako zein sistema edo Debian sistema berria abiarazi aukera dezakezu."
+msgstr "Zure sistema eragile guztiak zerrendaturik badaude, ziurra da lehen diskako abiarazte erregistro nagusian (MBR) instalatzea. Zure ordenagailua abiaraztean hauetako zein sistema edo Debian sistema berria abiarazi aukera dezakezu."
 
 #. Type: boolean
 #. Description
 #: ../templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr ""
-"GRUB abirazlea disko gogorreko abiarazte erregitro nagusian (MBR) instalatu?"
+msgstr "GRUB abirazlea disko gogorreko abiarazte erregitro nagusian (MBR) instalatu?"
 
 #. Type: boolean
 #. Description
@@ -61,10 +58,7 @@ msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
 "the master boot record of your first hard drive."
-msgstr ""
-"Dirudienez Debian instalazio hau da ordanagailu honetako sistema eragile "
-"bakarra. Hala bada, ziurra da GRUB abiarazlea lehen diskako abiarazte "
-"erregistro nagusian instalatzea."
+msgstr "Dirudienez Debian instalazio hau da ordanagailu honetako sistema eragile bakarra. Hala bada, ziurra da GRUB abiarazlea lehen diskako abiarazte erregistro nagusian instalatzea."
 
 #. Type: boolean
 #. Description
@@ -76,9 +70,7 @@ msgid ""
 "configured later to boot it."
 msgstr ""
 "Oharra: Instalatzaileak zure ordenagailuan instalaturik dagoen sistema "
-"eragile batenbat atzematen ez badu, abiarazte erregistro nagusia aldatzeak "
-"sistema eragile hori momentu abiarazi ezinik utz lezake, baina geroago GRUB "
-"eskuz konfigratu ahal izango da abiarazi ahal izateko."
+"eragile batenbat atzematen ez badu, abiarazte erregistro nagusia aldatzeak sistema eragile hori momentuz abiarazi ezinik utz lezake, baina geroago GRUB eskuz konfigratu ahal izango duzu abiarazi ahal izateko."
 
 #. Type: string
 #. Description
@@ -98,13 +90,12 @@ msgid ""
 msgstr ""
 "Orain instalatu berri dezun Debian sistema abiarazgarri egiteko momentua da, "
 "Honetarako GRUB abiarazlea gailu abiarazgarri batetan ipini behar da. Hau "
-"egiteko era arruntena lehen diskako GRUB MBR-ean (abiarazte grabatze "
+"egiteko era arruntena lehen diskako GRUB MBR-ean (abiarazte erregistro "
 "nagusia) ipintzea da."
 
 #. Type: string
 #. Description
 #: ../templates:28
-#, fuzzy
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -118,9 +109,11 @@ msgid ""
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
 "Gailua GRUB izenematearekin \"(hdn)\" edo \"/dev\" gailu gisa ezarri "
-"daitezke. Adibidez, \"(hd0)\"-k GRUB zure lehen diskako abiarazte grabatze "
-"nagusian instalatuko luke, eta \"/dev/hda2/\"-k zure lehen IDE diskako "
-"bigarren partizioa instalatuko luke."
+"daitezke. Berago adibide batzuk: "
+" - \"(hd0)\" edo \"/dev/hda\"  GRUB zure lehen IDE diskako abiarazte erregistro nagusian instalatuko luke.\n"
+" - \"(hd0,1)\" edo \"/dev/hda2/\"-k zure lehen IDE diskako bigarren partizioa instalatuko luke. "
+" - \"(hd2,4)\" edo \"/dev/sdc5/\"-k zure hirugarren SCSI diskako lehen partizio extendituan instalatuko luke. "
+" - \"(fd0)\" edo \"/dev/fd0\" lehen diskete gailuan  instalatuko luke. "
 
 #. Type: boolean
 #. Description
@@ -180,7 +173,7 @@ msgstr "GRUB abiarazlea instalatzen"
 #. Description
 #: ../templates:73
 msgid "Looking for other operating systems..."
-msgstr "Beste Sistema eragile batenbaten bila..."
+msgstr "Beste Sistema eragileen bila..."
 
 #. Type: text
 #. Description
@@ -243,3 +236,4 @@ msgstr "GRUB abirazlea disko gogorrean instalatu"
 #~ "Kontuz: Honek zure ordenagailua kargatzeko era aldatuko du, zure abiazte "
 #~ "grabazio nagusia (mbr) GRUB erabiliaz berridazten. Jarraitzeak beste "
 #~ "Sistema eragile batzuk abiarazi ezin utz ditzake."
+
