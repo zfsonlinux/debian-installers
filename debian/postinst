@@ -131,6 +131,8 @@ get_mirror_info () {
 }
 	
 install_base_system () {
+	db_progress INFO base-installer/progress/preparing
+
 	if [ "${INCLUDES}" ]; then
 		include="--include=${INCLUDES}"
 	fi
@@ -155,33 +157,33 @@ install_base_system () {
 			export http_proxy
 		fi
 	fi
-
+	
 	# run the scripts found in hook directory before debootstrap
 	partsdir="/usr/lib/base-installer.d"
-	db_progress INFO base-installer/progress/preparing
-
-	tmpfile=/tmp/base-installer-hook.log
-	[ -d "$partsdir" ] && info "Execution hook before debootstrap"
-	for script in `ls "$partsdir"/*`; do
-	    base=$(basename $script | sed 's/[0-9]*//')
-	    if ! db_progress INFO base-installer/progress/$base; then
-		db_subst base-installer/progress/fallback SCRIPT "$base"
-		db_progress INFO base-installer/progress/fallback
-	    fi
-
-	    if [ -x "$script" ] ; then
-		info "Running $script"
-		if ! "$script" 2>&1 $tmpfile ; then
-		    log "warning: $script returned error code $?"
-		fi
-	    else
-		error "Unable to execute $script"
-	    fi
-	    if [ -s "$tmpfile" ] ; then
-		logger -t base-installer < "$tmpfile"
-		rm -f "$tmpfile"
-	    fi
-	done
+	if [ -d "$partsdir" ]; then
+		tmpfile=/tmp/base-installer-hook.log
+		info "Execution hook before debootstrap"
+		for script in `ls "$partsdir"/*`; do
+			base=$(basename $script | sed 's/[0-9]*//')
+			if ! db_progress INFO base-installer/progress/$base; then
+				db_subst base-installer/progress/fallback SCRIPT "$base"
+				db_progress INFO base-installer/progress/fallback
+		    	fi
+	
+		    	if [ -x "$script" ] ; then
+				info "Running $script"
+				if ! "$script" 2>&1 $tmpfile ; then
+			    		log "warning: $script returned error code $?"
+				fi
+		    	else
+				error "Unable to execute $script"
+		    	fi
+		    	if [ -s "$tmpfile" ] ; then
+				logger -t base-installer < "$tmpfile"
+				rm -f "$tmpfile"
+		    	fi
+		done
+	fi
 
 	if [ -e /usr/bin/cdebootstrap ]; then
 		/usr/bin/cdebootstrap || debootstrap_failed=$?
