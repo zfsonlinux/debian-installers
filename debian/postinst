@@ -527,16 +527,21 @@ EOF
 			exit_error base-installer/kernel/failed-initrd-tools-install
 		fi
 
+		rootpart_devfs=$(df /target/ | sed '1d;s/ .*//')
+		rootpartfs=$(mount | grep $rootpart_devfs | cut -d' ' -f5)
+		rootpart=$(mapdevfs $rootpart_devfs)
+
 		# Avoid possible root shell without giving passord while
 		# booting the 2.4 kernel
 		# This is here for back-compatability with woody's 
 		# initrd-tools; it's fixed in more recent versions
 		mkinitrdconf=/target/etc/mkinitrd/mkinitrd.conf
 		if [ -f $mkinitrdconf ] ; then
-			sed 's/^DELAY=.*/DELAY=0/' < $mkinitrdconf > $mkinitrdconf.new &&
+			sed -e 's/^DELAY=.*/DELAY=0/' -e "s#^ROOT=.*/ROOT='$rootpart $rootpartfs'" < $mkinitrdconf > $mkinitrdconf.new &&
 				mv $mkinitrdconf.new  $mkinitrdconf
 		else
 			echo 'DELAY=0' >> $mkinitrdconf
+			echo "ROOT='$rootpart $rootpartfs'" >> $mkinitrdconf
 		fi
 	else
 		info "Not installing initrd-tools."
