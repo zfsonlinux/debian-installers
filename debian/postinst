@@ -222,7 +222,7 @@ create_devices () {
 		apt-install mdadm
 	fi
 	# LVM: create VG and LV devices
-	if pvdisplay | grep -iq "physical volume ---" ; then
+	if pvdisplay | grep -iq "physical volume ---" && grep -q " device-mapper$" /proc/misc; then
 		apt-install lvm2
 		mount -t proc proc /target/proc
 		mkdir -p /target/dev/mapper
