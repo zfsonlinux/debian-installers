@@ -1,4 +1,4 @@
-ARCHES = alpha arm hppa i386 ia64 m68k powerpc s390 sparc
+ARCHES = alpha arm hppa i386 ia64 m68k mips powerpc s390 sparc
 
 test:
 	@cd tests && \
