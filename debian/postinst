@@ -1,10 +1,18 @@
-#! /bin/sh -e
+#! /bin/sh
 
+set -e
 . /usr/share/debconf/confmodule
+#set -x
+
+log() {
+    log=/var/log/messages
+    echo "grub-installer: $*" >> $log
+}
 
 if apt-install grub ; then
 	:
 else
+	log "Calling 'apt-install grub' failed"
 	# Hm, unable to install grub into /target/, what should we do?
 	db_input critical grub-installer/apt-install-failed || [ $? -eq 30 ]
 	db_go
@@ -23,10 +31,15 @@ db_go
 db_get grub-installer/bootdev
 bootdev=$RET
 
+log "Installing grub on '$bootdev'"
+
 if chroot /target /sbin/grub-install "$bootdev" ; then
     :
 else
-    echo "grub-installer: error: Running 'grub-install \"$bootdev\"' failed." 1>&2
+    log "error: Running 'grub-install \"$bootdev\"' failed."
+    db_subst grub-installer/grub-install-failed BOOTDEV "$bootdev"
+    db_input critical grub-installer/grub-install-failed
+    db_go
     exit 1
 fi
 
@@ -39,6 +52,8 @@ if chroot /target /usr/bin/yes | chroot /target /sbin/update-grub ; then
     :
 else
     echo "grub-installer: error: Running 'update-grub' failed." 1>&2
+    db_input critical grub-installer/update-grub-failed
+    db_go
     exit 1
 fi
 

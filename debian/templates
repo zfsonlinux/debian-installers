@@ -14,3 +14,17 @@ _Description: Unable to install grub in /target/.  Continue anyway?
  The grub package failed to install into /target/.  It is required to
  install GRUB as a boot loader.  The install problem might be unrelated to
  grub, and it might work to continue anyway.
+
+Template: grub-installer/grub-install-failed
+Type: note
+_Description: Unable to install grub in ${BOOTDEV}
+ Executing 'grub-install ${BOOTDEV}' failed.
+ .
+ This is a fatal error.
+
+Template: grub-installer/update-grub-failed
+Type: note
+_Description: Unable to configure grub
+ Executing 'update-grub' failed.
+ .
+ This is a fatal error.
