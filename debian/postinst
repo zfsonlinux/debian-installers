@@ -565,10 +565,20 @@ apt_update () {
 queue_language_debs () {
 	# Language specific packages.
 
+	info "Installing language specific packages."
+
 	db_get debian-installer/language || true
 
 	if [ "$RET" != "en" ]; then
-		apt-install iso-codes
+		info "Trying to install iso-codes."
+		# Package iso-codes is missing in Woody.  Do not fail
+		# if it is missing to make d-i capable of installing
+		# Woody and Skolelinux.
+		if apt-install iso-codes ; then
+		    :
+		else
+		    warning "Installing iso-codes failed."
+		fi
 	fi
 
 	case "`echo $RET | sed 's/:.*//'`" in
