@@ -68,8 +68,10 @@ check_target () {
 	# idempotent in general. Detect and abort.
 	if [ -e /target/usr/bin/awk -o -L /target/usr/bin/awk ] || \
 	   [ -e /target/bin/sh -o -L /target/bin/sh ]; then
+		db_capb ""
 		db_input medium base-installer/use_unclean_target || true
 		db_go || exit 10
+		db_capb backup
 		db_get base-installer/use_unclean_target
 		if [ "$RET" = false ]; then
 			db_reset base-installer/use_unclean_target
