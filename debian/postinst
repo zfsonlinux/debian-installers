@@ -570,14 +570,14 @@ queue_language_debs () {
 	db_get debian-installer/language || true
 
 	if [ "$RET" != "en" ]; then
-		info "Trying to install iso-codes."
+		info "Trying to install package iso-codes into /target/."
 		# Package iso-codes is missing in Woody.  Do not fail
 		# if it is missing to make d-i capable of installing
 		# Woody and Skolelinux.
 		if apt-install iso-codes ; then
 		    :
 		else
-		    warning "Installing iso-codes failed."
+		    warning "Installing package iso-codes failed."
 		fi
 	fi
 
