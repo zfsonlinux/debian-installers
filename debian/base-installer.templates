@@ -1,22 +1,24 @@
 Template: base-installer/debootstrap-failed
-Type: note
-_Description: Installing base system into /target/ failed
- Check /target/var/log/debootstrap.log and
+Type: error
+_Description: Failed to install the base system
+ The base system installation into /target/ failed.
+ .
+ Please check /target/var/log/debootstrap.log and
  /target/var/log/debootstrap.err.log for the details.
 
 Template: base-installer/debootstrap/error-exitcode
-Type: note
-_Description: Base installation error
- debootstrap exited with an error (return value ${EXITCODE}).
+Type: error
+_Description: Base system installation error
+ The debootstrap program exited with an error (return value ${EXITCODE}).
  .
- You might find more information in /target/var/log/debootstrap.log
+ You might find more information in /target/var/log/debootstrap.log.
 
 Template: base-installer/debootstrap/error-abnormal
-Type: note
-_Description: Base installation error
- debootstrap exited abnormally.
+Type: error
+_Description: Base system installation error
+ The debootstrap program exited abnormally.
  .
- You might find more information in /target/var/log/debootstrap.log
+ You might find more information in /target/var/log/debootstrap.log.
 
 Template: base-installer/debootstrap/fallback-error
 Type: error
@@ -26,7 +28,7 @@ _Description: Debootstrap Error
  ${ERROR}
  .
  You might find more information in /target/var/log/debootstrap.log
- or /target/var/log/debootstrap.err.log
+ or /target/var/log/debootstrap.err.log.
 
 Template: base-installer/debootstrap/error/baddload
 Type: error
@@ -89,43 +91,43 @@ Description: ${PROGRESS}
 
 Template: base-installer/debootstrap/progress/downrel
 Type: text
-_Description: Retrieving Release file
+_Description: Retrieving Release file...
 
 Template: base-installer/debootstrap/progress/downpkgs
 Type: text
-_Description: Retrieving Packages files
+_Description: Retrieving Packages files...
 
 Template: base-installer/debootstrap/progress/downdebs
 Type: text
-_Description: Retrieving packages
+_Description: Retrieving packages...
 
 Template: base-installer/debootstrap/progress/downmainpkgs
 Type: text
-_Description: Retrieving Packages file
+_Description: Retrieving Packages file...
 
 Template: base-installer/debootstrap/progress/extractpkgs
 Type: text
-_Description: Extracting packages
+_Description: Extracting packages...
 
 Template: base-installer/debootstrap/progress/instbase
 Type: text
-_Description: Installing base system
+_Description: Installing base system...
 
 Template: base-installer/debootstrap/fallback-info
 Type: text
-Description: ${INFO}
+Description: ${INFO}...
 
 Template: base-installer/debootstrap/info/validating
 Type: text
-_Description: Validating ${SUBST0}
+_Description: Validating ${SUBST0}...
 
 Template: base-installer/debootstrap/info/retrieving
 Type: text
-_Description: Retrieving ${SUBST0}
+_Description: Retrieving ${SUBST0}...
 
 Template: base-installer/debootstrap/info/extracting
 Type: text
-_Description: Extracting ${SUBST0}
+_Description: Extracting ${SUBST0}...
 
 Template: base-installer/debootstrap/info/instcore
 Type: text
@@ -145,7 +147,7 @@ _Description: Installing base packages...
 
 Template: base-installer/debootstrap/info/basesuccess
 Type: note
-_Description: Base system installed successfully.
+_Description: Base system successfully installed
 
 Template: base-installer/apt/progress/title
 Type: text
@@ -153,15 +155,15 @@ _Description: Installing extra packages
 
 Template: base-installer/apt/progress/step_config
 Type: text
-_Description: Configuring APT sources
+_Description: Configuring APT sources...
 
 Template: base-installer/apt/progress/step_update
 Type: text
-_Description: Updating the list of available packages
+_Description: Updating the list of available packages...
 
 Template: base-installer/apt/progress/step_install
 Type: text
-_Description: Installing the extra packages
+_Description: Installing the extra packages...
 
 Template: debian-installer/base-installer/title
 Type: text
