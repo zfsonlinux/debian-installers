@@ -14,79 +14,94 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: base-installer\n"
-"POT-Creation-Date: 2004-01-08 08:49+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-02-25 14:19-0500\n"
 "PO-Revision-Date: 2004-01-09 21:26+0100\n"
 "Last-Translator: Miroslav Kure <kurem@debian.cz>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
+
+#. Type: boolean
+#. Description
+#: ../base-installer.templates:4
+msgid "Proceed with installation to unclean target?"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../base-installer.templates:4
+msgid ""
+"The target filesystem contains files from a past installation. These files "
+"could break the installation process or cause a broken system to be "
+"installed."
+msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:3
+#: ../base-installer.templates:20
 msgid "Failed to install the base system"
 msgstr "Instalace základního systému selhala"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:3
+#: ../base-installer.templates:20
 msgid "The base system installation into /target/ failed."
 msgstr "Instalace základního systému do /target selhala."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:10
+#: ../base-installer.templates:27
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr "Program debootstrap skonèil s chybou (návratová hodnota ${EXITCODE})."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:17
+#: ../base-installer.templates:34
 msgid "Base system installation error"
 msgstr "Chyba v instalaci základního systému"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:17
+#: ../base-installer.templates:34
 msgid "The debootstrap program exited abnormally."
 msgstr "Program debootstrap skonèil neobvykle."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:24
+#: ../base-installer.templates:41
 msgid "The following error occurred:"
 msgstr "Vyskytla se následující chyba:"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:24
+#: ../base-installer.templates:41
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:33
+#: ../base-installer.templates:50
 msgid "Unable to install a kernel"
 msgstr "Nelze nainstalovat jádro"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:33
+#: ../base-installer.templates:50
 msgid "No kernel package is selected for installation."
 msgstr "K instalaci není vybrán ¾ádný balík s jádrem."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:38
+#: ../base-installer.templates:55
 msgid "Unable to install the selected kernel"
 msgstr "Vybrané jádro nelze nainstalovat"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:38
+#: ../base-installer.templates:55
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -94,19 +109,19 @@ msgstr "Pøi instalaci jádra do cílového systému byla vrácena chyba."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:38
+#: ../base-installer.templates:55
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Balík s jádrem: '${KERNEL}'."
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:49
+#: ../base-installer.templates:66
 msgid "Kernel to install:"
 msgstr "Jádro k instalaci:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:49
+#: ../base-installer.templates:66
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -116,25 +131,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:55
+#: ../base-installer.templates:72
 msgid "No installable kernel found"
 msgstr "Nalezeno ¾ádné instalovatelné jádro."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:55
+#: ../base-installer.templates:72
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "Ve zdrojích APTu nebylo nalezeno ¾ádné instalovatelné jádro."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:55
+#: ../base-installer.templates:72
 msgid "The current default kernel package is '${KERNEL}'."
 msgstr "Momentálnì je standardní jádro '${KERNEL}'."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:55
+#: ../base-installer.templates:72
 msgid ""
 "You may try to continue though this rather strange error is probably fatal."
 msgstr ""
@@ -143,13 +158,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:64
+#: ../base-installer.templates:81
 msgid "Unable to install PCMCIA modules"
 msgstr "Nelze nainstalovat PCMCIA moduly"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:64
+#: ../base-installer.templates:81
 msgid ""
 "An error was returned while trying to install the PCMCIA modules onto the "
 "target system."
@@ -157,13 +172,13 @@ msgstr "Pøi instalaci PCMCIA modulù do cílového systému byla vrácena chyba."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:72
+#: ../base-installer.templates:89
 msgid "Unable to install initrd-tools"
 msgstr "Nelze nainstalovat nástroje initrd"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:72
+#: ../base-installer.templates:89
 msgid ""
 "An error was returned while trying to install the initrd-tools package  onto "
 "the target system."
@@ -171,187 +186,193 @@ msgstr "Pøi instalaci nástrojù initrd do cílového systému byla vrácena chyba."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:72
+#: ../base-installer.templates:89
 msgid "Check /var/log/messages or see virtual console 3 for the details."
 msgstr "Podrobnosti naleznete ve /var/log/messages nebo na tøetí konzoli."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:80
+#: ../base-installer.templates:97
 msgid "${SUBST0} was not pre-downloaded."
 msgstr "${SUBST0} je¹tì nebyl sta¾en."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:85
+#: ../base-installer.templates:102
 msgid "Unknown location ${SUBST0}."
 msgstr "Neznámé umístìní ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:90
+#: ../base-installer.templates:107
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Selhalo sta¾ení Release souboru ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:95
+#: ../base-installer.templates:112
 msgid "Invalid Release file: no valid components."
 msgstr "Neplatný Release soubor: neobsahuje platné èásti"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:100
+#: ../base-installer.templates:117
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Neplatný Release soubor: neobsahuje polo¾ku pro ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:105
+#: ../base-installer.templates:122
 msgid "Couldn't download ${SUBST0}."
 msgstr "Nelze stáhnout ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:110
+#: ../base-installer.templates:127
 msgid "Debootstrap Error"
 msgstr "Chyba debootstrapu"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:110
+#: ../base-installer.templates:127
 msgid "Interrupt caught ... exiting."
 msgstr "Odchyceno pøeru¹ení ... zavøete oèi, odcházím."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:115
+#: ../base-installer.templates:132
 msgid "Installing the Debian base system"
 msgstr "Instaluje se základní systém Debianu"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:136
+msgid "Checking the target file system"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:140
 msgid "Retrieving Release file"
 msgstr "Stahuje se soubor Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:123
+#: ../base-installer.templates:144
 msgid "Finding package sizes"
 msgstr "Zji¹»uje se velikost balíkù"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:127
+#: ../base-installer.templates:148
 msgid "Retrieving Packages files"
 msgstr "Stahují se soubory Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:131
+#: ../base-installer.templates:152
 msgid "Retrieving packages"
 msgstr "Stahují se balíky"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:135
+#: ../base-installer.templates:156
 msgid "Extracting packages"
 msgstr "Rozbalují se balíky"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:139
+#: ../base-installer.templates:160
 msgid "Installing the base system"
 msgstr "Instaluje se základní systém"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:147
+#: ../base-installer.templates:168
 msgid "Validating ${SUBST0}..."
 msgstr "Ovìøuje se ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:151
+#: ../base-installer.templates:172
 msgid "Retrieving ${SUBST0}..."
 msgstr "Stahuje se ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:155
+#: ../base-installer.templates:176
 msgid "Extracting ${SUBST0}..."
 msgstr "Rozbaluje se ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:159
+#: ../base-installer.templates:180
 msgid "Checking package size: ${SUBST0}..."
 msgstr "Kontroluje se velikost balíku: ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:163
+#: ../base-installer.templates:184
 msgid "Installing core packages..."
 msgstr "Instalují se stì¾ejní balíky..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:167
+#: ../base-installer.templates:188
 msgid "Unpacking required packages..."
 msgstr "Rozbalují se vy¾adované balíky..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:171
+#: ../base-installer.templates:192
 msgid "Configuring required packages..."
 msgstr "Nastavují se vy¾adované balíky..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:175
+#: ../base-installer.templates:196
 msgid "Installing base packages..."
 msgstr "Instalují se základní balíky..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:179
+#: ../base-installer.templates:200
 msgid "Configuring APT sources..."
 msgstr "Nastavují se zdroje pro APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:183
+#: ../base-installer.templates:204
 msgid "Updating the list of available packages..."
 msgstr "Aktualizuje se seznam dostupných balíkù..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:187
+#: ../base-installer.templates:208
 msgid "Installing extra packages..."
 msgstr "Instalují se extra balíky..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:191
+#: ../base-installer.templates:212
 msgid "Selecting the kernel to install..."
 msgstr "Vybírá se jádro pro instalaci..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:195
+#: ../base-installer.templates:216
 msgid "Installing the kernel..."
 msgstr "Instaluje se jádro..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:199
+#: ../base-installer.templates:220
 msgid "Installing the PCMCIA modules"
 msgstr "Instalují se PCMCIA moduly"
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../base-installer.templates:204
+#: ../base-installer.templates:225
 msgid "Install the base system"
 msgstr "Instalovat základní systém"

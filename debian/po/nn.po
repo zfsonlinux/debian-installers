@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: base-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-16 13:36-0700\n"
+"POT-Creation-Date: 2004-02-25 14:19-0500\n"
 "PO-Revision-Date: 2004-02-17 19:59+0100\n"
 "Last-Translator: Håvard Korsvoll <korsvoll@skulelinux.no>\n"
 "Language-Team: Norwegian (Nynorsk) <i18n-nn@lister.ping.uio.no>\n"
@@ -27,89 +27,106 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.3\n"
 
+#. Type: boolean
+#. Description
+#: ../base-installer.templates:4
+msgid "Proceed with installation to unclean target?"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../base-installer.templates:4
+msgid ""
+"The target filesystem contains files from a past installation. These files "
+"could break the installation process or cause a broken system to be "
+"installed."
+msgstr ""
+
 #. Type: error
 #. Description
-#: ../base-installer.templates:3
+#: ../base-installer.templates:20
 msgid "Failed to install the base system"
 msgstr "Klarte ikkje å installere grunnsystemet"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:3
+#: ../base-installer.templates:20
 msgid "The base system installation into /target/ failed."
 msgstr "Installasjon av grunnsystemet inn i /target/ feila."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:10
-msgid "The debootstrap program exited with an error (return value ${EXITCODE})."
+#: ../base-installer.templates:27
+msgid ""
+"The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr "debootstrap avslutta med ein feil (returverdi ${EXITCODE})."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:17
+#: ../base-installer.templates:34
 msgid "Base system installation error"
 msgstr "Feil ved installasjonen av grunnsystemet"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:17
+#: ../base-installer.templates:34
 msgid "The debootstrap program exited abnormally."
 msgstr "debootstrap avslutta unormalt."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:24
+#: ../base-installer.templates:41
 msgid "The following error occurred:"
 msgstr "Følgjande feil oppsto:"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:24
+#: ../base-installer.templates:41
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:33
+#: ../base-installer.templates:50
 msgid "Unable to install a kernel"
 msgstr "Klarte ikkje å installera noko kjerne"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:33
+#: ../base-installer.templates:50
 msgid "No kernel package is selected for installation."
 msgstr "Inga kjernepakke er valt for installasjon."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:38
+#: ../base-installer.templates:55
 msgid "Unable to install the selected kernel"
 msgstr "Klarte ikkje å installera den valde kjerna."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:38
+#: ../base-installer.templates:55
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
-msgstr "Det blei returnert ein feil under installasjon av kjerna på målsystemet."
+msgstr ""
+"Det blei returnert ein feil under installasjon av kjerna på målsystemet."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:38
+#: ../base-installer.templates:55
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Kjernepakke: «${KERNEL}»."
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:49
+#: ../base-installer.templates:66
 msgid "Kernel to install:"
 msgstr "Kjerne som skal installerast:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:49
+#: ../base-installer.templates:66
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -119,39 +136,40 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:55
+#: ../base-installer.templates:72
 msgid "No installable kernel found"
 msgstr "Fant ingen installerbare kjerner"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:55
+#: ../base-installer.templates:72
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "Fant ingen installerbare kjerner i dei oppgjevne APT-kjeldene."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:55
+#: ../base-installer.templates:72
 msgid "The current default kernel package is '${KERNEL}'."
 msgstr "Noverande standarkjerne er «${KERNEL}»."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:55
-msgid "You may try to continue though this rather strange error is probably fatal."
+#: ../base-installer.templates:72
+msgid ""
+"You may try to continue though this rather strange error is probably fatal."
 msgstr ""
 "Du kan prøva å halda fram, sjølv om denne ganske merkelege feilen truleg er "
 "fatal."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:64
+#: ../base-installer.templates:81
 msgid "Unable to install PCMCIA modules"
 msgstr "Klarer ikkje installera PCMCIA-modular"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:64
+#: ../base-installer.templates:81
 msgid ""
 "An error was returned while trying to install the PCMCIA modules onto the "
 "target system."
@@ -159,13 +177,13 @@ msgstr "Det oppsto ein feil under installering av PCMCIA-modular på systemet."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:72
+#: ../base-installer.templates:89
 msgid "Unable to install initrd-tools"
 msgstr "Klarer ikkje å installera initrd-verktøy"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:72
+#: ../base-installer.templates:89
 msgid ""
 "An error was returned while trying to install the initrd-tools package  onto "
 "the target system."
@@ -175,188 +193,195 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:72
+#: ../base-installer.templates:89
 msgid "Check /var/log/messages or see virtual console 3 for the details."
-msgstr "Sjekk /var/log/messages eller sjå virituellt konsoll 3 (Ctrl + Alt + F3) for detaljar."
+msgstr ""
+"Sjekk /var/log/messages eller sjå virituellt konsoll 3 (Ctrl + Alt + F3) for "
+"detaljar."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:80
+#: ../base-installer.templates:97
 msgid "${SUBST0} was not pre-downloaded."
 msgstr "${SUBST0} var ikkje lasta ned på førehand."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:85
+#: ../base-installer.templates:102
 msgid "Unknown location ${SUBST0}."
 msgstr "Ukjend stad ${SUBSTO}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:90
+#: ../base-installer.templates:107
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Klarte ikkje henta versjonsfila ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:95
+#: ../base-installer.templates:112
 msgid "Invalid Release file: no valid components."
 msgstr "Ugyldig versjonsfil: ingen gyldige komponentar."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:100
+#: ../base-installer.templates:117
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Ugyldig versjonsfil: inga oppføring for ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:105
+#: ../base-installer.templates:122
 msgid "Couldn't download ${SUBST0}."
 msgstr "Klarte ikkje lasta ned ${SUBSTO}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:110
+#: ../base-installer.templates:127
 msgid "Debootstrap Error"
 msgstr "Feil med debootstrap"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:110
+#: ../base-installer.templates:127
 msgid "Interrupt caught ... exiting."
 msgstr "Mottok avbrot ... avsluttar."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:115
+#: ../base-installer.templates:132
 msgid "Installing the Debian base system"
 msgstr "Installerer grunnsystemet til Debian"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:136
+msgid "Checking the target file system"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:140
 msgid "Retrieving Release file"
 msgstr "Hentar versjonsfil"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:123
+#: ../base-installer.templates:144
 msgid "Finding package sizes"
 msgstr "Finn pakkestorleikar"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:127
+#: ../base-installer.templates:148
 msgid "Retrieving Packages files"
 msgstr "Hentar pakkefiler"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:131
+#: ../base-installer.templates:152
 msgid "Retrieving packages"
 msgstr "Hentar pakkar"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:135
+#: ../base-installer.templates:156
 msgid "Extracting packages"
 msgstr "Pakkar ut pakkar"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:139
+#: ../base-installer.templates:160
 msgid "Installing the base system"
 msgstr "Installerer grunnsystemet"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:147
+#: ../base-installer.templates:168
 msgid "Validating ${SUBST0}..."
 msgstr "Validerer ${SUBST0} ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:151
+#: ../base-installer.templates:172
 msgid "Retrieving ${SUBST0}..."
 msgstr "Hentar ${SUBST0} ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:155
+#: ../base-installer.templates:176
 msgid "Extracting ${SUBST0}..."
 msgstr "Pakkar ut ${SUBST0} ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:159
+#: ../base-installer.templates:180
 msgid "Checking package size: ${SUBST0}..."
 msgstr "Sjekkar pakkestorleik: ${SUBSTO} ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:163
+#: ../base-installer.templates:184
 msgid "Installing core packages..."
 msgstr "Installerer kjernepakkar ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:167
+#: ../base-installer.templates:188
 msgid "Unpacking required packages..."
 msgstr "Pakkar ut naudsynte pakkar ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:171
+#: ../base-installer.templates:192
 msgid "Configuring required packages..."
 msgstr "Set opp naudsynte pakkar ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:175
+#: ../base-installer.templates:196
 msgid "Installing base packages..."
 msgstr "Installerer grunnpakkar ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:179
+#: ../base-installer.templates:200
 msgid "Configuring APT sources..."
 msgstr "Set opp APT-kjelder ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:183
+#: ../base-installer.templates:204
 msgid "Updating the list of available packages..."
 msgstr "Oppdaterer lista over tilgjengelege pakkar ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:187
+#: ../base-installer.templates:208
 msgid "Installing extra packages..."
 msgstr "Installerer ekstrapakkar ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:191
+#: ../base-installer.templates:212
 msgid "Selecting the kernel to install..."
 msgstr "Vel kva for kjerne som skal installerast ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:195
+#: ../base-installer.templates:216
 msgid "Installing the kernel..."
 msgstr "Installerer kjerna ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:199
+#: ../base-installer.templates:220
 msgid "Installing the PCMCIA modules"
 msgstr "Installerer PCMCIA-modulane"
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../base-installer.templates:204
+#: ../base-installer.templates:225
 msgid "Install the base system"
 msgstr "Installer grunnsystemet"
-

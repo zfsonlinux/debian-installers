@@ -17,33 +17,48 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer_tools_base-installer_ru\n"
-"POT-Creation-Date: 2004-01-08 08:49+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-02-25 14:19-0500\n"
 "PO-Revision-Date: 2004-01-20 12:21+0700\n"
 "Last-Translator: Eugene Konev <ejka@imfi.kspu.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.3\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
+#. Type: boolean
+#. Description
+#: ../base-installer.templates:4
+msgid "Proceed with installation to unclean target?"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../base-installer.templates:4
+msgid ""
+"The target filesystem contains files from a past installation. These files "
+"could break the installation process or cause a broken system to be "
+"installed."
+msgstr ""
+
 #. Type: error
 #. Description
-#: ../base-installer.templates:3
+#: ../base-installer.templates:20
 msgid "Failed to install the base system"
 msgstr "Начальная установка системы не удалась"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:3
+#: ../base-installer.templates:20
 msgid "The base system installation into /target/ failed."
 msgstr "Не удалась начальная установка системы в каталог /target/."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:10
+#: ../base-installer.templates:27
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
@@ -51,49 +66,49 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:17
+#: ../base-installer.templates:34
 msgid "Base system installation error"
 msgstr "Ошибка при начальной установке системы"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:17
+#: ../base-installer.templates:34
 msgid "The debootstrap program exited abnormally."
 msgstr "debootstrap завершился аварийно."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:24
+#: ../base-installer.templates:41
 msgid "The following error occurred:"
 msgstr "Произошла следующая ошибка:"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:24
+#: ../base-installer.templates:41
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:33
+#: ../base-installer.templates:50
 msgid "Unable to install a kernel"
 msgstr "Невозможно установить пакет с ядром."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:33
+#: ../base-installer.templates:50
 msgid "No kernel package is selected for installation."
 msgstr "Для установки не был выбран ни один пакет с ядром."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:38
+#: ../base-installer.templates:55
 msgid "Unable to install the selected kernel"
 msgstr "Не удалось установить выбранный пакет с ядром"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:38
+#: ../base-installer.templates:55
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -101,19 +116,19 @@ msgstr "При попытке установить пакет с ядром пр
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:38
+#: ../base-installer.templates:55
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Пакет с ядром: '${KERNEL}'."
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:49
+#: ../base-installer.templates:66
 msgid "Kernel to install:"
 msgstr "Пакет с ядром для установки:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:49
+#: ../base-installer.templates:66
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -123,13 +138,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:55
+#: ../base-installer.templates:72
 msgid "No installable kernel found"
 msgstr "Не найдено ни одного пакета с ядром, который можно было бы установить"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:55
+#: ../base-installer.templates:72
 msgid "No installable kernel was found in the defined APT sources."
 msgstr ""
 "В заданных источниках APT не было найдено ни одного пакета с ядром, который "
@@ -137,13 +152,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:55
+#: ../base-installer.templates:72
 msgid "The current default kernel package is '${KERNEL}'."
 msgstr "Текущий пакет с ядром по умолчанию -- '${KERNEL}'."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:55
+#: ../base-installer.templates:72
 msgid ""
 "You may try to continue though this rather strange error is probably fatal."
 msgstr ""
@@ -152,13 +167,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:64
+#: ../base-installer.templates:81
 msgid "Unable to install PCMCIA modules"
 msgstr "Не удалось установить пакет с модулями PCMCIA"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:64
+#: ../base-installer.templates:81
 msgid ""
 "An error was returned while trying to install the PCMCIA modules onto the "
 "target system."
@@ -166,13 +181,13 @@ msgstr "При попытке установить пакет с модулям�
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:72
+#: ../base-installer.templates:89
 msgid "Unable to install initrd-tools"
 msgstr "Не удалось установить пакет initrd-tools"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:72
+#: ../base-installer.templates:89
 msgid ""
 "An error was returned while trying to install the initrd-tools package  onto "
 "the target system."
@@ -180,188 +195,194 @@ msgstr "При попытке установить пакет initrd-tools пр�
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:72
+#: ../base-installer.templates:89
 msgid "Check /var/log/messages or see virtual console 3 for the details."
 msgstr "Подробности смотрите в /var/log/messages или на третьей консоли."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:80
+#: ../base-installer.templates:97
 msgid "${SUBST0} was not pre-downloaded."
 msgstr "${SUBST0} не был получен."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:85
+#: ../base-installer.templates:102
 msgid "Unknown location ${SUBST0}."
 msgstr "Неизвестный адрес ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:90
+#: ../base-installer.templates:107
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Не удалось получить файл Release для ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:95
+#: ../base-installer.templates:112
 msgid "Invalid Release file: no valid components."
 msgstr ""
 "Неверный файл Release: отсутствует информация о компонентах для установки."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:100
+#: ../base-installer.templates:117
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Неверный файл Release: отсутствует описание для ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:105
+#: ../base-installer.templates:122
 msgid "Couldn't download ${SUBST0}."
 msgstr "Не удалось получить ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:110
+#: ../base-installer.templates:127
 msgid "Debootstrap Error"
 msgstr "Ошибка при выполнении Debootstrap."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:110
+#: ../base-installer.templates:127
 msgid "Interrupt caught ... exiting."
 msgstr "Получен сигнал прерывания... работа прекращена."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:115
+#: ../base-installer.templates:132
 msgid "Installing the Debian base system"
 msgstr "Начальная установка системы Debian"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:136
+msgid "Checking the target file system"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:140
 msgid "Retrieving Release file"
 msgstr "Получение файла Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:123
+#: ../base-installer.templates:144
 msgid "Finding package sizes"
 msgstr "Определение размеров пакетов"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:127
+#: ../base-installer.templates:148
 msgid "Retrieving Packages files"
 msgstr "Получение файлов Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:131
+#: ../base-installer.templates:152
 msgid "Retrieving packages"
 msgstr "Получение пакетов"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:135
+#: ../base-installer.templates:156
 msgid "Extracting packages"
 msgstr "Распаковка пакетов"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:139
+#: ../base-installer.templates:160
 msgid "Installing the base system"
 msgstr "Начальная установка системы"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:147
+#: ../base-installer.templates:168
 msgid "Validating ${SUBST0}..."
 msgstr "Проверка ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:151
+#: ../base-installer.templates:172
 msgid "Retrieving ${SUBST0}..."
 msgstr "Получение ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:155
+#: ../base-installer.templates:176
 msgid "Extracting ${SUBST0}..."
 msgstr "Распаковка ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:159
+#: ../base-installer.templates:180
 msgid "Checking package size: ${SUBST0}..."
 msgstr "Проверка размера пакета: ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:163
+#: ../base-installer.templates:184
 msgid "Installing core packages..."
 msgstr "Установка основных (core) пакетов..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:167
+#: ../base-installer.templates:188
 msgid "Unpacking required packages..."
 msgstr "Распаковка необходимых (required) пакетов..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:171
+#: ../base-installer.templates:192
 msgid "Configuring required packages..."
 msgstr "Настройка необходимых (required) пакетов..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:175
+#: ../base-installer.templates:196
 msgid "Installing base packages..."
 msgstr "Установка базовых (base) пакетов..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:179
+#: ../base-installer.templates:200
 msgid "Configuring APT sources..."
 msgstr "Настройка списка источников APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:183
+#: ../base-installer.templates:204
 msgid "Updating the list of available packages..."
 msgstr "Обновляется список доступных пакетов..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:187
+#: ../base-installer.templates:208
 msgid "Installing extra packages..."
 msgstr "Установка дополнительных (extra) пакетов..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:191
+#: ../base-installer.templates:212
 msgid "Selecting the kernel to install..."
 msgstr "Выбор пакета с ядром для установки..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:195
+#: ../base-installer.templates:216
 msgid "Installing the kernel..."
 msgstr "Установка пакета с ядром..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:199
+#: ../base-installer.templates:220
 msgid "Installing the PCMCIA modules"
 msgstr "Установка пакета с модулями PCMCIA"
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../base-installer.templates:204
+#: ../base-installer.templates:225
 msgid "Install the base system"
 msgstr "Начальная установка системы"

@@ -37,6 +37,21 @@ exit_error() {
     exit 1
 }
 
+check_target () {
+	# debootstrap has issues with awk already existing, and is not
+	# idempotent in general. Detect and abort.
+	if [ -e /target/usr/bin/awk -o -L /target/usr/bin/awk ] || \
+	   [ -e /target/bin/sh -o -L /target/bin/sh ]; then
+		db_reset base-installer/use_unclean_target
+		db_input medium base-installer/use_unclean_target || true
+		db_go || true
+		db_get base-installer/use_unclean_target
+		if [ "$RET" = false ]; then
+			exit_error base-installer/unclean_target_cancel
+		fi
+	fi
+}
+
 get_mirror_info () {
 	if [ -f /cdrom/.disk/base_installable ]; then
 		PROTOCOL=file
@@ -525,9 +540,10 @@ WAYPOINTS=""
 NUM_STEPS=0
 waypoint () {
 	WAYPOINTS="$WAYPOINTS $1:$2"
-	NUM_STEPS=$(expr $NUM_STEPS + $1) || true # Or 0+0 = set -e exit. Why?
+	NUM_STEPS=$(expr $NUM_STEPS + $1) || true
 }
 
+waypoint 1	check_target
 waypoint 1	get_mirror_info
 waypoint 100	install_base_system
 waypoint 1	configure_apt

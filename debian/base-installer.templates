@@ -1,3 +1,20 @@
+Template: base-installer/use_unclean_target
+Type: boolean
+Default: false
+_Description: Proceed with installation to unclean target?
+ The target filesystem contains files from a past installation. These files
+ could break the installation process or cause a broken system to be
+ installed.
+
+Template: base-installer/unclean_target_cancel
+Type: error
+Description: Not installing to unclean target
+ The installation to the target filesystem has been canceled, as the target
+ filesystem contains files from a past installation, which could break the
+ installation process or cause a broken system to be installed. We recommend
+ that you go back and erase or format the target filesystem before
+ proceeding with the install.
+
 Template: base-installer/debootstrap-failed
 Type: error
 _Description: Failed to install the base system
@@ -113,6 +130,10 @@ _Description: Debootstrap Error
 Template: base-installer/progress/installing-debian
 Type: text
 _Description: Installing the Debian base system
+
+Template: base-installer/debootstrap/section/check_target
+Type: text
+_Description: Checking the target file system
 
 Template: base-installer/debootstrap/section/downrel
 Type: text
