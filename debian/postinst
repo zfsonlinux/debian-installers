@@ -71,16 +71,24 @@ get_mirror_info () {
 		DISTRIBUTION=$RET
 	fi
 
-	# TODO this is a quick hack to make things work, but the
-	# proper approach is to download and parse the Release file,
-	# and use the codename from it as the distribution passed to
-	# debootstrap. The problem with hardcoding this as we do now
-	# is that it's hard to update this around release.
-	case "$DISTRIBUTION" in
-	stable)		DISTRIBUTION=woody ;;
-	testing)	DISTRIBUTION=sarge ;;
-	unstable)	DISTRIBUTION=sid ;;
-	esac
+	# Find the distribution codename
+	APTLISTDIR=/target/var/lib/apt/lists
+	mkdir -p $APTLISTDIR
+	if [ file = "$PROTOCOL" ]; then
+	    cp /cdrom/dists/$DISTRIBUTION/Release $APTLISTDIR/tmp || nogetrel="/cdrom/dists/$DISTRIBUTION/Release"
+	else
+	    wget "$PROTOCOL://$MIRROR$DIRECTORY/dists/$DISTRIBUTION/Release" -O $APTLISTDIR/tmp || nogetrel="$PROTOCOL://$MIRROR$DIRECTORY/dists/$DISTRIBUTION/Release"
+	fi
+
+	if [ "$nogetrel" != "" ]; then
+	    db_subst base-installer/debootstrap/error/nogetrel SUBST0 "$nogetrel"
+	    exit_error base-installer/debootstrap/error/nogetrel
+	fi
+
+	DISTRIBUTION=`grep Codename $APTLISTDIR/tmp | cut -d' ' -f 2`
+	DEBOOTSTRAPLIST="$APTLISTDIR/debootstrap.invalid_dists_${DISTRIBUTION}"
+	mv $APTLISTDIR/tmp ${DEBOOTSTRAPLIST}_Release
+
 }
 	
 install_base_system () {
@@ -493,7 +501,7 @@ waypoint () {
 	NUM_STEPS=$(expr $NUM_STEPS + $1) || true # Or 0+0 = set -e exit. Why?
 }
 
-waypoint 0	get_mirror_info
+waypoint 1	get_mirror_info
 waypoint 100	install_base_system
 waypoint 1	configure_apt
 waypoint 3	apt_update
