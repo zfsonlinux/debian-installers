@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-26 03:31+0200\n"
+"POT-Creation-Date: 2004-09-09 15:23-0400\n"
 "PO-Revision-Date: 2004-08-27 17:13+0200\n"
 "Last-Translator: Dafydd Harries <daf@muse.19inch.net>\n"
 "Language-Team: Welsh <daf@muse.19inch.net>\n"
@@ -74,15 +74,32 @@ msgstr ""
 "ar eich cyfrifiadur, bydd newid eich cofnod bŵt meistr yn rhwystro'r system "
 "weithredu rhag bŵtio, er gellir cuflunio GRUB i'w fŵtio yn hwyrach."
 
+#. Type: boolean
+#. Description
+#: ../grub-installer.templates:29
+#, fuzzy
+msgid "Install the GRUB bootloader to XFS filesystem?"
+msgstr "Sefydlu'r bŵtlwythydd GRUB ar ddisgen galed"
+
+#. Type: boolean
+#. Description
+#: ../grub-installer.templates:29
+msgid ""
+"The GRUB bootloader installation does not always work when /boot is on an "
+"XFS filesystem. If you choose to install GRUB, it's likely that the "
+"installation will fail, or even hang. LILO works much better in this "
+"situation."
+msgstr ""
+
 #. Type: string
 #. Description
-#: ../grub-installer.templates:28
+#: ../grub-installer.templates:37
 msgid "Device for boot loader installation:"
 msgstr "Y dyfais ar gyfer sefydliad llwythydd bŵtio:"
 
 #. Type: string
 #. Description
-#: ../grub-installer.templates:28
+#: ../grub-installer.templates:37
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -96,7 +113,9 @@ msgstr ""
 "hoffech, gallwch sefydlu GRUB rhywle arall ar y disg, neu ar ddisg arall, "
 "neu hyd yn oed at ddisgen hyblyg."
 
-#: ../grub-installer.templates:28
+#. Type: string
+#. Description
+#: ../grub-installer.templates:37
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -121,13 +140,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:48
+#: ../grub-installer.templates:57
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Methodd sefydliad GRUB. Mynd ymlaen fodd bynnag?"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:48
+#: ../grub-installer.templates:57
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -139,79 +158,79 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:55
+#: ../grub-installer.templates:64
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Methywd sefydlu GRUB yn ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:55
+#: ../grub-installer.templates:64
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Methwyd rhedeg 'grub-install ${BOOTDEV}'."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:71
 msgid "Unable to configure GRUB"
 msgstr "Methwyd cyflunio GRUB"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:71
 msgid "Executing 'update-grub' failed."
 msgstr "Methwyd rhedeg 'update-grub'."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:71
 msgid "This is a fatal error."
 msgstr "Mae hyn yn wall marwol."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:69
+#: ../grub-installer.templates:78
 msgid "Installing GRUB boot loader"
 msgstr "Sefydku'r bŵtlwythydd GRUB"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:73
+#: ../grub-installer.templates:82
 msgid "Looking for other operating systems..."
 msgstr "Yn chwilio am systemau gweithredu eraill..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:77
+#: ../grub-installer.templates:86
 msgid "Installing the 'grub' package..."
 msgstr "Yn sefydlu'r pecyn 'grub'..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:81
+#: ../grub-installer.templates:90
 msgid "Determining GRUB boot device..."
 msgstr "Yn dehongli dyfais bŵt GRUB..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:85
+#: ../grub-installer.templates:94
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Yn rhedeg \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:89
+#: ../grub-installer.templates:98
 msgid "Running \"update-grub\"..."
 msgstr "Yn rhedeg \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:93
+#: ../grub-installer.templates:102
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Yn diweddaru /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:98
+#: ../grub-installer.templates:107
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Sefydlu'r bŵtlwythydd GRUB ar ddisgen galed"

@@ -199,6 +199,23 @@ is_floppy () {
 	echo "$1" | grep -q '(fd'
 }
 
+findfstype () {
+	mount | grep "on /target${1%/} " | cut -d' ' -f5
+}
+
+bootfstype=$(findfstype /boot)
+[ -n "$bootfstype" ] || bootfstype="$(findfstype /)"
+if [ "$bootfstype" = "xfs" ]; then
+	# warn user that grub on xfs is not safe and let them back out to
+	# main menu.
+	db_input critical grub-installer/install_to_xfs
+	db_go || exit 10
+	db_get grub-installer/install_to_xfs
+	if [ "$RET" != true ]; then
+		exit 10
+	fi
+fi
+
 db_progress START 0 6 grub-installer/progress/title
 
 db_progress INFO grub-installer/progress/step_install

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-26 03:31+0200\n"
+"POT-Creation-Date: 2004-09-09 15:23-0400\n"
 "PO-Revision-Date: 2004-08-27 18:00+0400\n"
 "Last-Translator: Yuri Kozlov <yuray@id.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -80,15 +80,32 @@ msgstr ""
 "загрузочной записи сделает эту операционную систему временно незагружаемой, "
 "однако GRUB можно будет позже настроить для её загрузки."
 
+#. Type: boolean
+#. Description
+#: ../grub-installer.templates:29
+#, fuzzy
+msgid "Install the GRUB bootloader to XFS filesystem?"
+msgstr "Установить системный загрузчик GRUB на жёсткий диск"
+
+#. Type: boolean
+#. Description
+#: ../grub-installer.templates:29
+msgid ""
+"The GRUB bootloader installation does not always work when /boot is on an "
+"XFS filesystem. If you choose to install GRUB, it's likely that the "
+"installation will fail, or even hang. LILO works much better in this "
+"situation."
+msgstr ""
+
 #. Type: string
 #. Description
-#: ../grub-installer.templates:28
+#: ../grub-installer.templates:37
 msgid "Device for boot loader installation:"
 msgstr "Устройство для установки системного загрузчика:"
 
 #. Type: string
 #. Description
-#: ../grub-installer.templates:28
+#: ../grub-installer.templates:37
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -102,7 +119,9 @@ msgstr ""
 "первого жёсткого диска. При желании можно установить GRUB в какое-либо "
 "другое место на диске, либо на другой диск, либо вообще на дискету."
 
-#: ../grub-installer.templates:28
+#. Type: string
+#. Description
+#: ../grub-installer.templates:37
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -127,13 +146,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:48
+#: ../grub-installer.templates:57
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Установка GRUB завершилась неудачно. Всё равно продолжить?"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:48
+#: ../grub-installer.templates:57
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -146,79 +165,79 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:55
+#: ../grub-installer.templates:64
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Не удалось установить GRUB на ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:55
+#: ../grub-installer.templates:64
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Не удалось выполнить команду 'grub-install ${BOOTDEV}'."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:71
 msgid "Unable to configure GRUB"
 msgstr "Не удалось настроить GRUB"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:71
 msgid "Executing 'update-grub' failed."
 msgstr "Не удалось выполнить команду 'update-grub'."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:71
 msgid "This is a fatal error."
 msgstr "Это неисправимая ошибка."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:69
+#: ../grub-installer.templates:78
 msgid "Installing GRUB boot loader"
 msgstr "Установка системного загрузчика GRUB"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:73
+#: ../grub-installer.templates:82
 msgid "Looking for other operating systems..."
 msgstr "Поиск других операционных систем..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:77
+#: ../grub-installer.templates:86
 msgid "Installing the 'grub' package..."
 msgstr "Установка пакета 'grub'..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:81
+#: ../grub-installer.templates:90
 msgid "Determining GRUB boot device..."
 msgstr "Определение загрузочного устройства для GRUB..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:85
+#: ../grub-installer.templates:94
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Запуск \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:89
+#: ../grub-installer.templates:98
 msgid "Running \"update-grub\"..."
 msgstr "Запуск \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:93
+#: ../grub-installer.templates:102
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Обновление /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:98
+#: ../grub-installer.templates:107
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Установить системный загрузчик GRUB на жёсткий диск"

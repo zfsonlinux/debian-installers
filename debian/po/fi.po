@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-26 03:31+0200\n"
+"POT-Creation-Date: 2004-09-09 15:23-0400\n"
 "PO-Revision-Date: 2004-09-06 20:22+0300\n"
 "Last-Translator: Tapio Lehtonen <tale@debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -77,15 +77,32 @@ msgstr ""
 "toisen käyttöjärjestelmän käynnistämisen. GRUB:n asetuksia voidaan myöhemmin "
 "muokata käynnistämään myös se."
 
+#. Type: boolean
+#. Description
+#: ../grub-installer.templates:29
+#, fuzzy
+msgid "Install the GRUB bootloader to XFS filesystem?"
+msgstr "Asenna GRUB-alkulatausohjelma kiintolevylle"
+
+#. Type: boolean
+#. Description
+#: ../grub-installer.templates:29
+msgid ""
+"The GRUB bootloader installation does not always work when /boot is on an "
+"XFS filesystem. If you choose to install GRUB, it's likely that the "
+"installation will fail, or even hang. LILO works much better in this "
+"situation."
+msgstr ""
+
 #. Type: string
 #. Description
-#: ../grub-installer.templates:28
+#: ../grub-installer.templates:37
 msgid "Device for boot loader installation:"
 msgstr "Laite johon alkulatausohjelma asennetaan:"
 
 #. Type: string
 #. Description
-#: ../grub-installer.templates:28
+#: ../grub-installer.templates:37
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -99,7 +116,9 @@ msgstr ""
 "pääkäynnistyslohkoon. Halutessasi voit asentaa GRUB:n muualle levylle, "
 "toiselle kiintolevylle tai jopa levykkeelle."
 
-#: ../grub-installer.templates:28
+#. Type: string
+#. Description
+#: ../grub-installer.templates:37
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -122,13 +141,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:48
+#: ../grub-installer.templates:57
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "GRUB:n asennus epäonnistui. Jatketaanko silti?"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:48
+#: ../grub-installer.templates:57
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -140,79 +159,79 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:55
+#: ../grub-installer.templates:64
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "GRUB:ia ei voitu asentaa laitteelle ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:55
+#: ../grub-installer.templates:64
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Komennon \"grub-install ${BOOTDEV}\" suoritus epäonnistui."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:71
 msgid "Unable to configure GRUB"
 msgstr "GRUB:in asetuksia ei voida tehdä."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:71
 msgid "Executing 'update-grub' failed."
 msgstr "Komennon \"update-grub\" suoritus epäonnistui."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:71
 msgid "This is a fatal error."
 msgstr "Tämä on vakava virhe."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:69
+#: ../grub-installer.templates:78
 msgid "Installing GRUB boot loader"
 msgstr "Asennetaan GRUB-alkulatausohjelma"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:73
+#: ../grub-installer.templates:82
 msgid "Looking for other operating systems..."
 msgstr "Etsitään muita käyttöjärjestelmiä..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:77
+#: ../grub-installer.templates:86
 msgid "Installing the 'grub' package..."
 msgstr "Asennetaan \"grub\"-paketti..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:81
+#: ../grub-installer.templates:90
 msgid "Determining GRUB boot device..."
 msgstr "Selvitetään GRUB-käynnistyslaitetta..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:85
+#: ../grub-installer.templates:94
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Suoritetaan \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:89
+#: ../grub-installer.templates:98
 msgid "Running \"update-grub\"..."
 msgstr "Suoritetaan \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:93
+#: ../grub-installer.templates:102
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Päivitetään /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:98
+#: ../grub-installer.templates:107
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Asenna GRUB-alkulatausohjelma kiintolevylle"

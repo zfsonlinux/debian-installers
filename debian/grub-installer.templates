@@ -23,6 +23,15 @@ _Description: Install the GRUB boot loader to the master boot record?
  that operating system temporarily unbootable, though GRUB can be manually
  configured later to boot it.
 
+Template: grub-installer/install_to_xfs
+Type: boolean
+Default: false
+_Description: Install the GRUB bootloader to XFS filesystem?
+ The GRUB bootloader installation does not always work when /boot is
+ on an XFS filesystem. If you choose to install GRUB, it's likely that the
+ installation will fail, or even hang. LILO works much better in this
+ situation.
+
 Template: grub-installer/bootdev
 Type: string
 _Description: Device for boot loader installation:
