@@ -458,8 +458,8 @@ queue_language_debs () {
 	# Language specific packages.
 	db_get debian-installer/language || true
 	case "$RET" in
-		ja|ko|el|zh)
-			# Japanese, Korean, Greek, Chinese
+		ja|ko|el|zh|bg)
+			# Japanese, Korean, Greek, Chinese, Bulgarian
 			apt-install jfbterm || true
 			apt-install unifont || true
 		;;
