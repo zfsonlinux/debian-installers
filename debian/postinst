@@ -116,6 +116,9 @@ install_base_system () {
 		fi
 	fi
 
+	if [ -e /usr/bin/cdebootstrap ]; then
+		/usr/bin/cdebootstrap || debootstrap_failed=$?
+	else
 	/usr/sbin/run-debootstrap \
 	        --components="${COMPONENTS}" \
 	        --debian-installer \
@@ -123,6 +126,7 @@ install_base_system () {
 	        ${DISTRIBUTION} /target \
 	        "$PROTOCOL://$MIRROR$DIRECTORY" \
 	        2>> $LOGFILE || debootstrap_failed=$?
+	fi
 
 	if [ true = "$copied_fstab" ] ; then
 		mv /target/etc/fstab.orig /target/etc/fstab
@@ -437,7 +441,7 @@ install_pcmcia_modules () {
 apt_update () {
 	# Not run chrooted because it may need to access /cdrom.
         PATH=$PATH:/target/usr/bin:/target/bin:/target/usr/sbin:/target/sbin \
-        LD_LIBRARY_PATH=/usr/lib:/lib:/target/usr/lib:/target/lib \
+        LD_LIBRARY_PATH=/target/usr/lib:/target/lib \
         /target/usr/bin/apt-get \
                 -o Dir::State=/target/var/lib/apt \
                 -o Dir::State::status=/target/var/lib/dpkg/status \
