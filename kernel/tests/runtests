@@ -10,10 +10,10 @@ ARCH="$1"
 PASSES=0
 FAILURES=0
 
-[ "$TEST_VERBOSE" ] || export TEST_VERBOSE=0
+[ "$TEST_VERBOSE" ] || export TEST_VERBOSE=1
 
 verbose () {
-	if [ "$TEST_VERBOSE" -ge 1 ]; then
+	if [ "$TEST_VERBOSE" -ge 2 ]; then
 		echo "$@"
 	fi
 	eval "$@"
@@ -88,7 +88,7 @@ run_test () {
 				FAILURES="$(($FAILURES + 1))"
 				;;
 		esac
-		if [ "$state" != PASS ] || [ "$TEST_VERBOSE" -ge 1 ]; then
+		if [ "$state" != PASS ] || [ "$TEST_VERBOSE" -ge 2 ]; then
 			echo "$state $TEST $message"
 		fi
 	done <"$TMP"
@@ -105,4 +105,6 @@ else
 	done
 fi
 
-echo "$ARCH: $PASSES passes, $FAILURES failures."
+if [ "$TEST_VERBOSE" -ge 1 ]; then
+	echo "$ARCH: $PASSES passes, $FAILURES failures."
+fi
