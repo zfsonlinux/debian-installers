@@ -1,11 +1,13 @@
 # Portuguese translation for the Debian Installer
 # 2004, Miguel Figueiredo <elmig@debianPT.org> for the PT translation team:
 # http://www.debianPT.org <traduz@debianPT.org>
+# 2005.01.20 - Miguel Figueiredo <elmig@debianpt.org> - Fixed typo and small improvements.
+
 msgid ""
 msgstr ""
-"Project-Id-Version: base-installer 1.06\n"
+"Project-Id-Version: base-installer 1.16\n"
 "POT-Creation-Date: 2004-09-11 12:36-0400\n"
-"PO-Revision-Date: 2004-09-12 10:20+0000\n"
+"PO-Revision-Date: 2005-01-20 19:20+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +19,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:4
 msgid "Proceed with installation to unclean target?"
-msgstr "Continuar com a instalação para um destino corrupto?"
+msgstr "Continuar com a instalação para um destino já existente?"
 
 #. Type: boolean
 #. Description
@@ -28,8 +30,8 @@ msgid ""
 "installed."
 msgstr ""
 "O sistema de ficheiros de destino contém ficheiros de uma instalação "
-"passada. Estes ficheiros podem corromper o processo de instalação ou causar "
-"a instalação de um sistema corrompido."
+"anterior. Estes ficheiros podem corromper o processo de instalação ou causar "
+"a instalação de um sistema que fique corrompido."
 
 #. Type: error
 #. Description
@@ -60,7 +62,7 @@ msgid ""
 "Before the installation can proceed, a root filesystem must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
 msgstr ""
-"Antes de instalação poder continuar, um sistem de ficheiros raíz tem de ser "
+"Antes da instalação poder continuar, um sistema de ficheiros raíz tem de ser "
 "montado no alvo / . O particionador e formatador devem ter feito isto para "
 "si."
 
@@ -68,7 +70,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:23
 msgid "Not installing to unclean target"
-msgstr "Não instalando num destino não limpo"
+msgstr "Não instalando num destino já existente"
 
 #. Type: error
 #. Description
@@ -81,22 +83,22 @@ msgid ""
 "install."
 msgstr ""
 "A instalação no sistema de ficheiros de destino foi cancelada, pois o "
-"destino contém ficheiros de uma instalação anterior, que poderá corromper o "
-"processo de instalação ou causar a instalação de um sistema corrompido.Você "
-"deve voltar atrás e apagar ou formatar o sistema de ficheiros de destino "
-"antes de proceder com a instalação."
+"destino contém ficheiros de uma instalação anterior, que podem corromper o "
+"processo de instalação ou causar a instalação de um sistema corrompido. "
+"Você deve voltar atrás e apagar ou formatar o sistema de ficheiros de "
+"destino antes de proceder com a instalação."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:32
 msgid "Failed to install the base system"
-msgstr "Não foi possível instalar o sistema base"
+msgstr "Falhou instalar o sistema base"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:32
 msgid "The base system installation into /target/ failed."
-msgstr "A instalação do sistema base em /target/ falhou."
+msgstr "A instalação do sistema base para /target/ falhou."
 
 #. Type: error
 #. Description
@@ -110,7 +112,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:46
 msgid "Base system installation error"
-msgstr "Erro de instalação do Sistema Base."
+msgstr "Erro de instalação do sistema base."
 
 #. Type: error
 #. Description
@@ -140,7 +142,7 @@ msgstr "Não foi possível instalar um kernel"
 #. Description
 #: ../base-installer.templates:62
 msgid "No kernel package is selected for installation."
-msgstr "Não foi seleccionado nenhum pacote de kernel para instalação."
+msgstr "Não foi seleccionado nenhum pacote de kernel para a instalação."
 
 #. Type: error
 #. Description
@@ -175,8 +177,8 @@ msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
 msgstr ""
-"A lista mostra os kernel disponívei. Por favor escolha um deles de modo a "
-"tornal o sistema iniciável a partir do disc rígido."
+"A lista mostra os kernel disponíveis. Por favor escolha um deles de modo a "
+"tornar o sistema iniciável a partir do disco rígido."
 
 #. Type: error
 #. Description
@@ -188,13 +190,13 @@ msgstr "Não foi encontrado um kernel instalável"
 #. Description
 #: ../base-installer.templates:84
 msgid "No installable kernel was found in the defined APT sources."
-msgstr "Não foi encontrado um kernel instalável nas fontes APT definidas."
+msgstr "Não foi encontrado nenhum kernel instalável nas fontes APT definidas."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:84
 msgid "The current default kernel package is '${KERNEL}'."
-msgstr "O pacote de kernel por defeito é '${KERNEL}'."
+msgstr "O pacote de kernel por omissão actual é '${KERNEL}'."
 
 #. Type: error
 #. Description
@@ -208,7 +210,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:93
 msgid "Unable to install initrd-tools"
-msgstr "Não foi possível instalainitrd-tools"
+msgstr "Não foi possível instalar initrd-tools"
 
 #. Type: error
 #. Description
@@ -242,7 +244,7 @@ msgstr "Localização desconhecida ${SUBST0}."
 #. Description
 #: ../base-installer.templates:111
 msgid "Failed getting Release file ${SUBST0}."
-msgstr "Não foi possível obter o ficheiro Release·${SUBST0}."
+msgstr "Não foi possível obter o ficheiro Release ${SUBST0}."
 
 #. Type: error
 #. Description
@@ -272,13 +274,13 @@ msgstr "Erro de Debootstrap"
 #. Description
 #: ../base-installer.templates:131
 msgid "Interrupt caught... Exiting."
-msgstr "Interrupção interceptada ... saíndo."
+msgstr "Interrupção interceptada ... Saíndo."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:136
 msgid "Installing the Debian base system"
-msgstr "Instalar o sistema base Debian"
+msgstr "A instalar o sistema base de Debian"
 
 #. Type: text
 #. Description
@@ -302,37 +304,37 @@ msgstr "A verificar o sistema de ficheiros de destino"
 #. Description
 #: ../base-installer.templates:152
 msgid "Retrieving Release file"
-msgstr "Obtendo o ficheiro Release"
+msgstr "A obter o ficheiro Release"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:156
 msgid "Finding package sizes"
-msgstr "Procurando o tamanho dos pacotes"
+msgstr "A procurar o tamanho dos pacotes"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:160
 msgid "Retrieving Packages files"
-msgstr "Obtendo os ficheiros Packages"
+msgstr "A obter os ficheiros Packages"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:164
 msgid "Retrieving packages"
-msgstr "Obtendo pacotes"
+msgstr "A obter os pacotes"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:168
 msgid "Extracting packages"
-msgstr "Extraíndo pocote"
+msgstr "A extraír os pacotes"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:172
 msgid "Installing the base system"
-msgstr "Instalando o sistema base"
+msgstr "A instalar o sistema base"
 
 #. Type: text
 #. Description
@@ -344,67 +346,67 @@ msgstr "${SECTION}: ${INFO}..."
 #. Description
 #: ../base-installer.templates:180
 msgid "Validating ${SUBST0}..."
-msgstr "Validando ${SUBST0}..."
+msgstr "A validar ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:184
 msgid "Retrieving ${SUBST0}..."
-msgstr "Obtendo ${SUBST0}..."
+msgstr "A obter ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:188
 msgid "Extracting ${SUBST0}..."
-msgstr "Extraíndo ${SUBST0}..."
+msgstr "A extraír ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:192
 msgid "Checking package size: ${SUBST0}..."
-msgstr "Verificando o tamanho do pacote: ${SUBST0}..."
+msgstr "A verificar o tamanho do pacote: ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:196
 msgid "Installing core packages..."
-msgstr "Instalando pacotes fundamentais..."
+msgstr "A instalar pacotes fundamentais..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:200
 msgid "Unpacking required packages..."
-msgstr "Desempacotando pacotes necessários..."
+msgstr "A extraír pacotes necessários..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:204
 msgid "Configuring required packages..."
-msgstr "Configurando pacotes necessários..."
+msgstr "A configurar pacotes necessários..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:208
 msgid "Installing base packages..."
-msgstr "Instalando pacotes base..."
+msgstr "A instalar pacotes base..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:212
 msgid "Base system installed successfully."
-msgstr "O Sistema Base foi instalado com sucesso."
+msgstr "O sistema base foi instalado com sucesso."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:216
 msgid "Configuring APT sources..."
-msgstr "Configurando fontes APT..."
+msgstr "A configurar as fontes APT..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:220
 msgid "Updating the list of available packages..."
-msgstr "Actualizando a lista de pacotes disponíveis..."
+msgstr "A actualizar a lista de pacotes disponíveis..."
 
 #. Type: text
 #. Description
@@ -416,7 +418,7 @@ msgstr "A instalar pacotes extra..."
 #. Description
 #: ../base-installer.templates:228
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
-msgstr "A instalar os pacotes extra - obtendo e instalando ${SUBST0}..."
+msgstr "A instalar os pacotes extra - a obter e a instalar ${SUBST0}..."
 
 #. Type: text
 #. Description
@@ -428,7 +430,7 @@ msgstr "A criar ficheiros dos dispositivos..."
 #. Description
 #: ../base-installer.templates:236
 msgid "Selecting the kernel to install..."
-msgstr "Seleccionar o kernel a instalar..."
+msgstr "A seleccionar o kernel a instalar..."
 
 #. Type: text
 #. Description
@@ -440,7 +442,7 @@ msgstr "A instalar o kernel..."
 #. Description
 #: ../base-installer.templates:244
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
-msgstr "A instalar o kernel - obtendo e instalando ${SUBST0}..."
+msgstr "A instalar o kernel - a obter e a instalar ${SUBST0}..."
 
 #. Type: text
 #. Description
