@@ -2,14 +2,9 @@ base-installer regression test interface
 ========================================
 
 This test suite attempts to test base-installer's per-architecture kernel
-selection, using a chroot and a few shims. Run it using 'make test' in the
+selection, using a few shims. Run it using 'make test' in the
 base-installer/kernel/ directory or './runtests <architecture>' in the
-base-installer/kernel/tests/ directory. You need to be able to do 'sudo
-chroot' and 'sudo mknod'.
-
-[At the moment, the test suite isn't clever enough to get udebs for itself,
-so you'll need to put busybox-cvs-udeb and libc*-udeb in
-base-installer/kernel/tests/localudebs/ by hand.]
+base-installer/kernel/tests/ directory.
 
 Individual tests consist of a .test file in the appropriate per-architecture
 subdirectory, plus optionally some auxiliary files. The .test file consists
@@ -21,9 +16,9 @@ directives are as follows:
     The subarchitecture, if relevant: e.g. powermac_newworld.
 
   cpuinfo <cpuinfo file>
-    Path (relative to the .test file) to a file to be installed as
-    /proc/cpuinfo while running this test. If not specified, /proc/cpuinfo
-    will be missing.
+    Path (relative to the .test file) to a file to be used instead of
+    /proc/cpuinfo while running this test. If not specified, $CPUINFO will
+    be unset.
 
   processors <number of processors>
     The number of processors in the machine to emulate for the test.
@@ -52,5 +47,8 @@ directives are as follows:
   unusable <kernel versions>
     A list of kernel versions that are expected to be unusable on this
     machine.
+
+  env <name> <value>
+    Any environment variable you want to set.
 
 Please add to the test suite as appropriate.

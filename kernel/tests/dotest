@@ -5,7 +5,7 @@ if [ "$TEST_VERBOSE" -ge 2 ]; then
 	set -x
 fi
 
-. /usr/lib/base-installer/kernel.sh
+. "$(dirname "$0")/../$ARCH.sh"
 
 ok () {
 	echo "PASS $testname"

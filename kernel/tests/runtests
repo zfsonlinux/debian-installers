@@ -7,12 +7,10 @@ if [ -z "$1" ]; then
 fi
 
 ARCH="$1"
-CHROOT="$(pwd)/chroot"
-DPKGDIR="$CHROOT/var/lib/dpkg"
 PASSES=0
 FAILURES=0
 
-[ "$TEST_VERBOSE" ] || TEST_VERBOSE=0
+[ "$TEST_VERBOSE" ] || export TEST_VERBOSE=0
 
 verbose () {
 	if [ "$TEST_VERBOSE" -ge 1 ]; then
@@ -21,57 +19,12 @@ verbose () {
 	eval "$@"
 }
 
-verbose_dpkg () {
-	if [ "$TEST_VERBOSE" -ge 1 ]; then
-		echo "$@"
-		eval "$@"
-	else
-		eval "$@" >/dev/null
-	fi
-}
-
-# Build a chroot containing enough to run a shell and the usual shell
-# utilities: namely, busybox-cvs-udeb and libc*-udeb. At the moment, this
-# function is too stupid to go and get the udebs itself, so you'll have to
-# put them in localudebs by hand.
-make_chroot () {
-	verbose mkdir -p "$CHROOT"
-
-	# Set up the basic files dpkg needs.
-	verbose mkdir -p "$DPKGDIR/info" "$DPKGDIR/updates"
-	verbose touch "$DPKGDIR/available" "$DPKGDIR/status"
-
-	for udeb in localudebs/*.udeb; do
-		verbose_dpkg fakeroot dpkg --root="$CHROOT" --unpack "$udeb"
-	done
-	verbose mkdir "$CHROOT/dev" "$CHROOT/proc"
-	verbose sudo mknod "$CHROOT/dev/null" c 1 3
-	verbose install -m644 -D "../$ARCH.sh" \
-		"$CHROOT/usr/lib/base-installer/kernel.sh"
-	verbose install -m755 dotest "$CHROOT/bin/dotest"
-}
-
-# Populate a chroot based on a test file.
-populate_chroot () {
-	TEST="$1"
-
-	verbose rm -f "$CHROOT/proc/cpuinfo"
-
-	while read name value; do
-		case $name in
-			cpuinfo)
-				verbose install -m644 "$ARCH/$value" \
-					"$CHROOT/proc/cpuinfo"
-				;;
-		esac
-	done < "$TEST"
-}
-
 # Run a test based on a test file.
 run_test () {
 	TEST="$1"
 
-	unset SUBARCH FLAVOUR KERNEL_24 KERNEL_26 USABLE UNUSABLE || true
+	unset SUBARCH CPUINFO FLAVOUR KERNEL_24 KERNEL_26 USABLE UNUSABLE \
+		|| true
 	PROCESSORS=1
 	MAJORS=2.4
 
@@ -79,6 +32,9 @@ run_test () {
 		case $name in
 			subarch)
 				SUBARCH="$value"
+				;;
+			cpuinfo)
+				CPUINFO="${TEST%/*}/$value"
 				;;
 			processors)
 				PROCESSORS="$value"
@@ -104,18 +60,23 @@ run_test () {
 			unusable)
 				UNUSABLE="$value"
 				;;
+			env)
+				# TODO: is there any quote-safe way to do
+				# this?
+				eval "export ${value%% *}='${value#* }'"
+				;;
 		esac
 	done < "$TEST"
 
-	export ARCH SUBARCH PROCESSORS MACHINE
+	export ARCH SUBARCH CPUINFO PROCESSORS MACHINE
 	export MAJORS FLAVOUR KERNEL_24 KERNEL_26
 	export USABLE UNUSABLE
 
 	TMP="$(mktemp -t base-installer-tests.XXXXXX)"
 	trap 'rm -f "$TMP"' 0 HUP INT QUIT TERM
 
-	# Run the actual testset in a chroot.
-	verbose sudo chroot "$CHROOT" dotest >"$TMP"
+	# Run the actual testset.
+	verbose ./dotest >"$TMP"
 
 	# Massage testset output into a more useful form.
 	while read state message; do
@@ -135,25 +96,13 @@ run_test () {
 	trap 0 HUP INT QUIT TERM
 }
 
-destroy_chroot () {
-	verbose rm -rf "$CHROOT"
-}
-
-# Destroy anything left over from the last run.
-destroy_chroot
-
-make_chroot
 if [ "$2" ]; then
 	ONETEST="$2"
-	populate_chroot "$ONETEST"
 	run_test "$ONETEST"
 else
 	for test in "$ARCH"/*.test; do
-		populate_chroot "$test"
 		run_test "$test"
 	done
 fi
 
 echo "$ARCH: $PASSES passes, $FAILURES failures."
-
-# Leave the populated chroot around for convenience.

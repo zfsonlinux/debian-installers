@@ -24,7 +24,7 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	CPUS=`grep 'ncpus probed' /proc/cpuinfo | cut -d: -f2`
+	CPUS=`grep 'ncpus probed' "$CPUINFO" | cut -d: -f2`
 	if [ "$CPUS" -eq 1 ]; then
 		echo "kernel-image-$KERNEL_MAJOR-$1"
 	else

@@ -1,5 +1,5 @@
 arch_get_kernel_flavour () {
-	CPU=`grep '^cpu[[:space:]]*:' /proc/cpuinfo | head -n1 | cut -d: -f2 | sed 's/^ *//; s/[, ].*//' | tr A-Z a-z`
+	CPU=`grep '^cpu[[:space:]]*:' "$CPUINFO" | head -n1 | cut -d: -f2 | sed 's/^ *//; s/[, ].*//' | tr A-Z a-z`
 	case "$CPU" in
 		power3|i-star|s-star)
 			family=power3
@@ -38,7 +38,7 @@ arch_get_kernel () {
 	# sometimes have a different version number.
 	apusversion=2.4.27
 
-	CPUS="$(grep -ci ^processor /proc/cpuinfo)"
+	CPUS="$(grep -ci ^processor "$CPUINFO")" || CPUS=1
 	if [ "$CPUS" ] && [ "$CPUS" -gt 1 ]; then
 		SMP=-smp
 	else

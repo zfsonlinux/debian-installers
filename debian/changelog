@@ -6,6 +6,9 @@ base-installer (1.17) UNRELEASED; urgency=low
       hppa is still trailing behind at 2.6.8-1.
     - Use major version of target kernel rather than installation kernel to
       work out whether to use an initrd or (on powerpc) to run mkvmlinuz.
+    - Parameterise access to files in /proc by kernel/*.sh, allowing the
+      test suite to run without sudo access or a chroot. 'make test' in
+      kernel/ should be easily runnable by everyone now.
   * Matt Kraai
     - Fix the spelling of "file system".
   * Steve Langasek

@@ -1,5 +1,5 @@
 arch_get_kernel_flavour () {
-	if grep -q 'Itanium 2' /proc/cpuinfo; then
+	if grep -q 'Itanium 2' "$CPUINFO"; then
 		echo mckinley
 	else
 		echo itanium
@@ -18,7 +18,7 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	CPUS="$(grep ^processor /proc/cpuinfo | tail -n 1 | cut -d: -f2)"
+	CPUS="$(grep ^processor "$CPUINFO" | tail -n 1 | cut -d: -f2)"
 	if [ -z "$CPUS" ] || [ "$CPUS" -ne 0 ]; then
 		SMP=-smp
 	else

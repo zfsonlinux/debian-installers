@@ -1,6 +1,6 @@
 arch_get_kernel_flavour () {
-	VENDOR=`grep '^vendor_id' /proc/cpuinfo | cut -d: -f2`
-	FAMILY=`grep '^cpu family' /proc/cpuinfo | cut -d: -f2`
+	VENDOR=`grep '^vendor_id' "$CPUINFO" | cut -d: -f2`
+	FAMILY=`grep '^cpu family' "$CPUINFO" | cut -d: -f2`
 	case "$VENDOR" in
 		" AuthenticAMD"*)
 			case "$FAMILY" in
@@ -38,7 +38,7 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	if [ -e /proc/speakup ]; then
+	if [ -e "$SPEAKUP" ]; then
 		# Override and use speakup kernel. There's only one.
 		echo "kernel-image-$KERNEL_VERSION-speakup"
 		return
