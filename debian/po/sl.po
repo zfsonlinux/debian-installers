@@ -7,9 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-16 08:27+0200\n"
-"PO-Revision-Date: 2004-04-10 14:27+0100\n"
+"POT-Creation-Date: 2004-04-10 18:11-0400\n"
+"PO-Revision-Date: 2004-05-23 13:34+0100\n"
 "Last-Translator: Jure Čuhalev <gandalf@owca.info>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,24 +18,14 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../templates:4
-msgid ""
-"The following other operating systems have been detected on this computer: "
-"${OS_LIST}"
+msgid "The following other operating systems have been detected on this computer: ${OS_LIST}"
 msgstr "Na računalniku sem zaznal naslednje operacijske sisteme: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
 #: ../templates:4
-msgid ""
-"If all of your operating systems are listed above, then it should be safe to "
-"install the boot loader to the master boot record of your first hard drive. "
-"When your computer boots, you will be able to choose to load one of these "
-"operating systems or your new Debian system."
-msgstr ""
-"Če so zgoraj napisani vsi vaši operacijski sistemi potem je verjetno varno "
-"namestiti zagonski zaganjalnik na glavni zagonski zapis vašega trdega diska. "
-"Ko se vaš računalnik zažene boste lahko izbrali enega od teh operacijskih "
-"sistemov ali pa vaš novi Debian sistem."
+msgid "If all of your operating systems are listed above, then it should be safe to install the boot loader to the master boot record of your first hard drive. When your computer boots, you will be able to choose to load one of these operating systems or your new Debian system."
+msgstr "Če so zgoraj napisani vsi vaši operacijski sistemi potem je verjetno varno namestiti zagonski zaganjalnik na glavni zagonski zapis vašega trdega diska. Ko se vaš računalnik zažene boste lahko izbrali enega od teh operacijskih sistemov ali pa vaš novi Debian sistem."
 
 #. Type: boolean
 #. Description
@@ -47,31 +36,14 @@ msgstr "Namestim sistemski zaganjalnik GRUB na glavni zagonski zapis?"
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
-msgid ""
-"It seems that this installation of Debian is the only operating system on "
-"this computer. If so, it should be safe to install the GRUB boot loader to "
-"the master boot record of your first hard drive."
-msgstr ""
-"Izgleda, da bo Debian edini operacijski sistem na tem računalniku. Če je "
-"temu tako je verjetno varno namestiti zagonski nalagalnik v glavni zagonski "
-"zapis prvega trdega diska."
-
-#. Type: boolean
-#. Description
-#: ../templates:16
-msgid ""
-"Warning: If the installer failed to detect another operating system that is "
-"present on your computer, modifying the master boot record will make that "
-"operating system temporarily unbootable, though GRUB can be manually "
-"configured later to boot it."
-msgstr ""
+msgid "It seems that this installation of Debian is the only operating system on this computer. If so, it should be safe to install the boot loader to the master boot record of your first hard drive."
+msgstr "Izgleda, da bo ta namestitev Debiana edini operacijski sistem na tem računalniku. Če je temu tako je verjetno varno namestiti zagonski nalagalnik v glavni zagonski zapis prvega trdega diska."
 
 #  Type: string
 #  Description
 #. Type: string
 #. Description
-#: ../templates:28
+#: ../templates:24
 msgid "Device for boot loader installation:"
 msgstr "Naprava za namestitev zagonskega nalaganika:"
 
@@ -79,88 +51,67 @@ msgstr "Naprava za namestitev zagonskega nalaganika:"
 #  Description
 #. Type: string
 #. Description
-#: ../templates:28
-msgid ""
-"You need to make the newly installed Debian system bootable, by installing "
-"the GRUB bootloader on a bootable device. The usual way to do this is to "
-"install GRUB on the master boot record of your first hard drive. If you "
-"prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
-"even to a floppy."
-msgstr ""
-"Sedaj je čas, da omogočite zagon novo nameščenega Debian sistema z "
-"namestitvijo zagonskega zaganjalnika GRUB na zagonsko napravo. Navadno to "
-"lahko storite tako, da namestite GRUB na glavni zagonski sektor vašega "
-"trdega diska. Če želite lahko namestite GRUB drugam na trdi disk, na drugi "
-"disk ali celo na disketo."
+#: ../templates:24
+msgid "You need to make the newly installed Debian system bootable, by installing the GRUB bootloader on a bootable device. The usual way to do this is to install GRUB on the master boot record of your first hard drive. If you prefer, you can install GRUB elsewhere on the drive, or to another drive, or even to a floppy."
+msgstr "Sedaj je čas, da omogočite zagon novo nameščenega Debian sistema z namestitvijo zagonskega zaganjalnika GRUB na zagonsko napravo. Navadno to lahko storite tako, da namestite GRUB na glavni zagonski sektor vašega trdega diska. Če želite lahko namestite GRUB drugam na trdi disk, na drugi disk ali celo na disketo."
 
 #. Type: string
 #. Description
-#: ../templates:28
-msgid ""
-"The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
-"in /dev. For example, \"(hd0)\" will install GRUB to the master boot record "
-"of your first hard drive, while \"/dev/hda2\" will install it to the second "
-"parrtition of your first IDE drive."
-msgstr ""
+#: ../templates:24
+msgid "The device can be specified using GRUB's \"(hdn)\" notation, or as a device in /dev."
+msgstr "Napravo lahko določite z uporabo GRUB-ovega poimenovanja \"hdn\" ali kot napravo v /dev."
 
 #. Type: boolean
 #. Description
-#: ../templates:43
+#: ../templates:37
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "GRUB namestitev ni uspela. Naj vseeno nadaljujem?"
 
 #. Type: boolean
 #. Description
-#: ../templates:43
-msgid ""
-"The grub package failed to install into /target/.  Installing GRUB as a boot "
-"loader is a required step.  The install problem might however be unrelated "
-"to GRUB, so continuing the installation may be possible."
-msgstr ""
-"Paket grub ni bilo mogoče namestiti v /target/. To je nujno, da se lahko "
-"GRUB namesti kot zagonski nalagalnik. Za težavo z namestitvijo morda ni kriv "
-"grub, poleg tega pa bo morda vse delovalo in boste lahko nadaljevali z "
-"namestitvijo."
+#: ../templates:37
+msgid "The grub package failed to install into /target/.  Installing GRUB as a boot loader is a required step.  The install problem might however be unrelated to GRUB, so continuing the installation may be possible."
+msgstr "Paket grub ni bilo mogoče namestiti v /target/. To je nujno, da se lahko GRUB namesti kot zagonski nalagalnik. Za težavo z namestitvijo morda ni kriv grub, poleg tega pa bo morda vse delovalo in boste lahko nadaljevali z namestitvijo."
 
 #. Type: error
 #. Description
-#: ../templates:50
+#: ../templates:44
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Grub ne morem namestiti v ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:50
+#: ../templates:44
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Izvajanje 'grub-install·${BOOTDEV}' ni uspelo."
 
 #. Type: error
 #. Description
-#: ../templates:57
+#: ../templates:51
 msgid "Unable to configure GRUB"
 msgstr "Ne morem nastaviti GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:57
+#: ../templates:51
 msgid "Executing 'update-grub' failed."
 msgstr "Izvajanje 'update-grub' nu uspelo.·"
 
 #. Type: error
 #. Description
-#: ../templates:57
+#: ../templates:51
 msgid "This is a fatal error."
 msgstr "To je usodna napaka."
 
 #. Type: text
 #. Description
-#: ../templates:64
+#: ../templates:58
 msgid "Installing GRUB boot loader"
 msgstr "Nameščam zagonski nalagalnik GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:68
+#: ../templates:62
 msgid "Looking for other operating systems..."
 msgstr "Iščem ostale operacijske sisteme..."
 
@@ -168,7 +119,7 @@ msgstr "Iščem ostale operacijske sisteme..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:72
+#: ../templates:66
 msgid "Installing the 'grub' package..."
 msgstr "Nameščam paket 'grub'..."
 
@@ -176,7 +127,7 @@ msgstr "Nameščam paket 'grub'..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:76
+#: ../templates:70
 msgid "Determining GRUB boot device..."
 msgstr "Iščem zagonsko napravo GRUB..."
 
@@ -184,7 +135,7 @@ msgstr "Iščem zagonsko napravo GRUB..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:80
+#: ../templates:74
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Poganjam \"grub-install·${BOOTDEV}\"..."
 
@@ -192,7 +143,7 @@ msgstr "Poganjam \"grub-install·${BOOTDEV}\"..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:84
+#: ../templates:78
 msgid "Running \"update-grub\"..."
 msgstr "Poganjam \"update-grub\"..."
 
@@ -200,13 +151,14 @@ msgstr "Poganjam \"update-grub\"..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:88
+#: ../templates:82
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Posodabljam /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:93
+#: ../templates:87
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Namesti sistemski zaganjalnik GRUB na trdi disk"
+
