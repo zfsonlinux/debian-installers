@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.034\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-15 09:16+0100\n"
+"POT-Creation-Date: 2004-02-14 18:15+0200\n"
 "PO-Revision-Date: 2004-02-10 09:30+0200\n"
 "Last-Translator: Osman Yüksel<yuxel@sonsuzdongu.com>\n"
 "Language-Team: Debian-l10n-Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -25,111 +25,130 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:4
+#: templates:4
 msgid "Device for boot loader installation:"
 msgstr "Önyükleyici kurulacak aygıt:"
 
 #. Type: string
 #. Description
-#: ../templates:4
+#: templates:4
 msgid ""
-"GRUB needs to install the stage 1 boot loader on a bootable device. This is "
-"usually the first hard drive. Note that GRUB counts devices differently than "
-"the Linux kernel, so the first one is usually '(hd0)'. Leave this at default "
-"if unsure."
+"Now it is time to make the newly installed Debian system bootable, by "
+"installing the GRUB bootloader on a bootable device. The usual way to do "
+"this is to install GRUB on the master boot record of your first hard drive."
 msgstr ""
-"Grub boot edilebilir bir aygıta 1. seviye açılış yükleyicisi olarak "
-"yüklenmelidir. Bu genelde ilk hard disktir. Şunu bilmelisiniz ki GRUB "
-"aygıtları Linux kernelden daha farklı bir şekilde sayar, ilk olan genelde "
-"'(hd0)' dır. Eğer emin değilseniz öntanımlı şekilde bırakın."
+"Şimdi sıra önyükleme yapılacak aygıta GRUB  yazılarak,  yeni kurulan Debian sistemini "
+"açılabilir(bootable) yapmaya geldi. Alışılmış yol, GRUB'ı, birincil sabit diskinizin mbr'ına yazmaktır. "
+#. Type: string
+#. Description
+#: templates:4
+msgid ""
+"Note that GRUB counts devices differently than the Linux kernel, so the "
+"first drive is usually '(hd0)'. If you want it on the second partition of "
+"the first drive, use '(hd0,1)'. Leave this at default if unsure."
+msgstr ""
+"Şunu bilmesiniz ki GRUB aygıtları Linux kernel'inden farklı sayar, yani ilk sürücü "
+"genelde '(hd0)' dır. Eğer ilk sürücünün ikinci bölümünü kullanmak isterseniz "
+"'(hd0,1)' kullanın. Emin değilseniz boş bırakın."
+#. Type: string
+#. Description
+#: templates:4
+msgid ""
+"Warning: by default, this will change how your computer boots, overwriting "
+"your existing master boot record with GRUB. Continuing may make other "
+"operating systems installed on this computer unbootable."
+msgstr ""
+"Uyarı : bu, öntanımlı olarak bilgisayarınızın açılış şeklini değişitirecek, "
+"GRUB'ı  MBR'ın üzerine yazacaktır. Bu işlem sisteminizdeki diğer işletim "
+"sistemlerini yeniden başlatılamaz(unbootable) duruma getirebilir."
 
 #. Type: boolean
 #. Description
-#: ../templates:13
+#: templates:20
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "GRUB yüklenmesi başarısız. Yine de devam edilsin mi?"
 
 #. Type: boolean
 #. Description
-#: ../templates:13
+#: templates:20
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"GRUB paketi /target/ a kurulamadı. GRUB'ın bir açılış yükleyicisi olarak "
-"kurulması gerekli. Kurulum problemi grub'dan kaynaklanmıyor olabilir, ve "
-"devam ederseniz çalışabilir. "
+"GRUB paketi /target/ a kurulamadı. GRUB'ın bir açılış yükleyicisi "
+"olarak kurulması gerekli. Kurulum problemi grub'dan kaynaklanmıyor "
+"olabilir, ve devam ederseniz çalışabilir. "
 
 #. Type: error
 #. Description
-#: ../templates:20
+#: templates:27
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "${BOOTDEV} aygıtına GRUB kurulamadı"
 
 #. Type: error
 #. Description
-#: ../templates:20
+#: templates:27
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "'grub-install ${BOOTDEV}' komutu başarısız."
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: templates:34
 msgid "Unable to configure GRUB"
 msgstr "GRUB ayarlanamıyor"
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: templates:34
 msgid "Executing 'update-grub' failed."
 msgstr "'update-grub' komutu başarısız"
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: templates:34
 msgid "This is a fatal error."
 msgstr "Bu tehlikeli(ölümcül) bir hata"
 
 #. Type: text
 #. Description
-#: ../templates:34
+#: templates:41
 msgid "Installing GRUB boot loader"
 msgstr "GRUB açılış yükleyicisi kuruluyor"
 
 #. Type: text
 #. Description
-#: ../templates:38
+#: templates:45
 msgid "Installing the 'grub' package..."
 msgstr "'grub' paketi kuruluyor..."
 
 #. Type: text
 #. Description
-#: ../templates:42
+#: templates:49
 msgid "Determining GRUB boot device..."
 msgstr "GRUB boot aygıtı belirleniyor."
 
 #. Type: text
 #. Description
-#: ../templates:46
+#: templates:53
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "\"grub-install ${BOOTDEV}\" çalıştırılıyor."
 
 #. Type: text
 #. Description
-#: ../templates:50
+#: templates:57
 msgid "Running \"update-grub\"..."
 msgstr "\"update-grub\" çalıştırılıyor."
 
 #. Type: text
 #. Description
-#: ../templates:54
+#: templates:61
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "/etc/kernel-img.conf güncelleniyor."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:59
+#: templates:66
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Sabit diske GRUB önyükleyici kuruluyor"
