@@ -101,8 +101,17 @@ if [ "$1" = "configure" ]; then
     touch /etc/modules.conf
     depmod -a
 
-    # XXX following is not appropriate to all archs
-    cat > /target/etc/kernel-img.conf <<EOF
+    if [ "$ARCH" = "hppa" ] ; then
+        cat > /target/etc/kernel-img.conf <<EOF
+# Created by d-i.  Create symlinks in /boot, no initrd yet
+do_symlinks = yes
+image_in_boot = yes
+relative_links = yes
+do_bootloader = no
+do_bootfloppy = no
+EOF
+    else
+        cat > /target/etc/kernel-img.conf <<EOF
 # Do not create symbolic links in /
 do_symlinks = yes
 
@@ -112,6 +121,7 @@ do_bootloader = no
 do_bootfloppy = no
 do_initrd = yes
 EOF
+    fi
 
 # Avoid the possibility of getting a root shell without giving passord
 # when booting the 2.4 kernel
