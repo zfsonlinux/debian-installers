@@ -1,22 +1,10 @@
-#
-#    Translators, if you are not familiar with the PO format, gettext
-#    documentation is worth reading, especially sections dedicated to
-#    this format, e.g. by running:
-#         info -n '(gettext)PO Files'
-#         info -n '(gettext)Header Entry'
-#
-#    Some information specific to po-debconf are available at
-#            /usr/share/doc/po-debconf/README-trans
-#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
-#
-#    Developers do not need to manually edit POT or PO files.
-#
+# Changwoo Ryu <cwryu@debian.org>, 2004.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-02-03 10:43+0100\n"
-"PO-Revision-Date: 2003-12-15 23:28+0900\n"
+"PO-Revision-Date: 2004-02-26 15:21+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Korean\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +24,7 @@ msgid ""
 "Now it is time to make the newly installed Debian system bootable, by "
 "installing the GRUB bootloader on a bootable device. The usual way to do "
 "this is to install GRUB on the master boot record of your first hard drive."
-msgstr ""
+msgstr "새로 설치한 데비안 시스템을 부팅 가능하게 만들 차례입니다. GRUB 부트로더를 부팅 가능한 장치에 설치하면 됩니다. 일반적으로 GRUB을 첫 번째 하드 드라이브의 마스터 부트 레코드에 설치합니다."
 
 #. Type: string
 #. Description
@@ -45,7 +33,7 @@ msgid ""
 "Note that GRUB counts devices differently than the Linux kernel, so the "
 "first drive is usually '(hd0)'. If you want it on the second partition of "
 "the first drive, use '(hd0,1)'. Leave this at default if unsure."
-msgstr ""
+msgstr "GRUB는 리눅스 커널과는 다른 방식으로 장치 이름을 매깁니다. 첫 번째 드라이브는 '(hd0)'입니다. 첫 번째 드라이브의 두 번째 파티션은 '(hd0,1)'을 사용합니다. 확실히 모르겠으면 그냥 기본값으로 놔 두십시오."
 
 #. Type: string
 #. Description
@@ -54,7 +42,7 @@ msgid ""
 "Warning: by default, this will change how your computer boots, overwriting "
 "your existing master boot record with GRUB. Continuing may make other "
 "operating systems installed on this computer unbootable."
-msgstr ""
+msgstr "경고: GRUB을 마스터 부트 레코드에 설치하면, 컴퓨터가 부팅하는 방식을 바꿉니다. 계속하시면 이 컴퓨터에 들어 있는 다른 운영 체제가 부팅하지 못할 수도 있습니다."
 
 #. Type: boolean
 #. Description
@@ -113,37 +101,32 @@ msgstr "GRUB 부트 로더 설치"
 #. Type: text
 #. Description
 #: ../templates:45
-#, fuzzy
 msgid "Installing the 'grub' package..."
-msgstr "'grub' 패키지를 설치하는 중입니다."
+msgstr "'grub' 패키지를 설치하는 중입니다..."
 
 #. Type: text
 #. Description
 #: ../templates:49
-#, fuzzy
 msgid "Determining GRUB boot device..."
-msgstr "GRUB 부트 장치를 결정하는 중입니다."
+msgstr "GRUB 부트 장치를 결정하는 중입니다..."
 
 #. Type: text
 #. Description
 #: ../templates:53
-#, fuzzy
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "\"grub-install ${BOOTDEV}\" 실행 중입니다."
+msgstr "\"grub-install ${BOOTDEV}\" 실행 중입니다..."
 
 #. Type: text
 #. Description
 #: ../templates:57
-#, fuzzy
 msgid "Running \"update-grub\"..."
-msgstr "\"update-grub\" 실행 중입니다."
+msgstr "\"update-grub\" 실행 중입니다..."
 
 #. Type: text
 #. Description
 #: ../templates:61
-#, fuzzy
 msgid "Updating /etc/kernel-img.conf..."
-msgstr "/etc/kernel-img.conf 업데이트 중입니다."
+msgstr "/etc/kernel-img.conf 업데이트 중입니다..."
 
 #. Type: text
 #. Description
@@ -151,14 +134,3 @@ msgstr "/etc/kernel-img.conf 업데이트 중입니다."
 #: ../templates:66
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "GRUB 부트로더를 하드 디스크에 설치"
-
-#~ msgid ""
-#~ "GRUB needs to install the stage 1 boot loader on a bootable device. This "
-#~ "is usually the first hard drive. Note that GRUB counts devices "
-#~ "differently than the Linux kernel, so the first one is usually '(hd0)'. "
-#~ "Leave this at default if unsure."
-#~ msgstr ""
-#~ "부팅 가능한 장치에 GRUB의 stage 1 부트 로더를 설치해야 합니다. 부팅 가능"
-#~ "한 장치는 보통 첫 번째 하드 드라이브입니다. GRUB에서는 리눅스 커널과 다른 "
-#~ "방법으로 디바이스 번호를 붙인다는 것에 유의하십시오. 첫 번째 하드 드라이브"
-#~ "는 보통 '(hd0)'입니다. 확실히 모르겠다면 그냥 기본값으로 남겨 두십시오."
