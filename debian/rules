@@ -1,44 +1,27 @@
 #! /usr/bin/make -f
 
-# Udebs have no postrm file, don't make one
-export DH_OPTIONS=-n
-
-PACKAGE=$(shell dh_listpackages)
-VERSION=$(shell dpkg-parsechangelog | grep ^Version: | cut -d ' ' -f 2)
-ARCH=$(shell dpkg --print-architecture)
-
-build: build-stamp
-build-stamp:
-	dh_testdir
-ifeq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
-	$(MAKE) small
-else
-	$(MAKE) DEBUG=1
-endif
-	touch build-stamp
+build:
 
 clean:
 	dh_testdir
-	rm -f build-stamp
-	$(MAKE) clean
 	dh_clean
 
 install: build
 	dh_testdir
 	dh_testroot
-	dh_install run-debootstrap usr/sbin
+	dh_clean -k
 
 binary-arch: install
 	dh_testdir
 	dh_testroot
-	dh_installdebconf
+	dh_installdebconf -n
 	dh_strip
 	dh_compress
 	dh_fixperms
 	dh_installdeb
 	dh_shlibdeps
-	dh_gencontrol -- -n$(PACKAGE)_$(VERSION)_$(ARCH).udeb
-	dh_builddeb --filename=$(PACKAGE)_$(VERSION)_$(ARCH).udeb
+	dh_di_gencontrol
+	dh_di_builddeb
 
 binary: binary-indep binary-arch
 .PHONY: clean binary-indep binary-arch binary install
