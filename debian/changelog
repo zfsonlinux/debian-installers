@@ -2,6 +2,8 @@ base-installer (0.018) UNRELEASED; urgency=low
 
   * Remove brltty specific code from base-installer postinst.  We now
     have apt-install.
+  * Process the apt-install queue in one call to apt-install, instead of
+    several.  This should speed up the install.
 
  -- Mario Lang <mlang@debian.org>  Sun, 23 Feb 2003 16:12:58 +0100
 
