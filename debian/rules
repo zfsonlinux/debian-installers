@@ -5,7 +5,7 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-PACKAGE=grub-installer
+PACKAGE=aboot-installer
 VERSION=$(shell dpkg-parsechangelog | grep ^Version: | cut -d ' ' -f 2)
 ARCH=$(shell dpkg --print-architecture)
 FILENAME=$(PACKAGE)_$(VERSION)_$(ARCH).udeb
@@ -39,7 +39,7 @@ binary-indep: build install
 	dh_testdir
 	dh_testroot
 	dh_installdebconf
-	cp debian/isinstallable debian/grub-installer/DEBIAN/
+	cp debian/isinstallable debian/aboot-installer/DEBIAN/
 	dh_installdeb 
 	dh_gencontrol -- -fdebian/files~
 	dpkg-distaddfile $(FILENAME) debian-installer $(PRIORITY)
