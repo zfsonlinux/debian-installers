@@ -30,10 +30,13 @@ LD_LIBRARY_PATH=/usr/lib:/lib:/target/usr/lib:/target/lib \
     -y --download-only install $*
 
 # Some packages (eg. the kernel-image package) require a mounted /proc/
-mount -t proc proc /target/proc
+# Only mount it if it isn't mounted already
+if [ ! -f /target/proc/cmdline ] ; then
+    mount -t proc proc /target/proc
+fi
 
 DEBIAN_FRONTEND=noninteractive \
-chroot /target apt-get --no-download install "$kernel" < /dev/null
+chroot /target apt-get --no-download -y install $* < /dev/null
 
 umount /target/proc
 
