@@ -406,6 +406,20 @@ get_arch_kernel () {
 		*) warning "Unknown $ARCH subarchitecture '$SUBARCH'." ;;
 		esac
 	;;
+	hppa)
+		version=2.4.26
+		MODEL=`uname -m`
+		# Don't know how to detect whether SMP is needed, but
+		# apparently it's OK to assume SMP.
+		case "$MODEL" in
+		parisc)
+			trykernel=kernel-image-$version-32-smp
+		;;
+		parisc64)
+			trykernel=kernel-image-$version-64-smp
+		;;
+		esac
+	;;
 	*)
 	warning "Unknown architecture '$ARCH'."
 	;;
