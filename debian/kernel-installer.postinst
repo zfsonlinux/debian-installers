@@ -36,14 +36,27 @@ fi
 # the busybox  do not support 'uniq' and 'sort -r' at
 # the moment [pere 2003-02-06]
 
+kernel_list=/tmp/available_kernels.txt
+kernel_update_list() {
+    # Using 'uniq' to avoid listing the same kernel more then once.
+    $chroot apt-cache search kernel-image | grep ^kernel-image | \
+      cut -d" " -f1 | /target/usr/bin/uniq > $kernel_list
+}
+
+kernel_present() {
+    if grep -q "^$1\$" $kernel_list ; then
+	true
+    else
+	false
+    fi
+}
+
 # Using 'sort -r' to get the newest kernel version at the start of the
 # list (ie 2.4.20 above 2.2.20).  This is in conflict with getting the
 # most generic architecture first (386 above 686).
 
-# Using 'uniq' to avoid listing the same kernel more then once.
-kernels=`$chroot apt-cache search kernel-image | grep ^kernel-image | \
-  /target/usr/bin/sort -r | cut -d" " -f1 | /target/usr/bin/uniq | \
-  tr '\n' ',' | sed -e 's/,$//'`
+kernel_update_list
+kernels=`/target/usr/bin/sort -r $kernel_list| tr '\n' ',' | sed -e 's/,$//'`
 
 info "Found kernels '$kernels'"
 
@@ -62,7 +75,7 @@ db_progress INFO kernel-installer/progress/step_select
 
 # Try to make current rootskel setting the default, make sure it is
 # available first.
-if echo "$kernels" | grep -q "$kernel" ; then
+if kernel_present "$kernel" ; then
     # Current selection is available, nothing to do
     :
 else
@@ -77,19 +90,20 @@ ARCH=`udpkg --print-architecture`
 # Should this instead be located in small script fragments, named
 # after their architecture?  Something like this:
 #  [ -f /usr/lib/kernel-installer/$ARCH ] && . /usr/lib/kernel-installer/$ARCH
+trykernel=
 case "$ARCH" in
     i386*)
         version=2.4
         MODEL=`grep 'model name' /proc/cpuinfo | cut -d: -f2`
 	case "$MODEL" in 
 	    " Intel(R) Pentium(R) 4"*)
-	    kernel=kernel-image-$version-686
+	    trykernel=kernel-image-$version-686
 	    ;;
 	    " AMD Athlon(tm) Processor"*)
-	    kernel=kernel-image-$version-k7
+	    trykernel=kernel-image-$version-k7
 	    ;;
 	    *)
-	    kernel=kernel-image-$version-386
+	    trykernel=kernel-image-$version-386
 	    ;;
 	esac
         ;;
@@ -100,16 +114,16 @@ case "$ARCH" in
 	case "$MODEL" in
 	    sparc)
 		if [ "$CPUS" -eq 1 ]; then
-			kernel=kernel-image-$version-sun4cdm
+			trykernel=kernel-image-$version-sun4cdm
 		else
-			kernel=kernel-image-$version-sun4dm-smp
+			trykernel=kernel-image-$version-sun4dm-smp
 		fi
 		;;
 	    sparc64)
 		if [ "$CPUS" -eq 1 ]; then
-			kernel=kernel-image-$version-sun4u
+			trykernel=kernel-image-$version-sun4u
 		else
-			kernel=kernel-image-$version-sun4u-smp
+			trykernel=kernel-image-$version-sun4u-smp
 		fi
 		;;
 	esac
@@ -119,23 +133,23 @@ case "$ARCH" in
       MODEL=`/usr/bin/archdetect`
       case "$MODEL" in
           "powerpc/powermac_newworld")
-              kernel=kernel-image-$version-powerpc
+              trykernel=kernel-image-$version-powerpc
               ;;
           # what's below is probably nonsense, porters have to start building 2.4 kernels for d-i!
           # But at least the infrastructure will be there and these are the latest versions in 
           # the archive.
           "powerpc/powermac_oldworld")
-              kernel=kernel-image-$version-powerpc
+              trykernel=kernel-image-$version-powerpc
               ;;
           "powerpc/prep")
-              kernel=kernel-image-2.2.20-prep
+              trykernel=kernel-image-2.2.20-prep
               ;;
 	  # do we need a special case here for powerpc/chrp_pegasos?
           "powerpc/chrp")
-              kernel=kernel-image-2.2.20-chrp
+              trykernel=kernel-image-2.2.20-chrp
               ;;
           "powerpc/amiga")
-              kernel=kernel-image-2.4.20-apus
+              trykernel=kernel-image-2.4.20-apus
               ;;
           *)
               log "warning: Unknown powerpc subarchitecture '$MODEL'."
@@ -146,6 +160,13 @@ case "$ARCH" in
         log "warning: Unknown architecture '$ARCH'."
 	;;
 esac
+
+if kernel_present $trykernel ; then
+    kernel=$trykernel
+fi
+
+rm -f $kernel_list
+
 if [ "$kernel" ] ; then
     db_set kernel-installer/which-kernel "$kernel"
 fi
