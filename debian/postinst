@@ -62,11 +62,6 @@ if [ "${EXCLUDES}" ]; then
     EXCLUDE="--exclude=${EXCLUDES}"
 fi
 
-unset DEBIAN_HAS_FRONTEND
-unset DEBIAN_FRONTEND
-unset DEBCONF_FRONTEND
-unset DEBCONF_REDIR
-
 test -d $ETCDIR || mkdir -p $ETCDIR
 test -d $LOGDIR || mkdir -p $LOGDIR
 
@@ -76,18 +71,38 @@ if [ -f /target/etc/fstab ] ; then
     echo "# UNCONFIGURED FSTAB FOR BASE SYSTEM" >> /target/etc/fstab
 fi
 
-debootstrap \
-    --components="${COMPONENTS}" \
-    --boot-floppies \
-    ${INCLUDE} ${EXCLUDE} \
-    ${DISTRIBUTION} /target \
-    "$PROTOCOL://$MIRROR$DIRECTORY" \
-    3>&1 > $LOGDIR/debootstrap.log \
-    2> $LOGDIR/debootstrap.err.log </dev/null
+(
+    # Disable debconf while calling debootstrap
+    unset DEBIAN_HAS_FRONTEND
+    unset DEBIAN_FRONTEND
+    unset DEBCONF_FRONTEND
+    unset DEBCONF_REDIR
+
+    if debootstrap \
+        --components="${COMPONENTS}" \
+        --boot-floppies \
+        ${INCLUDE} ${EXCLUDE} \
+        ${DISTRIBUTION} /target \
+        "$PROTOCOL://$MIRROR$DIRECTORY" \
+        3>&1 > $LOGDIR/debootstrap.log \
+        2> $LOGDIR/debootstrap.err.log </dev/null
+    then
+        :
+    else
+        debootstrap_failed=$?
+    fi
+)
 
 if [ true = "$COPIED_FSTAB" ] ; then
     mv /target/etc/fstab.orig /target/etc/fstab
 fi
+
+if [ "$debootstrap_failed" ] ; then
+    db_input critical base-installer/debootstrap-failed || [ $? -eq 30 ]
+    db_go
+    exit $debootstrap_failed
+fi
+
 
 # Why is this here?  Why are the files moved into /target/? [pere 2003-02-07]
 APTLISTDIR=/target/var/lib/apt/lists
@@ -103,7 +118,7 @@ else
 fi
 
 # Copy the files from the CD, to avoid access problems in chroot
-# environment.  This has to happen here, as debootstrap to not
+# environment.  This has to happen here, as debootstrap do not
 # understand copy:, while apt-get do.
 if [ file = "$PROTOCOL" ] ; then
     PROTOCOL=copy
