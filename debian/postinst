@@ -16,7 +16,7 @@ PROTOCOL=
 MIRROR=
 DIRECTORY=
 COMPONENTS=
-DISTRIBUTION=sarge
+DISTRIBUTION=testing
 
 if [ -f /cdrom/.disk/base_installable ]; then
     PROTOCOL=file
@@ -60,6 +60,16 @@ fi
 if db_get mirror/distribution && [ "$RET" ] ; then
     DISTRIBUTION=$RET
 fi
+
+# TODO this is a quick hack to make things work, but the proper approach is
+# to download and parse the Release file, and use the codename from it as
+# the distribution passed to debootstrap. The problem with hardcoding this
+# as we do now is that it's hard to update this around release.
+case "$DISTRIBUTION" in
+	stable)		DISTRIBUTION=woody ;;
+	testing)	DISTRIBUTION=sarge ;;
+	unstable)	DISTRIBUTION=sid ;;
+esac
 
 if [ "${INCLUDES}" ]; then
     INCLUDE="--include=${INCLUDES}"
