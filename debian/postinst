@@ -667,14 +667,17 @@ EOF
 	# and calling mkvmlinuz on the powerpc subarches that need it.
 	if [ "$ARCH" = "powerpc" -a "$(uname -r | cut -d . -f 1,2)" = "2.6" ]; then
 		case "$SUBARCH" in
-			prep | chrp | chrp_pegasos)
-				version=$(uname -r)
-				info "Calling mkvmlinuz for kernel version '$version'."
-				chroot /target mkvmlinuz \
-					-o /boot/vmlinuz-$version \
-					-k /boot/vmlinux-$version
-			;;
+			prep) subarch=prep ;;
+			chrp | chrp_pegasos) subarch=chrp ;;
+			*) subarch =none ;;
 		esac
+		if [ "$subarch" != none ]
+			version=$(uname -r)
+			info "Calling mkvmlinuz for kernel version '$version'."
+			chroot /target mkvmlinuz -a $subarch \
+				-o /boot/vmlinuz-$version \
+				-k /boot/vmlinux-$version
+		fi
 	fi
 
 	if [ "$kernel_install_failed" ]; then
