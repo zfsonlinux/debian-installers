@@ -1,176 +1,505 @@
-#! /bin/sh -e
+#! /bin/sh
+set -e
 
 . /usr/share/debconf/confmodule
 
-logfile=/var/log/messages
-
-log() {
-    logger -t base-installer "$@"
-}
-
+LOGFILE=/var/log/messages
 ETCDIR=/target/etc
-LOGDIR=/target/var/log
-
 ARCH=`udpkg --print-architecture`
 PROTOCOL=
 MIRROR=
 DIRECTORY=
 COMPONENTS=
 DISTRIBUTION=testing
+INCLUDES=
+EXCLUDES=
+KERNEL=
+KERNEL_LIST=/tmp/available_kernels.txt
+# The sum of all the STEP commands below, plus 100 for run-debootstrap.
+NUM_STEPS=119
 
-if [ -f /cdrom/.disk/base_installable ]; then
-    PROTOCOL=file
-    MIRROR=""
-    DIRECTORY="/cdrom/"
-    if [ -s /cdrom/.disk/base_components ]; then
-        COMPONENTS=`grep -v '^#' /cdrom/.disk/base_components | tr '\n' , | sed 's/,$//'`
-    else
-        COMPONENTS="*"
-    fi
+log() {
+    logger -t base-installer "$@"
+}
+error() {
+    log "error: $*"
+}
+warning() {
+    log "warning: $*"
+}
+info() {
+    log "info: $*"
+}
 
-    if [ -s /cdrom/.disk/base_include ]; then
-        INCLUDES=`grep -v '^#' /cdrom/.disk/base_include | tr '\n' , | sed 's/,$//'`
-    fi
+exit_error() {
+    error "exiting on error $1"
+    db_progress stop
+    db_input critical $1 || [ $? -eq 30 ]
+    db_go
+    exit 1
+}
 
-    if [ -s /cdrom/.disk/base_exclude ]; then
-        EXCLUDES=`grep -v '^#' /cdrom/.disk/base_exclude | tr '\n' , | sed 's/,$//'`
-    fi
-else
-    db_get mirror/protocol
-    PROTOCOL="$RET"
+get_mirror_info () {
+	if [ -f /cdrom/.disk/base_installable ]; then
+		PROTOCOL=file
+		MIRROR=""
+		DIRECTORY="/cdrom/"
+		if [ -s /cdrom/.disk/base_components ]; then
+			COMPONENTS=`grep -v '^#' /cdrom/.disk/base_components | tr '\n' , | sed 's/,$//'`
+		else
+			COMPONENTS="*"
+		fi
+		if [ -s /cdrom/.disk/base_include ]; then
+			INCLUDES=`grep -v '^#' /cdrom/.disk/base_include | tr '\n' , | sed 's/,$//'`
+		fi
+			
+		if [ -s /cdrom/.disk/base_exclude ]; then
+			EXCLUDES=`grep -v '^#' /cdrom/.disk/base_exclude | tr '\n' , | sed 's/,$//'`
+		fi
+	else
+		db_get mirror/protocol
+		PROTOCOL="$RET"
 
-    db_get mirror/$PROTOCOL/hostname
-    MIRROR="$RET"
+		db_get mirror/$PROTOCOL/hostname
+		MIRROR="$RET"
 
-    db_get mirror/$PROTOCOL/directory
-    DIRECTORY="$RET"
+		db_get mirror/$PROTOCOL/directory
+		DIRECTORY="$RET"
 
-    if [ "$PROTOCOL" = "http" ]; then
-        # try to find http proxy
-        db_get mirror/http/proxy
-        http_proxy="$RET" || true
-        if [ "$http_proxy" ]; then
-            export http_proxy
-        fi
-    fi
+		COMPONENTS="main"
+	fi
 
-    COMPONENTS="main"
-fi
+	if db_get mirror/distribution && [ "$RET" ] ; then
+		DISTRIBUTION=$RET
+	fi
 
-if db_get mirror/distribution && [ "$RET" ] ; then
-    DISTRIBUTION=$RET
-fi
-
-# TODO this is a quick hack to make things work, but the proper approach is
-# to download and parse the Release file, and use the codename from it as
-# the distribution passed to debootstrap. The problem with hardcoding this
-# as we do now is that it's hard to update this around release.
-case "$DISTRIBUTION" in
+	# TODO this is a quick hack to make things work, but the
+	# proper approach is to download and parse the Release file,
+	# and use the codename from it as the distribution passed to
+	# debootstrap. The problem with hardcoding this as we do now
+	# is that it's hard to update this around release.
+	case "$DISTRIBUTION" in
 	stable)		DISTRIBUTION=woody ;;
 	testing)	DISTRIBUTION=sarge ;;
 	unstable)	DISTRIBUTION=sid ;;
-esac
-
-if [ "${INCLUDES}" ]; then
-    INCLUDE="--include=${INCLUDES}"
-fi
-if [ "${EXCLUDES}" ]; then
-    EXCLUDE="--exclude=${EXCLUDES}"
-fi
-
-test -d $ETCDIR || mkdir -p $ETCDIR
-test -d $LOGDIR || mkdir -p $LOGDIR
-
-if [ -f /target/etc/fstab ] ; then
-    # I believe this is a workaround for lilo editing fstab when installed.
-    # [pere 2003-05-07]
-    COPIED_FSTAB=true
-    cp /target/etc/fstab /target/etc/fstab.orig
-    echo "# UNCONFIGURED FSTAB FOR BASE SYSTEM" >> /target/etc/fstab
-fi
-
-# Language specific
-case "`debconf-get debian-installer/language`" in
-  ja)
-    # Japanese
-    apt-install jfbterm || true
-    apt-install unifont || true
-    ;;
-  *)
-    ;;
-esac
-
-/usr/sbin/run-debootstrap \
-        --components="${COMPONENTS}" \
-        --debian-installer \
-        ${INCLUDE} ${EXCLUDE} \
-        ${DISTRIBUTION} /target \
-        "$PROTOCOL://$MIRROR$DIRECTORY" \
-        2> $LOGDIR/debootstrap.err.log \
- || debootstrap_failed=$?
-#        3>&1 > $LOGDIR/debootstrap.log \
-
-if [ true = "$COPIED_FSTAB" ] ; then
-    mv /target/etc/fstab.orig /target/etc/fstab
-fi
-
-if [ "$debootstrap_failed" ] ; then
-    db_input critical base-installer/debootstrap-failed || [ $? -eq 30 ]
-    db_go
-    exit $debootstrap_failed
-fi
-
-db_progress START 0 3 base-installer/apt/progress/title
-
-db_progress INFO base-installer/apt/progress/step_config
-
-# Why is this here?  Why are the files moved into /target/? [pere 2003-02-07]
-APTLISTDIR=/target/var/lib/apt/lists
-if [ -f /cdrom/.disk/base_installable ]; then
-    DEBOOTSTRAPLIST="$APTLISTDIR/debootstrap.invalid_dists_${DISTRIBUTION}"
-else
-    APTDIR=`echo $DIRECTORY | tr "/" "_"`
-    DEBOOTSTRAPLIST="$APTLISTDIR/debootstrap.invalid_dists_${DISTRIBUTION}"
-    APTLIST="$APTLISTDIR/${MIRROR}${APTDIR}_dists_${DISTRIBUTION}"
-
-    mv ${DEBOOTSTRAPLIST}_Release ${APTLIST}_Release
-    mv ${DEBOOTSTRAPLIST}_main_binary-${ARCH}_Packages ${APTLIST}_main_binary-${ARCH}_Packages
-fi
-
-# Copy the files from the CD, to avoid access problems in chroot
-# environment.  This has to happen here, as debootstrap do not
-# understand copy:, while apt-get do.
-if [ file = "$PROTOCOL" ] ; then
-    PROTOCOL=copy
-fi
-
-# sources.list use space to separate the components, not comma
-COMPONENTS=`echo $COMPONENTS | tr , " "`
-APTSOURCE="$PROTOCOL://$MIRROR$DIRECTORY"
-
-[ ! -d /target/etc/apt ] && mkdir -p /target/etc/apt
-echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
-
-db_progress STEP 1
-db_progress INFO base-installer/apt/progress/step_update
-
-apt-update
-
-db_progress STEP 1
-db_progress INFO base-installer/apt/progress/step_install
-
-if [ -f /var/lib/apt-install/queue ] ; then
-    # We need to install these one by one in case one of them fails.
-    for PKG in `cat /var/lib/apt-install/queue`; do
-        if apt-install $PKG >> $logfile 2>&1 ; then
-	    log "Installed $PKG successfully into /target/"
-	else
-	    log "Failed to $PKG successfully into /target/: $?"
+	esac
+}
+	
+install_base_system () {
+	if [ "${INCLUDES}" ]; then
+		include="--include=${INCLUDES}"
 	fi
-    done
-fi
+	if [ "${EXCLUDES}" ]; then
+		exclude="--exclude=${EXCLUDES}"
+	fi
 
-db_progress STEP 1
-db_progress STOP
+	test -d $ETCDIR || mkdir -p $ETCDIR
 
+	if [ -f /target/etc/fstab ] ; then
+		# programs in debootstrap may scrawl on the fstab,
+		# so make a backup to be restored later
+		copied_fstab=true
+		cp /target/etc/fstab /target/etc/fstab.orig
+		echo "# UNCONFIGURED FSTAB FOR BASE SYSTEM" >> /target/etc/fstab
+	fi
+
+	if [ "$PROTOCOL" = "http" ]; then
+		# TODO: er, what uses this env var? Not apt, nor wget..
+		db_get mirror/http/proxy
+		http_proxy="$RET" || true
+		if [ "$http_proxy" ]; then
+			export http_proxy
+		fi
+	fi
+
+	/usr/sbin/run-debootstrap \
+	        --components="${COMPONENTS}" \
+	        --debian-installer \
+	        ${include} ${exclude} \
+	        ${DISTRIBUTION} /target \
+	        "$PROTOCOL://$MIRROR$DIRECTORY" \
+	        2>> $LOGFILE || debootstrap_failed=$?
+
+	if [ true = "$copied_fstab" ] ; then
+		mv /target/etc/fstab.orig /target/etc/fstab
+	fi
+
+	if [ "$debootstrap_failed" ] ; then
+		exit_error base-installer/debootstrap-failed
+	fi
+
+	# Progress bar is now stepped to 100.
+}
+
+configure_apt () {
+	db_progress INFO base-installer/apt/progress/step_config
+
+	# Move files to where apt expects them to avoid another download or copy.
+	APTLISTDIR=/target/var/lib/apt/lists
+	APTDIR=`echo $DIRECTORY | tr "/" "_"`
+	DEBOOTSTRAPLIST="$APTLISTDIR/debootstrap.invalid_dists_${DISTRIBUTION}"
+	APTLIST="$APTLISTDIR/${MIRROR}${APTDIR}_dists_${DISTRIBUTION}"
+	mv ${DEBOOTSTRAPLIST}_Release ${APTLIST}_Release
+	mv ${DEBOOTSTRAPLIST}_main_binary-${ARCH}_Packages ${APTLIST}_main_binary-${ARCH}_Packages
+
+	# Copy the files from the CD, to avoid access problems in chroot
+	# environment. This has to happen here, as debootstrap does not
+	# understand copy:, while apt-get does
+	if [ file = "$PROTOCOL" ] ; then
+	    PROTOCOL=copy
+	fi
+
+	# sources.list uses space to separate the components, not comma
+	COMPONENTS=`echo $COMPONENTS | tr , " "`
+	APTSOURCE="$PROTOCOL://$MIRROR$DIRECTORY"
+
+	[ ! -d /target/etc/apt ] && mkdir -p /target/etc/apt
+	echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
+
+	db_progress STEP 1 # the above runs quickly
+}
+
+kernel_update_list () {
+	# Using 'uniq' to avoid listing the same kernel more then once.
+	chroot /target apt-cache search kernel-image | grep ^kernel-image | \
+	cut -d" " -f1 | uniq > $KERNEL_LIST
+}
+
+kernel_present () {
+	grep -q "^$1\$" $KERNEL_LIST
+}
+
+# Returns a kernel that seems appropriate for the machine.
+get_arch_kernel () {
+	trykernel=
+	case "$ARCH" in
+	i386*)
+		version=2.4
+		MODEL=`grep 'model name' /proc/cpuinfo | cut -d: -f2`
+		if dmesg | grep -q ^Processors:; then
+			CPUS=`dmesg | grep ^Processors: | cut -d: -f2`
+		else
+			CPUS=1
+		fi
+		case "$MODEL" in 
+		" Intel(R) Pentium(R) 4"*)
+			if test $CPUS -eq 1; then
+				trykernel=kernel-image-$version-686
+			else
+				trykernel=kernel-image-$version-686-smp
+			fi
+		;;
+	    	" AMD Athlon(tm) Processor"*)
+			if test $CPUS -eq 1; then
+				trykernel=kernel-image-$version-k7
+			else
+				trykernel=kernel-image-$version-k7-smp
+			fi
+		;;
+		*)
+			trykernel=kernel-image-$version-386
+		;;
+		esac
+	;;
+	sparc)
+		version=2.4.21
+		MODEL=`uname -m`
+		CPUS=`grep 'ncpus probed' /proc/cpuinfo | cut -d: -f2`
+		case "$MODEL" in
+		sparc)
+			if [ "$CPUS" -eq 1 ]; then
+				trykernel=kernel-image-$version-sun4cdm
+			else
+				trykernel=kernel-image-$version-sun4dm-smp
+			fi
+		;;
+		sparc64)
+			if [ "$CPUS" -eq 1 ]; then
+				trykernel=kernel-image-$version-sun4u
+			else
+				trykernel=kernel-image-$version-sun4u-smp
+			fi
+		;;
+		esac
+	;;
+	powerpc)
+		version=2.4.22 #hack, hack!
+		MODEL=`/bin/archdetect`
+		case "$MODEL" in
+		"powerpc/powermac_newworld")
+			trykernel=kernel-image-$version-powerpc
+		;;
+		# what's below is probably nonsense,
+		# porters have to start building 2.4 kernels for d-i!
+		# But at least the infrastructure will be there and these
+		# are the latest versions in the archive.
+		"powerpc/powermac_oldworld")
+			trykernel=kernel-image-$version-powerpc
+		;;
+		"powerpc/prep")
+			trykernel=kernel-image-2.2.20-prep
+		;;
+		# do we need a special case here for powerpc/chrp_pegasos?
+		"powerpc/chrp")
+			trykernel=kernel-image-2.2.20-chrp
+		;;
+		"powerpc/amiga")
+			trykernel=kernel-image-2.4.20-apus
+		;;
+		*)
+			log "warning: Unknown $ARCH subarchitecture '$MODEL'."
+		;;
+		esac
+	;;
+	mips*)
+		MODEL=`/bin/archdetect`
+		case "$MODEL" in
+		# big endian
+		mips/r4k-ip22) trykernel=kernel-image-*-r4k-ip22 ;;
+		mips/r5k-ip22) trykernel=kernel-image-*-r5k-ip22 ;;
+
+		# little endian
+		mipsel/r3k-kn02) trykernel=kernel-image-*-r3k-kn02 ;;
+		mipsel/r4k-kn04) trykernel=kernel-image-*-r4k-kn04 ;;
+
+		# sorry, no luck
+		*) log "warning: Unknown $ARCH subarchitecture '$MODEL'." ;;
+		esac
+	;;
+	*)
+	log "warning: Unknown architecture '$ARCH'."
+	;;
+	esac
+
+	echo $trykernel
+}
+
+pick_kernel () {
+	db_progress INFO base-installer/kernel/progress/step_select
+
+	# Fetch the current default
+	if db_get debian-installer/kernel/image && [ "$RET" ] ; then
+		KERNEL="$RET"
+	fi
+
+	# Using 'sort -r' to get the newest kernel version at the start of the
+	# list (ie 2.4.20 above 2.2.20).  This is in conflict with getting the
+	# most generic architecture first (386 above 686).
+	kernel_update_list
+	kernels=`sort -r $KERNEL_LIST| tr '\n' ',' | sed -e 's/,$//'`
+
+	info "Found kernels '$kernels'"
+
+	if [ "$kernels" ] ; then
+		db_subst base-installer/kernel/which-kernel KERNELS "$kernels"
+	else
+		db_subst base-installer/kernel/no-kernels-found KERNEL "$KERNEL"
+		exit_error base-installer/kernel/no-kernels-found
+	fi
+
+	# Try to make current rootskel setting the default, make sure it is
+	# available first.
+	if kernel_present "$KERNEL" ; then
+		# Current selection is available, nothing to do
+		:
+	else
+		# Pick the first in the list
+		KERNEL=`echo "$kernels" | cut -d, -f1`
+	fi
+
+	arch_kernel=$(get_arch_kernel)
+	if kernel_present $arch_kernel ; then
+		KERNEL=$arch_kernel
+	fi
+
+	if [ "$KERNEL" ] ; then
+		db_set base-installer/kernel/which-kernel "$KERNEL"
+	fi
+
+	db_input medium base-installer/kernel/which-kernel || [ $? -eq 30 ]
+	db_go || true
+
+	db_get base-installer/kernel/which-kernel
+	KERNEL=$RET
+
+	info "Using kernel '$KERNEL'"
+
+	# Pass the kernel name on
+	db_set debian-installer/kernel/image "$KERNEL"
+
+	db_progress STEP 1
+}
+
+install_kernel () {
+	db_subst base-installer/kernel/progress/step_install KERNEL "$KERNEL"
+	db_progress INFO base-installer/kernel/progress/step_install
+
+	if db_get debian-installer/kernel/linux/initrd ; then
+		if [ "$RET" = "true" ]; then
+			do_initrd=yes
+		else
+			do_initrd=no
+		fi
+	else
+		warning "Failed to get debconf answer 'debian-installer/kernel/linux/initrd'."
+		do_initrd=yes
+	fi
+
+	if db_get debian-installer/kernel/linux/link_in_boot ; then
+		if [ "$RET" = "true" ]; then
+			link_in_boot=yes
+		else
+			link_in_boot=no
+		fi
+	else
+		warning "Failed to get debconf answer 'debian-installer/kernel/linux/link_in_boot'."
+		link_in_boot=no
+	fi
+
+	info "Setting do_initrd='$do_initrd'."
+	info "Setting link_in_boot='$link_in_boot'."
+
+	if [ -f /target/etc/kernel-img.conf ]; then
+		# Backup old kernel-img.conf
+		mv /target/etc/kernel-img.conf /target/etc/kernel-img.conf.$$
+	fi
+
+	cat > /target/etc/kernel-img.conf <<EOF
+# Do not create symbolic links in /
+do_symlinks = yes
+relative_links = yes
+do_bootloader = no
+do_bootfloppy = no
+do_initrd = $do_initrd
+link_in_boot = $link_in_boot
+EOF
+
+	if [ yes = "$do_initrd" ] ; then
+		# Make sure initrd-tools is installed before we change its
+		# configuration
+		if ! apt-install initrd-tools 2>> $LOGFILE ; then
+			exit_error base-installer/kernel/failed-initrd-tools-install
+		fi
+
+		# Avoid possible root shell without giving passord while
+		# booting the 2.4 kernel
+		# TODO: Why is the initrd-tools package not fixed outside d-i?
+		# (or is it already?)
+		mkinitrdconf=/target/etc/mkinitrd/mkinitrd.conf
+		if [ -f $mkinitrdconf ] ; then
+			sed 's/^DELAY=.*/DELAY=0/' < $mkinitrdconf > $mkinitrdconf.new &&
+				mv $mkinitrdconf.new  $mkinitrdconf
+		else
+			echo 'DELAY=0' >> $mkinitrdconf
+		fi
+	fi
+
+	apt-install "$KERNEL" 2>> $LOGFILE || kernel_install_failed=$?
+
+	if [ -f /target/etc/kernel-img.conf.$$ ]; then
+		# Revert old kernel-img.conf
+		mv /target/etc/kernel-img.conf.$$ /target/etc/kernel-img.conf
+	fi
+
+	if [ "$kernel_install_failed" ]; then
+		db_subst base-installer/kernel/failed-install KERNEL "$KERNEL"
+		exit_error base-installer/kernel/failed-install
+	fi
+	
+	db_progress STEP 10 # the kernel is big
+}
+
+install_pcmcia_modules () {
+	# Pcmcia modules are debundled from the kernel on i386.
+	case "$ARCH" in
+	i386*)
+		pcmcia_package=$(echo "$KERNEL" | sed 's/^kernel-image/kernel-pcmcia-modules/')
+		info "Installing pcmcia package '$pcmcia_package'."
+		db_subst base-installer/kernel/progress/step_install_pcmcia PACKAGE "$pcmcia_package"
+		db_progress INFO base-installer/kernel/progress/step_install_pcmcia
+		if ! apt-install "$pcmcia_package" 2>> $LOGFILE ; then
+			exit_error base-installer/kernel/failed-pcmcia-install
+		fi
+	;;
+	esac
+
+	db_progress STEP 1
+}
+
+apt_update () {
+	db_progress INFO base-installer/apt/progress/step_update
+
+	# Not run chrooted because it may need to access /cdrom.
+        PATH=$PATH:/target/usr/bin:/target/bin:/target/usr/sbin:/target/sbin \
+        LD_LIBRARY_PATH=/usr/lib:/lib:/target/usr/lib:/target/lib \
+        /target/usr/bin/apt-get \
+                -o Dir::State=/target/var/lib/apt \
+                -o Dir::State::status=/target/var/lib/dpkg/status \
+                -o Dir::Cache=/target/var/cache/apt \
+                -o Dir::Etc=/target/etc/apt \
+                -o Dir::Bin::methods=/target/usr/lib/apt/methods \
+                -o Dir::Bin::gzip=/target/bin/gzip \
+                -o Dir::Bin::dpkg=/target/usr/bin/dpkg \
+                -o Dpkg::Options::=--root=/target \
+		update >> $LOGFILE 2>&1 || apt_update_failed=$?
+
+	if [ "$apt_update_failed" ]; then
+		warning "apt update failed: $apt_update_failed"
+	fi
+
+	db_progress STEP 3 # may take a while, bandwidth depending
+}
+
+queue_language_debs () {
+	# Language specific packages.
+	case "`debconf-get debian-installer/language`" in
+		ja)
+			# Japanese
+			apt-install jfbterm || true
+			apt-install unifont || true
+		;;
+		*)
+		;;
+	esac
+}
+	
+flush_apt_install_queue () {
+	db_progress INFO base-installer/apt/progress/step_install
+
+	if [ -f /var/lib/apt-install/queue ] ; then
+		# We need to install these one by one in case one fails.
+		for PKG in `cat /var/lib/apt-install/queue`; do
+			if apt-install $PKG >> $LOGFILE 2>&1 ; then
+				log "Installed $PKG successfully into /target/"
+			else
+				log "Failed to $PKG successfully into /target/: $?"
+			fi
+		done
+	fi
+
+	db_progress STEP 3
+}
+
+initialize () {
+	# This single progress bar is used for the entire base-installer run.
+	db_progress START 0 $NUM_STEPS base-installer/progress/installing-debian
+}
+
+cleanup () {
+	rm -f $KERNEL_LIST
+	db_progress SET $NUM_STEPS
+	db_progress STOP
+}
+
+initialize
+queue_language_debs
+get_mirror_info
+install_base_system
+configure_apt
+apt_update
+pick_kernel
+install_kernel
+install_pcmcia_modules
+flush_apt_install_queue
+cleanup
 exit 0

@@ -3,22 +3,21 @@ Type: error
 _Description: Failed to install the base system
  The base system installation into /target/ failed.
  .
- Please check /target/var/log/debootstrap.log and
- /target/var/log/debootstrap.err.log for the details.
+ Check /var/log/messages or see virtual console 3 for the details.
 
 Template: base-installer/debootstrap/error-exitcode
 Type: error
 _Description: Base system installation error
  The debootstrap program exited with an error (return value ${EXITCODE}).
  .
- You might find more information in /target/var/log/debootstrap.log.
+ Check /var/log/messages or see virtual console 3 for the details.
 
 Template: base-installer/debootstrap/error-abnormal
 Type: error
 _Description: Base system installation error
  The debootstrap program exited abnormally.
  .
- You might find more information in /target/var/log/debootstrap.log.
+ Check /var/log/messages or see virtual console 3 for the details.
 
 Template: base-installer/debootstrap/fallback-error
 Type: error
@@ -27,8 +26,54 @@ _Description: Debootstrap Error
  .
  ${ERROR}
  .
- You might find more information in /target/var/log/debootstrap.log
- or /target/var/log/debootstrap.err.log.
+ Check /var/log/messages or see virtual console 3 for the details.
+
+Template: base-installer/kernel/no-kernel
+Type: error
+_Description: Unable to install a kernel
+ No kernel package is selected for installation.
+
+Template: base-installer/kernel/failed-install
+Type: error
+_Description: Unable to install the selected kernel
+ An error was returned while trying to install the kernel into the
+ target system.
+ .
+ Kernel package: '${KERNEL}'.
+ .
+ Check /var/log/messages or see virtual console 3 for the details.
+
+Template: base-installer/kernel/which-kernel
+Type: select
+Choices: ${KERNELS}
+_Description: Kernel to install:
+ The list shows the available kernels. Please choose one of them in order
+ to make the system bootable from the hard drive.
+
+Template: base-installer/kernel/no-kernels-found
+Type: error
+_Description: No installable kernel found
+ No installable kernel was found in the defined APT sources.
+ .
+ The current default kernel package is '${KERNEL}'.
+ .
+ You may try to continue though this rather strange error is probably fatal.
+
+Template: base-installer/kernel/failed-pcmcia-install
+Type: error
+_Description: Unable to install pcmcia modules
+ An error was returned while trying to install the pcmcia modules onto the
+ target system.
+ .
+ Check /var/log/messages or see virtual console 3 for the details.
+
+Template: base-installer/kernel/failed-initrd-tools-install
+Type: error
+_Description: Unable to install initrd-tools
+ An error was returned while trying to install the initrd-tools package 
+ onto the target system.
+ .
+ Check /var/log/messages or see virtual console 3 for the details.
 
 Template: base-installer/debootstrap/error/baddload
 Type: error
@@ -85,37 +130,37 @@ Type: error
 _Description: Debootstrap Error
  Interrupt caught ... exiting.
 
-Template: base-installer/debootstrap/fallback-progress
+Template: base-installer/progress/installing-debian
 Type: text
-Description: ${PROGRESS}
+_Description: Installing the Debian base system
 
-Template: base-installer/debootstrap/progress/downrel
+Template: base-installer/debootstrap/section/downrel
 Type: text
-_Description: Retrieving Release file...
+_Description: Retrieving Release file
 
-Template: base-installer/debootstrap/progress/downpkgs
+Template: base-installer/debootstrap/section/sizedebs
 Type: text
-_Description: Retrieving Packages files...
+_Description: Finding package sizes
 
-Template: base-installer/debootstrap/progress/downdebs
+Template: base-installer/debootstrap/section/downpkgs
 Type: text
-_Description: Retrieving packages...
+_Description: Retrieving Packages files
 
-Template: base-installer/debootstrap/progress/downmainpkgs
+Template: base-installer/debootstrap/section/downdebs
 Type: text
-_Description: Retrieving Packages file...
+_Description: Retrieving packages
 
-Template: base-installer/debootstrap/progress/extractpkgs
+Template: base-installer/debootstrap/section/extractpkgs
 Type: text
-_Description: Extracting packages...
+_Description: Extracting packages
 
-Template: base-installer/debootstrap/progress/instbase
+Template: base-installer/debootstrap/section/instbase
 Type: text
-_Description: Installing base system...
+_Description: Installing the base system
 
 Template: base-installer/debootstrap/fallback-info
 Type: text
-Description: ${INFO}...
+Description: ${SECTION}: ${INFO}...
 
 Template: base-installer/debootstrap/info/validating
 Type: text
@@ -128,6 +173,10 @@ _Description: Retrieving ${SUBST0}...
 Template: base-installer/debootstrap/info/extracting
 Type: text
 _Description: Extracting ${SUBST0}...
+
+Template: base-installer/debootstrap/info/checkingsize
+Type: text
+_Description: Checking package size: ${SUBST0}...
 
 Template: base-installer/debootstrap/info/instcore
 Type: text
@@ -145,14 +194,6 @@ Template: base-installer/debootstrap/info/instbase
 Type: text
 _Description: Installing base packages...
 
-Template: base-installer/debootstrap/info/basesuccess
-Type: note
-_Description: Base system successfully installed
-
-Template: base-installer/apt/progress/title
-Type: text
-_Description: Installing extra packages
-
 Template: base-installer/apt/progress/step_config
 Type: text
 _Description: Configuring APT sources...
@@ -163,17 +204,21 @@ _Description: Updating the list of available packages...
 
 Template: base-installer/apt/progress/step_install
 Type: text
-_Description: Installing the extra packages...
+_Description: Installing extra packages...
+
+Template: base-installer/kernel/progress/step_select
+Type: text
+_Description: Selecting the kernel to install
+
+Template: base-installer/kernel/progress/step_install
+Type: text
+_Description: Installing the kernel package ${KERNEL}
+
+Template: base-installer/kernel/progress/step_install_pcmcia
+Type: text
+_Description: Installing the pcmcia modules package ${PACKAGE}
 
 Template: debian-installer/base-installer/title
 Type: text
 #  Item in the main menu to select this package
 _Description: Install the base system
-
-Template: base-installer/debootstrap/progress/sizedebs
-Type: text
-_Description: Finding package sizes
-
-Template: base-installer/debootstrap/info/checkingsize
-Type: text
-_Description: Checking ${SUBST0}...

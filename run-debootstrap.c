@@ -10,6 +10,8 @@
 #include <cdebconf/debconfclient.h>
 #include <debian-installer.h>
 
+#include "waypoints.h"
+
 #define DEBCONF_BASE          "base-installer/debootstrap/"
 
 volatile int child_exit = 0;
@@ -104,24 +106,55 @@ find_template(const char *prefix, char *code)
     }
 }
 
+/* Calculate progress bar location, starting at
+ * previous waypoint, and advancing the percent of
+ * the current section that corresponds to the percent
+ * of the debootstrap progress indicator. */
+void set_progress (int current_section, int phigh, int plow) {
+    float section_fraction;
+    int section_span, prev_waypoint, percent;
+	
+    if (current_section > 0)
+    {
+        prev_waypoint = waypoints[current_section - 1].endpercent;
+        section_span = waypoints[current_section].endpercent - prev_waypoint;
+    }
+    else {
+        prev_waypoint = 0;
+        section_span = 0;
+    }
+			
+    if (phigh > 0)
+        section_fraction = (float) plow / (float) phigh;
+    else
+        section_fraction = 0;
+			
+    percent = prev_waypoint + (section_span * section_fraction);
+			
+    //fprintf(stderr, "waypoint: %s (%i); prev endpercent %i; span: %i; fraction: %.9f (%i / %i); percent: %i\n",
+    //        waypoints[current_section].progress_id,
+    //        current_section, prev_waypoint, section_span, 
+    //        section_fraction, plow, phigh, percent);
+
+    debconf_progress_set(debconf, percent);
+}
+
 /*
  * Copied from boot-floppies/utilities/dbootstrap/extract_base.c
  * and modified to use cdebconf progress bars
- *
- * 
  */
 static int
 exec_debootstrap(char **argv){
-
     char **args = NULL;
     int arg_count;
     int from_db[2]; /* 0=read, 1=write */
     FILE *ifp;
     pid_t pid;
     int status, rv;
-    char *ptr, *line, *template;
-    int llen, oldphigh = -1;
+    char *ptr, *line, *template, *section_text = NULL;
+    int llen;
     size_t dummy = 0;
+    int current_section = 0;
 
     pipe(from_db);
 
@@ -136,7 +169,7 @@ exec_debootstrap(char **argv){
         if (freopen("/dev/null", "r", stdin) == NULL)
             perror("freopen");
 
-        if (freopen("/target/var/log/debootstrap.log", "w", stderr) == NULL)
+        if (freopen("/var/log/messages", "a", stderr) == NULL)
             perror("freopen");
 
         dup2(2, 1);
@@ -239,63 +272,62 @@ exec_debootstrap(char **argv){
                 {
                     int plow = 0, phigh = 0;
                     char what[1024] = "";
+		    char *section_template;
 
                     sscanf(line+3, "%d %d %s", &plow, &phigh, what);
                     if (what[0])
-                        template = find_template("progress", what);
-                    else
-                        template = NULL;
+		    {
+			int i;
+			for (i = 0; waypoints[i].progress_id != NULL; i++)
+			{
+			    if (strcmp(waypoints[i].progress_id, what) == 0)
+			        {
+                                    set_progress(i, phigh, plow);
+
+				    /* Get the description of the section
+				     * template for this waypoint. */
+				    if (current_section == i)
+					    break; /* optimisation */
+			            current_section = i;
+			            section_template = find_template("section", what);
+			            if (section_template)
+				    {
+                                            if (! debconf_metaget(debconf, section_template, "description"))
+					    {
+                                                free(section_text);
+                                                section_text = strdup(debconf->value);
+				            }
+                                            free(section_template);
+			            }
+
+			            break;
+				}
+			}
+		    }
+		    
                     args = read_arg_lines("PA: ", ifp, &arg_count, &line);
                     if (args == NULL)
                     {
                         child_exit = 1;
                         break;
                     }
-                    if (phigh != oldphigh)
-                    {
-                        oldphigh = phigh;
-                        if (template != NULL)
-                        {
-                            n_subst(template, arg_count, args);
-                            debconf_progress_start(debconf, plow, phigh,
-						   template);
-                        }
-                        else if (strstr(line, "PF:") == line)
-                        {
-                            ptr = n_sprintf(line+4, arg_count, args);
-                            if (ptr == NULL)
-                                return -1;
-                            debconf_subst(debconf, DEBCONF_BASE "fallback-progress",
-					  "PROGRESS", ptr);
-                            debconf_progress_start(debconf, plow, phigh,
-						   DEBCONF_BASE "fallback-progress");
-                            free(ptr);
-                        }
-                        else
-                        {
-                            // err, don't really know what to do here... there
-                            // should always be a fallback...
-                        }
+                    if (strstr(line, "PF:") == line)
+		    {
+                        /* Does not currently need to do anything;
+			 * the implementation of debootstrap could change
+			 * though.. */
                     }
-                    else
-                    {
-                        debconf_progress_set(debconf, plow);
-                        if (plow == phigh)
-                            debconf_progress_stop(debconf);
-                    }
-                    free(template);
+		    
                     break;
                 }
             case 'I':
                 {
                     ptr += 3;
-                    // ptr now contains the identifier of the error.
+                    // ptr now contains the identifier of the info
                     template = find_template("info", ptr);
                     if (strcmp(ptr, "basesuccess") == 0 && template != NULL)
                     {
-                        debconf_fset(debconf, template, "seen", "false");
-                        debconf_input(debconf, "low", template);
-                        debconf_go(debconf);
+                        /* all done */
                         child_exit = 1;
                         break;
                     }
@@ -308,6 +340,8 @@ exec_debootstrap(char **argv){
                     if (template != NULL)
                     {
                         n_subst(template, arg_count, args);
+			debconf_subst(debconf, template,
+			              "SECTION", section_text);
                         debconf_progress_info(debconf, template);
                     }
                     else if (strstr(line, "IF:") == line)
@@ -315,9 +349,11 @@ exec_debootstrap(char **argv){
                         ptr = n_sprintf(line+4, arg_count, args);
                         if (ptr == NULL)
                             return -1;
-                        // fallback error message
+                        // fallback info message
                         debconf_subst(debconf, DEBCONF_BASE "fallback-info",
 				      "INFO", ptr);
+			debconf_subst(debconf, DEBCONF_BASE "fallback-info",
+			              "SECTION", section_text);
                         debconf_progress_info(debconf,
 					      DEBCONF_BASE "fallback-info");
                         free(ptr);
@@ -329,10 +365,9 @@ exec_debootstrap(char **argv){
                     }
                 }
         }
+	
         line = NULL;
     }
-
-    debconf_progress_stop(debconf);
 
     if (waitpid(pid, &status, 0) != -1 && (WIFEXITED(status) != 0))
     {

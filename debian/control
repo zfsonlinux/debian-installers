@@ -3,21 +3,13 @@ Section: debian-installer
 Priority: required
 Maintainer: Debian Install System Team <debian-boot@lists.debian.org>
 Uploaders: Petter Reinholdtsen <pere@debian.org>
-Build-Depends: debhelper (>= 3), libdebconfclient0-dev (>= 0.46), libdebian-installer4-dev (>= 0.17)
-Standards-Version: 3.6.0
+Build-Depends: debhelper (>= 4), libdebconfclient0-dev (>= 0.46), libdebian-installer4-dev (>= 0.17)
 
 Package: base-installer
 Architecture: any
-Depends: ${shlibs:Depends}, mounted-partitions, debootstrap-udeb
+Depends: ${shlibs:Depends}, mounted-partitions, debootstrap-udeb, created-fstab, archdetect
+Provides: kernel-installer
 XB-Installer-Menu-Item: 65
 Description: Install the base system
  This udeb is responsible for calling debootstrap and installing the
  base system.
-
-Package: kernel-installer
-Architecture: all
-Depends: base-installer, created-fstab, archdetect
-XB-Installer-Menu-Item: 67
-Description: Install the kernel
- This udeb is responsible for installing the kernel.
-

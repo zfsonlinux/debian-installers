@@ -8,7 +8,7 @@ endif
 $(BIN): run-debootstrap.c
 	$(CC) $(CFLAGS) -o $@ $^ -ldebconfclient -ldebian-installer
 
-small: CLAGS:=-Os $(CFLAGS)
+small: CFLAGS:=-Os $(CFLAGS)
 small: clean $(BIN)
 	strip --remove-section=.comment --remove-section=.note $(BIN)
 	ls -l $(BIN)

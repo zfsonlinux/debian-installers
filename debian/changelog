@@ -1,3 +1,39 @@
+base-installer (0.050) UNRELEASED; urgency=low
+
+  NB: Upload partconf version 0.20 a few days before this package!
+      This package fails with older versions..
+
+  * Joey Hess
+    - Have debootstrap log to the d-i messages file.
+    - Change error templates to match.
+    - Remove downmainpkgs stuff; only used for slink deboostrapping.
+    - Switch over to a single, milti-stage progress bar for the entire
+      debootstrap run.
+    - Fixed typo that was preventing build with -Os.
+    - Remove the basesuccess note.
+    - Incorporated the apt setup and install steps into the same single
+      progress bar.
+    - Merged kernel-installer into base-installer so they can share a progress
+      bar.
+    - Updated to debhelper v4.
+    - Cleaned up the rules file.
+    - Remove Standards-Version, it's a udeb.
+    - Added some error templates left out due to the string freeze.
+    - Stop the progress bar when exiting on debootstrap error.
+    - busybox does provide uniq and sort -r now, so remove the dodgy calls to
+      the ones in /target.
+    - Move the apt-install queue flush to after kernel installation.
+      This way, if apt-install is used to install the kernel image and pcmcia
+      modules and they fail to install for some reason, and end up in the
+      apt-install queue, this does not result in apt-install installing them
+      when the kernel-image.conf is not properly set up.
+    - Refactored most of the code in the postinst, breaking it up into
+      subroutines for clarity.
+    - Use only one exit point for errors, and always stop the progress bar.
+    - apt-update is only used by this package, so inline it.
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 31 Dec 2003 10:01:38 -0500
+
 base-installer (0.045) unstable; urgency=low
 
   * Ming Hua
