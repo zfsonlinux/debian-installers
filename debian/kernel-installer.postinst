@@ -24,7 +24,7 @@ info() {
 
 chroot="chroot /target"
 
-db_progress START 0 4 kernel-installer/progress/title
+db_progress START 0 5 kernel-installer/progress/title
 
 db_progress INFO kernel-installer/progress/step_locate
 
@@ -91,9 +91,11 @@ ARCH=`udpkg --print-architecture`
 # after their architecture?  Something like this:
 #  [ -f /usr/lib/kernel-installer/$ARCH ] && . /usr/lib/kernel-installer/$ARCH
 trykernel=
+separate_pcmcia_modules=n
 case "$ARCH" in
     i386*)
         version=2.4
+	separate_pcmcia_modules=y
         MODEL=`grep 'model name' /proc/cpuinfo | cut -d: -f2`
 	if dmesg | grep -q ^Processors:; then
 	    CPUS=`dmesg | grep ^Processors: | cut -d: -f2`
@@ -319,14 +321,32 @@ db_progress INFO kernel-installer/progress/step_install
 
 info "Installing kernel '$kernel'."
 
-if apt-install "$kernel" 2>> $logfile ; then
-    :
-else
+if ! apt-install "$kernel" 2>> $logfile ; then
     db_subst kernel-installer/failed-install KERNEL "$kernel"
     db_input critical kernel-installer/failed-install || [ $? -eq 30 ]
     db_go
     db_progress STOP
     exit 1
+fi
+
+db_progress STEP 1
+if [ "$separate_pcmcia_modules" = y ]; then
+	pcmcia_package=$(echo "$kernel" | sed 's/^kernel-image/kernel-pcmcia-modules/')
+	info "Installing pcmcia package '$pcmcia_package'."
+	# TODO uncomment this once string freeze is over and
+	# templates file is updated.
+	#db_subst kernel-installer/progress/step_install_pcmcia PACKAGE "$pcmcia_package"
+	#db_progress INFO kernel-installer/progress/step_install_pcmcia
+	if ! apt-install "$pcmcia_package" 2>> $logfile ; then
+		:
+		# TODO uncomment this once string freeze is over and
+		# templates file is updated.
+    		#db_subst kernel-installer/failed-pcmcia-install PACKAGE "$pcmcia_package"
+		#db_input critical kernel-installer/failed-pcmcia-install || [ $? -eq 30 ]
+		#db_go
+		#db_progress STOP
+		#exit 1
+	fi
 fi
 
 db_progress STEP 1
