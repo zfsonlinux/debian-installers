@@ -1,0 +1,13 @@
+#! /bin/sh -e
+
+. /usr/share/debconf/confmodule
+db_subst grub-installer/bootdev bootdev "$defaultbootdev"
+db_input medium grub-installer/bootdev || true
+db_go || true
+
+db_get grub-installer/bootdev
+bootdev=$RET
+
+chroot /target /sbin/grub-install '(hd0)'
+chroot /target /usr/bin/touch /boot/grub/menu.lst
+chroot /target /sbin/update-grub

@@ -1,0 +1,52 @@
+#!/usr/bin/make -f
+# Sample debian/rules that uses debhelper.
+# GNU copyright 1997 to 1999 by Joey Hess.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+PACKAGE=grub-installer
+VERSION=$(shell dpkg-parsechangelog | grep ^Version: | cut -d ' ' -f 2)
+ARCH=$(shell dpkg --print-architecture)
+FILENAME=$(PACKAGE)_$(VERSION)_$(ARCH).udeb
+PRIORITY=$(shell grep ^Priority: debian/control | cut -d ' ' -f 2)
+
+
+# This is the debhelper compatability version to use.
+export DH_COMPAT=3
+
+build: build-stamp
+build-stamp:
+	dh_testdir
+
+	touch build-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+	rm -f debian/files~
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	
+
+# Build architecture-independent files here.
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	dh_installdebconf
+	dh_installdeb 
+	dh_gencontrol -- -fdebian/files~
+	dpkg-distaddfile $(FILENAME) debian-installer $(PRIORITY)
+	dh_builddeb --filename=$(FILENAME)
+
+# Build architecture-dependent files here.
+binary-arch: build install
+
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install
