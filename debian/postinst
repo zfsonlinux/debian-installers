@@ -21,24 +21,24 @@ db_get debian-installer/kernel/subarchitecture
 SUBARCH="$RET"
 
 log() {
-    logger -t base-installer "$@"
+	logger -t base-installer "$@"
 }
 error() {
-    log "error: $*"
+	log "error: $*"
 }
 warning() {
-    log "warning: $*"
+	log "warning: $*"
 }
 info() {
-    log "info: $*"
+	log "info: $*"
 }
 
 exit_error() {
-    error "exiting on error $1"
-    db_progress stop
-    db_input critical $1 || [ $? -eq 30 ]
-    db_go
-    exit 1
+	error "exiting on error $1"
+	db_progress stop
+	db_input critical $1 || [ $? -eq 30 ]
+	db_go
+	exit 1
 }
 
 check_target () {
@@ -101,22 +101,22 @@ get_mirror_info () {
 	APTLISTDIR=/target/var/lib/apt/lists
 	mkdir -p $APTLISTDIR
 	if [ file = "$PROTOCOL" ]; then
-	    cp /cdrom/dists/$SUITE/Release $APTLISTDIR/tmp || nogetrel="/cdrom/dists/$SUITE/Release"
+		cp /cdrom/dists/$SUITE/Release $APTLISTDIR/tmp || nogetrel="/cdrom/dists/$SUITE/Release"
 	else
-	    if [ "$PROTOCOL" = "http" ]; then
-		db_get mirror/http/proxy
-		http_proxy="$RET" || true
-		if [ "$http_proxy" ]; then
-			export http_proxy
+		if [ "$PROTOCOL" = "http" ]; then
+			db_get mirror/http/proxy
+			http_proxy="$RET" || true
+			if [ "$http_proxy" ]; then
+				export http_proxy
+			fi
 		fi
-	    fi
 
-	    wget "$PROTOCOL://$MIRROR$DIRECTORY/dists/$SUITE/Release" -O $APTLISTDIR/tmp || nogetrel="$PROTOCOL://$MIRROR$DIRECTORY/dists/$SUITE/Release"
+		wget "$PROTOCOL://$MIRROR$DIRECTORY/dists/$SUITE/Release" -O $APTLISTDIR/tmp || nogetrel="$PROTOCOL://$MIRROR$DIRECTORY/dists/$SUITE/Release"
 	fi
 
 	if [ "$nogetrel" != "" ]; then
-	    db_subst base-installer/debootstrap/error/nogetrel SUBST0 "$nogetrel"
-	    exit_error base-installer/debootstrap/error/nogetrel
+		db_subst base-installer/debootstrap/error/nogetrel SUBST0 "$nogetrel"
+		exit_error base-installer/debootstrap/error/nogetrel
 	fi
 
 	DISTRIBUTION=`grep ^Codename: $APTLISTDIR/tmp | cut -d' ' -f 2`
@@ -180,17 +180,16 @@ configure_apt () {
 			umount /target$DIRECTORY 2>/dev/null || true
 		fi
 		if [ "`uname -r | grep '^2.2.'`" != "" ]; then
-		    CDDEV=`grep -i /cdrom /proc/mounts | cut -d' ' -f 1 | grep loop`
-		    if [ "" != "$CDDEV" ]  && \
-			db_get iso-scan/filename && [ "$RET" ] ; then
-		    	mount -r -o loop /hd-media/$RET /target/$DIRECTORY
-		    elif db_get cdrom-detect/cdrom_device && [ -n "$RET" ]; then
-			umount $RET
-			mount -r -t iso9660 $RET /target/$DIRECTORY
-		    else
-			warning "kernel 2.2.x failed to bind mount /target$DIRECTORY"
-		    fi
-
+			CDDEV=`grep -i /cdrom /proc/mounts | cut -d' ' -f 1 | grep loop`
+			if [ "" != "$CDDEV" ]  && \
+				db_get iso-scan/filename && [ "$RET" ] ; then
+				mount -r -o loop /hd-media/$RET /target/$DIRECTORY
+			elif db_get cdrom-detect/cdrom_device && [ -n "$RET" ]; then
+				umount $RET
+				mount -r -t iso9660 $RET /target/$DIRECTORY
+			else
+				warning "kernel 2.2.x failed to bind mount /target$DIRECTORY"
+			fi
 		elif ! mount -o bind $DIRECTORY /target$DIRECTORY; then
 			warning "failed to bind mount /target$DIRECTORY"
 		fi
@@ -378,7 +377,7 @@ get_arch_kernel () {
 	m68k)
 		case "$SUBARCH" in
 		amiga|atari|mac|bvme6000|mvme147|mvme16x)    
-	#		trykernel=kernel-image-*-$SUBARCH ;;
+		#	trykernel=kernel-image-*-$SUBARCH ;;
 			trykernel=$SUBARCH ;;
 		*) warning "Unknown $ARCH subarchitecture '$SUBARCH'." ;;
 		esac
@@ -442,14 +441,13 @@ pick_kernel () {
 			# try to default to running kernel version.
 			KVERS=`uname -r | cut -d'-' -f 1`
 			if [ "$KVERS" != "" ]; then
-			    kernellist=`grep $arch_kernel $KERNEL_LIST | sort -r | tr '\n' ' '` 
-			    for akernel in $kernellist
-			    do
-				if [ "" != "`echo $akernel | grep '^kernel-image-'$KVERS`" ]; then
-					KERNEL=$akernel
-					break
-				fi
-			    done
+				kernellist=`grep $arch_kernel $KERNEL_LIST | sort -r | tr '\n' ' '` 
+				for akernel in $kernellist; do
+					if [ "" != "`echo $akernel | grep '^kernel-image-'$KVERS`" ]; then
+						KERNEL=$akernel
+						break
+					fi
+				done
 			fi
 		fi
 	fi
@@ -577,10 +575,8 @@ queue_language_debs () {
 		# Package iso-codes is missing in Woody.  Do not fail
 		# if it is missing to make d-i capable of installing
 		# Woody and Skolelinux.
-		if apt-install iso-codes ; then
-		    :
-		else
-		    warning "Installing package iso-codes failed."
+		if ! apt-install iso-codes ; then
+			warning "Installing package iso-codes failed."
 		fi
 	fi
 
