@@ -1,10 +1,14 @@
-base-installer (0.059) UNRELEASED; urgency=low
+base-installer (0.059) unstable; urgency=low
 
   * Petter Reinholdtsen
     - Recognize Pentium mobile CPUs, and try to install -686 kernels
       for them. (Closes: #229570)
+  * Joey Hess
+    - Don't unmount /target if $DIRECTORY is the empty string. Also, don't
+      unmount anything if installing from net. Closes: #237169 (part that
+      wasn't already fixed).
 
- -- Petter Reinholdtsen <pere@debian.org>  Sat, 13 Mar 2004 14:46:31 +0100
+ -- Joey Hess <joeyh@debian.org>  Sat, 13 Mar 2004 19:29:32 -0500
 
 base-installer (0.058) unstable; urgency=low
 
