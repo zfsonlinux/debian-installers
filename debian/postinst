@@ -293,15 +293,16 @@ get_arch_kernel () {
 		esac
 	;;
 	mips*)
+		version=2.4.22
 		MODEL=`/bin/archdetect`
 		case "$MODEL" in
 		# big endian
-		mips/r4k-ip22) trykernel=kernel-image-*-r4k-ip22 ;;
-		mips/r5k-ip22) trykernel=kernel-image-*-r5k-ip22 ;;
+		mips/r4k-ip22) trykernel=kernel-image-$version-r4k-ip22 ;;
+		mips/r5k-ip22) trykernel=kernel-image-$version-r5k-ip22 ;;
 
 		# little endian
-		mipsel/r3k-kn02) trykernel=kernel-image-*-r3k-kn02 ;;
-		mipsel/r4k-kn04) trykernel=kernel-image-*-r4k-kn04 ;;
+		mipsel/r3k-kn02) trykernel=kernel-image-$version-r3k-kn02 ;;
+		mipsel/r4k-kn04) trykernel=kernel-image-$version-r4k-kn04 ;;
 
 		# sorry, no luck
 		*) log "warning: Unknown $ARCH subarchitecture '$MODEL'." ;;
