@@ -98,6 +98,12 @@ get_mirror_info () {
 		if [ -s /cdrom/.disk/base_exclude ]; then
 			EXCLUDES=`grep -v '^#' /cdrom/.disk/base_exclude | tr '\n' , | sed 's/,$//'`
 		fi
+
+		# Sanity check: an error reading /cdrom/.disk/base_components can cause
+		# ugly errors in debootstrap because $COMPONENTS will be empty.
+		if [ -z "$COMPONENTS" ]; then
+			exit_error base-installer/cannot_install
+		fi
 	else
 		mirror_error=""
 		
