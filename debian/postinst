@@ -23,14 +23,27 @@ db_go
 db_get grub-installer/bootdev
 bootdev=$RET
 
-chroot /target /sbin/grub-install "$bootdev"
+if chroot /target /sbin/grub-install "$bootdev" ; then
+    :
+else
+    echo "grub-installer: error: Running 'grub-install \"$bootdev\"' failed." 1>&2
+    exit 1
+fi
 
-# Pipe from 'yes' to tell grub to create menu.lst when it is missing
-# A better correct fix is to get update-grub to be able to run
-# in noninteractive mode
-chroot /target /usr/bin/yes | chroot /target /sbin/update-grub
+# Pipe from 'yes' to tell grub to create menu.lst when it is missing A
+# better correct fix is to get update-grub to be able to run in
+# noninteractive mode.  Newer versions of the grub package support
+# '-y' for noninteractive installs.  This option should be used when
+# the new grub is available in Sarge.
+if chroot /target /usr/bin/yes | chroot /target /sbin/update-grub ; then
+    :
+else
+    echo "grub-installer: error: Running 'update-grub' failed." 1>&2
+    exit 1
+fi
 
-IMG_CONF=/target/etc/kernel-img.conf
-/target/bin/echo "postinst_hook = /sbin/update-grub" >> $IMG_CONF
-/target/bin/echo "postrm_hook   = /sbin/update-grub" >> $IMG_CONF
-/target/bin/echo "do_bootloader = no" >> $IMG_CONF
+(
+    echo "postinst_hook = /sbin/update-grub"
+    echo "postrm_hook   = /sbin/update-grub"
+    echo "do_bootloader = no"
+) >> /target/etc/kernel-img.conf
