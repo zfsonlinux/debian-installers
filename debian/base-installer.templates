@@ -3,3 +3,152 @@ Type: note
 _Description: Installing base system into /target/ failed
  Check /target/var/log/debootstrap.log and
  /target/var/log/debootstrap.err.log for the details.
+
+Template: base-installer/debootstrap/error-exitcode
+Type: note
+_Description: Base installation error
+ debootstrap exited with an error (return value ${EXITCODE}).
+ .
+ You might find more information in /target/var/log/debootstrap.log
+
+Template: base-installer/debootstrap/error-abnormal
+Type: note
+_Description: Base installation error
+ debootstrap exited abnormally.
+ .
+ You might find more information in /target/var/log/debootstrap.log
+
+
+Template: base-installer/debootstrap/fallback-error
+Type: error
+_Description: Debootstrap Error
+ The following error occurred:
+ .
+ ${ERROR}
+ .
+ You might find more information in /target/var/log/debootstrap.log
+ or /target/var/log/debootstrap.err.log
+
+
+Template: base-installer/debootstrap/error/baddload
+Type: error
+_Description: Debootstrap Error
+ Unknown download style.
+
+Template: base-installer/debootstrap/error/badmirror
+Type: error
+_Description: Debootstrap Error
+ Unknown mirror style.
+
+Template: base-installer/debootstrap/error/notpredl
+Type: error
+_Description: Debootstrap Error
+ ${SUBST0} was not pre-downloaded.
+
+Template: base-installer/debootstrap/error/unknownloc
+Type: error
+_Description: Debootstrap Error
+ Unknown location ${SUBST0}.
+
+Template: base-installer/debootstrap/error/nogetrel
+Type: error
+_Description: Debootstrap Error
+ Failed getting Release file ${SUBST0}.
+
+Template: base-installer/debootstrap/error/invalidrel
+Type: error
+_Description: Debootstrap Error
+ Invalid Release file, no valid components.
+
+Template: base-installer/debootstrap/error/missingrelentry
+Type: error
+_Description: Debootstrap Error
+ Invalid Release file, no entry for ${SUBST0}.
+
+Template: base-installer/debootstrap/error/couldntdl
+Type: error
+_Description: Debootstrap Error
+ Couldn't download ${SUBST0}.
+
+Template: base-installer/debootstrap/error/nodevtgz
+Type: error
+_Description: Debootstrap Error
+ No ${SUBST0}. Cannot create devices.
+
+Template: base-installer/debootstrap/error/unknowndselect
+Type: error
+_Description: Debootstrap Error
+ Unknown dselect method.
+
+Template: base-installer/debootstrap/error/interrupted
+Type: error
+_Description: Debootstrap Error
+ Interrupt caught ... exiting.
+
+
+Template: base-installer/debootstrap/fallback-progress
+Type: text
+Description: ${PROGRESS}
+
+
+Template: base-installer/debootstrap/progress/downrel
+Type: text
+_Description: Downloading Release file
+
+Template: base-installer/debootstrap/progress/downpkgs
+Type: text
+_Description: Downloading Packages files
+
+Template: base-installer/debootstrap/progress/downdebs
+Type: text
+_Description: Downloading packages
+
+Template: base-installer/debootstrap/progress/downmainpkgs
+Type: text
+_Description: Downloading Packages file
+
+Template: base-installer/debootstrap/progress/extractpkgs
+Type: text
+_Description: Extracting packages
+
+Template: base-installer/debootstrap/progress/instbase
+Type: text
+_Description: Installing base system
+
+
+Template: base-installer/debootstrap/fallback-info
+Type: text
+Description: ${INFO}
+
+
+Template: base-installer/debootstrap/info/validating
+Type: text
+_Description: Validating ${SUBST0}
+
+Template: base-installer/debootstrap/info/retrieving
+Type: text
+_Description: Retrieving ${SUBST0}
+
+Template: base-installer/debootstrap/info/extracting
+Type: text
+_Description: Extracting ${SUBST0}
+
+Template: base-installer/debootstrap/info/instcore
+Type: text
+_Description: Installing core packages...
+
+Template: base-installer/debootstrap/info/unpackreq
+Type: text
+_Description: Unpacking required packages...
+
+Template: base-installer/debootstrap/info/confreq
+Type: text
+_Description: Configuring required packages...
+
+Template: base-installer/debootstrap/info/instbase
+Type: text
+_Description: Installing base packages...
+
+Template: base-installer/debootstrap/info/basesuccess
+Type: note
+_Description: Base system installed successfully.

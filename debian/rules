@@ -9,40 +9,64 @@
 export DH_COMPAT=3
 
 PACKAGES=$(shell dh_listpackages)
+BI_PACKAGE=base-installer
+KI_PACKAGE=kernel-installer
 VERSION=$(shell dpkg-parsechangelog | grep ^Version: | cut -d ' ' -f 2)
-ARCH=all
+BI_ARCH=$(shell dpkg --print-architecture)
+KI_ARCH=all
 
-build:
+build: build-stamp
+build-stamp:
+	dh_testdir
+#	dh_testroot
+ifeq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
+	$(MAKE) small
+else
+	$(MAKE) DEBUG=1
+endif
+	touch build-stamp
 
 clean:
 	dh_testdir
-	dh_testroot
 	rm -f build-stamp
+	$(MAKE) clean
 	dh_clean
 
 install: build
 	dh_testdir
 	dh_testroot
+	mkdir -p debian/base-installer/usr/sbin
+	install run-debootstrap debian/base-installer/usr/sbin
 
 # Build architecture-independent files here.
-binary-indep: install
-# We have nothing to do by default.
-
-# Build architecture-dependent files here.
-binary-arch: install
+binary-indep: $(KI_PACKAGE)
+$(KI_PACKAGE): install
 	dh_testdir
 	dh_testroot
-	dh_installdebconf
-	dh_strip
-	dh_compress
-	dh_fixperms
-	dh_installdeb 
-	dh_shlibdeps
-	dh_gencontrol -- -fdebian/files~
-	$(foreach PACKAGE, $(PACKAGES), \
-	( dpkg-distaddfile $(PACKAGE)_$(VERSION)_$(ARCH).udeb debian-installer required ) ; )
-	$(foreach PACKAGE, $(PACKAGES), \
-	( dh_builddeb -p$(PACKAGE) --filename=$(PACKAGE)_$(VERSION)_$(ARCH).udeb ) ; )
+	dh_installdebconf -p$@
+	dh_strip -p$@
+	dh_compress -p$@
+	dh_fixperms -p$@
+	dh_installdeb  -p$@
+	dh_shlibdeps -p$@
+	dh_gencontrol -p$@ -- -fdebian/files~
+	dpkg-distaddfile $(KI_PACKAGE)_$(VERSION)_$(KI_ARCH).udeb debian-installer required
+	dh_builddeb -p$(KI_PACKAGE) --filename=$(KI_PACKAGE)_$(VERSION)_$(KI_ARCH).udeb
+
+# Build architecture-dependent files here.
+binary-arch: $(BI_PACKAGE)
+$(BI_PACKAGE): install
+	dh_testdir
+	dh_testroot
+	dh_installdebconf -p$@
+	dh_strip -p$@
+	dh_compress -p$@
+	dh_fixperms -p$@
+	dh_installdeb  -p$@
+	dh_shlibdeps -p$@
+	dh_gencontrol -p$@ -- -fdebian/files~
+	dpkg-distaddfile $(BI_PACKAGE)_$(VERSION)_$(BI_ARCH).udeb debian-installer required
+	dh_builddeb -p$(BI_PACKAGE) --filename=$(BI_PACKAGE)_$(VERSION)_$(BI_ARCH).udeb
 
 binary: binary-indep binary-arch
 .PHONY: clean binary-indep binary-arch binary install

@@ -3,12 +3,12 @@ Section: debian-installer
 Priority: required
 Maintainer: Debian Install System Team <debian-boot@lists.debian.org>
 Uploaders: Petter Reinholdtsen <pere@debian.org>
-Build-Depends-Indep: debhelper (>= 2.1.18)
+Build-Depends: debhelper (>= 3), libdebconfclient-dev, libdebian-installer-dev
 Standards-Version: 3.5.9
 
 Package: base-installer
-Architecture: all
-Depends: mounted-partitions, debootstrap-udeb, dash-udeb
+Architecture: any
+Depends: ${shlibs:Depends}, mounted-partitions, debootstrap-udeb, dash-udeb
 XB-Installer-Menu-Item: 65
 Description: Install the base system
  This udeb is responsible for calling debootstrap and installing the

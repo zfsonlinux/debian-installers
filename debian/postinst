@@ -73,22 +73,15 @@ if [ -f /target/etc/fstab ] ; then
     echo "# UNCONFIGURED FSTAB FOR BASE SYSTEM" >> /target/etc/fstab
 fi
 
-(
-    # Disable debconf while calling debootstrap
-    unset DEBIAN_HAS_FRONTEND
-    unset DEBIAN_FRONTEND
-    unset DEBCONF_FRONTEND
-    unset DEBCONF_REDIR
-
-    debootstrap \
+/usr/sbin/run-debootstrap \
         --components="${COMPONENTS}" \
-        --boot-floppies \
+        --debian-installer \
         ${INCLUDE} ${EXCLUDE} \
         ${DISTRIBUTION} /target \
         "$PROTOCOL://$MIRROR$DIRECTORY" \
-        3>&1 > $LOGDIR/debootstrap.log \
-        2> $LOGDIR/debootstrap.err.log </dev/null
-) || debootstrap_failed=$?
+        2> $LOGDIR/debootstrap.err.log \
+ || debootstrap_failed=$?
+#        3>&1 > $LOGDIR/debootstrap.log \
 
 if [ true = "$COPIED_FSTAB" ] ; then
     mv /target/etc/fstab.orig /target/etc/fstab
