@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: da\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-13 22:40+0200\n"
+"POT-Creation-Date: 2003-10-31 00:12+0100\n"
 "PO-Revision-Date: 2003-10-11 18:57+0200\n"
 "Last-Translator: Claus Hindsgaul <claus_h@image.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -18,11 +18,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.0.2\n"
 
+#. Type: string
 #. Description
 #: ../templates:4
-msgid "On which device should GRUB be installed?"
-msgstr "På hvilken enhed skal GRUB installeres?"
+msgid "Device for boot loader installation:"
+msgstr ""
 
+#. Type: string
 #. Description
 #: ../templates:4
 msgid ""
@@ -36,79 +38,101 @@ msgstr ""
 "enheder anderledes end Linuxkernen, så den første er oftest '(hd0)'. Hvis du "
 "er usikker, bør du vælge det forvalgte."
 
+#. Type: boolean
 #. Description
 #: ../templates:13
-msgid "Unable to install grub in /target/.  Continue anyway?"
+#, fuzzy
+msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Kunne ikke installere grub i /target/. Fortsæt alligevel?"
 
+#. Type: boolean
 #. Description
 #: ../templates:13
+#, fuzzy
 msgid ""
-"The grub package failed to install into /target/.  It is required to install "
-"GRUB as a boot loader.  The install problem might be unrelated to grub, and "
-"it might work to continue anyway."
+"The grub package failed to install into /target/.  Installing GRUB as a boot "
+"loader is a required step.  The install problem might however be unrelated "
+"to GRUB, so continuing the installation may be possible."
 msgstr ""
 "Grub-pakken kunne ikke installeres i /target/. Dette kræves for at "
 "installere GRUB som opstartsindlæser. Installationsproblemet er muligvis "
 "ikke grub-relateret, det det vil muligvis virke alligevel."
 
+#. Type: error
 #. Description
 #: ../templates:20
-msgid "Unable to install grub in ${BOOTDEV}"
+#, fuzzy
+msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Kunne ikke installere grub i ${BOOTDEV}"
 
+#. Type: error
 #. Description
 #: ../templates:20
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Kørsel af 'grub-install ${BOOTDEV}' mislykkedes."
 
+#. Type: error
 #. Description
 #: ../templates:27
-msgid "Unable to configure grub"
+#, fuzzy
+msgid "Unable to configure GRUB"
 msgstr "Kunne ikke sætte grub op"
 
+#. Type: error
 #. Description
 #: ../templates:27
 msgid "Executing 'update-grub' failed."
 msgstr "Kørsel af 'update-grub' mislykkedes."
 
+#. Type: error
 #. Description
 #: ../templates:27
 msgid "This is a fatal error."
 msgstr "Dette er en fatal fejl."
 
+#. Type: text
 #. Description
 #: ../templates:34
 msgid "Installing GRUB boot loader"
 msgstr "Installerer GRUB-opstartsindlæseren"
 
+#. Type: text
 #. Description
 #: ../templates:38
 msgid "Install the 'grub' package."
 msgstr "Installerer 'grub'-pakken."
 
+#. Type: text
 #. Description
 #: ../templates:42
 msgid "Determining GRUB boot device."
 msgstr "Udpeger GRUB-opstartsenhed."
 
+#. Type: text
 #. Description
 #: ../templates:46
 msgid "Running \"grub-install ${BOOTDEV}\"."
 msgstr "Kører \"grub-install ${BOOTDEV}\"."
 
+#. Type: text
 #. Description
 #: ../templates:50
 msgid "Running \"update-grub\"."
 msgstr "Kører \"update-grub\"."
 
+#. Type: text
 #. Description
 #: ../templates:54
 msgid "Updating /etc/kernel-img.conf."
 msgstr "Opdaterer /etc/kernel-img.conf."
 
-#. Main menu item
+#. Type: text
 #. Description
+#. Main menu item
 #: ../templates:59
-msgid "Install GRUB on a hard disk"
+#, fuzzy
+msgid "Install GRUB boot loader on a hard disk"
 msgstr "Installér GRUB på en harddisk"
+
+#~ msgid "On which device should GRUB be installed?"
+#~ msgstr "På hvilken enhed skal GRUB installeres?"

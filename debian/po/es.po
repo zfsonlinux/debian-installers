@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer 0.0.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-13 22:40+0200\n"
+"POT-Creation-Date: 2003-10-31 00:12+0100\n"
 "PO-Revision-Date: 2003-08-03 16:35+0200\n"
 "Last-Translator: Carlos Valdivia Yagüe <valyag@dat.etsit.upm.es>\n"
 "Language-Team: Debian L10n Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -25,11 +25,13 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#. Type: string
 #. Description
 #: ../templates:4
-msgid "On which device should GRUB be installed?"
-msgstr "¿En qué dispositivo debería instalarse GRUB?"
+msgid "Device for boot loader installation:"
+msgstr ""
 
+#. Type: string
 #. Description
 #: ../templates:4
 msgid ""
@@ -44,81 +46,102 @@ msgstr ""
 "Linux, por lo que el primero es habitualmente '(hd0)'. Si no está seguro, "
 "deje la opción predeterminada."
 
+#. Type: boolean
 #. Description
 #: ../templates:13
-msgid "Unable to install grub in /target/.  Continue anyway?"
+#, fuzzy
+msgid "GRUB installation failed.  Continue anyway?"
 msgstr ""
 "No fue posible instalar grub en /target/. ¿Desea continuar de todas formas?"
 
+#. Type: boolean
 #. Description
 #: ../templates:13
+#, fuzzy
 msgid ""
-"The grub package failed to install into /target/.  It is required to install "
-"GRUB as a boot loader.  The install problem might be unrelated to grub, and "
-"it might work to continue anyway."
+"The grub package failed to install into /target/.  Installing GRUB as a boot "
+"loader is a required step.  The install problem might however be unrelated "
+"to GRUB, so continuing the installation may be possible."
 msgstr ""
 "No se pudo instalar el paquete grub en /target/. Es necesario para instalar "
 "GRUB como cargador de arranque. El problema puede no estar relacionado con "
 "grub y es posible que funcione de todas formas."
 
+#. Type: error
 #. Description
 #: ../templates:20
-msgid "Unable to install grub in ${BOOTDEV}"
+#, fuzzy
+msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "No se pudo instalar grub en ${BOOTDEV}"
 
+#. Type: error
 #. Description
 #: ../templates:20
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "La ejecución de «grub-install ${BOOTDEV}» falló."
 
+#. Type: error
 #. Description
 #: ../templates:27
-msgid "Unable to configure grub"
+#, fuzzy
+msgid "Unable to configure GRUB"
 msgstr "No se pudo configurar grub"
 
+#. Type: error
 #. Description
 #: ../templates:27
 msgid "Executing 'update-grub' failed."
 msgstr "La ejecución de «update-grub» falló."
 
+#. Type: error
 #. Description
 #: ../templates:27
 msgid "This is a fatal error."
 msgstr "Error fatal."
 
+#. Type: text
 #. Description
 #: ../templates:34
 msgid "Installing GRUB boot loader"
 msgstr "Instalando el cargador de arranque GRUB"
 
+#. Type: text
 #. Description
 #: ../templates:38
 msgid "Install the 'grub' package."
 msgstr "Instalar el paquete «grub»."
 
+#. Type: text
 #. Description
 #: ../templates:42
 msgid "Determining GRUB boot device."
 msgstr "Determinando el dispositivo de arranque de GRUB."
 
+#. Type: text
 #. Description
 #: ../templates:46
 msgid "Running \"grub-install ${BOOTDEV}\"."
 msgstr "Ejecutando «grub-install ${BOOTDEV}»."
 
+#. Type: text
 #. Description
 #: ../templates:50
 msgid "Running \"update-grub\"."
 msgstr "Ejecutando «update-grub»."
 
+#. Type: text
 #. Description
 #: ../templates:54
 msgid "Updating /etc/kernel-img.conf."
 msgstr "Actualizando /etc/kernel-img.conf."
 
-#. Main menu item
+#. Type: text
 #. Description
+#. Main menu item
 #: ../templates:59
 #, fuzzy
-msgid "Install GRUB on a hard disk"
+msgid "Install GRUB boot loader on a hard disk"
 msgstr "Instalando el cargador de arranque GRUB"
+
+#~ msgid "On which device should GRUB be installed?"
+#~ msgstr "¿En qué dispositivo debería instalarse GRUB?"

@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-13 22:40+0200\n"
+"POT-Creation-Date: 2003-10-31 00:12+0100\n"
 "PO-Revision-Date: 2003-09-09 04:10+0200\n"
 "Last-Translator: George Papamichelakis <george@step.gr>\n"
 "Language-Team: Debian l10n Greek <debian-l10n-lists@debian.org>\n"
@@ -26,11 +26,13 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-7\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#. Type: string
 #. Description
 #: ../templates:4
-msgid "On which device should GRUB be installed?"
-msgstr "Σε ποιά συσκευή να εγκατασταθεί το GRUB;"
+msgid "Device for boot loader installation:"
+msgstr ""
 
+#. Type: string
 #. Description
 #: ../templates:4
 msgid ""
@@ -44,80 +46,101 @@ msgstr ""
 "συσκευές διαφορετικα σε σχεση με τον πυρήνα του Linux και ο πρώτος δίσκος "
 "συνήθως είναι ο '(hd0)'. Αν δεν γνωρίζετε αφήστε την προεπιλογή."
 
+#. Type: boolean
 #. Description
 #: ../templates:13
-msgid "Unable to install grub in /target/.  Continue anyway?"
+#, fuzzy
+msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Αδύνατη η εγκατάσταση του grub στο /target/. Να συνεχίσω;"
 
+#. Type: boolean
 #. Description
 #: ../templates:13
+#, fuzzy
 msgid ""
-"The grub package failed to install into /target/.  It is required to install "
-"GRUB as a boot loader.  The install problem might be unrelated to grub, and "
-"it might work to continue anyway."
+"The grub package failed to install into /target/.  Installing GRUB as a boot "
+"loader is a required step.  The install problem might however be unrelated "
+"to GRUB, so continuing the installation may be possible."
 msgstr ""
 "Η εγκατάσταση του grub στο /target/ απέτυχε. Η εγκατάσταση του grub ως "
 "εκκινητήείναι απαραίτητη. Ισως το πρόβλημα να μήν έχει σχέση με το grub και "
 "να μπορείτε να συνεχίσετε."
 
+#. Type: error
 #. Description
 #: ../templates:20
-msgid "Unable to install grub in ${BOOTDEV}"
+#, fuzzy
+msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Αδύνατη η εγκατάσταση του grub στο ${BOOTDEV}"
 
+#. Type: error
 #. Description
 #: ../templates:20
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Η εκτελεση του 'grub-install ${BOOTDEV}' απέτυχε."
 
+#. Type: error
 #. Description
 #: ../templates:27
-msgid "Unable to configure grub"
+#, fuzzy
+msgid "Unable to configure GRUB"
 msgstr "Αδύνατη η παραμετροποίηση του grub"
 
+#. Type: error
 #. Description
 #: ../templates:27
 msgid "Executing 'update-grub' failed."
 msgstr "Η εκτελεση του 'update-grub' απέτυχε."
 
+#. Type: error
 #. Description
 #: ../templates:27
 msgid "This is a fatal error."
 msgstr "Αυτό είναι πολύ σημαντικό σφάλμα."
 
+#. Type: text
 #. Description
 #: ../templates:34
 msgid "Installing GRUB boot loader"
 msgstr "Εγκατάσταση του εκκινητή GRUB"
 
+#. Type: text
 #. Description
 #: ../templates:38
 msgid "Install the 'grub' package."
 msgstr "Εγκατάσταση του πακέτου 'grub'."
 
+#. Type: text
 #. Description
 #: ../templates:42
 msgid "Determining GRUB boot device."
 msgstr "Εξακριβώνεται η συσκευή εκκίνησης για το GRUB."
 
+#. Type: text
 #. Description
 #: ../templates:46
 msgid "Running \"grub-install ${BOOTDEV}\"."
 msgstr "Εκτελειται το \"grub-install ${BOOTDEV}\"."
 
+#. Type: text
 #. Description
 #: ../templates:50
 msgid "Running \"update-grub\"."
 msgstr "Εκτελειται το \"update-grub\"."
 
+#. Type: text
 #. Description
 #: ../templates:54
 msgid "Updating /etc/kernel-img.conf."
 msgstr "Ενημέρωση του /etc/kernel-img.conf."
 
-#. Main menu item
+#. Type: text
 #. Description
+#. Main menu item
 #: ../templates:59
 #, fuzzy
-msgid "Install GRUB on a hard disk"
+msgid "Install GRUB boot loader on a hard disk"
 msgstr "Εγκατάσταση του εκκινητή GRUB"
+
+#~ msgid "On which device should GRUB be installed?"
+#~ msgstr "Σε ποιά συσκευή να εγκατασταθεί το GRUB;"

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer 0.0.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-13 22:40+0200\n"
+"POT-Creation-Date: 2003-10-31 00:12+0100\n"
 "PO-Revision-Date: 2003-10-08 22:17+0100\n"
 "Last-Translator: Bart Cornelis <cobaco@linux.be>\n"
 "Language-Team: debian-l10n-dutch <debian-l10n-dutch@lists.debian.org>\n"
@@ -23,11 +23,13 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#. Type: string
 #. Description
 #: ../templates:4
-msgid "On which device should GRUB be installed?"
-msgstr "Op welk apparaat dient GRUB te worden geïnstalleerd?"
+msgid "Device for boot loader installation:"
+msgstr ""
 
+#. Type: string
 #. Description
 #: ../templates:4
 msgid ""
@@ -42,80 +44,102 @@ msgstr ""
 "deze die gebruikt wordt door de Linux kernel! Het eerste apparaat is normaal "
 "gesproken'(hd0)'. Laat dit op de standaardwaarde als u hierover onzeker bent."
 
+#. Type: boolean
 #. Description
 #: ../templates:13
-msgid "Unable to install grub in /target/.  Continue anyway?"
+#, fuzzy
+msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Installatie van grub op /target/ mislukt. Doorgaan?"
 
+#. Type: boolean
 #. Description
 #: ../templates:13
+#, fuzzy
 msgid ""
-"The grub package failed to install into /target/.  It is required to install "
-"GRUB as a boot loader.  The install problem might be unrelated to grub, and "
-"it might work to continue anyway."
+"The grub package failed to install into /target/.  Installing GRUB as a boot "
+"loader is a required step.  The install problem might however be unrelated "
+"to GRUB, so continuing the installation may be possible."
 msgstr ""
 "De installatie van grub pakket in /target/ is mislukt. Dit is vereist om "
 "GRUB als boot loader te kunnen installeren. Het is echter mogelijk dat dit "
 "probleem niet afhangt van het grub pakket, en dat verdere installatie toch "
 "mogelijk is."
 
+#. Type: error
 #. Description
 #: ../templates:20
-msgid "Unable to install grub in ${BOOTDEV}"
+#, fuzzy
+msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "De installatie van grub in $(BOOTDEV) is mislukt"
 
+#. Type: error
 #. Description
 #: ../templates:20
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Het commando 'grub-install $(BOOTDEV)' is mislukt."
 
+#. Type: error
 #. Description
 #: ../templates:27
-msgid "Unable to configure grub"
+#, fuzzy
+msgid "Unable to configure GRUB"
 msgstr "Configuratie van grub is mislukt."
 
+#. Type: error
 #. Description
 #: ../templates:27
 msgid "Executing 'update-grub' failed."
 msgstr "Het commando 'update-grub' is mislukt."
 
+#. Type: error
 #. Description
 #: ../templates:27
 msgid "This is a fatal error."
 msgstr "Dit is een fatale fout."
 
+#. Type: text
 #. Description
 #: ../templates:34
 msgid "Installing GRUB boot loader"
 msgstr "GRUB opstart-lader wordt geïnstalleerd"
 
+#. Type: text
 #. Description
 #: ../templates:38
 msgid "Install the 'grub' package."
 msgstr "Installeer het 'grub' pakket."
 
+#. Type: text
 #. Description
 #: ../templates:42
 msgid "Determining GRUB boot device."
 msgstr "GRUB opstart-apparaat wordt bepaald."
 
+#. Type: text
 #. Description
 #: ../templates:46
 msgid "Running \"grub-install ${BOOTDEV}\"."
 msgstr "Commando 'grub-install $(BOOTDEV)' wordt uitgevoerd."
 
+#. Type: text
 #. Description
 #: ../templates:50
 msgid "Running \"update-grub\"."
 msgstr "Commando 'update-grub' wordt uitgevoerd."
 
+#. Type: text
 #. Description
 #: ../templates:54
 msgid "Updating /etc/kernel-img.conf."
 msgstr "/etc/kernel-img.conf wordt geaktualizeerd."
 
-#. Main menu item
+#. Type: text
 #. Description
+#. Main menu item
 #: ../templates:59
-msgid "Install GRUB on a hard disk"
+#, fuzzy
+msgid "Install GRUB boot loader on a hard disk"
 msgstr "Installatie van de GRUB opstart-lader naar harde schijf"
+
+#~ msgid "On which device should GRUB be installed?"
+#~ msgstr "Op welk apparaat dient GRUB te worden geïnstalleerd?"
