@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: debian-installer/tools/grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-05-16 08:27+0200\n"
-"PO-Revision-Date: 2004-04-16 09:54+1200\n"
+"PO-Revision-Date: 2004-05-16 23:32+1200\n"
 "Last-Translator: Carlos Z.F. Liu <carlos_liu@yahoo.com>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -58,14 +58,13 @@ msgstr "将 GRUB 启动管理器安装到主引导记录(MBR)上吗？"
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
 "the master boot record of your first hard drive."
 msgstr ""
-"Debian 似乎是这台计算机上唯一的操作系统。如果的确如此，您应该可以安全地将启动"
-"管理器安装到第一硬盘的主引导记录(MBR)上。"
+"Debian 似乎是这台计算机上唯一的操作系统。如果的确如此，您应该可以安全地将 "
+"GRUB 启动管理器安装到第一硬盘的主引导记录(MBR)上。"
 
 #. Type: boolean
 #. Description
@@ -76,6 +75,8 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
+"警告：如果安装程序无法在您的计算机上探测到已存在的其它操作系统，修改主引导记"
+"录动作暂时将使该操作系统无法启动。但是，您可以稍后再手动设置 GRUB 以启动它。"
 
 #. Type: string
 #. Description
@@ -107,6 +108,9 @@ msgid ""
 "of your first hard drive, while \"/dev/hda2\" will install it to the second "
 "parrtition of your first IDE drive."
 msgstr ""
+"设备可以使用 GRUB 的“(hdn)”标记方式，或者是 /dev 目录下的设备名称。例如，使"
+"用“(hd0)”将会把 GRUB 安装到您的第一块硬盘的主引导记录上，而“/dev/hda2”将把它"
+"安装到您的第一个 IDE 驱动器的第二分区中。"
 
 #. Type: boolean
 #. Description
