@@ -44,6 +44,7 @@ if ! apt-install grub ; then
 	# Hm, unable to install grub into /target/, what should we do?
 	db_input critical grub-installer/apt-install-failed || [ $? -eq 30 ]
 	if ! db_go; then
+		db_progress STOP
 		exit 10 # back up to menu
 	fi
 	db_get grub-installer/apt-install-failed
@@ -59,6 +60,7 @@ db_progress INFO grub-installer/progress/step_bootdev
 db_input high grub-installer/bootdev || [ $? -eq 30 ]
 if ! db_go; then
 	# back up to menu
+	db_progress STOP
 	exit 10
 fi
 
