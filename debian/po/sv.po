@@ -13,10 +13,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: grub-installer 0.27\n"
+"Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-04-10 14:57-0400\n"
-"PO-Revision-Date: 2004-04-05 23:33+0100\n"
+"PO-Revision-Date: 2004-04-10 21:34+0100\n"
 "Last-Translator: André Dahlqvist <andre.dahlqvist@telia.com>\n"
 "Language-Team: Swedish <debian-boot@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,7 @@ msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
 msgstr ""
+"Följande andra operativsystem har identifierats på denna dator: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -40,14 +41,16 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
+"Om alla dina operativsystem finns i ovanstående lista bör det vara säkert "
+"att installera startladdaren i huvudstartsektorn på din första hårddisk."
+"När din dator startar kommer du att kunna välja att ladda en av dessa "
+"operativsystem eller ditt nya Debiansystem."
 
-# OBS! Menyalternativ, så det måste vara <= 56 tecken.
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "Installera startladdaren GRUB på en hårddisk"
+msgstr "Installera startladdaren GRUB i huvudstartsektorn?"
 
 #. Type: boolean
 #. Description
@@ -57,6 +60,9 @@ msgid ""
 "so, it should be safe to install the boot loader to the master boot record "
 "of your first hard drive."
 msgstr ""
+"Det verkar som om Debian kommer att vara det enda operativsystemet på den "
+"här datorn. I sådana fall bör det vara säkert att installera startladdaren "
+"i huvudstartsektorn på din första hårddisk."
 
 #. Type: string
 #. Description
@@ -75,10 +81,11 @@ msgid ""
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
 msgstr ""
-"Nu är det dags att göra det nyligen installerade Debiansystemet startbart "
-"genom att installera startladdaren (boot loader) GRUB på en startbar enhet. "
-"Det vanliga sättet att göra detta är att installera GRUB i huvudstartsektorn "
-"(master boot record) på din första hårddisk."
+"Du måste göra det nyligen installerade Debiansystemet startbart genom att "
+"installera startladdaren GRUB på en startbar enhet. Det vanliga sättet att "
+"göra detta är att installera GRUB i huvudstartsektorn på din första hårddisk."
+"Om du föredrar det så kan du installera GRUB någon annanstans på hårddisken, "
+"på en annan hårddisk eller till och med på en diskett."
 
 #. Type: string
 #. Description
@@ -87,18 +94,19 @@ msgid ""
 "The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
 "in /dev."
 msgstr ""
+"Enheten kan anges med GRUB:s notation \"(hdn)\", eller som en enhet i /dev."
 
 #. Type: error
 #. Description
 #: ../templates:36
 msgid "Bad boot device"
-msgstr ""
+msgstr "Felaktig startenhet"
 
 #. Type: error
 #. Description
 #: ../templates:36
 msgid "The value you entered is not a valid device."
-msgstr ""
+msgstr "Värdet som du angav är inte en giltig enhet."
 
 #. Type: boolean
 #. Description
@@ -115,8 +123,8 @@ msgid ""
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
 "Misslyckades att installera paketet grub i /target/. Att installera GRUB som "
-"startladdare (boot loader) är ett obligatoriskt steg. Installationsproblemet "
-"kan dock vara obesläktat med GRUB så det kan ändå vara möjligt att fortsätta."
+"startladdare är ett obligatoriskt steg. Installationsproblemet kan dock vara "
+"obesläktat med GRUB så det kan ändå vara möjligt att fortsätta."
 
 #. Type: error
 #. Description
@@ -152,7 +160,7 @@ msgstr "Detta är ett ödesdigert fel."
 #. Description
 #: ../templates:63
 msgid "Installing GRUB boot loader"
-msgstr "Installerar startladdaren (boot loader) GRUB"
+msgstr "Installerar startladdaren GRUB"
 
 #. Type: text
 #. Description
