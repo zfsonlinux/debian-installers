@@ -82,12 +82,16 @@ update_mtab
 
 if ! is_floppy "$bootdev"; then
 	if chroot /target /sbin/grub-install -h 2>&1 | grep -q no-floppy; then
+		info "grub-install support --no-floppy"
 		floppyparam="--no-floppy"
+	else
+		info "grub-install do not support --no-floppy"
 	fi
 fi
 
+info "Running chroot /target /sbin/grub-install $floppyparam \"$bootdev\""
 if chroot /target /sbin/grub-install $floppyparam "$bootdev" >> $log 2>&1 ; then
-    :
+    info "grub-install ran successfully"
 else
     error "Running 'grub-install $floppyparam \"$bootdev\"' failed."
     db_subst grub-installer/grub-install-failed BOOTDEV "$bootdev"
