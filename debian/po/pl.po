@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-04-10 18:11-0400\n"
-"PO-Revision-Date: 2004-04-04 23:02+0200\n"
-"Last-Translator: Bartosz Feñski <fenio@o2.pl>\n"
+"PO-Revision-Date: 2004-04-12 12:33+0200\n"
+"Last-Translator: Bartosz Fenski <fenio@o2.pl>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-2\n"
@@ -30,6 +30,7 @@ msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
 msgstr ""
+"Nastêpuj±ce systemy operacyjne zosta³y wykryte w komputerze: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -40,13 +41,18 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
+"Je¶li powy¿sza lista zawiera wszystkie Twoje systemy operacyjne, to "
+"instalacja programu uruchomieniowego w g³ównym rekordzie uruchomieniowym "
+"pierwszego dysku twardego powinna byæ bezpieczna. Podczas uruchamiania "
+"komputera bêdziesz móg³ wybraæ spo¶ród tych systemów operacyjnych "
+"i systemu Debian."
 
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "Instaluj program uruchomieniowy GRUB na dysku twardym"
+msgstr ""
+"Zainstalowaæ program uruchomieniowy GRUB w g³ównym rekordzie uruchomieniowym?"
 
 #. Type: boolean
 #. Description
@@ -56,6 +62,10 @@ msgid ""
 "this computer. If so, it should be safe to install the boot loader to the "
 "master boot record of your first hard drive."
 msgstr ""
+"Wygl±da na to, ¿e ta instalacja Debiana jest jedynym systemem operacyjnym "
+"w tym komputerze. Je¶li tak jest to instalacja programu uruchomieniowego "
+"w g³ównym rekordzie uruchomieniowym pierwszego dysku twardego powinna "
+"byæ bezpieczna."
 
 #. Type: string
 #. Description
@@ -66,7 +76,6 @@ msgstr "Urz±dzenie do instalacji programu uruchomienowego:"
 #. Type: string
 #. Description
 #: ../templates:24
-#, fuzzy
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -74,11 +83,12 @@ msgid ""
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
 msgstr ""
-"Teraz przysz³a pora by poprzez instalacjê programu uruchomieniowego GRUB, na "
-"uruchamialnym urz±dzeniu, sprawiæ by nowo zainstalowany system Debian móg³ "
-"byæ uruchamiany samoczynnie. Najpopularniejszym sposobem by to osi±gn±æ, "
-"jest instalacja GRUBa w g³ównym rekordzie uruchomieniowym pierwszego dysku "
-"twardego."
+"Poprzez instalacjê programu uruchomieniowego GRUB, na "
+"uruchamialnym urz±dzeniu, musisz sprawiæ by nowo zainstalowany system "
+"Debian móg³ byæ uruchamiany samoczynnie. Najpopularniejszym sposobem by "
+"to osi±gn±æ, jest instalacja GRUBa w g³ównym rekordzie uruchomieniowym "
+"pierwszego dysku twardego. Mo¿esz jednak¿e u¿yæ innego miejsca na dysku, "
+"innego dysku czy nawet dyskietki je¶li chcesz."
 
 #. Type: string
 #. Description
@@ -87,6 +97,8 @@ msgid ""
 "The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
 "in /dev."
 msgstr ""
+"Urz±dzenie mo¿e byæ okre¶lone u¿ywaj±c notacji GRUBa \"(hdn)\" lub "
+"jako urz±dzenie w /dev."
 
 #. Type: boolean
 #. Description
@@ -185,22 +197,3 @@ msgstr "Aktualizacja /etc/kernel-img.conf..."
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Instaluj program uruchomieniowy GRUB na dysku twardym"
 
-#~ msgid ""
-#~ "Note that GRUB counts devices differently than the Linux kernel, so the "
-#~ "first drive is usually '(hd0)'. If you want it on the second partition of "
-#~ "the first drive, use '(hd0,1)'. Leave this at default if unsure."
-#~ msgstr ""
-#~ "Zwróæ uwagê na fakt, ¿e GRUB liczy urz±dzenia inaczej ni¿ j±dro Linuksa, "
-#~ "i pierwszy napêd to zazwyczaj '(hd0)'. Je¶li chcesz u¿yæ drugiej partycji "
-#~ "pierwszego dysku, u¿yj '(hd0,1)'. Je¶li nie jeste¶ pewien, zostaw "
-#~ "domy¶lne ustawienie."
-
-#~ msgid ""
-#~ "Warning: by default, this will change how your computer boots, "
-#~ "overwriting your existing master boot record with GRUB. Continuing may "
-#~ "make other operating systems installed on this computer unbootable."
-#~ msgstr ""
-#~ "Uwaga: ta operacja poprzez nadpisanie GRUBem g³ównego rekordu "
-#~ "uruchomieniowego zmieni domy¶lny sposób w jaki uruchamiany jest Twój "
-#~ "komputer. Kontynuacja mo¿e spowodowaæ, ¿e inne zainstalowane systemy "
-#~ "operacyjne przestan± siê uruchamiaæ."
