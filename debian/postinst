@@ -544,9 +544,7 @@ EOF
 install_pcmcia_modules () {
 	pcmcia_package=$(echo "$KERNEL" | sed 's/^kernel-image/kernel-pcmcia-modules/')
 	info "Installing pcmcia modules package '$pcmcia_package'."
-	if ! apt-install "$pcmcia_package" 2>> $LOGFILE ; then
-		exit_error base-installer/kernel/failed-pcmcia-install
-	fi
+	apt-install "$pcmcia_package" 2>> $LOGFILE || true
 }
 
 apt_update () {
