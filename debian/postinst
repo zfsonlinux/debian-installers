@@ -493,7 +493,14 @@ pick_kernel () {
 }
 
 install_kernel () {
-	if db_get debian-installer/kernel/linux/initrd ; then
+	kernel_major="$(uname -r | cut -d . -f 1,2)"
+	if db_get "debian-installer/kernel/linux/initrd-$kernel_major" ; then
+		if [ "$RET" = true ]; then
+			do_initrd=yes
+		else
+			do_initrd=no
+		fi
+	elif db_get debian-installer/kernel/linux/initrd ; then
 		if [ "$RET" = "true" ]; then
 			do_initrd=yes
 		else
