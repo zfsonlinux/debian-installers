@@ -671,7 +671,7 @@ EOF
 			chrp | chrp_pegasos) subarch=chrp ;;
 			*) subarch=none ;;
 		esac
-		if [ "$subarch" != none ]
+		if [ "$subarch" != none ]; then
 			version=$(uname -r)
 			info "Calling mkvmlinuz for kernel version '$version'."
 			chroot /target mkvmlinuz -a $subarch \
