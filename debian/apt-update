@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+PATH=$PATH:/target/usr/bin:/target/bin:/target/usr/sbin:/target/sbin \
+LD_LIBRARY_PATH=/usr/lib:/lib:/target/usr/lib:/target/lib \
+/target/usr/bin/apt-get \
+    -o Dir::State=/target/var/lib/apt \
+    -o Dir::State::status=/target/var/lib/dpkg/status \
+    -o Dir::Cache=/target/var/cache/apt \
+    -o Dir::Etc=/target/etc/apt \
+    -o Dir::Bin::methods=/target/usr/lib/apt/methods \
+    -o Dir::Bin::gzip=/target/bin/gzip \
+    -o Dir::Bin::dpkg=/target/usr/bin/dpkg \
+    -o Dpkg::Options::=--root=/target \
+    update

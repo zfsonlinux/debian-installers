@@ -13,7 +13,7 @@ COMPONENTS="main,local"
 DISTRIBUTION=sarge
 
 if [ -f /cdrom/.disk/base_installable ]; then
-    PROTOCOL=file
+    PROTOCOL=copy
     MIRROR=""
     DIRECTORY="/cdrom/"
     if [ -s /cdrom/.disk/base_components ]; then
@@ -82,41 +82,36 @@ test -d $LOGDIR || mkdir -p $LOGDIR
 cp /target/etc/fstab /target/etc/fstab.orig
 echo "# UNCONFIGURED FSTAB FOR BASE SYSTEM" >> /target/etc/fstab
 
+APTSOURCE="$PROTOCOL://$MIRROR$DIRECTORY"
+
 debootstrap \
     --components="${COMPONENTS}" \
-    --boot-floppies ${INCLUDE} \
-    ${EXCLUDE} ${DISTRIBUTION} /target \
-    ${PROTOCOL}://${MIRROR}${DIRECTORY} \
+    --boot-floppies \
+    ${INCLUDE} ${EXCLUDE} \
+    ${DISTRIBUTION} /target "$APTSOURCE" \
     3>&1 > $LOGDIR/debootstrap.log \
     2> $LOGDIR/debootstrap.err.log </dev/null
 
 mv /target/etc/fstab.orig /target/etc/fstab
 
+# Why is this here?  Why are the files moved into /target/? [pere 2003-02-07]
+APTLISTDIR=/target/var/lib/apt/lists
 if [ -f /cdrom/.disk/base_installable ]; then
-    DEBOOTSTRAPLIST="/target/var/lib/apt/lists/debootstrap.invalid_dists_${DISTRIBUTION}"
+    DEBOOTSTRAPLIST="$APTLISTDIR/debootstrap.invalid_dists_${DISTRIBUTION}"
 else
     APTDIR=`echo $DIRECTORY | tr "/" "_"`
-    DEBOOTSTRAPLIST="/target/var/lib/apt/lists/debootstrap.invalid_dists_${DISTRIBUTION}"
-    APTLIST="/target/var/lib/apt/lists/${MIRROR}${APTDIR}_dists_${DISTRIBUTION}"
+    DEBOOTSTRAPLIST="$APTLISTDIR/debootstrap.invalid_dists_${DISTRIBUTION}"
+    APTLIST="$APTLISTDIR/${MIRROR}${APTDIR}_dists_${DISTRIBUTION}"
 
     mv ${DEBOOTSTRAPLIST}_Release ${APTLIST}_Release
     mv ${DEBOOTSTRAPLIST}_main_binary-${ARCH}_Packages ${APTLIST}_main_binary-${ARCH}_Packages
-
-    COMPONENTS=`echo $COMPONENTS | tr , " "`
-
-    echo "deb ${PROTOCOL}://${MIRROR}${DIRECTORY} ${DISTRIBUTION} $COMPONENTS" > /target/etc/apt/sources.list
-
-    PATH=$PATH:/target/usr/bin:/target/bin:/target/usr/sbin:/target/sbin \
-    LD_LIBRARY_PATH=/usr/lib:/lib:/target/usr/lib:/target/lib \
-    /target/usr/bin/apt-get \
-        -o Dir::State=/target/var/lib/apt \
-        -o Dir::State::status=/target/var/lib/dpkg/status \
-        -o Dir::Cache=/target/var/cache/apt \
-        -o Dir::Etc=/target/etc/apt \
-        -o Dir::Bin::methods=/target/usr/lib/apt/methods \
-        -o Dir::Bin::gzip=/target/bin/gzip \
-        -o Dir::Bin::dpkg=/target/usr/bin/dpkg \
-        -o Dpkg::Options::=--root=/target \
-        update
 fi
+
+# sources.list use space to separate the components, not comma
+COMPONENTS=`echo $COMPONENTS | tr , " "`
+
+echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
+
+apt-update
+
 exit 0

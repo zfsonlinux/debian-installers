@@ -1,0 +1,21 @@
+#!/bin/sh -e
+
+# first copy the files into /target/, then install in chroot
+# environment.  This work around a bug in glibc, and make sure the
+# packages run their postinst script in their target environment.
+
+PATH=$PATH:/target/usr/bin:/target/bin:/target/usr/sbin:/target/sbin \
+LD_LIBRARY_PATH=/usr/lib:/lib:/target/usr/lib:/target/lib \
+/target/usr/bin/apt-get \
+    -o Dir::State=/target/var/lib/apt \
+    -o Dir::State::status=/target/var/lib/dpkg/status \
+    -o Dir::Cache=/target/var/cache/apt \
+    -o Dir::Etc=/target/etc/apt \
+    -o Dir::Bin::methods=/target/usr/lib/apt/methods \
+    -o Dir::Bin::gzip=/target/bin/gzip \
+    -o Dir::Bin::dpkg=/target/usr/bin/dpkg \
+    -o Dpkg::Options::=--root=/target \
+    -y --download-only install "$kernel"
+
+chroot /target apt-get --no-download install "$kernel"
+
