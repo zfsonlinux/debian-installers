@@ -1,9 +1,6 @@
 # translation of debian-installer.po to Norwegian (Nynorsk)
 # translation of debian-installer.po to Norwegian (Nynorsk)
 # translation of debian-installer.po to Norwegian (Nynorsk)
-# translation of debian-installer.po to Norwegian (Nynorsk)
-# translation of debian-installer.po to Norwegian (Nynorsk)
-# translation of debian-installer.po to Norwegian (Nynorsk)
 # Norwegian Nynorsk messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
@@ -14,7 +11,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-05-16 08:27+0200\n"
-"PO-Revision-Date: 2004-04-30 00:06+0200\n"
+"PO-Revision-Date: 2004-05-20 00:25+0200\n"
 "Last-Translator: Håvard Korsvoll <korsvoll@skulelinux.no>\n"
 "Language-Team: Norwegian (Nynorsk) <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -54,7 +51,6 @@ msgstr "Installera oppstartslastaren GRUB på hovudoppstartssporet?"
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
@@ -62,7 +58,7 @@ msgid ""
 msgstr ""
 "Det ser ut til at denne installasjonen av Debian er det einaste "
 "operativsystemet på denne maskina. Viss det er rett, skal det vera trygt å "
-"installera oppstartslastaren på hovudoppstartssporet på den første "
+"installera oppstartslastaren GRUB på hovudoppstartssporet på den første "
 "harddisken."
 
 #. Type: boolean
@@ -74,6 +70,10 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
+"Åtvaring: Viss installeraren ikkje klarer å finna andre operativsystem som "
+"faktisk er installert på maskina di, vil endringar på hovudoppstartsporet "
+"gjera at andre operativsystem mellombels ikkje kan startast opp. GRUB kan "
+"derimot setjast opp seinare til å starta opp andre operativsystem."
 
 #. Type: string
 #. Description
@@ -106,6 +106,10 @@ msgid ""
 "of your first hard drive, while \"/dev/hda2\" will install it to the second "
 "parrtition of your first IDE drive."
 msgstr ""
+"Eininga kan oppgjevast ved å bruka GRUB sin notasjon «(hdn)», eller som ei "
+"eining i /dev. Til dømes vil «(hd0)» installera GRUB på hovudoppstartsporet "
+"på den første harddisken, medan «/dev/hda2» vil installera det på den andre "
+"partisjonen på den første IDE-disken."
 
 #. Type: boolean
 #. Description
@@ -203,10 +207,3 @@ msgstr "Oppdaterer /etc/kernel-img.conf ..."
 #: ../templates:93
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installer GRUB på ein harddisk"
-
-#~ msgid ""
-#~ "The device can be specified using GRUB's \"(hdn)\" notation, or as a "
-#~ "device in /dev."
-#~ msgstr ""
-#~ "Eininga kan oppgjevast ved å bruka notasjonen til GRUB «(hdn)», eller som "
-#~ "ei eining i /dev."
