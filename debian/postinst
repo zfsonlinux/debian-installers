@@ -133,6 +133,24 @@ convert () {
     fi
 }
 
+# Convert a linux non-devfs dick device name into the hurd's syntax.
+hurd_convert () {
+	dr_type=$(expr "$1" : '.*\([hs]d\)[a-h][0-9]*')
+	dr_letter=$(expr "$1" : '.*d\([a-h]\)[0-9]*')
+	dr_part=$(expr "$1" : '.*d[a-h]\([0-9]*\)')
+	case "$dr_letter" in
+	a) dr_num=0 ;;
+	b) dr_num=1 ;;
+	c) dr_num=2 ;;
+	d) dr_num=3 ;;
+	e) dr_num=4 ;;
+	f) dr_num=5 ;;
+	g) dr_num=6 ;;
+	h) dr_num=7 ;;
+	esac
+	echo "$dr_type${dr_num}s$dr_part"
+}
+
 # Make sure mtab in the chroot reflects the currently mounted partitions.
 update_mtab() {
     mtab=/target/etc/mtab
@@ -187,7 +205,8 @@ if [ -s /tmp/os-probed ]; then
 	for os in $(cat /tmp/os-probed); do
 		title=$(echo "$os" | cut -d: -f2)
 		type=$(echo "$os" | cut -d: -f4)
-		if [ "$type" = chain ] || [ "$type" = linux ]; then
+		if [ "$type" = chain ] || [ "$type" = linux ] || \
+		   [ "$type" = hurd ]; then
 			if [ -n "$supported_os_list" ]; then
 				supported_os_list="$supported_os_list, $title"
 			else
@@ -338,7 +357,6 @@ EOF
 
 # This entry automatically added by the Debian installer for an existing
 # linux installation on $mappedpartition.
-# This is experimental, and may not work.
 title		$label (on $mappedpartition)
 root		$grubdrive
 kernel		$kernel $params
@@ -356,6 +374,26 @@ EOF
 				IFS="$newline"
 			done
 			IFS="$OLDIFS"
+		;;
+		hurd)
+			partition=$(mapdevfs $(echo "$os" | cut -d: -f1))
+			grubdrive=$(convert "$partition") || true
+			hurddrive=$(hurd_convert "$partition") || true
+			# Use the standard hurd boilerplate to boot it.
+			cat >> $tmpfile <<EOF
+# This entry automatically added by the Debian installer for an existing
+# hurd installation on $partition.
+title		$title (on $partition)
+root		$grubdrive
+kernel		/boot/gnumach.gz root=device:$hurddrive
+module		/hurd/ext2fs.static --readonly \\
+			--multiboot-command-line=\${kernel-command-line} \\
+			--host-priv-port=\${host-port} \\
+			--device-master-port=\${device-port} \\
+			--exec-server-task=\${exec-task} -T typed \${root} \\
+			\$(task-create) \$(task-resume)
+module		/lib/ld.so.1 /hurd/exec \$(exec-task=task-create)
+EOF
 		;;
 		*)
 			info "unhandled: $os"
