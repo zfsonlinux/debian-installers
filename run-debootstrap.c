@@ -31,7 +31,8 @@ read_arg_lines(const char *prefix, FILE *ifp, int *arg_count, char **final_line)
 {
     static char **args = NULL;
     static int arg_max = 0;
-    int llen, dummy = 0;
+    int llen;
+    size_t dummy = 0;
 
     if (args == NULL)
     {
@@ -123,7 +124,8 @@ exec_debootstrap(char **argv){
     pid_t pid;
     int status, rv;
     char *ptr, *line, *template;
-    int llen, dummy = 0, oldphigh = -1;
+    int llen, oldphigh = -1;
+    size_t dummy = 0;
 
     pipe(from_db);
 
