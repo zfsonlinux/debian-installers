@@ -14,6 +14,9 @@ error() {
 warning() {
     logmsg "warning: kernel-installer: $*"
 }
+info() {
+    logmsg "info: kernel-installer: $*"
+}
 
 if db_get debian-installer/kernel/initrd ; then
     if [ "$RET" = "true" ]; then
@@ -23,9 +26,11 @@ if db_get debian-installer/kernel/initrd ; then
     fi
 else
     warning "Failed to get debconf answer 'debian-installer/kernel/initrd'."
-    warning "Using default do_initrd='yes'."
+    warning "Setting default do_initrd='yes'."
     do_initrd=yes
 fi
+
+info "Setting do_initrd='$do_initrd'."
 
 cat > /target/etc/kernel-img.conf <<EOF
 # Do not create symbolic links in /
@@ -60,11 +65,14 @@ if db_get debian-installer/kernel/image ; then
 	error "Unable to install kernel."
 	exit 1
     fi
-    KERNEL="$RET"
+    kernel="$RET"
 else
-    error "Unable to get debconf answer debian-installer/kernel/image."
-    error "Unable to install kernel."
+    warning "Unable to get debconf answer debian-installer/kernel/image."
+    kernel=kernel-image
+    warning "Setting default kernel='$kernel'"
 fi
+
+info "Installing kernel '$kernel'."
 
 PATH=$PATH:/target/usr/bin:/target/bin:/target/usr/sbin:/target/sbin \
 LD_LIBRARY_PATH=/target/lib:/target/usr/lib \
@@ -77,6 +85,6 @@ LD_LIBRARY_PATH=/target/lib:/target/usr/lib \
     -o Dir::Bin::gzip=/target/bin/gzip \
     -o Dir::Bin::dpkg=/target/usr/bin/dpkg \
     -o Dpkg::Options::=--root=/target \
-    -y install "$KERNEL"
+    -y install "$kernel"
 
 exit 0
