@@ -102,7 +102,9 @@ else
     mv ${DEBOOTSTRAPLIST}_Release ${APTLIST}_Release
     mv ${DEBOOTSTRAPLIST}_main_binary-${ARCH}_Packages ${APTLIST}_main_binary-${ARCH}_Packages
 
-    echo "deb ${PROTOCOL}://${MIRROR}${DIRECTORY} ${DISTRIBUTION} main" > /target/etc/apt/sources.list
+    COMPONENTS=`echo $COMPONENTS | tr , " "`
+
+    echo "deb ${PROTOCOL}://${MIRROR}${DIRECTORY} ${DISTRIBUTION} $COMPONENTS" > /target/etc/apt/sources.list
 
     PATH=$PATH:/target/usr/bin:/target/bin:/target/usr/sbin:/target/sbin \
     LD_LIBRARY_PATH=/usr/lib:/lib:/target/usr/lib:/target/lib \
