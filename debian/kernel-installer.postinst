@@ -4,18 +4,19 @@
 
 logfile=/var/log/messages
 
-logmsg() {
-    echo "$*" >> $logfile
-    echo "$*" 1>&2
+log() {
+    msg="kernel-installer: $*"
+    echo "$msg" >> $logfile
+    echo "$msg" 1>&2
 }
 error() {
-    logmsg "kernel-installer: error: $*"
+    log "error: $*"
 }
 warning() {
-    logmsg "kernel-installer: warning: $*"
+    log "warning: $*"
 }
 info() {
-    logmsg "kernel-installer: info: $*"
+    log "info: $*"
 }
 
 if db_get debian-installer/kernel/linux/initrd ; then
@@ -44,7 +45,7 @@ EOF
 
 if [ yes = "$do_initrd" ] ; then
     # Make sure initrd-tools is installed before we change its configuration
-    apt-install initrd-tools 2>> /var/log/messages
+    apt-install initrd-tools 2>> $logfile
 
     # Avoid possible root shell without giving passord while booting
     # the 2.4 kernel
@@ -75,7 +76,7 @@ fi
 
 info "Installing kernel '$kernel'."
 
-if apt-install "$kernel" 2>> /var/log/messages ; then
+if apt-install "$kernel" 2>> $logfile ; then
     :
 else
     db_subst kernel-installer/failed-install "$kernel"
