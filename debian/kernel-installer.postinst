@@ -15,6 +15,16 @@ do_bootfloppy = no
 do_initrd = $do_initrd
 EOF
 
+# Avoid possible root shell without giving passord while booting the
+# 2.4 kernel
+mkinitrdconf=/target/etc/mkinitrd/mkinitrd.conf
+if [ -f $mkinitrdconf ] ; then
+    sed 's/^DELAY=.*/DELAY=0/' < $mkinitrdconf > $mkinitrdconf.new &&
+        mv $mkinitrdconf.new  $mkinitrdconf
+else
+    echo 'DELAY=0' >> $mkinitrdconf
+fi
+
 # undocumented hacks, copied from base-installer/debian/postinst, to
 # prevent dash postinst prompting with "GET dash/sh"
 unset DEBIAN_HAS_FRONTEND
