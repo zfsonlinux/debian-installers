@@ -3,6 +3,7 @@
 if [ ! -f /target/etc/apt/sources.list ] ; then
     # Only queue the package, it will be installed by base-installer
     # postinst.
+    mkdir -p /var/lib/apt-install
     touch /var/lib/apt-install/queue
     for pkg in $* ; do
 	echo $pkg >> /var/lib/apt-install/queue
