@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-20 09:04+0200\n"
-"PO-Revision-Date: 2004-06-13 15:27+0200\n"
+"POT-Creation-Date: 2004-06-20 02:43-0600\n"
+"PO-Revision-Date: 2004-07-13 13:20+0200\n"
 "Last-Translator: Safir Šećerović <safir@open.net.ba>\n"
 "Language-Team: Bosnian <lokal@lugbih.org>\n"
 "MIME-Version: 1.0\n"
@@ -30,8 +30,7 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr ""
-"Slijedeći operativni sistemi su detektovani na ovom računaru: ${OS_LIST}"
+msgstr "Slijedeći operativni sistemi su detektovani na ovom računaru: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -101,10 +100,7 @@ msgstr ""
 "hard diska. Ako preferirate, možete instalirati GRUB drugdje na disku ili na "
 "drugi disk ili čak na floppy disketu."
 
-#. Type: string
-#. Description
 #: ../templates:28
-#, fuzzy
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -117,10 +113,16 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Uređaj se može navesti koristeći GRUB-ovu \"(hdn)\" notaciju, ili kao uređaj "
-"u /dev direktoriju. Na primjer, \"(hd0)\" će instalirati GRUB na master boot "
-"record vašeg prvog hard diska, dok \"/dev/hda2\" će instalirati GRUB na "
-"drugu particiju vašeg prvog IDE hard diska."
+"Uređaj se može navesti koristeći GRUB-ovu \"(hdn,m)\" notaciju, ili kao uređaj "
+"u /dev direktoriju. Ispod su navedeni neki primjeri:\n"
+" - \"(hd0)\" ili \"/dev/hda\" će instalirati GRUB na master boot record\n"
+"   vašeg prvog hard diska (IDE);\n"
+" - \"(hd0,1)\" ili \"/dev/hda2\" će instalirati GRUB na drugu particiju\n"
+"   vašeg prvog IDE hard diska;\n"
+" - \"(hd2,4)\" ili \"/dev/sdc5\" će instalirati GRUB na prvo proširenu "
+"particiju vašeg\n"
+"   trećeg diska (u ovom slučaju SCSI diska);\n"
+" - \"(fd0)\" ili \"/dev/fd0\" će instalirati GRUB na floppy disketu."
 
 #. Type: boolean
 #. Description
@@ -220,3 +222,4 @@ msgstr "Ažuriram /etc/kernel-img.conf..."
 #: ../templates:98
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Instaliraj GRUB boot loader na hard disk"
+
