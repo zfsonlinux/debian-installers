@@ -684,8 +684,8 @@ EOF
 
 		# Make sure initrd-tools is installed before we change its
 		# configuration
-		db_subst "base-installer/section/install_kernel_package" SUBST0 "initrd-tools"
-		db_progress INFO "base-installer/section/install_kernel_package"
+		db_subst base-installer/section/install_kernel_package SUBST0 "initrd-tools"
+		db_progress INFO base-installer/section/install_kernel_package
 		if ! apt-install initrd-tools 2>> $LOGFILE ; then
 			exit_error base-installer/kernel/failed-initrd-tools-install
 		fi
@@ -778,8 +778,8 @@ install_extra () {
 		PKG_COUNT=`cat /var/lib/apt-install/queue | wc -w`
 		CURR_PKG=0
 		for PKG in `cat /var/lib/apt-install/queue`; do
-			db_subst "base-installer/section/install_extra_package" SUBST0 "$PKG"
-			db_progress INFO "base-installer/section/install_extra_package"
+			db_subst base-installer/section/install_extra_package SUBST0 "$PKG"
+			db_progress INFO base-installer/section/install_extra_package
 
 			if apt-install $PKG >> $LOGFILE 2>&1 ; then
 				info "Installed $PKG successfully into /target/"
