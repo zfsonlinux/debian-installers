@@ -35,7 +35,8 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr "       : ${OS_LIST}"
+msgstr ""
+"На этом компьютере были найдены следующие операционные системы: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -45,13 +46,17 @@ msgid ""
 "install the boot loader to the master boot record of your first hard drive. "
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
-msgstr "      ,            .      ,       ."
+msgstr ""
+"Если выше указаны все установленные операционные системы, то можно спокойно "
+"устанавливать загрузчик в основную загрузочную запись вашего жёсткого диска. "
+"При загрузке компьютера вы сможете выбрать, какую из этих систем вы хотите "
+"загрузить."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "  GRUB    ?"
+msgstr "Установить загрузчик GRUB в главную загрузочную запись?"
 
 #. Type: boolean
 #. Description
@@ -60,7 +65,10 @@ msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
 "the master boot record of your first hard drive."
-msgstr ",  Debian       .   ,      GRUB       ."
+msgstr ""
+"Похоже, что Debian будет единственной операционной системой на этом "
+"компьютере. Если это так, то вполне безопасно установить загрузчик GRUB в "
+"основную загрузочную запись первого жёсткого диска."
 
 #. Type: boolean
 #. Description
@@ -70,13 +78,17 @@ msgid ""
 "present on your computer, modifying the master boot record will make that "
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
-msgstr ":         ,     ,           ,  GRUB       ."
+msgstr ""
+"Предупреждение: если программа установки не сможет обнаружить другую "
+"операционную систему, хотя она имеется на компьютере, то изменение основной "
+"загрузочной записи сделает эту операционную систему временно незагружаемой, "
+"однако GRUB можно будет позже настроить для её загрузки."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Install the GRUB bootloader to XFS filesystem?"
-msgstr "   GRUB    XFS?"
+msgstr "Установить системный загрузчик GRUB на файловую систему XFS?"
 
 #. Type: boolean
 #. Description
@@ -84,13 +96,16 @@ msgstr "   GRUB    XFS?"
 msgid ""
 "The GRUB bootloader installation often fails or hangs when /boot is on a XFS "
 "filesystem. Using LILO in this situation is recommended."
-msgstr "   GRUB      ,  /boot     XFS.      LILO."
+msgstr ""
+"Установка системного загрузчика GRUB часто заканчивается неудачно или "
+"подвисанием системы, если /boot расположен в файловой системе XFS. При таком "
+"случае рекомендуется использовать LILO."
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
-msgstr "    :"
+msgstr "Устройство для установки системного загрузчика:"
 
 #. Type: string
 #. Description
@@ -102,8 +117,11 @@ msgid ""
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
 msgstr ""
-"      Debian .         GRUB.        (MBR, Master Boot Record)   .     GRUB  "
-"-    ,    ,    ."
+"Пришло время научить вашу свежеустановленную систему Debian загружаться. Для "
+"этого на загрузочное устройство будет установлен загрузчик GRUB. Обычно он "
+"устанавливается в главную загрузочную запись (MBR, Master Boot Record) "
+"первого жёсткого диска. При желании можно установить GRUB в какое-либо "
+"другое место на диске, либо на другой диск, либо вообще на дискету."
 
 #. Type: string
 #. Description
@@ -120,20 +138,21 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"      GRUB -- \"(hdn,m)\",       /dev.   : \n"
-" -- \"(hd0)\"  \"/dev/hda\" GRUB     \n"
-"         (IDE);\n"
-" -- \"(hd0,1)\"  \"/dev/hda2\" GRUB     \n"
-"       IDE;\n"
-" -- \"(hd2,4)\"  \"/dev/sdc5\" GRUB    \n"
-"       (SCSI);\n"
-" -- \"(fd0)\"  \"/dev/fd0\" GRUB    ."
+"Устройство можно задать как в нотации GRUB -- \"(hdn,m)\", так и именем "
+"устройства в каталоге /dev. Вот несколько примеров: \n"
+" -- \"(hd0)\" или \"/dev/hda\" GRUB будет установлен в главную загрузочную\n"
+"    запись вашего первого жёсткого диска (IDE);\n"
+" -- \"(hd0,1)\" или \"/dev/hda2\" GRUB будет установлен во второй раздел\n"
+"    первого жёстого диска IDE;\n"
+" -- \"(hd2,4)\" или \"/dev/sdc5\" GRUB будет установлен впервый расширенный\n"
+"    раздел третьего диска (SCSI);\n"
+" -- \"(fd0)\" или \"/dev/fd0\" GRUB будет установлен на дискету."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:55
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr " GRUB  .   ?"
+msgstr "Установка GRUB завершилась неудачно. Всё равно продолжить?"
 
 #. Type: boolean
 #. Description
@@ -142,83 +161,87 @@ msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
-msgstr "    GRUB  /target/.  GRUB       . ,        GRUB,       ."
+msgstr ""
+"Не удалось установить пакет GRUB в /target/. Установка GRUB в качестве "
+"системного загрузчика является необходимым шагом. Однако, эта проблема может "
+"быть не связана с GRUB, так что продолжение установки может оказаться "
+"возможным."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:62
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "   GRUB  ${BOOTDEV}"
+msgstr "Не удалось установить GRUB на ${BOOTDEV}"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:62
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "    'grub-install ${BOOTDEV}'."
+msgstr "Не удалось выполнить команду 'grub-install ${BOOTDEV}'."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:69
 msgid "Unable to configure GRUB"
-msgstr "   GRUB"
+msgstr "Не удалось настроить GRUB"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:69
 msgid "Executing 'update-grub' failed."
-msgstr "    'update-grub'."
+msgstr "Не удалось выполнить команду 'update-grub'."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:69
 msgid "This is a fatal error."
-msgstr "  ."
+msgstr "Это неисправимая ошибка."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:76
 msgid "Installing GRUB boot loader"
-msgstr "   GRUB"
+msgstr "Установка системного загрузчика GRUB"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:80
 msgid "Looking for other operating systems..."
-msgstr "   ..."
+msgstr "Поиск других операционных систем..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:84
 msgid "Installing the 'grub' package..."
-msgstr "  'grub'..."
+msgstr "Установка пакета 'grub'..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:88
 msgid "Determining GRUB boot device..."
-msgstr "    GRUB..."
+msgstr "Определение загрузочного устройства для GRUB..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:92
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr " \"grub-install ${BOOTDEV}\"..."
+msgstr "Запуск \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:96
 msgid "Running \"update-grub\"..."
-msgstr " \"update-grub\"..."
+msgstr "Запуск \"update-grub\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:100
 msgid "Updating /etc/kernel-img.conf..."
-msgstr " /etc/kernel-img.conf..."
+msgstr "Обновление /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
 #: ../grub-installer.templates:105
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "   GRUB   "
+msgstr "Установить системный загрузчик GRUB на жёсткий диск"
