@@ -3,25 +3,22 @@
 #
 # DO NOT MODIFY IT DIRECTLY : SUCH CHANGES WILL BE LOST
 # 
+# Finnish messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+# Tommi Vainikainen <thv+debian@iki.fi>, 2003 - 2004
+# Tapio Lehtonen <tale@debian.org>, 2004
+# Thanks to lokalisointi-laatu@linux-aktivaattori.org.
 #
-#
-# Debian Installer master translation file template
-# Don't forget to properly fill-in the header of PO files 
-#
-# Debian Installer translators, please read the D-I i18n documentation
-# in doc/i18n/i18n.txt
-#
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2004-10-06 04:11-0600\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2004-10-28 14:37+0200\n"
+"Last-Translator: Tapio Lehtonen <tale@debian.org>\n"
+"Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Report-Msgid-Bugs-To: \n"
 
@@ -31,7 +28,7 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr ""
+msgstr "Koneelta löytyivät seuraavat muut käyttöjärjestelmät: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -42,12 +39,17 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
+"Jos koneen kaikki käyttöjärjestelmät löytyvät yllä olevasta listasta, "
+"pitäisi olla turvallista asentaa alkulatausohjelma ensimmäisen kiintolevyn "
+"pääkäynnistyslohkoon. Kun tietokone käynnistyy, voit valita "
+"käynnistettäväksi yhden näistä käyttöjärjestelmistä tai uuden Debian-"
+"järjestelmän."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr ""
+msgstr "Asennetaanko GRUB-alkulatausohjelma pääkäynnistyslohkoon?"
 
 #. Type: boolean
 #. Description
@@ -57,6 +59,9 @@ msgid ""
 "this computer. If so, it should be safe to install the GRUB boot loader to "
 "the master boot record of your first hard drive."
 msgstr ""
+"Nähtävästi tämä Debian-asennus on tämän tietokoneen ainoa käyttöjärjestelmä. "
+"Mikäli näin on, pitäisi olla turvallista asentaa GRUB-alkulatausohjelma "
+"ensimmäisen kiintolevyn pääkäynnistyslohkoon."
 
 #. Type: boolean
 #. Description
@@ -67,12 +72,16 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
+"Varoitus: Jos asennin ei löytänyt koneeseen asennettua toista "
+"käyttöjärjestelmää, pääkäynnistyslohkon muokkaaminen estää tilapäisesti tuon "
+"toisen käyttöjärjestelmän käynnistämisen. GRUB:n asetuksia voidaan myöhemmin "
+"muokata käynnistämään myös se."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Install the GRUB bootloader to XFS filesystem?"
-msgstr ""
+msgstr "Asenna GRUB-alkulatausohjelma XFS-tiedostojärjestelmään?"
 
 #. Type: boolean
 #. Description
@@ -81,12 +90,15 @@ msgid ""
 "The GRUB bootloader installation often fails or hangs when /boot is on a XFS "
 "filesystem. Using LILO in this situation is recommended."
 msgstr ""
+"GRUB-alkulatausohjelman asennus epäonnistuu tai jumittuu usein jos "
+"hakemisto /boot on XFS-tiedostojärjestelmässä. Tässä tilanteessa "
+"suositellaan LILO:n käyttöä."
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
-msgstr ""
+msgstr "Laite johon alkulatausohjelma asennetaan:"
 
 #. Type: string
 #. Description
@@ -98,6 +110,11 @@ msgid ""
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
 msgstr ""
+"Nyt on aika tehdä vasta asennettu Debian-järjestelmä käynnistyväksi "
+"asentamalla GRUB-alkulatausohjelma käynnistyskelpoiselle laitteelle. Tämä "
+"tehdään tavallisesti asentamalla GRUB ensimmäisen kiintolevyn "
+"pääkäynnistyslohkoon. Halutessasi voit asentaa GRUB:n muualle levylle, "
+"toiselle kiintolevylle tai jopa levykkeelle."
 
 #. Type: string
 #. Description
@@ -114,12 +131,21 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
+"Laite voidaan määrittää käyttäen GRUB:n \"(hdn,m)\"-merkintää tai laitteena "
+"hakemistossa /dev. Muutamia esimerkkejä:\n"
+" - \"(hd0)\" tai \"/dev/hda\" asentaa GRUB:n ensimmäisen IDE-kiintolevyn\n"
+"   pääkäynnistyslohkoon;\n"
+"  - \"(hd0,1)\" tai \"/dev/hda2\" käyttää ensimmäisen IDE-levyn toista\n"
+"   levyosiota;\n"
+" - \"(hd2,4)\" tai \"/dev/sdc5\" käyttää kolmannen SCSI-levyn ensimmäistä\n"
+"   jatkettua osiota;\n"
+" - \"(fd0)\" tai \"/dev/fd0\" asentaa GRUB:n levykkeelle."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:55
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr ""
+msgstr "GRUB:n asennus epäonnistui. Jatketaanko silti?"
 
 #. Type: boolean
 #. Description
@@ -129,82 +155,85 @@ msgid ""
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
+"Grub-pakettia ei voitu asentaa hakemistoon /target/. GRUB:n asentaminen "
+"alkulatausohjelmaksi on välttämätöntä. Asennuspulma saattaa kuitenkin olla "
+"muualla kuin GRUB:ssa, joten asennuksen jatkaminen voi olla mahdollista."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:62
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr ""
+msgstr "GRUB:ia ei voitu asentaa laitteelle ${BOOTDEV}"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:62
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr ""
+msgstr "Komennon \"grub-install ${BOOTDEV}\" suoritus epäonnistui."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:69
 msgid "Unable to configure GRUB"
-msgstr ""
+msgstr "GRUB:in asetuksia ei voida tehdä."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:69
 msgid "Executing 'update-grub' failed."
-msgstr ""
+msgstr "Komennon \"update-grub\" suoritus epäonnistui."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:69
 msgid "This is a fatal error."
-msgstr ""
+msgstr "Tämä on vakava virhe."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:76
 msgid "Installing GRUB boot loader"
-msgstr ""
+msgstr "Asennetaan GRUB-alkulatausohjelma"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:80
 msgid "Looking for other operating systems..."
-msgstr ""
+msgstr "Etsitään muita käyttöjärjestelmiä..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:84
 msgid "Installing the 'grub' package..."
-msgstr ""
+msgstr "Asennetaan \"grub\"-paketti..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:88
 msgid "Determining GRUB boot device..."
-msgstr ""
+msgstr "Selvitetään GRUB-käynnistyslaitetta..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:92
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr ""
+msgstr "Suoritetaan \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:96
 msgid "Running \"update-grub\"..."
-msgstr ""
+msgstr "Suoritetaan \"update-grub\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:100
 msgid "Updating /etc/kernel-img.conf..."
-msgstr ""
+msgstr "Päivitetään /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
 #: ../grub-installer.templates:105
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr ""
+msgstr "Asenna GRUB-alkulatausohjelma kiintolevylle"
