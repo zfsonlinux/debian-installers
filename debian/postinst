@@ -323,10 +323,10 @@ update_mtab
 
 if ! is_floppy "$bootdev"; then
 	if chroot /target /sbin/grub-install -h 2>&1 | grep -q no-floppy; then
-		info "grub-install support --no-floppy"
+		info "grub-install supports --no-floppy"
 		floppyparam="--no-floppy"
 	else
-		info "grub-install do not support --no-floppy"
+		info "grub-install does not support --no-floppy"
 	fi
 fi
 
