@@ -1,24 +1,16 @@
-# translation of grub-installer.po to Norwegian bokmål
-# translation of grub-installer.po to
-#
-#    Translators, if you are not familiar with the PO format, gettext
-#    documentation is worth reading, especially sections dedicated to
-#    this format, e.g. by running:
-#         info -n '(gettext)PO Files'
-#         info -n '(gettext)Header Entry'
-#    Some information specific to po-debconf are available at
-#            /usr/share/doc/po-debconf/README-trans
-#         or http://www.debian.org/intl/l10n/po-debconf/README-trans#
-#    Developers do not need to manually edit POT or PO files.
-# Håvard Korsvoll <korsvoll@stud.ntnu.no>, 2004.
+# translation of debian-installer.po to Norwegian bokmål
+# translation of debian-installer.po to Norwegian Bokmål
+# Norwegian Bokmal messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
 # Axel Bojer <axelb@skolelinux.no>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: grub-installer\n"
+"Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-04-10 18:11-0400\n"
-"PO-Revision-Date: 2004-03-03 23:05GMT+2\n"
+"PO-Revision-Date: 2004-04-19 22:34GMT+2\n"
 "Last-Translator: Axel Bojer <axelb@skolelinux.no>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -33,6 +25,7 @@ msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
 msgstr ""
+"Følgende andre operativsystemer er funnet på denne maskinen: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -43,13 +36,16 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
+"Hvis alle dine operativsystemer er listet opp ovenfor, så bør det være trygt "
+"å installere oppstartslasteren i hovedoppstartssporet på den første "
+"harddisken. Når maskinen starter vil du få valget mellom å starte ett av "
+"disse operativsystemene eller det nye Debian-systemet."
 
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "Installer Grub på en harddisk"
+msgstr "Vil du nstallere oppstartslasteren GRUB på hovedoppstartssporet (MBR)?"
 
 #. Type: boolean
 #. Description
@@ -59,17 +55,19 @@ msgid ""
 "this computer. If so, it should be safe to install the boot loader to the "
 "master boot record of your first hard drive."
 msgstr ""
+"Det ser ut til at denne Debian-installasjonen er det eneste operativsystemet "
+"på denne maskinen. Hvis det er riktig, skulle det være trygt å installere "
+"oppstartslasteren på hovedoppstartssporet på den første harddisken."
 
 #. Type: string
 #. Description
 #: ../templates:24
 msgid "Device for boot loader installation:"
-msgstr "Enhet for installasjon av oppstartslaster:"
+msgstr "Enheten oppstartslasteren skal installeres på:"
 
 #. Type: string
 #. Description
 #: ../templates:24
-#, fuzzy
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -78,9 +76,11 @@ msgid ""
 "even to a floppy."
 msgstr ""
 "Nå er det på tide å gjøre det mulig å starte opp det nyinstallerte "
-"debiansystemet Dette gjør vi ved å installere oppstartslasteren GRUB på en "
+"Debiansystemet Dette gjør vi ved å installere oppstartslasteren GRUB på en "
 "enhet som er oppstartbar. Den vanlige måten å gjøre dette på, er å "
-"installere GRUB på hovedoppstartssporet (MBR) på den første harddisken."
+"installere GRUB på hovedoppstartssporet (MBR) på den første harddisken. Hvis "
+"du foretrekker det kan du installere GRUB andre steder på harddisken, eller "
+"på en annen harddisk, eller til og med på en diskett."
 
 #. Type: string
 #. Description
@@ -89,12 +89,13 @@ msgid ""
 "The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
 "in /dev."
 msgstr ""
+"Enheten kan oppgis i GRUBs «(hdn)»-notasjon, eller som en enhet i /dev."
 
 #. Type: boolean
 #. Description
 #: ../templates:37
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "Klarte ikke å installere GRUB. Vil du fortsette allikevel?"
+msgstr "Klarte ikke å installere GRUB. Vil du fortsette likevel?"
 
 #. Type: boolean
 #. Description
@@ -106,7 +107,7 @@ msgid ""
 msgstr ""
 "Grub-pakka lot seg ikke installere under /target/. Dette er nødvendig for å "
 "installere GRUB som oppstartssystem. Installasjonsproblemet behøver ikke ha "
-"noe med Grub å gjøre, så det kan hende det går an å fortsette likevel."
+"noe med GRUB å gjøre, så det kan hende det går an å fortsette likevel."
 
 #. Type: error
 #. Description
@@ -124,7 +125,7 @@ msgstr "Kommandoen «grub-install ${BOOTDEV}» mislyktes."
 #. Description
 #: ../templates:51
 msgid "Unable to configure GRUB"
-msgstr "Klarer ikke å sette opp Grub"
+msgstr "Klarer ikke å sette opp GRUB"
 
 #. Type: error
 #. Description
@@ -142,13 +143,13 @@ msgstr "Dette er en kritisk feil."
 #. Description
 #: ../templates:58
 msgid "Installing GRUB boot loader"
-msgstr "Installerer oppstartssystemet Grub"
+msgstr "Installerer oppstartssystemet GRUB"
 
 #. Type: text
 #. Description
 #: ../templates:62
 msgid "Looking for other operating systems..."
-msgstr ""
+msgstr "Leter etter andre operativsystemer ..."
 
 #. Type: text
 #. Description
@@ -185,24 +186,4 @@ msgstr "Oppdaterer /etc/kernel-img.conf ..."
 #. Main menu item
 #: ../templates:87
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "Installer Grub på en harddisk"
-
-#~ msgid ""
-#~ "Note that GRUB counts devices differently than the Linux kernel, so the "
-#~ "first drive is usually '(hd0)'. If you want it on the second partition of "
-#~ "the first drive, use '(hd0,1)'. Leave this at default if unsure."
-#~ msgstr ""
-#~ "Merk at GRUB teller enheter på en annen måte enn linuxkjerna gjør. Den "
-#~ "første harddisken er vanligvis «(hd0)». Hvis du vil ha GRUB på den andre "
-#~ "partisjonen på den første disken, bruk «(hd0,1)». Bruk forhåndsvalget "
-#~ "hvis du er usikker."
-
-#~ msgid ""
-#~ "Warning: by default, this will change how your computer boots, "
-#~ "overwriting your existing master boot record with GRUB. Continuing may "
-#~ "make other operating systems installed on this computer unbootable."
-#~ msgstr ""
-#~ "Advarsel: Som standard vil dette endre hvordan datamaskinen din starter "
-#~ "opp. Installasjonen vil skrive over det eksisterende hovedoppstartssporet "
-#~ "med GRUB. Ved å fortsette kan andre operativsystem som er installert på "
-#~ "denne maskinen få problemer med å starte."
+msgstr "Installer oppstartssystemet GRUB på en harddisk"
