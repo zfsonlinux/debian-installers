@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-05-16 08:27+0200\n"
-"PO-Revision-Date: 2004-04-11 14:16+0200\n"
+"PO-Revision-Date: 2004-05-16 11:01+0200\n"
 "Last-Translator: Miroslav Kure <kurem@debian.cz>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "MIME-Version: 1.0\n"
@@ -55,15 +55,14 @@ msgstr "Instalovat zavadìè GRUB do hlavního zavádìcího záznamu?"
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
 "the master boot record of your first hard drive."
 msgstr ""
 "Zdá se, ¾e tato instalace Debianu je jediným operaèním systémem na tomto "
-"poèítaèi. Pokud je to pravda, mìlo by být bezpeèné instalovat zavadìè do "
-"hlavního zavádìcího záznamu (MBR) va¹eho prvního disku."
+"poèítaèi. Pokud je to pravda, mìlo by být bezpeèné instalovat zavadìè GRUB "
+"do hlavního zavádìcího záznamu (MBR) va¹eho prvního disku."
 
 #. Type: boolean
 #. Description
@@ -74,6 +73,10 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
+"Varování: Jestli¾e instalaèní program nerozpoznal typ stávajícího operaèního "
+"systému na tomto poèítaèi, je mo¾né, ¾e zásahem do hlavního zavádìcího "
+"záznamu doèasnì ztratíte mo¾nost zavádìt tento neznámý operaèní systém. "
+"Zavádìní neznámého systému pak budete muset nastavit v GRUBu ruènì."
 
 #. Type: string
 #. Description
@@ -106,6 +109,10 @@ msgid ""
 "of your first hard drive, while \"/dev/hda2\" will install it to the second "
 "parrtition of your first IDE drive."
 msgstr ""
+"Zaøízení mù¾ete zadat buï GRUBovým zápisem \"(hdn)\", nebo jako zaøízení v "
+"/dev. Napøíklad \"(hd0)\" nainstaluje GRUB do hlavního zavádìcího záznamu "
+"prvního pevného disku, zatímco \"/dev/hda2\" jej nainstaluje do druhé "
+"oblasti prvního IDE disku."
 
 #. Type: boolean
 #. Description
@@ -203,10 +210,3 @@ msgstr "Aktualizuje se /etc/kernel-img.conf..."
 #: ../templates:93
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Instalovat zavadìè GRUB na pevný disk"
-
-#~ msgid ""
-#~ "The device can be specified using GRUB's \"(hdn)\" notation, or as a "
-#~ "device in /dev."
-#~ msgstr ""
-#~ "Zaøízení mù¾ete zadat buï GRUBovým zápisem \"(hdn)\", nebo jako zaøízení "
-#~ "v /dev."
