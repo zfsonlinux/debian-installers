@@ -169,6 +169,50 @@ case "$ARCH" in
               ;;
       esac
       ;;
+    mips)
+	MODEL=`grep '^system type' /proc/cpuinfo |cut -d: -f2`
+	CPU=`grep '^cpu model' /proc/cpuinfo |cut -d: -f2`
+	case "$MODEL" in
+	    *Indy)
+		case "$CPU" in
+		    " R4"*)
+			trykernel=kernel-image-*-r4k-ip22
+			;;
+		    " R5"*)
+			trykernel=kernel-image-*-r5k-ip22
+			;;
+		    *)
+			log "warning: Unknown mips Indy cpu type '$CPU'."
+			;;
+		esac
+		;;
+	    *)
+		log "warning: Unknown mips subarchitecture '$MODEL'."
+		;;
+	esac
+	;;
+    mipsel)
+	MODEL=`grep '^system type' /proc/cpuinfo |cut -d: -f2`
+	CPU=`grep '^cpu model' /proc/cpuinfo |cut -d: -f2`
+	case "$MODEL" in
+	    " DEC"*)
+		case "$CPU" in
+		    " R3"*)
+			trykernel=kernel-image-*-r3k-kn02
+			;;
+		    " R4"*)
+			trykernel=kernel-image-*-r4k-kn04
+			;;
+		    *)
+			log "warning: Unknown mipsel DECstation cpu type '$CPU'."
+			;;
+		esac
+		;;
+	    *)
+		log "warning: Unknown mipsel subarchitecture '$MODEL'."
+		;;
+	esac
+	;;
     *)
         log "warning: Unknown architecture '$ARCH'."
 	;;
