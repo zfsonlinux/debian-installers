@@ -296,6 +296,17 @@ get_arch_kernel () {
 			trykernel=kernel-image-$version-smp
 		fi
 	;;
+	m68k)
+		MODEL=`/bin/archdetect | cut -d'/' -f 2`
+		case "$MODEL" in
+		amiga|atari|mac|bvme6000|mvme147|mvme16x)    
+	#		trykernel=kernel-image-*-$MODEL ;;
+			trykernel=$MODEL ;;
+		*)
+		log "warning: Unknown m68k model '$MODEL'."
+		;;
+		esac
+	;;
 	*)
 	log "warning: Unknown architecture '$ARCH'."
 	;;
