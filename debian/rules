@@ -25,8 +25,6 @@ clean:
 install: build
 	dh_testdir
 	dh_testroot
-	mkdir -p debian/$(PACKAGE)/usr/lib/debootstrap/scripts
-	(cd debian/$(PACKAGE)/usr/lib/debootstrap/scripts/ ; ln -s woody skolelinux-Workstation ; ln -s woody skolelinux-Server )
 
 # Build architecture-independent files here.
 binary-indep: build install
