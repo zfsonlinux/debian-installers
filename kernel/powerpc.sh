@@ -46,16 +46,29 @@ arch_get_kernel () {
 	# sometimes have a different version number.
 	apusversion=2.4.27
 
+	CPUS="$(grep -ci ^processor /proc/cpuinfo)"
+	if [ "$CPUS" ] && [ "$CPUS" -gt 1 ]; then
+		SMP=-smp
+	else
+		SMP=
+	fi
+
+	family="${1%%-*}"
+	subarch="${1#*-}"
+
 	case "$1" in
 		apus)	trykernel=kernel-image-$apusversion-apus ;;
 		*)
 			case "$KERNEL_MAJOR" in
 				2.6)
-					family="${1%%-*}"
-					echo "kernel-image-$version-$family"
+					echo "kernel-image-$version-$family$SMP"
 					;;
 				*)
-					echo "kernel-image-$version-$1"
+					if [ "$family" != powerpc ]; then
+						# 2.4 only has powerpc-smp.
+						SMP=
+					fi
+					echo "kernel-image-$version-$family$SMP-$subarch"
 					;;
 			esac
 	esac
