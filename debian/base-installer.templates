@@ -194,29 +194,29 @@ Template: base-installer/debootstrap/info/instbase
 Type: text
 _Description: Installing base packages...
 
-Template: base-installer/apt/progress/step_config
+Template: base-installer/section/configure_apt
 Type: text
 _Description: Configuring APT sources...
 
-Template: base-installer/apt/progress/step_update
+Template: base-installer/section/apt_update
 Type: text
 _Description: Updating the list of available packages...
 
-Template: base-installer/apt/progress/step_install
+Template: base-installer/section/install_extra
 Type: text
 _Description: Installing extra packages...
 
-Template: base-installer/kernel/progress/step_select
+Template: base-installer/section/pick_kernel
 Type: text
 _Description: Selecting the kernel to install
 
-Template: base-installer/kernel/progress/step_install
+Template: base-installer/section/install_kernel
 Type: text
-_Description: Installing the kernel package ${KERNEL}
+_Description: Installing the kernel
 
-Template: base-installer/kernel/progress/step_install_pcmcia
+Template: base-installer/section/install_pcmcia_modules
 Type: text
-_Description: Installing the pcmcia modules package ${PACKAGE}
+_Description: Installing the pcmcia modules
 
 Template: debian-installer/base-installer/title
 Type: text

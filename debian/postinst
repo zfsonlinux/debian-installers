@@ -15,8 +15,6 @@ INCLUDES=
 EXCLUDES=
 KERNEL=
 KERNEL_LIST=/tmp/available_kernels.txt
-# The sum of all the STEP commands below, plus 100 for run-debootstrap.
-NUM_STEPS=119
 
 log() {
     logger -t base-installer "$@"
@@ -132,8 +130,6 @@ install_base_system () {
 }
 
 configure_apt () {
-	db_progress INFO base-installer/apt/progress/step_config
-
 	# Move files to where apt expects them to avoid another download or copy.
 	APTLISTDIR=/target/var/lib/apt/lists
 	APTDIR=`echo $DIRECTORY | tr "/" "_"`
@@ -155,8 +151,6 @@ configure_apt () {
 
 	[ ! -d /target/etc/apt ] && mkdir -p /target/etc/apt
 	echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
-
-	db_progress STEP 1 # the above runs quickly
 }
 
 kernel_update_list () {
@@ -326,14 +320,9 @@ pick_kernel () {
 
 	# Pass the kernel name on
 	db_set debian-installer/kernel/image "$KERNEL"
-
-	db_progress STEP 1
 }
 
 install_kernel () {
-	db_subst base-installer/kernel/progress/step_install KERNEL "$KERNEL"
-	db_progress INFO base-installer/kernel/progress/step_install
-
 	if db_get debian-installer/kernel/linux/initrd ; then
 		if [ "$RET" = "true" ]; then
 			do_initrd=yes
@@ -405,30 +394,18 @@ EOF
 		db_subst base-installer/kernel/failed-install KERNEL "$KERNEL"
 		exit_error base-installer/kernel/failed-install
 	fi
-	
-	db_progress STEP 10 # the kernel is big
 }
 
 install_pcmcia_modules () {
-	# Pcmcia modules are debundled from the kernel on i386.
-	case "$ARCH" in
-	i386*)
-		pcmcia_package=$(echo "$KERNEL" | sed 's/^kernel-image/kernel-pcmcia-modules/')
-		info "Installing pcmcia package '$pcmcia_package'."
-		db_subst base-installer/kernel/progress/step_install_pcmcia PACKAGE "$pcmcia_package"
-		db_progress INFO base-installer/kernel/progress/step_install_pcmcia
-		if ! apt-install "$pcmcia_package" 2>> $LOGFILE ; then
-			exit_error base-installer/kernel/failed-pcmcia-install
-		fi
-	;;
-	esac
-
-	db_progress STEP 1
+	pcmcia_package=$(echo "$KERNEL" | sed 's/^kernel-image/kernel-pcmcia-modules/')
+	info "Installing pcmcia modules package '$pcmcia_package'."
+	db_progress INFO base-installer/kernel/progress/step_install_pcmcia
+	if ! apt-install "$pcmcia_package" 2>> $LOGFILE ; then
+		exit_error base-installer/kernel/failed-pcmcia-install
+	fi
 }
 
 apt_update () {
-	db_progress INFO base-installer/apt/progress/step_update
-
 	# Not run chrooted because it may need to access /cdrom.
         PATH=$PATH:/target/usr/bin:/target/bin:/target/usr/sbin:/target/sbin \
         LD_LIBRARY_PATH=/usr/lib:/lib:/target/usr/lib:/target/lib \
@@ -446,8 +423,6 @@ apt_update () {
 	if [ "$apt_update_failed" ]; then
 		warning "apt update failed: $apt_update_failed"
 	fi
-
-	db_progress STEP 3 # may take a while, bandwidth depending
 }
 
 queue_language_debs () {
@@ -463,9 +438,9 @@ queue_language_debs () {
 	esac
 }
 	
-flush_apt_install_queue () {
-	db_progress INFO base-installer/apt/progress/step_install
-
+install_extra () {
+	queue_language_debs
+	
 	if [ -f /var/lib/apt-install/queue ] ; then
 		# We need to install these one by one in case one fails.
 		for PKG in `cat /var/lib/apt-install/queue`; do
@@ -476,30 +451,41 @@ flush_apt_install_queue () {
 			fi
 		done
 	fi
-
-	db_progress STEP 3
-}
-
-initialize () {
-	# This single progress bar is used for the entire base-installer run.
-	db_progress START 0 $NUM_STEPS base-installer/progress/installing-debian
 }
 
 cleanup () {
 	rm -f $KERNEL_LIST
-	db_progress SET $NUM_STEPS
-	db_progress STOP
 }
 
-initialize
-queue_language_debs
-get_mirror_info
-install_base_system
-configure_apt
-apt_update
-pick_kernel
-install_kernel
-install_pcmcia_modules
-flush_apt_install_queue
-cleanup
+WAYPOINTS=""
+NUM_STEPS=0
+waypoint () {
+	WAYPOINTS="$WAYPOINTS $1:$2"
+	NUM_STEPS=$(expr $NUM_STEPS + $1) || true # Or 0+0 = set -e exit. Why?
+}
+
+waypoint 0	get_mirror_info
+waypoint 100	install_base_system
+waypoint 1	configure_apt
+waypoint 3	apt_update
+waypoint 1	pick_kernel
+waypoint 10	install_kernel
+case "$ARCH" in
+i386*)
+waypoint 1	install_pcmcia_modules
+;;
+esac
+waypoint 5	install_extra
+waypoint 0	cleanup
+
+db_progress START 0 $NUM_STEPS base-installer/progress/installing-debian
+POS=0
+for item in $WAYPOINTS; do
+	step=$(echo $item | cut -d: -f 1)
+	waypoint=$(echo $item | cut -d: -f 2)
+	eval $waypoint
+	POS=$(expr $POS + $step) || true
+	db_progress SET $POS
+done
+db_progress STOP
 exit 0
