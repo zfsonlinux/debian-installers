@@ -19,12 +19,19 @@ if [ "$1" = "configure" ]; then
         PROTOCOL=file
         MIRROR=""
         DIRECTORY="cdrom/"
-        if [ -f /cdrom/.disk/components ] && [ -s /cdrom/.disk/components ]
-            COMPONENTS=`cat /cdrom/.disk/components`
+        if [ -s /cdrom/.disk/base_components ]; then
+            COMPONENTS=`cat /cdrom/.disk/base_components | tr '\n' ,`
         else
             COMPONENTS="*"
         fi
 
+        if [ -s /cdrom/.disk/base_include ]; then
+            INCLUDES=`cat base_include | tr '\n' ,`
+        fi
+
+        if [ -s /cdrom/.disk/base_exclude ]; then
+            EXCLUDES=`cat base_exclude | tr '\n' ,`
+        fi
     else
 
         db_get mirror/protocol
@@ -38,8 +45,8 @@ if [ "$1" = "configure" ]; then
 
     fi
 
-    INCLUDE="--include=$KERNEL_IMAGE,grub,base-config-skolelinux,libssl0.9.6,locales,discover,libdiscover1,discover-data"
-    EXCLUDE="--exclude=lilo"
+    INCLUDE="--include=${KERNEL_IMAGE},${INCLUDES}"
+    EXCLUDE="--exclude=${EXCLUDES}"
 
     db_get netcfg/get_hostname
     HOSTNAME=$RET
@@ -67,6 +74,6 @@ do_bootfloppy = no
 do_initrd = yes
 EOF
 
-debootstrap --components='*' --boot-floppies ${INCLUDE} ${EXCLUDE} woody /target ${PROTOCOL}://${MIRROR}/${DIRECTORY}   3>&1 >/tmp/debootstrap.log 2>/tmp/debootstrap.err.log </dev/null
+debootstrap --components="${COMPONENTS}" --boot-floppies ${INCLUDE} ${EXCLUDE} woody /target ${PROTOCOL}://${MIRROR}/${DIRECTORY} 3>&1 >/tmp/debootstrap.log 2>/tmp/debootstrap.err.log </dev/null
 fi
 exit 0
