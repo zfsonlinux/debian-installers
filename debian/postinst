@@ -25,6 +25,10 @@ update_mtab() {
 	while read devpath mountpoint fstype options n1 n2 ; do
 	    devpath=`mapdevfs $devpath`
 	    mountpoint=`echo $mountpoint | sed s%^/target%%`
+	    # The sed line remove the mount point for root.
+	    if [ -z "$mountpoint" ] ; then
+		mountpoint="/"
+	    fi
 	    echo $devpath $mountpoint $fstype $options $n1 $n2
 	done ) > $mtab
 }
