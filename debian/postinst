@@ -228,7 +228,7 @@ get_arch_kernel () {
 	trykernel=
 	case "$ARCH" in
 	i386*)
-		version=$(uname -r | cut -d . -f 1,2) # 2.4 or 2,6
+		version=$(uname -r | cut -d . -f 1,2) # 2.4 or 2.6
 		VENDOR=`grep '^vendor_id' /proc/cpuinfo | cut -d: -f2`
 		FAMILY=`grep '^cpu family' /proc/cpuinfo | cut -d: -f2`
 		if dmesg | grep -q ^Processors:; then
@@ -300,7 +300,16 @@ get_arch_kernel () {
 		esac
 	;;
 	powerpc)
-		version=2.4.25
+		kernel_major="$(uname -r | cut -d . -f 1,2)" # 2.4 or 2.6
+		version=
+		case "$kernel_major" in
+		2.6)
+			version=2.6.5
+		;;
+		*)
+			version=2.4.25
+		;;
+		esac
 		# The APUS kernels are in a separate source package, so may
 		# sometimes have a different version number.
 		apusversion=2.4.25
