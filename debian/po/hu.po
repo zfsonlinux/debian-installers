@@ -14,68 +14,79 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-03 22:56-0500\n"
+"POT-Creation-Date: 2004-04-09 22:09-0400\n"
 "PO-Revision-Date: 2004-04-04 13:39+0200\n"
 "Last-Translator: VERÓK István <vi@fsf.hu>\n"
 "Language-Team: Debian Hungarian Localization Team <debian-l10n>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: boolean
+#. Description
+#: ../templates:4
+msgid ""
+"The following other operating systems have been detected on this computer: "
+"${OS_LIST}"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../templates:4
+msgid ""
+"If all of your operating systems are listed above, then it should be safe to "
+"install the boot loader to the master boot record of your first hard drive. "
+"When your computer boots, you will be able to choose to boot one of these "
+"operating systems or your new Debian system."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../templates:16
+#, fuzzy
+msgid "Install the GRUB boot loader to the master boot record?"
+msgstr "A GRUB rendszerbetöltő merevlemezre telepítése"
+
+#. Type: boolean
+#. Description
+#: ../templates:16
+msgid ""
+"It seems that Debian will be the only operating system on this computer. If "
+"so, it should be safe to install the boot loader to the master boot record "
+"of your first hard drive."
+msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:4
+#: ../templates:24
 msgid "Device for boot loader installation:"
 msgstr "A rendszerbetöltő erre az eszközre kerül:"
 
 #. Type: string
 #. Description
-#: ../templates:4
+#: ../templates:24
+#, fuzzy
 msgid ""
-"Now it is time to make the newly installed Debian system bootable, by "
-"installing the GRUB bootloader on a bootable device. The usual way to do "
-"this is to install GRUB on the master boot record of your first hard drive."
+"You need to make the newly installed Debian system bootable, by installing "
+"the GRUB bootloader on a bootable device. The usual way to do this is to "
+"install GRUB on the master boot record of your first hard drive. If you "
+"prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
+"even to a floppy."
 msgstr ""
 "Most érkezett el az újonnan telepített Debian-rendszer indíthatóvá tételének "
 "ideje, ehhez a GRUB rendszerbetöltőt kell egy indításra képes eszközre "
 "telepíteni. Az esetek elsöprő többségében ilyenkor a GRUB-ot az első "
 "merevlemez fő rendszerbetöltő-rekordjába teszik."
 
-#. Type: string
-#. Description
-#: ../templates:4
-msgid ""
-"Note that GRUB counts devices differently than the Linux kernel, so the "
-"first drive is usually '(hd0)'. If you want it on the second partition of "
-"the first drive, use '(hd0,1)'. Leave this at default if unsure."
-msgstr ""
-"Érdemes észben tartani, hogy a GRUB rendszerbetöltő a Linux rendszermagtól "
-"eltérően számozza az eszközöket. Az első meghajtó neve például tipikusan "
-"'(hd0)', az első meghajtó második partícióját pedig a '(hd0,1)' jelöléssel "
-"lehet megnevezni. Ha bizonytalan a döntésben, hagyja a mezőt az alapértéken."
-
-#. Type: string
-#. Description
-#: ../templates:4
-msgid ""
-"Warning: by default, this will change how your computer boots, overwriting "
-"your existing master boot record with GRUB. Continuing may make other "
-"operating systems installed on this computer unbootable."
-msgstr ""
-"Figyelem: ezzel megváltoztatja számítógépének szokásos rendszerbetöltési "
-"módját, mivel a fő rendszerbetöltő-rekordot a GRUB-bal írja felül. Ha ezt "
-"valóban végrehajtja, a számítógépén telepített egyéb operációs rendszerek "
-"betöltése akár lehetetlenné is válhat."
-
 #. Type: boolean
 #. Description
-#: ../templates:20
+#: ../templates:34
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "A GRUB telepítése sikertelenül zárult. Mégis továbblép?"
 
 #. Type: boolean
 #. Description
-#: ../templates:20
+#: ../templates:34
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -88,82 +99,103 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:41
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "A GRUB ${BOOTDEV} eszközre telepítése sikertelenül zárult"
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:41
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "A 'grub-install ${BOOTDEV}' parancs végrehajtása hibát eredményezett."
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: ../templates:48
 msgid "Unable to configure GRUB"
 msgstr "A GRUB konfigurálása meghiúsult"
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: ../templates:48
 msgid "Executing 'update-grub' failed."
 msgstr "Az 'update-grub' parancs végrehajtása hibát eredményezett."
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: ../templates:48
 msgid "This is a fatal error."
 msgstr "Ez a hiba megkerülhetetlen."
 
 #. Type: text
 #. Description
-#: ../templates:41
+#: ../templates:55
 msgid "Installing GRUB boot loader"
 msgstr "A GRUB rendszerbetöltő telepítése"
 
 #. Type: text
 #. Description
-#: ../templates:45
+#: ../templates:59
 msgid "Looking for other operating systems..."
 msgstr "Egyéb operációs rendszerek felderítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../templates:49
+#: ../templates:63
 msgid "Installing the 'grub' package..."
 msgstr "A 'grub' csomag telepítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../templates:53
+#: ../templates:67
 msgid "Determining GRUB boot device..."
 msgstr "A GRUB rendszerbetöltőhöz használt eszköz felderítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../templates:57
+#: ../templates:71
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "A \"grub-install ${BOOTDEV}\" parancs futtatása folyamatban..."
 
 #. Type: text
 #. Description
-#: ../templates:61
+#: ../templates:75
 msgid "Running \"update-grub\"..."
 msgstr "Az \"update-grub\" parancs futtatása folyamatban..."
 
 #. Type: text
 #. Description
-#: ../templates:65
+#: ../templates:79
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Az /etc/kernel-img.conf frissítése folyamatban..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:70
+#: ../templates:84
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "A GRUB rendszerbetöltő merevlemezre telepítése"
+
+#~ msgid ""
+#~ "Note that GRUB counts devices differently than the Linux kernel, so the "
+#~ "first drive is usually '(hd0)'. If you want it on the second partition of "
+#~ "the first drive, use '(hd0,1)'. Leave this at default if unsure."
+#~ msgstr ""
+#~ "Érdemes észben tartani, hogy a GRUB rendszerbetöltő a Linux "
+#~ "rendszermagtól eltérően számozza az eszközöket. Az első meghajtó neve "
+#~ "például tipikusan '(hd0)', az első meghajtó második partícióját pedig a "
+#~ "'(hd0,1)' jelöléssel lehet megnevezni. Ha bizonytalan a döntésben, hagyja "
+#~ "a mezőt az alapértéken."
+
+#~ msgid ""
+#~ "Warning: by default, this will change how your computer boots, "
+#~ "overwriting your existing master boot record with GRUB. Continuing may "
+#~ "make other operating systems installed on this computer unbootable."
+#~ msgstr ""
+#~ "Figyelem: ezzel megváltoztatja számítógépének szokásos rendszerbetöltési "
+#~ "módját, mivel a fő rendszerbetöltő-rekordot a GRUB-bal írja felül. Ha ezt "
+#~ "valóban végrehajtja, a számítógépén telepített egyéb operációs rendszerek "
+#~ "betöltése akár lehetetlenné is válhat."
 
 #~ msgid ""
 #~ "GRUB needs to install the stage 1 boot loader on a bootable device. This "

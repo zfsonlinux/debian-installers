@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-03 22:56-0500\n"
+"POT-Creation-Date: 2004-04-09 22:09-0400\n"
 "PO-Revision-Date: 2004-03-05 17:06+0200\n"
 "Last-Translator: Ognyan Kulev <ogi@fmi.uni-sofia.bg>\n"
 "Language-Team: Bulgarian <dict@linux.zonebg.com>\n"
@@ -23,59 +23,71 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. Type: string
+#. Type: boolean
 #. Description
 #: ../templates:4
+msgid ""
+"The following other operating systems have been detected on this computer: "
+"${OS_LIST}"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../templates:4
+msgid ""
+"If all of your operating systems are listed above, then it should be safe to "
+"install the boot loader to the master boot record of your first hard drive. "
+"When your computer boots, you will be able to choose to boot one of these "
+"operating systems or your new Debian system."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../templates:16
+#, fuzzy
+msgid "Install the GRUB boot loader to the master boot record?"
+msgstr "Инсталиране на програмата за начално зареждане GRUB върху твърд диск"
+
+#. Type: boolean
+#. Description
+#: ../templates:16
+msgid ""
+"It seems that Debian will be the only operating system on this computer. If "
+"so, it should be safe to install the boot loader to the master boot record "
+"of your first hard drive."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:24
 msgid "Device for boot loader installation:"
 msgstr "Устройство, в което да се инсталира програмата за начално зареждане:"
 
 #. Type: string
 #. Description
-#: ../templates:4
+#: ../templates:24
+#, fuzzy
 msgid ""
-"Now it is time to make the newly installed Debian system bootable, by "
-"installing the GRUB bootloader on a bootable device. The usual way to do "
-"this is to install GRUB on the master boot record of your first hard drive."
+"You need to make the newly installed Debian system bootable, by installing "
+"the GRUB bootloader on a bootable device. The usual way to do this is to "
+"install GRUB on the master boot record of your first hard drive. If you "
+"prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
+"even to a floppy."
 msgstr ""
 "Сега е време да бъде направена новоинсталираната система Debian способна за "
 "зареждане, като бъде инсталирана програмата за начално зареждане GRUB. "
 "Обикновено GRUB се инсталира в първия сектор на твърдия диск (master boot "
 "record, MBR)."
 
-#. Type: string
-#. Description
-#: ../templates:4
-msgid ""
-"Note that GRUB counts devices differently than the Linux kernel, so the "
-"first drive is usually '(hd0)'. If you want it on the second partition of "
-"the first drive, use '(hd0,1)'. Leave this at default if unsure."
-msgstr ""
-"Забележете, че GRUB брои устройствата по различен начин от ядрото Linux, "
-"така че първото устройство е обикновено '(hd0)'. Например, за втория дял на "
-"първото устройство, използвайте '(hd0,1)'. Оставете отговорът по "
-"подразбиране, ако не сте сигурен(-на)."
-
-#. Type: string
-#. Description
-#: ../templates:4
-msgid ""
-"Warning: by default, this will change how your computer boots, overwriting "
-"your existing master boot record with GRUB. Continuing may make other "
-"operating systems installed on this computer unbootable."
-msgstr ""
-"Внимание: по подразбиране това ще промени как Вашият компютър зарежда, "
-"заменяйки съществуващия master boot record (MBR) с GRUB. Продължаването може "
-"да направи други операционни системи, инсталирани на компютъра, незареждаеми."
-
 #. Type: boolean
 #. Description
-#: ../templates:20
+#: ../templates:34
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Инсталацията на GRUB завърши неуспешно. Продължение?"
 
 #. Type: boolean
 #. Description
-#: ../templates:20
+#: ../templates:34
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -88,82 +100,102 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:41
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Невъзможност за инсталиране на GRUB в ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:41
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Изпълнението на \"grub-install ${BOOTDEV}\" завърши неуспешно."
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: ../templates:48
 msgid "Unable to configure GRUB"
 msgstr "Невъзможност за настройване на GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: ../templates:48
 msgid "Executing 'update-grub' failed."
 msgstr "Изпълнението на \"update-grub\" завърши неуспешно."
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: ../templates:48
 msgid "This is a fatal error."
 msgstr "Това е фатална грешка."
 
 #. Type: text
 #. Description
-#: ../templates:41
+#: ../templates:55
 msgid "Installing GRUB boot loader"
 msgstr "Инсталиране на програмата за начално зареждане GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:45
+#: ../templates:59
 msgid "Looking for other operating systems..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../templates:49
+#: ../templates:63
 msgid "Installing the 'grub' package..."
 msgstr "Инсталиране на пакета 'grub'..."
 
 #. Type: text
 #. Description
-#: ../templates:53
+#: ../templates:67
 msgid "Determining GRUB boot device..."
 msgstr "Определяне на зареждащото устройство на GRUB..."
 
 #. Type: text
 #. Description
-#: ../templates:57
+#: ../templates:71
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Изпълнение на \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../templates:61
+#: ../templates:75
 msgid "Running \"update-grub\"..."
 msgstr "Изпълнение на \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:65
+#: ../templates:79
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Обновяване на /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:70
+#: ../templates:84
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Инсталиране на програмата за начално зареждане GRUB върху твърд диск"
+
+#~ msgid ""
+#~ "Note that GRUB counts devices differently than the Linux kernel, so the "
+#~ "first drive is usually '(hd0)'. If you want it on the second partition of "
+#~ "the first drive, use '(hd0,1)'. Leave this at default if unsure."
+#~ msgstr ""
+#~ "Забележете, че GRUB брои устройствата по различен начин от ядрото Linux, "
+#~ "така че първото устройство е обикновено '(hd0)'. Например, за втория дял "
+#~ "на първото устройство, използвайте '(hd0,1)'. Оставете отговорът по "
+#~ "подразбиране, ако не сте сигурен(-на)."
+
+#~ msgid ""
+#~ "Warning: by default, this will change how your computer boots, "
+#~ "overwriting your existing master boot record with GRUB. Continuing may "
+#~ "make other operating systems installed on this computer unbootable."
+#~ msgstr ""
+#~ "Внимание: по подразбиране това ще промени как Вашият компютър зарежда, "
+#~ "заменяйки съществуващия master boot record (MBR) с GRUB. Продължаването "
+#~ "може да направи други операционни системи, инсталирани на компютъра, "
+#~ "незареждаеми."
 
 #~ msgid ""
 #~ "GRUB needs to install the stage 1 boot loader on a bootable device. This "

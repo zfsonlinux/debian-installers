@@ -155,10 +155,6 @@ is_floppy () {
 
 db_progress START 0 6 grub-installer/progress/title
 
-db_progress INFO grub-installer/progress/step_os-probe
-os-prober > /tmp/os-probed || true
-
-db_progress STEP 1
 db_progress INFO grub-installer/progress/step_install
 
 if ! apt-install grub ; then
@@ -177,17 +173,80 @@ if ! apt-install grub ; then
 fi
 
 db_progress STEP 1
+db_progress INFO grub-installer/progress/step_os-probe
+os-prober > /tmp/os-probed || true
+
+db_progress STEP 1
 db_progress INFO grub-installer/progress/step_bootdev
 
-db_input high grub-installer/bootdev || [ $? -eq 30 ]
-if ! db_go; then
-	# back up to menu
-	db_progress STOP
-	exit 10
+if [ -s /tmp/os-probed ]; then
+	supported_os_list=""
+	unsupported_os_list=""
+	OLDIFS="$IFS"
+	IFS="$newline"
+	for os in $(cat /tmp/os-probed); do
+		title=$(echo "$os" | cut -d: -f2)
+		type=$(echo "$os" | cut -d: -f4)
+		if [ "$type" = chain ] || [ "$type" = linux ]; then
+			if [ -n "$supported_os_list" ]; then
+				supported_os_list="$supported_os_list, $title"
+			else
+				supported_os_list="$title"
+			fi
+		else
+			if [ -n "$unsupported_os_list" ]; then
+				unsupported_os_list="$unsupported_os_list, $title"
+			else
+				unsupported_os_list="$title"
+			fi
+		fi
+	done
+	IFS="$OLDIFS"
+	if [ -n "$unsupported_os_list" ]; then
+		# Unsupported OS, jump straight to manaul boot device question.
+		state=2
+	else
+		q=grub-installer/with_other_os
+		db_subst $q OS_LIST "$supported_os_list"
+		state=1
+	fi
+else
+	q=grub-installer/only_debian
+	state=1
 fi
 
-db_get grub-installer/bootdev
-bootdev=$RET
+while : ; do
+	if [ "$state" = 1 ]; then
+		db_input high $q || true
+		if ! db_go; then
+			# back up to menu
+			db_progress STOP
+			exit 10
+		fi
+		db_get $q
+		if [ "$RET" = true ]; then
+			bootdev="(hd0)"
+			break
+		else
+			state=2
+		fi
+	else
+		db_input high grub-installer/bootdev || true
+		if ! db_go; then
+			if [ "$q" ]; then
+				state=1
+			else
+				# back up to menu
+				db_progress STOP
+				exit 10
+			fi
+		else
+			db_get grub-installer/bootdev
+			bootdev=$RET
+			break
+		fi
+	fi
+done
 
 db_progress STEP 1
 db_subst grub-installer/progress/step_install_loader BOOTDEV "$bootdev"

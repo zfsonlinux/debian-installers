@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer-templates_uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-03 22:56-0500\n"
+"POT-Creation-Date: 2004-04-09 22:09-0400\n"
 "PO-Revision-Date: 2004-04-04 15:17+0300\n"
 "Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
 "Language-Team: Ukrainian\n"
@@ -24,63 +24,75 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.3.1\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. Type: boolean
+#. Description
+#: ../templates:4
+msgid ""
+"The following other operating systems have been detected on this computer: "
+"${OS_LIST}"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../templates:4
+msgid ""
+"If all of your operating systems are listed above, then it should be safe to "
+"install the boot loader to the master boot record of your first hard drive. "
+"When your computer boots, you will be able to choose to boot one of these "
+"operating systems or your new Debian system."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../templates:16
+#, fuzzy
+msgid "Install the GRUB boot loader to the master boot record?"
+msgstr "Встановити завантажувач GRUB на жорсткий диск"
+
+#. Type: boolean
+#. Description
+#: ../templates:16
+msgid ""
+"It seems that Debian will be the only operating system on this computer. If "
+"so, it should be safe to install the boot loader to the master boot record "
+"of your first hard drive."
+msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:4
+#: ../templates:24
 msgid "Device for boot loader installation:"
 msgstr "Пристрій для встановлення системного завантажувача:"
 
 #. Type: string
 #. Description
-#: ../templates:4
+#: ../templates:24
+#, fuzzy
 msgid ""
-"Now it is time to make the newly installed Debian system bootable, by "
-"installing the GRUB bootloader on a bootable device. The usual way to do "
-"this is to install GRUB on the master boot record of your first hard drive."
+"You need to make the newly installed Debian system bootable, by installing "
+"the GRUB bootloader on a bootable device. The usual way to do this is to "
+"install GRUB on the master boot record of your first hard drive. If you "
+"prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
+"even to a floppy."
 msgstr ""
 "Зараз саме час зробити можливим завантаження щойно встановленої системи "
 "Debian шляхом встановлення завантажувача GRUB на завантажувальний пристрій. "
 "Звичайно це робиться шляхом встановлення GRUB в головний завантажувальний "
 "запис (MBR) вашого першого жорсткого диску."
 
-#. Type: string
-#. Description
-#: ../templates:4
-msgid ""
-"Note that GRUB counts devices differently than the Linux kernel, so the "
-"first drive is usually '(hd0)'. If you want it on the second partition of "
-"the first drive, use '(hd0,1)'. Leave this at default if unsure."
-msgstr ""
-"Зауважте що GRUB нумерує пристрої іншим чином, ніж ядро Linux. Таким чином "
-"перший жорсткий диск звичайно називається „(hd0)“. Якщо ви хочете встановити "
-"його на другий розділ першого жорсткого диску, то використовуйте „(hd0,1)“. "
-"Якщо невпевнені, то залиште все як є."
-
-#. Type: string
-#. Description
-#: ../templates:4
-msgid ""
-"Warning: by default, this will change how your computer boots, overwriting "
-"your existing master boot record with GRUB. Continuing may make other "
-"operating systems installed on this computer unbootable."
-msgstr ""
-"Попередження: за замовчанням буде замінено існуючий головний "
-"завантажувальний запис на завантажувальний запис GRUB, що призведе до змін в "
-"процесі завантаження системи. Продовження може призвести до того, що інші "
-"операційні системи, що встановлені на комп'ютері, буде неможливо завантажити."
-
 #. Type: boolean
 #. Description
-#: ../templates:20
+#: ../templates:34
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Не вдалося встановити GRUB. Все рівно продовжувати?"
 
 #. Type: boolean
 #. Description
-#: ../templates:20
+#: ../templates:34
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -93,82 +105,103 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:41
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Не можливо встановити GRUB в ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:41
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Не вдалося виконати команду „grub-install ${BOOTDEV}“."
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: ../templates:48
 msgid "Unable to configure GRUB"
 msgstr "Не вдалося налаштувати GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: ../templates:48
 msgid "Executing 'update-grub' failed."
 msgstr "Не вдалося виконати команду „update-grub“."
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: ../templates:48
 msgid "This is a fatal error."
 msgstr "Це фатальна помилка."
 
 #. Type: text
 #. Description
-#: ../templates:41
+#: ../templates:55
 msgid "Installing GRUB boot loader"
 msgstr "Встановлення завантажувача GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:45
+#: ../templates:59
 msgid "Looking for other operating systems..."
 msgstr "Пошук інших операційних систем..."
 
 #. Type: text
 #. Description
-#: ../templates:49
+#: ../templates:63
 msgid "Installing the 'grub' package..."
 msgstr "Встановлення пакунку „grub“..."
 
 #. Type: text
 #. Description
-#: ../templates:53
+#: ../templates:67
 msgid "Determining GRUB boot device..."
 msgstr "Визначення завантажувального пристрою для GRUB..."
 
 #. Type: text
 #. Description
-#: ../templates:57
+#: ../templates:71
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Запуск „grub-install ${BOOTDEV}“..."
 
 #. Type: text
 #. Description
-#: ../templates:61
+#: ../templates:75
 msgid "Running \"update-grub\"..."
 msgstr "Запуск „update-grub“..."
 
 #. Type: text
 #. Description
-#: ../templates:65
+#: ../templates:79
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Оновлення /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:70
+#: ../templates:84
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Встановити завантажувач GRUB на жорсткий диск"
+
+#~ msgid ""
+#~ "Note that GRUB counts devices differently than the Linux kernel, so the "
+#~ "first drive is usually '(hd0)'. If you want it on the second partition of "
+#~ "the first drive, use '(hd0,1)'. Leave this at default if unsure."
+#~ msgstr ""
+#~ "Зауважте що GRUB нумерує пристрої іншим чином, ніж ядро Linux. Таким "
+#~ "чином перший жорсткий диск звичайно називається „(hd0)“. Якщо ви хочете "
+#~ "встановити його на другий розділ першого жорсткого диску, то "
+#~ "використовуйте „(hd0,1)“. Якщо невпевнені, то залиште все як є."
+
+#~ msgid ""
+#~ "Warning: by default, this will change how your computer boots, "
+#~ "overwriting your existing master boot record with GRUB. Continuing may "
+#~ "make other operating systems installed on this computer unbootable."
+#~ msgstr ""
+#~ "Попередження: за замовчанням буде замінено існуючий головний "
+#~ "завантажувальний запис на завантажувальний запис GRUB, що призведе до "
+#~ "змін в процесі завантаження системи. Продовження може призвести до того, "
+#~ "що інші операційні системи, що встановлені на комп'ютері, буде неможливо "
+#~ "завантажити."
 
 #~ msgid ""
 #~ "GRUB needs to install the stage 1 boot loader on a bootable device. This "
@@ -180,4 +213,3 @@ msgstr "Встановити завантажувач GRUB на жорсткий
 #~ "завантажувальному пристрої. Звичайно це перший жорсткий диск. Зверніть "
 #~ "увагу на те, що GRUB нумерує пристрої інакше, ніж ядро Linux, так що "
 #~ "перший з них звичайно '(hd0)'. Залиште за замовчанням, якщо не впевнені."
-
