@@ -7,7 +7,7 @@
 
 PACKAGE=base-installer
 VERSION=$(shell dpkg-parsechangelog | grep ^Version: | cut -d ' ' -f 2)
-ARCH=$(shell dpkg --print-architecture)
+ARCH=all
 FILENAME=$(PACKAGE)_$(VERSION)_$(ARCH).udeb
 PRIORITY=$(shell grep ^Priority: debian/control | cut -d ' ' -f 2)
 

@@ -6,6 +6,7 @@ PROTOCOL=
 MIRROR=
 DIRECTORY=
 PROFILE=
+COMPONENTS="main,local"
 
 if [ "$1" = "configure" ]; then
     . /usr/share/debconf/confmodule
@@ -18,6 +19,11 @@ if [ "$1" = "configure" ]; then
         PROTOCOL=file
         MIRROR=""
         DIRECTORY="cdrom/"
+        if [ -f /cdrom/.disk/components ] && [ -s /cdrom/.disk/components ]
+            COMPONENTS=`cat /cdrom/.disk/components`
+        else
+            COMPONENTS="*"
+        fi
 
     else
 
@@ -32,7 +38,7 @@ if [ "$1" = "configure" ]; then
 
     fi
 
-    INCLUDE="--include=$KERNEL_IMAGE,grub,base-config-skolelinux,libssl0.9.6,locales,discover"
+    INCLUDE="--include=$KERNEL_IMAGE,grub,base-config-skolelinux,libssl0.9.6,locales,discover,libdiscover1,discover-data"
     EXCLUDE="--exclude=lilo"
 
     db_get netcfg/get_hostname
@@ -52,17 +58,15 @@ if [ "$1" = "configure" ]; then
 
     cat > /target/etc/kernel-img.conf <<EOF
 # Do not create symbolic links in /
-Do_Symlinks = yes
+do_symlinks = yes
 
-postinst_hook = /sbin/update-grub
-postrm_hook = /sbin/update-grub
+# postinst_hook =
+# postrm_hook = 
 do_bootloader = no
 do_bootfloppy = no
-do_symlinks = yes
+do_initrd = yes
 EOF
 
-#debootstrap --boot-floppies ${INCLUDE} ${EXCLUDE} woody /target ${PROTOCOL}://${MIRROR}/${DIRECTORY} 3>>/tmp/debootstrap.3.log 4>> /tmp/debootstrap.log 
-#    smallyes | ( debootstrap ${INCLUDE} ${EXCLUDE} woody /target ${PROTOCOL}://${MIRROR}/${DIRECTORY} >/tmp/debootstrap.log 2>/tmp/debootstrap.err.log )
-debootstrap --boot-floppies ${INCLUDE} ${EXCLUDE} woody /target ${PROTOCOL}://${MIRROR}/${DIRECTORY} /usr/lib/debootstrap/scripts/skolelinux-${PROFILE}  3>&1 >/tmp/debootstrap.log 2>/tmp/debootstrap.err.log </dev/null
+debootstrap --components='*' --boot-floppies ${INCLUDE} ${EXCLUDE} woody /target ${PROTOCOL}://${MIRROR}/${DIRECTORY}   3>&1 >/tmp/debootstrap.log 2>/tmp/debootstrap.err.log </dev/null
 fi
 exit 0
