@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-05-16 08:27+0200\n"
-"PO-Revision-Date: 2004-04-18 16:04+0700\n"
+"PO-Revision-Date: 2004-05-19 22:47+0700\n"
 "Last-Translator: Parlin Imanuel Toh <parlin@ui.edu>\n"
 "Language-Team: Debian L10N Indonesia <debian-l10n-id@gurame.fisika.ui.ac."
 "id>\n"
@@ -45,14 +45,13 @@ msgstr "Memasang boot loader GRUB pada master boot record?"
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
 "the master boot record of your first hard drive."
 msgstr ""
 "Tampaknya instalasi Debian ini merupakan satu-satunya sistem operasi pada "
-"komputer ini. Jika demikian, cukup aman memasang boot loader pada master "
+"komputer ini. Jika demikian, cukup aman memasang boot loader GRUB pada master "
 "boot record dari hard disk pertama."
 
 #. Type: boolean
@@ -63,7 +62,10 @@ msgid ""
 "present on your computer, modifying the master boot record will make that "
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
-msgstr ""
+msgstr "Perhatian: Jika penginstal gagal mendeteksi Sistem Operasi lain yang "
+"ada pada komputer anda, mengubah master boot record akan membuat Sistem "
+"Operasi tersebut untuk sementara tidak dapat diboot, walaupun nantinya "
+"GRUB dapat dikonfigurasi secara manual untuk dapat memboot Sistem Operasi itu."
 
 #. Type: string
 #. Description
@@ -96,6 +98,10 @@ msgid ""
 "of your first hard drive, while \"/dev/hda2\" will install it to the second "
 "parrtition of your first IDE drive."
 msgstr ""
+"Piranti dapat dituliskan menggunakan notasi GRUB \"(hdn)\", atau sebagai "
+"nama piranti pada /dev. Sebagai contoh, dengan \"(hd0\" GRUB akan dipasang "
+"pada hard disk pertama, sementara dengan  \"/dev/hda2\" GRUB akan dipasang "
+"pada partisi kedua dari hard disk IDE pertama."
 
 #. Type: boolean
 #. Description
@@ -194,9 +200,3 @@ msgstr "Sedang memutakhirkan /etc/kernel-img.conf..."
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Memasang boot loader GRUB pada hard disk"
 
-#~ msgid ""
-#~ "The device can be specified using GRUB's \"(hdn)\" notation, or as a "
-#~ "device in /dev."
-#~ msgstr ""
-#~ "Piranti dapat dituliskan menggunakan notasi GRUB \"(hdn)\" atau sebagai "
-#~ "nama piranti pada /dev."
