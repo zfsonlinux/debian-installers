@@ -178,6 +178,9 @@ configure_apt () {
 	if [ "$PROTOCOL" = file ] ; then
 		if [ -n "$DIRECTORY" ]; then
 			umount /target$DIRECTORY 2>/dev/null || true
+			if [ ! -e /target/$DIRECTORY ]; then
+				mkdir -p /target/$DIRECTORY
+			fi
 		fi
 		if [ "`uname -r | grep '^2.2.'`" != "" ]; then
 			CDDEV=`grep -i /cdrom /proc/mounts | cut -d' ' -f 1 | grep loop`
