@@ -208,16 +208,16 @@ get_arch_kernel () {
 		case "$MODEL" in
 		sparc)
 			if [ "$CPUS" -eq 1 ]; then
-				trykernel=kernel-image-$version-sun4cdm
+				trykernel=kernel-image-$version-sparc32
 			else
-				trykernel=kernel-image-$version-sun4dm-smp
+				trykernel=kernel-image-$version-sparc32-smp
 			fi
 		;;
 		sparc64)
 			if [ "$CPUS" -eq 1 ]; then
-				trykernel=kernel-image-$version-sun4u
+				trykernel=kernel-image-$version-sparc64
 			else
-				trykernel=kernel-image-$version-sun4u-smp
+				trykernel=kernel-image-$version-sparc64-smp
 			fi
 		;;
 		esac
