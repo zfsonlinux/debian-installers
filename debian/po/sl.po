@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-10 14:34-0400\n"
+"POT-Creation-Date: 2004-04-10 14:57-0400\n"
 "PO-Revision-Date: 2004-04-10 14:27+0100\n"
 "Last-Translator: Jure Čuhalev <gandalf@owca.info>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -87,18 +87,30 @@ msgstr ""
 #: ../templates:24
 msgid ""
 "The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
-"in /dev/"
+"in /dev."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../templates:36
+msgid "Bad boot device"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../templates:36
+msgid "The value you entered is not a valid device."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:37
+#: ../templates:42
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "GRUB namestitev ni uspela. Naj vseeno nadaljujem?"
 
 #. Type: boolean
 #. Description
-#: ../templates:37
+#: ../templates:42
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -111,43 +123,43 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:44
+#: ../templates:49
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Grub ne morem namestiti v ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:44
+#: ../templates:49
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Izvajanje 'grub-install·${BOOTDEV}' ni uspelo."
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:56
 msgid "Unable to configure GRUB"
 msgstr "Ne morem nastaviti GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:56
 msgid "Executing 'update-grub' failed."
 msgstr "Izvajanje 'update-grub' nu uspelo.·"
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:56
 msgid "This is a fatal error."
 msgstr "To je usodna napaka."
 
 #. Type: text
 #. Description
-#: ../templates:58
+#: ../templates:63
 msgid "Installing GRUB boot loader"
 msgstr "Nameščam zagonski nalagalnik GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:62
+#: ../templates:67
 msgid "Looking for other operating systems..."
 msgstr "Iščem ostale operacijske sisteme..."
 
@@ -155,7 +167,7 @@ msgstr "Iščem ostale operacijske sisteme..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:66
+#: ../templates:71
 msgid "Installing the 'grub' package..."
 msgstr "Nameščam paket 'grub'..."
 
@@ -163,7 +175,7 @@ msgstr "Nameščam paket 'grub'..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:70
+#: ../templates:75
 msgid "Determining GRUB boot device..."
 msgstr "Iščem zagonsko napravo GRUB..."
 
@@ -171,7 +183,7 @@ msgstr "Iščem zagonsko napravo GRUB..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:74
+#: ../templates:79
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Poganjam \"grub-install·${BOOTDEV}\"..."
 
@@ -179,7 +191,7 @@ msgstr "Poganjam \"grub-install·${BOOTDEV}\"..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:78
+#: ../templates:83
 msgid "Running \"update-grub\"..."
 msgstr "Poganjam \"update-grub\"..."
 
@@ -187,13 +199,13 @@ msgstr "Poganjam \"update-grub\"..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:82
+#: ../templates:87
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Posodabljam /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:87
+#: ../templates:92
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Namesti sistemski zaganjalnik GRUB na trdi disk"

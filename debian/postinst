@@ -263,7 +263,11 @@ while : ; do
 			db_get grub-installer/bootdev
 			bootdev=$RET
 			if echo "$bootdev" | grep -qv '('; then
-				bootdev=$(convert $(mapdevfs "$bootdev")) || true
+				mappedbootdev=$(mapdevfs "$bootdev") || true
+				if [ -n "$mappedbootdev" ]; then
+					bootdev="$mappedbootdev"
+				fi
+				bootdev=$(convert "$bootdev") || true
 			fi
 			if echo "$bootdev" | grep -qv '('; then
 				db_input critical grub-installer/bad_bootdev

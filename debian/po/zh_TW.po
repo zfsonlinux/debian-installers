@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer/tools/grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-03 22:56-0500\n"
+"POT-Creation-Date: 2004-04-10 14:57-0400\n"
 "PO-Revision-Date: 2004-04-07 16:08+0800\n"
 "Last-Translator: Tetralet <tetralet@pchome.com.tw>\n"
 "Language-Team: Chinese/Traditional <tetralet@pchome.com.tw>\n"
@@ -24,56 +24,89 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. Type: string
+#. Type: boolean
 #. Description
 #: ../templates:4
+msgid ""
+"The following other operating systems have been detected on this computer: "
+"${OS_LIST}"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../templates:4
+msgid ""
+"If all of your operating systems are listed above, then it should be safe to "
+"install the boot loader to the master boot record of your first hard drive. "
+"When your computer boots, you will be able to choose to load one of these "
+"operating systems or your new Debian system."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../templates:16
+#, fuzzy
+msgid "Install the GRUB boot loader to the master boot record?"
+msgstr "將 GRUB 開機程式安裝至硬碟上"
+
+#. Type: boolean
+#. Description
+#: ../templates:16
+msgid ""
+"It seems that Debian will be the only operating system on this computer. If "
+"so, it should be safe to install the boot loader to the master boot record "
+"of your first hard drive."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:24
 msgid "Device for boot loader installation:"
 msgstr "用來安裝開機程式的裝置："
 
 #. Type: string
 #. Description
-#: ../templates:4
+#: ../templates:24
+#, fuzzy
 msgid ""
-"Now it is time to make the newly installed Debian system bootable, by "
-"installing the GRUB bootloader on a bootable device. The usual way to do "
-"this is to install GRUB on the master boot record of your first hard drive."
+"You need to make the newly installed Debian system bootable, by installing "
+"the GRUB bootloader on a bootable device. The usual way to do this is to "
+"install GRUB on the master boot record of your first hard drive. If you "
+"prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
+"even to a floppy."
 msgstr ""
 "現在要把 GRUB 開機程式安裝至可開機裝置上，讓這個新安裝的 Debian 系統能夠開"
 "機。一般的作法是將 GRUB 安裝至您第一顆硬碟的主要開機磁區 (MBR) 上。"
 
 #. Type: string
 #. Description
-#: ../templates:4
+#: ../templates:24
 msgid ""
-"Note that GRUB counts devices differently than the Linux kernel, so the "
-"first drive is usually '(hd0)'. If you want it on the second partition of "
-"the first drive, use '(hd0,1)'. Leave this at default if unsure."
+"The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
+"in /dev."
 msgstr ""
-"注意，GRUB 對裝置的命名方式和 Linux Kernel 有所不同，第一顆硬碟通常為 (hd0)。"
-"如果您想安裝在第一顆硬碟上的第二個分割區上，請使用 (hd0,1)。如果並不確定時則"
-"使用預設選項。"
 
-#. Type: string
+#. Type: error
 #. Description
-#: ../templates:4
-msgid ""
-"Warning: by default, this will change how your computer boots, overwriting "
-"your existing master boot record with GRUB. Continuing may make other "
-"operating systems installed on this computer unbootable."
+#: ../templates:36
+msgid "Bad boot device"
 msgstr ""
-"警告：在預設情況下，這將會以 GRUB 覆蓋原有的主要開機磁區 (MBR)，並改變您的電"
-"腦的開機方式。如果繼續的話，有可能會使得這台電腦上的其它已安裝的作業系統無法"
-"開機。"
+
+#. Type: error
+#. Description
+#: ../templates:36
+msgid "The value you entered is not a valid device."
+msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:20
+#: ../templates:42
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "GRUB 的安裝作業失敗了。無論如何仍然繼續嗎？"
 
 #. Type: boolean
 #. Description
-#: ../templates:20
+#: ../templates:42
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -84,82 +117,100 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:49
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "無法將 GRUB 安裝至 ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:49
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "在執行 grub-install ${BOOTDEV} 時失敗了。"
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: ../templates:56
 msgid "Unable to configure GRUB"
 msgstr "無法設定 GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: ../templates:56
 msgid "Executing 'update-grub' failed."
 msgstr "在執行 update-grub 時失敗了。"
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: ../templates:56
 msgid "This is a fatal error."
 msgstr "這是一個嚴重錯誤。"
 
 #. Type: text
 #. Description
-#: ../templates:41
+#: ../templates:63
 msgid "Installing GRUB boot loader"
 msgstr "正在安裝 GRUB 開機程式"
 
 #. Type: text
 #. Description
-#: ../templates:45
+#: ../templates:67
 msgid "Looking for other operating systems..."
 msgstr "正在尋找其它的作業系統..."
 
 #. Type: text
 #. Description
-#: ../templates:49
+#: ../templates:71
 msgid "Installing the 'grub' package..."
 msgstr "正在安裝 grub 套件..."
 
 #. Type: text
 #. Description
-#: ../templates:53
+#: ../templates:75
 msgid "Determining GRUB boot device..."
 msgstr "正在決定 GRUB 開機裝置..."
 
 #. Type: text
 #. Description
-#: ../templates:57
+#: ../templates:79
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "正在執行 \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../templates:61
+#: ../templates:83
 msgid "Running \"update-grub\"..."
 msgstr "正在執行 \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:65
+#: ../templates:87
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "正在更新 /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:70
+#: ../templates:92
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "將 GRUB 開機程式安裝至硬碟上"
+
+#~ msgid ""
+#~ "Note that GRUB counts devices differently than the Linux kernel, so the "
+#~ "first drive is usually '(hd0)'. If you want it on the second partition of "
+#~ "the first drive, use '(hd0,1)'. Leave this at default if unsure."
+#~ msgstr ""
+#~ "注意，GRUB 對裝置的命名方式和 Linux Kernel 有所不同，第一顆硬碟通常為 "
+#~ "(hd0)。如果您想安裝在第一顆硬碟上的第二個分割區上，請使用 (hd0,1)。如果並"
+#~ "不確定時則使用預設選項。"
+
+#~ msgid ""
+#~ "Warning: by default, this will change how your computer boots, "
+#~ "overwriting your existing master boot record with GRUB. Continuing may "
+#~ "make other operating systems installed on this computer unbootable."
+#~ msgstr ""
+#~ "警告：在預設情況下，這將會以 GRUB 覆蓋原有的主要開機磁區 (MBR)，並改變您的"
+#~ "電腦的開機方式。如果繼續的話，有可能會使得這台電腦上的其它已安裝的作業系統"
+#~ "無法開機。"
 
 #~ msgid ""
 #~ "GRUB needs to install the stage 1 boot loader on a bootable device. This "
