@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer 0.36\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-10 18:11-0400\n"
+"POT-Creation-Date: 2004-05-15 23:55-0300\n"
 "PO-Revision-Date: 2004-03-14 17:04+0100\n"
 "Last-Translator: Stefano Melchior <stefano.melchior@openlabs.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
@@ -40,19 +40,29 @@ msgstr "Installa il boot loader GRUB su un disco rigido"
 #: ../templates:16
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
-"this computer. If so, it should be safe to install the boot loader to the "
-"master boot record of your first hard drive."
+"this computer. If so, it should be safe to install the GRUB boot loader to "
+"the master boot record of your first hard drive."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../templates:16
+msgid ""
+"Warning: If the installer failed to detect another operating system that is "
+"present on your computer, modifying the master boot record will make that "
+"operating system temporarily unbootable, though GRUB can be manually "
+"configured later to boot it."
 msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:24
+#: ../templates:28
 msgid "Device for boot loader installation:"
 msgstr "Device per l'installazione del boot loader:"
 
 #. Type: string
 #. Description
-#: ../templates:24
+#: ../templates:28
 #, fuzzy
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
@@ -67,21 +77,23 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:24
+#: ../templates:28
 msgid ""
 "The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
-"in /dev."
+"in /dev. For example, \"(hd0)\" will install GRUB to the master boot record "
+"of your first hard drive, while/dev/hda2 will install it to the second "
+"parrtition of your first IDE drive."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:37
+#: ../templates:43
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Installazione di GRUB fallita. Continuare comunque?"
 
 #. Type: boolean
 #. Description
-#: ../templates:37
+#: ../templates:43
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -94,80 +106,80 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:44
+#: ../templates:50
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Impossibile installare GRUB su ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:44
+#: ../templates:50
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Esecuzione di 'grub-install ${BOOTDEV}' fallita."
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "Unable to configure GRUB"
 msgstr "Impossibile configurare GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "Executing 'update-grub' failed."
 msgstr "Esecuzione di 'update-grub' fallita."
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "This is a fatal error."
 msgstr "Questo è un errore fatale."
 
 #. Type: text
 #. Description
-#: ../templates:58
+#: ../templates:64
 msgid "Installing GRUB boot loader"
 msgstr "Installazione in corso del caricatore di avvio GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:62
+#: ../templates:68
 msgid "Looking for other operating systems..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../templates:66
+#: ../templates:72
 msgid "Installing the 'grub' package..."
 msgstr "Installazione del pacchetto 'grub' in corso."
 
 #. Type: text
 #. Description
-#: ../templates:70
+#: ../templates:76
 msgid "Determining GRUB boot device..."
 msgstr "Determinazione del dispositivo di avvio di GRUB in corso."
 
 #. Type: text
 #. Description
-#: ../templates:74
+#: ../templates:80
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Esecuzione di \"grub-install ${BOOTDEV}\" in corso."
 
 #. Type: text
 #. Description
-#: ../templates:78
+#: ../templates:84
 msgid "Running \"update-grub\"..."
 msgstr "Esecuzione di \"update-grub\" in corso."
 
 #. Type: text
 #. Description
-#: ../templates:82
+#: ../templates:88
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Aggiornamento di /etc/kernel-img.conf in corso."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:87
+#: ../templates:93
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installa il boot loader GRUB su un disco rigido"
 

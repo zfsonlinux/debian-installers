@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-10 18:11-0400\n"
+"POT-Creation-Date: 2004-05-15 23:55-0300\n"
 "PO-Revision-Date: 2004-04-20 18:39+0300\n"
 "Last-Translator: Eddy Petrisor <eddy_petrisor@yahoo.com>\n"
 "Language-Team: Romanian <Romanian>\n"
@@ -59,24 +59,36 @@ msgstr "Instalează încărcătorul de sistem GRUB în înregistrarea master boo
 #. Type: boolean
 #. Description
 #: ../templates:16
+#, fuzzy
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
-"this computer. If so, it should be safe to install the boot loader to the "
-"master boot record of your first hard drive."
+"this computer. If so, it should be safe to install the GRUB boot loader to "
+"the master boot record of your first hard drive."
 msgstr ""
 "Se pare că acestă instalare Debian este singurul sistem de operare pe acest "
-"calculator. Dacă este cazul, ar trebui să fie sigur să instalaţi încărcătorul "
-"de sistem în înregistrarea master boot a primului dvs. hard disc."
+"calculator. Dacă este cazul, ar trebui să fie sigur să instalaţi "
+"încărcătorul de sistem în înregistrarea master boot a primului dvs. hard "
+"disc."
+
+#. Type: boolean
+#. Description
+#: ../templates:16
+msgid ""
+"Warning: If the installer failed to detect another operating system that is "
+"present on your computer, modifying the master boot record will make that "
+"operating system temporarily unbootable, though GRUB can be manually "
+"configured later to boot it."
+msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:24
+#: ../templates:28
 msgid "Device for boot loader installation:"
 msgstr "Dispozitivul folosit pentru instalarea încărcătorului de sistem:"
 
 #. Type: string
 #. Description
-#: ../templates:24
+#: ../templates:28
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -92,23 +104,23 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:24
+#: ../templates:28
 msgid ""
 "The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
-"in /dev."
+"in /dev. For example, \"(hd0)\" will install GRUB to the master boot record "
+"of your first hard drive, while/dev/hda2 will install it to the second "
+"parrtition of your first IDE drive."
 msgstr ""
-"Dispozitivul poate fi specificat folosind notaţia GRUB \"(hdn)\", sau ca un "
-"dispozitiv în /dev."
 
 #. Type: boolean
 #. Description
-#: ../templates:37
+#: ../templates:43
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Instalarea GRUB a eşuat. Se mai continuă?"
 
 #. Type: boolean
 #. Description
-#: ../templates:37
+#: ../templates:43
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -121,82 +133,89 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:44
+#: ../templates:50
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Nu s-a putut instala GRUB în ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:44
+#: ../templates:50
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Execuţia 'grub-install ${BOOTDEV}' a eşuat."
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "Unable to configure GRUB"
 msgstr "Nu s-a putut configura GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "Executing 'update-grub' failed."
 msgstr "Execuţia 'update-grub' a eşuat."
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "This is a fatal error."
 msgstr "Aceasta este o eroare fatală."
 
 #. Type: text
 #. Description
-#: ../templates:58
+#: ../templates:64
 msgid "Installing GRUB boot loader"
 msgstr "Se instalează încărcătorul de sistem GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:62
+#: ../templates:68
 msgid "Looking for other operating systems..."
 msgstr "Se caută alte sisteme de operare..."
 
 #. Type: text
 #. Description
-#: ../templates:66
+#: ../templates:72
 msgid "Installing the 'grub' package..."
 msgstr "Se instalează pachetul 'grub'..."
 
 #. Type: text
 #. Description
-#: ../templates:70
+#: ../templates:76
 msgid "Determining GRUB boot device..."
 msgstr "Se determină dipozitivul GRUB de pornire (boot) ..."
 
 #. Type: text
 #. Description
-#: ../templates:74
+#: ../templates:80
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Se rulează \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../templates:78
+#: ../templates:84
 msgid "Running \"update-grub\"..."
 msgstr "Se rulează \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:82
+#: ../templates:88
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Se actualizează /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:87
+#: ../templates:93
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Instalează încărcătorul de sistem GRUB pe un hard disc"
+
+#~ msgid ""
+#~ "The device can be specified using GRUB's \"(hdn)\" notation, or as a "
+#~ "device in /dev."
+#~ msgstr ""
+#~ "Dispozitivul poate fi specificat folosind notaţia GRUB \"(hdn)\", sau ca "
+#~ "un dispozitiv în /dev."
 
 #~ msgid ""
 #~ "Note that GRUB counts devices differently than the Linux kernel, so the "
@@ -217,4 +236,3 @@ msgstr "Instalează încărcătorul de sistem GRUB pe un hard disc"
 #~ "dvs. porneşte, suprascriind înregistarea din zona master boot cu LILO. "
 #~ "Continuarea ar putea face ca alte sisteme de operare instalate pe acest "
 #~ "calculator să nu mai pornească."
-

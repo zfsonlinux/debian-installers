@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-10 18:11-0400\n"
+"POT-Creation-Date: 2004-05-15 23:55-0300\n"
 "PO-Revision-Date: 2004-04-13 19:28EEST\n"
 "Last-Translator: Konstantinos Margaritis <markos@debian.org>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
@@ -51,8 +51,8 @@ msgid ""
 msgstr ""
 "Αν εμφανίζονται όλα τα λειτουργικά συστήματα που έχετε εγκατεστημένα, τότε "
 "είναι ασφαλές να εγκαταστήσετε το φορτωτή εκκίνησης στον πρώτο σκληρό σας "
-"δίσκο.  Κατά την εκκίνηση του υπολογιστή σας, θα μπορείτε να επιλέξετε ένα από "
-"αυτά τα λειτουργικά συστήματα, ή το νέο σας σύστημα Debian."
+"δίσκο.  Κατά την εκκίνηση του υπολογιστή σας, θα μπορείτε να επιλέξετε ένα "
+"από αυτά τα λειτουργικά συστήματα, ή το νέο σας σύστημα Debian."
 
 #. Type: boolean
 #. Description
@@ -63,24 +63,36 @@ msgstr "Να εγκατασταθεί ο φορτωτής εκκίνησης GRU
 #. Type: boolean
 #. Description
 #: ../templates:16
+#, fuzzy
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
-"this computer. If so, it should be safe to install the boot loader to the "
-"master boot record of your first hard drive."
+"this computer. If so, it should be safe to install the GRUB boot loader to "
+"the master boot record of your first hard drive."
 msgstr ""
-"Από ό,τι φαίνεται, αυτή η εγκατάσταση του Debian είναι το μόνο λειτουργικό σύστημα "
-"στον υπολογιστή αυτό. Αν είναι όντως έτσι, είναι ασφαλής η εγκατάσταση του "
-"φορτωτή εκκίνησης στο master boot record του πρώτου δίσκου σας."
+"Από ό,τι φαίνεται, αυτή η εγκατάσταση του Debian είναι το μόνο λειτουργικό "
+"σύστημα στον υπολογιστή αυτό. Αν είναι όντως έτσι, είναι ασφαλής η "
+"εγκατάσταση του φορτωτή εκκίνησης στο master boot record του πρώτου δίσκου "
+"σας."
+
+#. Type: boolean
+#. Description
+#: ../templates:16
+msgid ""
+"Warning: If the installer failed to detect another operating system that is "
+"present on your computer, modifying the master boot record will make that "
+"operating system temporarily unbootable, though GRUB can be manually "
+"configured later to boot it."
+msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:24
+#: ../templates:28
 msgid "Device for boot loader installation:"
 msgstr "Μονάδα για εγκατάσταση του προγράμματος εκκίνησης:"
 
 #. Type: string
 #. Description
-#: ../templates:24
+#: ../templates:28
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -88,31 +100,31 @@ msgid ""
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
 msgstr ""
-"Θα πρέπει να κάνετε το σύστημα εκκινήσιμο, εγκαθιστώντας το φορτωτή εκκίνησης "
-"GRUB σε μια εκκινήσιμη συσκευή. Ο συνήθης τρόπος είναι να εγκαταστήσετε το "
-"GRUB στο master boot record του πρώτου σκληρού δίσκου. Αν επιθυμείτε, μπορείτε "
-"να εγκαταστήσετε το GRUB σε κάποιο άλλο σημείο του δίσκου, ή σε κάποιο άλλο "
-"δίσκο ή ακόμη και σε μια δισκέτα."
+"Θα πρέπει να κάνετε το σύστημα εκκινήσιμο, εγκαθιστώντας το φορτωτή "
+"εκκίνησης GRUB σε μια εκκινήσιμη συσκευή. Ο συνήθης τρόπος είναι να "
+"εγκαταστήσετε το GRUB στο master boot record του πρώτου σκληρού δίσκου. Αν "
+"επιθυμείτε, μπορείτε να εγκαταστήσετε το GRUB σε κάποιο άλλο σημείο του "
+"δίσκου, ή σε κάποιο άλλο δίσκο ή ακόμη και σε μια δισκέτα."
 
 #. Type: string
 #. Description
-#: ../templates:24
+#: ../templates:28
 msgid ""
 "The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
-"in /dev."
+"in /dev. For example, \"(hd0)\" will install GRUB to the master boot record "
+"of your first hard drive, while/dev/hda2 will install it to the second "
+"parrtition of your first IDE drive."
 msgstr ""
-"Η μονάδα μπορεί να καθοριστεί με τη σύνταξη του GRUB \"(hdn)\", ή ως μια μονάδα "
-"στον κατάλογο /dev."
 
 #. Type: boolean
 #. Description
-#: ../templates:37
+#: ../templates:43
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Αδύνατη η εγκατάσταση του GRUB. Θέλετε να συνεχίσετε ούτως ή άλλως;"
 
 #. Type: boolean
 #. Description
-#: ../templates:37
+#: ../templates:43
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -124,80 +136,86 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:44
+#: ../templates:50
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Αδύνατη η εγκατάσταση του grub στη μονάδα ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:44
+#: ../templates:50
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Η εκτέλεση του 'grub-install ${BOOTDEV}' απέτυχε."
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "Unable to configure GRUB"
 msgstr "Αδύνατη η ρύθμιση του grub"
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "Executing 'update-grub' failed."
 msgstr "Η εκτέλεση του 'update-grub' απέτυχε."
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "This is a fatal error."
 msgstr "Αυτό είναι ένα μοιραίο σφάλμα."
 
 #. Type: text
 #. Description
-#: ../templates:58
+#: ../templates:64
 msgid "Installing GRUB boot loader"
 msgstr "Εγκατάσταση του προγράμματος εκκίνησης GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:62
+#: ../templates:68
 msgid "Looking for other operating systems..."
 msgstr "Ανίχνευση άλλων λειτουργικών συστημάτων..."
 
 #. Type: text
 #. Description
-#: ../templates:66
+#: ../templates:72
 msgid "Installing the 'grub' package..."
 msgstr "Εγκατάσταση του πακέτου 'grub'..."
 
 #. Type: text
 #. Description
-#: ../templates:70
+#: ../templates:76
 msgid "Determining GRUB boot device..."
 msgstr "Εξακριβώνεται η συσκευή εκκίνησης για το GRUB..."
 
 #. Type: text
 #. Description
-#: ../templates:74
+#: ../templates:80
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Εκτελείται το \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../templates:78
+#: ../templates:84
 msgid "Running \"update-grub\"..."
 msgstr "Εκτελείται το \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:82
+#: ../templates:88
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Ενημέρωση του /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:87
+#: ../templates:93
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Εγκατάσταση του προγράμματος εκκίνησης GRUB"
 
+#~ msgid ""
+#~ "The device can be specified using GRUB's \"(hdn)\" notation, or as a "
+#~ "device in /dev."
+#~ msgstr ""
+#~ "Η μονάδα μπορεί να καθοριστεί με τη σύνταξη του GRUB \"(hdn)\", ή ως μια "
+#~ "μονάδα στον κατάλογο /dev."

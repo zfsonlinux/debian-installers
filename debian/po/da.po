@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: da\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-10 18:11-0400\n"
+"POT-Creation-Date: 2004-05-15 23:55-0300\n"
 "PO-Revision-Date: 2004-04-11 11:38+0200\n"
 "Last-Translator: Claus Hindsgaul <claus_h@image.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -50,24 +50,35 @@ msgstr "Installér opstartsindlæseren GRUB på opstartssporet?"
 #. Type: boolean
 #. Description
 #: ../templates:16
+#, fuzzy
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
-"this computer. If so, it should be safe to install the boot loader to the "
-"master boot record of your first hard drive."
+"this computer. If so, it should be safe to install the GRUB boot loader to "
+"the master boot record of your first hard drive."
 msgstr ""
 "Det lader til at Debian bliver det eneste styresystem på denne computer. "
 "Hvis det er tilfældet, skulle det være sikkert at installere "
 "opstartsindlæseren i din første harddisks opstartsspor."
 
+#. Type: boolean
+#. Description
+#: ../templates:16
+msgid ""
+"Warning: If the installer failed to detect another operating system that is "
+"present on your computer, modifying the master boot record will make that "
+"operating system temporarily unbootable, though GRUB can be manually "
+"configured later to boot it."
+msgstr ""
+
 #. Type: string
 #. Description
-#: ../templates:24
+#: ../templates:28
 msgid "Device for boot loader installation:"
 msgstr "Enhed hvorpå opstartsindlæseren skal installeres:"
 
 #. Type: string
 #. Description
-#: ../templates:24
+#: ../templates:28
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -84,23 +95,23 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:24
+#: ../templates:28
 msgid ""
 "The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
-"in /dev."
+"in /dev. For example, \"(hd0)\" will install GRUB to the master boot record "
+"of your first hard drive, while/dev/hda2 will install it to the second "
+"parrtition of your first IDE drive."
 msgstr ""
-"Enheden kan angives med GRUBs \"(hdn)\"-notation eller som en enhed i "
-"/dev."
 
 #. Type: boolean
 #. Description
-#: ../templates:37
+#: ../templates:43
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Kunne ikke installere GRUB. Fortsæt alligevel?"
 
 #. Type: boolean
 #. Description
-#: ../templates:37
+#: ../templates:43
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -112,82 +123,89 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:44
+#: ../templates:50
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Kunne ikke installere GRUB i ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:44
+#: ../templates:50
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Kørsel af 'grub-install ${BOOTDEV}' mislykkedes."
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "Unable to configure GRUB"
 msgstr "Kunne ikke sætte GRUB op"
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "Executing 'update-grub' failed."
 msgstr "Kørsel af 'update-grub' mislykkedes."
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "This is a fatal error."
 msgstr "Dette er en fatal fejl."
 
 #. Type: text
 #. Description
-#: ../templates:58
+#: ../templates:64
 msgid "Installing GRUB boot loader"
 msgstr "Installerer GRUB-opstartsindlæseren"
 
 #. Type: text
 #. Description
-#: ../templates:62
+#: ../templates:68
 msgid "Looking for other operating systems..."
 msgstr "Leder efter andre styresystemer..."
 
 #. Type: text
 #. Description
-#: ../templates:66
+#: ../templates:72
 msgid "Installing the 'grub' package..."
 msgstr "Installerer 'grub'-pakken..."
 
 #. Type: text
 #. Description
-#: ../templates:70
+#: ../templates:76
 msgid "Determining GRUB boot device..."
 msgstr "Udpeger GRUB-opstartsenhed..."
 
 #. Type: text
 #. Description
-#: ../templates:74
+#: ../templates:80
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Kører \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../templates:78
+#: ../templates:84
 msgid "Running \"update-grub\"..."
 msgstr "Kører \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:82
+#: ../templates:88
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Opdaterer /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:87
+#: ../templates:93
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installér opstartsindlæseren GRUB på en harddisk"
+
+#~ msgid ""
+#~ "The device can be specified using GRUB's \"(hdn)\" notation, or as a "
+#~ "device in /dev."
+#~ msgstr ""
+#~ "Enheden kan angives med GRUBs \"(hdn)\"-notation eller som en enhed i /"
+#~ "dev."
 
 #~ msgid ""
 #~ "Note that GRUB counts devices differently than the Linux kernel, so the "
@@ -222,4 +240,3 @@ msgstr "Installér opstartsindlæseren GRUB på en harddisk"
 
 #~ msgid "On which device should GRUB be installed?"
 #~ msgstr "På hvilken enhed skal GRUB installeres?"
-

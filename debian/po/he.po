@@ -14,7 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer\n"
-"POT-Creation-Date: 2004-04-10 18:11-0400\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-05-15 23:55-0300\n"
 "PO-Revision-Date: 2004-04-18 21:16+0200\n"
 "Last-Translator: Lior Kaplan <webmaster@guides.co.il>\n"
 "Language-Team: \n"
@@ -28,8 +29,12 @@ msgstr ""
 #  Description
 #  Type: boolean
 #  Description
+#. Type: boolean
+#. Description
 #: ../templates:4
-msgid "The following other operating systems have been detected on this computer: ${OS_LIST}"
+msgid ""
+"The following other operating systems have been detected on this computer: "
+"${OS_LIST}"
 msgstr "מערכות ההפעלה הבאות זוהו על מחשב זה: ${OS_LIST}"
 
 #  Type: boolean
@@ -37,8 +42,15 @@ msgstr "מערכות ההפעלה הבאות זוהו על מחשב זה: ${OS_L
 #. Type: boolean
 #. Description
 #: ../templates:4
-msgid "If all of your operating systems are listed above, then it should be safe to install the boot loader to the master boot record of your first hard drive. When your computer boots, you will be able to choose to load one of these operating systems or your new Debian system."
-msgstr "אם כל מערכות ההפעלה שלך רשומות מעלה, אז אפשר להתקין בבטחון את מנהל האתחול על ה-master boot record של הדיסק הקשיח הראשון. כאשר המחשב שלך מאתחל את עצמו, תוכל לבחור לטעון את אחת ממערכות ההפעלה הרשומות או את Debian."
+msgid ""
+"If all of your operating systems are listed above, then it should be safe to "
+"install the boot loader to the master boot record of your first hard drive. "
+"When your computer boots, you will be able to choose to load one of these "
+"operating systems or your new Debian system."
+msgstr ""
+"אם כל מערכות ההפעלה שלך רשומות מעלה, אז אפשר להתקין בבטחון את מנהל האתחול על "
+"ה-master boot record של הדיסק הקשיח הראשון. כאשר המחשב שלך מאתחל את עצמו, "
+"תוכל לבחור לטעון את אחת ממערכות ההפעלה הרשומות או את Debian."
 
 #  Type: text
 #  Description
@@ -55,9 +67,27 @@ msgstr "להתקין את מנהל האתחול GRUB על הדיסק הקשיח?
 #  Description
 #  Type: boolean
 #  Description
+#. Type: boolean
+#. Description
 #: ../templates:16
-msgid "It seems that this installation of Debian is the only operating system on this computer. If so, it should be safe to install the boot loader to the master boot record of your first hard drive."
-msgstr "נראה ש-Debian היא מערכת ההפעלה היחידה על המחשב זה. אם כך, אפשר להתקין בבטחון את מנהל האתחול על ה-master boot record של הדיסק הקשיח הראשון."
+#, fuzzy
+msgid ""
+"It seems that this installation of Debian is the only operating system on "
+"this computer. If so, it should be safe to install the GRUB boot loader to "
+"the master boot record of your first hard drive."
+msgstr ""
+"נראה ש-Debian היא מערכת ההפעלה היחידה על המחשב זה. אם כך, אפשר להתקין בבטחון "
+"את מנהל האתחול על ה-master boot record של הדיסק הקשיח הראשון."
+
+#. Type: boolean
+#. Description
+#: ../templates:16
+msgid ""
+"Warning: If the installer failed to detect another operating system that is "
+"present on your computer, modifying the master boot record will make that "
+"operating system temporarily unbootable, though GRUB can be manually "
+"configured later to boot it."
+msgstr ""
 
 #  Type: string
 #  Description
@@ -69,7 +99,9 @@ msgstr "נראה ש-Debian היא מערכת ההפעלה היחידה על המ
 #  Description
 #  Type: string
 #  Description
-#: ../templates:24
+#. Type: string
+#. Description
+#: ../templates:28
 msgid "Device for boot loader installation:"
 msgstr "התקן עבור התקנת מנהל האתחול:"
 
@@ -79,17 +111,27 @@ msgstr "התקן עבור התקנת מנהל האתחול:"
 #  Description
 #. Type: string
 #. Description
-#: ../templates:24
-msgid "You need to make the newly installed Debian system bootable, by installing the GRUB bootloader on a bootable device. The usual way to do this is to install GRUB on the master boot record of your first hard drive. If you prefer, you can install GRUB elsewhere on the drive, or to another drive, or even to a floppy."
-msgstr "זה הזמן להפוך את Debian לניתנת לאתחול, ע\"י התקנת מנהל האתחול GRUB. הדרך הרגילה להתקין את GRUB היא על ה-Master Boot Record של הדיסק הקשיח הראשון. אם תעדיף, אפשר להתקין את GRUB במקום אחר בדיסק, בדיסק אחר או אפילו על דיסקט."
+#: ../templates:28
+msgid ""
+"You need to make the newly installed Debian system bootable, by installing "
+"the GRUB bootloader on a bootable device. The usual way to do this is to "
+"install GRUB on the master boot record of your first hard drive. If you "
+"prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
+"even to a floppy."
+msgstr ""
+"זה הזמן להפוך את Debian לניתנת לאתחול, ע\"י התקנת מנהל האתחול GRUB. הדרך "
+"הרגילה להתקין את GRUB היא על ה-Master Boot Record של הדיסק הקשיח הראשון. אם "
+"תעדיף, אפשר להתקין את GRUB במקום אחר בדיסק, בדיסק אחר או אפילו על דיסקט."
 
-#  Type: string
-#  Description
 #. Type: string
 #. Description
-#: ../templates:24
-msgid "The device can be specified using GRUB's \"(hdn)\" notation, or as a device in /dev."
-msgstr "ההתקן הזה יכול להיות מפורט ע\"י הסימון \"(hdn)\" של GRUB או ע\"י התקן בתוך /dev."
+#: ../templates:28
+msgid ""
+"The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
+"in /dev. For example, \"(hd0)\" will install GRUB to the master boot record "
+"of your first hard drive, while/dev/hda2 will install it to the second "
+"parrtition of your first IDE drive."
+msgstr ""
 
 #  Type: boolean
 #  Description
@@ -97,7 +139,9 @@ msgstr "ההתקן הזה יכול להיות מפורט ע\"י הסימון \"(
 #  Description
 #  Type: boolean
 #  Description
-#: ../templates:37
+#. Type: boolean
+#. Description
+#: ../templates:43
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "התקנת GRUB נכשלה. להמשיך בכל זאת?"
 
@@ -107,9 +151,14 @@ msgstr "התקנת GRUB נכשלה. להמשיך בכל זאת?"
 #  Description
 #. Type: boolean
 #. Description
-#: ../templates:37
-msgid "The grub package failed to install into /target/.  Installing GRUB as a boot loader is a required step.  The install problem might however be unrelated to GRUB, so continuing the installation may be possible."
-msgstr "התקנת החבילה grub נכשלה בהתקנה לתוך /target/. התקנת GRUB כמנהל אתחול היא שלב חיוני. בעיית ההתקנה לא בהכרח קשורה להתקנת GRUB, כך שאולי ניתן להמשיך בהתקנה."
+#: ../templates:43
+msgid ""
+"The grub package failed to install into /target/.  Installing GRUB as a boot "
+"loader is a required step.  The install problem might however be unrelated "
+"to GRUB, so continuing the installation may be possible."
+msgstr ""
+"התקנת החבילה grub נכשלה בהתקנה לתוך /target/. התקנת GRUB כמנהל אתחול היא שלב "
+"חיוני. בעיית ההתקנה לא בהכרח קשורה להתקנת GRUB, כך שאולי ניתן להמשיך בהתקנה."
 
 #  Type: error
 #  Description
@@ -117,7 +166,7 @@ msgstr "התקנת החבילה grub נכשלה בהתקנה לתוך /target/. 
 #  Description
 #. Type: error
 #. Description
-#: ../templates:44
+#: ../templates:50
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "לא ניתן להתקין את GRUB ב-${BOOTDEV}"
 
@@ -127,7 +176,7 @@ msgstr "לא ניתן להתקין את GRUB ב-${BOOTDEV}"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:44
+#: ../templates:50
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "הרצת 'grub-install ${BOOTDEV}' נכשלה"
 
@@ -135,7 +184,7 @@ msgstr "הרצת 'grub-install ${BOOTDEV}' נכשלה"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "Unable to configure GRUB"
 msgstr "לא מצליח להגדיר את GRUB"
 
@@ -143,7 +192,7 @@ msgstr "לא מצליח להגדיר את GRUB"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "Executing 'update-grub' failed."
 msgstr "הרצת 'update-grub' נכשלה."
 
@@ -151,7 +200,7 @@ msgstr "הרצת 'update-grub' נכשלה."
 #  Description
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "This is a fatal error."
 msgstr "זאת שגיאה קטלנית"
 
@@ -159,7 +208,7 @@ msgstr "זאת שגיאה קטלנית"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:58
+#: ../templates:64
 msgid "Installing GRUB boot loader"
 msgstr "מתקין את מנהל האתחול GRUB"
 
@@ -167,7 +216,7 @@ msgstr "מתקין את מנהל האתחול GRUB"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:62
+#: ../templates:68
 msgid "Looking for other operating systems..."
 msgstr "מחפש מערכות הפעלה אחרות..."
 
@@ -175,7 +224,7 @@ msgstr "מחפש מערכות הפעלה אחרות..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:66
+#: ../templates:72
 msgid "Installing the 'grub' package..."
 msgstr "מתקין את החבילה 'grub'..."
 
@@ -183,7 +232,7 @@ msgstr "מתקין את החבילה 'grub'..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:70
+#: ../templates:76
 msgid "Determining GRUB boot device..."
 msgstr "קובע את רכיב האתחול של GRUB..."
 
@@ -191,7 +240,7 @@ msgstr "קובע את רכיב האתחול של GRUB..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:74
+#: ../templates:80
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "מריץ \"grub-install ${BOOTDEV}\"..."
 
@@ -199,7 +248,7 @@ msgstr "מריץ \"grub-install ${BOOTDEV}\"..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:78
+#: ../templates:84
 msgid "Running \"update-grub\"..."
 msgstr "מריץ \"update-grub\"..."
 
@@ -207,7 +256,7 @@ msgstr "מריץ \"update-grub\"..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:82
+#: ../templates:88
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "מעדכן את /etc/kernel-img.conf..."
 
@@ -217,7 +266,15 @@ msgstr "מעדכן את /etc/kernel-img.conf..."
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:87
+#: ../templates:93
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "התקן את מנהל האתחול GRUB על הדיסק הקשיח"
 
+#  Type: string
+#  Description
+#~ msgid ""
+#~ "The device can be specified using GRUB's \"(hdn)\" notation, or as a "
+#~ "device in /dev."
+#~ msgstr ""
+#~ "ההתקן הזה יכול להיות מפורט ע\"י הסימון \"(hdn)\" של GRUB או ע\"י התקן "
+#~ "בתוך /dev."

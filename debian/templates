@@ -15,12 +15,16 @@ Type: boolean
 Default: true
 _Description: Install the GRUB boot loader to the master boot record?
  It seems that this installation of Debian is the only operating system
- on this computer. If so, it should be safe to install the boot loader
+ on this computer. If so, it should be safe to install the GRUB boot loader
  to the master boot record of your first hard drive.
+ .
+ Warning: If the installer failed to detect another operating system that
+ is present on your computer, modifying the master boot record will make
+ that operating system temporarily unbootable, though GRUB can be manually
+ configured later to boot it.
 
 Template: grub-installer/bootdev
 Type: string
-Default: (hd0)
 _Description: Device for boot loader installation:
  You need to make the newly installed Debian system bootable, by installing
  the GRUB bootloader on a bootable device. The usual way to do this is to
@@ -29,7 +33,9 @@ _Description: Device for boot loader installation:
  or even to a floppy.
  .
  The device can be specified using GRUB's "(hdn)" notation, or as a device
- in /dev.
+ in /dev. For example, "(hd0)" will install GRUB to the master boot record
+ of your first hard drive, while/dev/hda2 will install it to the second
+ parrtition of your first IDE drive.
 
 Template: grub-installer/apt-install-failed
 Type: boolean

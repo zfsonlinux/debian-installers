@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-10 18:11-0400\n"
+"POT-Creation-Date: 2004-05-15 23:55-0300\n"
 "PO-Revision-Date: 2004-04-23 12:49+0900\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
@@ -41,7 +41,12 @@ msgid ""
 "install the boot loader to the master boot record of your first hard drive. "
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
-msgstr "もしあなたのオペレーティングシステムのすべてが上のリストにあるようであれば、あなたの 1 番目のハードドライブのマスターブートレコードにブートローダをインストールするのが無難でしょう。コンピュータを起動すると、これらのオペーレティングシステムの 1 つまたはあなたの新しい Debian システムの起動を選ぶことができます。"
+msgstr ""
+"もしあなたのオペレーティングシステムのすべてが上のリストにあるようであれば、"
+"あなたの 1 番目のハードドライブのマスターブートレコードにブートローダをインス"
+"トールするのが無難でしょう。コンピュータを起動すると、これらのオペーレティン"
+"グシステムの 1 つまたはあなたの新しい Debian システムの起動を選ぶことができま"
+"す。"
 
 #. Type: boolean
 #. Description
@@ -52,21 +57,35 @@ msgstr "マスターブートレコードに GRUB ブートローダをインス
 #. Type: boolean
 #. Description
 #: ../templates:16
+#, fuzzy
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
-"this computer. If so, it should be safe to install the boot loader to the "
-"master boot record of your first hard drive."
-msgstr "Debian はこのコンピュータの唯一のオペレーティングシステムのように見えます。もしそうであれば、あなたの 1 番目のハードドライブのマスターブートレコードにブートローダをインストールするのが無難でしょう。"
+"this computer. If so, it should be safe to install the GRUB boot loader to "
+"the master boot record of your first hard drive."
+msgstr ""
+"Debian はこのコンピュータの唯一のオペレーティングシステムのように見えます。も"
+"しそうであれば、あなたの 1 番目のハードドライブのマスターブートレコードにブー"
+"トローダをインストールするのが無難でしょう。"
+
+#. Type: boolean
+#. Description
+#: ../templates:16
+msgid ""
+"Warning: If the installer failed to detect another operating system that is "
+"present on your computer, modifying the master boot record will make that "
+"operating system temporarily unbootable, though GRUB can be manually "
+"configured later to boot it."
+msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:24
+#: ../templates:28
 msgid "Device for boot loader installation:"
 msgstr "ブートローダをインストールするデバイス:"
 
 #. Type: string
 #. Description
-#: ../templates:24
+#: ../templates:28
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -82,21 +101,23 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:24
+#: ../templates:28
 msgid ""
 "The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
-"in /dev."
-msgstr "デバイスは、GRUB の \"(hdn)\" 書式または /dev のデバイス名を使って指定できます。"
+"in /dev. For example, \"(hd0)\" will install GRUB to the master boot record "
+"of your first hard drive, while/dev/hda2 will install it to the second "
+"parrtition of your first IDE drive."
+msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:37
+#: ../templates:43
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "grub のインストールに失敗しました。続けますか?"
 
 #. Type: boolean
 #. Description
-#: ../templates:37
+#: ../templates:43
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -109,79 +130,86 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:44
+#: ../templates:50
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "GRUB を ${BOOTDEV} にインストールできません"
 
 #. Type: error
 #. Description
-#: ../templates:44
+#: ../templates:50
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "'grub-install ${BOOTDEV}' の実行に失敗しました。"
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "Unable to configure GRUB"
 msgstr "GRUB の設定ができません"
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "Executing 'update-grub' failed."
 msgstr "'update-grub' の実行に失敗しました。"
 
 #. Type: error
 #. Description
-#: ../templates:51
+#: ../templates:57
 msgid "This is a fatal error."
 msgstr "これは致命的なエラーです。"
 
 #. Type: text
 #. Description
-#: ../templates:58
+#: ../templates:64
 msgid "Installing GRUB boot loader"
 msgstr "GRUB ブートローダをインストールしています"
 
 #. Type: text
 #. Description
-#: ../templates:62
+#: ../templates:68
 msgid "Looking for other operating systems..."
 msgstr "ほかのオペレーティングシステムを探しています..."
 
 #. Type: text
 #. Description
-#: ../templates:66
+#: ../templates:72
 msgid "Installing the 'grub' package..."
 msgstr "'grub' パッケージをインストールしています..."
 
 #. Type: text
 #. Description
-#: ../templates:70
+#: ../templates:76
 msgid "Determining GRUB boot device..."
 msgstr "GRUB のブートデバイスを決めています..."
 
 #. Type: text
 #. Description
-#: ../templates:74
+#: ../templates:80
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "\"grub-install ${BOOTDEV}\" を実行しています..."
 
 #. Type: text
 #. Description
-#: ../templates:78
+#: ../templates:84
 msgid "Running \"update-grub\"..."
 msgstr "\"update-grub\" を実行しています..."
 
 #. Type: text
 #. Description
-#: ../templates:82
+#: ../templates:88
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "/etc/kernel-img.conf を更新しています..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:87
+#: ../templates:93
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "ハードディスクへの GRUB ブートローダのインストール"
+
+#~ msgid ""
+#~ "The device can be specified using GRUB's \"(hdn)\" notation, or as a "
+#~ "device in /dev."
+#~ msgstr ""
+#~ "デバイスは、GRUB の \"(hdn)\" 書式または /dev のデバイス名を使って指定でき"
+#~ "ます。"
