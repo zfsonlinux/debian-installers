@@ -607,7 +607,10 @@ pick_kernel () {
 	fi
 
 	db_input medium base-installer/kernel/which-kernel || [ $? -eq 30 ]
-	db_go || exit 10
+	if ! db_go; then
+		db_progress stop
+		exit 10
+	fi
 
 	db_get base-installer/kernel/which-kernel
 	KERNEL=$RET
