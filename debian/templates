@@ -1,6 +1,8 @@
-Template: aboot-installer/bootdev
+Template: grub-installer/bootdev
 Type: string
-Default: (hda)
-Description: On which device should aboot be installed?
- Aboot needs to install the boot loader on a bootable device. This
- is usually the first hard drive, /dev/hda.
+Default: (hd0)
+Description: On which device should GRUB be installed?
+ GRUB needs to install the stage 1 boot loader on a bootable device. This
+ is usually the first hard drive. Note that GRUB counts devices differently
+ than the Linux kernel, so the first one is usually '(hd0)'. Leave this
+ at default if unsure.
