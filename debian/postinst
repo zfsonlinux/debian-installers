@@ -105,11 +105,14 @@ fi
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_update_etc
 
-(
-    echo "postinst_hook = /sbin/update-grub"
-    echo "postrm_hook   = /sbin/update-grub"
-    echo "do_bootloader = no"
-) >> /target/etc/kernel-img.conf
+sed -e 's/do_bootloader = yes/do_bootloader = no/' < /target/etc/kernel-img.conf > /target/etc/kernel-img.conf.$$
+if [ -z "`grep update-grub /target/etc/kernel-img.conf.$$`" ]; then
+    (
+      echo "postinst_hook = /sbin/update-grub"
+      echo "postrm_hook   = /sbin/update-grub"
+    ) >> /target/etc/kernel-img.conf.$$
+fi
+mv /target/etc/kernel-img.conf.$$ /target/etc/kernel-img.conf
 
 db_progress STEP 1
 db_progress STOP
