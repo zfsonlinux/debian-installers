@@ -401,7 +401,10 @@ get_arch_kernel () {
 
 pick_kernel () {
 	# Fetch the current default
-	if db_get debian-installer/kernel/image && [ "$RET" ] ; then
+	kernel_major="$(uname -r | cut -d . -f 1,2)"
+	if db_get debian-installer/kernel/image-$kernel_major && [ "$RET" ]; then
+		KERNEL="$RET"
+	elif db_get debian-installer/kernel/image && [ "$RET" ]; then
 		KERNEL="$RET"
 	fi
 
