@@ -1,4 +1,5 @@
 # translation of fi.po to Finnish
+# translation of i386/grub-installer to Finnish
 #
 #    Translators, if you are not familiar with the PO format, gettext
 #    documentation is worth reading, especially sections dedicated to
@@ -18,7 +19,7 @@ msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-04-10 18:11-0400\n"
-"PO-Revision-Date: 2004-02-04 02:22+0200\n"
+"PO-Revision-Date: 2004-04-14 12:39+0300\n"
 "Last-Translator: Tapio Lehtonen <tale@debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +33,7 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr ""
+msgstr "Tältä koneelta löytyi seuraavat muut käyttöjärjestelmät: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -43,13 +44,16 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
+"Jos koneen kaikki käyttöjärjestelmät löytyvät yllä olevasta listasta, pitäisi "
+"olla turvallista asentaa alkulatausohjelma ensimmäisen kiintolevyn "
+"pääkäynnistyslohkoon. Kun tietokone käynnistyy, voit valita käynnistettäväksi "
+"yhden näistä käyttöjärjestelmistä tai uuden Debian-järjestelmän."
 
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "Asenna GRUB-alkulatausohjelma kiintolevylle"
+msgstr "Asennetaanko GRUB-alkulatausohjelma pääkäynnistyslohkoon?"
 
 #. Type: boolean
 #. Description
@@ -59,6 +63,9 @@ msgid ""
 "this computer. If so, it should be safe to install the boot loader to the "
 "master boot record of your first hard drive."
 msgstr ""
+"Nähtävästi tämä Debian-asennus on tämän tietokoneen ainoa käyttöjärjestelmä. "
+"Mikäli näin on, pitäisi olla turvallista asentaa alkulatausohjelma "
+"ensimmäisen kiintolevyn pääkäynnistyslohkoon."
 
 #. Type: string
 #. Description
@@ -69,7 +76,6 @@ msgstr "Laite johon alkulatausohjelma asennetaan:"
 #. Type: string
 #. Description
 #: ../templates:24
-#, fuzzy
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -80,7 +86,8 @@ msgstr ""
 "Nyt on aika tehdä vasta asennettu Debian-järjestelmä käynnistyväksi, "
 "asentamalla GRUB-alkulatausohjelma käynnistyskelpoiselle laitteelle. Tämä "
 "tehdään tavallisesti asentamalla GRUB ensimmäisen kiintolevyn "
-"pääkäynnistyslohkoon. "
+"pääkäynnistyslohkoon. Halutessasi voit asentaa GRUB:n muualle levylle, "
+"toiselle kiintolevylle tai jopa levykkeelle."
 
 #. Type: string
 #. Description
@@ -89,6 +96,8 @@ msgid ""
 "The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
 "in /dev."
 msgstr ""
+"Laite voidaan määrittää käyttämällä GRUB:n \"(hdn)\"-merkintätapaa tai "
+"hakemiston /dev laitteena."
 
 #. Type: boolean
 #. Description
@@ -148,7 +157,7 @@ msgstr "Asennetaan GRUB-alkulatausohjelma"
 #. Description
 #: ../templates:62
 msgid "Looking for other operating systems..."
-msgstr ""
+msgstr "Etsitään muita käyttöjärjestelmiä..."
 
 #. Type: text
 #. Description
@@ -221,3 +230,4 @@ msgstr "Asenna GRUB-alkulatausohjelma kiintolevylle"
 
 #~ msgid "On which device should GRUB be installed?"
 #~ msgstr "Mille laitteelle GRUB asennetaan?"
+
