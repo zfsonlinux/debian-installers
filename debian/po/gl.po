@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2004-09-11 12:36-0400\n"
-"PO-Revision-Date: 2005-02-09 14:10+0100\n"
+"PO-Revision-Date: 2005-02-09 18:25+0100\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@debian.org>\n"
 "Language-Team: Galego <trasno@ceu.fi.udc.es>\n"
 "MIME-Version: 1.0\n"
@@ -33,15 +33,15 @@ msgid ""
 "could break the installation process or cause a broken system to be "
 "installed."
 msgstr ""
-"O sistema de ficheiros de destino contén ficheiros dunha instalación "
-"anterior. Estes ficheiros poden facer mal no proceso de instalación ou "
-"poderían causar que o novo sistema non funcione correctamente."
+"O sistema de ficheiros de destino contén ficheiros procedentes dunha "
+"instalación anterior. Estes ficheiros poden interromper o proceso de "
+"instalación ou facer que se instale un sistema corrompido."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
 msgid "Cannot install Debian"
-msgstr "Non se puido instalar Debian"
+msgstr "Non se pode instalar Debian"
 
 #. Type: error
 #. Description
@@ -67,7 +67,7 @@ msgid ""
 "target. The partitioner and formatter should have done this for you."
 msgstr ""
 "Antes de que comece a instalación, ten que se montar un sistema de ficheiros "
-"raíz en /target. O particionador e formatador deberían ter feito isto por "
+"raíz en /target. O particionador e formatador xa deberían ter feito isto por "
 "vostede."
 
 #. Type: error
@@ -86,10 +86,11 @@ msgid ""
 "back and erase or format the target filesystem before proceeding with the "
 "install."
 msgstr ""
-"A instalación ó sistema de ficheiros de destino foi cancelada porque contén "
-"ficheiros dunha instalación pasada que poden crear conflictos na instalación "
-"ou facer unha instalación fallida. Deberías voltar atrás e borrar ou dar "
-"formato ó sistema de ficheiros de destino antes de continuar coa instalación."
+"A instalación no sistema de ficheiros de destino foi cancelada, xa que o "
+"sistema de ficheiros de destino contén ficheiros procedentes dunha "
+"instalación anterior, que poderían interromper o proceso de instalación ou "
+"facer que se instale un sistema corrompido. Debería voltar e borrar ou "
+"formatar o sistema de ficheiros de destino antes de continuar a instalación."
 
 #. Type: error
 #. Description
@@ -108,7 +109,7 @@ msgstr "A instalación do sistema base en /target/ fallou."
 #: ../base-installer.templates:39
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
-msgstr "O programa debootstrap producíu un error (Valor ${EXITCODE})."
+msgstr "O programa debootstrap saíu cun erro (valor de retorno ${EXITCODE})."
 
 #. Type: error
 #. Description
@@ -120,7 +121,7 @@ msgstr "Error na instalación do sistema base"
 #. Description
 #: ../base-installer.templates:46
 msgid "The debootstrap program exited abnormally."
-msgstr "O programa debootstrap non rematou dunha forma normal"
+msgstr "O programa debootstrap non saíu dun xeito normal."
 
 #. Type: error
 #. Description
@@ -138,19 +139,19 @@ msgstr "${ERROR}"
 #. Description
 #: ../base-installer.templates:62
 msgid "Unable to install a kernel"
-msgstr "Non se puido instalar un kernel"
+msgstr "Non se puido instalar un núcleo"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:62
 msgid "No kernel package is selected for installation."
-msgstr "Non hai seleccionado ningún paquete cun kernel para instalar."
+msgstr "Non se seleccionou un paquete cun núcleo para instalar."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:67
 msgid "Unable to install the selected kernel"
-msgstr "Non se puido instalar o kernel elixido"
+msgstr "Non se puido instalar o núcleo seleccionado"
 
 #. Type: error
 #. Description
@@ -164,13 +165,13 @@ msgstr "Produciuse un erro ao tentar instalar o núcleo no sistema de destino."
 #. Description
 #: ../base-installer.templates:67
 msgid "Kernel package: '${KERNEL}'."
-msgstr "Paquete co kernel: '${KERNEL}'."
+msgstr "Paquete co núcleo: '${KERNEL}'."
 
 #. Type: select
 #. Description
 #: ../base-installer.templates:78
 msgid "Kernel to install:"
-msgstr "Kernel a instalar:"
+msgstr "Núcleo a instalar:"
 
 #. Type: select
 #. Description
@@ -179,26 +180,27 @@ msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
 msgstr ""
-"A lista mostra os kernels dispoñobles. Por favor, escolla un deles para "
-"facer o sistema arrancable desde o disco duro."
+"A lista amosa os núcleos dispoñibles. Escolla un deles para facer que o "
+"sistema poida arrancar dende o disco duro."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:84
 msgid "No installable kernel found"
-msgstr "Non se atopou un kernel que se poida instalar"
+msgstr "Non se atopou un núcleo que se poida instalar"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:84
 msgid "No installable kernel was found in the defined APT sources."
-msgstr "Non se atopou un kernel que se poida instalar nas fontes APT."
+msgstr ""
+"Non se atopou un núcleo que se poida instalar nas fontes APT definidas."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:84
 msgid "The current default kernel package is '${KERNEL}'."
-msgstr "O kernel por defecto actual é '${KERNEL}'."
+msgstr "O paquete de núcleo por defecto actual é '${KERNEL}'."
 
 #. Type: error
 #. Description
@@ -206,13 +208,13 @@ msgstr "O kernel por defecto actual é '${KERNEL}'."
 msgid ""
 "You may try to continue though this rather strange error is probably fatal."
 msgstr ""
-"Deberías continuar a pesar de que este extraño error probablemente sea fatal."
+"Pode probar a continuar aínda que este extraño erro probablemente sexa grave."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:93
 msgid "Unable to install initrd-tools"
-msgstr "Non se puido instalar inird-tools"
+msgstr "Non se puido instalar initrd-tools"
 
 #. Type: error
 #. Description
@@ -220,19 +222,21 @@ msgstr "Non se puido instalar inird-tools"
 msgid ""
 "An error was returned while trying to install the initrd-tools package  onto "
 "the target system."
-msgstr "Producíuse un erro cando se tentaba instalar initrd-tools no sistema."
+msgstr ""
+"Produciuse un erro cando se tentaba instalar o paqute initrd-tools no "
+"sistema de destino."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:93
 msgid "Check /var/log/messages or see virtual console 3 for the details."
-msgstr "Mira /var/log/messages ou a consola virtual 3 para máis detalles."
+msgstr "Mire os detalles en /var/log/messages ou na consola virtual 3."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:101
 msgid "${SUBST0} was not pre-downloaded."
-msgstr "${SUBST0} non foi descargado."
+msgstr "${SUBST0} non se pre-descargou."
 
 #. Type: error
 #. Description
@@ -244,19 +248,19 @@ msgstr "Ubicación descoñecida ${SUBST0}."
 #. Description
 #: ../base-installer.templates:111
 msgid "Failed getting Release file ${SUBST0}."
-msgstr "Non se puido coller o ficheiro Release ${SUBST0}."
+msgstr "Non se puido obter o ficheiro Release ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:116
 msgid "Invalid Release file: no valid components."
-msgstr "O ficheiro Release non é válido: Ten compoñentes non válidos."
+msgstr "Ficheiro Release non válido: non hai compoñentes válidos."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:121
 msgid "Invalid Release file: no entry for ${SUBST0}."
-msgstr "O ficheiro Release non é válido: Ningunha entrada para ${SUBST0}."
+msgstr "Ficheiro Release non válido: non hai ningunha entrada para ${SUBST0}."
 
 #. Type: error
 #. Description
@@ -268,13 +272,13 @@ msgstr "Non se puido descargar ${SUBST0}."
 #. Description
 #: ../base-installer.templates:131
 msgid "Debootstrap Error"
-msgstr "Error de Debootstrap"
+msgstr "Erro de Debootstrap"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:131
 msgid "Interrupt caught... Exiting."
-msgstr "Atopouse unha interrupción ... saindo."
+msgstr "Pillouse unha interrupción... Saíndo."
 
 #. Type: text
 #. Description
@@ -286,7 +290,7 @@ msgstr "Instalando o sistema base de Debian"
 #. Description
 #: ../base-installer.templates:140
 msgid "Preparing to install the Debian base system..."
-msgstr "Preparando a instalación do sistema base Debian..."
+msgstr "Preparando a instalación do sistema base de Debian..."
 
 #. Type: text
 #. Description
@@ -304,7 +308,7 @@ msgstr "Comprobando o sistema de ficheiros de destino"
 #. Description
 #: ../base-installer.templates:152
 msgid "Retrieving Release file"
-msgstr "Collendo o ficheiro Release"
+msgstr "Obtendo o ficheiro Release"
 
 #. Type: text
 #. Description
@@ -316,19 +320,19 @@ msgstr "Buscando o tamaño dos paquetes"
 #. Description
 #: ../base-installer.templates:160
 msgid "Retrieving Packages files"
-msgstr "Recuperando os ficheiros que conteñen os paquetes"
+msgstr "Obtendo os ficheiros Packages"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:164
 msgid "Retrieving packages"
-msgstr "Collendo os paquetes"
+msgstr "Obtendo os paquetes"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:168
 msgid "Extracting packages"
-msgstr "Extraendo paquetes"
+msgstr "Extraendo os paquetes"
 
 #. Type: text
 #. Description
@@ -346,13 +350,13 @@ msgstr "${SECTION}: ${INFO}..."
 #. Description
 #: ../base-installer.templates:180
 msgid "Validating ${SUBST0}..."
-msgstr "Validado ${SUBST0}..."
+msgstr "Validando ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:184
 msgid "Retrieving ${SUBST0}..."
-msgstr "Collendo ${SUBST0}..."
+msgstr "Obtendo ${SUBST0}..."
 
 #. Type: text
 #. Description
@@ -370,7 +374,7 @@ msgstr "Comprobando o tamaño do paquete: ${SUBST0}..."
 #. Description
 #: ../base-installer.templates:196
 msgid "Installing core packages..."
-msgstr "Instalando paquetes core..."
+msgstr "Instalando os paquetes principais..."
 
 #. Type: text
 #. Description
@@ -394,7 +398,7 @@ msgstr "Instalando os paquetes base..."
 #. Description
 #: ../base-installer.templates:212
 msgid "Base system installed successfully."
-msgstr "Sistema base instalado"
+msgstr "Sistema base instalado con éxito."
 
 #. Type: text
 #. Description
@@ -412,43 +416,43 @@ msgstr "Actualizando a lista dos paquetes dispoñibles..."
 #. Description
 #: ../base-installer.templates:224
 msgid "Installing extra packages..."
-msgstr "Instalando paquetes extra..."
+msgstr "Instalando os paquetes extra..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:228
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
-msgstr "Instalando paquetes extra - recuperando e instalando ${SUBST0}..."
+msgstr "Instalando os paquetes extra - obtendo e instalando ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:232
 msgid "Creating device files..."
-msgstr "Creando entradas dos dispositivos"
+msgstr "Creando os ficheiros de dispositivos..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:236
 msgid "Selecting the kernel to install..."
-msgstr "Elixindo o kernel que se vai instalar..."
+msgstr "Seleccionando o núcleo a instalar..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:240
 msgid "Installing the kernel..."
-msgstr "Instalando o kernel..."
+msgstr "Instalando o núcleo..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:244
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
-msgstr "Instalando o núcleo - recuperando e instalando ${SUBST0}..."
+msgstr "Instalando o núcleo - obtendo e instalando ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:248
 msgid "Installing the PCMCIA modules"
-msgstr "Instalando os módulos PCMCIA..."
+msgstr "Instalando os módulos PCMCIA"
 
 #. Type: text
 #. Description
