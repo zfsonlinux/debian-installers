@@ -143,7 +143,19 @@ configure_apt () {
 	# let apt inside the chroot see the cdrom
 	umount /target$DIRECTORY 2>/dev/null || true
 	if [ "$PROTOCOL" = file ] ; then
-		if ! mount -o bind $DIRECTORY /target$DIRECTORY; then
+		if [ "`uname -r | grep '^2.2.'`" != "" ]; then
+		    CDDEV=`grep -i /cdrom /proc/mounts | cut -d' ' -f 1 | grep loop`
+		    if [ "" != "$CDDEV" ]  && \
+			db_get iso-scan/filename && [ "$RET" ] ; then
+		    	mount -r -o loop /hd-media/$RET /target/$DIRECTORY
+		    elif db_get cdrom-detect/cdrom_device && [ "$RET" ]; then
+			umount $RET
+			mount -r -t iso9660 $RET /target/$DIRECTORY
+		    else
+			warning "kernel 2.2.x failed to bind mount /target$DIRECTORY"
+		    fi
+
+		elif ! mount -o bind $DIRECTORY /target$DIRECTORY; then
 			warning "failed to bind mount /target$DIRECTORY"
 		fi
 		# The bind mount is left mounted after this postinst exits,
