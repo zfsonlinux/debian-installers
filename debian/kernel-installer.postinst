@@ -24,6 +24,12 @@ unset DEBCONF_REDIR
 
 db_get debian-installer/kernel/image
 
+if [ -z "$RET" ] ; then
+    echo "error: Empty value in 'debian-installer/kernel/image'!" 1>&2
+    echo "error: Unable to install kernel." 1>&2
+    exit 1
+fi
+
 PATH=$PATH:/target/usr/bin:/target/bin:/target/usr/sbin:/target/sbin \
 LD_LIBRARY_PATH=/target/lib:/target/usr/lib \
 /target/usr/bin/apt-get \
