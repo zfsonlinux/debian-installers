@@ -50,14 +50,14 @@ arch_get_kernel () {
 		*)
 			case "$KERNEL_MAJOR" in
 				2.6)
-					echo "kernel-image-$version-$1$SMP"
+					echo "kernel-image-$KERNEL_MAJOR-$1$SMP"
 					;;
 				*)
 					if [ "$1" != powerpc ]; then
 						# 2.4 only has powerpc-smp.
 						SMP=
 					fi
-					echo "kernel-image-$version-$1$SMP"
+					echo "kernel-image-$KERNEL_MAJOR-$1$SMP"
 					;;
 			esac
 	esac
