@@ -10,7 +10,7 @@ PROTOCOL=
 MIRROR=
 DIRECTORY=
 COMPONENTS=
-DISTRIBUTION=testing
+DISTRIBUTION=
 INCLUDES=
 EXCLUDES=
 KERNEL=
@@ -67,17 +67,17 @@ get_mirror_info () {
 		COMPONENTS="main"
 	fi
 
-	if db_get mirror/distribution && [ "$RET" ] ; then
-		DISTRIBUTION=$RET
+	if db_get mirror/suite && [ "$RET" ] ; then
+		SUITE=$RET
 	fi
 
 	# Find the distribution codename
 	APTLISTDIR=/target/var/lib/apt/lists
 	mkdir -p $APTLISTDIR
 	if [ file = "$PROTOCOL" ]; then
-	    cp /cdrom/dists/$DISTRIBUTION/Release $APTLISTDIR/tmp || nogetrel="/cdrom/dists/$DISTRIBUTION/Release"
+	    cp /cdrom/dists/$SUITE/Release $APTLISTDIR/tmp || nogetrel="/cdrom/dists/$SUITE/Release"
 	else
-	    wget "$PROTOCOL://$MIRROR$DIRECTORY/dists/$DISTRIBUTION/Release" -O $APTLISTDIR/tmp || nogetrel="$PROTOCOL://$MIRROR$DIRECTORY/dists/$DISTRIBUTION/Release"
+	    wget "$PROTOCOL://$MIRROR$DIRECTORY/dists/$SUITE/Release" -O $APTLISTDIR/tmp || nogetrel="$PROTOCOL://$MIRROR$DIRECTORY/dists/$SUITE/Release"
 	fi
 
 	if [ "$nogetrel" != "" ]; then
@@ -85,7 +85,7 @@ get_mirror_info () {
 	    exit_error base-installer/debootstrap/error/nogetrel
 	fi
 
-	DISTRIBUTION=`grep Codename $APTLISTDIR/tmp | cut -d' ' -f 2`
+	DISTRIBUTION=`grep ^Codename: $APTLISTDIR/tmp | cut -d' ' -f 2`
 	DEBOOTSTRAPLIST="$APTLISTDIR/debootstrap.invalid_dists_${DISTRIBUTION}"
 	mv $APTLISTDIR/tmp ${DEBOOTSTRAPLIST}_Release
 }
@@ -119,13 +119,13 @@ install_base_system () {
 	if [ -e /usr/bin/cdebootstrap ]; then
 		/usr/bin/cdebootstrap || debootstrap_failed=$?
 	else
-	/usr/sbin/run-debootstrap \
-	        --components="${COMPONENTS}" \
-	        --debian-installer \
-	        ${include} ${exclude} \
-	        ${DISTRIBUTION} /target \
-	        "$PROTOCOL://$MIRROR$DIRECTORY" \
-	        2>> $LOGFILE || debootstrap_failed=$?
+		/usr/sbin/run-debootstrap \
+		        --components="${COMPONENTS}" \
+		        --debian-installer \
+		        ${include} ${exclude} \
+		        ${DISTRIBUTION} /target \
+		        "$PROTOCOL://$MIRROR$DIRECTORY" \
+		        2>> $LOGFILE || debootstrap_failed=$?
 	fi
 
 	if [ true = "$copied_fstab" ] ; then
@@ -140,8 +140,14 @@ install_base_system () {
 }
 
 configure_apt () {
-	if [ file = "$PROTOCOL" ] ; then
-		mount -o bind $DIRECTORY /target$DIRECTORY
+	# let apt inside the chroot see the cdrom
+	umount /target$DIRECTORY 2>/dev/null || true
+	if [ "$PROTOCOL" = file ] ; then
+		if ! mount -o bind $DIRECTORY /target$DIRECTORY; then
+			warning "failed to bind mount /target$DIRECTORY"
+		fi
+		# The bind mount is left mounted after this postinst exits,
+		# for future apt-install calls to use.
 	fi
 
 	# Move files to where apt expects them to avoid another download or copy.
@@ -437,7 +443,7 @@ install_pcmcia_modules () {
 
 apt_update () {
 	chroot /target apt-get update >> $LOGFILE 2>&1 || apt_update_failed=$?
-
+	
 	if [ "$apt_update_failed" ]; then
 		warning "apt update failed: $apt_update_failed"
 	fi
