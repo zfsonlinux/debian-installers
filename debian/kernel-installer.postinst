@@ -25,6 +25,11 @@ info() {
 
 chroot="chroot /target"
 
+db_progress START 0 3 kernel-installer/progress_title
+
+db_progress INFO kernel-installer/progress_step_1
+db_progress STEP 1
+
 # Fetch the current default
 if db_get debian-installer/kernel/image && [ "$RET" ] ; then
     kernel="$RET"
@@ -45,10 +50,10 @@ kernels=`$chroot apt-cache search kernel-image | grep ^kernel-image | \
 info "Found kernels '$kernels'"
 
 if [ "$kernels" ] ; then
-    db_subst kernel-chooser/which-kernel kernels "$kernels"
+    db_subst kernel-installer/which-kernel kernels "$kernels"
 else
-    db_subst kernel-chooser/no-kernels-found kernel "$kernel"
-    db_input critical kernel-chooser/no-kernels-found || [ $? -eq 30 ]
+    db_subst kernel-installer/no-kernels-found kernel "$kernel"
+    db_input critical kernel-installer/no-kernels-found || [ $? -eq 30 ]
     db_go
     exit 1
 fi
@@ -106,19 +111,22 @@ case "$ARCH" in
 	;;
 esac
 if [ "$kernel" ] ; then
-    db_set kernel-chooser/which-kernel "$kernel"
+    db_set kernel-installer/which-kernel "$kernel"
 fi
 
-db_input medium kernel-chooser/which-kernel || [ $? -eq 30 ]
+db_input medium kernel-installer/which-kernel || [ $? -eq 30 ]
 db_go || true
 
-db_get kernel-chooser/which-kernel
+db_get kernel-installer/which-kernel
 kernel=$RET
 
 info "Using kernel '$kernel'"
 
 # Pass the kernel name on to kernel-installer
 db_set debian-installer/kernel/image "$kernel"
+
+db_progress INFO kernel-installer/progress_step_2
+db_progress STEP 1
 
 # =================== Install the kernel =========================
 
@@ -191,6 +199,9 @@ else
     warning "Setting default kernel='$kernel'"
 fi
 
+db_progress INFO kernel-installer/progress_step_3
+db_progress STEP 1
+
 info "Installing kernel '$kernel'."
 
 if apt-install "$kernel" 2>> $logfile ; then
@@ -201,5 +212,7 @@ else
     db_go
     exit 1
 fi
+
+db_progress STOP
 
 exit 0
