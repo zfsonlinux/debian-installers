@@ -1,32 +1,40 @@
-# translation of debian-installer.po to 
-# translation of debian-installer.po to
-# Norwegian Bokmal messages for debian-installer.
-# Copyright (C) 2003 Software in the Public Interest, Inc.
-# This file is distributed under the same license as debian-installer.
-# Knut Yrvin <knuty@skolelinux.no>, 2003.
+# translation of grub-installer.po to Norwegian bokmål
+# translation of grub-installer.po to
+#
+#    Translators, if you are not familiar with the PO format, gettext
+#    documentation is worth reading, especially sections dedicated to
+#    this format, e.g. by running:
+#         info -n '(gettext)PO Files'
+#         info -n '(gettext)Header Entry'
+#    Some information specific to po-debconf are available at
+#            /usr/share/doc/po-debconf/README-trans
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans#
+#    Developers do not need to manually edit POT or PO files.
+# Håvard Korsvoll <korsvoll@stud.ntnu.no>, 2004.
+# Axel Bojer <axelb@skolelinux.no>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer\n"
+"Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-03 10:43+0100\n"
-"PO-Revision-Date: 2003-12-23 13:30+0100\n"
-"Last-Translator: Knut Yrvin <knuty@skolelinux.no>\n"
-"Language-Team:  <i18n-nb@lister.ping.uio.no>\n"
+"POT-Creation-Date: 2004-02-14 18:15+0200\n"
+"PO-Revision-Date: 2004-02-29 16:59GMT+2\n"
+"Last-Translator: Axel Bojer <axelb@skolelinux.no>\n"
+"Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.0.2\n"
+"X-Generator: KBabel 1.3\n"
 
 #. Type: string
 #. Description
-#: ../templates:4
+#: templates:4
 msgid "Device for boot loader installation:"
-msgstr "Enhet for installasjon av oppstartsprogram:"
+msgstr "Enhet for installasjon av oppstartslaster:"
 
 #. Type: string
 #. Description
-#: ../templates:4
+#: templates:4
 msgid ""
 "Now it is time to make the newly installed Debian system bootable, by "
 "installing the GRUB bootloader on a bootable device. The usual way to do "
@@ -35,7 +43,7 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:4
+#: templates:4
 msgid ""
 "Note that GRUB counts devices differently than the Linux kernel, so the "
 "first drive is usually '(hd0)'. If you want it on the second partition of "
@@ -44,7 +52,7 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:4
+#: templates:4
 msgid ""
 "Warning: by default, this will change how your computer boots, overwriting "
 "your existing master boot record with GRUB. Continuing may make other "
@@ -53,13 +61,15 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:20
+#: templates:20
+#, fuzzy
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Kan ikke installere grub. Fortsette likevel?"
 
 #. Type: boolean
 #. Description
-#: ../templates:20
+#: templates:20
+#, fuzzy
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -71,89 +81,81 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: templates:27
+#, fuzzy
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Ute av stand til å installere grub på ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: templates:27
+#, fuzzy
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Kommandoen 'grub-install ${BOOTDEV}' feilet."
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: templates:34
+#, fuzzy
 msgid "Unable to configure GRUB"
 msgstr "Ute av stand til å konfigurere grub"
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: templates:34
+#, fuzzy
 msgid "Executing 'update-grub' failed."
 msgstr "Kommandoen 'update-grub' feilet."
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: templates:34
+#, fuzzy
 msgid "This is a fatal error."
 msgstr "Dette er en fatal feil."
 
 #. Type: text
 #. Description
-#: ../templates:41
+#: templates:41
+#, fuzzy
 msgid "Installing GRUB boot loader"
 msgstr "Installerer boot-loaderen GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:45
-#, fuzzy
+#: templates:45
 msgid "Installing the 'grub' package..."
-msgstr "Installerer pakken 'grub'."
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../templates:49
-#, fuzzy
+#: templates:49
 msgid "Determining GRUB boot device..."
-msgstr "Velger GRUB boot-enhet."
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../templates:53
-#, fuzzy
+#: templates:53
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "Kjører \"grub-install ${BOOTDEV}\"."
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../templates:57
-#, fuzzy
+#: templates:57
 msgid "Running \"update-grub\"..."
-msgstr "Kjører \"update-grub\"."
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../templates:61
-#, fuzzy
+#: templates:61
 msgid "Updating /etc/kernel-img.conf..."
-msgstr "Oppdaterer /etc/kernel-img.conf."
+msgstr ""
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:66
+#: templates:66
+#, fuzzy
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installer GRUB på harddisken"
 
-#~ msgid ""
-#~ "GRUB needs to install the stage 1 boot loader on a bootable device. This "
-#~ "is usually the first hard drive. Note that GRUB counts devices "
-#~ "differently than the Linux kernel, so the first one is usually '(hd0)'. "
-#~ "Leave this at default if unsure."
-#~ msgstr ""
-#~ "GRUB må installere oppstarterens trinn 1 på en enhet som kan starte et "
-#~ "operativsystem. Dette er oftest den første disken. Merk at GRUB teller "
-#~ "enheter på annen måte enn Linux-kjernen, så den første er vanligvis "
-#~ "'(hd0). La denne være hvis du er usikker."
