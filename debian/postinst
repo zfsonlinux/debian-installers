@@ -35,6 +35,11 @@ update_mtab() {
 	done ) > $mtab
 }
 
+is_floppy () {
+	# FIXME: this is lame, and does not yet support /dev devices.
+	echo "$1" | grep -q "\(fd"
+}
+
 db_progress START 0 5 grub-installer/progress/title
 
 db_progress INFO grub-installer/progress/step_install
@@ -73,14 +78,16 @@ db_progress INFO grub-installer/progress/step_install_loader
 
 info "Installing grub on '$bootdev'"
 
-# Make sure mtab is up to date when grub-install try to find the
-# device for /boot/.  See bug #187135 for more info.
 update_mtab
 
-if chroot /target /sbin/grub-install "$bootdev" >> $log 2>&1 ; then
+if ! is_floppy "$bootdev"; then
+	floppyparam="--no-floppy"
+fi
+
+if chroot /target /sbin/grub-install $floppyparam "$bootdev" >> $log 2>&1 ; then
     :
 else
-    error "Running 'grub-install \"$bootdev\"' failed."
+    error "Running 'grub-install $floppyparam \"$bootdev\"' failed."
     db_subst grub-installer/grub-install-failed BOOTDEV "$bootdev"
     db_input critical grub-installer/grub-install-failed || [ $? -eq 30 ]
     db_go || true
@@ -94,8 +101,8 @@ db_progress INFO grub-installer/progress/step_config_loader
 # Pipe from 'yes' to tell grub to create menu.lst when it is missing A
 # better correct fix is to get update-grub to be able to run in
 # noninteractive mode.  Newer versions of the grub package support
-# '-y' for noninteractive installs.  This option should be used when
-# the new grub is available in Sarge.
+# '-y' for noninteractive installs.  But we'll keep it as-is for
+# Skolelinux.
 if chroot /target /usr/bin/yes | chroot /target /sbin/update-grub >> $log 2>&1 ; then
     :
 else
