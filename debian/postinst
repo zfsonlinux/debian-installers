@@ -303,12 +303,24 @@ get_arch_kernel () {
 		# The APUS kernels are in a separate source package, so may
 		# sometimes have a different version number.
 		apusversion=2.4.25
+		CPU=`grep '^cpu[[:space:]]*:' /proc/cpuinfo | cut -d: -f2 | sed 's/^ *//; s/[, ].*//' | tr A-Z a-z`
+		case "$CPU" in
+		power3|i-star|s-star)
+			family=power3
+			;;
+		power4|ppc970)
+			family=power4
+			;;
+		*)
+			family=powerpc
+			;;
+		esac
 		case "$SUBARCH" in
-		powermac_newworld) trykernel=kernel-image-$version-powerpc-pmac ;;
-		powermac_oldworld) trykernel=kernel-image-$version-powerpc-pmac ;;
-		prep) trykernel=kernel-image-$version-powerpc-prep ;;
-		chrp | chrp_pegasos) trykernel=kernel-image-$version-powerpc-chrp ;;
-		chrp_rs6k) trykernel=kernel-image-$version-powerpc-chrp-rs6k ;;
+		powermac_newworld) trykernel=kernel-image-$version-$family-pmac ;;
+		powermac_oldworld) trykernel=kernel-image-$version-$family-pmac ;;
+		prep) trykernel=kernel-image-$version-$family-prep ;;
+		chrp | chrp_pegasos) trykernel=kernel-image-$version-$family-chrp ;;
+		chrp_rs6k) trykernel=kernel-image-$version-$family-chrp-rs6k ;;
 		amiga) trykernel=kernel-image-$apusversion-apus ;;
 
 		*) log "warning: Unknown $ARCH subarchitecture '$SUBARCH'." ;;
