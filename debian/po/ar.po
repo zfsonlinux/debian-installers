@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer.packages.arch.i386.grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-24 08:43+0200\n"
+"POT-Creation-Date: 2004-06-20 09:04+0200\n"
 "PO-Revision-Date: 2004-07-01 17:35+0300\n"
 "Last-Translator: Ossama M. Khayat <okhayat@yahoo.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
@@ -42,10 +42,9 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
-"إن كانت جميع أنظمة التشغيل خاصتك مسردة أعلاه، فيكون من الآمن "
-"تثبيت مُحمّل الإقلاع على سجلّ الإقلاع الرّئيسي للقرص الصّلب الأول. "
-"عندما يُقلع حاسبك، سوف تكون قادراً على اختيار تحميل واحد من "
-"أنظمة التّشغيل هذه أو نظام ديبان الجديد."
+"إن كانت جميع أنظمة التشغيل خاصتك مسردة أعلاه، فيكون من الآمن تثبيت مُحمّل "
+"الإقلاع على سجلّ الإقلاع الرّئيسي للقرص الصّلب الأول. عندما يُقلع حاسبك، سوف "
+"تكون قادراً على اختيار تحميل واحد من أنظمة التّشغيل هذه أو نظام ديبان الجديد."
 
 #. Type: boolean
 #. Description
@@ -61,9 +60,9 @@ msgid ""
 "this computer. If so, it should be safe to install the GRUB boot loader to "
 "the master boot record of your first hard drive."
 msgstr ""
-"يبدو أن هذا التّثبيت من ديبيان هو نظام التّشغيل الوحيد على "
-"هذا الحاسب. إن كان كذلك، فيكون من الآمن تثبيت مُحمّل الإقلاع GRUB على "
-"سجلّ الإقلاع الرّئيسي لأولّ قرص صلب."
+"يبدو أن هذا التّثبيت من ديبيان هو نظام التّشغيل الوحيد على هذا الحاسب. إن كان "
+"كذلك، فيكون من الآمن تثبيت مُحمّل الإقلاع GRUB على سجلّ الإقلاع الرّئيسي لأولّ "
+"قرص صلب."
 
 #. Type: boolean
 #. Description
@@ -74,10 +73,9 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
-"تحذير: إذا فشل المُثبّت باكتشاف نظام تشغيل آخر "
-"موجود على حاسبك، فإن تعديل سجلّ الإقلاع الرّئيسي سوف يجعل نظام التّشغيل "
-"هذا غير قابل للإقلاع مُؤقّتاً، إلّا أنّه يمكن تهيئة GRUB "
-"يدويّاً لاحقاً."
+"تحذير: إذا فشل المُثبّت باكتشاف نظام تشغيل آخر موجود على حاسبك، فإن تعديل سجلّ "
+"الإقلاع الرّئيسي سوف يجعل نظام التّشغيل هذا غير قابل للإقلاع مُؤقّتاً، إلّا أنّه "
+"يمكن تهيئة GRUB يدويّاً لاحقاً."
 
 #. Type: string
 #. Description
@@ -95,35 +93,40 @@ msgid ""
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
 msgstr ""
-"تحتاج إلى جعل نظام ديبيان المُثبّت الجديد قابلاً للإقلاع، بتثبيت "
-"مُحمّل الإقلاع GRUB على جهاز قابل للإقلاع. الطريقة الاعتياديّة لفعل ذلك هي "
-"تثبيت مُحمّل الإقلاع على سجلّ الإقلاع الرّئيسي لأول قرص صلب. إن كنت "
-"تُفضّل، يمكنك تثبيت GRUB في مكان آخر على القرص، أو إلى قرص آخر، أو "
-"حتى على قرص مرن."
+"تحتاج إلى جعل نظام ديبيان المُثبّت الجديد قابلاً للإقلاع، بتثبيت مُحمّل الإقلاع "
+"GRUB على جهاز قابل للإقلاع. الطريقة الاعتياديّة لفعل ذلك هي تثبيت مُحمّل "
+"الإقلاع على سجلّ الإقلاع الرّئيسي لأول قرص صلب. إن كنت تُفضّل، يمكنك تثبيت GRUB "
+"في مكان آخر على القرص، أو إلى قرص آخر، أو حتى على قرص مرن."
 
 #. Type: string
 #. Description
 #: ../templates:28
+#, fuzzy
 msgid ""
-"The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
-"in /dev. For example, \"(hd0)\" will install GRUB to the master boot record "
-"of your first hard drive, while \"/dev/hda2\" will install it to the second "
-"partition of your first IDE drive."
+"The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
+"device in /dev. Below are some examples:\n"
+" - \"(hd0)\" or \"/dev/hda\" will install GRUB to the master boot record of\n"
+"   your first hard drive (IDE);\n"
+" - \"(hd0,1)\" or \"/dev/hda2\" will use the second partition of your first\n"
+"   IDE drive;\n"
+" - \"(hd2,4)\" or \"/dev/sdc5\" will use the first extended partition of "
+"your\n"
+"   third drive (SCSI here);\n"
+" - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"يمكن تحديد الجهاز بعلامة GRUB \"(hdn)\"، أو كجهاز "
-"في /dev. مثلاً، \"(hd0(\" سوف يُثبّت GRUB على سجلّ الإقلاع الرّئيسي "
-"لقرصك الصّلب الأول، بينما \"/dev/hda2\" سوف يُثبّته على "
-"التّجزيء الثّاني لقرص IDE الأول."
+"يمكن تحديد الجهاز بعلامة GRUB \"(hdn)\"، أو كجهاز في /dev. مثلاً، \"(hd0(\" "
+"سوف يُثبّت GRUB على سجلّ الإقلاع الرّئيسي لقرصك الصّلب الأول، بينما \"/dev/hda2\" "
+"سوف يُثبّته على التّجزيء الثّاني لقرص IDE الأول."
 
 #. Type: boolean
 #. Description
-#: ../templates:43
+#: ../templates:48
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "فشل تثبيت GRUB.  أأستمر على أية حال؟"
 
 #. Type: boolean
 #. Description
-#: ../templates:43
+#: ../templates:48
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -135,80 +138,79 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:50
+#: ../templates:55
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "لا يمكن تثبيت GRUB في ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:50
+#: ../templates:55
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "فشل تنفيذ 'grub-install ${BOOTDEV}'"
 
 #. Type: error
 #. Description
-#: ../templates:57
+#: ../templates:62
 msgid "Unable to configure GRUB"
 msgstr "لم يمكن تهيئة GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:57
+#: ../templates:62
 msgid "Executing 'update-grub' failed."
 msgstr "فشل تنفيذ 'update-grub'."
 
 #. Type: error
 #. Description
-#: ../templates:57
+#: ../templates:62
 msgid "This is a fatal error."
 msgstr "هذا خطأ فادح."
 
 #. Type: text
 #. Description
-#: ../templates:64
+#: ../templates:69
 msgid "Installing GRUB boot loader"
 msgstr "جاري تثبيت محمّل الإقلاع GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:68
+#: ../templates:73
 msgid "Looking for other operating systems..."
 msgstr "جاري البحث عن أنظمة تشغيل أخرى..."
 
 #. Type: text
 #. Description
-#: ../templates:72
+#: ../templates:77
 msgid "Installing the 'grub' package..."
 msgstr "جاري تثبيت حزمة 'grub'..."
 
 #. Type: text
 #. Description
-#: ../templates:76
+#: ../templates:81
 msgid "Determining GRUB boot device..."
 msgstr "تقرير جهاز إقلاع GRUB..."
 
 #. Type: text
 #. Description
-#: ../templates:80
+#: ../templates:85
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "جاري تشغيل \"grub-install·${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../templates:84
+#: ../templates:89
 msgid "Running \"update-grub\"..."
 msgstr "جاري تشغيل \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:88
+#: ../templates:93
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "جاري تحديث /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:93
+#: ../templates:98
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "تثبيت محمل الإقلاع GRUB على قرص صلب"
-
