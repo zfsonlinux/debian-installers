@@ -351,8 +351,6 @@ get_arch_kernel () {
 }
 
 pick_kernel () {
-	db_progress INFO base-installer/kernel/progress/step_select
-
 	# Fetch the current default
 	if db_get debian-installer/kernel/image && [ "$RET" ] ; then
 		KERNEL="$RET"
@@ -499,7 +497,6 @@ EOF
 install_pcmcia_modules () {
 	pcmcia_package=$(echo "$KERNEL" | sed 's/^kernel-image/kernel-pcmcia-modules/')
 	info "Installing pcmcia modules package '$pcmcia_package'."
-	db_progress INFO base-installer/kernel/progress/step_install_pcmcia
 	if ! apt-install "$pcmcia_package" 2>> $LOGFILE ; then
 		exit_error base-installer/kernel/failed-pcmcia-install
 	fi
