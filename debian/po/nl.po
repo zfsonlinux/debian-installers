@@ -14,9 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer\n"
-"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-04-10 18:11-0400\n"
-"PO-Revision-Date: 2004-04-06 18:15+0100\n"
+"PO-Revision-Date: 2004-04-12 15:07+0100\n"
 "Last-Translator: Bart Cornelis <cobaco@linux.be>\n"
 "Language-Team: debian-l10n-dutch <debian-l10n-dutch@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -26,36 +25,26 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../templates:4
-msgid ""
-"The following other operating systems have been detected on this computer: "
-"${OS_LIST}"
-msgstr ""
+msgid "The following other operating systems have been detected on this computer: ${OS_LIST}"
+msgstr "De volgende besturingssystemen zijn op deze computer aangetroffen: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
 #: ../templates:4
-msgid ""
-"If all of your operating systems are listed above, then it should be safe to "
-"install the boot loader to the master boot record of your first hard drive. "
-"When your computer boots, you will be able to choose to load one of these "
-"operating systems or your new Debian system."
-msgstr ""
+msgid "If all of your operating systems are listed above, then it should be safe to install the boot loader to the master boot record of your first hard drive. When your computer boots, you will be able to choose to load one of these operating systems or your new Debian system."
+msgstr "Als al uw besturingssystemen hierboven weergeven zijn, is het veilig om uw opsartlader te installeren in het 'master boot record' van uw eerste harde schijf. Bij het opstarten van uw computer krijgt u dan de keuze om of Debian, of een van deze besturingssystemen op te starten."
 
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "GRUB-opstartlader naar harde schijf installeren"
+msgstr "GRUB-opstartlader in het MBR (master boot record) installeren"
 
 #. Type: boolean
 #. Description
 #: ../templates:16
-msgid ""
-"It seems that this installation of Debian is the only operating system on "
-"this computer. If so, it should be safe to install the boot loader to the "
-"master boot record of your first hard drive."
-msgstr ""
+msgid "It seems that this installation of Debian is the only operating system on this computer. If so, it should be safe to install the boot loader to the master boot record of your first hard drive."
+msgstr "Deze lijkt erop dat deze Debian-installatie het enige besturingssysteem op deze computer is. Als dit klopt kunt u de opstartlader veilig in het 'master boot record' van uw eerste harde schijf installeren."
 
 #. Type: string
 #. Description
@@ -66,26 +55,14 @@ msgstr "Apparaat voor opstartlader-installatie:"
 #. Type: string
 #. Description
 #: ../templates:24
-#, fuzzy
-msgid ""
-"You need to make the newly installed Debian system bootable, by installing "
-"the GRUB bootloader on a bootable device. The usual way to do this is to "
-"install GRUB on the master boot record of your first hard drive. If you "
-"prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
-"even to a floppy."
-msgstr ""
-"Het is nu tijd om uw net geïnstalleerd Debian-systeem opstartbaar te maken. "
-"Hiertoe dient de GRUB-opstartlader geïnstalleerd te worden op een "
-"opstartbaar apparaat. Gewoonlijk wordt hiervoor het 'master boot record' van "
-"uw eerste harde schijf gebruikt."
+msgid "You need to make the newly installed Debian system bootable, by installing the GRUB bootloader on a bootable device. The usual way to do this is to install GRUB on the master boot record of your first hard drive. If you prefer, you can install GRUB elsewhere on the drive, or to another drive, or even to a floppy."
+msgstr "Uw net geïnstalleerde Debian-systeem dient nu opstartbaar gemaakt te worden, door de GRUB-opstartlader te installeren op een opstartbaar apparaat. Gewoonlijk wordt hiervoor het 'master boot record' van uw eerste harde schijf gebruikt. Desgewenst kunt u GRUB ergens anders op de schijf, op een andere schijf, of zelfs op een diskette plaatsen."
 
 #. Type: string
 #. Description
 #: ../templates:24
-msgid ""
-"The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
-"in /dev."
-msgstr ""
+msgid "The device can be specified using GRUB's \"(hdn)\" notation, or as a device in /dev."
+msgstr "Het apparaat kan aangegeven worden in GRUB's '(hdn)'-notatie, of via het apparaatbestand in /dev/."
 
 #. Type: boolean
 #. Description
@@ -96,15 +73,8 @@ msgstr "GRUB-installatie is mislukt. Toch doorgaan?"
 #. Type: boolean
 #. Description
 #: ../templates:37
-msgid ""
-"The grub package failed to install into /target/.  Installing GRUB as a boot "
-"loader is a required step.  The install problem might however be unrelated "
-"to GRUB, so continuing the installation may be possible."
-msgstr ""
-"De installatie van het grub-pakket in /target/ is mislukt. De installatie "
-"van GRUB als opstartlader is een vereiste stap. Mogelijk heeft het "
-"installatie-probleem niks te maken met GRUB; in dat geval kunt u de "
-"installatie verderzetten."
+msgid "The grub package failed to install into /target/.  Installing GRUB as a boot loader is a required step.  The install problem might however be unrelated to GRUB, so continuing the installation may be possible."
+msgstr "De installatie van het grub-pakket in /target/ is mislukt. De installatie van GRUB als opstartlader is een vereiste stap. Mogelijk heeft het installatie-probleem niks te maken met GRUB; in dat geval kunt u de installatie verderzetten."
 
 #. Type: error
 #. Description
@@ -164,7 +134,7 @@ msgstr "GRUB-opstartapparaat wordt bepaald..."
 #. Description
 #: ../templates:74
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "'grub-install $(BOOTDEV)' wordt uitgevoerd..."
+msgstr "'grub-install ${BOOTDEV}' wordt uitgevoerd..."
 
 #. Type: text
 #. Description
@@ -183,24 +153,5 @@ msgstr "/etc/kernel-img.conf wordt bijgewerkt..."
 #. Main menu item
 #: ../templates:87
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "GRUB-opstartlader naar harde schijf installeren"
+msgstr "GRUB-opstartlader op een harde schijf installeren"
 
-#~ msgid ""
-#~ "Note that GRUB counts devices differently than the Linux kernel, so the "
-#~ "first drive is usually '(hd0)'. If you want it on the second partition of "
-#~ "the first drive, use '(hd0,1)'. Leave this at default if unsure."
-#~ msgstr ""
-#~ "Merk op dat GRUB de apparaten anders telt dan de Linux-kernel; de eerste "
-#~ "schijf is gewoonlijk '(hd0)'. Wanneer u de tweede partitie van de eerste "
-#~ "harde schijf gebruiken wilt, geeft u dus '(hd0,1)' op. Bij twijfel laat u "
-#~ "dit het best leeg."
-
-#~ msgid ""
-#~ "Warning: by default, this will change how your computer boots, "
-#~ "overwriting your existing master boot record with GRUB. Continuing may "
-#~ "make other operating systems installed on this computer unbootable."
-#~ msgstr ""
-#~ "Waarschuwing: standaard verandert deze aanpassing de manier waarop uw "
-#~ "computer opstart door uw 'master boot record' te overschrijven met GRUB. "
-#~ "Verder gaan maakt andere besturingssystemen op deze computer mogelijk "
-#~ "niet-opstartbaar."
