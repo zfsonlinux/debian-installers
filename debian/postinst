@@ -50,6 +50,25 @@ exit_error() {
 	exit 1
 }
 
+# See kernel/README for the architecture-specific functions expected here.
+if [ -f /usr/lib/base-installer/kernel.sh ]; then
+	. /usr/lib/base-installer/kernel.sh
+else
+	arch_get_kernel_flavour () {
+		warning "Unknown architecture '$ARCH'."
+		return 0
+	}
+	arch_check_usable_kernel () {
+		warning "Unknown architecture '$ARCH'."
+		return 0
+	}
+	arch_get_kernel () {
+		warning "Unknown architecture '$ARCH'."
+	}
+fi
+
+FLAVOUR="$(arch_get_kernel_flavour)"
+
 update_progress () {
 	# Updates the progress bar to a new position within the space allocated
 	# for the current waypoint. 
@@ -306,48 +325,23 @@ kernel_present () {
 	grep -q "^$1\$" $KERNEL_LIST
 }
 
-# See kernel/README for the architecture-specific functions expected here.
-if [ -f /usr/lib/base-installer/kernel.sh ]; then
-	. /usr/lib/base-installer/kernel.sh
-else
-	arch_get_kernel_flavour () {
-		warning "Unknown architecture '$ARCH'."
-		return 0
-	}
-	arch_check_usable_kernel () {
-		warning "Unknown architecture '$ARCH'."
-		return 0
-	}
-	arch_get_kernel () {
-		warning "Unknown architecture '$ARCH'."
-	}
-fi
-
 # Test whether a kernel is usable at all. For the purposes of this test, we
 # assume that SMP is usable on UP and vice versa (is this safe?).
 # Some architectures just have a hierarchy of optimized kernels, whereas
 # some have subarchitectures that are incompatible at the kernel level. This
 # function should cope with both cases.
 check_usable_kernel () {
-	if ! best_flavour="$(arch_get_kernel_flavour)"; then
-		info "arch_get_kernel_flavour failed"
+	if ! arch_check_usable_kernel "$1" "$FLAVOUR"; then
+		info "kernel $1 not usable on $FLAVOUR"
 		return 1
 	fi
-	if ! arch_check_usable_kernel "$1" "$best_flavour"; then
-		info "kernel $1 not usable on $best_flavour"
-		return 1
-	fi
-	info "kernel $1 usable on $best_flavour"
+	info "kernel $1 usable on $FLAVOUR"
 	return 0
 }
 
 # Returns a kernel that seems appropriate for the machine.
 get_arch_kernel () {
-	if ! flavour="$(arch_get_kernel_flavour)"; then
-		info "arch_get_kernel_flavour failed"
-		return
-	fi
-	arch_get_kernel "$flavour"
+	arch_get_kernel "$FLAVOUR"
 }
 
 pick_kernel () {
