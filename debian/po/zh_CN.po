@@ -23,7 +23,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:4
 msgid "Proceed with installation to unclean target?"
-msgstr ""
+msgstr "您要在未清空的文件系统中执行安装程序吗？"
 
 #. Type: boolean
 #. Description
@@ -33,12 +33,14 @@ msgid ""
 "could break the installation process or cause a broken system to be "
 "installed."
 msgstr ""
+"此文件系统包含上次安装所残留的文件。这些文件可能会破坏安装进程或者导致被安装"
+"的系统受损。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
 msgid "Cannot install Debian"
-msgstr " Debian"
+msgstr "无法安装 Debian"
 
 #. Type: error
 #. Description
@@ -46,13 +48,15 @@ msgstr " Debian"
 msgid ""
 "The installer cannot figure out how to install Debian. No installable CD-ROM "
 "was found and no valid mirror was configured."
-msgstr " Debian CD-ROM"
+msgstr ""
+"安装程序不知道如何安装 Debian。未找到任何可供安装的 CD-ROM，也没有设置任何有"
+"效的镜像。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:17
 msgid "No filesystem mounted on /target"
-msgstr " /target "
+msgstr "在 /target 上没有挂载任何文件系统"
 
 #. Type: error
 #. Description
@@ -60,14 +64,15 @@ msgstr " /target "
 msgid ""
 "Before the installation can proceed, a root filesystem must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
-msgstr " /target "
+msgstr ""
+"要开始进行安装，在 /target 上必须挂载一个根文件系统。磁盘分区程序和格式化程序"
+"应该已经帮你完成了这些工作。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:23
-#, fuzzy
 msgid "Not installing to unclean target"
-msgstr " LILO "
+msgstr "不能在未清空的目标文件系统上安装"
 
 #. Type: error
 #. Description
@@ -79,45 +84,46 @@ msgid ""
 "back and erase or format the target filesystem before proceeding with the "
 "install."
 msgstr ""
+"在目标文件系统上的安装已被取消，其原因是这个文件系统上有以前安装所残留的文"
+"件，从而可能中断安装进程或导致被安装的系统受损。你应当退回，删除或格式化目标"
+"文件系统，然后再开始安装。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:32
-#, fuzzy
 msgid "Failed to install the base system"
-msgstr " Debian ..."
+msgstr "安装基本系统失败"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:32
 msgid "The base system installation into /target/ failed."
-msgstr " /target/ "
+msgstr "将基本系统安装到 /target/ 失败"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:39
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
-msgstr "debootstrap  ( ${EXITCODE})"
+msgstr "debootstrap 程序因为错误而退出 (错误代码 ${EXITCODE})。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:46
-#, fuzzy
 msgid "Base system installation error"
-msgstr " /target/ "
+msgstr "基本系统安装出错"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:46
 msgid "The debootstrap program exited abnormally."
-msgstr "debootstrap "
+msgstr "debootstrap 程序异常退出。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:53
 msgid "The following error occurred:"
-msgstr ""
+msgstr "产生了下列错误："
 
 #. Type: error
 #. Description
@@ -128,44 +134,40 @@ msgstr "${ERROR}"
 #. Type: error
 #. Description
 #: ../base-installer.templates:62
-#, fuzzy
 msgid "Unable to install a kernel"
-msgstr " initrd-tools"
+msgstr "无法安装内核"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:62
 msgid "No kernel package is selected for installation."
-msgstr ""
+msgstr "没有选择要安装的内核软件包。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:67
-#, fuzzy
 msgid "Unable to install the selected kernel"
-msgstr " initrd-tools"
+msgstr "无法安装所选的内核"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:67
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
-msgstr " initrd-tools "
+msgstr "向目标系统中安装内核时发生错误。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:67
 msgid "Kernel package: '${KERNEL}'."
-msgstr " '${KERNEL}'"
+msgstr "内核软件包： '${KERNEL}'。"
 
 #. Type: select
 #. Description
 #: ../base-installer.templates:78
-#, fuzzy
 msgid "Kernel to install:"
-msgstr " Debian "
+msgstr "要安装的内核："
 
 #. Type: select
 #. Description
@@ -173,39 +175,38 @@ msgstr " Debian "
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
-msgstr " APT "
+msgstr "这里列出了 APT 源中可用的内核。请选择其中之一，使系统可以从硬盘启动。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:84
-#, fuzzy
 msgid "No installable kernel found"
-msgstr " ISO "
+msgstr "没找到可以安装的内核"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:84
 msgid "No installable kernel was found in the defined APT sources."
-msgstr " APT "
+msgstr "在指定的 APT 源没有找到可以安装的内核。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:84
 msgid "The current default kernel package is '${KERNEL}'."
-msgstr " '${KERNEL}'"
+msgstr "当前默认内核软件包是 '${KERNEL}'。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:84
 msgid ""
 "You may try to continue though this rather strange error is probably fatal."
-msgstr ""
+msgstr "尽管这个奇怪的错误可能非常重要，您还是可以尝试继续安装。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:93
 msgid "Unable to install initrd-tools"
-msgstr " initrd-tools"
+msgstr "无法安装 initrd-tools"
 
 #. Type: error
 #. Description
@@ -213,244 +214,239 @@ msgstr " initrd-tools"
 msgid ""
 "An error was returned while trying to install the initrd-tools package  onto "
 "the target system."
-msgstr " initrd-tools "
+msgstr "向目标系统中安装 initrd-tools 时出现一个错误。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:93
 msgid "Check /var/log/messages or see virtual console 3 for the details."
-msgstr " /var/log/messages "
+msgstr "请检查 /var/log/messages 或查看第三个虚拟控制台信息来获得详细情况。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:101
 msgid "${SUBST0} was not pre-downloaded."
-msgstr "${SUBST0} "
+msgstr "${SUBST0} 没有预先下载。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:106
 msgid "Unknown location ${SUBST0}."
-msgstr " ${SUBST0}"
+msgstr "未知位置 ${SUBST0}。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:111
 msgid "Failed getting Release file ${SUBST0}."
-msgstr " Release  ${SUBST0}"
+msgstr "无法获得 Release 文件 ${SUBST0}。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:116
 msgid "Invalid Release file: no valid components."
-msgstr " Release "
+msgstr "无效的 Release 文件：非有效的组件。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:121
 msgid "Invalid Release file: no entry for ${SUBST0}."
-msgstr " Release  ${SUBST0} "
+msgstr "无效的 Release 文件：没有 ${SUBST0} 项目。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:126
 msgid "Couldn't download ${SUBST0}."
-msgstr " ${SUBST0}"
+msgstr "不能下载 ${SUBST0}。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:131
 msgid "Debootstrap Error"
-msgstr "Debootstrap "
+msgstr "Debootstrap 错误"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:131
 msgid "Interrupt caught... Exiting."
-msgstr " ... "
+msgstr "发生中断 ... 正在退出。"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:136
 msgid "Installing the Debian base system"
-msgstr " Debian "
+msgstr "正在安装 Debian 基本系统"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:140
 msgid "Preparing to install the Debian base system..."
-msgstr " Debian ..."
+msgstr "准备安装 Debian 基本系统..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:144
 msgid "Running ${SCRIPT}..."
-msgstr " ${SCRIPT}..."
+msgstr "正在运行 ${SCRIPT}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:148
-#, fuzzy
 msgid "Checking the target file system"
-msgstr "/ - "
+msgstr "正在检查目标文件系统"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:152
 msgid "Retrieving Release file"
-msgstr ""
+msgstr "正在接收软件包文件"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:156
 msgid "Finding package sizes"
-msgstr ""
+msgstr "查询软件包大小"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:160
 msgid "Retrieving Packages files"
-msgstr ""
+msgstr "正在接收软件包文件"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:164
 msgid "Retrieving packages"
-msgstr ""
+msgstr "正在接收软件包"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:168
-#, fuzzy
 msgid "Extracting packages"
-msgstr "..."
+msgstr "正在解开软件包"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:172
-#, fuzzy
 msgid "Installing the base system"
-msgstr " Debian "
+msgstr "正在安装基本系统"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:176
 msgid "${SECTION}: ${INFO}..."
-msgstr "${SECTION}${INFO}..."
+msgstr "${SECTION}：${INFO}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:180
 msgid "Validating ${SUBST0}..."
-msgstr " ${SUBST0}..."
+msgstr "正在校验 ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:184
 msgid "Retrieving ${SUBST0}..."
-msgstr " ${SUBST0}..."
+msgstr "正在接收 ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:188
 msgid "Extracting ${SUBST0}..."
-msgstr " ${SUBST0}..."
+msgstr "正在解开 ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:192
 msgid "Checking package size: ${SUBST0}..."
-msgstr "${SUBST0}..."
+msgstr "正在检查软件包的大小：${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:196
 msgid "Installing core packages..."
-msgstr "..."
+msgstr "正在安装核心软件包..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:200
 msgid "Unpacking required packages..."
-msgstr "..."
+msgstr "正在解开必需的软件包..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:204
 msgid "Configuring required packages..."
-msgstr "..."
+msgstr "正在配置必需的软件包..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:208
 msgid "Installing base packages..."
-msgstr "..."
+msgstr "正在安装基本软件包..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:212
-#, fuzzy
 msgid "Base system installed successfully."
-msgstr "SILO "
+msgstr "基本系统安装成功。"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:216
 msgid "Configuring APT sources..."
-msgstr " APT ..."
+msgstr "配置 APT 源..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:220
 msgid "Updating the list of available packages..."
-msgstr "..."
+msgstr "更新可用软件包列表..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:224
 msgid "Installing extra packages..."
-msgstr "..."
+msgstr "正在安装额外的软件包..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:228
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
-msgstr " -  ${SUBST0}..."
+msgstr "安装额外软件包 - 正在接收并安装 ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:232
 msgid "Creating device files..."
-msgstr "..."
+msgstr "正在创建设备文件..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:236
 msgid "Selecting the kernel to install..."
-msgstr "..."
+msgstr "选择要安装的内核..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:240
 msgid "Installing the kernel..."
-msgstr "..."
+msgstr "正在安装内核..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:244
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
-msgstr " -  ${SUBST0}..."
+msgstr "安装内核 - 正在接收并安装 ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:248
 msgid "Installing the PCMCIA modules"
-msgstr " PCMCIA "
+msgstr "正在安装 PCMCIA 模块"
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
 #: ../base-installer.templates:253
-#, fuzzy
 msgid "Install the base system"
-msgstr " Debian "
+msgstr "安装基本系统"

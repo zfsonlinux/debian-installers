@@ -23,7 +23,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:4
 msgid "Proceed with installation to unclean target?"
-msgstr "?"
+msgstr "消去されていないターゲットにインストール処理を行いますか?"
 
 #. Type: boolean
 #. Description
@@ -33,12 +33,15 @@ msgid ""
 "could break the installation process or cause a broken system to be "
 "installed."
 msgstr ""
+"指定されたターゲットのファイルシステムには以前にインストールされたものによる"
+"ファイルが含まれています。これらのファイルはインストール処理を中断させたり、"
+"壊れたシステムのインストールを引き起こす恐れがあります。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
 msgid "Cannot install Debian"
-msgstr "Debian "
+msgstr "Debian をインストールできません"
 
 #. Type: error
 #. Description
@@ -46,13 +49,15 @@ msgstr "Debian "
 msgid ""
 "The installer cannot figure out how to install Debian. No installable CD-ROM "
 "was found and no valid mirror was configured."
-msgstr " Debian  CD-ROM "
+msgstr ""
+"インストーラは Debian をどのようにインストールしたらよいか理解できませんでし"
+"た。インストール可能な CD-ROM が見つからないか、ミラーが設定されていません。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:17
 msgid "No filesystem mounted on /target"
-msgstr "/target "
+msgstr "/target にマウントされたファイルシステムがありません"
 
 #. Type: error
 #. Description
@@ -60,14 +65,15 @@ msgstr "/target "
 msgid ""
 "Before the installation can proceed, a root filesystem must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
-msgstr " / partitioner "
+msgstr ""
+"インストールを進める前に、ルートファイルシステムを / ターゲットにマウントする"
+"必要があります。partitioner およびフォーマッタでこれを行っているべきです。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:23
-#, fuzzy
 msgid "Not installing to unclean target"
-msgstr "?"
+msgstr "消去されていないターゲットにインストールできません"
 
 #. Type: error
 #. Description
@@ -79,45 +85,48 @@ msgid ""
 "back and erase or format the target filesystem before proceeding with the "
 "install."
 msgstr ""
+"ターゲットファイルシステムに、以前にインストールされたものによるファイルが含"
+"まれていたため、ターゲットのファイルシステムへのインストールはキャンセルされ"
+"ました。このような以前のファイルは、インストール処理を壊すか壊れたシステムの"
+"インストールを引き起こしかねません。インストールの処理を続ける前に、戻って"
+"ターゲットファイルシステムを削除するかフォーマットすることをお勧めします。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:32
-#, fuzzy
 msgid "Failed to install the base system"
-msgstr "Debian ..."
+msgstr "ベースシステムのインストールに失敗しました"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:32
 msgid "The base system installation into /target/ failed."
-msgstr "/target/ "
+msgstr "/target/ へのベースシステムのインストールに失敗しました。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:39
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
-msgstr "debootstrap  ( ${EXITCODE})"
+msgstr "debootstrap プログラムはエラーで終了しました (戻り値 ${EXITCODE})。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:46
-#, fuzzy
 msgid "Base system installation error"
-msgstr "/target/ "
+msgstr "ベースシステムインストールエラー"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:46
 msgid "The debootstrap program exited abnormally."
-msgstr "debootstrap "
+msgstr "debootstrap プログラムは異常終了しました。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:53
 msgid "The following error occurred:"
-msgstr ":"
+msgstr "以下のエラーが発生しました:"
 
 #. Type: error
 #. Description
@@ -128,43 +137,40 @@ msgstr "${ERROR}"
 #. Type: error
 #. Description
 #: ../base-installer.templates:62
-#, fuzzy
 msgid "Unable to install a kernel"
-msgstr "initrd-tools "
+msgstr "カーネルをインストールできません"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:62
 msgid "No kernel package is selected for installation."
-msgstr ""
+msgstr "インストール用のカーネルパッケージが選択されていません。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:67
-#, fuzzy
 msgid "Unable to install the selected kernel"
-msgstr "initrd-tools "
+msgstr "選択されたカーネルはインストールできません"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:67
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
-msgstr "initrd-tools "
+msgstr "カーネルを対象システムにインストール中にエラーが返されました。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:67
 msgid "Kernel package: '${KERNEL}'."
-msgstr ": '${KERNEL}'"
+msgstr "カーネルパッケージ: '${KERNEL}'"
 
 #. Type: select
 #. Description
 #: ../base-installer.templates:78
 msgid "Kernel to install:"
-msgstr ":"
+msgstr "インストールするカーネル:"
 
 #. Type: select
 #. Description
@@ -172,39 +178,41 @@ msgstr ":"
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
-msgstr " 1 "
+msgstr ""
+"リストは利用できるカーネルを示しています。ハードドライブからシステムをブート"
+"することができるよう、これらのうちの 1 つを選んでください。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:84
-#, fuzzy
 msgid "No installable kernel found"
-msgstr " ISO "
+msgstr "インストール可能なカーネルが見つかりません"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:84
 msgid "No installable kernel was found in the defined APT sources."
-msgstr " APT "
+msgstr ""
+"定義された APT ソースにインストール可能なカーネルが見つかりませんでした。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:84
 msgid "The current default kernel package is '${KERNEL}'."
-msgstr " '${KERNEL}' "
+msgstr "現在のデフォルトカーネルパッケージは '${KERNEL}' です。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:84
 msgid ""
 "You may try to continue though this rather strange error is probably fatal."
-msgstr ""
+msgstr "この不可解なエラーはおそらく致命的ですが、継続を試みることはできます。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:93
 msgid "Unable to install initrd-tools"
-msgstr "initrd-tools "
+msgstr "initrd-tools をインストールできません"
 
 #. Type: error
 #. Description
@@ -212,126 +220,124 @@ msgstr "initrd-tools "
 msgid ""
 "An error was returned while trying to install the initrd-tools package  onto "
 "the target system."
-msgstr "initrd-tools "
+msgstr ""
+"initrd-tools パッケージを対象システムにインストール中にエラーが返されました。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:93
 msgid "Check /var/log/messages or see virtual console 3 for the details."
-msgstr "/var/log/messages  3 "
+msgstr ""
+"詳細については、/var/log/messages を確認するか、仮想コンソール 3 を参照してく"
+"ださい。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:101
 msgid "${SUBST0} was not pre-downloaded."
-msgstr "${SUBST0} "
+msgstr "${SUBST0} は事前ダウンロードされていません。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:106
 msgid "Unknown location ${SUBST0}."
-msgstr "${SUBST0} "
+msgstr "${SUBST0} は未知の場所です。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:111
 msgid "Failed getting Release file ${SUBST0}."
-msgstr "Release  ${SUBST0} "
+msgstr "Release ファイル ${SUBST0} の取得に失敗しました。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:116
 msgid "Invalid Release file: no valid components."
-msgstr " Release : "
+msgstr "無効な Release ファイルです: 有効なコンポーネントがありません。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:121
 msgid "Invalid Release file: no entry for ${SUBST0}."
-msgstr " Release : ${SUBST0} "
+msgstr "無効な Release ファイルです: ${SUBST0} のエントリがありません。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:126
 msgid "Couldn't download ${SUBST0}."
-msgstr "${SUBST0} "
+msgstr "${SUBST0} をダウンロードできませんでした。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:131
 msgid "Debootstrap Error"
-msgstr "Debootstrap "
+msgstr "Debootstrap エラー"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:131
 msgid "Interrupt caught... Exiting."
-msgstr " ... "
+msgstr "インタラプトを受け取りました ... 終了しています。"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:136
 msgid "Installing the Debian base system"
-msgstr "Debian "
+msgstr "Debian ベースシステムをインストールしています"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:140
 msgid "Preparing to install the Debian base system..."
-msgstr "Debian ..."
+msgstr "Debian ベースシステムのインストールを準備しています..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:144
 msgid "Running ${SCRIPT}..."
-msgstr "${SCRIPT} ..."
+msgstr "${SCRIPT} を実行しています..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:148
-#, fuzzy
 msgid "Checking the target file system"
-msgstr "/ - "
+msgstr "ターゲットのファイルシステムを確認しています"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:152
 msgid "Retrieving Release file"
-msgstr "Release "
+msgstr "Release ファイルを取得しています"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:156
-#, fuzzy
 msgid "Finding package sizes"
-msgstr "Packages "
+msgstr "パッケージサイズを調べています"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:160
 msgid "Retrieving Packages files"
-msgstr "Packages "
+msgstr "Packages ファイルを取得しています"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:164
-#, fuzzy
 msgid "Retrieving packages"
-msgstr "Packages "
+msgstr "パッケージを取得しています"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:168
-#, fuzzy
 msgid "Extracting packages"
-msgstr "..."
+msgstr "パッケージを展開しています"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:172
-#, fuzzy
 msgid "Installing the base system"
-msgstr "Debian "
+msgstr "ベースシステムをインストールしています"
 
 #. Type: text
 #. Description
@@ -343,115 +349,117 @@ msgstr "${SECTION}: ${INFO}..."
 #. Description
 #: ../base-installer.templates:180
 msgid "Validating ${SUBST0}..."
-msgstr "${SUBST0} ..."
+msgstr "${SUBST0} を検査しています..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:184
 msgid "Retrieving ${SUBST0}..."
-msgstr "${SUBST0} ..."
+msgstr "${SUBST0} を取得しています..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:188
 msgid "Extracting ${SUBST0}..."
-msgstr "${SUBST0} ..."
+msgstr "${SUBST0} を展開しています..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:192
 msgid "Checking package size: ${SUBST0}..."
-msgstr ": ${SUBST0}..."
+msgstr "パッケージサイズをチェックしています: ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:196
 msgid "Installing core packages..."
-msgstr "..."
+msgstr "コアパッケージをインストールしています..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:200
 msgid "Unpacking required packages..."
-msgstr "..."
+msgstr "必須パッケージを展開しています..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:204
 msgid "Configuring required packages..."
-msgstr "..."
+msgstr "必須パッケージを設定しています..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:208
 msgid "Installing base packages..."
-msgstr "..."
+msgstr "ベースパッケージをインストールしています..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:212
-#, fuzzy
 msgid "Base system installed successfully."
-msgstr "SILO "
+msgstr "ベースシステムのインストールに成功しました。"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:216
 msgid "Configuring APT sources..."
-msgstr "APT ..."
+msgstr "APT ソースを設定しています..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:220
 msgid "Updating the list of available packages..."
-msgstr "..."
+msgstr "利用可能なパッケージのリストを更新しています..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:224
 msgid "Installing extra packages..."
-msgstr "..."
+msgstr "特別パッケージをインストールしています..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:228
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
-msgstr " - ${SUBST0} ..."
+msgstr ""
+"特別パッケージをインストールしています - ${SUBST0} を取得・インストールしてい"
+"ます..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:232
 msgid "Creating device files..."
-msgstr "..."
+msgstr "デバイスファイルを作成しています..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:236
 msgid "Selecting the kernel to install..."
-msgstr "..."
+msgstr "インストールするカーネルを選択しています..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:240
 msgid "Installing the kernel..."
-msgstr "..."
+msgstr "カーネルをインストールしています..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:244
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
-msgstr " - ${SUBST0} ..."
+msgstr ""
+"カーネルをインストールしています - ${SUBST0} を取得・インストールしていま"
+"す..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:248
 msgid "Installing the PCMCIA modules"
-msgstr "PCMCIA "
+msgstr "PCMCIA モジュールをインストールしています"
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
 #: ../base-installer.templates:253
-#, fuzzy
 msgid "Install the base system"
-msgstr "Debian "
+msgstr "ベースシステムのインストール"
