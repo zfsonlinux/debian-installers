@@ -228,11 +228,7 @@ exec_debootstrap(char **argv){
                         if (ptr == NULL)
                             return -1;
 
-#if defined(di_log) /* Using libd-i library >= 0.16 */
                         di_log(DI_LOG_LEVEL_OUTPUT, ptr);
-#else /* not di_log */
-                        di_log(ptr);
-#endif /* di_log */
 		    } else {
                         // err, don't really know what to do here... there
                         // should always be a fallback...
