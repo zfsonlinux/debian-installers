@@ -431,7 +431,16 @@ pick_kernel () {
 }
 
 install_kernel () {
-	if db_get "base-installer/kernel/linux/initrd-$KERNEL_MAJOR" ; then
+	target_kernel_major="$(echo "$KERNEL" | sed 's/^kernel-image-//; s/-.*//' | cut -d . -f 1,2)"
+	case $target_kernel_major in
+		2.?)	;;
+		*)
+			# something went wrong; use major version of
+			# installation kernel
+			target_kernel_major="$(uname -r | cut -d . -f 1,2)"
+			;;
+	esac
+	if db_get "base-installer/kernel/linux/initrd-$target_kernel_major" ; then
 		if [ "$RET" = true ]; then
 			do_initrd=yes
 		else
@@ -511,7 +520,7 @@ EOF
 	update_progress 15 100
 
 	# Installing mkvmlinuz on the powerpc subarches that need it.
-	if [ "$ARCH" = "powerpc" ] && [ "$KERNEL_MAJOR" = "2.6" ]; then
+	if [ "$ARCH" = "powerpc" ] && [ "$target_kernel_major" = "2.6" ]; then
 		case "$SUBARCH" in
 			prep | chrp | chrp_pegasos)
 				info "Installing mkvmlinuz."
