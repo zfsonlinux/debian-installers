@@ -1,7 +1,11 @@
 arch_get_kernel_flavour () {
 	case "$SUBARCH" in
-		r3k-kn02|r4k-kn04|cobalt|sb1-swarm-bn)
+		r3k-kn02|r4k-kn04|sb1-swarm-bn)
 			echo "$SUBARCH"
+			return 0
+		;;
+		cobalt)
+			echo r5k-cobalt
 			return 0
 		;;
 		*)
