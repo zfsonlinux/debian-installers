@@ -1,7 +1,5 @@
 #! /bin/sh -xe
 
-KERNEL_IMAGE=kernel-image-2.4.19-386,initrd-tools,ash,cramfsprogs,zlib1g
-
 LOGDIR=/target/var/log
 
 PROTOCOL=
@@ -44,6 +42,16 @@ if [ "$1" = "configure" ]; then
 
     fi
 
+    if db_get mirror/distribution && [ "$RET" ] ; then
+	DISTRIBUTION=$RET
+    fi
+
+    if [ woody = "$DISTRIBUTION" ] ; then
+        KERNEL_IMAGE=kernel-image-2.4.18-386,initrd-tools,ash,cramfsprogs,zlib1g
+    else
+        KERNEL_IMAGE=kernel-image-2.4.19-386,initrd-tools,ash,cramfsprogs,zlib1g
+    fi
+
     INCLUDE=`echo "--include=${KERNEL_IMAGE},${INCLUDES}" | sed 's/,$//'`
     EXCLUDE="--exclude=${EXCLUDES}"
 
@@ -57,10 +65,6 @@ if [ "$1" = "configure" ]; then
  
     if db_get netcfg/get_domain && [ "$RET" -a "$HOSTNAME" ] ; then
     	NAMES="${HOSTNAME}.$RET $NAMES"
-    fi
-
-    if db_get mirror/distribution && [ "$RET" ] ; then
-	DISTRIBUTION=$RET
     fi
 
     test -d /target/etc || mkdir -p /target/etc
