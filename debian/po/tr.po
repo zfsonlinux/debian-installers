@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-04-03 22:56-0500\n"
-"PO-Revision-Date: 2004-03-20 23:48+0200\n"
+"PO-Revision-Date: 2004-04-04 18:52+0300\n"
 "Last-Translator: Osman Yüksel <yuxel@sonsuzdongu.com>\n"
 "Language-Team: Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -29,9 +29,9 @@ msgid ""
 "installing the GRUB bootloader on a bootable device. The usual way to do "
 "this is to install GRUB on the master boot record of your first hard drive."
 msgstr ""
-"Şimdi sıra önyükleme yapılacak aygıta GRUB yazılarak,  yeni kurulan Debian "
-"sistemini açılabilir(bootable) yapmaya geldi. Alışılmış yol, GRUB'ı, "
-"birincil sabit diskinizin mbr'ına yazmaktır."
+"Şimdi, önyükleme yapılabilecek bir aygıta GRUB önyükleyicisi kurularak yeni "
+"Debian sistemi açılabilir hale getirilecek. Alışılmış yol, GRUB'ı birincil "
+"sabit diskinizin ana önyükleme kaydına (MBR) kurmaktır."
 
 #. Type: string
 #. Description
@@ -41,9 +41,9 @@ msgid ""
 "first drive is usually '(hd0)'. If you want it on the second partition of "
 "the first drive, use '(hd0,1)'. Leave this at default if unsure."
 msgstr ""
-"Şunu bilmesiniz ki GRUB aygıtları Linux kernel'inden farklı sayar, yani ilk "
-"sürücü genelde '(hd0)' dır. Eğer ilk sürücünün ikinci bölümünü kullanmak "
-"isterseniz '(hd0,1)' kullanın. Emin değilseniz boş bırakın."
+"GRUB aygıtları Linux kernel'inden farklı sayar, yani ilk sürücü genelde "
+"'(hd0)' dır. Eğer ilk sürücünün ikinci bölümünü kullanmak isterseniz "
+"'(hd0,1)' kullanın. Emin değilseniz öntanımlı değerde bırakın."
 
 #. Type: string
 #. Description
@@ -53,15 +53,16 @@ msgid ""
 "your existing master boot record with GRUB. Continuing may make other "
 "operating systems installed on this computer unbootable."
 msgstr ""
-"Uyarı : bu, öntanımlı olarak bilgisayarınızın açılış şeklini değişitirecek, "
-"GRUB'ı  MBR'ın üzerine yazacaktır. Bu işlem sisteminizdeki diğer işletim "
-"sistemlerini yeniden başlatılamaz(unbootable) duruma getirebilir."
+"Uyarı: Bu işlem, öntanımlı olarak, bilgisayarınızın açılış şeklini "
+"değiştirecek ve GRUB var olan ana önyükleme kaydının (MBR) üzerine "
+"yazacaktır. Devam etmeniz halinde bu bilgisayarda kurulu olan diğer işletim "
+"sistemleri açılamaz duruma gelebilir. "
 
 #. Type: boolean
 #. Description
 #: ../templates:20
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "GRUB yüklenmesi başarısız. Yine de devam edilsin mi?"
+msgstr "GRUB kurulumu başarısız. Yine de devam edilsin mi?"
 
 #. Type: boolean
 #. Description
@@ -71,15 +72,15 @@ msgid ""
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"GRUB paketi /target/ a kurulamadı. GRUB'ın bir açılış yükleyicisi olarak "
-"kurulması gerekli. Kurulum problemi grub'dan kaynaklanmıyor olabilir, ve "
-"devam ederseniz çalışabilir."
+"GRUB paketi /target/ a kurulamadı. Bir açılış önyükleyicisi olarak GRUB'ın "
+"kurulması gerekiyor. Kurulum problemi GRUB ile ilgili olmayabileceğinden, "
+"kuruluma devam etmeniz mümkün olabilir. "
 
 #. Type: error
 #. Description
 #: ../templates:27
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "${BOOTDEV} aygıtına GRUB kurulamadı"
+msgstr "GRUB ${BOOTDEV} aygıtına kurulamadı"
 
 #. Type: error
 #. Description
@@ -103,7 +104,7 @@ msgstr "'update-grub' komutu başarısız."
 #. Description
 #: ../templates:34
 msgid "This is a fatal error."
-msgstr "Bu tehlikeli(ölümcül) bir hata."
+msgstr "Bu ölümcül bir hata."
 
 #. Type: text
 #. Description
@@ -115,7 +116,7 @@ msgstr "GRUB açılış yükleyicisi kuruluyor"
 #. Description
 #: ../templates:45
 msgid "Looking for other operating systems..."
-msgstr ""
+msgstr "Sisteminizde kurulu diğer işletim sistemleri araştırılıyor..."
 
 #. Type: text
 #. Description
@@ -127,7 +128,7 @@ msgstr "'grub' paketi kuruluyor..."
 #. Description
 #: ../templates:53
 msgid "Determining GRUB boot device..."
-msgstr "GRUB boot aygıtı belirleniyor..."
+msgstr "GRUB önyükleme aygıtı belirleniyor..."
 
 #. Type: text
 #. Description
@@ -152,4 +153,4 @@ msgstr "/etc/kernel-img.conf güncelleniyor..."
 #. Main menu item
 #: ../templates:70
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "Sabit diske GRUB önyükleyici kuruluyor"
+msgstr "Sabit diske GRUB önyükleyicisi kuruluyor"
