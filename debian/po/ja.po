@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-11-02 10:50+0100\n"
+"POT-Creation-Date: 2003-11-17 21:29+0100\n"
 "PO-Revision-Date: 2003-11-03 15:15+0900\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
@@ -23,266 +23,296 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. Type: note
+#. Type: error
 #. Description
 #: ../base-installer.templates:3
-msgid "Installing base system into /target/ failed"
+#, fuzzy
+msgid "Failed to install the base system"
+msgstr "ベースシステムのインストール"
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:3
+#, fuzzy
+msgid "The base system installation into /target/ failed."
 msgstr "/target/ へのベースシステムのインストールに失敗しました"
 
-#. Type: note
+#. Type: error
 #. Description
 #: ../base-installer.templates:3
+#, fuzzy
 msgid ""
-"Check /target/var/log/debootstrap.log and /target/var/log/debootstrap.err."
-"log for the details."
+"Please check /target/var/log/debootstrap.log and /target/var/log/debootstrap."
+"err.log for the details."
 msgstr ""
 "詳細については /target/var/log/debootstrap.log および /target/var/log/"
 "debootstrap.err.log を確認してください。"
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:9
-msgid "debootstrap exited with an error (return value ${EXITCODE})."
+#: ../base-installer.templates:11
+#, fuzzy
+msgid ""
+"The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr "debootstrap はエラーで終了しました (戻り値 ${EXITCODE})。"
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:16
-msgid "Base installation error"
+#: ../base-installer.templates:18
+#, fuzzy
+msgid "Base system installation error"
 msgstr "ベースインストールエラー"
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:16
-msgid "debootstrap exited abnormally."
+#: ../base-installer.templates:18
+#, fuzzy
+msgid "The debootstrap program exited abnormally."
 msgstr "debootstrap は異常終了しました。"
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:16
-msgid "You might find more information in /target/var/log/debootstrap.log"
+#: ../base-installer.templates:18
+#, fuzzy
+msgid "You might find more information in /target/var/log/debootstrap.log."
 msgstr "詳細については /target/var/log/debootstrap.log を参照してください"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:25
 msgid "The following error occurred:"
 msgstr "以下のエラーが発生しました:"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:25
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:25
+#, fuzzy
 msgid ""
 "You might find more information in /target/var/log/debootstrap.log or /"
-"target/var/log/debootstrap.err.log"
+"target/var/log/debootstrap.err.log."
 msgstr ""
 "詳細については /target/var/log/debootstrap.log および /target/var/log/"
 "debootstrap.err.log を参照してください"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:33
+#: ../base-installer.templates:35
 msgid "Unknown download style."
 msgstr "未知のダウンロードスタイルです。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:38
+#: ../base-installer.templates:40
 msgid "Unknown mirror style."
 msgstr "未知のミラースタイルです。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:43
+#: ../base-installer.templates:45
 msgid "${SUBST0} was not pre-downloaded."
 msgstr "${SUBST0} は事前ダウンロードされていません。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:48
+#: ../base-installer.templates:50
 msgid "Unknown location ${SUBST0}."
 msgstr "${SUBST0} は未知の場所です。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:53
+#: ../base-installer.templates:55
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Release ファイル ${SUBST0} の取得に失敗しました。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:58
+#: ../base-installer.templates:60
 msgid "Invalid Release file, no valid components."
 msgstr "無効な Release ファイルです。有効なコンポーネントがありません。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:63
+#: ../base-installer.templates:65
 msgid "Invalid Release file, no entry for ${SUBST0}."
 msgstr "無効な Release ファイルです。${SUBST0} のエントリがありません。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:68
+#: ../base-installer.templates:70
 msgid "Couldn't download ${SUBST0}."
 msgstr "${SUBST0} をダウンロードできませんでした。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:73
+#: ../base-installer.templates:75
 msgid "No ${SUBST0}. Cannot create devices."
 msgstr "${SUBST0} がありません。デバイスを作成できません。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:78
+#: ../base-installer.templates:80
 msgid "Unknown dselect method."
 msgstr "未知の dselect メソッドです。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:83
+#: ../base-installer.templates:85
 msgid "Debootstrap Error"
 msgstr "Debootstrap エラー"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:83
+#: ../base-installer.templates:85
 msgid "Interrupt caught ... exiting."
 msgstr "インタラプトを受け取りました ... 終了しています。"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:92
-msgid "Retrieving Release file"
+#: ../base-installer.templates:94
+#, fuzzy
+msgid "Retrieving Release file..."
 msgstr "Release ファイルを取得しています"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:96
-msgid "Retrieving Packages files"
+#: ../base-installer.templates:98
+#, fuzzy
+msgid "Retrieving Packages files..."
 msgstr "Packages ファイルを取得しています"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:100
-msgid "Retrieving packages"
+#: ../base-installer.templates:102
+#, fuzzy
+msgid "Retrieving packages..."
 msgstr "パッケージを取得しています"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:104
-msgid "Retrieving Packages file"
+#: ../base-installer.templates:106
+#, fuzzy
+msgid "Retrieving Packages file..."
 msgstr "Packages ファイルを取得しています"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:108
-msgid "Extracting packages"
+#: ../base-installer.templates:110
+#, fuzzy
+msgid "Extracting packages..."
 msgstr "パッケージを展開しています"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:112
-msgid "Installing base system"
+#: ../base-installer.templates:114
+#, fuzzy
+msgid "Installing base system..."
 msgstr "ベースシステムをインストールしています"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:120
-msgid "Validating ${SUBST0}"
+#: ../base-installer.templates:122
+#, fuzzy
+msgid "Validating ${SUBST0}..."
 msgstr "${SUBST0} を検査しています"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:124
-msgid "Retrieving ${SUBST0}"
+#: ../base-installer.templates:126
+#, fuzzy
+msgid "Retrieving ${SUBST0}..."
 msgstr "${SUBST0} を取得しています"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:128
-msgid "Extracting ${SUBST0}"
+#: ../base-installer.templates:130
+#, fuzzy
+msgid "Extracting ${SUBST0}..."
 msgstr "${SUBST0} を展開しています"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:132
+#: ../base-installer.templates:134
 msgid "Installing core packages..."
 msgstr "コアパッケージをインストールしています..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:136
+#: ../base-installer.templates:138
 msgid "Unpacking required packages..."
 msgstr "必須パッケージを展開しています..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:140
+#: ../base-installer.templates:142
 msgid "Configuring required packages..."
 msgstr "必須パッケージを設定しています..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:146
 msgid "Installing base packages..."
 msgstr "ベースパッケージをインストールしています..."
 
 #. Type: note
 #. Description
-#: ../base-installer.templates:148
-msgid "Base system installed successfully."
+#: ../base-installer.templates:150
+#, fuzzy
+msgid "Base system successfully installed"
 msgstr "ベースシステムは正常にインストールされました。"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:152
+#: ../base-installer.templates:154
 msgid "Installing extra packages"
 msgstr "特別パッケージをインストールしています"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:156
-msgid "Configuring APT sources"
+#: ../base-installer.templates:158
+#, fuzzy
+msgid "Configuring APT sources..."
 msgstr "APT ソースを設定しています"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:160
-msgid "Updating the list of available packages"
+#: ../base-installer.templates:162
+#, fuzzy
+msgid "Updating the list of available packages..."
 msgstr "利用可能なパッケージのリストを更新しています"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
-msgid "Installing the extra packages"
+#: ../base-installer.templates:166
+#, fuzzy
+msgid "Installing the extra packages..."
 msgstr "特別パッケージをインストールしています"
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../base-installer.templates:169
+#: ../base-installer.templates:171
 msgid "Install the base system"
 msgstr "ベースシステムのインストール"
 
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:3
-msgid "No kernel package is selected for installation"
-msgstr "インストール用のカーネルパッケージが選択されていません"
+#, fuzzy
+msgid "Unable to install a kernel"
+msgstr "カーネルをインストールできません。"
 
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:3
-msgid "Unable to install a kernel."
-msgstr "カーネルをインストールできません。"
+#, fuzzy
+msgid "No kernel package is selected for installation."
+msgstr "インストール用のカーネルパッケージが選択されていません"
 
 #. Type: error
 #. Description
@@ -313,9 +343,10 @@ msgstr "これはおそらく致命的なエラーです。"
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:11
+#, fuzzy
 msgid ""
-"You might try to select \"Install the kernel\" again on the main menu. That "
-"will allow you to select another kernel to install."
+"You might try to select the kernel installation step again on the main menu. "
+"That will allow you to select another kernel to install."
 msgstr ""
 "可能であればメインメニューから \"カーネルのインストール\" を選択してみましょ"
 "う。これは別のカーネルを選択してインストールできます。"
@@ -323,15 +354,17 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../kernel-installer.templates:25
-msgid "Select which kernel to install into /target/"
+#, fuzzy
+msgid "Kernel to install into /target/:"
 msgstr "/target/ にインストールするカーネルを選択してください"
 
 #. Type: select
 #. Description
 #: ../kernel-installer.templates:25
+#, fuzzy
 msgid ""
-"These are the kernels available from the APT sources.  One of them needs to "
-"be installed to be able to boot the system from hard drive."
+"The list shows the kernels available from the APT sources.  Please choose "
+"one of them in order to make the system bootable from the hard drive."
 msgstr ""
 "これらは APT ソースから利用できるカーネルです。ハードドライブからシステムを"
 "ブートすることができるよう、これらのうちの 1 つはインストールする必要がありま"
@@ -340,14 +373,16 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:31
-msgid "No installable kernel was found in the APT sources defined"
+#, fuzzy
+msgid "No installable kernel found"
 msgstr "定義された APT ソースにインストール可能なカーネルが見つかりません。"
 
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:31
-msgid "This is rather strange, and probably fatal."
-msgstr "これはかなり不可解です。おそらく致命的です。"
+#, fuzzy
+msgid "No installable kernel was found in the defined APT sources."
+msgstr "定義された APT ソースにインストール可能なカーネルが見つかりません。"
 
 #. Type: error
 #. Description
@@ -358,8 +393,10 @@ msgstr "現在のデフォルトカーネルパッケージは '${KERNEL}' で�
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:31
-msgid "You will have to continue as best as you can.  Good luck."
-msgstr "最善は尽くしました。幸運を祈ります。"
+#, fuzzy
+msgid ""
+"You may try to continue though this rather strange error is probably fatal."
+msgstr "これはかなり不可解です。おそらく致命的です。"
 
 #. Type: text
 #. Description
@@ -397,6 +434,9 @@ msgstr "カーネルパッケージ ${KERNEL} をインストールしていま�
 #: ../kernel-installer.templates:61
 msgid "Install the kernel"
 msgstr "カーネルのインストール"
+
+#~ msgid "You will have to continue as best as you can.  Good luck."
+#~ msgstr "最善は尽くしました。幸運を祈ります。"
 
 #~ msgid "Downloading packages"
 #~ msgstr "パッケージをダウンロードしています"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: base-installer_0.023\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-11-02 10:50+0100\n"
+"POT-Creation-Date: 2003-11-17 21:29+0100\n"
 "PO-Revision-Date: 2003-11-01 18:14+0100\n"
 "Last-Translator: Safir Šećerović <sapphire@linux.org.ba>\n"
 "Language-Team: Bosnian <lokal@lugbih.org>\n"
@@ -22,268 +22,284 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. Type: note
+#. Type: error
 #. Description
 #: ../base-installer.templates:3
-msgid "Installing base system into /target/ failed"
+#, fuzzy
+msgid "Failed to install the base system"
+msgstr "Ne mogu da instaliram izabrani kernel"
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:3
+#, fuzzy
+msgid "The base system installation into /target/ failed."
 msgstr "Instaliranje osnovnog sistema na /target/ nije uspjelo"
 
-#. Type: note
+#. Type: error
 #. Description
 #: ../base-installer.templates:3
+#, fuzzy
 msgid ""
-"Check /target/var/log/debootstrap.log and /target/var/log/debootstrap.err."
-"log for the details."
+"Please check /target/var/log/debootstrap.log and /target/var/log/debootstrap."
+"err.log for the details."
 msgstr ""
 "Provjerite /target/var/log/debootstrap.log i /target/var/log/debootstrap.err."
 "log za pojedinosti."
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:9
-msgid "debootstrap exited with an error (return value ${EXITCODE})."
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../base-installer.templates:16
-msgid "Base installation error"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../base-installer.templates:16
-msgid "debootstrap exited abnormally."
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../base-installer.templates:16
-msgid "You might find more information in /target/var/log/debootstrap.log"
+#: ../base-installer.templates:11
+msgid ""
+"The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:18
+msgid "Base system installation error"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:18
+msgid "The debootstrap program exited abnormally."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:18
+#, fuzzy
+msgid "You might find more information in /target/var/log/debootstrap.log."
+msgstr ""
+"Provjerite /target/var/log/debootstrap.log i /target/var/log/debootstrap.err."
+"log za pojedinosti."
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:25
 msgid "The following error occurred:"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:25
 msgid "${ERROR}"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:25
 #, fuzzy
 msgid ""
 "You might find more information in /target/var/log/debootstrap.log or /"
-"target/var/log/debootstrap.err.log"
+"target/var/log/debootstrap.err.log."
 msgstr ""
 "Provjerite /target/var/log/debootstrap.log i /target/var/log/debootstrap.err."
 "log za pojedinosti."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:33
+#: ../base-installer.templates:35
 msgid "Unknown download style."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:38
+#: ../base-installer.templates:40
 msgid "Unknown mirror style."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:43
+#: ../base-installer.templates:45
 msgid "${SUBST0} was not pre-downloaded."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:48
+#: ../base-installer.templates:50
 msgid "Unknown location ${SUBST0}."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:53
+#: ../base-installer.templates:55
 msgid "Failed getting Release file ${SUBST0}."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:58
+#: ../base-installer.templates:60
 msgid "Invalid Release file, no valid components."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:63
+#: ../base-installer.templates:65
 msgid "Invalid Release file, no entry for ${SUBST0}."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:68
+#: ../base-installer.templates:70
 msgid "Couldn't download ${SUBST0}."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:73
+#: ../base-installer.templates:75
 msgid "No ${SUBST0}. Cannot create devices."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:78
+#: ../base-installer.templates:80
 msgid "Unknown dselect method."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:83
+#: ../base-installer.templates:85
 msgid "Debootstrap Error"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:83
+#: ../base-installer.templates:85
 msgid "Interrupt caught ... exiting."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:92
-msgid "Retrieving Release file"
+#: ../base-installer.templates:94
+msgid "Retrieving Release file..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:96
-msgid "Retrieving Packages files"
+#: ../base-installer.templates:98
+msgid "Retrieving Packages files..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:100
-msgid "Retrieving packages"
+#: ../base-installer.templates:102
+msgid "Retrieving packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:104
-msgid "Retrieving Packages file"
+#: ../base-installer.templates:106
+msgid "Retrieving Packages file..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:108
-msgid "Extracting packages"
+#: ../base-installer.templates:110
+msgid "Extracting packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:112
+#: ../base-installer.templates:114
 #, fuzzy
-msgid "Installing base system"
+msgid "Installing base system..."
 msgstr "Instaliranje osnovnog sistema na /target/ nije uspjelo"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:120
-msgid "Validating ${SUBST0}"
+#: ../base-installer.templates:122
+msgid "Validating ${SUBST0}..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:124
-msgid "Retrieving ${SUBST0}"
+#: ../base-installer.templates:126
+msgid "Retrieving ${SUBST0}..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:128
-msgid "Extracting ${SUBST0}"
+#: ../base-installer.templates:130
+msgid "Extracting ${SUBST0}..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:132
+#: ../base-installer.templates:134
 msgid "Installing core packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:136
+#: ../base-installer.templates:138
 msgid "Unpacking required packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:140
+#: ../base-installer.templates:142
 msgid "Configuring required packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:146
 msgid "Installing base packages..."
 msgstr ""
 
 #. Type: note
 #. Description
-#: ../base-installer.templates:148
-msgid "Base system installed successfully."
+#: ../base-installer.templates:150
+msgid "Base system successfully installed"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:152
+#: ../base-installer.templates:154
 msgid "Installing extra packages"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:156
-msgid "Configuring APT sources"
+#: ../base-installer.templates:158
+msgid "Configuring APT sources..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:160
-msgid "Updating the list of available packages"
+#: ../base-installer.templates:162
+msgid "Updating the list of available packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
-msgid "Installing the extra packages"
-msgstr ""
+#: ../base-installer.templates:166
+#, fuzzy
+msgid "Installing the extra packages..."
+msgstr "Ne mogu da instaliram kernel."
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../base-installer.templates:169
+#: ../base-installer.templates:171
 msgid "Install the base system"
 msgstr ""
 
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:3
-msgid "No kernel package is selected for installation"
-msgstr "Kernel programski paket nije označen za instaliranje"
+#, fuzzy
+msgid "Unable to install a kernel"
+msgstr "Ne mogu da instaliram kernel."
 
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:3
-msgid "Unable to install a kernel."
-msgstr "Ne mogu da instaliram kernel."
+#, fuzzy
+msgid "No kernel package is selected for installation."
+msgstr "Kernel programski paket nije označen za instaliranje"
 
 #. Type: error
 #. Description
@@ -318,14 +334,15 @@ msgstr "Ovo je vjerovatno fatalna greška."
 #: ../kernel-installer.templates:11
 #, fuzzy
 msgid ""
-"You might try to select \"Install the kernel\" again on the main menu. That "
-"will allow you to select another kernel to install."
+"You might try to select the kernel installation step again on the main menu. "
+"That will allow you to select another kernel to install."
 msgstr "Mogli biste probati izabrati "
 
 #. Type: select
 #. Description
 #: ../kernel-installer.templates:25
-msgid "Select which kernel to install into /target/"
+#, fuzzy
+msgid "Kernel to install into /target/:"
 msgstr "Izaberite kernel koji će se instalirati na /target/"
 
 #. Type: select
@@ -333,8 +350,8 @@ msgstr "Izaberite kernel koji će se instalirati na /target/"
 #: ../kernel-installer.templates:25
 #, fuzzy
 msgid ""
-"These are the kernels available from the APT sources.  One of them needs to "
-"be installed to be able to boot the system from hard drive."
+"The list shows the kernels available from the APT sources.  Please choose "
+"one of them in order to make the system bootable from the hard drive."
 msgstr ""
 "Ovo su kerneli dostupni sa APT listi.  Jedan od njih treba biti instaliran "
 "da biste mogli bootati sistem sa hard diska."
@@ -342,15 +359,18 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:31
-msgid "No installable kernel was found in the APT sources defined"
+#, fuzzy
+msgid "No installable kernel found"
 msgstr ""
 "Kernel koji bi mogao biti instaliran nije pronađen u definisanim APT listama"
 
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:31
-msgid "This is rather strange, and probably fatal."
-msgstr "Ovo je prilično čudno i vjerovatno fatalno."
+#, fuzzy
+msgid "No installable kernel was found in the defined APT sources."
+msgstr ""
+"Kernel koji bi mogao biti instaliran nije pronađen u definisanim APT listama"
 
 #. Type: error
 #. Description
@@ -362,8 +382,10 @@ msgstr "Trenutno predviđeni kernel programski paket je '${kernel}'."
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:31
-msgid "You will have to continue as best as you can.  Good luck."
-msgstr "Moraćete nastaviti najbolje što možete.  Sretno."
+#, fuzzy
+msgid ""
+"You may try to continue though this rather strange error is probably fatal."
+msgstr "Ovo je prilično čudno i vjerovatno fatalno."
 
 #. Type: text
 #. Description
@@ -403,3 +425,6 @@ msgstr ""
 #, fuzzy
 msgid "Install the kernel"
 msgstr "Ne mogu da instaliram kernel."
+
+#~ msgid "You will have to continue as best as you can.  Good luck."
+#~ msgstr "Moraćete nastaviti najbolje što možete.  Sretno."

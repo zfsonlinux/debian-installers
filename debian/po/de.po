@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-11-02 10:50+0100\n"
+"POT-Creation-Date: 2003-11-17 21:29+0100\n"
 "PO-Revision-Date: 2003-07-20 11:33GMT\n"
 "Last-Translator: Maximilian Wilhelm <debian-translation@rfc2324.org>\n"
 "Language-Team: Deutsch <de@li.org>\n"
@@ -24,262 +24,283 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 0.9.5\n"
 
-#. Type: note
+#. Type: error
 #. Description
 #: ../base-installer.templates:3
-msgid "Installing base system into /target/ failed"
+#, fuzzy
+msgid "Failed to install the base system"
+msgstr "Installiere Basissystem"
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:3
+#, fuzzy
+msgid "The base system installation into /target/ failed."
 msgstr "Die Installation des Basissystems nach /target ist fehlgeschlagen."
 
-#. Type: note
+#. Type: error
 #. Description
 #: ../base-installer.templates:3
+#, fuzzy
 msgid ""
-"Check /target/var/log/debootstrap.log and /target/var/log/debootstrap.err."
-"log for the details."
+"Please check /target/var/log/debootstrap.log and /target/var/log/debootstrap."
+"err.log for the details."
 msgstr ""
 "Überprüfen Sie bitte /target/var/log/debootstrap.log und /target/var/log/"
 "debootstrap.err.log für weitere Details."
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:9
-msgid "debootstrap exited with an error (return value ${EXITCODE})."
+#: ../base-installer.templates:11
+#, fuzzy
+msgid ""
+"The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
 "debootstrap wurde mit einem Fehler beendet (zurückgegebener Wert "
 "${EXITCODE})."
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:16
-msgid "Base installation error"
+#: ../base-installer.templates:18
+#, fuzzy
+msgid "Base system installation error"
 msgstr "In der Basis-Installation ist ein Fehler aufgetreten."
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:16
-msgid "debootstrap exited abnormally."
+#: ../base-installer.templates:18
+#, fuzzy
+msgid "The debootstrap program exited abnormally."
 msgstr "debootstrap wurde unerwartet beendet."
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:16
-msgid "You might find more information in /target/var/log/debootstrap.log"
+#: ../base-installer.templates:18
+#, fuzzy
+msgid "You might find more information in /target/var/log/debootstrap.log."
 msgstr "Für weitere Informationen siehe /target/var/log/debootstrap.log"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:25
 msgid "The following error occurred:"
 msgstr "Es sind die folgenden Fehler ausgetreten:"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:25
 msgid "${ERROR}"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:25
 #, fuzzy
 msgid ""
 "You might find more information in /target/var/log/debootstrap.log or /"
-"target/var/log/debootstrap.err.log"
+"target/var/log/debootstrap.err.log."
 msgstr ""
 "Überprüfen Sie bitte /target/var/log/debootstrap.log und /target/var/log/"
 "debootstrap.err.log für weitere Details."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:33
+#: ../base-installer.templates:35
 msgid "Unknown download style."
 msgstr "Unbekannte Download-Methode."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:38
+#: ../base-installer.templates:40
 msgid "Unknown mirror style."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:43
+#: ../base-installer.templates:45
 msgid "${SUBST0} was not pre-downloaded."
 msgstr "${SUBST0} wurde zuvor nicht heruntergeladen."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:48
+#: ../base-installer.templates:50
 msgid "Unknown location ${SUBST0}."
 msgstr "Unbekannte Adresse ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:53
+#: ../base-installer.templates:55
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Fehler beim laden der Release-Datei ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:58
+#: ../base-installer.templates:60
 msgid "Invalid Release file, no valid components."
 msgstr "Ungültige Release-Datei, keine gültigen Komponenten."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:63
+#: ../base-installer.templates:65
 msgid "Invalid Release file, no entry for ${SUBST0}."
 msgstr "Ungültige Release-Datei, kein Eintrag für ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:68
+#: ../base-installer.templates:70
 msgid "Couldn't download ${SUBST0}."
 msgstr "${SUBST0} konnte nicht heruntergeladen werden."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:73
+#: ../base-installer.templates:75
 msgid "No ${SUBST0}. Cannot create devices."
 msgstr "${SUBST0} nicht vorhanden. Das Gerät konnte nicht angelegt werden. "
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:78
+#: ../base-installer.templates:80
 msgid "Unknown dselect method."
 msgstr "Ungültige dselect Methode."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:83
+#: ../base-installer.templates:85
 msgid "Debootstrap Error"
 msgstr "Fehler beim Ausführen von Debootstrap."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:83
+#: ../base-installer.templates:85
 msgid "Interrupt caught ... exiting."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:92
+#: ../base-installer.templates:94
 #, fuzzy
-msgid "Retrieving Release file"
+msgid "Retrieving Release file..."
 msgstr "Release-Datei wird heruntergeladen."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:96
+#: ../base-installer.templates:98
 #, fuzzy
-msgid "Retrieving Packages files"
+msgid "Retrieving Packages files..."
 msgstr "Paket-Datei wird heruntergeladen."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:100
+#: ../base-installer.templates:102
 #, fuzzy
-msgid "Retrieving packages"
+msgid "Retrieving packages..."
 msgstr "Auspacken der Pakete."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:104
+#: ../base-installer.templates:106
 #, fuzzy
-msgid "Retrieving Packages file"
+msgid "Retrieving Packages file..."
 msgstr "Paket-Dateien werden heruntergeladen."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:108
-msgid "Extracting packages"
+#: ../base-installer.templates:110
+#, fuzzy
+msgid "Extracting packages..."
 msgstr "Auspacken der Pakete."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:112
-msgid "Installing base system"
+#: ../base-installer.templates:114
+#, fuzzy
+msgid "Installing base system..."
 msgstr "Installiere Basissystem"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:120
-msgid "Validating ${SUBST0}"
+#: ../base-installer.templates:122
+#, fuzzy
+msgid "Validating ${SUBST0}..."
 msgstr "${SUBST0} wird überprüft"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:124
-msgid "Retrieving ${SUBST0}"
+#: ../base-installer.templates:126
+#, fuzzy
+msgid "Retrieving ${SUBST0}..."
 msgstr "${SUBST0} wird heruntergeladen."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:128
-msgid "Extracting ${SUBST0}"
+#: ../base-installer.templates:130
+#, fuzzy
+msgid "Extracting ${SUBST0}..."
 msgstr "Auspacken von ${SUBST0}."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:132
+#: ../base-installer.templates:134
 msgid "Installing core packages..."
 msgstr "Installiere Basis-Pakete..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:136
+#: ../base-installer.templates:138
 msgid "Unpacking required packages..."
 msgstr "Entpacke benötigte Pakete..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:140
+#: ../base-installer.templates:142
 msgid "Configuring required packages..."
 msgstr "Konfiguriere benötigte Pakete..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:146
 msgid "Installing base packages..."
 msgstr "Installiere Basis-Pakete..."
 
 #. Type: note
 #. Description
-#: ../base-installer.templates:148
-msgid "Base system installed successfully."
+#: ../base-installer.templates:150
+#, fuzzy
+msgid "Base system successfully installed"
 msgstr "Das Basis-System wurde erfolgreich installiert."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:152
+#: ../base-installer.templates:154
 #, fuzzy
 msgid "Installing extra packages"
 msgstr "Installiere Basis-Pakete..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:156
+#: ../base-installer.templates:158
 #, fuzzy
-msgid "Configuring APT sources"
+msgid "Configuring APT sources..."
 msgstr "Konfiguriere benötigte Pakete..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:160
-msgid "Updating the list of available packages"
-msgstr ""
+#: ../base-installer.templates:162
+#, fuzzy
+msgid "Updating the list of available packages..."
+msgstr "Entpacke benötigte Pakete..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
+#: ../base-installer.templates:166
 #, fuzzy
-msgid "Installing the extra packages"
+msgid "Installing the extra packages..."
 msgstr "Installiere Basis-Pakete..."
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../base-installer.templates:169
+#: ../base-installer.templates:171
 #, fuzzy
 msgid "Install the base system"
 msgstr "Installiere Basissystem"
@@ -287,14 +308,16 @@ msgstr "Installiere Basissystem"
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:3
-msgid "No kernel package is selected for installation"
-msgstr "Es wurde kein Kernel-Paket zur Installation ausgewählt."
+#, fuzzy
+msgid "Unable to install a kernel"
+msgstr "Der Kernel kann nicht installiert werden."
 
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:3
-msgid "Unable to install a kernel."
-msgstr "Der Kernel kann nicht installiert werden."
+#, fuzzy
+msgid "No kernel package is selected for installation."
+msgstr "Es wurde kein Kernel-Paket zur Installation ausgewählt."
 
 #. Type: error
 #. Description
@@ -329,8 +352,8 @@ msgstr "Dies ist möglicherweise ein schwerer Fehler!"
 #: ../kernel-installer.templates:11
 #, fuzzy
 msgid ""
-"You might try to select \"Install the kernel\" again on the main menu. That "
-"will allow you to select another kernel to install."
+"You might try to select the kernel installation step again on the main menu. "
+"That will allow you to select another kernel to install."
 msgstr ""
 "Sie sollten versuchen den Punkt \"Kernel zum Installieren auswählen\" im "
 "Hauptmenü, falls er vorhanden ist, auswählen. Dort können Sie einen anderen "
@@ -339,7 +362,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../kernel-installer.templates:25
-msgid "Select which kernel to install into /target/"
+#, fuzzy
+msgid "Kernel to install into /target/:"
 msgstr "Wählen Sie den Kernel aus, der nach /target installiert werden soll."
 
 #. Type: select
@@ -347,8 +371,8 @@ msgstr "Wählen Sie den Kernel aus, der nach /target installiert werden soll."
 #: ../kernel-installer.templates:25
 #, fuzzy
 msgid ""
-"These are the kernels available from the APT sources.  One of them needs to "
-"be installed to be able to boot the system from hard drive."
+"The list shows the kernels available from the APT sources.  Please choose "
+"one of them in order to make the system bootable from the hard drive."
 msgstr ""
 "Dies sind die Kernel, die aus den APT-Sourcen verfügbar sein. Einer von "
 "diesen muss installiert sein, damit das System von der Festplatte gebootet "
@@ -357,7 +381,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:31
-msgid "No installable kernel was found in the APT sources defined"
+#, fuzzy
+msgid "No installable kernel found"
 msgstr ""
 "Es wurde keine installierbare Kernel in den zur Verfügung stehenden APT-"
 "Sourcen gefunden."
@@ -365,8 +390,11 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:31
-msgid "This is rather strange, and probably fatal."
-msgstr "Dies ist sehr merkwürdig, und wahrscheinlich fatal."
+#, fuzzy
+msgid "No installable kernel was found in the defined APT sources."
+msgstr ""
+"Es wurde keine installierbare Kernel in den zur Verfügung stehenden APT-"
+"Sourcen gefunden."
 
 #. Type: error
 #. Description
@@ -377,8 +405,10 @@ msgstr "Das aktuelle Standard-Kernel Paket ist '${KERNEL}'."
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:31
-msgid "You will have to continue as best as you can.  Good luck."
-msgstr "Sie sollten so gut sie können fortfahren. Viel Glück!"
+#, fuzzy
+msgid ""
+"You may try to continue though this rather strange error is probably fatal."
+msgstr "Dies ist sehr merkwürdig, und wahrscheinlich fatal."
 
 #. Type: text
 #. Description
@@ -421,6 +451,9 @@ msgstr "Installiere Basis-Pakete..."
 #, fuzzy
 msgid "Install the kernel"
 msgstr "Die Installation des Basissystems nach /target ist fehlgeschlagen."
+
+#~ msgid "You will have to continue as best as you can.  Good luck."
+#~ msgstr "Sie sollten so gut sie können fortfahren. Viel Glück!"
 
 #~ msgid "Downloading packages"
 #~ msgstr "Pakete werden heruntergeladen.."

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: base-installer_0.032\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-30 23:41+0100\n"
+"POT-Creation-Date: 2003-11-17 21:29+0100\n"
 "PO-Revision-Date: 2003-11-04 15:56+0600\n"
 "Last-Translator: Ilgiz Kalmetev <translator@ilgiz.pp.ru>\n"
 "Language-Team: russian <debian-russian@lists.debian.org>\n"
@@ -24,267 +24,297 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.0.1\n"
 
-#. Type: note
+#. Type: error
 #. Description
 #: ../base-installer.templates:3
-msgid "Installing base system into /target/ failed"
+#, fuzzy
+msgid "Failed to install the base system"
+msgstr "Установка базовой системы"
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:3
+#, fuzzy
+msgid "The base system installation into /target/ failed."
 msgstr "Не удалось установить базовую систему в каталог /target/."
 
-#. Type: note
+#. Type: error
 #. Description
 #: ../base-installer.templates:3
+#, fuzzy
 msgid ""
-"Check /target/var/log/debootstrap.log and /target/var/log/debootstrap.err."
-"log for the details."
+"Please check /target/var/log/debootstrap.log and /target/var/log/debootstrap."
+"err.log for the details."
 msgstr ""
 "Подробную информацию можно найти в файлах /target/var/log/debootstrap.log и /"
 "target/var/log/debootstrap.err.log"
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:9
-msgid "debootstrap exited with an error (return value ${EXITCODE})."
+#: ../base-installer.templates:11
+#, fuzzy
+msgid ""
+"The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
 "debootstrap завершил свою работу из-за ошибки (код ошибки ${EXITCODE})."
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:16
-msgid "Base installation error"
+#: ../base-installer.templates:18
+#, fuzzy
+msgid "Base system installation error"
 msgstr "Ошибка при базовой инсталляции"
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:16
-msgid "debootstrap exited abnormally."
+#: ../base-installer.templates:18
+#, fuzzy
+msgid "The debootstrap program exited abnormally."
 msgstr "debootstrap завершился аварийно."
 
-#. Type: note
+#. Type: error
 #. Description
-#: ../base-installer.templates:16
-msgid "You might find more information in /target/var/log/debootstrap.log"
+#: ../base-installer.templates:18
+#, fuzzy
+msgid "You might find more information in /target/var/log/debootstrap.log."
 msgstr "Подробности можно найти в /target/var/log/debootstrap.log"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:25
 msgid "The following error occurred:"
 msgstr "Произошла следующая ошибка:"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:25
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:25
+#, fuzzy
 msgid ""
 "You might find more information in /target/var/log/debootstrap.log or /"
-"target/var/log/debootstrap.err.log"
+"target/var/log/debootstrap.err.log."
 msgstr ""
 "Вы можете найти более подробные сведения в файлах /target/var/log/"
 "debootstrap.log и /target/var/log/debootstrap.err.log."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:33
+#: ../base-installer.templates:35
 msgid "Unknown download style."
 msgstr "Неизвестный вид загрузки."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:38
+#: ../base-installer.templates:40
 msgid "Unknown mirror style."
 msgstr "Неизвестный вид зеркала."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:43
+#: ../base-installer.templates:45
 msgid "${SUBST0} was not pre-downloaded."
 msgstr "${SUBST0} не был заранее скачан."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:48
+#: ../base-installer.templates:50
 msgid "Unknown location ${SUBST0}."
 msgstr "Неизвестный адрес ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:53
+#: ../base-installer.templates:55
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Не удалось получить Release-файл для ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:58
+#: ../base-installer.templates:60
 msgid "Invalid Release file, no valid components."
 msgstr "Неверный Release-файл, не содержит правильных компонент."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:63
+#: ../base-installer.templates:65
 msgid "Invalid Release file, no entry for ${SUBST0}."
 msgstr "Неверный Release-файл, не содержит описания для ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:68
+#: ../base-installer.templates:70
 msgid "Couldn't download ${SUBST0}."
 msgstr "Не удалось скачать ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:73
+#: ../base-installer.templates:75
 msgid "No ${SUBST0}. Cannot create devices."
 msgstr "Нет ${SUBST0}. Не могу создать устройства."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:78
+#: ../base-installer.templates:80
 msgid "Unknown dselect method."
 msgstr "Неизвестный метод для dselect."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:83
+#: ../base-installer.templates:85
 msgid "Debootstrap Error"
 msgstr "Ошибка при выполнении Debootstrap."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:83
+#: ../base-installer.templates:85
 msgid "Interrupt caught ... exiting."
 msgstr "Получен сигнал прерывания... работа прекращена."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:92
-msgid "Downloading Release file"
+#: ../base-installer.templates:94
+#, fuzzy
+msgid "Retrieving Release file..."
 msgstr "Скачивается Release-файл."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:96
-msgid "Downloading Packages files"
+#: ../base-installer.templates:98
+#, fuzzy
+msgid "Retrieving Packages files..."
 msgstr "Скачиваются файлы Packages."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:100
-msgid "Downloading packages"
-msgstr "Скачиваются пакеты"
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:104
-msgid "Downloading Packages file"
-msgstr "Скачивается файл Packages"
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:108
-msgid "Extracting packages"
+#: ../base-installer.templates:102
+#, fuzzy
+msgid "Retrieving packages..."
 msgstr "Распаковка пакетов"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:112
-msgid "Installing base system"
+#: ../base-installer.templates:106
+#, fuzzy
+msgid "Retrieving Packages file..."
+msgstr "Скачивается файл Packages"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:110
+#, fuzzy
+msgid "Extracting packages..."
+msgstr "Распаковка пакетов"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:114
+#, fuzzy
+msgid "Installing base system..."
 msgstr "Установка базовой системы"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:120
-msgid "Validating ${SUBST0}"
+#: ../base-installer.templates:122
+#, fuzzy
+msgid "Validating ${SUBST0}..."
 msgstr "Проверяется ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:124
-msgid "Retrieving ${SUBST0}"
+#: ../base-installer.templates:126
+#, fuzzy
+msgid "Retrieving ${SUBST0}..."
 msgstr "Скачивается ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:128
-msgid "Extracting ${SUBST0}"
+#: ../base-installer.templates:130
+#, fuzzy
+msgid "Extracting ${SUBST0}..."
 msgstr "Распаковка ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:132
+#: ../base-installer.templates:134
 msgid "Installing core packages..."
 msgstr "Установка основных базовых пакетов..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:136
+#: ../base-installer.templates:138
 msgid "Unpacking required packages..."
 msgstr "Распаковка необходимых пакетов..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:140
+#: ../base-installer.templates:142
 msgid "Configuring required packages..."
 msgstr "Настройка необходимых пакетов..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:146
 msgid "Installing base packages..."
 msgstr "Установка базовых пакетов..."
 
 #. Type: note
 #. Description
-#: ../base-installer.templates:148
-msgid "Base system installed successfully."
+#: ../base-installer.templates:150
+#, fuzzy
+msgid "Base system successfully installed"
 msgstr "Базовая система успешно установлена."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:152
+#: ../base-installer.templates:154
 msgid "Installing extra packages"
 msgstr "Установка дополнительных пакетов..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:156
-msgid "Configuring APT sources"
+#: ../base-installer.templates:158
+#, fuzzy
+msgid "Configuring APT sources..."
 msgstr "Настройка списка источников APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:160
-msgid "Updating the list of available packages"
+#: ../base-installer.templates:162
+#, fuzzy
+msgid "Updating the list of available packages..."
 msgstr "Обновляется список имеющихся пакетов"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
-msgid "Installing the extra packages"
+#: ../base-installer.templates:166
+#, fuzzy
+msgid "Installing the extra packages..."
 msgstr "Установка дополнительных пакетов..."
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../base-installer.templates:169
+#: ../base-installer.templates:171
 msgid "Install the base system"
 msgstr "Установка базовой системы"
 
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:3
-msgid "No kernel package is selected for installation"
-msgstr "Для установки не был выбран ни один пакет ядра"
+#, fuzzy
+msgid "Unable to install a kernel"
+msgstr "Ядро не может быть установлено."
 
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:3
-msgid "Unable to install a kernel."
-msgstr "Ядро не может быть установлено."
+#, fuzzy
+msgid "No kernel package is selected for installation."
+msgstr "Для установки не был выбран ни один пакет ядра"
 
 #. Type: error
 #. Description
@@ -315,25 +345,28 @@ msgstr "Это вероятно фатальная ошибка."
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:11
+#, fuzzy
 msgid ""
-"You might try to select \"Install the kernel\" again on the main menu. That "
-"will allow you to select another kernel to install."
+"You might try to select the kernel installation step again on the main menu. "
+"That will allow you to select another kernel to install."
 msgstr ""
-"Можете попробовать снова выбрать пункт \"Выберите ядро для установки\" в главном "
-"меню. Это позволит Вам выбрать другое ядро для установки."
+"Можете попробовать снова выбрать пункт \"Выберите ядро для установки\" в "
+"главном меню. Это позволит Вам выбрать другое ядро для установки."
 
 #. Type: select
 #. Description
 #: ../kernel-installer.templates:25
-msgid "Select which kernel to install into /target/"
+#, fuzzy
+msgid "Kernel to install into /target/:"
 msgstr "Выберите ядро для установки в /target/"
 
 #. Type: select
 #. Description
 #: ../kernel-installer.templates:25
+#, fuzzy
 msgid ""
-"These are the kernels available from the APT sources.  One of them needs to "
-"be installed to be able to boot the system from hard drive."
+"The list shows the kernels available from the APT sources.  Please choose "
+"one of them in order to make the system bootable from the hard drive."
 msgstr ""
 "В источниках APT имеются эти пакеты ядра. Чтобы система могла загрузиться с "
 "жёсткого диска, необходимо установить одно из них."
@@ -341,7 +374,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:31
-msgid "No installable kernel was found in the APT sources defined"
+#, fuzzy
+msgid "No installable kernel found"
 msgstr ""
 "В заданных источниках APT не было найдено ни одного ядра, которое можно было "
 "бы установить."
@@ -349,8 +383,11 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:31
-msgid "This is rather strange, and probably fatal."
-msgstr "Это очень странно, и возможно фатально."
+#, fuzzy
+msgid "No installable kernel was found in the defined APT sources."
+msgstr ""
+"В заданных источниках APT не было найдено ни одного ядра, которое можно было "
+"бы установить."
 
 #. Type: error
 #. Description
@@ -361,8 +398,10 @@ msgstr "Текущий пакет ядра по умолчанию - '${KERNEL}'."
 #. Type: error
 #. Description
 #: ../kernel-installer.templates:31
-msgid "You will have to continue as best as you can.  Good luck."
-msgstr "Вам придётся продолжать работу, надеясь на лучшее. Желаю успеха!"
+#, fuzzy
+msgid ""
+"You may try to continue though this rather strange error is probably fatal."
+msgstr "Это очень странно, и возможно фатально."
 
 #. Type: text
 #. Description
@@ -400,6 +439,12 @@ msgstr "Устанавливается пакет ядра ${KERNEL}"
 #: ../kernel-installer.templates:61
 msgid "Install the kernel"
 msgstr "Устанавливается ядро"
+
+#~ msgid "Downloading packages"
+#~ msgstr "Скачиваются пакеты"
+
+#~ msgid "You will have to continue as best as you can.  Good luck."
+#~ msgstr "Вам придётся продолжать работу, надеясь на лучшее. Желаю успеха!"
 
 #~ msgid "The kernel in package"
 #~ msgstr "Ядро из пакета"
