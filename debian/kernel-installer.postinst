@@ -5,8 +5,7 @@
 logfile=/var/log/messages
 
 log() {
-    msg="kernel-installer: $*"
-    echo "$msg" >> $logfile
+    logger -t kernel-installer "$@"
 }
 error() {
     log "error: $*"
