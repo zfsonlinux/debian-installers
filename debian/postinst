@@ -268,6 +268,9 @@ EOF
 				IFS="$OLDIFS"
 				bootpart=$(mapdevfs $(echo "$entry" | cut -d: -f2))
 				label=$(echo "$entry" | cut -d : -f3)
+				if [ -z "$label" ]; then
+					label="$title"
+				fi
 				kernel=$(echo "$entry" | cut -d : -f4)
 				initrd=$(echo "$entry" | cut -d : -f5)
 				params=$(echo "$entry" | cut -d : -f6-)
