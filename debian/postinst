@@ -40,6 +40,12 @@ if [ "$1" = "configure" ]; then
         db_get mirror/$PROTOCOL/directory
         DIRECTORY="$RET"
 
+        if [ "$PROTOCOL" = "http" ]; then
+            # try to find http proxy
+            db_get mirror/http/proxy
+            http_proxy="$RET" || true
+            export http_proxy
+        fi
     fi
 
     if db_get mirror/distribution && [ "$RET" ] ; then
