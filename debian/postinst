@@ -4,8 +4,6 @@ set -e
 . /usr/share/debconf/confmodule
 #set -x
 
-serial="$(get_serial_console)"
-
 newline="
 "
 
@@ -34,6 +32,8 @@ get_serial_console() {
     echo "console=$SERIAL"
   fi
 }
+
+serial="$(get_serial_console)"
 
 # This is copied from update-grub. We've requested that it be moved
 # to a utility or shell library.
