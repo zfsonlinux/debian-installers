@@ -1,29 +1,8 @@
-base-installer (0.081) UNRELEASED; urgency=low
-
-  * Denis Barbier
-    - postinst: Turkish needs console-terminus (font ter-916f)
-  * Stephen R. Marenka
-    - Fix 2.2 kernel using cdrom.
-  * Colin Watson
-    - Install the G5 kernel on PPC970 machines when installing 2.6. (I think
-      this is an accurate enough test, but if not we'll have to read through
-      /proc/cpuinfo some more.)
-    - Add support for an debian-installer/kernel/linux/initrd-2.6 template,
-      since powerpc 2.6 has an initrd but powerpc 2.4 doesn't.
-
- -- Denis Barbier <barbier@debian.org>  Wed,  5 May 2004 07:40:39 +0200
-
-base-installer (0.080) unstable; urgency=high
+base-installer (0.080) UNRELEASED; urgency=high
 
   * Joey Hess
     - Update ia64 kernel to 2.4.25.
     - Make /target/cdrom if it doesn't exist before bind mounting to it.
-    - In kernel version fallback code, try to find a kernel on the list with
-      the same major version as the installer's kernel, and use it. It's
-      better to use 2.4.26 instead of 2.4.25 than to fall forward to the
-      newest 2.6 kernel available.
-    - Add a template for debootstrap's BASESUCCESS info string, so it can be
-      translated. This string was added in a recent version of debootstrap.
   * Joshua Kwan
     - sparc no longer has 2.4.24 images (removed because of security risk.)
       Oops.
@@ -33,14 +12,10 @@ base-installer (0.080) unstable; urgency=high
     - Fix alpha to 2.4.25-1 instead of 2.4, since the metapackage is
       currently missing from sarge (and points at the wrong kernel in
       sid)
-  * Stephen R. Marenka
-    - Add support for q40 and sun3(x) m68k subarchs.
-  * Denis Barbier
-    - postinst: Turkish does not need jfbterm
-  * Updated translations: 
-    - Norwegian Nynorsk (nn.po) by H�vard Korsvoll
+  * Christian Perrier
+    - Fix ellipsis typography
 
- -- Joey Hess <joeyh@debian.org>  Tue,  4 May 2004 23:34:48 -0400
+ -- Christian Perrier <bubulle@debian.org>  Thu, 13 May 2004 15:26:36 +0200
 
 base-installer (0.072) unstable; urgency=low
 
@@ -701,7 +676,7 @@ base-installer (0.037) unstable; urgency=low
     - Updated nb.po.
     - Avoid setting default kernel to a kernel package that is
       not available.
-  * AndrÃ© Lu�­s Lopes
+  * AndrÃ© LuÃ­s Lopes
     - Updated pt_BR (Brazilian Portuguese) translation.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sun, 19 Oct 2003 23:12:00 +0200
@@ -937,7 +912,7 @@ base-installer (0.021) unstable; urgency=low
   * Upgrade standards-version from 3.5.2 to 3.5.9.
   * Cleanup in kernel-installer postinst.
   * Added translation framework, and Norwegian BokmÃ¥l translation (nb.po).
-  * AndrÃ�© LuÃ­s Lopes :
+  * AndrÃ© LuÃ­s Lopes :
     - Added pt_BR debconf template translation.
 
  -- Petter Reinholdtsen <pere@debian.org>  Thu,  8 May 2003 09:21:06 +0200
