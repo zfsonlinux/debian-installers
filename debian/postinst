@@ -76,6 +76,8 @@ do_bootfloppy = no
 do_initrd = yes
 EOF
 
+test -d $LOGDIR || mkdir -p $LOGDIR
+
 debootstrap --components="${COMPONENTS}" --boot-floppies ${INCLUDE} ${EXCLUDE} woody /target ${PROTOCOL}://${MIRROR}/${DIRECTORY} 3>&1 > $LOGDIR/debootstrap.log 2> $LOGDIR/debootstrap.err.log </dev/null
 fi
 exit 0
