@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-10 03:31+0200\n"
+"POT-Creation-Date: 2004-09-10 07:57+0200\n"
 "PO-Revision-Date: 2004-09-10 03:59+1200\n"
 "Last-Translator:  Carlos Z.F. Liu <carlos_liu@yahoo.com>\n"
 "Language-Team:  Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -80,21 +80,19 @@ msgstr "将 GRUB 安装至硬盘"
 #. Description
 #: ../grub-installer.templates:29
 msgid ""
-"The GRUB bootloader installation does not always work when /boot is on an "
-"XFS filesystem. If you choose to install GRUB, it's likely that the "
-"installation will fail, or even hang. LILO works much better in this "
-"situation."
+"The GRUB bootloader installation often fails or hangs when /boot is on a XFS "
+"filesystem. Using LILO in this situation is recommended."
 msgstr ""
 
 #. Type: string
 #. Description
-#: ../grub-installer.templates:37
+#: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
 msgstr "安装启动管理器的设备："
 
 #. Type: string
 #. Description
-#: ../grub-installer.templates:37
+#: ../grub-installer.templates:35
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -107,7 +105,7 @@ msgstr ""
 "将 GRUB 安装到驱动器的其它地方，或者其它的驱动器上，甚至还可以安装到一张软盘"
 "上。"
 
-#: ../grub-installer.templates:37
+#: ../grub-installer.templates:35
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -131,13 +129,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:57
+#: ../grub-installer.templates:55
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "GRUB 安装失败。仍然继续吗？"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:57
+#: ../grub-installer.templates:55
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -148,79 +146,79 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:64
+#: ../grub-installer.templates:62
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "无法将 GRUB 装到 ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:64
+#: ../grub-installer.templates:62
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "执行 'grub-install ${BOOTDEV}' 失败。"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:71
+#: ../grub-installer.templates:69
 msgid "Unable to configure GRUB"
 msgstr "无法配置 GRUB"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:71
+#: ../grub-installer.templates:69
 msgid "Executing 'update-grub' failed."
 msgstr "执行 'update-grub' 失败。"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:71
+#: ../grub-installer.templates:69
 msgid "This is a fatal error."
 msgstr "这是一个严重错误。"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:78
+#: ../grub-installer.templates:76
 msgid "Installing GRUB boot loader"
 msgstr "安装 GRUB 启动管理器"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:82
+#: ../grub-installer.templates:80
 msgid "Looking for other operating systems..."
 msgstr "正在查找其它操作系统..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:86
+#: ../grub-installer.templates:84
 msgid "Installing the 'grub' package..."
 msgstr "正在安装 'grub' 软件包..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:90
+#: ../grub-installer.templates:88
 msgid "Determining GRUB boot device..."
 msgstr "正在确定 GRUB 启动设备..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:94
+#: ../grub-installer.templates:92
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "运行 \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:98
+#: ../grub-installer.templates:96
 msgid "Running \"update-grub\"..."
 msgstr "正在运行 \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:102
+#: ../grub-installer.templates:100
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "正在更新 /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:107
+#: ../grub-installer.templates:105
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "将 GRUB 安装至硬盘"

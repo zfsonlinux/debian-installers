@@ -27,10 +27,8 @@ Template: grub-installer/install_to_xfs
 Type: boolean
 Default: false
 _Description: Install the GRUB bootloader to XFS filesystem?
- The GRUB bootloader installation does not always work when /boot is
- on an XFS filesystem. If you choose to install GRUB, it's likely that the
- installation will fail, or even hang. LILO works much better in this
- situation.
+ The GRUB bootloader installation often fails or hangs when /boot is on a
+ XFS filesystem. Using LILO in this situation is recommended.
 
 Template: grub-installer/bootdev
 Type: string
