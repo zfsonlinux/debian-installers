@@ -483,6 +483,8 @@ POS=0
 for item in $WAYPOINTS; do
 	step=$(echo $item | cut -d: -f 1)
 	waypoint=$(echo $item | cut -d: -f 2)
+	# Not all of the section headers need exist.
+	db_progress INFO "base-installer/section/$waypoint" || true
 	eval $waypoint
 	POS=$(expr $POS + $step) || true
 	db_progress SET $POS
