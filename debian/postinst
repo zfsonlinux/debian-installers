@@ -168,7 +168,7 @@ update_mtab() {
 
 is_floppy () {
 	# FIXME: this is lame, and does not yet support /dev devices.
-	echo "$1" | grep -q "\\(fd"
+	echo "$1" | grep -q '(fd'
 }
 
 db_progress START 0 6 grub-installer/progress/title
@@ -262,6 +262,9 @@ while : ; do
 		else
 			db_get grub-installer/bootdev
 			bootdev=$RET
+			if echo "$bootdev" | grep -qv '('; then
+				bootdev=$(convert $(mapdevfs "$bootdev"))
+			fi
 			break
 		fi
 	fi
