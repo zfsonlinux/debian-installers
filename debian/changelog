@@ -5,10 +5,13 @@ base-installer (0.023) UNRELEASED; urgency=low
     sources.list.  Patch from Thorsten Sauter.  (Closes: #197818)
   * Copy the postinst from kernel-chooser into the kernel-installer
     postinst, to make it easier to select which kernel to install.
+  * Ben Collins
+    - Add link_in_boot=yes prior to sparc kernel install. Allows sparc to
+      transparently support /boot being on a seperate partition.
   * Thorsten Sauter:
     - kernel-installer depends now on created-fstab
 
- -- Petter Reinholdtsen <pere@debian.org>  Sat, 14 Jun 2003 01:24:46 +0200
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 22 Jun 2003 13:47:04 +0200
 
 base-installer (0.022) unstable; urgency=low
 
@@ -16,9 +19,6 @@ base-installer (0.022) unstable; urgency=low
   * Remove problematic spaces included by mistake. (Closes: #193160)
   * Thorsten Sauter
     - Insert german translation (de.po)
-  * Ben Collins
-    - Add link_in_boot=yes prior to sparc kernel install. Allows sparc to
-      transparently support /boot being on a seperate partition.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sun,  1 Jun 2003 01:48:21 +0200
 

@@ -130,24 +130,25 @@ if db_get debian-installer/kernel/linux/initrd ; then
 	do_initrd=no
     fi
 else
-    warning "Failed to get debconf answer 'debian-installer/kernel/initrd'."
+    warning "Failed to get debconf answer 'debian-installer/kernel/linux/initrd'."
     warning "Setting default do_initrd='yes'."
     do_initrd=yes
 fi
 
-link_in_boot=
-
-ARCH=`udpkg --print-architecture`
-
-case "$ARCH" in
-    sparc)
-	# For sparc we over ride the default so we can support /boot on a
-	# seperate partition
-	link_in_boot="link_in_boot=yes"
-	;;
-esac
+if db_get debian-installer/kernel/linux/link_in_boot ; then
+    if [ "$RET" = "true" ]; then
+	link_in_boot=yes
+    else
+	link_in_boot=no
+    fi
+else
+    warning "Failed to get debconf answer 'debian-installer/kernel/linux/link_in_boot'."
+    warning "Setting default link_in_boot='no'."
+    link_in_boot=no
+fi
 
 info "Setting do_initrd='$do_initrd'."
+info "Setting link_in_boot='$link_in_boot'."
 
 cat > /target/etc/kernel-img.conf <<EOF
 # Do not create symbolic links in /
@@ -157,7 +158,7 @@ image_in_boot = yes
 do_bootloader = no
 do_bootfloppy = no
 do_initrd = $do_initrd
-$link_in_boot
+link_in_boot = $link_in_boot
 EOF
 
 if [ yes = "$do_initrd" ] ; then
