@@ -9,9 +9,12 @@ db_go || true
 db_get grub-installer/bootdev
 bootdev=$RET
 
-chroot /target /sbin/grub-install $bootdev
-chroot /target /usr/bin/touch /boot/grub/menu.lst
-chroot /target /sbin/update-grub
+chroot /target /sbin/grub-install "$bootdev"
+
+# Pipe from 'yes' to tell grub to create menu.lst when it is missing
+# A better correct fix is to get update-grub to be able to run
+# in noninteractive mode
+chroot /target /usr/bin/yes | chroot /target /sbin/update-grub
 
 IMG_CONF=/target/etc/kernel-img.conf
 /target/bin/echo "postinst_hook = /sbin/update-grub" >> $IMG_CONF
