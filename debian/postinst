@@ -526,8 +526,8 @@ queue_language_debs () {
 		apt-install iso-codes
 	fi
 
-	case "$RET" in
-		ja|ko|el|zh|bg|ar|he|tr|uk)
+	case "`echo $RET | sed 's/:.*//`" in
+		ja|ko|ko_KR|el|zh|zh_CN|zh_TW|bg|ar|he|tr|uk|uk_UA)
 			# Japanese, Korean, Greek, Chinese, Bulgarian, Arabic, Hebrew, Turkish, Ukranian
 			apt-install jfbterm || true
 			apt-install unifont || true
