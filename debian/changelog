@@ -6,7 +6,8 @@ base-installer (0.016) UNRELEASED; urgency=low
     when installing from CD, change the source protocol from file: to
     copy:, and split 'apt-get install' into two parts, one downloading
     outside /target/, and one installing within /target/.
-  * Install kernel with DEBIAN_FRONTEND=noninteractive.
+  * Install all pachages with DEBIAN_FRONTEND=noninteractive, and make
+    sure /target/proc/ is available during install.
 
  -- Petter Reinholdtsen <pere@debian.org>  Fri,  7 Feb 2003 15:22:36 +0100
 

@@ -15,7 +15,12 @@ LD_LIBRARY_PATH=/usr/lib:/lib:/target/usr/lib:/target/lib \
     -o Dir::Bin::gzip=/target/bin/gzip \
     -o Dir::Bin::dpkg=/target/usr/bin/dpkg \
     -o Dpkg::Options::=--root=/target \
-    -y --download-only install "$kernel"
+    -y --download-only install $*
 
-chroot /target apt-get --no-download install "$kernel"
+# Some packages (eg. the kernel-image package) require a mounted /proc/
+mount -t proc proc /target/proc
 
+DEBIAN_FRONTEND=noninteractive \
+chroot /target apt-get --no-download install "$kernel" < /dev/null
+
+umount /target/proc
