@@ -23,7 +23,10 @@ clean:
 	$(MAKE) clean    
 	dh_clean debian/templates
 
-install: build
+test:
+	$(MAKE) -C kernel test
+
+install: build test
 	dh_testdir
 	dh_testroot
 	dh_clean -k
