@@ -74,6 +74,11 @@ if [ "$1" = "configure" ]; then
     unset DEBCONF_FRONTEND
     unset DEBCONF_REDIR
 
+    # This is a hack to avoid heaps of messages like 'Note
+    # /etc/modules.conf is more recent than /lib/modules/*/modules.dep'
+    touch /etc/modules.conf
+    depmod -a
+
     cat > /target/etc/kernel-img.conf <<EOF
 # Do not create symbolic links in /
 do_symlinks = yes
