@@ -48,7 +48,7 @@ db_get grub-installer/bootdev
 bootdev=$RET
 
 db_progress STEP 1
-db_subst grub-installer/progress_step_3 BOOTDEV "$bootdev"
+db_subst grub-installer/progress_step_install_loader BOOTDEV "$bootdev"
 db_progress INFO grub-installer/progress/step_install_loader
 
 info "Installing grub on '$bootdev'"
