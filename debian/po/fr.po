@@ -6,9 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer 0.0.2\n"
-"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-02-03 10:43+0100\n"
-"PO-Revision-Date: 2003-11-18 08:56+0100\n"
+"PO-Revision-Date: 2004-02-03 11:33+0100\n"
 "Last-Translator: Pierre Machard <pmachard@tuxfamily.org>\n"
 "Language-Team: Debian-l10n-french <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -29,6 +28,11 @@ msgid ""
 "installing the GRUB bootloader on a bootable device. The usual way to do "
 "this is to install GRUB on the master boot record of your first hard drive."
 msgstr ""
+"Le moment est venu de permettre le démarrage du système Debian nouvellement "
+"installé, en installant le chargeur d'amorçage GRUB sur un périphérique de "
+"démarrage. La méthode habituelle pour cela est d'installer GRUB sur le "
+"secteur d'amorçage principal (« master boot record ») de votre premier "
+"disque dur."
 
 #. Type: string
 #. Description
@@ -38,6 +42,11 @@ msgid ""
 "first drive is usually '(hd0)'. If you want it on the second partition of "
 "the first drive, use '(hd0,1)'. Leave this at default if unsure."
 msgstr ""
+"Veuillez noter que GRUB nomme les périphériques différemment du noyau Linux. "
+"En conséquence, le premier disque est en général « (hd0) ». Si vous "
+"souhaitez l'installer sur la deuxième partition du premier disque, "
+"choisissez « (hd0,1) ». Laissez la valeur par défaut si vous n'êtes pas "
+"certain de la valeur à indiquer ici."
 
 #. Type: string
 #. Description
@@ -47,6 +56,10 @@ msgid ""
 "your existing master boot record with GRUB. Continuing may make other "
 "operating systems installed on this computer unbootable."
 msgstr ""
+"Attention, par défaut, la manière dont votre ordinateur démarre sera "
+"modifiée. Le secteur d'amorçage sera écrasé par GRUB. Si vous continuez, les "
+"autres systèmes d'exploitation éventuellement installés sur cet ordinateur "
+"peuvent cesser de démarrer correctement."
 
 #. Type: boolean
 #. Description
@@ -139,19 +152,3 @@ msgstr "Mise à jour de « /etc/kernel-img.conf »..."
 #: ../templates:66
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installer le chargeur de démarrage GRUB sur un disque dur"
-
-#~ msgid ""
-#~ "GRUB needs to install the stage 1 boot loader on a bootable device. This "
-#~ "is usually the first hard drive. Note that GRUB counts devices "
-#~ "differently than the Linux kernel, so the first one is usually '(hd0)'. "
-#~ "Leave this at default if unsure."
-#~ msgstr ""
-#~ "GRUB doit installer le chargeur de démarrage de niveau 1 sur un "
-#~ "périphérique amorçable. Il s'agit généralement du premier disque dur. "
-#~ "Veuillez noter que GRUB n'énumère pas les périphériques de la même façon "
-#~ "que le noyau Linux, le premier disque dur est généralement « (hd0) ». "
-#~ "Laissez cette valeur par défaut si vous n'êtes pas sûr de ce que vous "
-#~ "faites."
-
-#~ msgid "On which device should GRUB be installed?"
-#~ msgstr "Périphérique où GRUB sera installé"
