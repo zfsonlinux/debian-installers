@@ -45,9 +45,10 @@ binary-indep: build install
 	dpkg-distaddfile $(FILENAME) debian-installer $(PRIORITY)
 	dh_builddeb --filename=$(FILENAME)
 
-# Build architecture-dependent files here.
-binary-arch: build install
-
+# (The package implementation is platform independant, but will only work
+#  on platforms with grub available.  Thus it is built in target
+#  'binary-indep', and target 'binary-arch' is just an alias.)
+binary-arch: build install binary-indep
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install
