@@ -290,7 +290,7 @@ while : ; do
 			state=2
 		fi
 	else
-		db_input high grub-installer/bootdev || true
+		db_input critical grub-installer/bootdev || true
 		if ! db_go; then
 			if [ "$q" ]; then
 				state=1

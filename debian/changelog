@@ -1,3 +1,13 @@
+grub-installer (1.02) UNRELEASED; urgency=low
+
+  * Colin Watson
+    - grub-installer/bootdev must be asked (i.e. critical priority) on the
+      code path where unsupported operating systems were found, otherwise if
+      you're running at critical priority then bootdev ends up empty and
+      grub-installer fails.
+
+ -- Colin Watson <cjwatson@debian.org>  Mon,  2 Aug 2004 20:36:16 +0100
+
 grub-installer (1.01) unstable; urgency=low
 
   * Updated translations: 
