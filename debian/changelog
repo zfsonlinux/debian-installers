@@ -1,3 +1,14 @@
+grub-installer (1.08) UNRELEASED; urgency=low
+
+  * Joey Hess
+    - Since lvdisplay may exit 0 even if run with a non-lvm device (such as
+      /dev/discs/cciss/part0, which it knows isn't a lvm device name and
+      aborts with an error message, but no failure code), try to make the
+      isinstallable check for /boot on lvm more robust by grepping the
+      lvdisplay output for strings that indicate it really found a lvm volume.
+
+ -- Joey Hess <joeyh@debian.org>  Sun,  2 Jan 2005 17:08:25 -0500
+
 grub-installer (1.07) unstable; urgency=low
 
   * Frans Pop

@@ -23,7 +23,7 @@ fi
 
 # Check for the control file to work around lvdisplay refusal to work with
 # certian lvm device names.
-if lvdisplay "$bootfs" >/dev/null 2>&1 || [ -e "$(dirname $bootfs)/control" ]; then
+if lvdisplay "$bootfs" | grep -q 'LV Name' 2>/dev/null || [ -e "$(dirname $bootfs)/control" ]; then
 	log "/boot is a lvm volume ($bootfs), cannot install grub"
 	exit 1
 fi
