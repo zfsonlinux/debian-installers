@@ -343,7 +343,7 @@ get_arch_kernel () {
 		esac
 	;;
 	amd64)
-		version=2.6.7-5
+		version=2.6
 		VENDOR=`grep '^vendor_id' /proc/cpuinfo | cut -d: -f2`
 		if dmesg | grep -q ^Processors:; then
 			SMP=yes
