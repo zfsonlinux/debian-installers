@@ -7,15 +7,11 @@ LOGDIR=/target/var/log
 PROTOCOL=
 MIRROR=
 DIRECTORY=
-PROFILE=
 COMPONENTS="main,local"
 DISTRIBUTION=woody
 
 if [ "$1" = "configure" ]; then
     . /usr/share/debconf/confmodule
-
-    db_get debian-installer/profile
-    PROFILE="$RET"
 
     if [ -f /cdrom/.disk/base_installable ]; then
 
