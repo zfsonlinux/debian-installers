@@ -270,6 +270,19 @@ get_arch_kernel () {
 		fi
 		trykernel=kernel-image-$version-$family-smp
 	;;
+	alpha)
+		version=2.4
+		if dmesg | grep -q ^Processors:; then
+			CPUS=`dmesg | grep ^Processors: | cut -d: -f2`
+		else
+			CPUS=1
+		fi
+		if test $CPUS -eq 1; then
+			trykernel=kernel-image-$version-generic
+		else
+			trykernel=kernel-image-$version-smp
+		fi
+	;;
 	*)
 	log "warning: Unknown architecture '$ARCH'."
 	;;
