@@ -4,6 +4,8 @@ set -e
 . /usr/share/debconf/confmodule
 #set -x
 
+db_capb backup
+
 log=/var/log/messages
 
 log() {
@@ -37,14 +39,14 @@ db_progress START 0 5 grub-installer/progress/title
 
 db_progress INFO grub-installer/progress/step_install
 
-if apt-install grub ; then
-	:
-else
+if ! apt-install grub ; then
 	info "Calling 'apt-install grub' failed"
 	# Hm, unable to install grub into /target/, what should we do?
 	db_input critical grub-installer/apt-install-failed || [ $? -eq 30 ]
-	db_go
-	db_get
+	if ! db_go; then
+		exit 10 # back up to menu
+	fi
+	db_get grub-installer/apt-install-failed
 	if [ true != "$RET" ] ; then
 		db_progress STOP
 		exit 1
@@ -58,7 +60,10 @@ if [ "$defaultbootdev" ] ; then
     db_subst grub-installer/bootdev bootdev "$defaultbootdev"
 fi
 db_input medium grub-installer/bootdev || [ $? -eq 30 ]
-db_go
+if ! db_go; then
+	# back up to menu
+	exit 10
+fi
 
 db_get grub-installer/bootdev
 bootdev=$RET
@@ -79,7 +84,7 @@ else
     error "Running 'grub-install \"$bootdev\"' failed."
     db_subst grub-installer/grub-install-failed BOOTDEV "$bootdev"
     db_input critical grub-installer/grub-install-failed || [ $? -eq 30 ]
-    db_go
+    db_go || true
     db_progress STOP
     exit 1
 fi
@@ -97,7 +102,7 @@ if chroot /target /usr/bin/yes | chroot /target /sbin/update-grub >> $log 2>&1 ;
 else
     error "Running 'update-grub' failed." 1>&2
     db_input critical grub-installer/update-grub-failed || [ $? -eq 30 ]
-    db_go
+    db_go || true
     db_progress STOP
     exit 1
 fi
