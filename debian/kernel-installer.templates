@@ -13,7 +13,7 @@ _Description: Unable to install the selected kernel
  An error was returned while trying to install the kernel into the
  target system.
  .
- Kernel package: '${kernel}'.
+ Kernel package: '${KERNEL}'.
  .
  This is probably a fatal error.
  .
@@ -23,7 +23,7 @@ _Description: Unable to install the selected kernel
 
 Template: kernel-installer/which-kernel
 Type: select
-Choices: ${kernels}
+Choices: ${KERNELS}
 _Description: Select which kernel to install into /target/
  These are the kernels available from the APT sources.  One of them
  need to be installed to be able to boot the system from hard drive.
@@ -33,23 +33,31 @@ Type: note
 _Description: No installable kernel was found in the APT sources defined
  This is rather strange, and probably fatal.
  . 
- The current default kernel package is '${kernel}'.
+ The current default kernel package is '${KERNEL}'.
  . 
  You will have to continue as best as you can.  Good luck.
 
-Template: kernel-installer/progress_title
+Template: kernel-installer/progress/title
 Type: text
 _Description: Installing kernel
 
-Template: kernel-installer/progress_step_1
+Template: kernel-installer/progress/step_locate
 Type: text
-_Description: Installing kernel step 1
+_Description: Locating available kernels
 
-Template: kernel-installer/progress_step_2
+Template: kernel-installer/progress/step_select
 Type: text
-_Description: Installing kernel step 2
+_Description: Selecting the kernel to install
 
-Template: kernel-installer/progress_step_3
+Template: kernel-installer/progress/step_config
 Type: text
-_Description: Installing kernel step 3
+_Description: Setting in the kernel environment
 
+Template: kernel-installer/progress/step_install
+Type: text
+_Description: Installing the kernel package
+ The kernel in package
+ .
+ ${KERNEL}
+ .
+ is installed.

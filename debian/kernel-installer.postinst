@@ -25,10 +25,9 @@ info() {
 
 chroot="chroot /target"
 
-db_progress START 0 3 kernel-installer/progress_title
+db_progress START 0 4 kernel-installer/progress/title
 
-db_progress INFO kernel-installer/progress_step_1
-db_progress STEP 1
+db_progress INFO kernel-installer/progress/step_locate
 
 # Fetch the current default
 if db_get debian-installer/kernel/image && [ "$RET" ] ; then
@@ -50,13 +49,16 @@ kernels=`$chroot apt-cache search kernel-image | grep ^kernel-image | \
 info "Found kernels '$kernels'"
 
 if [ "$kernels" ] ; then
-    db_subst kernel-installer/which-kernel kernels "$kernels"
+    db_subst kernel-installer/which-kernel KERNELS "$kernels"
 else
-    db_subst kernel-installer/no-kernels-found kernel "$kernel"
+    db_subst kernel-installer/no-kernels-found KERNEL "$kernel"
     db_input critical kernel-installer/no-kernels-found || [ $? -eq 30 ]
     db_go
     exit 1
 fi
+
+db_progress STEP 1
+db_progress INFO kernel-installer/progress/step_select
 
 # Try to make current rootskel setting the default, make sure it is
 # available first.
@@ -125,8 +127,8 @@ info "Using kernel '$kernel'"
 # Pass the kernel name on to kernel-installer
 db_set debian-installer/kernel/image "$kernel"
 
-db_progress INFO kernel-installer/progress_step_2
 db_progress STEP 1
+db_progress INFO kernel-installer/progress/step_config
 
 # =================== Install the kernel =========================
 
@@ -199,20 +201,21 @@ else
     warning "Setting default kernel='$kernel'"
 fi
 
-db_progress INFO kernel-installer/progress_step_3
 db_progress STEP 1
+db_progress INFO kernel-installer/progress/step_install
 
 info "Installing kernel '$kernel'."
 
 if apt-install "$kernel" 2>> $logfile ; then
     :
 else
-    db_subst kernel-installer/failed-install "$kernel"
+    db_subst kernel-installer/failed-install KERNEL "$kernel"
     db_input critical kernel-installer/failed-install || [ $? -eq 30 ]
     db_go
     exit 1
 fi
 
+db_progress STEP 1
 db_progress STOP
 
 exit 0

@@ -93,6 +93,9 @@ if [ "$debootstrap_failed" ] ; then
     exit $debootstrap_failed
 fi
 
+db_progress START 0 3 base-installer/progress/title
+
+db_progress INFO base-installer/apt/progress/step_config
 
 # Why is this here?  Why are the files moved into /target/? [pere 2003-02-07]
 APTLISTDIR=/target/var/lib/apt/lists
@@ -121,10 +124,19 @@ APTSOURCE="$PROTOCOL://$MIRROR$DIRECTORY"
 [ ! -d /target/etc/apt ] && mkdir -p /target/etc/apt
 echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
 
+db_progress STEP 1
+db_progress INFO base-installer/apt/progress/step_update
+
 apt-update
+
+db_progress STEP 1
+db_progress INFO base-installer/apt/progress/step_install
 
 if [ -f /var/lib/apt-install/queue ] ; then
     apt-install `cat /var/lib/apt-install/queue` || true
 fi
+
+db_progress STEP 1
+db_progress STOP
 
 exit 0
