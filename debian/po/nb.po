@@ -1,22 +1,23 @@
-# translation of debian-installer.po to 
+# translation of debian-installer.po to
 # translation of debian-installer.po to Norwegian Bokmål
 # Norwegian Bokmal messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 # Knut Yrvin <knuty@skolelinux.no>, 2004.
+# Klaus Ade Johnstad <klaus@skolelinux.no>, 2004.
+# Axel Bojer <axelb@skolelinux.no>, 2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-07-19 12:05+0200\n"
-"PO-Revision-Date: 2004-05-21 20:45+0200\n"
+"PO-Revision-Date: 2004-07-14 17:56+0200\n"
 "Last-Translator: Knut Yrvin <knuty@skolelinux.no>\n"
 "Language-Team:  <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"bokmal@lists.debian.org>\n"
 "X-Generator: KBabel 1.3.1\n"
 
 #. Type: boolean
@@ -46,7 +47,8 @@ msgstr ""
 #. Description
 #: ../templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "Vil du nstallere oppstartslasteren GRUB på hovedoppstartssporet (MBR)?"
+msgstr ""
+"Vil du installere oppstartslasteren Grub på hovedoppstartssporet (MBR)?"
 
 #. Type: boolean
 #. Description
@@ -58,7 +60,7 @@ msgid ""
 msgstr ""
 "Det ser ut til at denne Debian-installasjonen er det eneste operativsystemet "
 "på denne maskinen. Hvis det er riktig, skulle det være trygt å installere "
-"GRUB-oppstartslasteren på hovedoppstartssporet på den første harddisken."
+"oppstartslasteren Grub på hovedoppstartssporet på den første harddisken."
 
 #. Type: boolean
 #. Description
@@ -71,7 +73,7 @@ msgid ""
 msgstr ""
 "Advarsel: Hvis installasjonsprogrammet ikke oppdaget et annet operativsystem "
 "som finnes på maskinen, så blir det midlertidig umulig å starte dette andre "
-"systemet hvis hovedoppstartssporet endres, mens GRUB senere kan settes opp "
+"systemet hvis hovedoppstartssporet endres, mens Grub senere kan settes opp "
 "manuelt slik at det andre systemet kan startes."
 
 #. Type: string
@@ -91,14 +93,13 @@ msgid ""
 "even to a floppy."
 msgstr ""
 "Nå er det på tide å gjøre det mulig å starte opp det nyinstallerte "
-"Debiansystemet, ved å installere oppstartslasteren GRUB på en enhet som er "
-"oppstartbar. Den vanlige måten å gjøre dette på, er å installere GRUB på "
+"Debiansystemet, ved å installere oppstartslasteren Grub på en enhet som er "
+"oppstartbar. Den vanlige måten å gjøre dette på, er å installere Grub på "
 "hovedoppstartssporet (MBR) på den første harddisken. Hvis du foretrekker det "
-"kan du installere GRUB andre steder på harddisken, eller på en annen "
+"kan du installere Grub andre steder på harddisken, eller på en annen "
 "harddisk, eller til og med på en diskett."
 
 #: ../templates:28
-#, fuzzy
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -111,16 +112,22 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Enheten kan oppgis ved å bruke GRUBs notasjon «(hdn)», eller som en enhet i /"
-"dev. For eksempel vil «(hd0)» installere GRUB på hovedoppstartsporet på den "
-"første harddisken, mens «/dev/hda2» vil installere det på den andre "
-"partisjonen på den første IDE-disken."
+"Enheten kan oppgis ved å bruke Grubs notasjon «(hdn, m)», eller som en enhet "
+"i /dev. Nedenfor er noen eksempler:  - «(hd0)» eller «/dev/hda» vil "
+"installere Grub på hovedoppstartsporet på \n"
+"   den første harddisken (IDE);\n"
+" - «(hd0, 1)» eller «/dev/hda2» vil bruke den andre partisjonen på\n"
+"    den første harddisken (IDE);\n"
+" - «(hd2,4)» eller «/dev/sdc5» vil bruke den første utvidede partisjonen "
+"på \n"
+"   den tredje harddisken (SCSI);\n"
+" - «(fd0)» or «/dev/fd0» vil installere GRUB på en diskett."
 
 #. Type: boolean
 #. Description
 #: ../templates:48
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "Klarte ikke å installere GRUB. Vil du fortsette likevel?"
+msgstr "Klarte ikke å installere Grub. Vil du fortsette likevel?"
 
 #. Type: boolean
 #. Description
@@ -131,14 +138,14 @@ msgid ""
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
 "Grub-pakka lot seg ikke installere under /target/. Dette er nødvendig for å "
-"installere GRUB som oppstartssystem. Installasjonsproblemet behøver ikke ha "
-"noe med GRUB å gjøre, så det kan hende det går an å fortsette likevel."
+"installere Grub som oppstartssystem. Installasjonsproblemet behøver ikke ha "
+"noe med Grub å gjøre, så det kan hende det går an å fortsette likevel."
 
 #. Type: error
 #. Description
 #: ../templates:55
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "Klarer ikke å installere Grub på ${BOOTDEV}"
+msgstr "Klarte ikke å installere Grub på ${BOOTDEV}"
 
 #. Type: error
 #. Description
@@ -150,7 +157,7 @@ msgstr "Kommandoen «grub-install ${BOOTDEV}» mislyktes."
 #. Description
 #: ../templates:62
 msgid "Unable to configure GRUB"
-msgstr "Klarer ikke å sette opp GRUB"
+msgstr "Klarte ikke å sette opp Grub"
 
 #. Type: error
 #. Description
@@ -168,7 +175,7 @@ msgstr "Dette er en kritisk feil."
 #. Description
 #: ../templates:69
 msgid "Installing GRUB boot loader"
-msgstr "Installerer oppstartssystemet GRUB"
+msgstr "Installerer oppstartssystemet Grub"
 
 #. Type: text
 #. Description
@@ -180,7 +187,7 @@ msgstr "Leter etter andre operativsystemer ..."
 #. Description
 #: ../templates:77
 msgid "Installing the 'grub' package..."
-msgstr "Installerer grub-pakka ..."
+msgstr "Installerer Grub-pakka ..."
 
 #. Type: text
 #. Description
@@ -211,4 +218,4 @@ msgstr "Oppdaterer /etc/kernel-img.conf ..."
 #. Main menu item
 #: ../templates:98
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "Installer oppstartssystemet GRUB på en harddisk"
+msgstr "Installer oppstartssystemet Grub på en harddisk"
