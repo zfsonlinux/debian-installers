@@ -1,5 +1,5 @@
 arch_get_kernel_flavour () {
-	CPU=`grep '^cpu[[:space:]]*:' /proc/cpuinfo | cut -d: -f2 | sed 's/^ *//; s/[, ].*//' | tr A-Z a-z`
+	CPU=`grep '^cpu[[:space:]]*:' /proc/cpuinfo | head -n1 | cut -d: -f2 | sed 's/^ *//; s/[, ].*//' | tr A-Z a-z`
 	case "$CPU" in
 		power3|i-star|s-star)
 			family=power3
