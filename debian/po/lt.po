@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-05-16 08:27+0200\n"
-"PO-Revision-Date: 2004-04-13 10:42+0300\n"
+"PO-Revision-Date: 2004-05-16 10:44+0300\n"
 "Last-Translator: Kęstutis Biliūnas <kebil@kaunas.init.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
@@ -23,8 +23,7 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr ""
-"Šiame kompiuteryje aptiktos tokios kitos operacinės sistemos: ${OS_LIST}"
+msgstr "Šiame kompiuteryje aptiktos tokios kitos operacinės sistemos: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -50,14 +49,13 @@ msgstr "Ar įdiegti pradinį įkėliklį GRUB į pagrindinį įkelties įrašą?
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
 "the master boot record of your first hard drive."
 msgstr ""
-"Atrodo, kad Debian'as bus vienintelė operacinė sistema šiame kompiuteryje. "
-"Jei taip, tuomet yra saugu įdiegti pradinį įkėliklį į pirmojo kietojo disko "
+"Atrodo, kad Debian'as yra vienintelė operacinė sistema šiame kompiuteryje. "
+"Jei taip, tuomet bus saugu įdiegti pradinį įkėliklį GRUB į pirmojo kietojo disko "
 "pagrindinį įkelties įrašą (master boot record)."
 
 #. Type: boolean
@@ -69,6 +67,10 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
+"Įspėjimas: Jei įdiegikliui nepavyko aptikti kitos, esančios Jūsų kompiuteryje, "
+"operacinės sistemos, pagrindinio įkelties įrašo (master boot record) keitimo "
+"pasekoje ši operacinė sistema laikinai taps nebeįkeliama. Tačiau vėliau galima "
+"rankiniu būdų konfigūruoti GRUB, kad ji būtų įkeliama."
 
 #. Type: string
 #. Description
@@ -101,6 +103,10 @@ msgid ""
 "of your first hard drive, while \"/dev/hda2\" will install it to the second "
 "parrtition of your first IDE drive."
 msgstr ""
+"Įrenginys gali būti nurodytas naudojant GRUB žymėjimą \"(hdn)\", arba kaip "
+"įprastai nurodomi įrenginiai /dev. Pavyzdžiui, \"(hd0)\" atveju GRUB bus įdiegtas "
+"į pirmojo kietojo disko pagrindinį įkelties įrašą (master boot record), tuo tarpu "
+"nurodžius \"/dev/hda2\" bus įdiegtas pirmojo IDE disko antrąjame skirsnyje."
 
 #. Type: boolean
 #. Description
@@ -199,9 +205,3 @@ msgstr "Atnaujinamas /etc/kernel-img.conf..."
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Pradinio įkėliklio GRUB diegimas į kietąjį diską"
 
-#~ msgid ""
-#~ "The device can be specified using GRUB's \"(hdn)\" notation, or as a "
-#~ "device in /dev."
-#~ msgstr ""
-#~ "Įrenginys gali būti nurodytas naudojant GRUB žymėjimą - \"(hdn)\", arba "
-#~ "kaip įprastai nurodomi įrenginiai - /dev."
