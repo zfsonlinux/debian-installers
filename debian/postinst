@@ -1,0 +1,58 @@
+#! /bin/sh -ex
+
+KERNEL_IMAGE=kernel-image-2.2.20
+
+PROTOCOL=
+MIRROR=
+DIRECTORY=
+PROFILE=
+
+if [ "$1" = "configure" ]; then
+    . /usr/share/debconf/confmodule
+
+    db_get debian-installer/profile
+    PROFILE="$RET"
+
+    db_get mirror/protocol
+    PROTOCOL="$RET"
+
+    db_get mirror/$PROTOCOL/hostname
+    MIRROR="$RET"
+
+    db_get mirror/$PROTOCOL/directory
+    DIRECTORY="$RET"
+
+    INCLUDE="--include=$KERNEL_IMAGE"
+    EXCLUDE=""
+
+    db_get netcfg/get_hostname
+    HOSTNAME=$RET
+
+    db_get netcfg/get_domain
+    FQDN=${HOSTNAME}.$RET
+
+    echo "$HOSTNAME" > /target/etc/hostname
+    echo "$HOSTNAME" > /proc/sys/kernel/hostname 
+    echo "127.0.0.1 $FQDN $HOSTNAME localhost" > /target/etc/hosts
+
+    unset DEBIAN_HAS_FRONTEND
+    unset DEBIAN_FRONTEND
+    unset DEBCONF_FRONTEND
+    unset DEBCONF_REDIR
+
+    cat > /target/etc/kernel-img.conf <<EOF
+# Do not create symbolic links in /
+Do_Symlinks = yes
+
+postinst_hook = /sbin/update-grub
+postrm_hook = /sbin/update-grub
+do_bootloader = no
+do_bootfloppy = no
+
+EOF
+
+#debootstrap --boot-floppies ${INCLUDE} ${EXCLUDE} woody /target ${PROTOCOL}://${MIRROR}/${DIRECTORY} 3>>/tmp/debootstrap.3.log 4>> /tmp/debootstrap.log 
+#    smallyes | ( debootstrap ${INCLUDE} ${EXCLUDE} woody /target ${PROTOCOL}://${MIRROR}/${DIRECTORY} >/tmp/debootstrap.log 2>/tmp/debootstrap.err.log )
+debootstrap --boot-floppies ${INCLUDE} ${EXCLUDE} woody /target ${PROTOCOL}://${MIRROR}/${DIRECTORY} /usr/lib/debootstrap/scripts/skolelinux-${PROFILE}  3>&1 >/tmp/debootstrap.log 2>/tmp/debootstrap.err.log </dev/null
+fi
+exit 0
