@@ -32,10 +32,12 @@ _Description: Device for boot loader installation:
  prefer, you can install GRUB elsewhere on the drive, or to another drive,
  or even to a floppy.
  .
- The device can be specified using GRUB's "(hdn)" notation, or as a device
- in /dev. For example, "(hd0)" will install GRUB to the master boot record
- of your first hard drive, while "/dev/hda2" will install it to the second
- partition of your first IDE drive.
+ The device can be specified using GRUB's "(hdn,m)" notation, or as a device
+ in /dev. For example, "(hd0)" or "/dev/hda" will install GRUB to the master
+ boot record of your first hard drive (IDE), while "(hd0,1)" or "/dev/hda2"
+ will install it to the second partition, also of your first drive (IDE).
+ "(hd2,4)" or "/dev/sdc5" refer to the first extended partition of your third
+ drive (SCSI in this case). "(fd0)" or "/dev/fd0" install to floppy.
 
 Template: grub-installer/apt-install-failed
 Type: boolean
