@@ -508,7 +508,7 @@ EOF
 	update_progress 15 100
 
 	# Installing mkvmlinuz on the powerpc subarches that need it.
-	if [ "$ARCH" = "powerpc" -a "$(uname -r | cut -d . -f 1,2)" = "2.6" ]; then
+	if [ "$ARCH" = "powerpc" ] && [ "$KERNEL_MAJOR" = "2.6" ]; then
 		case "$SUBARCH" in
 			prep | chrp | chrp_pegasos)
 				info "Installing mkvmlinuz."
