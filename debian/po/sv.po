@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-10 14:57-0400\n"
+"POT-Creation-Date: 2004-04-10 15:38-0400\n"
 "PO-Revision-Date: 2004-04-10 21:34+0100\n"
 "Last-Translator: André Dahlqvist <andre.dahlqvist@telia.com>\n"
 "Language-Team: Swedish <debian-boot@lists.debian.org>\n"
@@ -42,8 +42,8 @@ msgid ""
 "operating systems or your new Debian system."
 msgstr ""
 "Om alla dina operativsystem finns i ovanstående lista bör det vara säkert "
-"att installera startladdaren i huvudstartsektorn på din första hårddisk."
-"När din dator startar kommer du att kunna välja att ladda en av dessa "
+"att installera startladdaren i huvudstartsektorn på din första hårddisk.När "
+"din dator startar kommer du att kunna välja att ladda en av dessa "
 "operativsystem eller ditt nya Debiansystem."
 
 #. Type: boolean
@@ -61,8 +61,8 @@ msgid ""
 "of your first hard drive."
 msgstr ""
 "Det verkar som om Debian kommer att vara det enda operativsystemet på den "
-"här datorn. I sådana fall bör det vara säkert att installera startladdaren "
-"i huvudstartsektorn på din första hårddisk."
+"här datorn. I sådana fall bör det vara säkert att installera startladdaren i "
+"huvudstartsektorn på din första hårddisk."
 
 #. Type: string
 #. Description
@@ -96,27 +96,15 @@ msgid ""
 msgstr ""
 "Enheten kan anges med GRUB:s notation \"(hdn)\", eller som en enhet i /dev."
 
-#. Type: error
-#. Description
-#: ../templates:36
-msgid "Bad boot device"
-msgstr "Felaktig startenhet"
-
-#. Type: error
-#. Description
-#: ../templates:36
-msgid "The value you entered is not a valid device."
-msgstr "Värdet som du angav är inte en giltig enhet."
-
 #. Type: boolean
 #. Description
-#: ../templates:42
+#: ../templates:37
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Installationen av GRUB misslyckades. Fortsätt ändå?"
 
 #. Type: boolean
 #. Description
-#: ../templates:42
+#: ../templates:37
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -128,73 +116,73 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:49
+#: ../templates:44
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Kunde inte installera GRUB på ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:49
+#: ../templates:44
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Misslyckades att köra \"grub-install\" ${BOOTDEV}'."
 
 #. Type: error
 #. Description
-#: ../templates:56
+#: ../templates:51
 msgid "Unable to configure GRUB"
 msgstr "Kunde inte konfigurera GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:56
+#: ../templates:51
 msgid "Executing 'update-grub' failed."
 msgstr "Misslyckad körning av \"update-grub\"."
 
 #. Type: error
 #. Description
-#: ../templates:56
+#: ../templates:51
 msgid "This is a fatal error."
 msgstr "Detta är ett ödesdigert fel."
 
 #. Type: text
 #. Description
-#: ../templates:63
+#: ../templates:58
 msgid "Installing GRUB boot loader"
 msgstr "Installerar startladdaren GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:67
+#: ../templates:62
 msgid "Looking for other operating systems..."
 msgstr "Söker efter andra operativsystem..."
 
 #. Type: text
 #. Description
-#: ../templates:71
+#: ../templates:66
 msgid "Installing the 'grub' package..."
 msgstr "Installerar paketet \"grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:75
+#: ../templates:70
 msgid "Determining GRUB boot device..."
 msgstr "Fastställer startenhet för GRUB..."
 
 #. Type: text
 #. Description
-#: ../templates:79
+#: ../templates:74
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Kör \"grub-install\" ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../templates:83
+#: ../templates:78
 msgid "Running \"update-grub\"..."
 msgstr "Kör \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:87
+#: ../templates:82
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Uppdaterar /etc/kernel-img.conf..."
 
@@ -202,9 +190,15 @@ msgstr "Uppdaterar /etc/kernel-img.conf..."
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:92
+#: ../templates:87
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installera startladdaren GRUB på en hårddisk"
+
+#~ msgid "Bad boot device"
+#~ msgstr "Felaktig startenhet"
+
+#~ msgid "The value you entered is not a valid device."
+#~ msgstr "Värdet som du angav är inte en giltig enhet."
 
 #~ msgid ""
 #~ "Note that GRUB counts devices differently than the Linux kernel, so the "

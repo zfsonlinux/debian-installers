@@ -267,14 +267,8 @@ while : ; do
 				if [ -n "$mappedbootdev" ]; then
 					bootdev="$mappedbootdev"
 				fi
-				bootdev=$(convert "$bootdev") || true
 			fi
-			if echo "$bootdev" | grep -qv '('; then
-				db_input critical grub-installer/bad_bootdev
-				db_go || exit 1
-			else
-				break
-			fi
+			break
 		fi
 	fi
 done
