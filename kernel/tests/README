@@ -14,8 +14,8 @@ base-installer/kernel/tests/localudebs/ by hand.]
 Individual tests consist of a .test file in the appropriate per-architecture
 subdirectory, plus optionally some auxiliary files. The .test file consists
 of a series of directives, one per line. All lists are space-separated, and
-all kernel versions are the names of kernel packages with "kernel-image-"
-removed from the start. The available directives are as follows:
+all kernel versions are the names of kernel packages. The available
+directives are as follows:
 
   subarch <subarchitecture>
     The subarchitecture, if relevant: e.g. powermac_newworld.
@@ -39,11 +39,11 @@ removed from the start. The available directives are as follows:
 
   kernel-2.4 <kernel version>
     The "best" 2.4 kernel version for this machine, as expected to be
-    returned by arch_get_kernel (minus "kernel-image-").
+    returned by arch_get_kernel.
 
   kernel-2.6 <kernel version>
     The "best" 2.6 kernel version for this machine, as expected to be
-    returned by arch_get_kernel (minus "kernel-image-").
+    returned by arch_get_kernel.
 
   usable <kernel versions>
     A list of kernel versions that are expected to be usable on this
