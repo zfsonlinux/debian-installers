@@ -66,6 +66,8 @@ test -d $ETCDIR || mkdir -p $ETCDIR
 test -d $LOGDIR || mkdir -p $LOGDIR
 
 if [ -f /target/etc/fstab ] ; then
+    # I believe this is a workaround for lilo editing fstab when installed.
+    # [pere 2003-05-07]
     COPIED_FSTAB=true
     cp /target/etc/fstab /target/etc/fstab.orig
     echo "# UNCONFIGURED FSTAB FOR BASE SYSTEM" >> /target/etc/fstab
