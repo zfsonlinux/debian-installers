@@ -229,19 +229,22 @@ get_arch_kernel () {
 			SMP=no
 		fi
 		case "$MODEL" in 
-		" Intel(R) Pentium(R) [4M]"*|" Pentium II (Deschutes)"*)
+		" Intel(R) Pentium(R) [4M]"*|" Pentium II "*)
 			if test $SMP = no; then
 				trykernel=kernel-image-$version-686
 			else
 				trykernel=kernel-image-$version-686-smp
 			fi
 		;;
-	    	" AMD Athlon(tm) Processor"*)
+	    	" AMD Athlon(tm) "*|" AMD Duron(tm) "*)
 			if test $SMP = no; then
 				trykernel=kernel-image-$version-k7
 			else
 				trykernel=kernel-image-$version-k7-smp
 			fi
+		;;
+	    	" AMD-K6(tm) "*)
+			trykernel=kernel-image-$version-k6
 		;;
 		*)
 			trykernel=kernel-image-$version-386
