@@ -502,9 +502,9 @@ get_arch_kernel () {
 	;;
 	arm)
 		# ARM
-		version=2.4.25
+		version=$(uname -r | cut -d - -f 1)
 		case "$SUBARCH" in
-		netwinder|bast|riscpc|riscstation|lart)    
+		netwinder|bast|riscpc|riscstation|lart)
 			trykernel=kernel-image-$version-$SUBARCH ;;
 		*) warning "Unknown $ARCH subarchitecture '$SUBARCH'." ;;
 		esac
