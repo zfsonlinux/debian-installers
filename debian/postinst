@@ -150,7 +150,7 @@ update_mtab() {
 
 is_floppy () {
 	# FIXME: this is lame, and does not yet support /dev devices.
-	echo "$1" | grep -q "\(fd"
+	echo "$1" | grep -q "\\(fd"
 }
 
 db_progress START 0 6 grub-installer/progress/title
@@ -237,17 +237,20 @@ fi
 # Now add any other OSes to the end of menu.lst.
 OLDIFS="$IFS"
 IFS="$newline"
-for os in "$(cat /tmp/os-probed)"; do
+tmpfile=/tmp/menu.lst.extras
+for os in $(cat /tmp/os-probed); do
 	IFS="$OLDIFS"
 	title=$(echo "$os" | cut -d: -f2)
 	type=$(echo "$os" | cut -d: -f4)
-	partition=$(mapdevfs $(echo "$os" | cut -d: -f1))
-	grubdrive=$(convert "$partition") || true
-	if [ -n "$grubdrive" ]; then
-		case "$type" in
-			chain)
-				cat >> /target/boot/grub/menu.lst <<EOF
+	case "$type" in
+		chain)
+			partition=$(mapdevfs $(echo "$os" | cut -d: -f1))
+			grubdrive=$(convert "$partition") || true
+			if [ -n "$grubdrive" ]; then
+				cat >> $tmpfile <<EOF
 
+# This entry automatically added by the Debian installer for a non-linux OS
+# on $partition
 title		$title
 root		$grubdrive
 savedefault
@@ -255,16 +258,63 @@ makeactive
 chainloader	+1
 
 EOF
-			;;
-			*)
-				info "unhandled: $os"
-			;;
-		esac
-	fi
+			fi
+		;;
+		linux)
+			partition=$(echo "$os" | cut -d: -f1)
+			mappedpartition=$(mapdevfs "$partition")
+			IFS="$newline"
+			for entry in $(linux-boot-prober "$partition"); do
+				IFS="$OLDIFS"
+				bootpart=$(mapdevfs $(echo "$entry" | cut -d: -f2))
+				label=$(echo "$entry" | cut -d : -f3)
+				kernel=$(echo "$entry" | cut -d : -f4)
+				initrd=$(echo "$entry" | cut -d : -f5)
+				params=$(echo "$entry" | cut -d : -f6-)
+				grubdrive=$(convert "$bootpart") || true
+				cat >> $tmpfile <<EOF
+
+# This entry automatically added by the Debian installer for an existing
+# linux installation on $mappedpartition.
+# This is experimental, and may not work.
+title		$label (on $mappedpartition)
+root		$grubdrive
+kernel		$kernel $params
+EOF
+				if [ -n "$initrd" ]; then
+					cat >> $tmpfile <<EOF
+initrd		$initrd
+EOF
+				fi
+				cat >> $tmpfile <<EOF
+savedefault
+boot
+
+EOF
+				IFS="$newline"
+			done
+			IFS="$OLDIFS"
+		;;
+		*)
+			info "unhandled: $os"
+		;;
+	esac
 	IFS="$newline"
 done
 IFS="$OLDIFS"
 rm -f /tmp/os-probed
+if [ -s $tmpfile ]; then
+	cat >> /target/boot/grub/menu.lst << EOF
+
+# This is a divider, added to separate the menu items below from the Debian
+# ones.
+title		Other operating systems:
+root
+
+EOF
+	cat $tmpfile >> /target/boot/grub/menu.lst
+	rm -f $tmpfile
+fi
 
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_update_etc

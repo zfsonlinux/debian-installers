@@ -10,7 +10,10 @@ grub-installer (0.39) UNRELEASED; urgency=low
     - Use debhelper's udeb support.
     - Depend on os-prober, and add stanzas to menu.lst for chainloaded
       operating systems. Closes: #237185, #238293, #240228
-      (No support for other linux systems yet though.)
+    - Use linux-boot-prober to find out how to boot existing linux
+      installs, and add them as well.
+    - Add a divider in the menu before other linux and other OS entries.
+    - Fix a bad grep call in is_floppy.
 
  -- Joey Hess <joeyh@debian.org>  Sat,  3 Apr 2004 23:27:33 -0500
 
