@@ -461,7 +461,7 @@ get_arch_kernel () {
 		esac
 	;;
 	ia64)
-		version=2.4
+		version=$(uname -r | cut -d . -f 1,2) # 2.4 or 2.6
 		if grep -q 'Itanium 2' /proc/cpuinfo; then
 			family=mckinley
 		else
