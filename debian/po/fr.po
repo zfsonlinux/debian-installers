@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grub-installer 0.0.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-05-15 23:55-0300\n"
-"PO-Revision-Date: 2004-04-13 08:29+0100\n"
+"POT-Creation-Date: 2004-05-16 08:27+0200\n"
+"PO-Revision-Date: 2004-05-16 08:27+0100\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: Debian-l10n-french <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -48,7 +48,6 @@ msgstr "Installer le programme de démarrage GRUB sur le secteur d'amorçage ?"
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
@@ -56,8 +55,8 @@ msgid ""
 msgstr ""
 "Il semble que cette installation de Debian sera le seul système "
 "d'exploitation de cet ordinateur. Si c'est bien le cas, il est possible "
-"d'installer le programme de démarrage sur le secteur d'amorçage du premier "
-"disque dur."
+"d'installer le programme de démarrage GRUB sur le secteur d'amorçage du "
+"premier disque dur."
 
 #. Type: boolean
 #. Description
@@ -68,6 +67,11 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
+"Attention : si l'installateur ne détecte pas un système d'exploitation "
+"installé sur votre ordinateur, la modification du secteur principal "
+"d'amorçage empêchera temporairement ce système de démarrer. Toutefois, le "
+"programme de démarrage GRUB pourra être manuellement reconfiguré plus tard "
+"pour permettre ce démarrage. "
 
 #. Type: string
 #. Description
@@ -98,9 +102,13 @@ msgstr ""
 msgid ""
 "The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
 "in /dev. For example, \"(hd0)\" will install GRUB to the master boot record "
-"of your first hard drive, while/dev/hda2 will install it to the second "
+"of your first hard drive, while \"/dev/hda2\" will install it to the second "
 "parrtition of your first IDE drive."
 msgstr ""
+"Le périphérique peut être indiqué avec la notation de GRUB (« (hdn) ») ou "
+"avec le nom d'un périphérique dans /dev. Par exemple, « (hd0) » installera "
+"GRUB sur le secteur principal d'amorçage du premier disque dur, alors que « /"
+"dev/hda2 » l'installera sur la deuxième partition du premier disque IDE."
 
 #. Type: boolean
 #. Description
@@ -199,10 +207,3 @@ msgstr "Mise à jour de « /etc/kernel-img.conf »..."
 #: ../templates:93
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installer le programme de démarrage GRUB sur un disque dur"
-
-#~ msgid ""
-#~ "The device can be specified using GRUB's \"(hdn)\" notation, or as a "
-#~ "device in /dev."
-#~ msgstr ""
-#~ "Pour indiquer le périphérique, vous pouvez utiliser la notation de GRUB "
-#~ "(« (hdn) ») ou un fichier de périphérique dans /dev."
