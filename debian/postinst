@@ -133,7 +133,7 @@ convert () {
     fi
 }
 
-# Convert a linux non-devfs dick device name into the hurd's syntax.
+# Convert a linux non-devfs disk device name into the hurd's syntax.
 hurd_convert () {
 	dr_type=$(expr "$1" : '.*\([hs]d\)[a-h][0-9]*')
 	dr_letter=$(expr "$1" : '.*d\([a-h]\)[0-9]*')
