@@ -1,19 +1,21 @@
 #! /bin/sh -e
-export LD_LIBRARY_PATH="/target/lib:/target/usr/lib"
+# not implemented yet
+exit 1
+# export LD_LIBRARY_PATH="/target/lib:/target/usr/lib"
 
-. /usr/share/debconf/confmodule
-db_subst grub-installer/bootdev bootdev "$defaultbootdev"
-db_input medium grub-installer/bootdev || true
-db_go || true
+# . /usr/share/debconf/confmodule
+# db_subst grub-installer/bootdev bootdev "$defaultbootdev"
+# db_input medium grub-installer/bootdev || true
+# db_go || true
 
-db_get grub-installer/bootdev
-bootdev=$RET
+# db_get grub-installer/bootdev
+# bootdev=$RET
 
-chroot /target /sbin/grub-install $bootdev
-chroot /target /usr/bin/touch /boot/grub/menu.lst
-chroot /target /sbin/update-grub
+# chroot /target /sbin/grub-install $bootdev
+# chroot /target /usr/bin/touch /boot/grub/menu.lst
+# chroot /target /sbin/update-grub
 
-IMG_CONF=/target/etc/kernel-img.conf
-/target/bin/echo "postinst_hook = /sbin/update-grub" >> $IMG_CONF
-/target/bin/echo "postrm_hook   = /sbin/update-grub" >> $IMG_CONF
-/target/bin/echo "do_bootloader = no" >> $IMG_CONF
+# IMG_CONF=/target/etc/kernel-img.conf
+# /target/bin/echo "postinst_hook = /sbin/update-grub" >> $IMG_CONF
+# /target/bin/echo "postrm_hook   = /sbin/update-grub" >> $IMG_CONF
+# /target/bin/echo "do_bootloader = no" >> $IMG_CONF
