@@ -15,8 +15,7 @@ arch_get_kernel_flavour () {
 		powermac_newworld)	echo "$family-pmac" ;;
 		powermac_oldworld)	echo "$family-pmac" ;;
 		prep)			echo "$family-prep" ;;
-		chrp|chrp_pegasos)	echo "$family-chrp" ;;
-		chrp_rs6k)		echo "$family-chrp-rs6k" ;;
+		chrp*)			echo "$family-chrp" ;;
 		amiga)			echo apus ;;
 		*)
 			warning "Unknown $ARCH subarchitecture '$SUBARCH'."
