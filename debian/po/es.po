@@ -3,11 +3,52 @@
 #
 # DO NOT MODIFY IT DIRECTLY : SUCH CHANGES WILL BE LOST
 # 
+# Spanish messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+# Teófilo Ruiz Suárez <teo@debian.org>, 2003.
+# Javier Fernández-Sanguino <jfs@debian.org>, 2003.
+# David Martínez Moreno <ender@debian.org>, 2003.
+# Javier Fernández-Sanguino <jfs@debian.org>, 2004.
+# Carlos Alberto Martín Edo <carlos@dat.etsit.upm.es>, 2003
+# Steve Langasek <vorlon@debian.org>, 2004
+# Carlos Valdivia Yagüe <valyag@dat.etsit.upm.es>, 2003
+# Rudy Godoy <rudy@kernel-panik.org>, 07/2003
+#
+# Equipo de traducción al español, por favor lean antes de traducir
+# los siguientes documentos:
+# 
+# - El proyecto de traducción de Debian al españl
+#   http://www.debian.org/intl/spanish/coordinacion
+#   especialmente las notas de traducción en
+#   http://www.debian.org/intl/spanish/notas
+#
+# - La guía de traducción de po's de debconf:
+#   /usr/share/doc/po-debconf/README-trans
+#   o http://www.debian.org/intl/l10n/po-debconf/README-trans
+#
+# 
+# 
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: debian-installer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-08-23 17:50+0200\n"
+"PO-Revision-Date: 2004-09-05 16:20+0200\n"
+"Last-Translator:  Javier Fernandez-Sanguino Peña <jfs@debian.org>\n"
+"Language-Team:  Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:4
 msgid "Proceed with installation to unclean target?"
-msgstr ""
+msgstr "¿Continuar con la instalación al destino inválido?"
 
 #. Type: boolean
 #. Description
@@ -17,6 +58,9 @@ msgid ""
 "could break the installation process or cause a broken system to be "
 "installed."
 msgstr ""
+"El sistema de ficheros destino contine archivos de una instalación anterior. "
+"Estos archivos podrían romper el proceso de instalación o dar lugar a la "
+"instalación de un sistema no funcional."
 
 #. Type: error
 #. Description
@@ -49,12 +93,14 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:23
+#, fuzzy
 msgid "Not installing to unclean target"
-msgstr ""
+msgstr "¿Continuar con la instalación al destino inválido?"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:23
+#, fuzzy
 msgid ""
 "The installation to the target filesystem has been canceled, as the target "
 "filesystem contains files from a past installation, which could break the "
@@ -62,18 +108,21 @@ msgid ""
 "back and erase or format the target filesystem before proceeding with the "
 "install."
 msgstr ""
+"El sistema de ficheros destino contine archivos de una instalación anterior. "
+"Estos archivos podrían romper el proceso de instalación o dar lugar a la "
+"instalación de un sistema no funcional."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:32
 msgid "Failed to install the base system"
-msgstr ""
+msgstr "Error al instalar el sistema base"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:32
 msgid "The base system installation into /target/ failed."
-msgstr ""
+msgstr "La instalación del sistema base en /target/ ha fallado."
 
 #. Type: error
 #. Description
@@ -81,48 +130,49 @@ msgstr ""
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
+"El programa debootstrap terminó con errores (valor de retorno ${EXITCODE})."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:46
 msgid "Base system installation error"
-msgstr ""
+msgstr "Error en la instalación del sistema base"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:46
 msgid "The debootstrap program exited abnormally."
-msgstr ""
+msgstr "El programa debootstrap terminó de forma anormal."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:53
 msgid "The following error occurred:"
-msgstr ""
+msgstr "Tuvo lugar el siguiente error:"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:53
 msgid "${ERROR}"
-msgstr ""
+msgstr "${ERROR}"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:62
 msgid "Unable to install a kernel"
-msgstr ""
+msgstr "Incapaz de instalar un núcleo."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:62
 msgid "No kernel package is selected for installation."
-msgstr ""
+msgstr "No se ha seleccionado un paquete del núcleo para la instalación."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:67
 msgid "Unable to install the selected kernel"
-msgstr ""
+msgstr "No se pudo instalar el núcleo seleccionado"
 
 #. Type: error
 #. Description
@@ -131,18 +181,20 @@ msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
 msgstr ""
+"Se obtuvo un error cuando se intentó instalar el núcleo en el sistema "
+"objetivo."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:67
 msgid "Kernel package: '${KERNEL}'."
-msgstr ""
+msgstr "Paquete del núcleo: '${KERNEL}'."
 
 #. Type: select
 #. Description
 #: ../base-installer.templates:78
 msgid "Kernel to install:"
-msgstr ""
+msgstr "Núcleo a instalar:"
 
 #. Type: select
 #. Description
@@ -151,24 +203,26 @@ msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
 msgstr ""
+"La lista muestra los núcleos disponibles. Por favor, elija uno de ellos para "
+"que el sistema pueda arrancar desde el disco duro."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:84
 msgid "No installable kernel found"
-msgstr ""
+msgstr "No se encontró un núcleo instalable."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:84
 msgid "No installable kernel was found in the defined APT sources."
-msgstr ""
+msgstr "No se encontró un núcleo instalable en las fuentes APT definidas."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:84
 msgid "The current default kernel package is '${KERNEL}'."
-msgstr ""
+msgstr "El paquete del núcleo por omisión en este momento es '${KERNEL}'."
 
 #. Type: error
 #. Description
@@ -176,12 +230,14 @@ msgstr ""
 msgid ""
 "You may try to continue though this rather strange error is probably fatal."
 msgstr ""
+"Puede intentar continuar, aunque este error es muy extraño, y probablemente "
+"fatal."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:93
 msgid "Unable to install initrd-tools"
-msgstr ""
+msgstr "Incapaz de instalar initrd-tools"
 
 #. Type: error
 #. Description
@@ -190,120 +246,124 @@ msgid ""
 "An error was returned while trying to install the initrd-tools package  onto "
 "the target system."
 msgstr ""
+"Se obtuvo un error cuando se intentó instalar el paquete initrd-tools en el "
+"sistema objetivo."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:93
 msgid "Check /var/log/messages or see virtual console 3 for the details."
 msgstr ""
+"Compruebe el fichero /var/log/messages o eche un vistazo a la tercera "
+"consola virtual para los detalles."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:101
 msgid "${SUBST0} was not pre-downloaded."
-msgstr ""
+msgstr "No se pre-descargó ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:106
 msgid "Unknown location ${SUBST0}."
-msgstr ""
+msgstr "Localización desconocida ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:111
 msgid "Failed getting Release file ${SUBST0}."
-msgstr ""
+msgstr "Error al obtener el fichero de Versión ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:116
 msgid "Invalid Release file: no valid components."
-msgstr ""
+msgstr "Fichero de Versión incorrecto: no hay componentes válidos."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:121
 msgid "Invalid Release file: no entry for ${SUBST0}."
-msgstr ""
+msgstr "Fichero de Versión incorrecto: no hay entrada para ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:126
 msgid "Couldn't download ${SUBST0}."
-msgstr ""
+msgstr "No se pudo descargar ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:131
 msgid "Debootstrap Error"
-msgstr ""
+msgstr "Error en debootstrap"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:131
 msgid "Interrupt caught... Exiting."
-msgstr ""
+msgstr "Se recibió una interrupción... saliendo."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:136
 msgid "Installing the Debian base system"
-msgstr ""
+msgstr "Instalando el sistema base Debian"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:140
 msgid "Preparing to install the Debian base system..."
-msgstr ""
+msgstr "Preparándose para la instalación del sistema base..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:144
 msgid "Running ${SCRIPT}..."
-msgstr ""
+msgstr "Ejecutando ${SCRIPT}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:148
 msgid "Checking the target file system"
-msgstr ""
+msgstr "Comprobando el sistema de ficheros destino"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:152
 msgid "Retrieving Release file"
-msgstr ""
+msgstr "Descargando el fichero Release"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:156
 msgid "Finding package sizes"
-msgstr ""
+msgstr "Buscando tamaño de paquetes"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:160
 msgid "Retrieving Packages files"
-msgstr ""
+msgstr "Descargando el fichero Packages"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:164
 msgid "Retrieving packages"
-msgstr ""
+msgstr "Descargando paquetes"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:168
 msgid "Extracting packages"
-msgstr ""
+msgstr "Extrayendo paquetes"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:172
 msgid "Installing the base system"
-msgstr ""
+msgstr "Instalando el sistema base"
 
 #. Type: text
 #. Description
@@ -315,101 +375,101 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:180
 msgid "Validating ${SUBST0}..."
-msgstr ""
+msgstr "Validando ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:184
 msgid "Retrieving ${SUBST0}..."
-msgstr ""
+msgstr "Descargando ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:188
 msgid "Extracting ${SUBST0}..."
-msgstr ""
+msgstr "Extrayendo ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:192
 msgid "Checking package size: ${SUBST0}..."
-msgstr ""
+msgstr "Comprobando tamaño del paquete: ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:196
 msgid "Installing core packages..."
-msgstr ""
+msgstr "Instalando paquetes principales..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:200
 msgid "Unpacking required packages..."
-msgstr ""
+msgstr "Desempaquetando paquetes necesarios.."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:204
 msgid "Configuring required packages..."
-msgstr ""
+msgstr "Configurando paquetes necesarios..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:208
 msgid "Installing base packages..."
-msgstr ""
+msgstr "Instalando paquetes básicos..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:212
 msgid "Base system installed successfully."
-msgstr ""
+msgstr "El sistema base se instaló con éxito."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:216
 msgid "Configuring APT sources..."
-msgstr ""
+msgstr "Configurando fuentes APT..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:220
 msgid "Updating the list of available packages..."
-msgstr ""
+msgstr "Actualizando la lista de paquetes disponibles..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:224
 msgid "Installing extra packages..."
-msgstr ""
+msgstr "Instalando paquetes extra"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:228
 msgid "Creating device files..."
-msgstr ""
+msgstr "Creando ficheros de dispositivo..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:232
 msgid "Selecting the kernel to install..."
-msgstr ""
+msgstr "Seleccionando el núcleo a instalar..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:236
 msgid "Installing the kernel..."
-msgstr ""
+msgstr "Instalando el núcleo..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:240
 msgid "Installing the PCMCIA modules"
-msgstr ""
+msgstr "Instalando los módulos PCMCIA"
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
 #: ../base-installer.templates:245
 msgid "Install the base system"
-msgstr ""
+msgstr "Instalar el sistema base"
