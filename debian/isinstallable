@@ -47,4 +47,9 @@ if [ "$bootfstype" = "xfs" ]; then
 	fi
 fi
 
+db_get grub-installer/skip
+if [ "$RET" = true ]; then
+	exit 1
+fi
+
 exit 0
