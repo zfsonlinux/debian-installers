@@ -299,6 +299,9 @@ fi
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_config_loader
 
+# Delete for idempotency.
+rm -f /target/boot/grub/menu.lst
+
 # Pipe from 'yes' to tell grub to create menu.lst when it is missing A
 # better correct fix is to get update-grub to be able to run in
 # noninteractive mode.  Newer versions of the grub package support
@@ -350,9 +353,15 @@ EOF
 					label="$title"
 				fi
 				kernel=$(echo "$entry" | cut -d : -f4)
+				if echo "$kernel" | grep -q '^/boot/'; then
+					kernel=$(echo "$kernel" | sed 's!^/boot!!')
+					grubdrive=$(convert "$bootpart") || true
+				else
+					# kernel not on boot partition
+					grubdrive=$(convert "$mappedpartition") || true
+				fi
 				initrd=$(echo "$entry" | cut -d : -f5)
 				params=$(echo "$entry" | cut -d : -f6-)
-				grubdrive=$(convert "$bootpart") || true
 				cat >> $tmpfile <<EOF
 
 # This entry automatically added by the Debian installer for an existing
@@ -393,6 +402,9 @@ module		/hurd/ext2fs.static --readonly \\
 			--exec-server-task=\${exec-task} -T typed \${root} \\
 			\$(task-create) \$(task-resume)
 module		/lib/ld.so.1 /hurd/exec \$(exec-task=task-create)
+savedefault
+boot
+
 EOF
 		;;
 		*)
