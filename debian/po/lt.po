@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2004-09-11 12:36-0400\n"
-"PO-Revision-Date: 2005-01-16 23:17+0200\n"
+"PO-Revision-Date: 2005-02-02 10:34+0200\n"
 "Last-Translator: Kęstutis Biliūnas <kebil@kaunas.init.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:4
 msgid "Proceed with installation to unclean target?"
-msgstr "Ar tęsti diegimą, esant nešvariai failų sistemai?"
+msgstr "Ar tęsti diegimą esant netvarkingai failų sistemai?"
 
 #. Type: boolean
 #. Description
@@ -37,9 +37,8 @@ msgid ""
 "could break the installation process or cause a broken system to be "
 "installed."
 msgstr ""
-"Failų sistema, į kurią diegiame, turi failų iš ankstesniojo diegimo. Šie "
-"failai gali sugadinti diegimo procesą arba tapti sugadintos įdiegtos "
-"sistemos priežastimi."
+"Įdiegiamojoje failų sistemoje yra failų iš ankstesniojo diegimo. Šie failai "
+"gali nulaužti įdiegimo procesą, ar sugadinti įdiegtą sistemą."
 
 #. Type: error
 #. Description
@@ -61,7 +60,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:17
 msgid "No filesystem mounted on /target"
-msgstr "Nėra failų sistemos prijungtos prie taško /target"
+msgstr "Prie taško /target nėra prijungtos failų sistemos"
 
 #. Type: error
 #. Description
@@ -77,7 +76,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:23
 msgid "Not installing to unclean target"
-msgstr "Nediegiu į nešvarią failų sistemą, skirtą diegimui"
+msgstr "Nediegsiu į netuščią failų sistemą"
 
 #. Type: error
 #. Description
@@ -89,11 +88,10 @@ msgid ""
 "back and erase or format the target filesystem before proceeding with the "
 "install."
 msgstr ""
-"Failų sistema, į kurią diegiame, turi būti išvalyta, nes esant likusių failų "
-"iš ankstesniojo diegimo, šie failai gali sugadinti diegimo procesą arba "
-"tapti sugadintos įdiegtos sistemos priežastimi. Prieš tęsiant diegimą, Jūs "
-"turite grįžti atgal ir ištrinti arba naujai formatuoti failų sistemą, į "
-"kurią diegiate."
+"Įdiegiamoji failų sistema turi būti išvalyta, nes likę ankstesniojo įdiegimo "
+"failai gali nulaužti įdiegimo procesą, ar sugadinti įdiegtą sistemą. Prieš "
+"tęsdami įdiegimą, turite grįžti ir ištrinti, arba suformatuoti įdiegiamąją "
+"failų sistemą."
 
 #. Type: error
 #. Description
@@ -113,8 +111,7 @@ msgstr "Bazinės sistemos dalies diegimas į /target/ nepavyko."
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
-"Nutrauktas programos debootstrap vykdymas dėl klaidos (klaidos kodas "
-"${EXITCODE})."
+"Debootstrap'o programa baigė veikti dėl klaidos (klaidos kodas ${EXITCODE})."
 
 #. Type: error
 #. Description
@@ -126,13 +123,13 @@ msgstr "Bazinės sistemos dalies diegimo klaida"
 #. Description
 #: ../base-installer.templates:46
 msgid "The debootstrap program exited abnormally."
-msgstr "Avarinis programos debootstrap vykdymo užbaigimas."
+msgstr "Debootstrap'o programa liovėsi veikusi."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:53
 msgid "The following error occurred:"
-msgstr "Įvyko sekanti klaida:"
+msgstr "Įvyko tokia klaida:"
 
 #. Type: error
 #. Description
@@ -176,7 +173,7 @@ msgstr "Branduolio paketas: '${KERNEL}'."
 #. Description
 #: ../base-installer.templates:78
 msgid "Kernel to install:"
-msgstr "Branduolys diegimui:"
+msgstr "Įdiegsimas branduolys:"
 
 #. Type: select
 #. Description
@@ -185,8 +182,8 @@ msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
 msgstr ""
-"Tai prieinamų branduolių sąrašas. Prašau pasirinkti vieną iš jų, kad sistema "
-"taptų įkeliama iš kietojo disko."
+"Tai prieinamų branduolių sąrašas. Pasirinkite vieną iš jų, kad sistemą būtų "
+"galima įkelti iš kietojo disko."
 
 #. Type: error
 #. Description
@@ -211,13 +208,14 @@ msgstr "Einamasis branduolio paketas yra '${KERNEL}'."
 #: ../base-installer.templates:84
 msgid ""
 "You may try to continue though this rather strange error is probably fatal."
-msgstr "Jūs galite bandyti tęsti, tačiau ši keista klaida galbūt yra lemtinga."
+msgstr ""
+"Galite bandyti tęsti, tačiau ši keista klaida tikriausiai yra lemtinga."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:93
 msgid "Unable to install initrd-tools"
-msgstr "Negaliu įdiegti initrd-tools"
+msgstr "Negaliu įdiegti initrd-tools'o"
 
 #. Type: error
 #. Description
@@ -225,14 +223,14 @@ msgstr "Negaliu įdiegti initrd-tools"
 msgid ""
 "An error was returned while trying to install the initrd-tools package  onto "
 "the target system."
-msgstr "Bandant įdiegti initrd-tools paketą, grąžinta klaida."
+msgstr "Bandant įdiegti paketą 'initrd-tools' grąžinta klaida."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:93
 msgid "Check /var/log/messages or see virtual console 3 for the details."
 msgstr ""
-"Patikrinkite /var/log/messages arba žiūrėkite 3-je virtualioje konsolėje."
+"Detaliau žiūrėkite į '/var/log/messages' arba 3-je virtualioje konsolėje."
 
 #. Type: error
 #. Description
@@ -280,7 +278,7 @@ msgstr "Klaida vykdant debootstrap"
 #. Description
 #: ../base-installer.templates:131
 msgid "Interrupt caught... Exiting."
-msgstr "Gautas pertraukimo signalas ... darbas nutraukiamas."
+msgstr "Gautas pertraukimo signalas... Veikimas nutraukiamas."
 
 #. Type: text
 #. Description
@@ -442,13 +440,13 @@ msgstr "Pasirenkamas branduolys diegimui..."
 #. Description
 #: ../base-installer.templates:240
 msgid "Installing the kernel..."
-msgstr "Branduolio diegimas..."
+msgstr "Įdiegiamas branduolys..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:244
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
-msgstr "Branduolio diegimas - paėmimas ir diegimas ${SUBST0}..."
+msgstr "Įdiegiamas branduolys - imamas ir diegiamas ${SUBST0}..."
 
 #. Type: text
 #. Description
@@ -461,4 +459,4 @@ msgstr "Diegiami PCMCIA moduliai"
 #. Item in the main menu to select this package
 #: ../base-installer.templates:253
 msgid "Install the base system"
-msgstr "Bazinės sistemos dalies diegimas"
+msgstr "Diegiama bazinė sistema"
