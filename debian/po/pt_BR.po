@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-05-16 08:27+0200\n"
-"PO-Revision-Date: 2004-04-27 21:07-0300\n"
+"PO-Revision-Date: 2004-05-16 16:41-0300\n"
 "Last-Translator: André Luís Lopes <andrelop@debian.org>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -54,7 +54,6 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
@@ -62,7 +61,7 @@ msgid ""
 msgstr ""
 "Parece que esta instalação do Debian será o único sistema operacional neste "
 "computador. Caso isso seja verdade, deverá ser seguro instalar o carregador "
-"de inicialização no registro de inicialização principal de seu primeiro "
+"de inicialização GRUB no registro de inicialização principal de seu primeiro "
 "disco rígido."
 
 #. Type: boolean
@@ -74,6 +73,11 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
+"Aviso : Caso o instalador falhe a detectar outro sistema operacional que "
+"esteja presente em seu computador, modificar o registro de inicialização "
+"principal fará com que os sistemas operacionais não detectados não possam "
+"ser iniciados temporariamente, porém o GRUB poderá ser configurado "
+"posteriormente para permitir a inicialização dos outros sistemas operacionais."
 
 #. Type: string
 #. Description
@@ -107,6 +111,11 @@ msgid ""
 "of your first hard drive, while \"/dev/hda2\" will install it to the second "
 "parrtition of your first IDE drive."
 msgstr ""
+"O dispositivo pode ser especificado usando a notação \"(hdn)\" do GRUB ou "
+"como um dispositivo em /dev. Por exemplo, \"(hd0)\" irá instalar o GRUB "
+"no registro de inicialização principal de seu primeiro disco rígido, "
+"enquanto \"/dev/hda2\" irá instalá-lo na segunda partição de seu primeiro "
+"disco IDE."
 
 #. Type: boolean
 #. Description
