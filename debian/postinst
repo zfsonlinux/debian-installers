@@ -686,6 +686,9 @@ EOF
 			chroot /target mkvmlinuz -a $subarch \
 				-o /boot/vmlinuz-$version \
 				-k /boot/vmlinux-$version
+			cat >> /target/etc/kernel-img.conf <<EOF
+postinst_hook = /usr/sbin/mkvmlinuz
+EOF
 		fi
 	fi
 
