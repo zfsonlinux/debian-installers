@@ -25,7 +25,7 @@ install: build
 	dh_testroot
 	dh_installdirs
 	for file in apt-update apt-install ; do \
-		cp debian/apt-update debian/base-installer/bin/$$file ; \
+		cp debian/$$file debian/base-installer/bin/$$file ; \
 		chmod a+rx debian/base-installer/bin/$$file ; \
 	done
 
