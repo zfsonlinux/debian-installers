@@ -213,23 +213,30 @@ exec_debootstrap(char **argv){
                     }
                     return -1;
                 }
-            case 'W':
+            case 'W':  // FIXME
                 {
-                    do
+                    args = read_arg_lines("WA: ", ifp, &arg_count, &line);
+                    if (args == NULL)
                     {
-                        if ((llen = getline(&line, &dummy, ifp)) <= 0)
-                            child_exit = 1;
-                    }
-                    while (!child_exit && strstr(line, "WF:") != line);
-                    if (child_exit)
+                        child_exit = 1;
                         break;
-                    line[llen-1] = 0;
-#if defined(di_log) /* Using libd-i library >= 0.16 */
-                    di_log(DI_LOG_LEVEL_OUTPUT, line);
-#else /* not di_log */
-                    di_log(line);
-#endif /* di_log */
+                    }
+		    
+                    if (strstr(line, "WF: ") == line)
+                    {
+                        ptr = n_sprintf(line+4, arg_count, args);
+                        if (ptr == NULL)
+                            return -1;
 
+#if defined(di_log) /* Using libd-i library >= 0.16 */
+                        di_log(DI_LOG_LEVEL_OUTPUT, ptr);
+#else /* not di_log */
+                        di_log(ptr);
+#endif /* di_log */
+		    } else {
+                        // err, don't really know what to do here... there
+                        // should always be a fallback...
+                    }
                     break;
                 }
             case 'P':
