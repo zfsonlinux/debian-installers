@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: base-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-02 16:45-0400\n"
+"POT-Creation-Date: 2004-08-23 22:11+0900\n"
 "PO-Revision-Date: 2004-07-01 17:58+0300\n"
 "Last-Translator: Tapio Lehtonen <tale@debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -27,13 +27,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:4
+#: ../base-installer.templates:4
 msgid "Proceed with installation to unclean target?"
 msgstr "Jatketaanko asennusta ehkä kelvottomaan kohteeseen?"
 
 #. Type: boolean
 #. Description
-#: ../templates:4
+#: ../base-installer.templates:4
 msgid ""
 "The target filesystem contains files from a past installation. These files "
 "could break the installation process or cause a broken system to be "
@@ -45,68 +45,118 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:32
+#: ../base-installer.templates:11
+msgid "Cannot install Debian"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:11
+msgid ""
+"The installer cannot figure out how to install Debian. No installable CD was "
+"found, and a mirror is not configured."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:17
+msgid "No filesystem mounted on /target"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:17
+msgid ""
+"Before the installation can proceed, a root filesystem must be mounted on /"
+"target. The partitioner and formatter should have done this for you."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:23
+#, fuzzy
+msgid "Not installing to unclean target"
+msgstr "Jatketaanko asennusta ehkä kelvottomaan kohteeseen?"
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:23
+#, fuzzy
+msgid ""
+"The installation to the target filesystem has been canceled, as the target "
+"filesystem contains files from a past installation, which could break the "
+"installation process or cause a broken system to be installed. We recommend "
+"that you go back and erase or format the target filesystem before proceeding "
+"with the install."
+msgstr ""
+"Kohdetietostojärjestelmä sisältää aikaisemman asennuksen tiedostoja. Nämä "
+"tiedostot saatavat rikkoa asennuksen tai aiheuttaa rikkinäisen järjestelmän "
+"asennuksen."
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:32
 msgid "Failed to install the base system"
 msgstr "Perusjärjestelmän asennus epäonnistui"
 
 #. Type: error
 #. Description
-#: ../templates:32
+#: ../base-installer.templates:32
 msgid "The base system installation into /target/ failed."
 msgstr "Perusjärjestelmän asentaminen hakemistoon /target/ epäonnistui."
 
 #. Type: error
 #. Description
-#: ../templates:39
+#: ../base-installer.templates:39
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr "debootstrap-ohjelma päättyi virheellisesti (paluuarvo ${EXITCODE})."
 
 #. Type: error
 #. Description
-#: ../templates:46
+#: ../base-installer.templates:46
 msgid "Base system installation error"
 msgstr "Virhe peruskokoonpanon asennuksessa"
 
 #. Type: error
 #. Description
-#: ../templates:46
+#: ../base-installer.templates:46
 msgid "The debootstrap program exited abnormally."
 msgstr "debootstrap-ohjelma päättyi epänormaalisti."
 
 #. Type: error
 #. Description
-#: ../templates:53
+#: ../base-installer.templates:53
 msgid "The following error occurred:"
 msgstr "Tapahtui seuraava virhe:"
 
 #. Type: error
 #. Description
-#: ../templates:53
+#: ../base-installer.templates:53
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../base-installer.templates:62
 msgid "Unable to install a kernel"
 msgstr "Ydintä ei voi asentaa"
 
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../base-installer.templates:62
 msgid "No kernel package is selected for installation."
 msgstr "Ydinpakettia ei valittuna asennettavaksi."
 
 #. Type: error
 #. Description
-#: ../templates:67
+#: ../base-installer.templates:67
 msgid "Unable to install the selected kernel"
 msgstr "Valittua ydintä ei voi asentaa."
 
 #. Type: error
 #. Description
-#: ../templates:67
+#: ../base-installer.templates:67
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -114,19 +164,19 @@ msgstr "Tapahtui virhe yritettäessä asentaa ydintä kohdejärjestelmään."
 
 #. Type: error
 #. Description
-#: ../templates:67
+#: ../base-installer.templates:67
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Ydinpaketti: \"${KERNEL}\"."
 
 #. Type: select
 #. Description
-#: ../templates:78
+#: ../base-installer.templates:78
 msgid "Kernel to install:"
 msgstr "Asennettava ydin:"
 
 #. Type: select
 #. Description
-#: ../templates:78
+#: ../base-installer.templates:78
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -136,25 +186,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:84
+#: ../base-installer.templates:84
 msgid "No installable kernel found"
 msgstr "Asennettavissa olevaa ydintä ei löytynyt"
 
 #. Type: error
 #. Description
-#: ../templates:84
+#: ../base-installer.templates:84
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "Asennettavissa olevaa ydintä ei löytynyt määritetyistä APT-lähteistä."
 
 #. Type: error
 #. Description
-#: ../templates:84
+#: ../base-installer.templates:84
 msgid "The current default kernel package is '${KERNEL}'."
 msgstr "Nykyinen oletusydinpaketti on \"${KERNEL}\"."
 
 #. Type: error
 #. Description
-#: ../templates:84
+#: ../base-installer.templates:84
 msgid ""
 "You may try to continue though this rather strange error is probably fatal."
 msgstr ""
@@ -162,13 +212,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:93
+#: ../base-installer.templates:93
 msgid "Unable to install initrd-tools"
 msgstr "Pakettia initrd-tools ei voi asentaa"
 
 #. Type: error
 #. Description
-#: ../templates:93
+#: ../base-installer.templates:93
 msgid ""
 "An error was returned while trying to install the initrd-tools package  onto "
 "the target system."
@@ -178,7 +228,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:93
+#: ../base-installer.templates:93
 msgid "Check /var/log/messages or see virtual console 3 for the details."
 msgstr ""
 "Tarkista tiedosto /var/log/messages tai katso tarkempaa tietoa "
@@ -186,212 +236,218 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:101
+#: ../base-installer.templates:101
 msgid "${SUBST0} was not pre-downloaded."
 msgstr "Tiedostoa ${SUBST0} ei noudettu etukäteen."
 
 #. Type: error
 #. Description
-#: ../templates:106
+#: ../base-installer.templates:106
 msgid "Unknown location ${SUBST0}."
 msgstr "Tuntematon sijainti ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../templates:111
+#: ../base-installer.templates:111
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Release-tiedoston ${SUBST0} nouto epäonnistui."
 
 #. Type: error
 #. Description
-#: ../templates:116
+#: ../base-installer.templates:116
 msgid "Invalid Release file: no valid components."
 msgstr "Kelvoton Release-tiedosto, ei kelvollisia osia."
 
 #. Type: error
 #. Description
-#: ../templates:121
+#: ../base-installer.templates:121
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Kelvoton Release-tiedosto, ei tietuetta ${SUBST0} -paketille."
 
 #. Type: error
 #. Description
-#: ../templates:126
+#: ../base-installer.templates:126
 msgid "Couldn't download ${SUBST0}."
 msgstr "Ei voitu noutaa pakettia ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../templates:131
+#: ../base-installer.templates:131
 msgid "Debootstrap Error"
 msgstr "Debootstrap-virhe"
 
 #. Type: error
 #. Description
-#: ../templates:131
+#: ../base-installer.templates:131
 msgid "Interrupt caught... Exiting."
 msgstr "Keskeytys saatu ... poistutaan."
 
 #. Type: text
 #. Description
-#: ../templates:136
+#: ../base-installer.templates:136
 msgid "Installing the Debian base system"
 msgstr "Asennetaan Debianin peruskokoonpano"
 
 #. Type: text
 #. Description
-#: ../templates:140
+#: ../base-installer.templates:140
 msgid "Preparing to install the Debian base system..."
 msgstr "Valmistaudutaan Debianin perusjärjestelmän asentamiseen ..."
 
 #. Type: text
 #. Description
-#: ../templates:144
+#: ../base-installer.templates:144
 msgid "Running ${SCRIPT}..."
 msgstr "Suoritetaan ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../templates:148
+#: ../base-installer.templates:148
 msgid "Checking the target file system"
 msgstr "Tarkistetaan kohdetiedostojärjestelmä"
 
 #. Type: text
 #. Description
-#: ../templates:152
+#: ../base-installer.templates:152
 msgid "Retrieving Release file"
 msgstr "Noudetaan Release-tiedostoa"
 
 #. Type: text
 #. Description
-#: ../templates:156
+#: ../base-installer.templates:156
 msgid "Finding package sizes"
 msgstr "Selvitetään asennuspakettien koot"
 
 #. Type: text
 #. Description
-#: ../templates:160
+#: ../base-installer.templates:160
 msgid "Retrieving Packages files"
 msgstr "Noudetaan Packages-tiedostoa"
 
 #. Type: text
 #. Description
-#: ../templates:164
+#: ../base-installer.templates:164
 msgid "Retrieving packages"
 msgstr "Noudetaan paketteja"
 
 #. Type: text
 #. Description
-#: ../templates:168
+#: ../base-installer.templates:168
 msgid "Extracting packages"
 msgstr "Puretaan paketteja..."
 
 #. Type: text
 #. Description
-#: ../templates:172
+#: ../base-installer.templates:172
 msgid "Installing the base system"
 msgstr "Asennetaan peruskokoonpano"
 
 #. Type: text
 #. Description
-#: ../templates:180
+#: ../base-installer.templates:176
+msgid "${SECTION}: ${INFO}..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:180
 msgid "Validating ${SUBST0}..."
 msgstr "Tarkastetaan ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../templates:184
+#: ../base-installer.templates:184
 msgid "Retrieving ${SUBST0}..."
 msgstr "Noudetaan ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../templates:188
+#: ../base-installer.templates:188
 msgid "Extracting ${SUBST0}..."
 msgstr "Puretaan ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../templates:192
+#: ../base-installer.templates:192
 msgid "Checking package size: ${SUBST0}..."
 msgstr "Tarkistetaan paketin koko: ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../templates:196
+#: ../base-installer.templates:196
 msgid "Installing core packages..."
 msgstr "Asennetaan tärkeimpiä paketteja..."
 
 #. Type: text
 #. Description
-#: ../templates:200
+#: ../base-installer.templates:200
 msgid "Unpacking required packages..."
 msgstr "Puretaan vaadittuja paketteja..."
 
 #. Type: text
 #. Description
-#: ../templates:204
+#: ../base-installer.templates:204
 msgid "Configuring required packages..."
 msgstr "Tehdään vaadittujen pakettien asetukset..."
 
 #. Type: text
 #. Description
-#: ../templates:208
+#: ../base-installer.templates:208
 msgid "Installing base packages..."
 msgstr "Asennetaan peruskokoonpanon paketteja..."
 
 #. Type: text
 #. Description
-#: ../templates:212
+#: ../base-installer.templates:212
 msgid "Base system installed successfully."
 msgstr "Perusjärjestelmän asennus onnistui"
 
 #. Type: text
 #. Description
-#: ../templates:216
+#: ../base-installer.templates:216
 msgid "Configuring APT sources..."
 msgstr "Muokataan APT-lähteitä..."
 
 #. Type: text
 #. Description
-#: ../templates:220
+#: ../base-installer.templates:220
 msgid "Updating the list of available packages..."
 msgstr "Päivitetään luetteloa käytettävissä olevista paketeista..."
 
 #. Type: text
 #. Description
-#: ../templates:224
+#: ../base-installer.templates:224
 msgid "Installing extra packages..."
 msgstr "Asennetaan ylimääräisiä paketteja..."
 
 #. Type: text
 #. Description
-#: ../templates:228
+#: ../base-installer.templates:228
 msgid "Creating device files..."
 msgstr "Luodaan laitetiedostot ..."
 
 #. Type: text
 #. Description
-#: ../templates:232
+#: ../base-installer.templates:232
 msgid "Selecting the kernel to install..."
 msgstr "Valitaan asennettavaa ydintä..."
 
 #. Type: text
 #. Description
-#: ../templates:236
+#: ../base-installer.templates:236
 msgid "Installing the kernel..."
 msgstr "Asennetaan ydintä..."
 
 #. Type: text
 #. Description
-#: ../templates:240
+#: ../base-installer.templates:240
 msgid "Installing the PCMCIA modules"
 msgstr "Asennetaan PCMCIA-moduulit"
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../templates:245
+#: ../base-installer.templates:245
 msgid "Install the base system"
 msgstr "Asenna perusjärjestelmä"
 

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: base-installer 0.068\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-02 16:45-0400\n"
+"POT-Creation-Date: 2004-08-23 22:11+0900\n"
 "PO-Revision-Date: 2004-04-24 18:53+0700\n"
 "Last-Translator: Vũ Quang Trung <vu.quang.trung@auf.org>\n"
 "Language-Team: Vietnamese <debian-l10n@vn.refer.org>\n"
@@ -27,7 +27,7 @@ msgstr ""
 #  Description
 #. Type: boolean
 #. Description
-#: ../templates:4
+#: ../base-installer.templates:4
 msgid "Proceed with installation to unclean target?"
 msgstr "Có bắt đầu với cài đặt \"unclean target\" không ?"
 
@@ -35,7 +35,7 @@ msgstr "Có bắt đầu với cài đặt \"unclean target\" không ?"
 #  Description
 #. Type: boolean
 #. Description
-#: ../templates:4
+#: ../base-installer.templates:4
 msgid ""
 "The target filesystem contains files from a past installation. These files "
 "could break the installation process or cause a broken system to be "
@@ -44,11 +44,64 @@ msgstr ""
 "Tệp hệ thống mục tiêu có chứa các tệp có từ lần cài đặt trước. Những tệp này "
 "có thể làm dừng phần cài đặt."
 
+#. Type: error
+#. Description
+#: ../base-installer.templates:11
+msgid "Cannot install Debian"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:11
+msgid ""
+"The installer cannot figure out how to install Debian. No installable CD was "
+"found, and a mirror is not configured."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:17
+msgid "No filesystem mounted on /target"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:17
+msgid ""
+"Before the installation can proceed, a root filesystem must be mounted on /"
+"target. The partitioner and formatter should have done this for you."
+msgstr ""
+
+#  Type: boolean
+#  Description
+#. Type: error
+#. Description
+#: ../base-installer.templates:23
+#, fuzzy
+msgid "Not installing to unclean target"
+msgstr "Có bắt đầu với cài đặt \"unclean target\" không ?"
+
+#  Type: boolean
+#  Description
+#. Type: error
+#. Description
+#: ../base-installer.templates:23
+#, fuzzy
+msgid ""
+"The installation to the target filesystem has been canceled, as the target "
+"filesystem contains files from a past installation, which could break the "
+"installation process or cause a broken system to be installed. We recommend "
+"that you go back and erase or format the target filesystem before proceeding "
+"with the install."
+msgstr ""
+"Tệp hệ thống mục tiêu có chứa các tệp có từ lần cài đặt trước. Những tệp này "
+"có thể làm dừng phần cài đặt."
+
 #  Type: error
 #  Description
 #. Type: error
 #. Description
-#: ../templates:32
+#: ../base-installer.templates:32
 msgid "Failed to install the base system"
 msgstr "Cài đặt hệ thống cơ sở không thành công"
 
@@ -56,7 +109,7 @@ msgstr "Cài đặt hệ thống cơ sở không thành công"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:32
+#: ../base-installer.templates:32
 msgid "The base system installation into /target/ failed."
 msgstr "Cài đặt hệ thống cơ sỏ vào /mục tiêu/ không thành công."
 
@@ -64,7 +117,7 @@ msgstr "Cài đặt hệ thống cơ sỏ vào /mục tiêu/ không thành công
 #  Description
 #. Type: error
 #. Description
-#: ../templates:39
+#: ../base-installer.templates:39
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
@@ -74,7 +127,7 @@ msgstr ""
 #  Description
 #. Type: error
 #. Description
-#: ../templates:46
+#: ../base-installer.templates:46
 msgid "Base system installation error"
 msgstr "Cài đặt hệ thống cơ sở bị lỗi"
 
@@ -82,7 +135,7 @@ msgstr "Cài đặt hệ thống cơ sở bị lỗi"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:46
+#: ../base-installer.templates:46
 msgid "The debootstrap program exited abnormally."
 msgstr "Chương trình debootstrap đã thoát không bình thường."
 
@@ -90,7 +143,7 @@ msgstr "Chương trình debootstrap đã thoát không bình thường."
 #  Description
 #. Type: error
 #. Description
-#: ../templates:53
+#: ../base-installer.templates:53
 msgid "The following error occurred:"
 msgstr "Lỗi sau đây đã xảy ra :"
 
@@ -98,7 +151,7 @@ msgstr "Lỗi sau đây đã xảy ra :"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:53
+#: ../base-installer.templates:53
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
@@ -106,7 +159,7 @@ msgstr "${ERROR}"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../base-installer.templates:62
 msgid "Unable to install a kernel"
 msgstr "Không thể cài đặt nhân"
 
@@ -114,7 +167,7 @@ msgstr "Không thể cài đặt nhân"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../base-installer.templates:62
 msgid "No kernel package is selected for installation."
 msgstr "Không có các gói dư liệu được lựa chọn cho nhân."
 
@@ -122,7 +175,7 @@ msgstr "Không có các gói dư liệu được lựa chọn cho nhân."
 #  Description
 #. Type: error
 #. Description
-#: ../templates:67
+#: ../base-installer.templates:67
 msgid "Unable to install the selected kernel"
 msgstr "Không thể cài đặt cho nhân đã lựa chọn"
 
@@ -130,7 +183,7 @@ msgstr "Không thể cài đặt cho nhân đã lựa chọn"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:67
+#: ../base-installer.templates:67
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -142,7 +195,7 @@ msgstr ""
 #  Description
 #. Type: error
 #. Description
-#: ../templates:67
+#: ../base-installer.templates:67
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Gói dữ liệu nhân : '${KERNEL}'."
 
@@ -150,7 +203,7 @@ msgstr "Gói dữ liệu nhân : '${KERNEL}'."
 #  Description
 #. Type: select
 #. Description
-#: ../templates:78
+#: ../base-installer.templates:78
 msgid "Kernel to install:"
 msgstr "Nhân cài đặt :"
 
@@ -158,7 +211,7 @@ msgstr "Nhân cài đặt :"
 #  Description
 #. Type: select
 #. Description
-#: ../templates:78
+#: ../base-installer.templates:78
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -170,7 +223,7 @@ msgstr ""
 #  Description
 #. Type: error
 #. Description
-#: ../templates:84
+#: ../base-installer.templates:84
 msgid "No installable kernel found"
 msgstr "Không tìm thấy nhân cài đặt"
 
@@ -178,7 +231,7 @@ msgstr "Không tìm thấy nhân cài đặt"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:84
+#: ../base-installer.templates:84
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "Không tìm thấy nhân có thể cài đặt trong nguồn xác định APT."
 
@@ -186,7 +239,7 @@ msgstr "Không tìm thấy nhân có thể cài đặt trong nguồn xác địn
 #  Description
 #. Type: error
 #. Description
-#: ../templates:84
+#: ../base-installer.templates:84
 msgid "The current default kernel package is '${KERNEL}'."
 msgstr "Gói dữ liệu của nhân mặc định hiện tại là '${KERNEL}'."
 
@@ -194,7 +247,7 @@ msgstr "Gói dữ liệu của nhân mặc định hiện tại là '${KERNEL}'.
 #  Description
 #. Type: error
 #. Description
-#: ../templates:84
+#: ../base-installer.templates:84
 msgid ""
 "You may try to continue though this rather strange error is probably fatal."
 msgstr ""
@@ -204,7 +257,7 @@ msgstr ""
 #  Description
 #. Type: error
 #. Description
-#: ../templates:93
+#: ../base-installer.templates:93
 msgid "Unable to install initrd-tools"
 msgstr "Không thể cài đặt inird-tools"
 
@@ -212,7 +265,7 @@ msgstr "Không thể cài đặt inird-tools"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:93
+#: ../base-installer.templates:93
 msgid ""
 "An error was returned while trying to install the initrd-tools package  onto "
 "the target system."
@@ -224,7 +277,7 @@ msgstr ""
 #  Description
 #. Type: error
 #. Description
-#: ../templates:93
+#: ../base-installer.templates:93
 msgid "Check /var/log/messages or see virtual console 3 for the details."
 msgstr ""
 "Kiểm tra /var/log/messages hoặc xem bảng điều khiển số 3 để biết thêm chi "
@@ -234,7 +287,7 @@ msgstr ""
 #  Description
 #. Type: error
 #. Description
-#: ../templates:101
+#: ../base-installer.templates:101
 msgid "${SUBST0} was not pre-downloaded."
 msgstr "${SUBST0} đã không được nạp sẵn."
 
@@ -242,7 +295,7 @@ msgstr "${SUBST0} đã không được nạp sẵn."
 #  Description
 #. Type: error
 #. Description
-#: ../templates:106
+#: ../base-installer.templates:106
 msgid "Unknown location ${SUBST0}."
 msgstr "Vị trí không xác định ${SUBT0}."
 
@@ -250,7 +303,7 @@ msgstr "Vị trí không xác định ${SUBT0}."
 #  Description
 #. Type: error
 #. Description
-#: ../templates:111
+#: ../base-installer.templates:111
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Không thể lấy được tệp tin được tách ${SUBSTO}."
 
@@ -258,7 +311,7 @@ msgstr "Không thể lấy được tệp tin được tách ${SUBSTO}."
 #  Description
 #. Type: error
 #. Description
-#: ../templates:116
+#: ../base-installer.templates:116
 msgid "Invalid Release file: no valid components."
 msgstr "Tệp được tách không hợp lệ:không có các thành phần hợp lệ."
 
@@ -266,7 +319,7 @@ msgstr "Tệp được tách không hợp lệ:không có các thành phần h�
 #  Description
 #. Type: error
 #. Description
-#: ../templates:121
+#: ../base-installer.templates:121
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Tệp được tách không hợp lệ: không có đăng nhập cho ${SUBST0}. "
 
@@ -274,7 +327,7 @@ msgstr "Tệp được tách không hợp lệ: không có đăng nhập cho ${S
 #  Description
 #. Type: error
 #. Description
-#: ../templates:126
+#: ../base-installer.templates:126
 msgid "Couldn't download ${SUBST0}."
 msgstr "Không thể nạp ${SUBST0}."
 
@@ -282,7 +335,7 @@ msgstr "Không thể nạp ${SUBST0}."
 #  Description
 #. Type: error
 #. Description
-#: ../templates:131
+#: ../base-installer.templates:131
 msgid "Debootstrap Error"
 msgstr "Lỗi Debootstrap"
 
@@ -290,7 +343,7 @@ msgstr "Lỗi Debootstrap"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:131
+#: ../base-installer.templates:131
 msgid "Interrupt caught... Exiting."
 msgstr "Gián đoạn... đang thoát."
 
@@ -298,7 +351,7 @@ msgstr "Gián đoạn... đang thoát."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:136
+#: ../base-installer.templates:136
 msgid "Installing the Debian base system"
 msgstr "Đang cài đặt hệ thống cơ sở của Debian"
 
@@ -306,7 +359,7 @@ msgstr "Đang cài đặt hệ thống cơ sở của Debian"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:140
+#: ../base-installer.templates:140
 #, fuzzy
 msgid "Preparing to install the Debian base system..."
 msgstr "Cài đặt hệ thống cơ sở không thành công"
@@ -315,7 +368,7 @@ msgstr "Cài đặt hệ thống cơ sở không thành công"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:144
+#: ../base-installer.templates:144
 #, fuzzy
 msgid "Running ${SCRIPT}..."
 msgstr "Đang truy vấn ${SUBST0}..."
@@ -324,7 +377,7 @@ msgstr "Đang truy vấn ${SUBST0}..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:148
+#: ../base-installer.templates:148
 msgid "Checking the target file system"
 msgstr "Đang kiểm tra tệp hệ thống mục tiêu"
 
@@ -332,7 +385,7 @@ msgstr "Đang kiểm tra tệp hệ thống mục tiêu"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:152
+#: ../base-installer.templates:152
 msgid "Retrieving Release file"
 msgstr "Đang truy vấn tệp tách "
 
@@ -340,7 +393,7 @@ msgstr "Đang truy vấn tệp tách "
 #  Description
 #. Type: text
 #. Description
-#: ../templates:156
+#: ../base-installer.templates:156
 msgid "Finding package sizes"
 msgstr "Đang tìm kích cơ gói dữ liệu"
 
@@ -348,7 +401,7 @@ msgstr "Đang tìm kích cơ gói dữ liệu"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:160
+#: ../base-installer.templates:160
 msgid "Retrieving Packages files"
 msgstr "Đang truy vấn các tệp thuộc gói dữ liệu"
 
@@ -356,7 +409,7 @@ msgstr "Đang truy vấn các tệp thuộc gói dữ liệu"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:164
+#: ../base-installer.templates:164
 msgid "Retrieving packages"
 msgstr "Đang truy vấn các gói dữ liệu"
 
@@ -364,7 +417,7 @@ msgstr "Đang truy vấn các gói dữ liệu"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:168
+#: ../base-installer.templates:168
 msgid "Extracting packages"
 msgstr "Đang tời các gói dữ liệu"
 
@@ -372,15 +425,21 @@ msgstr "Đang tời các gói dữ liệu"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:172
+#: ../base-installer.templates:172
 msgid "Installing the base system"
 msgstr "Đang cài đặt hệ thống cơ sở"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:176
+msgid "${SECTION}: ${INFO}..."
+msgstr ""
 
 #  Type: text
 #  Description
 #. Type: text
 #. Description
-#: ../templates:180
+#: ../base-installer.templates:180
 msgid "Validating ${SUBST0}..."
 msgstr "Đang xác nhận ${SUBST0}..."
 
@@ -388,7 +447,7 @@ msgstr "Đang xác nhận ${SUBST0}..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:184
+#: ../base-installer.templates:184
 msgid "Retrieving ${SUBST0}..."
 msgstr "Đang truy vấn ${SUBST0}..."
 
@@ -396,7 +455,7 @@ msgstr "Đang truy vấn ${SUBST0}..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:188
+#: ../base-installer.templates:188
 msgid "Extracting ${SUBST0}..."
 msgstr "Đang tời ${SUBST0}..."
 
@@ -404,7 +463,7 @@ msgstr "Đang tời ${SUBST0}..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:192
+#: ../base-installer.templates:192
 msgid "Checking package size: ${SUBST0}..."
 msgstr "Đang kiểm tra kích cỡ gói dữ liệu : ${SUBSTO}..."
 
@@ -412,7 +471,7 @@ msgstr "Đang kiểm tra kích cỡ gói dữ liệu : ${SUBSTO}..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:196
+#: ../base-installer.templates:196
 msgid "Installing core packages..."
 msgstr "Đang cài đặt lõi gói dữ liệu..."
 
@@ -420,7 +479,7 @@ msgstr "Đang cài đặt lõi gói dữ liệu..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:200
+#: ../base-installer.templates:200
 msgid "Unpacking required packages..."
 msgstr "Đang lấy các gói dữ liệu theo yêu cầu..."
 
@@ -428,7 +487,7 @@ msgstr "Đang lấy các gói dữ liệu theo yêu cầu..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:204
+#: ../base-installer.templates:204
 msgid "Configuring required packages..."
 msgstr "Đang cấu hình cho các gói dữ liệu yêu cầu..."
 
@@ -436,7 +495,7 @@ msgstr "Đang cấu hình cho các gói dữ liệu yêu cầu..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:208
+#: ../base-installer.templates:208
 msgid "Installing base packages..."
 msgstr "Đang cài đặt các gói dữ liệu cơ sở..."
 
@@ -444,7 +503,7 @@ msgstr "Đang cài đặt các gói dữ liệu cơ sở..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:212
+#: ../base-installer.templates:212
 #, fuzzy
 msgid "Base system installed successfully."
 msgstr "Cài đặt hệ thống cơ sở bị lỗi"
@@ -453,7 +512,7 @@ msgstr "Cài đặt hệ thống cơ sở bị lỗi"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:216
+#: ../base-installer.templates:216
 msgid "Configuring APT sources..."
 msgstr "Đang cấu hình nguồn APT..."
 
@@ -461,7 +520,7 @@ msgstr "Đang cấu hình nguồn APT..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:220
+#: ../base-installer.templates:220
 msgid "Updating the list of available packages..."
 msgstr "Đang cập nhật danh sách các gói dữ liệu có hiệu lực..."
 
@@ -469,13 +528,13 @@ msgstr "Đang cập nhật danh sách các gói dữ liệu có hiệu lực..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:224
+#: ../base-installer.templates:224
 msgid "Installing extra packages..."
 msgstr "Đang cài đặt các gói dữ liệu thêm..."
 
 #. Type: text
 #. Description
-#: ../templates:228
+#: ../base-installer.templates:228
 msgid "Creating device files..."
 msgstr ""
 
@@ -483,7 +542,7 @@ msgstr ""
 #  Description
 #. Type: text
 #. Description
-#: ../templates:232
+#: ../base-installer.templates:232
 msgid "Selecting the kernel to install..."
 msgstr "Đang lựa chọn nhân để cài đặt..."
 
@@ -491,7 +550,7 @@ msgstr "Đang lựa chọn nhân để cài đặt..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:236
+#: ../base-installer.templates:236
 msgid "Installing the kernel..."
 msgstr "Đang cài đặt nhân..."
 
@@ -499,7 +558,7 @@ msgstr "Đang cài đặt nhân..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:240
+#: ../base-installer.templates:240
 msgid "Installing the PCMCIA modules"
 msgstr "Đang cài đặt các môđun PCMCIA"
 
@@ -509,6 +568,6 @@ msgstr "Đang cài đặt các môđun PCMCIA"
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../templates:245
+#: ../base-installer.templates:245
 msgid "Install the base system"
 msgstr "Cài đặt hệ thống cơ sở"

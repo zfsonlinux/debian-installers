@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: base-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-02 16:45-0400\n"
+"POT-Creation-Date: 2004-08-23 22:11+0900\n"
 "PO-Revision-Date: 2004-06-25 14:08+0300\n"
 "Last-Translator: Lior Kaplan <webmaster@guides.co.il>\n"
 "Language-Team: Hebrew\n"
@@ -27,7 +27,7 @@ msgstr ""
 #  Description
 #. Type: boolean
 #. Description
-#: ../templates:4
+#: ../base-installer.templates:4
 msgid "Proceed with installation to unclean target?"
 msgstr "להמשיך את ההתקנה למטרה לא נקייה?"
 
@@ -35,11 +35,66 @@ msgstr "להמשיך את ההתקנה למטרה לא נקייה?"
 #  Description
 #. Type: boolean
 #. Description
-#: ../templates:4
+#: ../base-installer.templates:4
 msgid ""
 "The target filesystem contains files from a past installation. These files "
 "could break the installation process or cause a broken system to be "
 "installed."
+msgstr ""
+"מערכת הקבצים המיועדת מכילה קבצים מהתקנת עבר. הקבצים האלו עלולים לשבור את "
+"תהליך ההתקנה או לגרום להתקנת מערכת שבורה."
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:11
+msgid "Cannot install Debian"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:11
+msgid ""
+"The installer cannot figure out how to install Debian. No installable CD was "
+"found, and a mirror is not configured."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:17
+msgid "No filesystem mounted on /target"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:17
+msgid ""
+"Before the installation can proceed, a root filesystem must be mounted on /"
+"target. The partitioner and formatter should have done this for you."
+msgstr ""
+
+#  Type: boolean
+#  Description
+#  Type: boolean
+#  Description
+#. Type: error
+#. Description
+#: ../base-installer.templates:23
+#, fuzzy
+msgid "Not installing to unclean target"
+msgstr "להמשיך את ההתקנה למטרה לא נקייה?"
+
+#  Type: boolean
+#  Description
+#. Type: error
+#. Description
+#: ../base-installer.templates:23
+#, fuzzy
+msgid ""
+"The installation to the target filesystem has been canceled, as the target "
+"filesystem contains files from a past installation, which could break the "
+"installation process or cause a broken system to be installed. We recommend "
+"that you go back and erase or format the target filesystem before proceeding "
+"with the install."
 msgstr ""
 "מערכת הקבצים המיועדת מכילה קבצים מהתקנת עבר. הקבצים האלו עלולים לשבור את "
 "תהליך ההתקנה או לגרום להתקנת מערכת שבורה."
@@ -50,7 +105,7 @@ msgstr ""
 #  Description
 #. Type: error
 #. Description
-#: ../templates:32
+#: ../base-installer.templates:32
 msgid "Failed to install the base system"
 msgstr "נכשלה התקנת מערכת הבסיס"
 
@@ -58,7 +113,7 @@ msgstr "נכשלה התקנת מערכת הבסיס"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:32
+#: ../base-installer.templates:32
 msgid "The base system installation into /target/ failed."
 msgstr "התקנת בסיס מערכת לתוך /target/ נכשלה."
 
@@ -66,7 +121,7 @@ msgstr "התקנת בסיס מערכת לתוך /target/ נכשלה."
 #  Description
 #. Type: error
 #. Description
-#: ../templates:39
+#: ../base-installer.templates:39
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr "התוכנית debootstrap יצאה עם שגיאה (קוד החזר ${EXITCODE})."
@@ -77,7 +132,7 @@ msgstr "התוכנית debootstrap יצאה עם שגיאה (קוד החזר ${E
 #  Description
 #. Type: error
 #. Description
-#: ../templates:46
+#: ../base-installer.templates:46
 msgid "Base system installation error"
 msgstr "שגיאה בהתקנת מערכת הבסיס"
 
@@ -85,7 +140,7 @@ msgstr "שגיאה בהתקנת מערכת הבסיס"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:46
+#: ../base-installer.templates:46
 msgid "The debootstrap program exited abnormally."
 msgstr "התוכנית debootstrap יציאה באופן לא תקין."
 
@@ -95,7 +150,7 @@ msgstr "התוכנית debootstrap יציאה באופן לא תקין."
 #  Description
 #. Type: error
 #. Description
-#: ../templates:53
+#: ../base-installer.templates:53
 msgid "The following error occurred:"
 msgstr "השגיאה הבאה קרתה:"
 
@@ -105,7 +160,7 @@ msgstr "השגיאה הבאה קרתה:"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:53
+#: ../base-installer.templates:53
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
@@ -115,7 +170,7 @@ msgstr "${ERROR}"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../base-installer.templates:62
 msgid "Unable to install a kernel"
 msgstr "לא ניתן להתקין קרנל"
 
@@ -125,7 +180,7 @@ msgstr "לא ניתן להתקין קרנל"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../base-installer.templates:62
 msgid "No kernel package is selected for installation."
 msgstr "אף חבילת קרנל נבחרה להתקנה"
 
@@ -135,7 +190,7 @@ msgstr "אף חבילת קרנל נבחרה להתקנה"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:67
+#: ../base-installer.templates:67
 msgid "Unable to install the selected kernel"
 msgstr "לא מצליח להתקין קרנל נבחר"
 
@@ -145,7 +200,7 @@ msgstr "לא מצליח להתקין קרנל נבחר"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:67
+#: ../base-installer.templates:67
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -157,7 +212,7 @@ msgstr "שגיאה החוזרה בזמן הניסיון להתקין את הקר
 #  Description
 #. Type: error
 #. Description
-#: ../templates:67
+#: ../base-installer.templates:67
 msgid "Kernel package: '${KERNEL}'."
 msgstr "חבילת קרנל: '${KERNEL}'."
 
@@ -167,7 +222,7 @@ msgstr "חבילת קרנל: '${KERNEL}'."
 #  Description
 #. Type: select
 #. Description
-#: ../templates:78
+#: ../base-installer.templates:78
 msgid "Kernel to install:"
 msgstr "קרנל להתקה:"
 
@@ -175,7 +230,7 @@ msgstr "קרנל להתקה:"
 #  Description
 #. Type: select
 #. Description
-#: ../templates:78
+#: ../base-installer.templates:78
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -189,7 +244,7 @@ msgstr ""
 #  Description
 #. Type: error
 #. Description
-#: ../templates:84
+#: ../base-installer.templates:84
 msgid "No installable kernel found"
 msgstr "לא נמצא קרנל שניתן להתקנה"
 
@@ -199,7 +254,7 @@ msgstr "לא נמצא קרנל שניתן להתקנה"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:84
+#: ../base-installer.templates:84
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "לא נמצאו קרנלים הניתנים להתקנה מהמקורות המוגדרים ב-APT."
 
@@ -209,7 +264,7 @@ msgstr "לא נמצאו קרנלים הניתנים להתקנה מהמקורו�
 #  Description
 #. Type: error
 #. Description
-#: ../templates:84
+#: ../base-installer.templates:84
 msgid "The current default kernel package is '${KERNEL}'."
 msgstr "קרנל ברירת המחדל היא '${KERNEL}'."
 
@@ -217,7 +272,7 @@ msgstr "קרנל ברירת המחדל היא '${KERNEL}'."
 #  Description
 #. Type: error
 #. Description
-#: ../templates:84
+#: ../base-installer.templates:84
 msgid ""
 "You may try to continue though this rather strange error is probably fatal."
 msgstr ""
@@ -227,7 +282,7 @@ msgstr ""
 #  Description
 #. Type: error
 #. Description
-#: ../templates:93
+#: ../base-installer.templates:93
 msgid "Unable to install initrd-tools"
 msgstr "לא מצליח להתקין את כלי initrd"
 
@@ -235,7 +290,7 @@ msgstr "לא מצליח להתקין את כלי initrd"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:93
+#: ../base-installer.templates:93
 msgid ""
 "An error was returned while trying to install the initrd-tools package  onto "
 "the target system."
@@ -246,7 +301,7 @@ msgstr ""
 #  Description
 #. Type: error
 #. Description
-#: ../templates:93
+#: ../base-installer.templates:93
 msgid "Check /var/log/messages or see virtual console 3 for the details."
 msgstr "בדוק את /var/log/messages או ראה את הקונסול הוירטואלי השלישי לפרטים"
 
@@ -254,7 +309,7 @@ msgstr "בדוק את /var/log/messages או ראה את הקונסול הויר
 #  Description
 #. Type: error
 #. Description
-#: ../templates:101
+#: ../base-installer.templates:101
 msgid "${SUBST0} was not pre-downloaded."
 msgstr "${SUBST0} לא הורד מראש"
 
@@ -264,7 +319,7 @@ msgstr "${SUBST0} לא הורד מראש"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:106
+#: ../base-installer.templates:106
 msgid "Unknown location ${SUBST0}."
 msgstr "מיקום לא ידוע ${SUBST0}."
 
@@ -274,7 +329,7 @@ msgstr "מיקום לא ידוע ${SUBST0}."
 #  Description
 #. Type: error
 #. Description
-#: ../templates:111
+#: ../base-installer.templates:111
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "כשלון בהשגת קובץ release ${SUBST0}."
 
@@ -282,7 +337,7 @@ msgstr "כשלון בהשגת קובץ release ${SUBST0}."
 #  Description
 #. Type: error
 #. Description
-#: ../templates:116
+#: ../base-installer.templates:116
 msgid "Invalid Release file: no valid components."
 msgstr "קובץ release לא חוקי: אין רכיבים חוקיים."
 
@@ -290,7 +345,7 @@ msgstr "קובץ release לא חוקי: אין רכיבים חוקיים."
 #  Description
 #. Type: error
 #. Description
-#: ../templates:121
+#: ../base-installer.templates:121
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "קובץ release לא חוקי: אין רשומה בשביל ${SUBST0}."
 
@@ -298,7 +353,7 @@ msgstr "קובץ release לא חוקי: אין רשומה בשביל ${SUBST0}."
 #  Description
 #. Type: error
 #. Description
-#: ../templates:126
+#: ../base-installer.templates:126
 msgid "Couldn't download ${SUBST0}."
 msgstr "לא מצליח להוריד את  ${SUBST0}."
 
@@ -308,7 +363,7 @@ msgstr "לא מצליח להוריד את  ${SUBST0}."
 #  Description
 #. Type: error
 #. Description
-#: ../templates:131
+#: ../base-installer.templates:131
 msgid "Debootstrap Error"
 msgstr "שגיאה של Debootstrap"
 
@@ -318,7 +373,7 @@ msgstr "שגיאה של Debootstrap"
 #  Description
 #. Type: error
 #. Description
-#: ../templates:131
+#: ../base-installer.templates:131
 msgid "Interrupt caught... Exiting."
 msgstr "נתפס Interrupt  ... יוצא."
 
@@ -328,7 +383,7 @@ msgstr "נתפס Interrupt  ... יוצא."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:136
+#: ../base-installer.templates:136
 msgid "Installing the Debian base system"
 msgstr "מתקין את מערכת הבסיס של Debian"
 
@@ -338,7 +393,7 @@ msgstr "מתקין את מערכת הבסיס של Debian"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:140
+#: ../base-installer.templates:140
 msgid "Preparing to install the Debian base system..."
 msgstr "מתכונן להתקנת בסיס מערכת Debian..."
 
@@ -346,7 +401,7 @@ msgstr "מתכונן להתקנת בסיס מערכת Debian..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:144
+#: ../base-installer.templates:144
 msgid "Running ${SCRIPT}..."
 msgstr "מריץ את ${SCRIPT}..."
 
@@ -356,7 +411,7 @@ msgstr "מריץ את ${SCRIPT}..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:148
+#: ../base-installer.templates:148
 msgid "Checking the target file system"
 msgstr "בודק את מערכת הקבצים המיועדת"
 
@@ -366,7 +421,7 @@ msgstr "בודק את מערכת הקבצים המיועדת"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:152
+#: ../base-installer.templates:152
 msgid "Retrieving Release file"
 msgstr "מביא קובץ Release"
 
@@ -376,7 +431,7 @@ msgstr "מביא קובץ Release"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:156
+#: ../base-installer.templates:156
 msgid "Finding package sizes"
 msgstr "מוצא את גדלי החבילה"
 
@@ -386,7 +441,7 @@ msgstr "מוצא את גדלי החבילה"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:160
+#: ../base-installer.templates:160
 msgid "Retrieving Packages files"
 msgstr "מביא קבצי חבילות"
 
@@ -396,7 +451,7 @@ msgstr "מביא קבצי חבילות"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:164
+#: ../base-installer.templates:164
 msgid "Retrieving packages"
 msgstr "מביא חבילות"
 
@@ -406,7 +461,7 @@ msgstr "מביא חבילות"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:168
+#: ../base-installer.templates:168
 msgid "Extracting packages"
 msgstr "מחלץ חבילות"
 
@@ -416,15 +471,21 @@ msgstr "מחלץ חבילות"
 #  Description
 #. Type: text
 #. Description
-#: ../templates:172
+#: ../base-installer.templates:172
 msgid "Installing the base system"
 msgstr "מתקין את מערכת הבסיס"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:176
+msgid "${SECTION}: ${INFO}..."
+msgstr ""
 
 #  Type: text
 #  Description
 #. Type: text
 #. Description
-#: ../templates:180
+#: ../base-installer.templates:180
 msgid "Validating ${SUBST0}..."
 msgstr "מוודא את ${SUBST0}..."
 
@@ -432,7 +493,7 @@ msgstr "מוודא את ${SUBST0}..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:184
+#: ../base-installer.templates:184
 msgid "Retrieving ${SUBST0}..."
 msgstr "מביא את  ${SUBST0}..."
 
@@ -440,7 +501,7 @@ msgstr "מביא את  ${SUBST0}..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:188
+#: ../base-installer.templates:188
 msgid "Extracting ${SUBST0}..."
 msgstr "מחלץ את  ${SUBST0}..."
 
@@ -448,7 +509,7 @@ msgstr "מחלץ את  ${SUBST0}..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:192
+#: ../base-installer.templates:192
 msgid "Checking package size: ${SUBST0}..."
 msgstr "בודק גודל חבילה: ${SUBST0}..."
 
@@ -458,7 +519,7 @@ msgstr "בודק גודל חבילה: ${SUBST0}..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:196
+#: ../base-installer.templates:196
 msgid "Installing core packages..."
 msgstr "מתקין את חבילות הליבה..."
 
@@ -466,7 +527,7 @@ msgstr "מתקין את חבילות הליבה..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:200
+#: ../base-installer.templates:200
 msgid "Unpacking required packages..."
 msgstr "פורק חבילות נחוצות..."
 
@@ -474,7 +535,7 @@ msgstr "פורק חבילות נחוצות..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:204
+#: ../base-installer.templates:204
 msgid "Configuring required packages..."
 msgstr "מגדיר חבילות נחוצות..."
 
@@ -484,7 +545,7 @@ msgstr "מגדיר חבילות נחוצות..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:208
+#: ../base-installer.templates:208
 msgid "Installing base packages..."
 msgstr "מתקין את חבילות הבסיס..."
 
@@ -494,7 +555,7 @@ msgstr "מתקין את חבילות הבסיס..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:212
+#: ../base-installer.templates:212
 msgid "Base system installed successfully."
 msgstr "בסיס המערכת הותקן בהצלחה."
 
@@ -504,7 +565,7 @@ msgstr "בסיס המערכת הותקן בהצלחה."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:216
+#: ../base-installer.templates:216
 msgid "Configuring APT sources..."
 msgstr "מגדיר מקורות APT..."
 
@@ -512,7 +573,7 @@ msgstr "מגדיר מקורות APT..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:220
+#: ../base-installer.templates:220
 msgid "Updating the list of available packages..."
 msgstr "מעדכן רשימה של חבילות זמינות..."
 
@@ -520,13 +581,13 @@ msgstr "מעדכן רשימה של חבילות זמינות..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:224
+#: ../base-installer.templates:224
 msgid "Installing extra packages..."
 msgstr "מתקין חבילות עודפות..."
 
 #. Type: text
 #. Description
-#: ../templates:228
+#: ../base-installer.templates:228
 msgid "Creating device files..."
 msgstr "יוצר קבצי התקנים..."
 
@@ -536,7 +597,7 @@ msgstr "יוצר קבצי התקנים..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:232
+#: ../base-installer.templates:232
 msgid "Selecting the kernel to install..."
 msgstr "בוחר קרנל להתקנה..."
 
@@ -546,7 +607,7 @@ msgstr "בוחר קרנל להתקנה..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:236
+#: ../base-installer.templates:236
 msgid "Installing the kernel..."
 msgstr "מתקין את הקרנל..."
 
@@ -554,7 +615,7 @@ msgstr "מתקין את הקרנל..."
 #  Description
 #. Type: text
 #. Description
-#: ../templates:240
+#: ../base-installer.templates:240
 msgid "Installing the PCMCIA modules"
 msgstr "מתקין מודולי PCMCIA"
 
@@ -567,6 +628,6 @@ msgstr "מתקין מודולי PCMCIA"
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../templates:245
+#: ../base-installer.templates:245
 msgid "Install the base system"
 msgstr "מתקין את בסיס המערכת"

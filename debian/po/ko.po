@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: base-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-02 16:45-0400\n"
+"POT-Creation-Date: 2004-08-23 22:11+0900\n"
 "PO-Revision-Date: 2004-06-27 21:43+0900\n"
 "Last-Translator: Jung Seung-Cheol <ddt@mirstyle.org>\n"
 "Language-Team: Korean <cwryu@debian.org>\n"
@@ -13,13 +13,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:4
+#: ../base-installer.templates:4
 msgid "Proceed with installation to unclean target?"
 msgstr "비어있지 않은 대상에 설치를 계속 하시겠습니까?"
 
 #. Type: boolean
 #. Description
-#: ../templates:4
+#: ../base-installer.templates:4
 msgid ""
 "The target filesystem contains files from a past installation. These files "
 "could break the installation process or cause a broken system to be "
@@ -30,19 +30,68 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:32
+#: ../base-installer.templates:11
+msgid "Cannot install Debian"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:11
+msgid ""
+"The installer cannot figure out how to install Debian. No installable CD was "
+"found, and a mirror is not configured."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:17
+msgid "No filesystem mounted on /target"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:17
+msgid ""
+"Before the installation can proceed, a root filesystem must be mounted on /"
+"target. The partitioner and formatter should have done this for you."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:23
+#, fuzzy
+msgid "Not installing to unclean target"
+msgstr "비어있지 않은 대상에 설치를 계속 하시겠습니까?"
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:23
+#, fuzzy
+msgid ""
+"The installation to the target filesystem has been canceled, as the target "
+"filesystem contains files from a past installation, which could break the "
+"installation process or cause a broken system to be installed. We recommend "
+"that you go back and erase or format the target filesystem before proceeding "
+"with the install."
+msgstr ""
+"대상 파일 시스템에 이전에 설치한 파일들이 남아 있습니다. 이 파일때문에 설치 "
+"과정이 방해를 받을 수도 있고 설치된 시스템을 망가뜨릴 수도 있습니다."
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:32
 msgid "Failed to install the base system"
 msgstr "베이스 시스템을 설치하는 데 실패했습니다"
 
 #. Type: error
 #. Description
-#: ../templates:32
+#: ../base-installer.templates:32
 msgid "The base system installation into /target/ failed."
 msgstr "베이스 시스템을 /target/에 설치하는 데 실패했습니다."
 
 #. Type: error
 #. Description
-#: ../templates:39
+#: ../base-installer.templates:39
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
@@ -50,49 +99,49 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:46
+#: ../base-installer.templates:46
 msgid "Base system installation error"
 msgstr "베이스 시스템 설치 오류"
 
 #. Type: error
 #. Description
-#: ../templates:46
+#: ../base-installer.templates:46
 msgid "The debootstrap program exited abnormally."
 msgstr "debootstrap 프로그램이 비정상적으로 끝났습니다."
 
 #. Type: error
 #. Description
-#: ../templates:53
+#: ../base-installer.templates:53
 msgid "The following error occurred:"
 msgstr "다음 오류가 발생했습니다:"
 
 #. Type: error
 #. Description
-#: ../templates:53
+#: ../base-installer.templates:53
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../base-installer.templates:62
 msgid "Unable to install a kernel"
 msgstr "커널을 설치할 수 없습니다"
 
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../base-installer.templates:62
 msgid "No kernel package is selected for installation."
 msgstr "설치할 커널 꾸러미를 선택하지 않았습니다."
 
 #. Type: error
 #. Description
-#: ../templates:67
+#: ../base-installer.templates:67
 msgid "Unable to install the selected kernel"
 msgstr "선택한 커널을 설치할 수 없습니다"
 
 #. Type: error
 #. Description
-#: ../templates:67
+#: ../base-installer.templates:67
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -100,19 +149,19 @@ msgstr "대상 시스템에 커널을 설치하는 데 오류가 발생했습니
 
 #. Type: error
 #. Description
-#: ../templates:67
+#: ../base-installer.templates:67
 msgid "Kernel package: '${KERNEL}'."
 msgstr "커널 꾸러미: '${KERNEL}'."
 
 #. Type: select
 #. Description
-#: ../templates:78
+#: ../base-installer.templates:78
 msgid "Kernel to install:"
 msgstr "설치할 커널:"
 
 #. Type: select
 #. Description
-#: ../templates:78
+#: ../base-installer.templates:78
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -122,25 +171,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:84
+#: ../base-installer.templates:84
 msgid "No installable kernel found"
 msgstr "설치할 수 있는 커널이 없습니다"
 
 #. Type: error
 #. Description
-#: ../templates:84
+#: ../base-installer.templates:84
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "지정한 APT 소스에는 설치할 수 있는 커널이 하나도 없습니다."
 
 #. Type: error
 #. Description
-#: ../templates:84
+#: ../base-installer.templates:84
 msgid "The current default kernel package is '${KERNEL}'."
 msgstr "현재 기본 커널 꾸러미는 '${KERNEL}'입니다."
 
 #. Type: error
 #. Description
-#: ../templates:84
+#: ../base-installer.templates:84
 msgid ""
 "You may try to continue though this rather strange error is probably fatal."
 msgstr ""
@@ -149,13 +198,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:93
+#: ../base-installer.templates:93
 msgid "Unable to install initrd-tools"
 msgstr "initrd-tools를 설치할 수 없습니다"
 
 #. Type: error
 #. Description
-#: ../templates:93
+#: ../base-installer.templates:93
 msgid ""
 "An error was returned while trying to install the initrd-tools package  onto "
 "the target system."
@@ -163,7 +212,7 @@ msgstr "initrd-tools 꾸러미를 대상 시스템에 설치하는 데 오류가
 
 #. Type: error
 #. Description
-#: ../templates:93
+#: ../base-installer.templates:93
 msgid "Check /var/log/messages or see virtual console 3 for the details."
 msgstr ""
 "자세한 정보를 확인하시려면 /var/log/messages를 보시거나 가상 콘솔 3을 보십시"
@@ -171,211 +220,217 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:101
+#: ../base-installer.templates:101
 msgid "${SUBST0} was not pre-downloaded."
 msgstr "${SUBST0}은(는) 미리 내려받지 않았습니다."
 
 #. Type: error
 #. Description
-#: ../templates:106
+#: ../base-installer.templates:106
 msgid "Unknown location ${SUBST0}."
 msgstr "${SUBST0} 위치를 알 수 없습니다."
 
 #. Type: error
 #. Description
-#: ../templates:111
+#: ../base-installer.templates:111
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "${SUBST0} 릴리즈 파일을 가져오는 데 실패했습니다."
 
 #. Type: error
 #. Description
-#: ../templates:116
+#: ../base-installer.templates:116
 msgid "Invalid Release file: no valid components."
 msgstr "릴리즈 파일이 잘못되었습니다: 올바른 구성 요소가 없습니다."
 
 #. Type: error
 #. Description
-#: ../templates:121
+#: ../base-installer.templates:121
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "릴리즈 파일이 잘못되었습니다: ${SUBST0}에 대한 항목이 없습니다."
 
 #. Type: error
 #. Description
-#: ../templates:126
+#: ../base-installer.templates:126
 msgid "Couldn't download ${SUBST0}."
 msgstr "${SUBST0}을(를) 내려받을 수 없습니다."
 
 #. Type: error
 #. Description
-#: ../templates:131
+#: ../base-installer.templates:131
 msgid "Debootstrap Error"
 msgstr "debootstrap 오류"
 
 #. Type: error
 #. Description
-#: ../templates:131
+#: ../base-installer.templates:131
 msgid "Interrupt caught... Exiting."
 msgstr "인터럽트 발생 ... 끝납니다."
 
 #. Type: text
 #. Description
-#: ../templates:136
+#: ../base-installer.templates:136
 msgid "Installing the Debian base system"
 msgstr "데비안 베이스 시스템을 설치하는 중입니다"
 
 #. Type: text
 #. Description
-#: ../templates:140
+#: ../base-installer.templates:140
 msgid "Preparing to install the Debian base system..."
 msgstr "데비안 베이스 시스템 설치를 준비하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../templates:144
+#: ../base-installer.templates:144
 msgid "Running ${SCRIPT}..."
 msgstr "${SCRIPT} 스크립트를 실행하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../templates:148
+#: ../base-installer.templates:148
 msgid "Checking the target file system"
 msgstr "대상 파일 시스템을 검사하는 중입니다"
 
 #. Type: text
 #. Description
-#: ../templates:152
+#: ../base-installer.templates:152
 msgid "Retrieving Release file"
 msgstr "릴리즈 파일을 가져오는 중입니다"
 
 #. Type: text
 #. Description
-#: ../templates:156
+#: ../base-installer.templates:156
 msgid "Finding package sizes"
 msgstr "꾸러미 크기를 찾는 중입니다"
 
 #. Type: text
 #. Description
-#: ../templates:160
+#: ../base-installer.templates:160
 msgid "Retrieving Packages files"
 msgstr "꾸러미 파일을 가져오는 중입니다"
 
 #. Type: text
 #. Description
-#: ../templates:164
+#: ../base-installer.templates:164
 msgid "Retrieving packages"
 msgstr "꾸러미를 가져오는 중입니다"
 
 #. Type: text
 #. Description
-#: ../templates:168
+#: ../base-installer.templates:168
 msgid "Extracting packages"
 msgstr "꾸러미를 푸는 중입니다"
 
 #. Type: text
 #. Description
-#: ../templates:172
+#: ../base-installer.templates:172
 msgid "Installing the base system"
 msgstr "베이스 시스템을 설치하는 중입니다"
 
 #. Type: text
 #. Description
-#: ../templates:180
+#: ../base-installer.templates:176
+msgid "${SECTION}: ${INFO}..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:180
 msgid "Validating ${SUBST0}..."
 msgstr "${SUBST0} 파일을 확인하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../templates:184
+#: ../base-installer.templates:184
 msgid "Retrieving ${SUBST0}..."
 msgstr "${SUBST0} 파일을 가져오는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../templates:188
+#: ../base-installer.templates:188
 msgid "Extracting ${SUBST0}..."
 msgstr "${SUBST0} 파일을 푸는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../templates:192
+#: ../base-installer.templates:192
 msgid "Checking package size: ${SUBST0}..."
 msgstr "꾸러미 크기를 검사하는 중입니다: ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../templates:196
+#: ../base-installer.templates:196
 msgid "Installing core packages..."
 msgstr "핵심 꾸러미들을 설치하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../templates:200
+#: ../base-installer.templates:200
 msgid "Unpacking required packages..."
 msgstr "필수 꾸러미를 푸는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../templates:204
+#: ../base-installer.templates:204
 msgid "Configuring required packages..."
 msgstr "필수 꾸러미를 설정하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../templates:208
+#: ../base-installer.templates:208
 msgid "Installing base packages..."
 msgstr "베이스 꾸러미를 설치하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../templates:212
+#: ../base-installer.templates:212
 msgid "Base system installed successfully."
 msgstr "베이스 시스템 설치 성공"
 
 #. Type: text
 #. Description
-#: ../templates:216
+#: ../base-installer.templates:216
 msgid "Configuring APT sources..."
 msgstr "APT 소스를 설정하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../templates:220
+#: ../base-installer.templates:220
 msgid "Updating the list of available packages..."
 msgstr "사용 가능한 꾸러미의 목록을 업데이트하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../templates:224
+#: ../base-installer.templates:224
 msgid "Installing extra packages..."
 msgstr "추가 꾸러미들을 설치하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../templates:228
+#: ../base-installer.templates:228
 msgid "Creating device files..."
 msgstr "장치 파일을 만드는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../templates:232
+#: ../base-installer.templates:232
 msgid "Selecting the kernel to install..."
 msgstr "설치할 커널을 선택하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../templates:236
+#: ../base-installer.templates:236
 msgid "Installing the kernel..."
 msgstr "커널을 설치하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../templates:240
+#: ../base-installer.templates:240
 msgid "Installing the PCMCIA modules"
 msgstr "PCMCIA 모듈을 설치하는 중입니다"
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../templates:245
+#: ../base-installer.templates:245
 msgid "Install the base system"
 msgstr "베이스 시스템 설치"

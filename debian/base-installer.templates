@@ -8,19 +8,19 @@ _Description: Proceed with installation to unclean target?
 
 Template: base-installer/cannot_install
 Type: error
-Description: Cannot install Debian
+_Description: Cannot install Debian
  The installer cannot figure out how to install Debian. No installable CD
  was found, and a mirror is not configured.
 
 Template: base-installer/no_target_mounted
 Type: error
-Description: No filesystem mounted on /target
+_Description: No filesystem mounted on /target
  Before the installation can proceed, a root filesystem must be mounted on
  /target. The partitioner and formatter should have done this for you.
 
 Template: base-installer/unclean_target_cancel
 Type: error
-Description: Not installing to unclean target
+_Description: Not installing to unclean target
  The installation to the target filesystem has been canceled, as the target
  filesystem contains files from a past installation, which could break the
  installation process or cause a broken system to be installed. We recommend
@@ -173,7 +173,7 @@ _Description: Installing the base system
 
 Template: base-installer/debootstrap/fallback-info
 Type: text
-Description: ${SECTION}: ${INFO}...
+_Description: ${SECTION}: ${INFO}...
 
 Template: base-installer/debootstrap/info/validating
 Type: text
