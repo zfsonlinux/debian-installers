@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.034\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-09-18 22:25+0200\n"
+"POT-Creation-Date: 2003-12-09 15:43-0500\n"
 "PO-Revision-Date: 2003-08-03 09:30+0200\n"
 "Last-Translator: Osman Yüksel<yuxel@operamail.com>\n"
 "Language-Team: Debian-l10n-Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -24,11 +24,13 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-9\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#. Type: string
 #. Description
 #: ../templates:4
-msgid "On which device should GRUB be installed?"
-msgstr "GRUB hangi aygýta yüklensin?"
+msgid "Device for boot loader installation:"
+msgstr ""
 
+#. Type: string
 #. Description
 #: ../templates:4
 msgid ""
@@ -37,78 +39,107 @@ msgid ""
 "the Linux kernel, so the first one is usually '(hd0)'. Leave this at default "
 "if unsure."
 msgstr ""
-"Grub boot edilebilir bir aygýta 1. seviye açýlýþ yükleyicisi olarak yüklenmelidir. "
-"Bu genelde ilk hard disktir. Þunu bilmelisiniz ki GRUB aygýtlarý Linux kernelden daha farklý "
-"bir þekilde sayar, ilk olan genelde '(hd0)' dýr. Eðer emin deðilseniz "
-"öntanýmlý þekilde býrakýn."
+"Grub boot edilebilir bir aygýta 1. seviye açýlýþ yükleyicisi olarak "
+"yüklenmelidir. Bu genelde ilk hard disktir. Þunu bilmelisiniz ki GRUB "
+"aygýtlarý Linux kernelden daha farklý bir þekilde sayar, ilk olan genelde "
+"'(hd0)' dýr. Eðer emin deðilseniz öntanýmlý þekilde býrakýn."
 
+#. Type: boolean
 #. Description
 #: ../templates:13
-msgid "Unable to install grub in /target/.  Continue anyway?"
+#, fuzzy
+msgid "GRUB installation failed.  Continue anyway?"
 msgstr "GRUB /target/ 'a yüklenemiyor. Yine de devam edilsin mi?"
 
+#. Type: boolean
 #. Description
 #: ../templates:13
+#, fuzzy
 msgid ""
-"The grub package failed to install into /target/.  It is required to install "
-"GRUB as a boot loader.  The install problem might be unrelated to grub, and "
-"it might work to continue anyway."
+"The grub package failed to install into /target/.  Installing GRUB as a boot "
+"loader is a required step.  The install problem might however be unrelated "
+"to GRUB, so continuing the installation may be possible."
 msgstr ""
-"GRUB paketi /target/ a kurulamadý. GRUB'ýn bir açýlýþ yükleyicisi olarak kurulmasý "
-"gerekli. Kurulum problemi grub'dan kaynaklanmýyor olabilir, ve "
+"GRUB paketi /target/ a kurulamadý. GRUB'ýn bir açýlýþ yükleyicisi olarak "
+"kurulmasý gerekli. Kurulum problemi grub'dan kaynaklanmýyor olabilir, ve "
 "devam ederseniz çalýþabilir. "
 
+#. Type: error
 #. Description
 #: ../templates:20
-msgid "Unable to install grub in ${BOOTDEV}"
+#, fuzzy
+msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "${BOOTDEV} 'e GRUB kurulamadý"
 
+#. Type: error
 #. Description
 #: ../templates:20
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "'grub-install ${BOOTDEV}' komutu baþarýsýz."
 
+#. Type: error
 #. Description
 #: ../templates:27
-msgid "Unable to configure grub"
+#, fuzzy
+msgid "Unable to configure GRUB"
 msgstr "GRUB ayarlanamýyor"
 
+#. Type: error
 #. Description
 #: ../templates:27
 msgid "Executing 'update-grub' failed."
 msgstr "'update-grub' komutu baþarýsýz"
 
+#. Type: error
 #. Description
 #: ../templates:27
 msgid "This is a fatal error."
 msgstr "Bu tehlikeli bir hata"
 
+#. Type: text
 #. Description
 #: ../templates:34
 msgid "Installing GRUB boot loader"
 msgstr "GRUB açýlýþ yükleyicisi kuruluyor"
 
+#. Type: text
 #. Description
 #: ../templates:38
-msgid "Install the 'grub' package."
+#, fuzzy
+msgid "Installing the 'grub' package."
 msgstr "'grub' paketi kuruluyor"
 
+#. Type: text
 #. Description
 #: ../templates:42
 msgid "Determining GRUB boot device."
 msgstr "GRUB boot aygýtý belirleniyor."
 
+#. Type: text
 #. Description
 #: ../templates:46
 msgid "Running \"grub-install ${BOOTDEV}\"."
 msgstr "\"grub-install ${BOOTDEV}\" çalýþtýrýlýyor."
 
+#. Type: text
 #. Description
 #: ../templates:50
 msgid "Running \"update-grub\"."
 msgstr "\"update-grub\" çalýþtýrýlýyor."
 
+#. Type: text
 #. Description
 #: ../templates:54
 msgid "Updating /etc/kernel-img.conf."
 msgstr "/etc/kernel-img.conf güncelleniyor."
+
+#. Type: text
+#. Description
+#. Main menu item
+#: ../templates:59
+#, fuzzy
+msgid "Install GRUB boot loader on a hard disk"
+msgstr "GRUB açýlýþ yükleyicisi kuruluyor"
+
+#~ msgid "On which device should GRUB be installed?"
+#~ msgstr "GRUB hangi aygýta yüklensin?"

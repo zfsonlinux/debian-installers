@@ -12,7 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-11-15 00:55+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-12-09 15:43-0500\n"
 "PO-Revision-Date: 2002-12-02 19:38+0500\n"
 "Last-Translator: Ilgiz Kalmetev <ilgiz@ilgiz.pp.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -21,11 +22,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 0.9.6\n"
 
+#. Type: string
 #. Description
 #: ../templates:4
-msgid "On which device should GRUB be installed?"
-msgstr "На какое устройство установить GRUB ?"
+msgid "Device for boot loader installation:"
+msgstr ""
 
+#. Type: string
 #. Description
 #: ../templates:4
 msgid ""
@@ -34,8 +37,98 @@ msgid ""
 "the Linux kernel, so the first one is usually '(hd0)'. Leave this at default "
 "if unsure."
 msgstr ""
-"GRUB нужно установить первым системным загрузчиком на загрузочное устройство. "
-"Обычно, это первый жесткий диск. Обратите внимание, что GRUB считает устройства"
-"иначе, чем ядро Linux, так что первое из них обычно '(hd0)'. Оставьте это "
-"по умолчанию, если не знаете, что указывать."
+"GRUB нужно установить первым системным загрузчиком на загрузочное "
+"устройство. Обычно, это первый жесткий диск. Обратите внимание, что GRUB "
+"считает устройстваиначе, чем ядро Linux, так что первое из них обычно "
+"'(hd0)'. Оставьте это по умолчанию, если не знаете, что указывать."
 
+#. Type: boolean
+#. Description
+#: ../templates:13
+msgid "GRUB installation failed.  Continue anyway?"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../templates:13
+msgid ""
+"The grub package failed to install into /target/.  Installing GRUB as a boot "
+"loader is a required step.  The install problem might however be unrelated "
+"to GRUB, so continuing the installation may be possible."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../templates:20
+msgid "Unable to install GRUB in ${BOOTDEV}"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../templates:20
+msgid "Executing 'grub-install ${BOOTDEV}' failed."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../templates:27
+msgid "Unable to configure GRUB"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../templates:27
+msgid "Executing 'update-grub' failed."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../templates:27
+msgid "This is a fatal error."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../templates:34
+msgid "Installing GRUB boot loader"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../templates:38
+msgid "Installing the 'grub' package."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../templates:42
+msgid "Determining GRUB boot device."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../templates:46
+msgid "Running \"grub-install ${BOOTDEV}\"."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../templates:50
+msgid "Running \"update-grub\"."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../templates:54
+msgid "Updating /etc/kernel-img.conf."
+msgstr ""
+
+#. Type: text
+#. Description
+#. Main menu item
+#: ../templates:59
+msgid "Install GRUB boot loader on a hard disk"
+msgstr ""
+
+#~ msgid "On which device should GRUB be installed?"
+#~ msgstr "На какое устройство установить GRUB ?"
