@@ -11,7 +11,7 @@ arch_get_kernel_flavour () {
 	esac
 }
 
-arch_check_kernel_usable () {
+arch_check_usable_kernel () {
 	if expr "$1" : ".*-$2.*" >/dev/null; then return 0; fi
 	return 1
 }
