@@ -7,6 +7,7 @@ MIRROR=
 DIRECTORY=
 COMPONENTS="main,local"
 DISTRIBUTION=sarge
+ARCH=`udpkg --print-architecture`
 
 if [ "$1" = "configure" ]; then
     . /usr/share/debconf/confmodule
@@ -54,10 +55,15 @@ if [ "$1" = "configure" ]; then
 	DISTRIBUTION=$RET
     fi
 
-    if [ woody = "$DISTRIBUTION" ] ; then
-        KERNEL_IMAGE=kernel-image-2.4.18-386,initrd-tools,ash,cramfsprogs,zlib1g
+    if [ "$ARCH" = "hppa" ] ; then
+        # Might want -64 here; check uname -r, or /proc/version?
+        KERNEL_IMAGE=kernel-image-2.4.19-32,initrd-tools,dash,cramfsprogs,zlib1g,fileutils
     else
-        KERNEL_IMAGE=kernel-image-2.4.19-386,initrd-tools,dash,cramfsprogs,zlib1g
+        if [ woody = "$DISTRIBUTION" ] ; then
+            KERNEL_IMAGE=kernel-image-2.4.18-386,initrd-tools,ash,cramfsprogs,zlib1g
+        else
+            KERNEL_IMAGE=kernel-image-2.4.19-386,initrd-tools,dash,cramfsprogs,zlib1g
+	fi
     fi
 
     INCLUDE=`echo "--include=${KERNEL_IMAGE},${INCLUDES}" | sed 's/,$//'`
@@ -95,6 +101,7 @@ if [ "$1" = "configure" ]; then
     touch /etc/modules.conf
     depmod -a
 
+    # XXX following is not appropriate to all archs
     cat > /target/etc/kernel-img.conf <<EOF
 # Do not create symbolic links in /
 do_symlinks = yes
