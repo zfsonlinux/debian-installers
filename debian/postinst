@@ -526,7 +526,7 @@ get_arch_kernel () {
 		esac
 	;;
 	hppa)
-		version=2.4.26
+		version=$(uname -r | cut -d - -f 1)
 		MODEL=`uname -m`
 		# Don't know how to detect whether SMP is needed, but
 		# apparently it's OK to assume SMP.
