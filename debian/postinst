@@ -56,10 +56,7 @@ fi
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_bootdev
 
-if [ "$defaultbootdev" ] ; then
-    db_subst grub-installer/bootdev bootdev "$defaultbootdev"
-fi
-db_input medium grub-installer/bootdev || [ $? -eq 30 ]
+db_input high grub-installer/bootdev || [ $? -eq 30 ]
 if ! db_go; then
 	# back up to menu
 	exit 10

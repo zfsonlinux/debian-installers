@@ -4,6 +4,10 @@ grub-installer (0.32) UNRELEASED; urgency=low
     - Add support for backing up to the main menu.
     - Reword the bootdev question to use less jargon, and to emphasize that
       it overwrites the MBR by default.
+    - Ask the bootdev question at high priority, as lilo does with its
+      question. This along with the wording clarification should prevent
+      accidental unavoidable MBR destruction. Closes: #230502
+    - Remove dead defaultbootdev code.
   * Translations
     - Bartosz Fenski
       - Updated Polish (pl) translation.
