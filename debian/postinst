@@ -428,10 +428,15 @@ apt_update () {
 queue_language_debs () {
 	# Language specific packages.
 	case "`debconf-get debian-installer/language`" in
-		ja)
-			# Japanese
+		ja|ko|el|zh)
+			# Japanese, Korean, Greek, Chinese
 			apt-install jfbterm || true
 			apt-install unifont || true
+		;;
+		ru)
+			# Russian
+			apt-install console-cyrillic || true
+			apt-install console-terminus || true
 		;;
 		*)
 		;;
