@@ -1,22 +1,23 @@
-# translation of debian-installer.po to Norwegian bokmål
+# translation of debian-installer.po to 
 # translation of debian-installer.po to Norwegian Bokmål
 # Norwegian Bokmal messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-# Axel Bojer <axelb@skolelinux.no>, 2004.
+# Knut Yrvin <knuty@skolelinux.no>, 2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-05-16 08:27+0200\n"
-"PO-Revision-Date: 2004-04-23 08:09+0200\n"
-"Last-Translator: Bjørn Steensrud <bjornst@powertech.no>\n"
-"Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
+"PO-Revision-Date: 2004-05-21 20:45+0200\n"
+"Last-Translator: Knut Yrvin <knuty@skolelinux.no>\n"
+"Language-Team:  <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3\n"
+"bokmal@lists.debian.org>\n"
+"X-Generator: KBabel 1.3.1\n"
 
 #. Type: boolean
 #. Description
@@ -50,7 +51,6 @@ msgstr "Vil du nstallere oppstartslasteren GRUB på hovedoppstartssporet (MBR)?"
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
@@ -58,7 +58,7 @@ msgid ""
 msgstr ""
 "Det ser ut til at denne Debian-installasjonen er det eneste operativsystemet "
 "på denne maskinen. Hvis det er riktig, skulle det være trygt å installere "
-"oppstartslasteren på hovedoppstartssporet på den første harddisken."
+"GRUB-oppstartslasteren på hovedoppstartssporet på den første harddisken."
 
 #. Type: boolean
 #. Description
@@ -69,6 +69,10 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
+"Advarsel: Hvis installasjonsprogrammet ikke oppdaget et annet operativsystem "
+"som finnes på maskinen, så blir det midlertidig umulig å starte dette andre "
+"systemet hvis hovedoppstartssporet endres, mens GRUB senere kan settes opp "
+"manuelt slik at det andre systemet kan startes."
 
 #. Type: string
 #. Description
@@ -87,11 +91,11 @@ msgid ""
 "even to a floppy."
 msgstr ""
 "Nå er det på tide å gjøre det mulig å starte opp det nyinstallerte "
-"Debiansystemet Dette gjør vi ved å installere oppstartslasteren GRUB på en "
-"enhet som er oppstartbar. Den vanlige måten å gjøre dette på, er å "
-"installere GRUB på hovedoppstartssporet (MBR) på den første harddisken. Hvis "
-"du foretrekker det kan du installere GRUB andre steder på harddisken, eller "
-"på en annen harddisk, eller til og med på en diskett."
+"Debiansystemet, ved å installere oppstartslasteren GRUB på en enhet som er "
+"oppstartbar. Den vanlige måten å gjøre dette på, er å installere GRUB på "
+"hovedoppstartssporet (MBR) på den første harddisken. Hvis du foretrekker det "
+"kan du installere GRUB andre steder på harddisken, eller på en annen "
+"harddisk, eller til og med på en diskett."
 
 #. Type: string
 #. Description
@@ -102,6 +106,10 @@ msgid ""
 "of your first hard drive, while \"/dev/hda2\" will install it to the second "
 "parrtition of your first IDE drive."
 msgstr ""
+"Enheten kan oppgis ved å bruke GRUBs notasjon «(hdn)», eller som en enhet i /"
+"dev. For eksempel vil «(hd0)» installere GRUB på hovedoppstartsporet på den "
+"første harddisken, mens «/dev/hda2» vil installere det på den andre "
+"partisjonen på den første IDE-disken."
 
 #. Type: boolean
 #. Description
@@ -199,9 +207,3 @@ msgstr "Oppdaterer /etc/kernel-img.conf ..."
 #: ../templates:93
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installer oppstartssystemet GRUB på en harddisk"
-
-#~ msgid ""
-#~ "The device can be specified using GRUB's \"(hdn)\" notation, or as a "
-#~ "device in /dev."
-#~ msgstr ""
-#~ "Enheten kan oppgis i GRUBs «(hdn)»-notasjon, eller som en enhet i /dev."
