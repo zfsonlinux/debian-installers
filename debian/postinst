@@ -277,7 +277,7 @@ get_arch_kernel () {
 		esac
 	;;
 	sparc)
-		version=2.4.24
+		version=2.4.26
 		MODEL=`uname -m`
 		CPUS=`grep 'ncpus probed' /proc/cpuinfo | cut -d: -f2`
 		case "$MODEL" in
@@ -285,9 +285,7 @@ get_arch_kernel () {
 			if [ "$CPUS" -eq 1 ]; then
 				trykernel=kernel-image-$version-sparc32
 			else
-				# this kernel is broken (#234404)
-				# trykernel=kernel-image-$version-sparc32-smp
-				trykernel=kernel-image-$version-sparc32
+				trykernel=kernel-image-$version-sparc32-smp
 			fi
 		;;
 		sparc64)
