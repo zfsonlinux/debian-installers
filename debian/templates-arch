@@ -1,0 +1,39 @@
+Template: debian-installer/kernel/image
+Type: string
+Default: kernel-image
+Default[hppa]: kernel-image-2.4.27-32
+Default[i386]: kernel-image-2.4.27-1-386
+Default[ia64]: kernel-image-2.4.27-1-itanium-smp
+Default[s390]: kernel-image-2.4.27-1-s390
+Description: default kernel image if nothing better is found
+
+Template: debian-installer/kernel/image-2.6
+Type: string
+Default: kernel-image
+Default[hppa]: kernel-image-2.6.8-1-32
+Default[i386]: kernel-image-2.6.8-1-386
+Default[ia64]: kernel-image-2.6.8-1-itanium-smp
+Description: default kernel image if nothing better is found (2.6)
+
+Template: debian-installer/kernel/linux/initrd
+Type: boolean
+Default: true
+Default[s390]: false
+Default[hppa]: false
+Default[mips]: false
+Default[mipsel]: false
+Default[powerpc]: false
+Default[m68k]: false
+Default[sparc]: true
+Description: kernel needs an initrd (linux only)
+
+Template: debian-installer/kernel/linux/initrd-2.6
+Type: boolean
+Default: true
+Default[s390]: false
+Default[hppa]: true
+Default[mips]: false
+Default[mipsel]: false
+Default[m68k]: false
+Default[sparc]: true
+Description: kernel needs an initrd (linux 2.6 only)

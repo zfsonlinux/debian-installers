@@ -4,7 +4,7 @@ ARCH = $(shell dpkg-architecture -qDEB_HOST_ARCH)
 
 tmp = $(CURDIR)/debian/base-installer
 
-build: build-stamp
+build: build-stamp debian/templates
 build-stamp:
 	dh_testdir
 ifeq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
@@ -14,12 +14,15 @@ else
 endif
 	touch $@
 
+debian/templates: debian/templates-arch
+	debian/templates-build.pl $(ARCH) < $< > $@
+
 clean:
 	dh_testdir
 	rm -f build-stamp
 	-rm -f kernel/tests/localudebs/*
 	$(MAKE) clean    
-	dh_clean
+	dh_clean debian/templates
 
 install: build
 	dh_testdir
@@ -36,6 +39,7 @@ binary-arch: install
 	dh_testdir
 	dh_testroot
 	dh_installdebconf -n
+	(echo ; cat debian/templates) >> debian/base-installer/DEBIAN/templates
 	dh_strip
 	dh_compress
 	dh_fixperms

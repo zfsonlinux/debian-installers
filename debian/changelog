@@ -1,5 +1,6 @@
 base-installer (1.14) UNRELEASED; urgency=low
 
+  NOTE: not for sarge, needs rootskel 1.11
   * Frans Pop
     - Add sanity check in postinst for empty COMPONENTS to guard against
       ugly and difficult to trace errors from debootstrap. Closes: #283510.
@@ -23,6 +24,10 @@ base-installer (1.14) UNRELEASED; urgency=low
     - Map lasat subarchitecture to r5k-lasat flavour on mipsel.
   * Martin Michlmayr
     - Add tests for various mips and mipsel subarchitectures.
+  * Joey Hess
+    - Moved debian-installer/kernel/image, debian-installer/kernel/image-2.6,
+      debian-installer/kernel/linux/initrd,
+      debian-installer/kernel/linux/initrd-2.6 from rootskel.
 
  -- Frans Pop <aragorn@tiscali.nl>  Wed,  1 Dec 2004 14:53:07 +0100
 
