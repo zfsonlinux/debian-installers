@@ -1,6 +1,6 @@
-#! /bin/sh -ex
+#! /bin/sh -e
 
-KERNEL_IMAGE=kernel-image-2.2.20
+KERNEL_IMAGE=kernel-image-2.4.18-386,initrd-tools,ash,cramfsprogs,zlib1g
 
 PROTOCOL=
 MIRROR=
@@ -13,17 +13,27 @@ if [ "$1" = "configure" ]; then
     db_get debian-installer/profile
     PROFILE="$RET"
 
-    db_get mirror/protocol
-    PROTOCOL="$RET"
+    if [ -f /cdrom/.disk/base_installable ]; then
 
-    db_get mirror/$PROTOCOL/hostname
-    MIRROR="$RET"
+        PROTOCOL=file
+        MIRROR=""
+        DIRECTORY="cdrom/"
 
-    db_get mirror/$PROTOCOL/directory
-    DIRECTORY="$RET"
+    else
 
-    INCLUDE="--include=$KERNEL_IMAGE"
-    EXCLUDE=""
+        db_get mirror/protocol
+        PROTOCOL="$RET"
+
+        db_get mirror/$PROTOCOL/hostname
+        MIRROR="$RET"
+
+        db_get mirror/$PROTOCOL/directory
+        DIRECTORY="$RET"
+
+    fi
+
+    INCLUDE="--include=$KERNEL_IMAGE,grub,base-config-skolelinux,libssl0.9.6,locales,discover"
+    EXCLUDE="--exclude=lilo"
 
     db_get netcfg/get_hostname
     HOSTNAME=$RET
@@ -48,7 +58,7 @@ postinst_hook = /sbin/update-grub
 postrm_hook = /sbin/update-grub
 do_bootloader = no
 do_bootfloppy = no
-
+do_symlinks = yes
 EOF
 
 #debootstrap --boot-floppies ${INCLUDE} ${EXCLUDE} woody /target ${PROTOCOL}://${MIRROR}/${DIRECTORY} 3>>/tmp/debootstrap.3.log 4>> /tmp/debootstrap.log 

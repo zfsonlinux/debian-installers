@@ -25,9 +25,8 @@ clean:
 install: build
 	dh_testdir
 	dh_testroot
-#	mkdir -p debian/$(PACKAGE)/usr/lib/debootstrap/scripts
-#	install -m 0644 skolelinux-Server debian/$(PACKAGE)/usr/lib/debootstrap/scripts/
-#	install -m 0644 skolelinux-Workstation debian/$(PACKAGE)/usr/lib/debootstrap/scripts/
+	mkdir -p debian/$(PACKAGE)/usr/lib/debootstrap/scripts
+	(cd debian/$(PACKAGE)/usr/lib/debootstrap/scripts/ ; ln -s woody skolelinux-Workstation ; ln -s woody skolelinux-Server )
 
 # Build architecture-independent files here.
 binary-indep: build install
@@ -47,7 +46,6 @@ base-installer:
 	dh_shlibdeps
 	dh_gencontrol -- -fdebian/files~
 	dpkg-distaddfile $(FILENAME) debian-installer $(PRIORITY)
-	dh_md5sums
 	dh_builddeb --filename=$(FILENAME)
 
 binary: binary-indep binary-arch
