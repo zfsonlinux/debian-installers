@@ -641,6 +641,15 @@ EOF
 		info "Not installing initrd-tools."
 	fi
 
+	# Installing mkvmlinuz on the powerpc subarches that need it.
+	if [ "$ARCH" = "powerpc" -a "$(uname -r | cut -d . -f 1,2)" = "2.6" ]; then
+		case "$SUBARCH" in
+			prep | chrp | chrp_pegasos)
+				apt-install mkvmlinuz 2>> $LOGFILE || true
+			;;
+		esac
+	fi
+
 	info "Installing kernel '$KERNEL'."
 	apt-install "$KERNEL" 2>> $LOGFILE || kernel_install_failed=$?
 
@@ -652,6 +661,20 @@ EOF
 	if [ -f /target/etc/kernel-img.conf.$$ ]; then
 		# Revert old kernel-img.conf
 		mv /target/etc/kernel-img.conf.$$ /target/etc/kernel-img.conf
+	fi
+
+	# and calling mkvmlinuz on the powerpc subarches that need it.
+	if [ "$ARCH" = "powerpc" -a "$(uname -r | cut -d . -f 1,2)" = "2.6" ]; then
+		case "$SUBARCH" in
+			prep | chrp | chrp_pegasos)
+				version=$(uname -r)
+				mkvmlinuz \
+					-o /target/boot/vmlinuz-$version \
+					-k /target/boot/vmlinux-$version \
+					-d /target/usr/lib/kernel-image-$version \
+					-i /target/boot/initrd.img-$version
+			;;
+		esac
 	fi
 
 	if [ "$kernel_install_failed" ]; then
