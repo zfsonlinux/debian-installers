@@ -406,6 +406,11 @@ get_arch_kernel () {
 		r5k-ip22) trykernel=kernel-image-$version-r5k-ip22 ;;
 		sb1-swarm-bn) trykernel=kernel-image-$version-sb1-swarm-bn ;;
 
+		# NOTE: the following kernel is not in Debian (sarge), but
+		# make it easier to offer unofficial support from a private
+		# apt-archive.
+		r5k-ip32) trykernel=kernel-image-2.6-r5k-ip32 ;;
+
 		*) warning "Unknown $ARCH subarchitecture '$SUBARCH'." ;;
 		esac
 	;;
