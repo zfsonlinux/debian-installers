@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2005-02-04 09:36-0700\n"
-"PO-Revision-Date: 2005-02-09 18:25+0100\n"
+"PO-Revision-Date: 2005-02-10 10:40+0100\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@debian.org>\n"
 "Language-Team: Galego <trasno@ceu.fi.udc.es>\n"
 "MIME-Version: 1.0\n"
@@ -107,6 +107,11 @@ msgid ""
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
 msgstr ""
+"Ten que facer que o novo sistema Debian se poida iniciar, instalando o "
+"cargador de inicio nun dispositivo de inicio. O xeito máis habitual de o "
+"facer e instalando GRUB no rexistro mestre de inicio do seu primeiro disco "
+"duro. Se o prefire, pode instalar GRUB noutra parte do disco, ou noutro "
+"disco, ou incluso nun disquete."
 
 #. Type: string
 #. Description
@@ -123,6 +128,17 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
+"Pódese especificar o dispositivo empregando a notación \"(hdn,m)\" de GRUB, "
+"ou coma un dispositivo de /dev. Embaixo aparecen algúns exemplos:\n"
+" - \"(hd0)\" ou \"/dev/hda\" han instalar GRUB no rexistro mestre de inicio "
+"do\n"
+"   seu primeiro disco duro (IDE);\n"
+" - \"(hd0,1)\" ou \"/dev/hda2\" han empregar a segunda partición do seu\n"
+"   primeiro disco IDE;\n"
+" - \"(hd2,4)\" ou \"/dev/sdc5\" han empregar a primeira partición extendida "
+"do\n"
+"   seu terceiro disco (que aquí é SCSI);\n"
+" - \"(fd0)\" ou \"/dev/fd0\" han instalar GRUB nun disquete."
 
 #. Type: boolean
 #. Description
@@ -153,25 +169,25 @@ msgstr "Non se puido instalar GRUB en ${BOOTDEV}"
 #. Description
 #: ../grub-installer.templates:62
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr ""
+msgstr "A execución de 'grub-install ${BOOTDEV}' fallou."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:69
 msgid "Unable to configure GRUB"
-msgstr ""
+msgstr "Non se puido configurar GRUB"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:69
 msgid "Executing 'update-grub' failed."
-msgstr ""
+msgstr "A execución de 'update-grub' fallou."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:69
 msgid "This is a fatal error."
-msgstr ""
+msgstr "Este é un erro moi grave."
 
 #. Type: text
 #. Description
@@ -195,25 +211,25 @@ msgstr "Instalando o paquete 'grub'..."
 #. Description
 #: ../grub-installer.templates:88
 msgid "Determining GRUB boot device..."
-msgstr ""
+msgstr "Determinando o dispositivo de inicio de GRUB..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:92
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr ""
+msgstr "Executando \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:96
 msgid "Running \"update-grub\"..."
-msgstr ""
+msgstr "Executando \"update-grub\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:100
 msgid "Updating /etc/kernel-img.conf..."
-msgstr ""
+msgstr "Actualizando /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
