@@ -4,7 +4,7 @@ arch_get_kernel_flavour () {
 		power3|i-star|s-star)
 			family=power3
 			;;
-		power4|ppc970)
+		power4|power4+|ppc970|ppc970fx)
 			family=power4
 			;;
 		*)
