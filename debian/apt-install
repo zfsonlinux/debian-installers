@@ -1,5 +1,16 @@
 #!/bin/sh -e
 
+if [ ! -f /target/etc/apt/sources.list ] ; then
+    # Only queue the package, it will be installed by base-installer
+    # postinst.
+    touch /var/lib/apt-install/queue
+    for pkg in $* ; do
+	echo $pkg >> /var/lib/apt-install/queue
+    done
+    # Return error as the package is not ready to be used yet.
+    exit 1
+fi
+
 # first copy the files into /target/, then install in chroot
 # environment.  This work around a bug in glibc, and make sure the
 # packages run their postinst script in their target environment.
@@ -24,3 +35,5 @@ DEBIAN_FRONTEND=noninteractive \
 chroot /target apt-get --no-download install "$kernel" < /dev/null
 
 umount /target/proc
+
+exit 0

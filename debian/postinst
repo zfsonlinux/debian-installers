@@ -121,4 +121,10 @@ echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
 
 apt-update
 
+if [ -f /var/lib/apt-install/queue ] ; then
+    for pkg in `cat /var/lib/apt-install/queue` ; do
+	apt-install $pkg
+    done
+fi
+
 exit 0
