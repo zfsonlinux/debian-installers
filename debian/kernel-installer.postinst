@@ -3,7 +3,7 @@
 . /usr/share/debconf/confmodule
 
 db_get debian-installer/kernel/initrd
-if [ "$RET" == "true" ]; then do_initrd=yes; else do_initrd=no; fi
+if [ "$RET" = "true" ]; then do_initrd=yes; else do_initrd=no; fi
 
 cat > /target/etc/kernel-img.conf <<EOF
 # Do not create symbolic links in /
@@ -14,6 +14,13 @@ do_bootloader = no
 do_bootfloppy = no
 do_initrd = $do_initrd
 EOF
+
+# undocumented hacks, copied from base-installer/debian/postinst, to
+# prevent dash postinst prompting with "GET dash/sh"
+unset DEBIAN_HAS_FRONTEND
+unset DEBIAN_FRONTEND
+unset DEBCONF_FRONTEND
+unset DEBCONF_REDIR
 
 db_get debian-installer/kernel/image
 

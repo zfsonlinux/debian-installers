@@ -10,6 +10,8 @@ base-installer (0.014) UNRELEASED; urgency=low
     - add target bin/sbin dirs to PATH for aptget/dpkg
     - actually use rootskel initrd template for /etc/kernel-img.conf
     - add relative_links=yes, image_in_boot=yes to kernel-img.conf
+    - unset DEBCONF_HAS_FRONTEND, etc in kernel-installer postinst,
+      as per base-installer postinst (undocumented hacks)
 
  -- Bastian Blank <waldi@debian.org>  Sun, 08 Dec 2002 00:19:21 +0100
 
