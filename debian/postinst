@@ -194,9 +194,7 @@ db_progress STEP 1
 db_progress INFO grub-installer/progress/step_os-probe
 os-prober > /tmp/os-probed || true
 
-# Process probed OSes, and generate stanzas in tmpfile to boot them.
-# Also, set up the supported_os_list and unsupported_os_list variables,
-# and set q to the question the user will see.
+# Work out what probed OSes can be booted from grub.
 tmpfile=/tmp/menu.lst.extras
 if [ -s /tmp/os-probed ]; then
 	supported_os_list=""
@@ -210,112 +208,31 @@ if [ -s /tmp/os-probed ]; then
 		type=$(echo "$os" | cut -d: -f4)
 		case "$type" in
 			chain)
-				partition=$(mapdevfs $(echo "$os" | cut -d: -f1))
-				grubdrive=$(convert "$partition") || true
-				if [ -n "$grubdrive" ]; then
-					cat >> $tmpfile <<EOF
-
-# This entry automatically added by the Debian installer for a non-linux OS
-# on $partition
-title		$title
-root		$grubdrive
-savedefault
-makeactive
-chainloader	+1
-
-EOF
-				fi
+				:
 			;;
 			linux)
+				# Check for linux systems that we don't
+				# know how to boot.
 				partition=$(echo "$os" | cut -d: -f1)
-				mappedpartition=$(mapdevfs "$partition")
-				addedlinux=""
-				IFS="$newline"
-				for entry in $(linux-boot-prober "$partition"); do
-					IFS="$OLDIFS"
-					bootpart=$(echo "$entry" | cut -d: -f2)
-					mappedbootpart=$(mapdevfs "$bootpart") || true
-					if [ -z "$mappedbootpart" ]; then
-						mappedbootpart="$bootpart"
-					fi
-					label=$(echo "$entry" | cut -d : -f3)
-					if [ -z "$label" ]; then
-						label="$title"
-					fi
-					kernel=$(echo "$entry" | cut -d : -f4)
-					initrd=$(echo "$entry" | cut -d : -f5)
-					if echo "$kernel" | grep -q '^/boot/'; then
-						kernel=$(echo "$kernel" | sed 's!^/boot!!')
-						initrd=$(echo "$initrd" | sed 's!^/boot!!')
-						grubdrive=$(convert "$mappedbootpart") || true
-					else
-						# kernel and initrd not on boot partition
-						grubdrive=$(convert "$mappedpartition") || true
-					fi
-					params=$(echo "$entry" | cut -d : -f6-)
-					cat >> $tmpfile <<EOF
-
-# This entry automatically added by the Debian installer for an existing
-# linux installation on $mappedpartition.
-title		$label (on $mappedpartition)
-root		$grubdrive
-kernel		$kernel $params
-EOF
-					if [ -n "$initrd" ]; then
-						cat >> $tmpfile <<EOF
-initrd		$initrd
-EOF
-					fi
-					cat >> $tmpfile <<EOF
-savedefault
-boot
-
-EOF
-					addedlinux=1
-					IFS="$newline"
-				done
-				IFS="$OLDIFS"
-
-				if [ -z "$addedlinux" ]; then
+				if [ -z "$(linux-boot-prober $partition)" ]; then
 					if [ -n "$unsupported_os_list" ]; then
 						unsupported_os_list="$unsupported_os_list, $title"
 					else
 						unsupported_os_list="$title"
 					fi
-					continue # don't add to supported list
+					continue
 				fi
 			;;
 			hurd)
-				partition=$(mapdevfs $(echo "$os" | cut -d: -f1))
-				grubdrive=$(convert "$partition") || true
-				hurddrive=$(hurd_convert "$partition") || true
-				# Use the standard hurd boilerplate to boot it.
-				cat >> $tmpfile <<EOF
-# This entry automatically added by the Debian installer for an existing
-# hurd installation on $partition.
-title		$title (on $partition)
-root		$grubdrive
-kernel		/boot/gnumach.gz root=device:$hurddrive
-module		/hurd/ext2fs.static --readonly \\
-			--multiboot-command-line=\${kernel-command-line} \\
-			--host-priv-port=\${host-port} \\
-			--device-master-port=\${device-port} \\
-			--exec-server-task=\${exec-task} -T typed \${root} \\
-			\$(task-create) \$(task-resume)
-module		/lib/ld.so.1 /hurd/exec \$(exec-task=task-create)
-savedefault
-boot
-
-EOF
+				:
 			;;
 			*)
-				info "unhandled: $os"
 				if [ -n "$unsupported_os_list" ]; then
 					unsupported_os_list="$unsupported_os_list, $title"
 				else
 					unsupported_os_list="$title"
 				fi
-				continue # don't add to supported list
+				continue
 			;;
 		esac
 
@@ -341,7 +258,6 @@ else
 	q=grub-installer/only_debian
 	state=1
 fi
-rm -f /tmp/os-probed
 
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_bootdev
@@ -432,6 +348,113 @@ if ! chroot /target /usr/bin/yes | chroot /target /sbin/update-grub >> $log 2>&1
 	db_progress STOP
 	exit 1
 fi
+
+# Generation menu.lst addition for other OSes.
+tmpfile=/tmp/menu.lst.extras
+OLDIFS="$IFS"
+IFS="$newline"
+for os in $(cat /tmp/os-probed); do
+	IFS="$OLDIFS"
+	title=$(echo "$os" | cut -d: -f2)
+	type=$(echo "$os" | cut -d: -f4)
+	case "$type" in
+		chain)
+			partition=$(mapdevfs $(echo "$os" | cut -d: -f1))
+			grubdrive=$(convert "$partition") || true
+			if [ -n "$grubdrive" ]; then
+				cat >> $tmpfile <<EOF
+
+# This entry automatically added by the Debian installer for a non-linux OS
+# on $partition
+title		$title
+root		$grubdrive
+savedefault
+makeactive
+chainloader	+1
+
+EOF
+			fi
+		;;
+		linux)
+			partition=$(echo "$os" | cut -d: -f1)
+			mappedpartition=$(mapdevfs "$partition")
+			IFS="$newline"
+			for entry in $(linux-boot-prober "$partition"); do
+				IFS="$OLDIFS"
+				bootpart=$(echo "$entry" | cut -d: -f2)
+				mappedbootpart=$(mapdevfs "$bootpart") || true
+				if [ -z "$mappedbootpart" ]; then
+					mappedbootpart="$bootpart"
+				fi
+				label=$(echo "$entry" | cut -d : -f3)
+				if [ -z "$label" ]; then
+					label="$title"
+				fi
+				kernel=$(echo "$entry" | cut -d : -f4)
+				initrd=$(echo "$entry" | cut -d : -f5)
+				if echo "$kernel" | grep -q '^/boot/'; then
+					kernel=$(echo "$kernel" | sed 's!^/boot!!')
+					initrd=$(echo "$initrd" | sed 's!^/boot!!')
+					grubdrive=$(convert "$mappedbootpart") || true
+				else
+					# kernel and initrd not on boot partition
+					grubdrive=$(convert "$mappedpartition") || true
+				fi
+				params=$(echo "$entry" | cut -d : -f6-)
+				cat >> $tmpfile <<EOF
+
+# This entry automatically added by the Debian installer for an existing
+# linux installation on $mappedpartition.
+title		$label (on $mappedpartition)
+root		$grubdrive
+kernel		$kernel $params
+EOF
+				if [ -n "$initrd" ]; then
+					cat >> $tmpfile <<EOF
+initrd		$initrd
+EOF
+				fi
+				cat >> $tmpfile <<EOF
+savedefault
+boot
+
+EOF
+				IFS="$newline"
+			done
+			IFS="$OLDIFS"
+		;;
+		hurd)
+			partition=$(mapdevfs $(echo "$os" | cut -d: -f1))
+			grubdrive=$(convert "$partition") || true
+			hurddrive=$(hurd_convert "$partition") || true
+			# Use the standard hurd boilerplate to boot it.
+			cat >> $tmpfile <<EOF
+
+# This entry automatically added by the Debian installer for an existing
+# hurd installation on $partition.
+title		$title (on $partition)
+root		$grubdrive
+kernel		/boot/gnumach.gz root=device:$hurddrive
+module		/hurd/ext2fs.static --readonly \\
+			--multiboot-command-line=\${kernel-command-line} \\
+			--host-priv-port=\${host-port} \\
+			--device-master-port=\${device-port} \\
+			--exec-server-task=\${exec-task} -T typed \${root} \\
+			\$(task-create) \$(task-resume)
+module		/lib/ld.so.1 /hurd/exec \$(exec-task=task-create)
+savedefault
+boot
+
+EOF
+		;;
+		*)
+			info "unhandled: $os"
+		;;
+	esac
+	IFS="$newline"
+done
+IFS="$OLDIFS"
+rm -f /tmp/os-probed
 
 if [ -s $tmpfile ]; then
 	cat >> /target/boot/grub/menu.lst << EOF
