@@ -13,14 +13,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-02 21:02+0100\n"
-"PO-Revision-Date: 2005-01-16 23:17+0200\n"
+"POT-Creation-Date: 2005-02-04 09:36-0700\n"
+"PO-Revision-Date: 2005-02-03 01:25+0200\n"
 "Last-Translator: Kęstutis Biliūnas <kebil@kaunas.init.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.9.1\n"
 
 #. Type: boolean
@@ -41,11 +41,10 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
-"Jei visos Jūsų operacinės sistemos yra aukščiau išvardintos, tuomet yra "
-"saugu įdiegti pradinį įkėliklį į pirmojo kietojo disko pagrindinį įkelties "
-"įrašą (master boot record). Kuomet Jūsų kompiuteris ruošis įkelti operacinę "
-"sistemą, Jūs galėsite pasirinkti vieną iš šių operacinių sistemų arba naują "
-"Debian sistemą."
+"Jei aukščiau yra išvardintos visos Jūsų operacinės sistemos, pradinį "
+"įkėliklį yra saugu įdiegti į pirmojo kietojo disko pagrindinį įkelties įrašą "
+"(master boot record). Kraunantis kompiuteriui galėsite rinktis vieną iš "
+"išvardintų operacinių sistemų, arba naująją Debian'o sistemą."
 
 #. Type: boolean
 #. Description
@@ -74,10 +73,10 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
-"Įspėjimas: Jei įdiegikliui nepavyko aptikti kitos, esančios Jūsų "
-"kompiuteryje, operacinės sistemos, pagrindinio įkelties įrašo (master boot "
-"record) keitimo pasekoje ši operacinė sistema laikinai taps nebeįkeliama. "
-"Tačiau vėliau galima rankiniu būdų konfigūruoti GRUB, kad ji būtų įkeliama."
+"Įspėjimas: Jei įdiegikliui nepavyko aptikti Jūsų kompiuteryje esančios kitos "
+"operacinės sistemos, pakeitus pagrindinį įkelties įrašą (master boot "
+"record), ši operacinė sistema taps laikinai neįkeliama. Vėliau galima "
+"rankiniu būdu konfigūruoti GRUB'ą, kad ji taptų įkeliama."
 
 #. Type: boolean
 #. Description
@@ -112,12 +111,14 @@ msgid ""
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
 msgstr ""
-"Jūs turite naujai įdiegtą sistemą padaryti įkeliama, įdiegiant GRUB pradinį "
-"įkėliklį į pradinei įkelčiai tinkantį įrenginį. Paprastai tai daroma "
-"įdiegiant GRUB į pirmojo kietojo disko pagrindinį įkelties įrašą (master "
-"boot record). Jūs galite įdiegti GRUB ir kitoje disko vietoje, ar kitame "
-"diske, ar net lanksčiame diskelyje, jei tai Jums labiau patinka."
+"Naujai įdiegtą sistemą turite padaryti įkeliama įdiegdami pradinį įkėliklį "
+"GRUB į pradinei įkelčiai tinkantį įrenginį. Paprastai tai daroma įdiegiant "
+"GRUB'ą į pirmojo kietojo disko pagrindinį įkelties įrašą (master boot "
+"record). Galite įdiegti GRUB'ą ir kitoje disko vietoje, ar kitame diske, ar "
+"net lanksčiame diskelyje."
 
+#. Type: string
+#. Description
 #: ../grub-installer.templates:35
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
@@ -131,20 +132,20 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Įrenginys gali būti nurodytas naudojant GRUB žymėjimą \"(hdn,m)\", arba kaip "
-"įprastai nurodomi įrenginiai /dev. Žemiau yra keletas pavyzdžių:\n"
-" - \"(hd0) ar \"/dev/hda\" atveju GRUB bus diegiamas į pirmojo kietojo\n"
+"Įrenginys gali būti nurodytas naudojant GRUB'o žymėjimą \"(hdn,m)\", arba "
+"kaip įprastai nurodomi įrenginiai /dev. Žemiau yra keletas pavyzdžių:\n"
+" - \"(hd0) ar \"/dev/hda\" atveju GRUB'as bus diegiamas į pirmojo kietojo\n"
 "   disko (IDE) pagrindinį įkelties įrašą (master boot record);\n"
 " - \"(hd0,1)\" ar \"/dev/hda2\" naudos pirmojo IDE disko antrąjį skirsnį;\n"
 " - \"(hd2,4)\" ar \"/dev/sdc5\" naudos trečiojo SCSI disko pirmąjį loginį\n"
 "   skirsnį;\n"
-" - \"(fd0)\" ar \"/dev/fd0\" diegs GRUB į lankstųjį diskelį."
+" - \"(fd0)\" ar \"/dev/fd0\" diegs GRUB'ą į lankstųjį diskelį."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:55
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "Nepavyko įdiegti GRUB.  Tęsti nepaisant to?"
+msgstr "GRUB'o įdiegti nepavyko. Vistiek tęsti?"
 
 #. Type: boolean
 #. Description
@@ -154,15 +155,15 @@ msgid ""
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"Nepavyko įdiegti grub paketo į /target/.  Pradinio įkėliklio įdiegimas yra "
-"būtinas žingsnis.  Tačiau diegimo problema galbūt nesusijusi su GRUB, taigi "
-"įdiegimo tęsimas galbūt galimas."
+"Nepavyko įdiegti GRUB'o paketo į /target/. Pradinio įkėliklio įdiegimas yra "
+"būtinas žingsnis, tačiau ši problema galbūt nesusijusi su GRUB'u ir įdiegimą "
+"galbūt galima tęsti."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:62
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "Negaliu įdiegti GRUB į ${BOOTDEV}"
+msgstr "GRUB'o įdiegti į ${BOOTDEV} nepavyksta"
 
 #. Type: error
 #. Description
@@ -174,7 +175,7 @@ msgstr "'grub-install ${BOOTDEV}' vykdymas nepavyko."
 #. Description
 #: ../grub-installer.templates:69
 msgid "Unable to configure GRUB"
-msgstr "Negaliu atlikt  GRUB konfigūravimo"
+msgstr "GRUB'o nepavyksta konfigūruoti"
 
 #. Type: error
 #. Description
