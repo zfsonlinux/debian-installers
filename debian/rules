@@ -11,10 +11,6 @@ ARCH=$(shell dpkg --print-architecture)
 FILENAME=$(PACKAGE)_$(VERSION)_$(ARCH).udeb
 PRIORITY=$(shell grep ^Priority: debian/control | cut -d ' ' -f 2)
 
-
-# This is the debhelper compatability version to use.
-export DH_COMPAT=3
-
 # Udebs have no postrm file, don't make one
 export DH_OPTIONS=-n
 
