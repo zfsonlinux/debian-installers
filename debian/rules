@@ -1,9 +1,19 @@
 #! /usr/bin/make -f
 
-build:
+build: build-stamp
+build-stamp:
+	dh_testdir
+ifeq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
+	$(MAKE) small
+else
+	$(MAKE) DEBUG=1
+endif
+	touch $@
 
 clean:
 	dh_testdir
+	rm -f build-stamp
+	$(MAKE) clean    
 	dh_clean
 
 install: build
