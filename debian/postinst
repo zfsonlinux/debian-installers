@@ -17,6 +17,10 @@ EXCLUDES=
 KERNEL=
 KERNEL_LIST=/tmp/available_kernels.txt
 
+# Avoid debconf sending email during the base install process.
+DEBCONF_ADMIN_EMAIL=""
+export DEBCONF_ADMIN_EMAIL
+
 db_get debian-installer/kernel/subarchitecture
 SUBARCH="$RET"
 
