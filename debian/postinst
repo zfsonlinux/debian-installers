@@ -305,7 +305,11 @@ get_arch_kernel () {
 				fi
 			;;
 		        " 5")
-				trykernel=kernel-image-$version-k6
+				if test $version = "2.4"; then
+					trykernel=kernel-image-$version-k6
+				else
+					trykernel=kernel-image-$version-386
+				fi
 			;;
 			*)
 				trykernel=kernel-image-$version-386
@@ -322,7 +326,11 @@ get_arch_kernel () {
 				fi
 			;;
 			" 5")
-				trykernel=kernel-image-$version-586tsc
+				if test $version = "2.4"; then
+					trykernel=kernel-image-$version-586tsc
+				else
+					trykernel=kernel-image-$version-386
+				fi
 			;;
 			*)
 				trykernel=kernel-image-$version-386
