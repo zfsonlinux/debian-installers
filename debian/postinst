@@ -390,6 +390,19 @@ pick_kernel () {
 		kernels=`grep $arch_kernel $KERNEL_LIST | sort -r | tr '\n' ',' | sed -e 's/,$//'`
 		if [ "kernels" ]; then
 			db_subst base-installer/kernel/which-kernel KERNELS "$kernels"
+
+			# try to default to running kernel version.
+			KVERS=`uname -r | cut -d'-' -f 1`
+			if [ "$KVERS" != "" ]; then
+			    kernellist=`grep $arch_kernel $KERNEL_LIST | sort -r | tr '\n' ' '` 
+			    for akernel in $kernellist
+			    do
+				if [ "" != "`echo $akernel | grep '^kernel-image-'$KVERS`" ]; then
+					KERNEL=$akernel
+					break
+				fi
+			    done
+			fi
 		fi
 	fi
 
