@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: debian-installer.packages.arch.i386.grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-07-19 12:05+0200\n"
-"PO-Revision-Date: 2004-07-18 12:46+0300\n"
+"PO-Revision-Date: 2004-07-21 22:41+0300\n"
 "Last-Translator: Abdulaziz Al-Arfaj <alarfaj0@yahoo.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
@@ -42,10 +42,7 @@ msgid ""
 "install the boot loader to the master boot record of your first hard drive. "
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
-msgstr ""
-"إن كانت جميع أنظمة التّشغيل الخاصّة بك مسردةً أعلاه، فسيكون من الآمن تثبيت محمّل "
-"الإقلاع على سجلّ الإقلاع الرّئيسي من أوّل قرصٍ صلب. عندما يقلع حاسوبك سوف يمكنك "
-"اختيار تحميل أحد أنظمة التّشغيل هذه أو نظام دبيان الجديد."
+msgstr "إن كانت جميع أنظمة التّشغيل الخاصّة بك مسردةً أعلاه، فسيكون من الآمن تثبيت محمّل الإقلاع على سجلّ الإقلاع الرّئيسي من أوّل قرصٍ صلب. عندما يقلع حاسوبك سوف يمكنك اختيار تحميل أحد أنظمة التّشغيل هذه أو نظام دبيان الجديد."
 
 #. Type: boolean
 #. Description
@@ -62,8 +59,7 @@ msgid ""
 "the master boot record of your first hard drive."
 msgstr ""
 "يبدو أن هذا التّثبيت من دبيان هو نظام التّشغيل الوحيد على هذا الحاسوب. إن كان "
-"كذلك، فسيكون من الآمن تثبيت محمّل الإقلاع غرابْ على سجلّ الإقلاع الرّئيسي من أولّ "
-"قرصٍ صلب."
+"كذلك، فسيكون من الآمن تثبيت محمّل الإقلاع غرابْ على سجلّ الإقلاع الرّئيسي من أولّ قرصٍ صلب."
 
 #. Type: boolean
 #. Description
@@ -73,10 +69,7 @@ msgid ""
 "present on your computer, modifying the master boot record will make that "
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
-msgstr ""
-"تحذير: إن كان المثبّت قد فشل باكتشاف نظام تشغيلٍ آخر موجودٍ على حاسوبك، فإن "
-"تعديل سجلّ الإقلاع الرّئيسي سوف يجعل نظام التّشغيل ذاك غير قابلٍ للإقلاع مؤقّتاً، "
-"إلّا أنّه من الممكن إعداد غرابْ يدويّاً لإقلاعه لاحقاً."
+msgstr "تحذير: إن كان المثبّت قد فشل باكتشاف نظام تشغيلٍ آخر موجودٍ على حاسوبك، فإن تعديل سجلّ الإقلاع الرّئيسي سوف يجعل نظام التّشغيل ذاك غير قابلٍ للإقلاع مؤقّتاً، إلّا أنّه من الممكن إعداد غرابْ يدويّاً لإقلاعه لاحقاً."
 
 #. Type: string
 #. Description
@@ -100,7 +93,6 @@ msgstr ""
 "القرص أو على قرصٍ آخر أو حتّى على قرصٍ مرن."
 
 #: ../templates:28
-#, fuzzy
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -113,9 +105,14 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"يمكن تحديد الجهاز بعلامة غرابْ \"(hdn)\"، أو كجهاز في /dev. مثلاً، \"(hd0(\" "
-"سيثبّت غرابْ على سجلّ الإقلاع الرّئيسي من قرصك الصّلب الأوّل، بينما \"/dev/hda2\" "
-"سيثبّته على التّجزيء الثّاني من قرص IDE الأوّل."
+"يمكن تحديد الجهاز بعلامة غرابْ \"(hdn,m)\"، أو كجهازٍ في /dev. إليك بعض الأمثلة أدناه:\n"
+" - \"(hd0)\" أو \"/dev/hda\" سيثبّت غرابْ على سجلّ الإقلاع الرّئيسي من\n"
+"   قرصك الصّلب الأوّل (IDE)؛\n"
+" - \"(hda0,1)\" أو \"/dev/hda2\" سيستعمل التّجزيء الثّاني من\n"
+"   قرص IDE الأوّل؛\n"
+" - \"(hd2,4)\" أو \"/dev/sdc5\" سيستعمل التّجزيء الممدّد الأوّل من\n"
+"   قرصك الثّالث (SCSI هنا)؛\n"
+" - \"(fd0)\" أو \"/dev/fd0\" سيثبّت غرابْ على قرصٍ مرن."
 
 #. Type: boolean
 #. Description
@@ -131,8 +128,7 @@ msgid ""
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"فشل تثبيت حزمة غرابْ على /target/. تثبيت غرابْ كمحمّل إقلاع خطوةٌ مطلوبة. مع "
-"ذلك، فإنّ مشكلة التّثبيت قد لا تكون متعلّقةً بغرابْ، لذا فإنّ الاستمرار بالتّثبيت "
+"فشل تثبيت حزمة غرابْ على /target/. تثبيت غرابْ كمحمّل إقلاع خطوةٌ مطلوبة. مع ذلك، فإنّ مشكلة التّثبيت قد لا تكون متعلّقةً بغرابْ، لذا فإنّ الاستمرار بالتّثبيت "
 "قد يكون ممكناً."
 
 #. Type: error
@@ -213,3 +209,4 @@ msgstr "جاري تحديث /etc/kernel-img.conf..."
 #: ../templates:98
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "تثبيت محمّل الإقلاع غرابْ على قرصٍ صلب"
+
