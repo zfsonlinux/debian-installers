@@ -110,6 +110,7 @@ case "$ARCH" in
 		fi
 		;;
 	esac
+	;;
    powerpc)
       version=2.4.22 #hack, hack!
       MODEL=`/usr/bin/ppcdetect`
@@ -135,7 +136,7 @@ case "$ARCH" in
       esac
 	;;
     *)
-        log "warning: Unknown arcitecture '$ARCH'."
+        log "warning: Unknown architecture '$ARCH'."
 	;;
 esac
 if [ "$kernel" ] ; then
