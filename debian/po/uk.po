@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-15 09:16+0100\n"
+"POT-Creation-Date: 2004-02-03 10:43+0100\n"
 "PO-Revision-Date: 2004-02-08 18:11+0200\n"
 "Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
 "Language-Team: Ukrainian\n"
@@ -34,104 +34,128 @@ msgstr "Пристрій для встановлення системного з
 #. Description
 #: ../templates:4
 msgid ""
-"GRUB needs to install the stage 1 boot loader on a bootable device. This is "
-"usually the first hard drive. Note that GRUB counts devices differently than "
-"the Linux kernel, so the first one is usually '(hd0)'. Leave this at default "
-"if unsure."
+"Now it is time to make the newly installed Debian system bootable, by "
+"installing the GRUB bootloader on a bootable device. The usual way to do "
+"this is to install GRUB on the master boot record of your first hard drive."
 msgstr ""
-"GRUB потребує встановлення завантажувача першої стадії на завантажувальному "
-"пристрої. Звичайно це перший жорсткий диск. Зверніть увагу на те, що "
-"GRUB нумерує пристрої інакше, ніж ядро Linux, так що перший з них звичайно "
-"'(hd0)'. Залиште за замовчанням, якщо не впевнені."
+
+#. Type: string
+#. Description
+#: ../templates:4
+msgid ""
+"Note that GRUB counts devices differently than the Linux kernel, so the "
+"first drive is usually '(hd0)'. If you want it on the second partition of "
+"the first drive, use '(hd0,1)'. Leave this at default if unsure."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:4
+msgid ""
+"Warning: by default, this will change how your computer boots, overwriting "
+"your existing master boot record with GRUB. Continuing may make other "
+"operating systems installed on this computer unbootable."
+msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:13
+#: ../templates:20
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Не вдалося встановити GRUB. Все рівно продовжувати?"
 
 #. Type: boolean
 #. Description
-#: ../templates:13
+#: ../templates:20
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"Не вдалося встановити пакунок grub в /target/. Встановлення GRUB як системного "
-"завантажувача - це необхідний крок. Проте, ця проблема може і не мати відношення "
-"до GRUB, таким чином продовжити встановлення може бути реально."
+"Не вдалося встановити пакунок grub в /target/. Встановлення GRUB як "
+"системного завантажувача - це необхідний крок. Проте, ця проблема може і не "
+"мати відношення до GRUB, таким чином продовжити встановлення може бути "
+"реально."
 
 #. Type: error
 #. Description
-#: ../templates:20
+#: ../templates:27
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Не можливо встановити GRUB в ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:20
+#: ../templates:27
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Не вдалося виконати команду 'grub-install ${BOOTDEV}'."
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:34
 msgid "Unable to configure GRUB"
 msgstr "Не вдалося налаштувати GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:34
 msgid "Executing 'update-grub' failed."
 msgstr "Не вдалося виконати команду 'update-grub'."
 
 #. Type: error
 #. Description
-#: ../templates:27
+#: ../templates:34
 msgid "This is a fatal error."
 msgstr "Це фатальна помилка."
 
 #. Type: text
 #. Description
-#: ../templates:34
+#: ../templates:41
 msgid "Installing GRUB boot loader"
 msgstr "Встановлення завантажувача GRUB"
 
 #. Type: text
 #. Description
-#: ../templates:38
+#: ../templates:45
 msgid "Installing the 'grub' package..."
 msgstr "Встановлення пакунку 'grub'..."
 
 #. Type: text
 #. Description
-#: ../templates:42
+#: ../templates:49
 msgid "Determining GRUB boot device..."
 msgstr "Визначення завантажувального пристрою для GRUB..."
 
 #. Type: text
 #. Description
-#: ../templates:46
+#: ../templates:53
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Запуск \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../templates:50
+#: ../templates:57
 msgid "Running \"update-grub\"..."
 msgstr "Запуск \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:54
+#: ../templates:61
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Оновлення /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:59
+#: ../templates:66
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Встановити завантажувач GRUB на жорсткий диск"
 
+#~ msgid ""
+#~ "GRUB needs to install the stage 1 boot loader on a bootable device. This "
+#~ "is usually the first hard drive. Note that GRUB counts devices "
+#~ "differently than the Linux kernel, so the first one is usually '(hd0)'. "
+#~ "Leave this at default if unsure."
+#~ msgstr ""
+#~ "GRUB потребує встановлення завантажувача першої стадії на "
+#~ "завантажувальному пристрої. Звичайно це перший жорсткий диск. Зверніть "
+#~ "увагу на те, що GRUB нумерує пристрої інакше, ніж ядро Linux, так що "
+#~ "перший з них звичайно '(hd0)'. Залиште за замовчанням, якщо не впевнені."
