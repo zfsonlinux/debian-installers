@@ -1,32 +1,30 @@
-# translation of grub-installer_ru.po to Русский язык
-# translation of grub-installer_ru.po to Russian
-# translation of debian-installer_tools_grub-installer_ru.po to Russian
+# translation of lilo-installer_ru.po to Russian
+# translation of debian-installer_tools_lilo-installer_ru.po to Russian
 #
 #    Translators, if you are not familiar with the PO format, gettext
 #    documentation is worth reading, especially sections dedicated to
 #    this format, e.g. by running:
 #         info -n '(gettext)PO Files'
-#         info -n '(gettext)Header Entry'
-#    Some information specific to po-debconf are available at
+#         info -n '(gettext)Header Entry'#    Some information specific to po-debconf are available at
 #            /usr/share/doc/po-debconf/README-trans
-#         or http://www.debian.org/intl/l10n/po-debconf/README-trans#
-#    Developers do not need to manually edit POT or PO files.
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans#    Developers do not need to manually edit POT or PO files.
 # Nikolai Prokoschenko <nikolai@prokoschenko.de>, 2004.
 # Eugene Konev <ejka@imfi.kspu.ru>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: grub-installer_ru\n"
+"Project-Id-Version: lilo-installer_ru\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-04-10 18:11-0400\n"
-"PO-Revision-Date: 2004-04-11 23:02+0200\n"
+"PO-Revision-Date: 2004-04-16 13:49+0200\n"
 "Last-Translator: Nikolai Prokoschenko <nikolai@prokoschenko.de>\n"
-"Language-Team: Русский язык <debian-russian@lists.debian.org>\n"
+"Language-Team: Russian <debian-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.3.1\n"
 "Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -39,7 +37,6 @@ msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
 msgstr ""
-"На этом компьютере были найдены следующие операционные системы: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -50,16 +47,13 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
-"Если выше указаны все установленные операционные системы, то можно спокойно "
-"устанавливать загрузчик в основную загрузочную запись вашего жёсткого диска. "
-"При загрузке компьютера вы сможете выбрать, какую из этих систем вы хотите "
-"загрузить."
 
 #. Type: boolean
 #. Description
 #: ../templates:16
+#, fuzzy
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "Установить загрузчик GRUB в главную загрузочную запись?"
+msgstr "Установить загрузчик LILO на жесткий диск"
 
 #. Type: boolean
 #. Description
@@ -69,15 +63,12 @@ msgid ""
 "this computer. If so, it should be safe to install the boot loader to the "
 "master boot record of your first hard drive."
 msgstr ""
-"Похоже, что Debian будет единственной операционной системой на этом "
-"компьютере. Если это так, то вполне безопасно установить загрузчик в "
-"основную загрузочную запись первого жёсткого диска."
 
 #. Type: string
 #. Description
 #: ../templates:24
 msgid "Device for boot loader installation:"
-msgstr "Устройство для установки системного загрузчика:"
+msgstr ""
 
 #. Type: string
 #. Description
@@ -89,11 +80,6 @@ msgid ""
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
 msgstr ""
-"Пришло время научить вашу свежеустановленную систему Debian загружаться. Для "
-"этого на загрузочное устройство будет установлен загрузчик GRUB. Обычно он "
-"устанавливается в главную загрузочную запись (MBR, Master Boot Record) "
-"первого жёсткого диска. При желании можно установить GRUB в какое-либо "
-"другое место на диске, либо на другой диск, либо вообще на дискету."
 
 #. Type: string
 #. Description
@@ -102,103 +88,201 @@ msgid ""
 "The device can be specified using GRUB's \"(hdn)\" notation, or as a device "
 "in /dev."
 msgstr ""
-"Устройство может быть указано как в виде устройства в \"/dev\", так и в "
-"нотации GRUB \"(hdn)\"."
 
 #. Type: boolean
 #. Description
 #: ../templates:37
+#, fuzzy
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "Установка GRUB не удалась. Всё равно продолжить?"
+msgstr "Установка LILO не удалась. Продолжить, несмотря на это?"
 
 #. Type: boolean
 #. Description
 #: ../templates:37
+#, fuzzy
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"Не удалось установить GRUB в /target/. Установка GRUB в качестве загрузчика "
-"- необходимый шаг установки. Тем не менее, данная проблема может не иметь к "
-"GRUB никакого отношения, так что продолжить установку может быть.вполне "
-"реально."
+"Пакет lilo не смог быть установлен в /target/. Установка LILO в качестве "
+"загрузчика является необходимым этапом установки. Тем не менее, ошибки при "
+"установке могут быть не связаны собственно с LILO, поэтому продолжение "
+"установки возможно."
 
 #. Type: error
 #. Description
 #: ../templates:44
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "Не удалось установить GRUB на ${BOOTDEV}"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../templates:44
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "Не удалось выполнить команду 'grub-install ${BOOTDEV}'."
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../templates:51
 msgid "Unable to configure GRUB"
-msgstr "Не удалось настроить GRUB"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../templates:51
 msgid "Executing 'update-grub' failed."
-msgstr "Не удалось выполнить команду 'update-grub'."
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../templates:51
 msgid "This is a fatal error."
-msgstr "Это неисправимая ошибка."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../templates:58
 msgid "Installing GRUB boot loader"
-msgstr "Установка загрузчика GRUB"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../templates:62
 msgid "Looking for other operating systems..."
-msgstr "Идёт поиск других операционных систем..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../templates:66
+#, fuzzy
 msgid "Installing the 'grub' package..."
-msgstr "Установка пакета 'grub'..."
+msgstr "Установка пакета LILO"
 
 #. Type: text
 #. Description
 #: ../templates:70
 msgid "Determining GRUB boot device..."
-msgstr "Определение загрузочного устройства для GRUB..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../templates:74
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "Запуск \"grub-install ${BOOTDEV}\"..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../templates:78
 msgid "Running \"update-grub\"..."
-msgstr "Запуск \"update-grub\"..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../templates:82
 msgid "Updating /etc/kernel-img.conf..."
-msgstr "Обновляется /etc/kernel-img.conf..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. Main menu item
 #: ../templates:87
+#, fuzzy
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "Установить загрузчик GRUB на жёсткий диск"
+msgstr "Установить загрузчик LILO на жесткий диск"
+
+#~ msgid "${disc} : Master Boot Record"
+#~ msgstr "${disc}: В основную загрузочную запись (MBR)"
+
+#~ msgid "${part} : new Debian partition"
+#~ msgstr "${part}: В новый раздел Debian"
+
+#~ msgid "Other choice (Advanced)"
+#~ msgstr "В другое место (Расширенный режим)"
+
+#~ msgid ""
+#~ "The LILO program needs to be installed to make your new Debian system "
+#~ "bootable. By installing it onto your disk's Master Boot Record, LILO will "
+#~ "take complete control of the boot process, but if you want to use a "
+#~ "different boot manager, just install LILO on the new Debian partition "
+#~ "instead."
+#~ msgstr ""
+#~ "Чтобы ваша новая система Debian смогла загрузиться, нужно установить "
+#~ "загрузчик LILO. Установка LILO в основную загрузочную запись (MBR) диска "
+#~ "сделает LILO основным загрузчиком на вашем компьютере. Если вы хотите "
+#~ "использовать другой загрузчик, установите LILO в раздел, в который вы "
+#~ "установили Debian."
+
+#~ msgid "If unsure, install LILO into the Master Boot Record."
+#~ msgstr ""
+#~ "Если вы не уверены, установите LILO в основную загрузочную запись (MBR) "
+
+#~ msgid "LILO installation target:"
+#~ msgstr "Произвести установку LILO:"
+
+#~ msgid ""
+#~ "Please enter the partition or disk where LILO should be installed onto. "
+#~ "Devfs style names, such as those that start with /dev/ide, /dev/scsi, "
+#~ "and /dev/discs are accepted, as well as traditional names, such as /dev/"
+#~ "hda or /dev/sda."
+#~ msgstr ""
+#~ "Укажите, в какой раздел нужно установить LILO. Возможны имена в стиле "
+#~ "Devfs (то есть начинающиеся с /dev/ide, /dev/scsi, и /dev/discs) и "
+#~ "традиционные имена (такие как /dev/hda или /dev/sda). "
+
+#~ msgid "Invalid partition name"
+#~ msgstr "Неверное имя раздела"
+
+#~ msgid ""
+#~ "The path ${path} does not represent a partition or hard disk device. "
+#~ "Please try again."
+#~ msgstr ""
+#~ "Путь ${path} не является жёстким диском или разделом. Попробуйте ещё раз."
+
+#~ msgid "Installing LILO ..."
+#~ msgstr "Установка LILO ..."
+
+#~ msgid "Activating partition ${bootdev}"
+#~ msgstr "Активация раздела ${bootdev}"
+
+#~ msgid "Creating lilo.conf"
+#~ msgstr "Создание файла lilo.conf"
+
+#~ msgid "Running LILO for ${bootdev}"
+#~ msgstr "Запуск LILO для ${bootdev}"
+
+#~ msgid "LILO configured to use a serial console"
+#~ msgstr "LILO настроен на использование консоли на последовательном порту"
+
+#~ msgid ""
+#~ "LILO is configured to use serial port ${PORT} as the console. The serial "
+#~ "port speed is set to ${SPEED}."
+#~ msgstr ""
+#~ "LILO настроен на использование в качестве консоли последовательного порта"
+#~ "${PORT}. Скорость порта: ${SPEED}."
+
+#~ msgid "Would you like to make this partition active?"
+#~ msgstr "Хотите ли вы пометить раздел как активный?"
+
+#~ msgid ""
+#~ "You have chosen to install LILO on a partition that is not the active "
+#~ "one. If this partition is not marked active, then LILO will not be loaded "
+#~ "by the bootloader.  This may cause you to be unable to boot into the "
+#~ "system that is being installed."
+#~ msgstr ""
+#~ "Вы решили установить LILO на раздел, не помеченный как активный. В таком "
+#~ "случае LILO не сможет запуститься и из-за этого ваша система может не "
+#~ "загружаться."
+
+#~ msgid ""
+#~ "You should make this partition active unless you have another bootloader "
+#~ "that will allow you to access your new Linux installation."
+#~ msgstr ""
+#~ "Вам следует пометить раздел как активный, если только вы не собираетесь "
+#~ "пользоваться для доступа к вашей Linux-системе другим загрузчиком."
+
+#~ msgid "LILO installation failed"
+#~ msgstr "Установка LILO не удалась"
+
+#~ msgid "Running \"/sbin/lilo\" failed with error code \"${ERRCODE}\"."
+#~ msgstr "При запуске \"/sbin/lilo\" произошла ошибка номер ${ERRCODE}."
