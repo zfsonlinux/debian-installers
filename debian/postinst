@@ -123,7 +123,7 @@ apt-update
 
 if [ -f /var/lib/apt-install/queue ] ; then
     for pkg in `cat /var/lib/apt-install/queue` ; do
-	apt-install $pkg
+	apt-install $pkg || true
     done
 fi
 
