@@ -4,9 +4,18 @@ set -e
 . /usr/share/debconf/confmodule
 #set -x
 
+log=/var/log/messages
+
 log() {
-    log=/var/log/messages
-    echo "grub-installer: $*" >> $log
+    echo "grub-installer: $@" >> $log
+}
+
+error() {
+    log "error: $@"
+}
+
+info() {
+    log "info: $@"
 }
 
 if apt-install grub ; then
@@ -33,12 +42,12 @@ bootdev=$RET
 
 log "Installing grub on '$bootdev'"
 
-if chroot /target /sbin/grub-install "$bootdev" ; then
+if chroot /target /sbin/grub-install "$bootdev" >> $log 2>&1 ; then
     :
 else
     log "error: Running 'grub-install \"$bootdev\"' failed."
     db_subst grub-installer/grub-install-failed BOOTDEV "$bootdev"
-    db_input critical grub-installer/grub-install-failed
+    db_input critical grub-installer/grub-install-failed || [ $? -eq 30 ]
     db_go
     exit 1
 fi
@@ -48,11 +57,11 @@ fi
 # noninteractive mode.  Newer versions of the grub package support
 # '-y' for noninteractive installs.  This option should be used when
 # the new grub is available in Sarge.
-if chroot /target /usr/bin/yes | chroot /target /sbin/update-grub ; then
+if chroot /target /usr/bin/yes | chroot /target /sbin/update-grub >> $log 2>&1 ; then
     :
 else
-    echo "grub-installer: error: Running 'update-grub' failed." 1>&2
-    db_input critical grub-installer/update-grub-failed
+    error "Running 'update-grub' failed." 1>&2
+    db_input critical grub-installer/update-grub-failed || [ $? -eq 30 ]
     db_go
     exit 1
 fi
