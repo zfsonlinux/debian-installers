@@ -386,8 +386,7 @@ get_arch_kernel () {
 	;;
 	m68k)
 		case "$SUBARCH" in
-		amiga|atari|mac|bvme6000|mvme147|mvme16x)    
-		#	trykernel=kernel-image-*-$SUBARCH ;;
+		amiga|atari|mac|bvme6000|mvme147|mvme16x|q40|sun3|sun3x)
 			trykernel=$SUBARCH ;;
 		*) warning "Unknown $ARCH subarchitecture '$SUBARCH'." ;;
 		esac
