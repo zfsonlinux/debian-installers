@@ -75,7 +75,7 @@ fi
 info "Installing kernel '$kernel'."
 
 PATH=$PATH:/target/usr/bin:/target/bin:/target/usr/sbin:/target/sbin \
-LD_LIBRARY_PATH=/target/lib:/target/usr/lib \
+LD_LIBRARY_PATH=/usr/lib:/lib:/target/usr/lib:/target/lib \
 /target/usr/bin/apt-get \
     -o Dir::State=/target/var/lib/apt \
     -o Dir::State::status=/target/var/lib/dpkg/status \
