@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: grub-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-20 09:04+0200\n"
-"PO-Revision-Date: 2004-05-16 16:41-0300\n"
+"PO-Revision-Date: 2004-06-21 20:23-0300\n"
 "Last-Translator: André Luís Lopes <andrelop@debian.org>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -106,7 +106,6 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../templates:28
-#, fuzzy
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -119,10 +118,15 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"O dispositivo pode ser especificado usando a notação \"(hdn)\" do GRUB ou "
-"como um dispositivo em /dev. Por exemplo, \"(hd0)\" irá instalar o GRUB no "
-"registro de inicialização principal de seu primeiro disco rígido, enquanto "
-"\"/dev/hda2\" irá instalá-lo na segunda partição de seu primeiro disco IDE."
+"O dispositivo pode ser especificado usando a notação \"(hdn,m)\" do GRUB ou "
+"como um dispositivo em /dev. Alguns exemplos são :\n"
+" - \"(hd0)\" ou \"/dev/hda\" instalará o GRUB no registro de inicialização \n"
+"   principal de seu primeiro disco rígido (IDE);\n"
+" - \"(hd0,1)\" ou \"/dev/hda2\" utilizará a segunda partição de seu primeiro \n"
+"   disco IDE;\n"
+" - \"(hd2,4)\" ou \"/dev/hda\" utilizará a primeira partição extendida de \n"
+"   seu terceiro disco (aqui SCSI);\n"
+" - \"(fd0)\" ou \"/dev/fd0\" instalará o GRUB em um disquete."
 
 #. Type: boolean
 #. Description
