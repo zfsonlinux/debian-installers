@@ -1,8 +1,14 @@
-base-installer (0.080) UNRELEASED; urgency=high
+base-installer (0.080) unstable; urgency=high
 
   * Joey Hess
     - Update ia64 kernel to 2.4.25.
     - Make /target/cdrom if it doesn't exist before bind mounting to it.
+    - In kernel version fallback code, try to find a kernel on the list with
+      the same major version as the installer's kernel, and use it. It's
+      better to use 2.4.26 instead of 2.4.25 than to fall forward to the
+      newest 2.6 kernel available.
+    - Add a template for debootstrap's BASESUCCESS info string, so it can be
+      translated. This string was added in a recent version of debootstrap.
   * Joshua Kwan
     - sparc no longer has 2.4.24 images (removed because of security risk.)
       Oops.
@@ -16,8 +22,10 @@ base-installer (0.080) UNRELEASED; urgency=high
     - Add support for q40 and sun3(x) m68k subarchs.
   * Denis Barbier
     - postinst: Turkish does not need jfbterm
+  * Updated translations: 
+    - Norwegian Nynorsk (nn.po) by Håvard Korsvoll
 
- -- Joshua Kwan <joshk@triplehelix.org>  Sat,  1 May 2004 19:24:35 -0700
+ -- Joey Hess <joeyh@debian.org>  Tue,  4 May 2004 23:34:48 -0400
 
 base-installer (0.072) unstable; urgency=low
 
