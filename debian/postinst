@@ -359,14 +359,15 @@ EOF
 					label="$title"
 				fi
 				kernel=$(echo "$entry" | cut -d : -f4)
+				initrd=$(echo "$entry" | cut -d : -f5)
 				if echo "$kernel" | grep -q '^/boot/'; then
 					kernel=$(echo "$kernel" | sed 's!^/boot!!')
+					initrd=$(echo "$initrd" | sed 's!^/boot!!')
 					grubdrive=$(convert "$bootpart") || true
 				else
-					# kernel not on boot partition
+					# kernel and initrd not on boot partition
 					grubdrive=$(convert "$mappedpartition") || true
 				fi
-				initrd=$(echo "$entry" | cut -d : -f5)
 				params=$(echo "$entry" | cut -d : -f6-)
 				cat >> $tmpfile <<EOF
 
