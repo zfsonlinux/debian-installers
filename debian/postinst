@@ -221,20 +221,20 @@ get_arch_kernel () {
 		version=2.4
 		MODEL=`grep 'model name' /proc/cpuinfo | cut -d: -f2`
 		if dmesg | grep -q ^Processors:; then
-			CPUS=`dmesg | grep ^Processors: | cut -d: -f2`
+			SMP=yes
 		else
-			CPUS=1
+			SMP=no
 		fi
 		case "$MODEL" in 
-		" Intel(R) Pentium(R) [4M]"*)
-			if test $CPUS -eq 1; then
+		" Intel(R) Pentium(R) [4M]"*|" Pentium II (Deschutes)"*)
+			if test $SMP = no; then
 				trykernel=kernel-image-$version-686
 			else
 				trykernel=kernel-image-$version-686-smp
 			fi
 		;;
 	    	" AMD Athlon(tm) Processor"*)
-			if test $CPUS -eq 1; then
+			if test $SMP = no; then
 				trykernel=kernel-image-$version-k7
 			else
 				trykernel=kernel-image-$version-k7-smp
