@@ -167,52 +167,23 @@ case "$ARCH" in
               trykernel=kernel-image-2.4.20-apus
               ;;
           *)
-              log "warning: Unknown powerpc subarchitecture '$MODEL'."
+              log "warning: Unknown $ARCH subarchitecture '$MODEL'."
               ;;
       esac
       ;;
-    mips)
-	MODEL=`grep '^system type' /proc/cpuinfo |cut -d: -f2`
-	CPU=`grep '^cpu model' /proc/cpuinfo |cut -d: -f2`
+    mips*)
+	MODEL=`/bin/archdetect`
 	case "$MODEL" in
-	    *Indy)
-		case "$CPU" in
-		    " R4"*)
-			trykernel=kernel-image-*-r4k-ip22
-			;;
-		    " R5"*)
-			trykernel=kernel-image-*-r5k-ip22
-			;;
-		    *)
-			log "warning: Unknown mips Indy cpu type '$CPU'."
-			;;
-		esac
-		;;
-	    *)
-		log "warning: Unknown mips subarchitecture '$MODEL'."
-		;;
-	esac
-	;;
-    mipsel)
-	MODEL=`grep '^system type' /proc/cpuinfo |cut -d: -f2`
-	CPU=`grep '^cpu model' /proc/cpuinfo |cut -d: -f2`
-	case "$MODEL" in
-	    " DEC"*)
-		case "$CPU" in
-		    " R3"*)
-			trykernel=kernel-image-*-r3k-kn02
-			;;
-		    " R4"*)
-			trykernel=kernel-image-*-r4k-kn04
-			;;
-		    *)
-			log "warning: Unknown mipsel DECstation cpu type '$CPU'."
-			;;
-		esac
-		;;
-	    *)
-		log "warning: Unknown mipsel subarchitecture '$MODEL'."
-		;;
+	    # big endian
+	    mips/r4k-ip22) trykernel=kernel-image-*-r4k-ip22 ;;
+	    mips/r5k-ip22) trykernel=kernel-image-*-r5k-ip22 ;;
+
+	    # little endian
+	    mipsel/r3k-kn02) trykernel=kernel-image-*-r3k-kn02 ;;
+	    mipsel/r4k-kn04) trykernel=kernel-image-*-r4k-kn04 ;;
+
+	    # sorry, no luck
+	    *) log "warning: Unknown $ARCH subarchitecture '$MODEL'." ;;
 	esac
 	;;
     *)
