@@ -222,29 +222,47 @@ get_arch_kernel () {
 	case "$ARCH" in
 	i386*)
 		version=2.4
-		MODEL=`grep 'model name' /proc/cpuinfo | cut -d: -f2`
+		VENDOR=`grep '^vendor_id' /proc/cpuinfo | cut -d: -f2`
+		FAMILY=`grep '^cpu family' /proc/cpuinfo | cut -d: -f2`
 		if dmesg | grep -q ^Processors:; then
 			SMP=yes
 		else
 			SMP=no
 		fi
-		case "$MODEL" in 
-		" Intel(R) Pentium(R) [4M]"*|" Pentium II "*|" Pentium III "*)
-			if test $SMP = no; then
-				trykernel=kernel-image-$version-686
-			else
-				trykernel=kernel-image-$version-686-smp
-			fi
+		case "$VENDOR" in
+		" AuthenticAMD"*)
+			case "$FAMILY" in
+			" 6")
+				if test $SMP = no; then
+				        trykernel=kernel-image-$version-k7
+				else
+				        trykernel=kernel-image-$version-k7-smp
+				fi
+			;;
+		        " 5")
+				trykernel=kernel-image-$version-k6
+			;;
+			*)
+				trykernel=kernel-image-$version-386
+			;;
+			esac
 		;;
-	    	" AMD Athlon(tm) "*|" AMD Duron(tm) "*)
-			if test $SMP = no; then
-				trykernel=kernel-image-$version-k7
-			else
-				trykernel=kernel-image-$version-k7-smp
-			fi
-		;;
-	    	" AMD-K6(tm) "*)
-			trykernel=kernel-image-$version-k6
+		" GenuineIntel"*)
+			case "$FAMILY" in
+			" 6"|" 15")
+				if test $SMP = no; then
+				        trykernel=kernel-image-$version-686
+				else
+				        trykernel=kernel-image-$version-686-smp
+				fi
+			;;
+			" 5")
+				trykernel=kernel-image-$version-586tsc
+			;;
+			*)
+				trykernel=kernel-image-$version-386
+			;;
+			esac
 		;;
 		*)
 			trykernel=kernel-image-$version-386
