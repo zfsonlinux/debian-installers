@@ -438,8 +438,14 @@ pick_kernel () {
 		# Current selection is available, nothing to do
 		:
 	else
-		# Pick the first in the list
-		KERNEL=`echo "$kernels" | cut -d, -f1`
+		# If possible, find one with at least the same major number
+		# as the currently running kernel.
+		version=$(uname -r | cut -d . -f 1,2) # 2.4 or 2.6
+		KERNEL=$(echo "$kernels" | sed 's/,/\n/g' | grep -- "-$version" | head -n 1)
+		if [ -z "$KERNEL" ]; then
+			# Take the first on the list.
+			KERNEL=$(echo "$kernels" | cut -d, -f1)
+		fi
 	fi
 
 	arch_kernel=$(get_arch_kernel)
@@ -450,7 +456,7 @@ pick_kernel () {
 		if [ "$kernels" ]; then
 			db_subst base-installer/kernel/which-kernel KERNELS "$kernels"
 
-			# try to default to running kernel version.
+			# Try to default to running kernel version.
 			KVERS=`uname -r | cut -d'-' -f 1`
 			if [ "$KVERS" != "" ]; then
 				kernellist=`grep $arch_kernel $KERNEL_LIST | sort -r | tr '\n' ' '` 
