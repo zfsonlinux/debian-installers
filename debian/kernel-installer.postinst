@@ -18,7 +18,7 @@ info() {
     logmsg "kernel-installer: info: $*"
 }
 
-if db_get debian-installer/kernel/initrd ; then
+if db_get debian-installer/kernel/linux/initrd ; then
     if [ "$RET" = "true" ]; then
 	do_initrd=yes
     else
