@@ -140,6 +140,10 @@ install_base_system () {
 }
 
 configure_apt () {
+	if [ file = "$PROTOCOL" ] ; then
+		mount -o bind $DIRECTORY /target$DIRECTORY
+	fi
+
 	# Move files to where apt expects them to avoid another download or copy.
 	APTLISTDIR=/target/var/lib/apt/lists
 	APTDIR=`echo $DIRECTORY | tr "/" "_"`
@@ -147,13 +151,6 @@ configure_apt () {
 	APTLIST="$APTLISTDIR/${MIRROR}${APTDIR}_dists_${DISTRIBUTION}"
 	mv ${DEBOOTSTRAPLIST}_Release ${APTLIST}_Release
 	mv ${DEBOOTSTRAPLIST}_main_binary-${ARCH}_Packages ${APTLIST}_main_binary-${ARCH}_Packages
-
-	# Copy the files from the CD, to avoid access problems in chroot
-	# environment. This has to happen here, as debootstrap does not
-	# understand copy:, while apt-get does
-	if [ file = "$PROTOCOL" ] ; then
-	    PROTOCOL=copy
-	fi
 
 	# sources.list uses space to separate the components, not comma
 	COMPONENTS=`echo $COMPONENTS | tr , " "`
@@ -439,19 +436,7 @@ install_pcmcia_modules () {
 }
 
 apt_update () {
-	# Not run chrooted because it may need to access /cdrom.
-        PATH=$PATH:/target/usr/bin:/target/bin:/target/usr/sbin:/target/sbin \
-        LD_LIBRARY_PATH=/target/usr/lib:/target/lib \
-        /target/usr/bin/apt-get \
-                -o Dir::State=/target/var/lib/apt \
-                -o Dir::State::status=/target/var/lib/dpkg/status \
-                -o Dir::Cache=/target/var/cache/apt \
-                -o Dir::Etc=/target/etc/apt \
-                -o Dir::Bin::methods=/target/usr/lib/apt/methods \
-                -o Dir::Bin::gzip=/target/bin/gzip \
-                -o Dir::Bin::dpkg=/target/usr/bin/dpkg \
-                -o Dpkg::Options::=--root=/target \
-		update >> $LOGFILE 2>&1 || apt_update_failed=$?
+	chroot /target apt-get update >> $LOGFILE 2>&1 || apt_update_failed=$?
 
 	if [ "$apt_update_failed" ]; then
 		warning "apt update failed: $apt_update_failed"

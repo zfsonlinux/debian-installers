@@ -1,6 +1,5 @@
 base-installer (0.051) UNRELEASED; urgency=low
 
-  * DO NOT UPLOAD
   * Richard Hirst
     - added kernel selection for ia64
     - updated ia64 to kernel 2.4.22
@@ -23,8 +22,10 @@ base-installer (0.051) UNRELEASED; urgency=low
     - Updated Norwegian Bokmål translation (nb.po).
   * Bastian Blank
     - Use di-packages-build.
-    - Fix apt-get call.
     - Use cdebootstrap if available.
+    - Always chroot the apt-get call, avoids problems with reduced or
+      missmatching libc.
+    - Bindmount the cdrom into the target, this BREAKS linux 2.2.
 
  -- Bastian Blank <waldi@debian.org>  Sun, 01 Feb 2004 21:49:33 +0100
 
