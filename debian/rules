@@ -38,7 +38,8 @@ binary-indep: build install
 	dh_testdir
 	dh_testroot
 	dh_installdebconf
-	dh_installdeb 
+	dh_installdeb
+	dh_fixperms
 	dh_gencontrol -- -fdebian/files~
 	dpkg-distaddfile $(FILENAME) debian-installer $(PRIORITY)
 	dh_builddeb --filename=$(FILENAME)
