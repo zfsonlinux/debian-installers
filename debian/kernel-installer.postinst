@@ -2,8 +2,30 @@
 
 . /usr/share/debconf/confmodule
 
-db_get debian-installer/kernel/initrd
-if [ "$RET" = "true" ]; then do_initrd=yes; else do_initrd=no; fi
+logfile=/var/log/messages
+
+logmsg() {
+    echo "$*" >> $logfile
+    echo "$*" 1>&2
+}
+error() {
+    logmsg "error: kernel-installer: $*"
+}
+warning() {
+    logmsg "warning: kernel-installer: $*"
+}
+
+if db_get debian-installer/kernel/initrd ; then
+    if [ "$RET" = "true" ]; then
+	do_initrd=yes
+    else
+	do_initrd=no
+    fi
+else
+    warning "Failed to get debconf answer 'debian-installer/kernel/initrd'."
+    warning "Using default do_initrd='yes'."
+    do_initrd=yes
+fi
 
 cat > /target/etc/kernel-img.conf <<EOF
 # Do not create symbolic links in /
@@ -32,12 +54,16 @@ unset DEBIAN_FRONTEND
 unset DEBCONF_FRONTEND
 unset DEBCONF_REDIR
 
-db_get debian-installer/kernel/image
-
-if [ -z "$RET" ] ; then
-    echo "error: Empty value in 'debian-installer/kernel/image'!" 1>&2
-    echo "error: Unable to install kernel." 1>&2
-    exit 1
+if db_get debian-installer/kernel/image ; then
+    if [ -z "$RET" ] ; then
+	error "Empty value in 'debian-installer/kernel/image'!"
+	error "Unable to install kernel."
+	exit 1
+    fi
+    KERNEL="$RET"
+else
+    error "Unable to get debconf answer debian-installer/kernel/image."
+    error "Unable to install kernel."
 fi
 
 PATH=$PATH:/target/usr/bin:/target/bin:/target/usr/sbin:/target/sbin \
@@ -51,6 +77,6 @@ LD_LIBRARY_PATH=/target/lib:/target/usr/lib \
     -o Dir::Bin::gzip=/target/bin/gzip \
     -o Dir::Bin::dpkg=/target/usr/bin/dpkg \
     -o Dpkg::Options::=--root=/target \
-    -y install $RET
+    -y install "$KERNEL"
 
 exit 0
