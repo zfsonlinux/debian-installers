@@ -92,6 +92,14 @@ get_mirror_info () {
 	if [ file = "$PROTOCOL" ]; then
 	    cp /cdrom/dists/$SUITE/Release $APTLISTDIR/tmp || nogetrel="/cdrom/dists/$SUITE/Release"
 	else
+	    if [ "$PROTOCOL" = "http" ]; then
+		db_get mirror/http/proxy
+		http_proxy="$RET" || true
+		if [ "$http_proxy" ]; then
+			export http_proxy
+		fi
+	    fi
+
 	    wget "$PROTOCOL://$MIRROR$DIRECTORY/dists/$SUITE/Release" -O $APTLISTDIR/tmp || nogetrel="$PROTOCOL://$MIRROR$DIRECTORY/dists/$SUITE/Release"
 	fi
 
