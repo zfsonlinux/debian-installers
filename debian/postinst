@@ -161,7 +161,7 @@ install_base_system () {
 	db_progress INFO base-installer/progress/preparing
 
 	tmpfile=/tmp/base-installer-hook.log
-	[ -d "$partsdir"] && info "Execution hook before debootstrap"
+	[ -d "$partsdir" ] && info "Execution hook before debootstrap"
 	for script in `ls "$partsdir"/*`; do
 	    base=$(basename $script | sed 's/[0-9]*//')
 	    if ! db_progress INFO base-installer/progress/$base; then
