@@ -116,22 +116,26 @@ case "$ARCH" in
 	;;
    powerpc)
       version=2.4.22 #hack, hack!
-      MODEL=`/usr/bin/ppcdetect`
+      MODEL=`/usr/bin/archdetect`
       case "$MODEL" in
-          NewWorld)
+          "powerpc/powermac_newworld")
               kernel=kernel-image-$version-powerpc
               ;;
-          # what's below is probably nonsene, porters have to start building 2.4 kernels for d-i!
+          # what's below is probably nonsense, porters have to start building 2.4 kernels for d-i!
           # But at least the infrastructure will be there and these are the latest versions in 
           # the archive.
-          OldWorld)
+          "powerpc/powermac_oldworld")
               kernel=kernel-image-$version-powerpc
               ;;
-          PReP)
+          "powerpc/prep")
               kernel=kernel-image-2.2.20-prep
               ;;
-          CHRP)
+	  # do we need a special case here for powerpc/chrp_pegasos?
+          "powerpc/chrp")
               kernel=kernel-image-2.2.20-chrp
+              ;;
+          "powerpc/amiga")
+              kernel=kernel-image-2.4.20-apus
               ;;
           *)
               log "warning: Unknown powerpc subarchitecture '$MODEL'."
