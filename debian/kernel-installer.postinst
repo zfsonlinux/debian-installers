@@ -42,17 +42,19 @@ do_bootfloppy = no
 do_initrd = $do_initrd
 EOF
 
-# Make sure initrd-tools is installed before we change its configuration
-apt-install initrd-tools
+if [ yes = "$do_initrd" ] ; then
+    # Make sure initrd-tools is installed before we change its configuration
+    apt-install initrd-tools
 
-# Avoid possible root shell without giving passord while booting the
-# 2.4 kernel
-mkinitrdconf=/target/etc/mkinitrd/mkinitrd.conf
-if [ -f $mkinitrdconf ] ; then
-    sed 's/^DELAY=.*/DELAY=0/' < $mkinitrdconf > $mkinitrdconf.new &&
-        mv $mkinitrdconf.new  $mkinitrdconf
-else
-    echo 'DELAY=0' >> $mkinitrdconf
+    # Avoid possible root shell without giving passord while booting
+    # the 2.4 kernel
+    mkinitrdconf=/target/etc/mkinitrd/mkinitrd.conf
+    if [ -f $mkinitrdconf ] ; then
+	sed 's/^DELAY=.*/DELAY=0/' < $mkinitrdconf > $mkinitrdconf.new &&
+            mv $mkinitrdconf.new  $mkinitrdconf
+    else
+	echo 'DELAY=0' >> $mkinitrdconf
+    fi
 fi
 
 # undocumented hacks, copied from base-installer/debian/postinst, to
