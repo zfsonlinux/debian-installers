@@ -266,7 +266,7 @@ configure_apt () {
 				mkdir -p /target/$DIRECTORY
 			fi
 		fi
-		if [ "$(KERNEL_MAJOR)" = 2.2 ]; then
+		if [ "$KERNEL_MAJOR" = 2.2 ]; then
 			CDDEV=`grep -i /cdrom /proc/mounts | cut -d' ' -f 1 | grep loop || true`
 			if [ "" != "$CDDEV" ]  && \
 				db_get iso-scan/filename && [ "$RET" ] ; then
