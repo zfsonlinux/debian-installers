@@ -41,6 +41,11 @@ exit_error() {
 }
 
 check_target () {
+	# Mae sure something is mounted on the target.
+	if ! grep -q '/target ' /proc/mounts; then
+		exit_error base-installer/no_target_mounted
+	fi
+	
 	# debootstrap has issues with awk already existing, and is not
 	# idempotent in general. Detect and abort.
 	if [ -e /target/usr/bin/awk -o -L /target/usr/bin/awk ] || \

@@ -6,6 +6,12 @@ _Description: Proceed with installation to unclean target?
  could break the installation process or cause a broken system to be
  installed.
 
+Template: base-installer/no_target_mounted
+Type: error
+Description: No filesystem mounted on /target
+ Before the installation can proceed, a root filesystem must be mounted on
+ /target. The partitioner and formatter should have done this for you.
+
 Template: base-installer/unclean_target_cancel
 Type: error
 Description: Not installing to unclean target
