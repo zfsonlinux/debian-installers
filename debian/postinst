@@ -645,6 +645,7 @@ EOF
 	if [ "$ARCH" = "powerpc" -a "$(uname -r | cut -d . -f 1,2)" = "2.6" ]; then
 		case "$SUBARCH" in
 			prep | chrp | chrp_pegasos)
+				info "Installing mkvmlinuz."
 				apt-install mkvmlinuz 2>> $LOGFILE || true
 			;;
 		esac
@@ -668,11 +669,10 @@ EOF
 		case "$SUBARCH" in
 			prep | chrp | chrp_pegasos)
 				version=$(uname -r)
-				mkvmlinuz \
+				info "Calling mkvmlinuz for kernel version '$version'."
+				chroot /target mkvmlinuz \
 					-o /target/boot/vmlinuz-$version \
-					-k /target/boot/vmlinux-$version \
-					-d /target/usr/lib/kernel-image-$version \
-					-i /target/boot/initrd.img-$version
+					-k /target/boot/vmlinux-$version
 			;;
 		esac
 	fi
