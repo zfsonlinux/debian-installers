@@ -11,14 +11,13 @@
 #
 #    Developers do not need to manually edit POT or PO files.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.034\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-03 10:43+0100\n"
-"PO-Revision-Date: 2003-08-03 09:30+0200\n"
-"Last-Translator: Osman Yüksel<yuxel@operamail.com>\n"
+"POT-Creation-Date: 2004-01-15 09:16+0100\n"
+"PO-Revision-Date: 2004-02-10 09:30+0200\n"
+"Last-Translator: Osman YÃ¼ksel<yuxel@sonsuzdongu.com>\n"
 "Language-Team: Debian-l10n-Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-9\n"
@@ -28,146 +27,109 @@ msgstr ""
 #. Description
 #: ../templates:4
 msgid "Device for boot loader installation:"
-msgstr ""
+msgstr "Ã–nyÃ¼kleyici kurulacak aygÄ±t:"
 
 #. Type: string
 #. Description
 #: ../templates:4
 msgid ""
-"Now it is time to make the newly installed Debian system bootable, by "
-"installing the GRUB bootloader on a bootable device. The usual way to do "
-"this is to install GRUB on the master boot record of your first hard drive."
+"GRUB needs to install the stage 1 boot loader on a bootable device. This is "
+"usually the first hard drive. Note that GRUB counts devices differently than "
+"the Linux kernel, so the first one is usually '(hd0)'. Leave this at default "
+"if unsure."
 msgstr ""
-
-#. Type: string
-#. Description
-#: ../templates:4
-msgid ""
-"Note that GRUB counts devices differently than the Linux kernel, so the "
-"first drive is usually '(hd0)'. If you want it on the second partition of "
-"the first drive, use '(hd0,1)'. Leave this at default if unsure."
-msgstr ""
-
-#. Type: string
-#. Description
-#: ../templates:4
-msgid ""
-"Warning: by default, this will change how your computer boots, overwriting "
-"your existing master boot record with GRUB. Continuing may make other "
-"operating systems installed on this computer unbootable."
-msgstr ""
+"Grub boot edilebilir bir aygÄ±ta 1. seviye aÃ§Ä±lÄ±ÅŸ yÃ¼kleyicisi olarak "
+"yÃ¼klenmelidir. Bu genelde ilk hard disktir. Åžunu bilmelisiniz ki GRUB "
+"aygÄ±tlarÄ± Linux kernelden daha farklÄ± bir ÅŸekilde sayar, ilk olan genelde "
+"'(hd0)' dÄ±r. EÄŸer emin deÄŸilseniz Ã¶ntanÄ±mlÄ± ÅŸekilde bÄ±rakÄ±n."
 
 #. Type: boolean
 #. Description
-#: ../templates:20
-#, fuzzy
+#: ../templates:13
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "GRUB /target/ 'a yüklenemiyor. Yine de devam edilsin mi?"
+msgstr "GRUB yÃ¼klenmesi baÅŸarÄ±sÄ±z. Yine de devam edilsin mi?"
 
 #. Type: boolean
 #. Description
-#: ../templates:20
-#, fuzzy
+#: ../templates:13
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"GRUB paketi /target/ a kurulamadý. GRUB'ýn bir açýlýþ yükleyicisi olarak "
-"kurulmasý gerekli. Kurulum problemi grub'dan kaynaklanmýyor olabilir, ve "
-"devam ederseniz çalýþabilir. "
+"GRUB paketi /target/ a kurulamadÄ±. GRUB'Ä±n bir aÃ§Ä±lÄ±ÅŸ yÃ¼kleyicisi olarak "
+"kurulmasÄ± gerekli. Kurulum problemi grub'dan kaynaklanmÄ±yor olabilir, ve "
+"devam ederseniz Ã§alÄ±ÅŸabilir. "
 
 #. Type: error
 #. Description
-#: ../templates:27
-#, fuzzy
+#: ../templates:20
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "${BOOTDEV} 'e GRUB kurulamadý"
+msgstr "${BOOTDEV} aygÄ±tÄ±na GRUB kurulamadÄ±"
+
+#. Type: error
+#. Description
+#: ../templates:20
+msgid "Executing 'grub-install ${BOOTDEV}' failed."
+msgstr "'grub-install ${BOOTDEV}' komutu baÅŸarÄ±sÄ±z."
 
 #. Type: error
 #. Description
 #: ../templates:27
-msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "'grub-install ${BOOTDEV}' komutu baþarýsýz."
-
-#. Type: error
-#. Description
-#: ../templates:34
-#, fuzzy
 msgid "Unable to configure GRUB"
-msgstr "GRUB ayarlanamýyor"
+msgstr "GRUB ayarlanamÄ±yor"
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: ../templates:27
 msgid "Executing 'update-grub' failed."
-msgstr "'update-grub' komutu baþarýsýz"
+msgstr "'update-grub' komutu baÅŸarÄ±sÄ±z"
 
 #. Type: error
 #. Description
-#: ../templates:34
+#: ../templates:27
 msgid "This is a fatal error."
-msgstr "Bu tehlikeli bir hata"
+msgstr "Bu tehlikeli(Ã¶lÃ¼mcÃ¼l) bir hata"
 
 #. Type: text
 #. Description
-#: ../templates:41
+#: ../templates:34
 msgid "Installing GRUB boot loader"
-msgstr "GRUB açýlýþ yükleyicisi kuruluyor"
+msgstr "GRUB aÃ§Ä±lÄ±ÅŸ yÃ¼kleyicisi kuruluyor"
 
 #. Type: text
 #. Description
-#: ../templates:45
-#, fuzzy
+#: ../templates:38
 msgid "Installing the 'grub' package..."
-msgstr "'grub' paketi kuruluyor"
+msgstr "'grub' paketi kuruluyor..."
 
 #. Type: text
 #. Description
-#: ../templates:49
-#, fuzzy
+#: ../templates:42
 msgid "Determining GRUB boot device..."
-msgstr "GRUB boot aygýtý belirleniyor."
+msgstr "GRUB boot aygÄ±tÄ± belirleniyor."
 
 #. Type: text
 #. Description
-#: ../templates:53
-#, fuzzy
+#: ../templates:46
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "\"grub-install ${BOOTDEV}\" çalýþtýrýlýyor."
+msgstr "\"grub-install ${BOOTDEV}\" Ã§alÄ±ÅŸtÄ±rÄ±lÄ±yor."
 
 #. Type: text
 #. Description
-#: ../templates:57
-#, fuzzy
+#: ../templates:50
 msgid "Running \"update-grub\"..."
-msgstr "\"update-grub\" çalýþtýrýlýyor."
+msgstr "\"update-grub\" Ã§alÄ±ÅŸtÄ±rÄ±lÄ±yor."
 
 #. Type: text
 #. Description
-#: ../templates:61
-#, fuzzy
+#: ../templates:54
 msgid "Updating /etc/kernel-img.conf..."
-msgstr "/etc/kernel-img.conf güncelleniyor."
+msgstr "/etc/kernel-img.conf gÃ¼ncelleniyor."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:66
-#, fuzzy
+#: ../templates:59
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "GRUB açýlýþ yükleyicisi kuruluyor"
-
-#~ msgid ""
-#~ "GRUB needs to install the stage 1 boot loader on a bootable device. This "
-#~ "is usually the first hard drive. Note that GRUB counts devices "
-#~ "differently than the Linux kernel, so the first one is usually '(hd0)'. "
-#~ "Leave this at default if unsure."
-#~ msgstr ""
-#~ "Grub boot edilebilir bir aygýta 1. seviye açýlýþ yükleyicisi olarak "
-#~ "yüklenmelidir. Bu genelde ilk hard disktir. Þunu bilmelisiniz ki GRUB "
-#~ "aygýtlarý Linux kernelden daha farklý bir þekilde sayar, ilk olan genelde "
-#~ "'(hd0)' dýr. Eðer emin deðilseniz öntanýmlý þekilde býrakýn."
-
-#~ msgid "On which device should GRUB be installed?"
-#~ msgstr "GRUB hangi aygýta yüklensin?"
+msgstr "Sabit diske GRUB Ã¶nyÃ¼kleyici kuruluyor"
