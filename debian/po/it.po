@@ -3,11 +3,11 @@ msgstr ""
 "Project-Id-Version: grub-installer 0.36\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-05-16 08:27+0200\n"
-"PO-Revision-Date: 2004-03-14 17:04+0100\n"
+"PO-Revision-Date: 2004-05-24 01:25+0200\n"
 "Last-Translator: Stefano Melchior <stefano.melchior@openlabs.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Type: boolean
@@ -17,6 +17,8 @@ msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
 msgstr ""
+"I seguenti sistemi operativi sono stati rilevati su questo computer:"
+"${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -27,13 +29,16 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
+"Se tutti i sistemi operativi sono elencati in precedenza, allora è buona "
+"norma installare il boot loader nel master boot record del primo disco "
+"fisso. All'avvio del computer, sarà possibile caricare uno di questi sistemi "
+"operativi oppure il nuovo sistema Debian."
 
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "Installa il boot loader GRUB su un disco rigido"
+msgstr "Installare il boot loader GRUB nel master boot record?"
 
 #. Type: boolean
 #. Description
@@ -43,6 +48,9 @@ msgid ""
 "this computer. If so, it should be safe to install the GRUB boot loader to "
 "the master boot record of your first hard drive."
 msgstr ""
+"Sembra che questa installazione di Debian sia il solo sistema operativo su "
+"questo computer. Se così fosse, sarebbe buona norma installare il boot "
+"loader GRUB sul master boot record del primo disco fisso."
 
 #. Type: boolean
 #. Description
@@ -53,6 +61,10 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
+"Attenzione: se l'installatore fallisce nel riconoscimento di un altro "
+"sistema operativo presente su questo computer, la modifica del master boot "
+"record renderà il sistema operativo temporaneamente non avviabile, sebbene "
+"GRUB possa essere configurato successivamente per avviarlo."
 
 #. Type: string
 #. Description
@@ -63,7 +75,6 @@ msgstr "Device per l'installazione del boot loader:"
 #. Type: string
 #. Description
 #: ../templates:28
-#, fuzzy
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -71,9 +82,11 @@ msgid ""
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
 msgstr ""
-"Questo Ã¨ il momento di rendere il nuovo sistema Debian avviabile, "
-"installando il boot loader GRUB nel device di avvio. Il modo normale di fare "
-"questo Ã¨ installare GRUB nel master boot record del primo disco fisso."
+"Bisogna rendere il nuovo sistema Debian avviabile, installando il boot "
+"loader GRUB nel device di avvio. Il modo normale di fare questo è installare "
+"GRUB nel master boot record del primo disco fisso. Se si preferisce, si può "
+"installare GRUB altrove sul disco, oppure su un altro disco o eventualmente "
+"su un floppy."
 
 #. Type: string
 #. Description
@@ -84,6 +97,10 @@ msgid ""
 "of your first hard drive, while \"/dev/hda2\" will install it to the second "
 "parrtition of your first IDE drive."
 msgstr ""
+"Il device può essere specificato utilizzando la notazione di GRUB \"(hdn)\", "
+"oppure come un device nella notazione /dev. Per esempio, \"(hd0)\" "
+"installerà GRUB sul master boot record del primo disco fisso, mentre \"/dev/"
+"hda2\" lo farà sulla seconda partizione del primo disco IDE."
 
 #. Type: boolean
 #. Description
@@ -99,8 +116,8 @@ msgid ""
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"L'installazione del pacchetto \"GRUB\" su /target/ Ã¨ fallita. Installare "
-"GRUB come boot loader Ã¨ un passo necessario. Ad ogni modo questo problema "
+"L'installazione del pacchetto \"GRUB\" su /target/ è fallita. Installare "
+"GRUB come boot loader è un passo necessario. Ad ogni modo questo problema "
 "potrebbe non aver relazioni con GRUB, quindi potrebbe essere comunque "
 "possibile continuare con l'installazione."
 
@@ -132,49 +149,49 @@ msgstr "Esecuzione di 'update-grub' fallita."
 #. Description
 #: ../templates:57
 msgid "This is a fatal error."
-msgstr "Questo Ã¨ un errore fatale."
+msgstr "Questo è un errore fatale."
 
 #. Type: text
 #. Description
 #: ../templates:64
 msgid "Installing GRUB boot loader"
-msgstr "Installazione in corso del caricatore di avvio GRUB"
+msgstr "Installazione in corso del boot loader GRUB"
 
 #. Type: text
 #. Description
 #: ../templates:68
 msgid "Looking for other operating systems..."
-msgstr ""
+msgstr "Ricerca di altri sistemi operativi in corso"
 
 #. Type: text
 #. Description
 #: ../templates:72
 msgid "Installing the 'grub' package..."
-msgstr "Installazione del pacchetto 'grub' in corso."
+msgstr "Installazione del pacchetto 'grub' in corso"
 
 #. Type: text
 #. Description
 #: ../templates:76
 msgid "Determining GRUB boot device..."
-msgstr "Determinazione del dispositivo di avvio di GRUB in corso."
+msgstr "Determinazione del dispositivo di avvio di GRUB in corso"
 
 #. Type: text
 #. Description
 #: ../templates:80
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "Esecuzione di \"grub-install ${BOOTDEV}\" in corso."
+msgstr "Esecuzione di \"grub-install ${BOOTDEV}\" in corso"
 
 #. Type: text
 #. Description
 #: ../templates:84
 msgid "Running \"update-grub\"..."
-msgstr "Esecuzione di \"update-grub\" in corso."
+msgstr "Esecuzione di \"update-grub\" in corso"
 
 #. Type: text
 #. Description
 #: ../templates:88
 msgid "Updating /etc/kernel-img.conf..."
-msgstr "Aggiornamento di /etc/kernel-img.conf in corso."
+msgstr "Aggiornamento di /etc/kernel-img.conf in corso"
 
 #. Type: text
 #. Description
@@ -182,23 +199,3 @@ msgstr "Aggiornamento di /etc/kernel-img.conf in corso."
 #: ../templates:93
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installa il boot loader GRUB su un disco rigido"
-
-#~ msgid ""
-#~ "Note that GRUB counts devices differently than the Linux kernel, so the "
-#~ "first drive is usually '(hd0)'. If you want it on the second partition of "
-#~ "the first drive, use '(hd0,1)'. Leave this at default if unsure."
-#~ msgstr ""
-#~ "Notare che la conta dei dischi di GRUB Ã¨ fatta diversamente dal kernel "
-#~ "Linux, quindi il primo disco Ã¨ normalmente '(hd0)'. Se lo si volesse "
-#~ "nella seconda partizione del primo disco, usare '(hd0,1)'. Lasciare il "
-#~ "valore predefinito se si Ã¨ incerti."
-
-#~ msgid ""
-#~ "Warning: by default, this will change how your computer boots, "
-#~ "overwriting your existing master boot record with GRUB. Continuing may "
-#~ "make other operating systems installed on this computer unbootable."
-#~ msgstr ""
-#~ "Attenzione: normalmente questo cambierÃ² il modo nel quale il computer si "
-#~ "accende, sovrascrivendo l'attuale master boot record con GRUB. Continuare "
-#~ "potrebbe rendere altri sistemi operativi, installati su questo computer, "
-#~ "non avviabili."
