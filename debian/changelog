@@ -4,6 +4,10 @@ base-installer (0.083) UNRELEASED; urgency=low
     - Bump alpha to 2.4.26
   * Thiemo Seufer
     - Bump mips, mipsel to 2.4.26.
+  * Joey Hess
+    - Stop using df to find the /target partition (failed on 100 gb drives
+      due to field width issues), and make the file system type be found in
+      a way that is less prey to false positives.
 
  -- Steve Langasek <vorlon@debian.org>  Sat, 29 May 2004 23:51:57 -0500
 

@@ -548,8 +548,8 @@ EOF
 			exit_error base-installer/kernel/failed-initrd-tools-install
 		fi
 
-		rootpart_devfs=$(df /target/ | sed '1d;s/ .*//')
-		rootpartfs=$(mount | grep $rootpart_devfs | cut -d' ' -f5)
+		rootpart_devfs=$(mount | grep "on /target " | cut -d' ' -f1)
+		rootpartfs=$(mount | grep "on /target " | cut -d' ' -f5)
 		rootpart=$(mapdevfs $rootpart_devfs)
 
 		# Avoid possible root shell without giving passord while
