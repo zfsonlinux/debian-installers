@@ -1,0 +1,133 @@
+#
+#    Translators, if you are not familiar with the PO format, gettext
+#    documentation is worth reading, especially sections dedicated to
+#    this format, e.g. by running:
+#         info -n '(gettext)PO Files'
+#         info -n '(gettext)Header Entry'
+#
+#    Some information specific to po-debconf are available at
+#            /usr/share/doc/po-debconf/README-trans
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
+#
+#    Developers do not need to manually edit POT or PO files.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2004-03-14 18:26+0000\n"
+"PO-Revision-Date: 2004-03-29 14:13+0200\n"
+"Last-Translator: Lior Kaplan <webmaster@guides.co.il>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#  Type: string
+#  Description
+#: ../templates:4
+msgid "Device for boot loader installation:"
+msgstr "רכיב להתקנת מנהל אתחול:"
+
+#  Type: string
+#  Description
+#: ../templates:4
+msgid "Now it is time to make the newly installed Debian system bootable, by installing the GRUB bootloader on a bootable device. The usual way to do this is to install GRUB on the master boot record of your first hard drive."
+msgstr "זה הזמן להפוך את Debian לניתנת לאתחול, ע\"י התקנת מנהל האתחול GRUB. הדרך הרגילה להתקין את GRUB היא על ה-Master Boot Record של הדיסק הקשיח הראשון."
+
+#  Type: string
+#  Description
+#: ../templates:4
+msgid "Note that GRUB counts devices differently than the Linux kernel, so the first drive is usually '(hd0)'. If you want it on the second partition of the first drive, use '(hd0,1)'. Leave this at default if unsure."
+msgstr "שימו לב ש-GRUB מונה רכיבים בצורה שונה מאשר הקרנל של לינוקס, כלומר הדיסק הראשון הוא בדרך כלל '(hd0)'. לדוגמה, אם ברצונך להתקין על המחיצה השניה של הדיסק הראשון - יש להשתמש ב-'(hd0,1)'. יש להשאיר את ברירת המחדל במקרה של אי וודאות.Note that GRUB counts devices differently than the Linux kernel, so the first drive is usually '(hd0)'. If you want it on the second partition of the first drive, use '(hd0,1)'. Leave this at default if unsure."
+
+#  Type: string
+#  Description
+#: ../templates:4
+msgid "Warning: by default, this will change how your computer boots, overwriting your existing master boot record with GRUB. Continuing may make other operating systems installed on this computer unbootable."
+msgstr "אזהרה: כברירת מחדל, הפעולה תשנה את פעולה האתחול של המחשב. דריסת ה-Master Boot Record עם GRUB. המשך הפעולה עלול להפוך מערכות הפעלה אחרות שכבר מותקנות, ללא ניתנות לאתחול."
+
+#  Type: boolean
+#  Description
+#: ../templates:20
+msgid "GRUB installation failed.  Continue anyway?"
+msgstr "התקנת GRUB נכשלה. להמשיך בכל זאת?"
+
+#  Type: boolean
+#  Description
+#: ../templates:20
+msgid "The grub package failed to install into /target/.  Installing GRUB as a boot loader is a required step.  The install problem might however be unrelated to GRUB, so continuing the installation may be possible."
+msgstr "התקנת החבילה grub נכשלה בהתקנה לתוך /target/. התקנת GRUB כמנהל אתחול היא שלב חיוני. בעיית ההתקנה לא בהכרח קשורה להתקנת GRUB, כך שאולי ניתן להמשיך בהתקנה."
+
+#  Type: error
+#  Description
+#: ../templates:27
+msgid "Unable to install GRUB in ${BOOTDEV}"
+msgstr "לא ניתן להתקין את GRUB ב-${BOOTDEV}"
+
+#  Type: error
+#  Description
+#: ../templates:27
+msgid "Executing 'grub-install ${BOOTDEV}' failed."
+msgstr "הרצת 'grub-install ${BOOTDEV}' נכשלה"
+
+#  Type: error
+#  Description
+#: ../templates:34
+msgid "Unable to configure GRUB"
+msgstr "לא מצליח להגדיר את GRUB"
+
+#  Type: error
+#  Description
+#: ../templates:34
+msgid "Executing 'update-grub' failed."
+msgstr "הרצת 'update-grub' נכשלה."
+
+#  Type: error
+#  Description
+#: ../templates:34
+msgid "This is a fatal error."
+msgstr "זאת שגיאה קטלנית"
+
+#  Type: text
+#  Description
+#: ../templates:41
+msgid "Installing GRUB boot loader"
+msgstr "מתקין את מנהל האתחול GRUB"
+
+#  Type: text
+#  Description
+#: ../templates:45
+msgid "Installing the 'grub' package..."
+msgstr "מתקין את החבילה 'grub'..."
+
+#  Type: text
+#  Description
+#: ../templates:49
+msgid "Determining GRUB boot device..."
+msgstr "קובע את רכיב האתחול של GRUB..."
+
+#  Type: text
+#  Description
+#: ../templates:53
+msgid "Running \"grub-install ${BOOTDEV}\"..."
+msgstr "מריץ \"grub-install ${BOOTDEV}\"..."
+
+#  Type: text
+#  Description
+#: ../templates:57
+msgid "Running \"update-grub\"..."
+msgstr "מריץ \"update-grub\"..."
+
+#  Type: text
+#  Description
+#: ../templates:61
+msgid "Updating /etc/kernel-img.conf..."
+msgstr "מעדכן את /etc/kernel-img.conf..."
+
+#  Type: text
+#  Description
+#  Main menu item
+#: ../templates:66
+msgid "Install the GRUB boot loader on a hard disk"
+msgstr "התקן את מנהל האתחול GRUB על הדיסק הקשיח"
+
