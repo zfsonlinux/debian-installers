@@ -438,7 +438,8 @@ apt_update () {
 
 queue_language_debs () {
 	# Language specific packages.
-	case "`debconf-get debian-installer/language`" in
+	db_get debian-installer/language || true
+	case "$RET" in
 		ja|ko|el|zh)
 			# Japanese, Korean, Greek, Chinese
 			apt-install jfbterm || true
