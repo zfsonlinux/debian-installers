@@ -12,10 +12,10 @@ arch_get_kernel_flavour () {
 			;;
 	esac
 	case "$SUBARCH" in
-		powermac_newworld)	echo "$family-pmac" ;;
-		powermac_oldworld)	echo "$family-pmac" ;;
-		prep)			echo "$family-prep" ;;
-		chrp*)			echo "$family-chrp" ;;
+		powermac_newworld)	echo "$family" ;;
+		powermac_oldworld)	echo "$family" ;;
+		prep)			echo "$family" ;;
+		chrp*)			echo "$family" ;;
 		amiga)			echo apus ;;
 		*)
 			warning "Unknown $ARCH subarchitecture '$SUBARCH'."
