@@ -290,7 +290,15 @@ EOF
 
 if [ yes = "$do_initrd" ] ; then
     # Make sure initrd-tools is installed before we change its configuration
-    apt-install initrd-tools 2>> $logfile
+    if ! apt-install initrd-tools 2>> $logfile ; then
+	error "Failed to download initrd tools!"
+
+	# TODO: This needs a new debconf template after the string freeze.
+	#db_input critical kernel-installer/failed-initrd-tools-install || [ $? -eq 30 ]
+	#db_go
+	db_progress STOP
+	exit 1
+    fi
 
     # Avoid possible root shell without giving passord while booting
     # the 2.4 kernel
