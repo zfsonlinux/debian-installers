@@ -372,28 +372,30 @@ get_arch_kernel () {
 		power3|i-star|s-star)
 			family=power3
 			;;
-		power4)
+		power4|ppc970)
 			family=power4
-			;;
-		ppc970)
-			case "$kernel_major" in
-			2.6) family=g5 ;;
-			2.4) family=power4 ;;
-			esac
 			;;
 		*)
 			family=powerpc
 			;;
 		esac
 		case "$SUBARCH" in
-		powermac_newworld) trykernel=kernel-image-$version-$family-pmac ;;
-		powermac_oldworld) trykernel=kernel-image-$version-$family-pmac ;;
-		prep) trykernel=kernel-image-$version-$family-prep ;;
-		chrp | chrp_pegasos) trykernel=kernel-image-$version-$family-chrp ;;
-		chrp_rs6k) trykernel=kernel-image-$version-$family-chrp-rs6k ;;
-		amiga) trykernel=kernel-image-$apusversion-apus ;;
-
+		powermac_newworld)	family="$family-pmac" ;;
+		powermac_oldworld)	family="$family-pmac" ;;
+		prep)			family="$family-prep" ;;
+		chrp|chrp_pegasos)	family="$family-chrp" ;;
+		chrp_rs6k)		family="$family-chrp-rs6k" ;;
+		amiga)			family=apus ;;
 		*) warning "Unknown $ARCH subarchitecture '$SUBARCH'." ;;
+		esac
+		case "$family" in
+		apus) trykernel=kernel-image-$apusversion-apus ;;
+		*)
+			case "$kernel_major" in
+			2.6) trykernel=kernel-image-$version-${family%%-*} ;;
+			*)   trykernel=kernel-image-$version-$family ;;
+			esac
+			;;
 		esac
 	;;
 	mips)
