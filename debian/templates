@@ -1,7 +1,7 @@
 Template: grub-installer/bootdev
 Type: string
 Default: (hd0)
-_Description: On which device should GRUB be installed?
+_Description: Device for boot loader installation:
  GRUB needs to install the stage 1 boot loader on a bootable device. This
  is usually the first hard drive. Note that GRUB counts devices differently
  than the Linux kernel, so the first one is usually '(hd0)'. Leave this at
@@ -10,21 +10,21 @@ _Description: On which device should GRUB be installed?
 Template: grub-installer/apt-install-failed
 Type: boolean
 Default: yes
-_Description: Unable to install grub in /target/.  Continue anyway?
- The grub package failed to install into /target/.  It is required to
- install GRUB as a boot loader.  The install problem might be unrelated to
- grub, and it might work to continue anyway.
+_Description: GRUB installation failed.  Continue anyway?
+ The grub package failed to install into /target/.  Installing GRUB
+ as a boot loader is a required step.  The install problem might however be
+ unrelated to GRUB, so continuing the installation may be possible.
 
 Template: grub-installer/grub-install-failed
-Type: note
-_Description: Unable to install grub in ${BOOTDEV}
+Type: error
+_Description: Unable to install GRUB in ${BOOTDEV}
  Executing 'grub-install ${BOOTDEV}' failed.
  .
  This is a fatal error.
 
 Template: grub-installer/update-grub-failed
-Type: note
-_Description: Unable to configure grub
+Type: error
+_Description: Unable to configure GRUB
  Executing 'update-grub' failed.
  .
  This is a fatal error.
@@ -56,4 +56,4 @@ _Description: Updating /etc/kernel-img.conf.
 Template: debian-installer/grub-installer/title
 Type: text
 #  Main menu item
-_Description: Install GRUB on a hard disk
+_Description: Install GRUB boot loader on a hard disk
