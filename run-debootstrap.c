@@ -307,7 +307,7 @@ exec_debootstrap(char **argv){
                             return -1;
                         // fallback error message
                         debconf->command(debconf, "SUBST", DEBCONF_BASE "fallback-info", "INFO", ptr, NULL);
-                        debconf->command(debconf, "PROGRESS INFO", ptr, NULL);
+                        debconf->command(debconf, "PROGRESS INFO", DEBCONF_BASE "fallback-info", NULL);
                         free(ptr);
                     }
                     else
