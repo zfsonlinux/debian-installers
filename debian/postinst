@@ -88,7 +88,6 @@ get_mirror_info () {
 	DISTRIBUTION=`grep Codename $APTLISTDIR/tmp | cut -d' ' -f 2`
 	DEBOOTSTRAPLIST="$APTLISTDIR/debootstrap.invalid_dists_${DISTRIBUTION}"
 	mv $APTLISTDIR/tmp ${DEBOOTSTRAPLIST}_Release
-
 }
 	
 install_base_system () {
