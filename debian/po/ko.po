@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-04-10 01:43-0400\n"
-"PO-Revision-Date: 2004-04-04 16:04+0900\n"
+"PO-Revision-Date: 2004-04-11 01:16+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Korean\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr ""
+msgstr "이 컴퓨터에 설치된 다른 운영체제가 다음과 같이 발견되었습니다: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -27,14 +27,13 @@ msgid ""
 "install the boot loader to the master boot record of your first hard drive. "
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
-msgstr ""
+msgstr "모든 운영체제가 위에 들어 있다면, 부트 로더를 첫 번째 하드 드라이브의 마스터 부트 레코드에 설치해도 안전합니다. 컴퓨터가 부팅할 때, 선택에 따라 위의 운영체제 중에서 하나를 부팅할 수도 있고, 새로 설치한 데비안 시스템을 부팅할 수도 있습니다."
 
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "GRUB 부트로더를 하드 디스크에 설치"
+msgstr "GRUB 부트로더를 마스터 부트 레코드에 설치하시겠습니까?"
 
 #. Type: boolean
 #. Description
@@ -43,7 +42,7 @@ msgid ""
 "It seems that Debian will be the only operating system on this computer. If "
 "so, it should be safe to install the boot loader to the master boot record "
 "of your first hard drive."
-msgstr ""
+msgstr "이 컴퓨터에는 데비안이 유일한 운영 체제입니다. 그렇다면, 부트 로더를 첫 번째 하드 드라이브의 마스터 부트 레코드에 설치해도 안전합니다."
 
 #. Type: string
 #. Description
@@ -54,17 +53,13 @@ msgstr "부트 로더를 설치할 장치:"
 #. Type: string
 #. Description
 #: ../templates:24
-#, fuzzy
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
 "install GRUB on the master boot record of your first hard drive. If you "
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
-msgstr ""
-"새로 설치한 데비안 시스템을 부팅 가능하게 만들 차례입니다. GRUB 부트로더를 부"
-"팅 가능한 장치에 설치하면 됩니다. 일반적으로 GRUB을 첫 번째 하드 드라이브의 "
-"마스터 부트 레코드에 설치합니다."
+msgstr "새로 설치한 데비안 시스템을 부팅 가능하게 만들 차례입니다. GRUB 부트로더를 부팅 가능한 장치에 설치하면 됩니다. 일반적으로 GRUB을 첫 번째 하드 드라이브의 마스터 부트 레코드에 설치합니다. 원한다면 GRUB을 드라이브의 다른 위치나, 다른 하드 드라이브, 심지어 플로피에라도 설치할 수 있습니다."
 
 #. Type: boolean
 #. Description
@@ -162,21 +157,3 @@ msgstr "/etc/kernel-img.conf 업데이트 중입니다..."
 #: ../templates:84
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "GRUB 부트로더를 하드 디스크에 설치"
-
-#~ msgid ""
-#~ "Note that GRUB counts devices differently than the Linux kernel, so the "
-#~ "first drive is usually '(hd0)'. If you want it on the second partition of "
-#~ "the first drive, use '(hd0,1)'. Leave this at default if unsure."
-#~ msgstr ""
-#~ "GRUB는 리눅스 커널과는 다른 방식으로 장치 이름을 매깁니다. 첫 번째 드라이"
-#~ "브는 '(hd0)'입니다. 첫 번째 드라이브의 두 번째 파티션은 '(hd0,1)'을 사용합"
-#~ "니다. 확실히 모르겠으면 그냥 기본값으로 놔 두십시오."
-
-#~ msgid ""
-#~ "Warning: by default, this will change how your computer boots, "
-#~ "overwriting your existing master boot record with GRUB. Continuing may "
-#~ "make other operating systems installed on this computer unbootable."
-#~ msgstr ""
-#~ "경고: GRUB을 마스터 부트 레코드에 설치하면, 컴퓨터가 부팅하는 방식을 바꿉"
-#~ "니다. 계속하시면 이 컴퓨터에 들어 있는 다른 운영 체제가 부팅하지 못할 수"
-#~ "도 있습니다."
