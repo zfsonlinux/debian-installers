@@ -671,8 +671,8 @@ EOF
 				version=$(uname -r)
 				info "Calling mkvmlinuz for kernel version '$version'."
 				chroot /target mkvmlinuz \
-					-o /target/boot/vmlinuz-$version \
-					-k /target/boot/vmlinux-$version
+					-o /boot/vmlinuz-$version \
+					-k /boot/vmlinux-$version
 			;;
 		esac
 	fi
