@@ -601,49 +601,7 @@ apt_update () {
 	fi
 }
 
-# Do not update this code.  This block is moved to languagechooser,
-# and will be removed from here when the new languagechooser (v1.20)
-# is in the archive.
-queue_language_debs () {
-	# Language specific packages.
-
-	info "Installing language specific packages."
-
-	db_get debian-installer/language || true
-
-	if [ "$RET" != "en" ]; then
-		info "Trying to install package iso-codes into /target/."
-		# Package iso-codes is missing in Woody.  Do not fail
-		# if it is missing to make d-i capable of installing
-		# Woody and Skolelinux.
-		if ! apt-install iso-codes ; then
-			warning "Installing package iso-codes failed."
-		fi
-	fi
-
-	case "`echo $RET | sed 's/:.*//'`" in
-		ja|ko|ko_KR|el|zh|zh_CN|zh_TW|bg|ar|he|uk|uk_UA)
-			# Japanese, Korean, Greek, Chinese, Bulgarian, Arabic, Hebrew, Turkish, Ukranian
-			apt-install jfbterm || true
-			apt-install unifont || true
-		;;
-		tr)
-			# Turkish
-			apt-install console-terminus || true
-		;;
-		ru)
-			# Russian
-			apt-install console-cyrillic || true
-			apt-install console-terminus || true
-		;;
-		*)
-		;;
-	esac
-}
-	
 install_extra () {
-	queue_language_debs
-
 	info "Installing extra packages into /target/."
 	
 	if [ -f /var/lib/apt-install/queue ] ; then
