@@ -128,6 +128,8 @@ void set_progress (int current_section, int phigh, int plow) {
         section_fraction = (float) plow / (float) phigh;
     else
         section_fraction = 0;
+    if (section_fraction > 1)
+        section_fraction = 1;
 			
     percent = prev_waypoint + (section_span * section_fraction);
 			
