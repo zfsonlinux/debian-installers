@@ -656,6 +656,9 @@ EOF
 			prep | chrp | chrp_pegasos)
 				info "Installing mkvmlinuz."
 				apt-install mkvmlinuz 2>> $LOGFILE || true
+				cat >> /target/etc/kernel-img.conf <<EOF
+postinst_hook = /usr/sbin/mkvmlinuz
+EOF
 			;;
 		esac
 	fi
@@ -671,25 +674,6 @@ EOF
 	if [ -f /target/etc/kernel-img.conf.$$ ]; then
 		# Revert old kernel-img.conf
 		mv /target/etc/kernel-img.conf.$$ /target/etc/kernel-img.conf
-	fi
-
-	# and calling mkvmlinuz on the powerpc subarches that need it.
-	if [ "$ARCH" = "powerpc" -a "$(uname -r | cut -d . -f 1,2)" = "2.6" ]; then
-		case "$SUBARCH" in
-			prep) subarch=prep ;;
-			chrp | chrp_pegasos) subarch=chrp ;;
-			*) subarch=none ;;
-		esac
-		if [ "$subarch" != none ]; then
-			version=$(uname -r)
-			info "Calling mkvmlinuz for kernel version '$version'."
-			chroot /target mkvmlinuz -a $subarch \
-				-o /boot/vmlinuz-$version \
-				-k /boot/vmlinux-$version
-			cat >> /target/etc/kernel-img.conf <<EOF
-postinst_hook = /usr/sbin/mkvmlinuz
-EOF
-		fi
 	fi
 
 	if [ "$kernel_install_failed" ]; then
