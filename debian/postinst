@@ -24,10 +24,10 @@ info() {
 }
 
 get_serial_console() {
-	local defconsole=$(sed -e 's/.*console=/console=/' /proc/cmdline);
+	local defconsole="$(sed -e 's/.*console=/console=/' /proc/cmdline)"
 	if echo "${defconsole}" | grep -q console=ttyS; then
-		local PORT=$(echo "${defconsole}" | sed -e 's%^console=ttyS%%' -e 's%,.*%%')
-		local SPEED=$(echo "${defconsole}" | sed -e 's%^console=ttyS[0-9]\+,%%' -e 's% .*%%')
+		local PORT="$(echo "${defconsole}" | sed -e 's%^console=ttyS%%' -e 's%,.*%%')"
+		local SPEED="$(echo "${defconsole}" | sed -e 's%^console=ttyS[0-9]\+,%%' -e 's% .*%%')"
 		local SERIAL="${PORT},${SPEED}"
 		echo "console=$SERIAL"
 	fi
