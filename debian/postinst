@@ -13,7 +13,7 @@ COMPONENTS="main,local"
 DISTRIBUTION=sarge
 
 if [ -f /cdrom/.disk/base_installable ]; then
-    PROTOCOL=copy
+    PROTOCOL=file
     MIRROR=""
     DIRECTORY="/cdrom/"
     if [ -s /cdrom/.disk/base_components ]; then
@@ -82,13 +82,12 @@ test -d $LOGDIR || mkdir -p $LOGDIR
 cp /target/etc/fstab /target/etc/fstab.orig
 echo "# UNCONFIGURED FSTAB FOR BASE SYSTEM" >> /target/etc/fstab
 
-APTSOURCE="$PROTOCOL://$MIRROR$DIRECTORY"
-
 debootstrap \
     --components="${COMPONENTS}" \
     --boot-floppies \
     ${INCLUDE} ${EXCLUDE} \
-    ${DISTRIBUTION} /target "$APTSOURCE" \
+    ${DISTRIBUTION} /target \
+    "$PROTOCOL://$MIRROR$DIRECTORY" \
     3>&1 > $LOGDIR/debootstrap.log \
     2> $LOGDIR/debootstrap.err.log </dev/null
 
@@ -107,8 +106,16 @@ else
     mv ${DEBOOTSTRAPLIST}_main_binary-${ARCH}_Packages ${APTLIST}_main_binary-${ARCH}_Packages
 fi
 
+# Copy the files from the CD, to avoid access problems in chroot
+# environment.  This has to happen here, as debootstrap to not
+# understand copy:, while apt-get do.
+if [ file = "$PROTOCOL" ] ; then
+    PROTOCOL=copy
+fi
+
 # sources.list use space to separate the components, not comma
 COMPONENTS=`echo $COMPONENTS | tr , " "`
+APTSOURCE="$PROTOCOL://$MIRROR$DIRECTORY"
 
 echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
 

@@ -3,9 +3,9 @@ base-installer (0.016) UNRELEASED; urgency=low
   * Use the same components in debootstrap and APT.
   * Two new helper programs, apt-update and apt-install.
   * Try to fix CDROM installs; Make sure 'apt-get update' is executed
-    when installing from CD, change the source protocol from file: to
-    copy:, and split 'apt-get install' into two parts, one downloading
-    outside /target/, and one installing within /target/.
+    when installing from CD, change the APT source protocol from file:
+    to copy:, and split 'apt-get install' into two parts, one
+    downloading outside /target/, and one installing within /target/.
   * Install all pachages with DEBIAN_FRONTEND=noninteractive, and make
     sure /target/proc/ is available during install.
   * Make sure initrd-tools is installed before we modify its
