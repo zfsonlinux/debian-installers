@@ -224,7 +224,7 @@ exec_debootstrap(char **argv){
                     if (child_exit)
                         break;
                     line[llen-1] = 0;
-                    di_log(DI_LOG_LEVEL_OUTPUT, line);
+                    di_log(line); // FIXME
                     break;
                 }
             case 'P':
