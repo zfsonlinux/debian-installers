@@ -7,7 +7,7 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	version=2.4.27-1
+	version=2.4.27-2
 	if dmesg | grep -q ^Processors:; then
 		CPUS=`dmesg | grep ^Processors: | cut -d: -f2`
 	else
