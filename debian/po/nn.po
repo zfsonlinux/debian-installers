@@ -1,50 +1,55 @@
-# translation of debian-installer.po to Norsk (Nynorsk)
-# translation of debian-installer.po to Norsk (Nynorsk)
-# translation of debian-installer.po to Norwegian Nynorsk
-# Norwegian Nynorsk messages for debian-installer.
-# Copyright (C) 2003 Software in the Public Interest, Inc.
-# This file is distributed under the same license as debian-installer.
-# Gaute Hvoslef Kvalnes <gaute@verdsveven.com>, 2003.
-# Ole-Christian S. Hagenes <ole@hagenes.net>, 2003.
-# Håvard Korsvoll <korsvoll@skulelinux.no>, 2003.
+# translation of base-installer.po to Norwegian (Nynorsk)
+# translation of base-installer.po to
+# translation of base-installer.po to
+#
+#    Translators, if you are not familiar with the PO format, gettext
+#    documentation is worth reading, especially sections dedicated to
+#    this format, e.g. by running:
+#         info -n '(gettext)PO Files'
+#         info -n '(gettext)Header Entry'
+#    Some information specific to po-debconf are available at
+#            /usr/share/doc/po-debconf/README-trans
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans#
+#    Developers do not need to manually edit POT or PO files.
+# Håvard Korsvoll <korsvoll@stud.ntnu.no>, 2004.
+# Håvard Korsvoll <korsvoll@skulelinux.no>, 2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: base-installer\n"
-"POT-Creation-Date: 2004-01-08 08:49+0100\n"
-"PO-Revision-Date: 2003-12-28 13:56+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-02-16 13:36-0700\n"
+"PO-Revision-Date: 2004-02-17 19:59+0100\n"
 "Last-Translator: Håvard Korsvoll <korsvoll@skulelinux.no>\n"
-"Language-Team: Norsk (Nynorsk) <i18n-nn@lister.ping.uio.no>\n"
+"Language-Team: Norwegian (Nynorsk) <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
-"X-Generator: KBabel 1.0.2\n"
+"X-Generator: KBabel 1.3\n"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:3
 msgid "Failed to install the base system"
-msgstr "Klarte ikkje å installere basesystemet"
+msgstr "Klarte ikkje å installere grunnsystemet"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:3
 msgid "The base system installation into /target/ failed."
-msgstr "Installasjon av basesystemet inn i /target/ feila."
+msgstr "Installasjon av grunnsystemet inn i /target/ feila."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:10
-msgid ""
-"The debootstrap program exited with an error (return value ${EXITCODE})."
+msgid "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr "debootstrap avslutta med ein feil (returverdi ${EXITCODE})."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:17
 msgid "Base system installation error"
-msgstr "Feil ved installasjonen av basesystemet"
+msgstr "Feil ved installasjonen av grunnsystemet"
 
 #. Type: error
 #. Description
@@ -68,7 +73,7 @@ msgstr "${ERROR}"
 #. Description
 #: ../base-installer.templates:33
 msgid "Unable to install a kernel"
-msgstr "Klarte ikkje å installera ei kjerne"
+msgstr "Klarte ikkje å installera noko kjerne"
 
 #. Type: error
 #. Description
@@ -88,9 +93,7 @@ msgstr "Klarte ikkje å installera den valde kjerna."
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
-msgstr ""
-"Det oppsto ein feil under forsøket med å installera ei kjerne inn i "
-"målsystemet."
+msgstr "Det blei returnert ein feil under installasjon av kjerna på målsystemet."
 
 #. Type: error
 #. Description
@@ -101,26 +104,24 @@ msgstr "Kjernepakke: «${KERNEL}»."
 #. Type: select
 #. Description
 #: ../base-installer.templates:49
-#, fuzzy
 msgid "Kernel to install:"
-msgstr "Kjerne som skal installerast i /target/:"
+msgstr "Kjerne som skal installerast:"
 
 #. Type: select
 #. Description
 #: ../base-installer.templates:49
-#, fuzzy
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
 msgstr ""
-"Dette er dei kjernane som finst i APT-kjeldene. Ein av desse må installerast "
+"Dette er ei liste over tilgjengelege kjerner. Ei av desse må installerast "
 "for at systemet skal kunna startast frå harddisken."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:55
 msgid "No installable kernel found"
-msgstr "Fant ingen installerbar kjerne"
+msgstr "Fant ingen installerbare kjerner"
 
 #. Type: error
 #. Description
@@ -137,8 +138,7 @@ msgstr "Noverande standarkjerne er «${KERNEL}»."
 #. Type: error
 #. Description
 #: ../base-installer.templates:55
-msgid ""
-"You may try to continue though this rather strange error is probably fatal."
+msgid "You may try to continue though this rather strange error is probably fatal."
 msgstr ""
 "Du kan prøva å halda fram, sjølv om denne ganske merkelege feilen truleg er "
 "fatal."
@@ -146,44 +146,38 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:64
-#, fuzzy
 msgid "Unable to install PCMCIA modules"
-msgstr "Klarte ikkje å installera ei kjerne"
+msgstr "Klarer ikkje installera PCMCIA-modular"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:64
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the PCMCIA modules onto the "
 "target system."
-msgstr ""
-"Det oppsto ein feil under forsøket med å installera ei kjerne inn i "
-"målsystemet."
+msgstr "Det oppsto ein feil under installering av PCMCIA-modular på systemet."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:72
-#, fuzzy
 msgid "Unable to install initrd-tools"
-msgstr "Klarte ikkje å installera ei kjerne"
+msgstr "Klarer ikkje å installera initrd-verktøy"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:72
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the initrd-tools package  onto "
 "the target system."
 msgstr ""
-"Det oppsto ein feil under forsøket med å installera ei kjerne inn i "
+"Ein feil blei returnert under installasjon av pakka for initrd-verktøy på "
 "målsystemet."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:72
 msgid "Check /var/log/messages or see virtual console 3 for the details."
-msgstr ""
+msgstr "Sjekk /var/log/messages eller sjå virituellt konsoll 3 (Ctrl + Alt + F3) for detaljar."
 
 #. Type: error
 #. Description
@@ -200,23 +194,20 @@ msgstr "Ukjend stad ${SUBSTO}."
 #. Type: error
 #. Description
 #: ../base-installer.templates:90
-#, fuzzy
 msgid "Failed getting Release file ${SUBST0}."
-msgstr "Ute av stand til å henta «Release»-fila ${SUBST0}."
+msgstr "Klarte ikkje henta versjonsfila ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:95
-#, fuzzy
 msgid "Invalid Release file: no valid components."
-msgstr "Ugyldig «Release»-fil, ingen gyldige komponentar."
+msgstr "Ugyldig versjonsfil: ingen gyldige komponentar."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:100
-#, fuzzy
 msgid "Invalid Release file: no entry for ${SUBST0}."
-msgstr "Ugyldig «Release»-fil, inga oppføring for ${SUBST0}."
+msgstr "Ugyldig versjonsfil: inga oppføring for ${SUBST0}."
 
 #. Type: error
 #. Description
@@ -234,21 +225,19 @@ msgstr "Feil med debootstrap"
 #. Description
 #: ../base-installer.templates:110
 msgid "Interrupt caught ... exiting."
-msgstr "Mottok avbrot... avsluttar."
+msgstr "Mottok avbrot ... avsluttar."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:115
-#, fuzzy
 msgid "Installing the Debian base system"
-msgstr "Installer basesystemet"
+msgstr "Installerer grunnsystemet til Debian"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:119
-#, fuzzy
 msgid "Retrieving Release file"
-msgstr "Hentar pakkefil ..."
+msgstr "Hentar versjonsfil"
 
 #. Type: text
 #. Description
@@ -259,84 +248,72 @@ msgstr "Finn pakkestorleikar"
 #. Type: text
 #. Description
 #: ../base-installer.templates:127
-#, fuzzy
 msgid "Retrieving Packages files"
-msgstr "Hentar pakkefil ..."
+msgstr "Hentar pakkefiler"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:131
-#, fuzzy
 msgid "Retrieving packages"
-msgstr "Hentar pakkar ..."
+msgstr "Hentar pakkar"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:135
-#, fuzzy
 msgid "Extracting packages"
-msgstr "Pakkar ut pakkar ..."
+msgstr "Pakkar ut pakkar"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:139
-#, fuzzy
 msgid "Installing the base system"
-msgstr "Installer basesystemet"
+msgstr "Installerer grunnsystemet"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:147
-#, fuzzy
 msgid "Validating ${SUBST0}..."
 msgstr "Validerer ${SUBST0} ..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:151
-#, fuzzy
 msgid "Retrieving ${SUBST0}..."
 msgstr "Hentar ${SUBST0} ..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:155
-#, fuzzy
 msgid "Extracting ${SUBST0}..."
 msgstr "Pakkar ut ${SUBST0} ..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:159
-#, fuzzy
 msgid "Checking package size: ${SUBST0}..."
-msgstr "Sjekkar ${SUBSTO} ..."
+msgstr "Sjekkar pakkestorleik: ${SUBSTO} ..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:163
-#, fuzzy
 msgid "Installing core packages..."
 msgstr "Installerer kjernepakkar ..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:167
-#, fuzzy
 msgid "Unpacking required packages..."
-msgstr "Pakkar ut nødvendige pakkar ..."
+msgstr "Pakkar ut naudsynte pakkar ..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:171
-#, fuzzy
 msgid "Configuring required packages..."
-msgstr "Set opp nødvendige pakkar ..."
+msgstr "Set opp naudsynte pakkar ..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:175
-#, fuzzy
 msgid "Installing base packages..."
 msgstr "Installerer grunnpakkar ..."
 
@@ -355,107 +332,31 @@ msgstr "Oppdaterer lista over tilgjengelege pakkar ..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:187
-#, fuzzy
 msgid "Installing extra packages..."
-msgstr "Installerer ekstra pakkar"
+msgstr "Installerer ekstrapakkar ..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:191
-#, fuzzy
 msgid "Selecting the kernel to install..."
-msgstr "Vel kva for kjerne som skal installerast"
+msgstr "Vel kva for kjerne som skal installerast ..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:195
-#, fuzzy
 msgid "Installing the kernel..."
-msgstr "Installer kjerna"
+msgstr "Installerer kjerna ..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:199
-#, fuzzy
 msgid "Installing the PCMCIA modules"
-msgstr "Installerer kjernepakka ${KERNEL}"
+msgstr "Installerer PCMCIA-modulane"
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
 #: ../base-installer.templates:204
 msgid "Install the base system"
-msgstr "Installer basesystemet"
+msgstr "Installer grunnsystemet"
 
-#~ msgid "Unknown download style."
-#~ msgstr "Ukjend nedlastingsstil."
-
-#~ msgid "Unknown mirror style."
-#~ msgstr "Ukjend spegelstil."
-
-#~ msgid "No ${SUBST0}. Cannot create devices."
-#~ msgstr "Ingen ${SUBST0}. Kan ikkje oppretta einingar."
-
-#~ msgid "Unknown dselect method."
-#~ msgstr "Ukjend dselect-metode."
-
-#~ msgid "Installing the kernel package ${KERNEL}"
-#~ msgstr "Installerer kjernepakka ${KERNEL}"
-
-#~ msgid "Locating available kernels"
-#~ msgstr "Finn tilgjengelege kjerner"
-
-#~ msgid "Setting up the kernel environment"
-#~ msgstr "Set opp kjernemiljøet"
-
-#~ msgid "This is probably a fatal error."
-#~ msgstr "Dette er truleg ein fatal feil."
-
-#~ msgid ""
-#~ "You might try to select the kernel installation step again on the main "
-#~ "menu. That will allow you to select another kernel to install."
-#~ msgstr ""
-#~ "Du kan forsøkje å velja «Installer kjerna» igjen på hovudmenyen. Det vil "
-#~ "gje deg høve til å velja ei anna kjerne for installasjon."
-
-#~ msgid "Installing kernel"
-#~ msgstr "Installerer kjerne"
-
-#~ msgid "Base system successfully installed"
-#~ msgstr "Installasjonen av basesystemet var vellukka"
-
-#~ msgid "Installing extra packages"
-#~ msgstr "Installerer ekstra pakkar"
-
-#, fuzzy
-#~ msgid "Release file"
-#~ msgstr "Hentar «Release»-fila ..."
-
-#, fuzzy
-#~ msgid "Packages files"
-#~ msgstr "Hentar pakkefilene ..."
-
-#, fuzzy
-#~ msgid "Installing base system"
-#~ msgstr "Installerer basesystemet ..."
-
-#, fuzzy
-#~ msgid "Installing additional packages..."
-#~ msgstr "Installerer ekstra-pakkane ..."
-
-#~ msgid ""
-#~ "Please check /target/var/log/debootstrap.log and /target/var/log/"
-#~ "debootstrap.err.log for the details."
-#~ msgstr ""
-#~ "Sjekk /target/var/log/debootstrap.log og /target/var/log/debootstrap.err."
-#~ "log for detaljane."
-
-#~ msgid "You might find more information in /target/var/log/debootstrap.log."
-#~ msgstr "Du finn kanskje meir informasjon i /target/var/log/debootstrap.log."
-
-#~ msgid ""
-#~ "You might find more information in /target/var/log/debootstrap.log or /"
-#~ "target/var/log/debootstrap.err.log."
-#~ msgstr ""
-#~ "Du finn kanskje meir informasjon i /target/var/log/debootstrap.log eller /"
-#~ "target/var/log/debootstrap.err.log."
