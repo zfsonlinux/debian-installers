@@ -1,0 +1,56 @@
+base-installer regression test interface
+========================================
+
+This test suite attempts to test base-installer's per-architecture kernel
+selection, using a chroot and a few shims. Run it using 'make test' in the
+base-installer/kernel/ directory or './runtests <architecture>' in the
+base-installer/kernel/tests/ directory. You need to be able to do 'sudo
+chroot' and 'sudo mknod'.
+
+[At the moment, the test suite isn't clever enough to get udebs for itself,
+so you'll need to put busybox-cvs-udeb and libc*-udeb in
+base-installer/kernel/tests/localudebs/ by hand.]
+
+Individual tests consist of a .test file in the appropriate per-architecture
+subdirectory, plus optionally some auxiliary files. The .test file consists
+of a series of directives, one per line. All lists are space-separated, and
+all kernel versions are the names of kernel packages with "kernel-image-"
+removed from the start. The available directives are as follows:
+
+  subarch <subarchitecture>
+    The subarchitecture, if relevant: e.g. powermac_newworld.
+
+  cpuinfo <cpuinfo file>
+    Path (relative to the .test file) to a file to be installed as
+    /proc/cpuinfo while running this test. If not specified, /proc/cpuinfo
+    will be missing.
+
+  processors <number of processors>
+    The number of processors in the machine to emulate for the test.
+
+  uname-m <uname -m output>
+    The output 'uname -m' should produce.
+
+  majors <kernel major versions>
+    The kernel major versions to test: e.g. 2.4 2.6.
+
+  flavour <arch_get_kernel_flavour output>
+    The expected kernel flavour for this machine.
+
+  kernel-2.4 <kernel version>
+    The "best" 2.4 kernel version for this machine, as expected to be
+    returned by arch_get_kernel (minus "kernel-image-").
+
+  kernel-2.6 <kernel version>
+    The "best" 2.6 kernel version for this machine, as expected to be
+    returned by arch_get_kernel (minus "kernel-image-").
+
+  usable <kernel versions>
+    A list of kernel versions that are expected to be usable on this
+    machine.
+
+  unusable <kernel versions>
+    A list of kernel versions that are expected to be unusable on this
+    machine.
+
+Please add to the test suite as appropriate.

@@ -1,0 +1,105 @@
+#! /bin/sh
+set -e
+
+if [ "$TEST_VERBOSE" -ge 2 ]; then
+	set -x
+fi
+
+. /usr/lib/base-installer/kernel.sh
+
+ok () {
+	echo "PASS $testname"
+}
+
+notok () {
+	echo "FAIL $testname"
+}
+
+warning () {
+	echo "warning: $*" >&2
+}
+
+uname () {
+	if [ "$#" = 1 ] && [ "x$1" = x-m ]; then
+		echo "$UNAME_M"
+	else
+		command uname "$@"
+	fi
+}
+
+dmesg () {
+	# The only use made of this is for dodgy CPU detection.
+	if [ "$PROCESSORS" != 1 ]; then
+		echo "Processors: $PROCESSORS"
+	fi
+}
+
+for KERNEL_MAJOR in $MAJORS; do
+	WANT_FLAVOUR="$FLAVOUR"
+	case $KERNEL_MAJOR in
+		2.4)
+			WANT_KERNEL="$KERNEL_24"
+			;;
+		2.6)
+			WANT_KERNEL="$KERNEL_26"
+			;;
+	esac
+	WANT_KERNEL="kernel-image-$WANT_KERNEL"
+	export KERNEL_MAJOR
+
+	# Is the correct kernel flavour selected?
+
+	testname="arch_get_kernel_flavour $KERNEL_MAJOR exit code"
+	if GOT_FLAVOUR="$(arch_get_kernel_flavour)"; then
+		ok
+	else
+		notok
+		continue # nothing else will work
+	fi
+
+	testname="arch_get_kernel_flavour want $WANT_FLAVOUR, got $GOT_FLAVOUR"
+	if [ "$WANT_FLAVOUR" = "$GOT_FLAVOUR" ]; then
+		ok
+	else
+		notok
+	fi
+
+	# Are the correct kernels treated as usable?
+
+	for kernel in $USABLE; do
+		testname="arch_check_usable_kernel $KERNEL_MAJOR $kernel should be usable"
+		if arch_check_usable_kernel "kernel-image-$kernel" \
+		   "$GOT_FLAVOUR"; then
+			ok
+		else
+			notok
+		fi
+	done
+
+	for kernel in $UNUSABLE; do
+		testname="arch_check_usable_kernel $KERNEL_MAJOR $kernel should be unusable"
+		if arch_check_usable_kernel "kernel-image-$kernel" \
+		   "$GOT_FLAVOUR"; then
+			notok
+		else
+			ok
+		fi
+	done
+
+	# Is the correct default kernel selected?
+
+	testname="arch_get_kernel $KERNEL_MAJOR exit code"
+	if GOT_KERNEL="$(arch_get_kernel "$GOT_FLAVOUR")"; then
+		ok
+	else
+		notok
+		continue # the rest won't work
+	fi
+
+	testname="arch_get_kernel want $WANT_KERNEL, got $GOT_KERNEL"
+	if [ "$WANT_KERNEL" = "$GOT_KERNEL" ]; then
+		ok
+	else
+		notok
+	fi
+done

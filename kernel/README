@@ -1,0 +1,41 @@
+Each architecture must define the following functions in kernel/$ARCH.sh:
+
+  arch_get_kernel_flavour ()
+
+    Prints a string describing the flavour of kernel to install. This can be
+    in whatever scheme you like; it just has to be in sync with the other
+    architecture-specific functions, where it's used.
+
+    May expect $ARCH and $SUBARCH to be set to the architecture and
+    subarchitecture (if applicable) respectively.
+
+    This function should describe the kernel flavour in sufficiently general
+    terms as to be able to test the usability of kernels of any major
+    version. As such, it is not a good idea to make this function
+    conditional on $KERNEL_MAJOR. If you need radically different kernel
+    names depending on the kernel major version, you should handle that in
+    the other architecture-specific functions.
+
+    Returns zero if successful, or non-zero otherwise. If non-zero, it
+    should print some kind of warning to syslog explaining why.
+
+  arch_check_usable_kernel (kernel, flavour)
+
+    Test whether a kernel is usable at all. For the purposes of this test,
+    we assume that SMP is usable on UP and vice versa (is this safe?). Some
+    architectures just have a hierarchy of optimized kernels, whereas some
+    have subarchitectures that are incompatible at the kernel level. This
+    function should cope with both cases.
+
+    Returns zero if the kernel is usable on this flavour, or non-zero
+    otherwise.
+
+  arch_get_kernel (flavour)
+
+    Print the preferred kernel for this flavour.
+
+    No return value; must not fail. (If there's a problem, one of the two
+    functions above should already have failed.)
+
+Please update the regression tests in the tests/ directory when making
+changes here.

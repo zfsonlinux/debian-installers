@@ -16,6 +16,7 @@ INCLUDES=
 EXCLUDES=
 KERNEL=
 KERNEL_LIST=/tmp/available_kernels.txt
+KERNEL_MAJOR="$(uname -r | cut -d . -f 1,2)"
 
 # Avoid debconf sending email during the base install process.
 DEBCONF_ADMIN_EMAIL=""
@@ -241,7 +242,7 @@ configure_apt () {
 				mkdir -p /target/$DIRECTORY
 			fi
 		fi
-		if [ "`uname -r | grep '^2.2.'`" != "" ]; then
+		if [ "$(KERNEL_MAJOR)" = 2.2 ]; then
 			CDDEV=`grep -i /cdrom /proc/mounts | cut -d' ' -f 1 | grep loop || true`
 			if [ "" != "$CDDEV" ]  && \
 				db_get iso-scan/filename && [ "$RET" ] ; then
@@ -305,289 +306,43 @@ kernel_present () {
 	grep -q "^$1\$" $KERNEL_LIST
 }
 
+# See kernel/README for the architecture-specific functions expected here.
+if [ -f /usr/lib/base-installer/kernel.sh ]; then
+	. /usr/lib/base-installer/kernel.sh
+else
+	arch_get_kernel_flavour () {
+		warning "Unknown architecture '$ARCH'."
+		return 0
+	}
+	arch_check_usable_kernel () {
+		warning "Unknown architecture '$ARCH'."
+		return 0
+	}
+	arch_get_kernel () {
+		warning "Unknown architecture '$ARCH'."
+	}
+fi
+
+# Test whether a kernel is usable at all. For the purposes of this test, we
+# assume that SMP is usable on UP and vice versa (is this safe?).
+# Some architectures just have a hierarchy of optimized kernels, whereas
+# some have subarchitectures that are incompatible at the kernel level. This
+# function should cope with both cases.
+check_usable_kernel () {
+	best_flavour="$(arch_get_kernel_flavour)" || return 1
+	arch_check_usable_kernel "$1" "$best_flavour" || return 1
+	return 0
+}
+
 # Returns a kernel that seems appropriate for the machine.
 get_arch_kernel () {
-	trykernel=
-	case "$ARCH" in
-	i386*)
-		version=$(uname -r | cut -d . -f 1,2) # 2.4 or 2.6
-		VENDOR=`grep '^vendor_id' /proc/cpuinfo | cut -d: -f2`
-		FAMILY=`grep '^cpu family' /proc/cpuinfo | cut -d: -f2`
-		if dmesg | grep -q ^Processors:; then
-			SMP=yes
-		else
-			SMP=no
-		fi
-
-		case "$VENDOR" in
-		" AuthenticAMD"*)
-			case "$FAMILY" in
-			" 6")
-				if test $SMP = no; then
-				        trykernel=kernel-image-$version-k7
-				else
-				        trykernel=kernel-image-$version-k7-smp
-				fi
-			;;
-		        " 5")
-				if test $version = "2.4"; then
-					trykernel=kernel-image-$version-k6
-				else
-					trykernel=kernel-image-$version-386
-				fi
-			;;
-			*)
-				trykernel=kernel-image-$version-386
-			;;
-			esac
-		;;
-		" GenuineIntel"*)
-			case "$FAMILY" in
-			" 6"|" 15")
-				if test $SMP = no; then
-				        trykernel=kernel-image-$version-686
-				else
-				        trykernel=kernel-image-$version-686-smp
-				fi
-			;;
-			" 5")
-				if test $version = "2.4"; then
-					trykernel=kernel-image-$version-586tsc
-				else
-					trykernel=kernel-image-$version-386
-				fi
-			;;
-			*)
-				trykernel=kernel-image-$version-386
-			;;
-			esac
-		;;
-		*)
-			trykernel=kernel-image-$version-386
-		;;
-		esac
-		
-		if [ -e /proc/speakup ]; then
-			# Override and use speakup kernel. There's only one.
-			# Note: 'uname -r' already contains the -speakup extension.
-			trykernel=kernel-image-$(uname -r)
-		fi
-	;;
-	amd64)
-		version=2.6
-		VENDOR=`grep '^vendor_id' /proc/cpuinfo | cut -d: -f2`
-		if dmesg | grep -q "WARNING: NR_CPUS limit of 1 reached." ; then
-			SMP=yes
-		else
-			SMP=no
-		fi
-		case "$VENDOR" in
-		" AuthenticAMD"*)
-			if test "$SMP" = no; then
-				trykernel=kernel-image-$version-amd64-k8
-			else
-				trykernel=kernel-image-$version-amd64-k8-smp
-			fi
-		;;
-		" GenuineIntel"*)
-			if test "$SMP" = no; then
-				trykernel=kernel-image-$version-em64t-p4
-			else
-				trykernel=kernel-image-$version-em64t-p4-smp
-			fi
-		;;
-		*)
-			trykernel=kernel-image-$version-amd64-generic
-		;;
-		esac
-	;;
-	sparc)
-		version=$(uname -r | cut -d . -f 1,2)
-		MODEL=`uname -m`
-		CPUS=`grep 'ncpus probed' /proc/cpuinfo | cut -d: -f2`
-		case "$MODEL" in
-		sparc)
-			if [ "$CPUS" -eq 1 ]; then
-				trykernel=kernel-image-$version-sparc32
-			else
-				# No working SMP yet
-				if [ "$version" = "2.6" ]; then
-					trykernel=kernel-image-$version-sparc32
-				else
-					trykernel=kernel-image-$version-sparc32-smp
-				fi
-			fi
-		;;
-		sparc64)
-			if [ "$CPUS" -eq 1 ]; then
-				trykernel=kernel-image-$version-sparc64
-			else
-				trykernel=kernel-image-$version-sparc64-smp
-			fi
-		;;
-		esac
-	;;
-	powerpc)
-		kernel_major="$(uname -r | cut -d . -f 1,2)" # 2.4 or 2.6
-		version=
-		case "$kernel_major" in
-		2.6)
-			version=2.6.8
-		;;
-		*)
-			version=2.4.27
-		;;
-		esac
-		# The APUS kernels are in a separate source package, so may
-		# sometimes have a different version number.
-		apusversion=2.4.27
-		CPU=`grep '^cpu[[:space:]]*:' /proc/cpuinfo | cut -d: -f2 | sed 's/^ *//; s/[, ].*//' | tr A-Z a-z`
-		case "$CPU" in
-		power3|i-star|s-star)
-			family=power3
-			;;
-		power4|ppc970)
-			family=power4
-			;;
-		*)
-			family=powerpc
-			;;
-		esac
-		case "$SUBARCH" in
-		powermac_newworld)	flavour="$family-pmac" ;;
-		powermac_oldworld)	flavour="$family-pmac" ;;
-		prep)			flavour="$family-prep" ;;
-		chrp|chrp_pegasos)	flavour="$family-chrp" ;;
-		chrp_rs6k)		flavour="$family-chrp-rs6k" ;;
-		amiga)			flavour=apus ;;
-		*) warning "Unknown $ARCH subarchitecture '$SUBARCH'." ;;
-		esac
-		case "$flavour" in
-		apus) trykernel=kernel-image-$apusversion-apus ;;
-		*)
-			case "$kernel_major" in
-			2.6) trykernel=kernel-image-$version-$family ;;
-			*)   trykernel=kernel-image-$version-$flavour ;;
-			esac
-			;;
-		esac
-	;;
-	mips)
-		# big endian MIPS
-		kernel_major=$(uname -r | cut -d . -f 1,2)
-		# use the more generic package versioning for 2.6 ff.
-		case "$kernel_major" in
-		2.4) version=$(uname -r | cut -d - -f 1) ;;
-		*) version=$kernel_major ;;
-		esac
-		case "$SUBARCH" in
-		r4k-ip22) trykernel=kernel-image-$version-r4k-ip22 ;;
-		r5k-ip22) trykernel=kernel-image-$version-r5k-ip22 ;;
-		sb1-swarm-bn) trykernel=kernel-image-$version-sb1-swarm-bn ;;
-
-		# NOTE: the following kernel is not in Debian (sarge), but
-		# make it easier to offer unofficial support from a private
-		# apt-archive.
-		r5k-ip32) trykernel=kernel-image-$version-r5k-ip32 ;;
-
-		*) warning "Unknown $ARCH subarchitecture '$SUBARCH'." ;;
-		esac
-	;;
-	mipsel)
-		# little endian MIPS
-		kernel_major=$(uname -r | cut -d . -f 1,2)
-		# use the more generic package versioning for 2.6 ff.
-		case "$kernel_major" in
-		2.4) version=$(uname -r | cut -d - -f 1) ;;
-		*) version=$kernel_major ;;
-		esac
-		case "$SUBARCH" in
-		r3k-kn02) trykernel=kernel-image-$version-r3k-kn02 ;;
-		r4k-kn04) trykernel=kernel-image-$version-r4k-kn04 ;;
-		cobalt) trykernel=kernel-image-$version-r5k-cobalt ;;
-		sb1-swarm-bn) trykernel=kernel-image-$version-sb1-swarm-bn ;;
-
-		*) warning "Unknown $ARCH subarchitecture '$SUBARCH'." ;;
-		esac
-	;;
-	ia64)
-		version=$(uname -r | cut -d . -f 1,2) # 2.4 or 2.6
-		if grep -q 'Itanium 2' /proc/cpuinfo; then
-			family=mckinley
-		else
-			family=itanium
-		fi
-		CPUS=$(grep ^processor /proc/cpuinfo | tail -1 | cut -d':' -f2)
-		if [ -z $CPUS ] || [ $CPUS -ne 0 ]; then
-			flavor=$family-smp
-		else
-			flavor=$family
-		fi
-		trykernel=kernel-image-$version-$flavor
-	;;
-	alpha)
-		version=2.4.27-1
-		if dmesg | grep -q ^Processors:; then
-			CPUS=`dmesg | grep ^Processors: | cut -d: -f2`
-		else
-			CPUS=1
-		fi
-		if test $CPUS -eq 1; then
-			trykernel=kernel-image-$version-generic
-		else
-			trykernel=kernel-image-$version-smp
-		fi
-	;;
-	m68k)
-		case "$SUBARCH" in
-		amiga|atari|mac|bvme6000|mvme147|mvme16x|q40|sun3|sun3x)
-			trykernel=$SUBARCH ;;
-		*) warning "Unknown $ARCH subarchitecture '$SUBARCH'." ;;
-		esac
-	;;
-	arm)
-		# ARM
-		version=$(uname -r | cut -d - -f 1)
-		case "$SUBARCH" in
-		netwinder|bast|riscpc|riscstation|lart)
-			trykernel=kernel-image-$version-$SUBARCH ;;
-		*) warning "Unknown $ARCH subarchitecture '$SUBARCH'." ;;
-		esac
-	;;
-	hppa)
-		kernel_major=$(uname -r | cut -d . -f 1,2)
-		case "$kernel_major" in
-		2.4) version=$(uname -r | cut -d - -f 1) ;;
-		2.6) version=$(uname -r | cut -d - -f 1,2) ;;
-		esac
-		MODEL=`uname -m`
-		# Don't know how to detect whether SMP is needed, but
-		# apparently it's OK to assume SMP.
-		case "$MODEL" in
-		parisc)
-			trykernel=kernel-image-$version-32-smp
-		;;
-		parisc64)
-			trykernel=kernel-image-$version-64-smp
-		;;
-		esac
-	;;
-	s390)
-		version=$(uname -r)
-		trykernel=kernel-image-$version
-	;;
-	*)
-	warning "Unknown architecture '$ARCH'."
-	;;
-	esac
-
-	echo $trykernel
+	flavour="$(arch_get_kernel_flavour)" || return
+	arch_get_kernel "$flavour"
 }
 
 pick_kernel () {
 	# Fetch the current default
-	kernel_major="$(uname -r | cut -d . -f 1,2)"
-	if db_get debian-installer/kernel/image-$kernel_major && [ "$RET" ]; then
+	if db_get debian-installer/kernel/image-$KERNEL_MAJOR && [ "$RET" ]; then
 		KERNEL="$RET"
 	elif db_get debian-installer/kernel/image && [ "$RET" ]; then
 		KERNEL="$RET"
@@ -616,8 +371,7 @@ pick_kernel () {
 	else
 		# If possible, find one with at least the same major number
 		# as the currently running kernel.
-		version=$(uname -r | cut -d . -f 1,2) # 2.4 or 2.6
-		KERNEL=$(echo "$kernels" | sed 's/,/\n/g' | grep -- "-$version" | head -n 1)
+		KERNEL=$(echo "$kernels" | sed 's/,/\n/g' | grep -- "-$KERNEL_MAJOR" | head -n 1)
 		if [ -z "$KERNEL" ]; then
 			# Take the first on the list.
 			KERNEL=$(echo "$kernels" | cut -d, -f1)
@@ -666,8 +420,7 @@ pick_kernel () {
 }
 
 install_kernel () {
-	kernel_major="$(uname -r | cut -d . -f 1,2)"
-	if db_get "debian-installer/kernel/linux/initrd-$kernel_major" ; then
+	if db_get "debian-installer/kernel/linux/initrd-$KERNEL_MAJOR" ; then
 		if [ "$RET" = true ]; then
 			do_initrd=yes
 		else

@@ -3,6 +3,16 @@ base-installer (1.14) UNRELEASED; urgency=low
   * Frans Pop
     - Add sanity check in postinst for empty COMPONENTS to guard against
       ugly and difficult to trace errors from debootstrap. Closes: #283510.
+  * Colin Watson
+    - Merge experimental kernel selection improvements branch:
+      + Consolidate all the uname calls to find the kernel major version
+        into one place.
+      + Split per-architecture kernel handling out of the postinst into one
+        script per architecture, with an interface to the postinst that
+        allows base-installer to pick a usable kernel even if the one it
+        actually wants isn't on the CD. See kernel/README.
+      + Add a test suite for kernel selection, only for alpha, i386,
+        powerpc, and sparc so far. See kernel/tests/README.
 
  -- Frans Pop <aragorn@tiscali.nl>  Wed,  1 Dec 2004 14:53:07 +0100
 

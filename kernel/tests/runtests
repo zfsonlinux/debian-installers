@@ -1,0 +1,160 @@
+#! /bin/sh
+set -e
+
+if [ -z "$1" ]; then
+	echo "Usage: runtest <architecture>" >&2
+	exit 1
+fi
+
+ARCH="$1"
+CHROOT="$(pwd)/chroot"
+DPKGDIR="$CHROOT/var/lib/dpkg"
+PASSES=0
+FAILURES=0
+
+[ "$TEST_VERBOSE" ] || TEST_VERBOSE=0
+
+verbose () {
+	if [ "$TEST_VERBOSE" -ge 1 ]; then
+		echo "$@"
+	fi
+	eval "$@"
+}
+
+verbose_dpkg () {
+	if [ "$TEST_VERBOSE" -ge 1 ]; then
+		echo "$@"
+		eval "$@"
+	else
+		eval "$@" >/dev/null
+	fi
+}
+
+# Build a chroot containing enough to run a shell and the usual shell
+# utilities: namely, busybox-cvs-udeb and libc*-udeb. At the moment, this
+# function is too stupid to go and get the udebs itself, so you'll have to
+# put them in localudebs by hand.
+make_chroot () {
+	verbose mkdir -p "$CHROOT"
+
+	# Set up the basic files dpkg needs.
+	verbose mkdir -p "$DPKGDIR/info" "$DPKGDIR/updates"
+	verbose touch "$DPKGDIR/available" "$DPKGDIR/status"
+
+	for udeb in localudebs/*.udeb; do
+		verbose_dpkg fakeroot dpkg --root="$CHROOT" --unpack "$udeb"
+	done
+	verbose mkdir "$CHROOT/dev" "$CHROOT/proc"
+	verbose sudo mknod "$CHROOT/dev/null" c 1 3
+	verbose install -m644 -D "../$ARCH.sh" \
+		"$CHROOT/usr/lib/base-installer/kernel.sh"
+	verbose install -m755 dotest "$CHROOT/bin/dotest"
+}
+
+# Populate a chroot based on a test file.
+populate_chroot () {
+	TEST="$1"
+
+	verbose rm -f "$CHROOT/proc/cpuinfo"
+
+	while read name value; do
+		case $name in
+			cpuinfo)
+				verbose install -m644 "$ARCH/$value" \
+					"$CHROOT/proc/cpuinfo"
+				;;
+		esac
+	done < "$TEST"
+}
+
+# Run a test based on a test file.
+run_test () {
+	TEST="$1"
+
+	unset SUBARCH FLAVOUR KERNEL_24 KERNEL_26 USABLE UNUSABLE || true
+	PROCESSORS=1
+	UNAME_M="$(uname -m)"
+	MAJORS=2.4
+
+	while read name value; do
+		case $name in
+			subarch)
+				SUBARCH="$value"
+				;;
+			processors)
+				PROCESSORS="$value"
+				;;
+			uname-m)
+				UNAME_M="$value"
+				;;
+			major)
+				MAJORS="$value"
+				;;
+			flavour)
+				FLAVOUR="$value"
+				;;
+			kernel-2.4)
+				KERNEL_24="$value"
+				;;
+			kernel-2.6)
+				KERNEL_26="$value"
+				;;
+			usable)
+				USABLE="$value"
+				;;
+			unusable)
+				UNUSABLE="$value"
+				;;
+		esac
+	done < "$TEST"
+
+	export ARCH SUBARCH PROCESSORS UNAME_M
+	export MAJORS FLAVOUR KERNEL_24 KERNEL_26
+	export USABLE UNUSABLE
+
+	TMP="$(mktemp -t base-installer-tests.XXXXXX)"
+	trap 'rm -f "$TMP"' 0 HUP INT QUIT TERM
+
+	# Run the actual testset in a chroot.
+	verbose sudo chroot "$CHROOT" dotest >"$TMP"
+
+	# Massage testset output into a more useful form.
+	while read state message; do
+		case "$state" in
+			PASS)
+				PASSES="$(($PASSES + 1))"
+				;;
+			FAIL)
+				FAILURES="$(($FAILURES + 1))"
+				;;
+		esac
+		if [ "$state" != PASS ] || [ "$TEST_VERBOSE" -ge 1 ]; then
+			echo "$state $TEST $message"
+		fi
+	done <"$TMP"
+	rm -f "$TMP"
+	trap 0 HUP INT QUIT TERM
+}
+
+destroy_chroot () {
+	verbose rm -rf "$CHROOT"
+}
+
+# Destroy anything left over from the last run.
+destroy_chroot
+
+make_chroot
+if [ "$2" ]; then
+	ONETEST="$2"
+	populate_chroot "$ONETEST"
+	run_test "$ONETEST"
+else
+	for test in "$ARCH"/*.test; do
+		populate_chroot "$test"
+		run_test "$test"
+	done
+fi
+
+echo "$ARCH: $PASSES passes, $FAILURES failures."
+
+# Leave the populated chroot around for convenience.

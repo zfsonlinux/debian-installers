@@ -1,5 +1,9 @@
 #! /usr/bin/make -f
 
+ARCH = $(shell dpkg-architecture -qDEB_HOST_ARCH)
+
+tmp = $(CURDIR)/debian/base-installer
+
 build: build-stamp
 build-stamp:
 	dh_testdir
@@ -21,6 +25,11 @@ install: build
 	dh_testroot
 	dh_clean -k
 	dh_install run-debootstrap usr/sbin
+	if [ -e "kernel/$(ARCH).sh" ]; then \
+		dh_installdirs usr/lib/base-installer; \
+		install -m644 "kernel/$(ARCH).sh" \
+		              $(tmp)/usr/lib/base-installer/kernel.sh; \
+	fi
 
 binary-arch: install
 	dh_testdir
