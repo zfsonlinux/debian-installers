@@ -25,11 +25,11 @@ sig_child(int sig)
 
 // args = read_arg_lines("EA: ", ifp, &arg_count, &line);
 char **
-read_arg_lines(const char *prefix, FILE *ifp, int *arg_count, char **final_line)
+read_arg_lines(const char *prefix, FILE *ifp, int *arg_count, char **final_line,
+	       int *llen)
 {
     static char **args = NULL;
     static int arg_max = 0;
-    int llen;
     size_t dummy = 0;
 
     if (args == NULL)
@@ -41,11 +41,11 @@ read_arg_lines(const char *prefix, FILE *ifp, int *arg_count, char **final_line)
     while (1)
     {
         *final_line = NULL;
-        if ((llen = getline(final_line, &dummy, ifp)) <= 0)
+        if ((*llen = getline(final_line, &dummy, ifp)) <= 0)
         {
             return NULL;
         }
-        (*final_line)[llen-1] = 0;
+        (*final_line)[*llen-1] = 0;
         if (strstr(*final_line, prefix) == *final_line)
         {
             if (*arg_count >= arg_max) {
@@ -201,7 +201,8 @@ exec_debootstrap(char **argv){
     }
 
     line = NULL;
-    while (!child_exit && (llen = getline(&line, &dummy, ifp)) > 0)
+    llen = getline(&line, &dummy, ifp);
+    while (!child_exit && llen > 0)
     {
         line[llen-1] = 0;
 
@@ -215,7 +216,8 @@ exec_debootstrap(char **argv){
                     ptr += 3;
                     // ptr now contains the identifier of the error.
                     template = find_template("error", ptr);
-                    args = read_arg_lines("EA: ", ifp, &arg_count, &line);
+                    args = read_arg_lines("EA: ", ifp, &arg_count, &line,
+					  &llen);
                     if (args == NULL)
                     {
                         child_exit = 1;
@@ -251,7 +253,8 @@ exec_debootstrap(char **argv){
                 }
             case 'W':  // FIXME
                 {
-                    args = read_arg_lines("WA: ", ifp, &arg_count, &line);
+                    args = read_arg_lines("WA: ", ifp, &arg_count, &line,
+					  &llen);
                     if (args == NULL)
                     {
                         child_exit = 1;
@@ -308,7 +311,8 @@ exec_debootstrap(char **argv){
 			}
 		    }
 		    
-                    args = read_arg_lines("PA: ", ifp, &arg_count, &line);
+                    args = read_arg_lines("PA: ", ifp, &arg_count, &line,
+					  &llen);
                     if (args == NULL)
                     {
                         child_exit = 1;
@@ -320,6 +324,8 @@ exec_debootstrap(char **argv){
 			 * the implementation of debootstrap could change
 			 * though.. */
                     }
+		    else
+			continue;
 		    
                     break;
                 }
@@ -337,7 +343,8 @@ exec_debootstrap(char **argv){
                         child_exit = 1;
                         break;
                     }
-                    args = read_arg_lines("IA: ", ifp, &arg_count, &line);
+                    args = read_arg_lines("IA: ", ifp, &arg_count, &line,
+					  &llen);
                     if (args == NULL)
                     {
                         child_exit = 1;
@@ -371,8 +378,12 @@ exec_debootstrap(char **argv){
                     }
                 }
         }
-	
+
+	if (child_exit)
+	    break;
+
         line = NULL;
+	llen = getline(&line, &dummy, ifp);
     }
 
     if (waitpid(pid, &status, 0) != -1 && (WIFEXITED(status) != 0))
