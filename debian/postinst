@@ -261,11 +261,11 @@ get_arch_kernel () {
 		MODEL=`/bin/archdetect`
 		case "$MODEL" in
 		"powerpc/powermac_newworld")
-			trykernel=kernel-image-$version-powerpc
+			trykernel=kernel-image-$version-powerpc-pmac
 		;;
 		# Let's use the same kernel we booted with on oldworld.
 		"powerpc/powermac_oldworld")
-			trykernel=kernel-image-$version-powerpc-small
+			trykernel=kernel-image-$version-powerpc-small-pmac
 		;;
 		"powerpc/prep")
 			trykernel=kernel-image-$version-powerpc-prep
