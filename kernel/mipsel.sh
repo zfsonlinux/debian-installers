@@ -8,6 +8,10 @@ arch_get_kernel_flavour () {
 			echo r5k-cobalt
 			return 0
 		;;
+		lasat)
+			echo r5k-lasat
+			return 0
+		;;
 		*)
 			warning "Unknown $ARCH subarchitecture '$SUBARCH'."
 			return 1
