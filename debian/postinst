@@ -4,6 +4,8 @@ set -e
 . /usr/share/debconf/confmodule
 #set -x
 
+serial="$(get_serial_console)"
+
 newline="
 "
 
@@ -21,6 +23,16 @@ error() {
 
 info() {
 	log "info: $@"
+}
+
+get_serial_console() {
+  local defconsole=$(sed -e 's/.*console=/console=/' /proc/cmdline);
+  if echo "${defconsole}" | grep -q console=ttyS; then
+    local PORT=$(echo "${defconsole}" | sed -e 's%^console=ttyS%%' -e 's%,.*%%')
+    local SPEED=$(echo "${defconsole}" | sed -e 's%^console=ttyS[0-9]\+,%%' -e 's% .*%%')
+    local SERIAL="${PORT},${SPEED}"
+    echo "console=$SERIAL"
+  fi
 }
 
 # This is copied from update-grub. We've requested that it be moved
@@ -409,7 +421,7 @@ EOF
 				else
 					grubdrive=$(convert "$mappedpartition") || true
 				fi
-				params=$(echo "$entry" | cut -d : -f6-)
+				params="$(echo "$entry" | cut -d : -f6-) $serial"
 				cat >> $tmpfile <<EOF
 
 # This entry automatically added by the Debian installer for an existing
