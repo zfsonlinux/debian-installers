@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2005-02-04 09:36-0700\n"
-"PO-Revision-Date: 2005-01-25 22:16+0100\n"
-"Last-Translator:  Hctor Fenndez Lpez <trorrr@yahoo.es>\n"
-"Language-Team:  Galego <trasno@ceu.fi.udc.es>\n"
+"PO-Revision-Date: 2005-02-09 14:10+0100\n"
+"Last-Translator: Jacobo Tarrio <jtarrio@debian.org>\n"
+"Language-Team: Galego <trasno@ceu.fi.udc.es>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr "Atopáronse os seguintes sistemas operativos no teu equipo:  ${OS_LIST}"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -36,17 +36,12 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
-"Se todos os teus sistemas operativos están listados arriba, non debería "
-"causar ningún problema a instalación do xestor de arranque no MBR (Sector de "
-"arranque mestre) do teu disco duro primario.  Cando arranque a túa máquina "
-"poderás escoller entre algún deses sistemas operativos e o novo sistema "
-"Debian."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "¿Instalar o xestor de arranque GRUB ó MBR (Sector de arranque mestre)?"
+msgstr "¿Instalar o cargador de inicio GRUB no rexistro mestre de inicio?"
 
 #. Type: boolean
 #. Description
@@ -56,9 +51,6 @@ msgid ""
 "this computer. If so, it should be safe to install the GRUB boot loader to "
 "the master boot record of your first hard drive."
 msgstr ""
-"Parece que esta instalación de Debian é o único sistema operativo neste "
-"equipo.  Se é así, a instalación de GRUB como xestor de arranque no disco "
-"duro primario non supón ningún risco."
 
 #. Type: boolean
 #. Description
@@ -69,16 +61,12 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
-"PERIGO:  Se o instalador non detecta outro sistema operativo que esté "
-"instalado no sistema, a modificación do Rexistro Mestre de Arranque (MBR) "
-"fará que non se poda iniciar, aínda que GRUB pódese configurar "
-"posteriormente para permitir que se inicie."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Install the GRUB bootloader to XFS filesystem?"
-msgstr "¿Instala-lo cargador de arranque GRUB no sistema de ficheiros XFS?"
+msgstr "¿Instalar o cargador de inicio GRUB no sistema de ficheiros XFS?"
 
 #. Type: boolean
 #. Description
@@ -87,28 +75,12 @@ msgid ""
 "The GRUB bootloader installation often fails or hangs when /boot is on a XFS "
 "filesystem. Using LILO in this situation is recommended."
 msgstr ""
-"É común que a instalación de GRUB se colgue ou falle cando /boot está nun "
-"sistema de ficheiros XFS.  Se estás nesta situación é recomendable usar LILO."
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
-#, fuzzy
 msgid "Device for boot loader installation:"
-msgstr ""
-"#-#-#-#-#  gl.po (debian-installer_packages_arch_powerpc_yaboot-"
-"installer_gl)  #-#-#-#-#\n"
-"Dispositivo para a instalacin do cargador de arranque:\n"
-"#-#-#-#-#  gl.po (debian-installer_packages_arch_powerpc_yaboot-"
-"installer_gl)  #-#-#-#-#\n"
-"Dispositivo para a instalacin do cargador de arranque:\n"
-"#-#-#-#-#  gl.po (debian-installer_packages_arch_alpha_aboot-installer_gl)  "
-"#-#-#-#-#\n"
-"Dispositivo para a instalación do cargador de arranque:\n"
-"#-#-#-#-#  gl.po (palo-installer)  #-#-#-#-#\n"
-"Dispositivo para a instalción do cargador de arranque:\n"
-"#-#-#-#-#  gl.po (gl)  #-#-#-#-#\n"
-"Dispositivo para a instalacin do cargador de arranque:"
+msgstr "Dispositivo para a instalación do cargador de inicio:"
 
 #. Type: string
 #. Description
@@ -120,11 +92,6 @@ msgid ""
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
 msgstr ""
-"Precisas facer o novo sistema Debian arrancable instalando o xestor de "
-"arranque GRUB nun dispositivo arrancable.  A forma habitual de facelo é "
-"instalando GRUB no MBR (Sector de arranque mestre) do disco duro primario.  "
-"Se o prefires, podes poñer GRUB en calquer outro lugar da unidade, noutra "
-"unidade ou incluso nun disquete."
 
 #. Type: string
 #. Description
@@ -141,19 +108,12 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"O dispositivo pode nomearse usando a notación de GRUB \"(hdn,m)\", ou como "
-"un dispositivo en /dev.  Seguidamente tes algúns exemplos:\n"
-" - \"(hd0)\" ou \"/dev/hda\" instalará GRUB ó sector de arranque mestre do "
-"teu primer disco duro (IDE);\n"
-" - \"(hd0,1)\" ou \"/dev/sdc5\" usará a primeira partición extendida da túa "
-"terceira unidade (SCSI);\n"
-" - \"(fd0)\" ou \"/dev/fd0\" instalará GRUB nun disquette."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:55
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "Fallou a instalacin de GRUB.  Continuar?"
+msgstr "A instalación de GRUB fallou. ¿Continuar igualmente?"
 
 #. Type: boolean
 #. Description
@@ -163,9 +123,10 @@ msgid ""
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"O paquete GRUB non se puido instalar en /target/.  A instalacin de GRUB como "
-"cargador de arranque �un paso requerido.  O problema pode non ter relacin "
-"con GRUB, polo que �posible continuar coa instalacin."
+"Non se puido instalar o paquete grub en /target/. Instalar GRUB coma "
+"cargador de inicio é un paso necesario. O problema de instalación podería, "
+"nembargantes, non estar relacionado con GRUB, polo que pode ser posible "
+"continuar coa instalación."
 
 #. Type: error
 #. Description
@@ -177,31 +138,31 @@ msgstr "Non se puido instalar GRUB en ${BOOTDEV}"
 #. Description
 #: ../grub-installer.templates:62
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "Fallou a execucin de 'grub-install ${BOOTDEV}'"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:69
 msgid "Unable to configure GRUB"
-msgstr "Non se puido configurar GRUB"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:69
 msgid "Executing 'update-grub' failed."
-msgstr "Fallou a execucin de 'update-grub'"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:69
 msgid "This is a fatal error."
-msgstr "Este �un error calificado como fatal"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:76
 msgid "Installing GRUB boot loader"
-msgstr "Instalando o cargador de arranque GRUB"
+msgstr "Instalando o cargador de inicio GRUB"
 
 #. Type: text
 #. Description
@@ -213,35 +174,35 @@ msgstr "Buscando outros sistemas operativos..."
 #. Description
 #: ../grub-installer.templates:84
 msgid "Installing the 'grub' package..."
-msgstr "Instalando o paquete GRUB..."
+msgstr "Instalando o paquete 'grub'..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:88
 msgid "Determining GRUB boot device..."
-msgstr "Determinando o dispositivo de arranque de GRUB..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:92
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "Executando \"grub-install ${BOOTDEV}\"..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:96
 msgid "Running \"update-grub\"..."
-msgstr "Executando \"update-grub\"..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:100
 msgid "Updating /etc/kernel-img.conf..."
-msgstr "Actualizando /etc/kernel-img.conf..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. Main menu item
 #: ../grub-installer.templates:105
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "Instalar o cargador de arranque GRUB nun disco duro"
+msgstr "Instalar o cargador de inicio GRUB nun disco duro"
