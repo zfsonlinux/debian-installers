@@ -12,10 +12,7 @@ arch_get_kernel_flavour () {
 			;;
 	esac
 	case "$SUBARCH" in
-		powermac_newworld)	echo "$family" ;;
-		powermac_oldworld)	echo "$family" ;;
-		prep)			echo "$family" ;;
-		chrp*)			echo "$family" ;;
+		powermac*|prep|chrp*)	echo "$family" ;;
 		amiga)			echo apus ;;
 		*)
 			warning "Unknown $ARCH subarchitecture '$SUBARCH'."
@@ -26,13 +23,8 @@ arch_get_kernel_flavour () {
 }
 
 arch_check_usable_kernel () {
-	# CPU family and subarchitecture must match exactly.
-	family="${2%%-*}"
-	if ! expr "$1" : ".*-$family.*" >/dev/null; then return 1; fi
-	# 2.6 kernels don't differ by subarchitecture.
-	if expr "$1" : ".*-2\.6.*" >/dev/null; then return 0; fi
-	subarch="${2#*-}"
-	if expr "$1" : ".*-$subarch.*" >/dev/null; then return 0; fi
+	# CPU family must match exactly.
+	if expr "$1" : ".*-$2.*" >/dev/null; then return 0; fi
 	return 1
 }
 
@@ -53,22 +45,19 @@ arch_get_kernel () {
 		SMP=
 	fi
 
-	family="${1%%-*}"
-	subarch="${1#*-}"
-
 	case "$1" in
 		apus)	trykernel=kernel-image-$apusversion-apus ;;
 		*)
 			case "$KERNEL_MAJOR" in
 				2.6)
-					echo "kernel-image-$version-$family$SMP"
+					echo "kernel-image-$version-$1$SMP"
 					;;
 				*)
-					if [ "$family" != powerpc ]; then
+					if [ "$1" != powerpc ]; then
 						# 2.4 only has powerpc-smp.
 						SMP=
 					fi
-					echo "kernel-image-$version-$family$SMP-$subarch"
+					echo "kernel-image-$version-$1$SMP"
 					;;
 			esac
 	esac
