@@ -237,8 +237,6 @@ exec_debootstrap(char **argv){
                         // fallback error message
                         debconf_subst(debconf, DEBCONF_BASE "fallback-error",
 				      "ERROR", ptr);
-                        debconf_fset(debconf, DEBCONF_BASE "fallback-error",
-				     "seen", "false");
                         debconf_input(debconf, "critical",
 				      DEBCONF_BASE "fallback-error");
                         debconf_go(debconf);
@@ -393,8 +391,6 @@ exec_debootstrap(char **argv){
         {
             debconf->commandf(debconf, "SUBST %serror-exitcode EXITCODE %d",
 			      DEBCONF_BASE, rv);
-            debconf_fset(debconf, DEBCONF_BASE "error-exitcode", "seen",
-			 "false");
             debconf_input(debconf, "critical", DEBCONF_BASE "error-exitcode");
             debconf_go(debconf);
         }
@@ -403,7 +399,6 @@ exec_debootstrap(char **argv){
     else
     {
         kill(SIGKILL, pid);
-        debconf_fset(debconf, DEBCONF_BASE "error-abnormal", "seen", "false");
         debconf_input(debconf, "critical", DEBCONF_BASE "error-abnormal");
         debconf_go(debconf);
         return 1;
