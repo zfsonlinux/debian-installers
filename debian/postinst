@@ -229,7 +229,7 @@ get_arch_kernel () {
 	trykernel=
 	case "$ARCH" in
 	i386*)
-		version=2.4
+		version=$(uname -r | cut -d . -f 1,2) # 2.4 or 2,6
 		VENDOR=`grep '^vendor_id' /proc/cpuinfo | cut -d: -f2`
 		FAMILY=`grep '^cpu family' /proc/cpuinfo | cut -d: -f2`
 		if dmesg | grep -q ^Processors:; then
