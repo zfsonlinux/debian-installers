@@ -1,14 +1,8 @@
-Template: yaboot-installer/bootdev
-Type: select
-Choices: ${devices}
-Default: invaliddevice
-Description: On which device should yaboot be installed?
- Yaboot (the Linux bootloader) needs to be installed on a hard disk in
- order for your system to be bootable.  You must pick from the
- available hard disks which have "Apple_Bootstrap" partitions available.
-
-Template: yaboot-installer/no-valid-bootdev
-Type: note
-Description: No bootstrap partition found
- No hard disks were found which have an "Apple_Bootstrap" partition.
- You must create an 800k HFS partition, with type "Apple_Bootstrap".
+Template: grub-installer/bootdev
+Type: string
+Default: (hd0)
+Description: On which device should GRUB be installed?
+ GRUB needs to install the stage 1 boot loader on a bootable device. This
+ is usually the first hard drive. Note that GRUB counts devices differently
+ than the Linux kernel, so the first one is usually '(hd0)'. Leave this
+ at default if unsure.
