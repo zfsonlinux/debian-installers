@@ -1,37 +1,10 @@
-#    Chinese (Traditional) translation for debian-installer/tools/grub-installer
-#
-#    Translators, if you are not familiar with the PO format, gettext
-#    documentation is worth reading, especially sections dedicated to
-#    this format, e.g. by running:
-#         info -n '(gettext)PO Files'
-#         info -n '(gettext)Header Entry'
-#
-#    Some information specific to po-debconf are available at
-#            /usr/share/doc/po-debconf/README-trans
-#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
-#
-#    Developers do not need to manually edit POT or PO files.
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: debian-installer/tools/grub-installer\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-25 00:32+0200\n"
-"PO-Revision-Date: 2004-07-23 01:18+0800\n"
-"Last-Translator: Tetralet <tetralet@pchome.com.tw>\n"
-"Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
-"debian.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:4
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr "以下所列出的是在這台電腦上所偵測到的其它作業系統：${OS_LIST}"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -42,15 +15,12 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
-"如果以上已列出了您電腦中所有的作業系統，那麼把開機程式安裝在第一個硬碟的主要"
-"開機記錄 (MBR) 上應該不會出什麼問題。當您的電腦開機時，您可以選擇載入其中一個"
-"作業系統，或是由新的 Debian 系統開機。"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "要將 GRUB 開機程式安裝至主要開機記錄 (MBR) 上嗎？"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -60,8 +30,6 @@ msgid ""
 "this computer. If so, it should be safe to install the GRUB boot loader to "
 "the master boot record of your first hard drive."
 msgstr ""
-"看來現正所安裝的 Debian 是這台電腦中唯一的作業系統。如果沒錯，那麼把 GRUB 開"
-"機程式安裝在第一個硬碟的主要開機記錄 (MBR) 上應該不會出什麼問題。"
 
 #. Type: boolean
 #. Description
@@ -72,15 +40,12 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
-"警告：如果安裝程式無法偵測到已存在於您的電腦上的其它作業系統，修改主要開機記"
-"錄 (MBR) 將會使得該作業系統暫時無法開機，雖然 GRUB 在事後還是可以藉由手動設定"
-"來啟動它。"
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:28
 msgid "Device for boot loader installation:"
-msgstr "用來安裝開機程式的裝置："
+msgstr ""
 
 #. Type: string
 #. Description
@@ -92,10 +57,6 @@ msgid ""
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
 msgstr ""
-"必須把 GRUB 開機程式安裝至可開機裝置上，才能讓這個新安裝的 Debian 系統能夠開"
-"機。一般作法是將 GRUB 安裝至您第一顆硬碟的主要開機磁區 (MBR) 上。而或者，也可"
-"以依您喜好將 GRUB 安裝至磁碟的其它地方，或安裝至另一顆磁碟上，或甚至也可以將"
-"它安裝至磁碟片上。"
 
 #: ../grub-installer.templates:28
 msgid ""
@@ -110,19 +71,12 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"可以使用 GRUB 的『(hdn)』表示法，或是以 /dev 裡的裝置來指定磁碟。範例如下： "
-"- 『(hd0)』 或 『/dev/hda』 將會把 GRUB 安裝至第一顆 (IDE) 硬碟的\n"
-"   主要開機記錄 (MBR) 上﹔\n"
-" - 『(hd0,1)』 或 『/dev/hda2』 將採用第一顆 IDE 硬碟的第二個分割區﹔\n"
-" - 『(hd2,4)』 或 『/dev/sdc5』 將採用第三顆（在此為 SCSI）硬碟的第一個   延"
-"伸分割區﹔\n"
-" - 『(fd0)』 或 『/dev/fd0』 則會將 GRUB 安裝至磁碟片上。"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:48
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "GRUB 的安裝作業失敗了。無論如何仍然繼續嗎？"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -132,118 +86,82 @@ msgid ""
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"無法將 grub 套件安裝至 /target/。安裝 GRUB 以作為開機程式乃是不可或缺的步驟﹔"
-"然而，可能並不是因為 GRUB 套件才導致安裝失敗的，所以繼續進行安裝作業或許也是"
-"無妨的。"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:55
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "無法將 GRUB 安裝至 ${BOOTDEV}"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:55
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "在執行 grub-install ${BOOTDEV} 時失敗了。"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:62
 msgid "Unable to configure GRUB"
-msgstr "無法設定 GRUB"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:62
 msgid "Executing 'update-grub' failed."
-msgstr "在執行 update-grub 時失敗了。"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:62
 msgid "This is a fatal error."
-msgstr "這是一個嚴重錯誤。"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:69
 msgid "Installing GRUB boot loader"
-msgstr "正在安裝 GRUB 開機程式"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:73
 msgid "Looking for other operating systems..."
-msgstr "正在尋找其它的作業系統..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:77
 msgid "Installing the 'grub' package..."
-msgstr "正在安裝 grub 套件..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:81
 msgid "Determining GRUB boot device..."
-msgstr "正在決定 GRUB 開機裝置..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:85
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "正在執行 \"grub-install ${BOOTDEV}\"..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:89
 msgid "Running \"update-grub\"..."
-msgstr "正在執行 \"update-grub\"..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:93
 msgid "Updating /etc/kernel-img.conf..."
-msgstr "正在更新 /etc/kernel-img.conf..."
+msgstr ""
 
 #. Type: text
 #. Description
 #. Main menu item
 #: ../grub-installer.templates:98
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "將 GRUB 開機程式安裝至硬碟上"
-
-#~ msgid ""
-#~ "The device can be specified using GRUB's \"(hdn)\" notation, or as a "
-#~ "device in /dev."
-#~ msgstr "可以使用 GRUB 的 (hdn) 語法，或以 /dev 中的裝置來指定磁碟。"
-
-#~ msgid ""
-#~ "Note that GRUB counts devices differently than the Linux kernel, so the "
-#~ "first drive is usually '(hd0)'. If you want it on the second partition of "
-#~ "the first drive, use '(hd0,1)'. Leave this at default if unsure."
-#~ msgstr ""
-#~ "注意，GRUB 對裝置的命名方式和 Linux Kernel 有所不同，第一顆硬碟通常為 "
-#~ "(hd0)。如果您想安裝在第一顆硬碟上的第二個分割區上，請使用 (hd0,1)。如果並"
-#~ "不確定時則使用預設選項。"
-
-#~ msgid ""
-#~ "Warning: by default, this will change how your computer boots, "
-#~ "overwriting your existing master boot record with GRUB. Continuing may "
-#~ "make other operating systems installed on this computer unbootable."
-#~ msgstr ""
-#~ "警告：在預設情況下，這將會以 GRUB 覆蓋原有的主要開機磁區 (MBR)，並改變您的"
-#~ "電腦的開機方式。如果繼續的話，有可能會使得這台電腦上的其它已安裝的作業系統"
-#~ "無法開機。"
-
-#~ msgid ""
-#~ "GRUB needs to install the stage 1 boot loader on a bootable device. This "
-#~ "is usually the first hard drive. Note that GRUB counts devices "
-#~ "differently than the Linux kernel, so the first one is usually '(hd0)'. "
-#~ "Leave this at default if unsure."
-#~ msgstr ""
-#~ "GRUB 需要將 stage 1 開機程式裝到一個可以開機的裝置上。這通常是使用第一個硬"
-#~ "碟驅動器。注意， GRUB 對裝置的計數與 Linux 內核不同，第一個硬碟通常是 "
-#~ "'(hd0)'。如果不確定，就保留預設值。"
+msgstr ""
