@@ -20,3 +20,19 @@ _Description: Unable to install the selected kernel
  You might try to select "Choose which kernel to install" on the
  main menu if it is available.  It will allow you to select another
  kernel to install.
+
+Template: kernel-chooser/which-kernel
+Type: select
+Choices: ${kernels}
+_Description: Select which kernel to install into /target/
+ These are the kernels available from the APT sources.  One of them
+ need to be installed to be able to boot the system from hard drive.
+
+Template: kernel-chooser/no-kernels-found
+Type: note
+_Description: No installable kernel was found in the APT sources defined
+ This is rather strange, and probably fatal.
+ . 
+ The current default kernel package is '${kernel}'.
+ . 
+ You will have to continue as best as you can.  Good luck.

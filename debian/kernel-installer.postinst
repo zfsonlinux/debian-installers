@@ -19,6 +19,110 @@ info() {
     log "info: $*"
 }
 
+# =================== Pick the kernel package =========================
+
+# find all packages implementing 'kernel-image'.  Is there a better
+# way? [pere 2003-02-16]
+
+chroot="chroot /target"
+
+# Fetch the current default
+if db_get debian-installer/kernel/image && [ "$RET" ] ; then
+    kernel="$RET"
+fi
+
+# the busybox  do not support 'uniq' and 'sort -r' at
+# the moment [pere 2003-02-06]
+
+# Using 'sort -r' to get the newest kernel version at the start of the
+# list (ie 2.4.20 above 2.2.20).  This is in conflict with getting the
+# most generic architecture first (386 above 686).
+
+# Using 'uniq' to avoid listing the same kernel more then once.
+kernels=`$chroot apt-cache search kernel-image | grep ^kernel-image | \
+  /target/usr/bin/sort -r | cut -d" " -f1 | /target/usr/bin/uniq | \
+  tr '\n' ',' | sed -e 's/,$//'`
+
+log "info: Found kernels '$kernels'"
+
+if [ "$kernels" ] ; then
+    db_subst kernel-chooser/which-kernel kernels "$kernels"
+else
+    db_subst kernel-chooser/no-kernels-found kernel "$kernel"
+    db_input critical kernel-chooser/no-kernels-found || [ $? -eq 30 ]
+    db_go
+    exit 1
+fi
+
+# Try to make current rootskel setting the default, make sure it is
+# available first.
+if echo "$kernels" | grep -q "$kernel" ; then
+    # Current selection is available, nothing to do
+    :
+else
+    # Pick the first in the list
+    kernel=`echo "$kernels" | cut -d, -f1`
+fi
+
+# Pick a good default choice, based on the available kernels and
+# perhaps /proc/cpuinfo.
+ARCH=`udpkg --print-architecture`
+
+# Should this instead be located in small script fragments, named
+# after their architecture?  Something like this:
+#  [ -f /usr/lib/kernel-installer/$ARCH ] && . /usr/lib/kernel-installer/$ARCH
+case "$ARCH" in
+    i386*)
+        version=2.4.20-1
+        MODEL=`grep 'model name' /proc/cpuinfo | cut -d: -f2`
+	case "$MODEL" in 
+	    "Intel(R) Pentium(R) 4"*)
+	    kernel=kernel-image-$version-686
+	    ;;
+	esac
+        ;;
+    sparc)
+        version=2.4.21
+	MODEL=`uname -m`
+	CPUS=`grep 'ncpus probed' /proc/cpuinfo | cut -d: -f2`
+	case "$MODEL" in
+	    sparc)
+		if [ "$CPUS" -eq 1 ]; then
+			kernel=kernel-image-$version-sun4cdm
+		else
+			kernel=kernel-image-$version-sun4dm-smp
+		fi
+		;;
+	    sparc64)
+		if [ "$CPUS" -eq 1 ]; then
+			kernel=kernel-image-$version-sun4u
+		else
+			kernel=kernel-image-$version-sun4u-smp
+		fi
+		;;
+	esac
+	;;
+    *)
+        log "warning: Unknown arcitecture '$ARCH'."
+	;;
+esac
+if [ "$kernel" ] ; then
+    db_set kernel-chooser/which-kernel "$kernel"
+fi
+
+db_input medium kernel-chooser/which-kernel || [ $? -eq 30 ]
+db_go || true
+
+db_get kernel-chooser/which-kernel
+kernel=$RET
+
+log "info: Using kernel '$kernel'"
+
+# Pass the kernel name on to kernel-installer
+db_set debian-installer/kernel/image "$kernel"
+
+# =================== Install the kernel =========================
+
 if db_get debian-installer/kernel/linux/initrd ; then
     if [ "$RET" = "true" ]; then
 	do_initrd=yes
