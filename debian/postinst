@@ -18,9 +18,9 @@ info() {
     log "info: $@"
 }
 
-db_progress START 0 5 grub-installer/progress_title
+db_progress START 0 5 grub-installer/progress/title
 
-db_progress INFO grub-installer/progress_step_1
+db_progress INFO grub-installer/progress/step_install
 
 if apt-install grub ; then
 	:
@@ -36,7 +36,7 @@ else
 fi
 
 db_progress STEP 1
-db_progress INFO grub-installer/progress_step_2
+db_progress INFO grub-installer/progress/step_bootdev
 
 if [ "$defaultbootdev" ] ; then
     db_subst grub-installer/bootdev bootdev "$defaultbootdev"
@@ -49,7 +49,7 @@ bootdev=$RET
 
 db_progress STEP 1
 db_subst grub-installer/progress_step_3 BOOTDEV "$bootdev"
-db_progress INFO grub-installer/progress_step_3
+db_progress INFO grub-installer/progress/step_install_loader
 
 info "Installing grub on '$bootdev'"
 
@@ -64,7 +64,7 @@ else
 fi
 
 db_progress STEP 1
-db_progress INFO grub-installer/progress_step_4
+db_progress INFO grub-installer/progress/step_config_loader
 
 # Pipe from 'yes' to tell grub to create menu.lst when it is missing A
 # better correct fix is to get update-grub to be able to run in
@@ -81,7 +81,7 @@ else
 fi
 
 db_progress STEP 1
-db_progress INFO grub-installer/progress_step_5
+db_progress INFO grub-installer/progress/step_update_etc
 
 (
     echo "postinst_hook = /sbin/update-grub"
@@ -89,4 +89,5 @@ db_progress INFO grub-installer/progress_step_5
     echo "do_bootloader = no"
 ) >> /target/etc/kernel-img.conf
 
+db_progress STEP 1
 db_progress STOP
