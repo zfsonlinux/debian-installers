@@ -7,7 +7,7 @@ set -e
 log=/var/log/messages
 
 log() {
-    echo "grub-installer: $@" >> $log
+    logger -t grub-installer "$@"
 }
 
 error() {
@@ -25,7 +25,7 @@ db_progress INFO grub-installer/progress_step_1
 if apt-install grub ; then
 	:
 else
-	log "Calling 'apt-install grub' failed"
+	info "Calling 'apt-install grub' failed"
 	# Hm, unable to install grub into /target/, what should we do?
 	db_input critical grub-installer/apt-install-failed || [ $? -eq 30 ]
 	db_go
@@ -51,12 +51,12 @@ db_progress STEP 1
 db_subst grub-installer/progress_step_3 BOOTDEV "$bootdev"
 db_progress INFO grub-installer/progress_step_3
 
-log "Installing grub on '$bootdev'"
+info "Installing grub on '$bootdev'"
 
 if chroot /target /sbin/grub-install "$bootdev" >> $log 2>&1 ; then
     :
 else
-    log "error: Running 'grub-install \"$bootdev\"' failed."
+    error "Running 'grub-install \"$bootdev\"' failed."
     db_subst grub-installer/grub-install-failed BOOTDEV "$bootdev"
     db_input critical grub-installer/grub-install-failed || [ $? -eq 30 ]
     db_go
