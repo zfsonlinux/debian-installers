@@ -204,6 +204,9 @@ exec_debootstrap(char **argv){
     while (!child_exit && (llen = getline(&line, &dummy, ifp)) > 0)
     {
         line[llen-1] = 0;
+
+	//fprintf(stderr, "got line: %s\n", line);
+	
         ptr = line;
         switch (ptr[0])
         {
@@ -325,6 +328,9 @@ exec_debootstrap(char **argv){
                     ptr += 3;
                     // ptr now contains the identifier of the info
                     template = find_template("info", ptr);
+
+                    //fprintf(stderr, "info template: %s\n", template);
+		    
                     if (strcmp(ptr, "basesuccess") == 0 && template != NULL)
                     {
                         /* all done */
