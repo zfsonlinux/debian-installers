@@ -360,6 +360,15 @@ get_arch_kernel () {
 		*) log "warning: Unknown $ARCH subarchitecture '$SUBARCH'." ;;
 		esac
 	;;
+	arm)
+		# ARM
+		version=2.4.25
+		case "$SUBARCH" in
+		netwinder|bast|riscpc|riscstation|lart)    
+			trykernel=kernel-image-$version-$SUBARCH ;;
+		*) log "warning: Unknown $ARCH subarchitecture '$SUBARCH'." ;;
+		esac
+	;;
 	*)
 	log "warning: Unknown architecture '$ARCH'."
 	;;
