@@ -51,18 +51,26 @@ if [ "$1" = "configure" ]; then
     INCLUDE=`echo "--include=${KERNEL_IMAGE},${INCLUDES}" | sed 's/,$//'`
     EXCLUDE="--exclude=${EXCLUDES}"
 
+    # Default hostname is 'localhost'
+    HOSTNAME=localhost
+    NAMES=localhost
     db_get netcfg/get_hostname
-    HOSTNAME=$RET
-
+    if [ "$RET" ] then
+        NAMES="$RET $NAMES"
+        HOSTNAME=$RET
+    fi
+ 
     db_get netcfg/get_domain
-    FQDN=${HOSTNAME}.$RET
+    if [ "$RET" -a "$HOSTNAME" ] ; then
+    	NAMES="${HOSTNAME}.$RET $NAMES"
+    fi
 
     db_get mirror/distribution
     DISTRIBUTION=$RET
 
     echo "$HOSTNAME" > /target/etc/hostname
     echo "$HOSTNAME" > /proc/sys/kernel/hostname 
-    echo "127.0.0.1 $FQDN $HOSTNAME localhost" > /target/etc/hosts
+    echo "127.0.0.1 $NAMES" > /target/etc/hosts
 
     unset DEBIAN_HAS_FRONTEND
     unset DEBIAN_FRONTEND
