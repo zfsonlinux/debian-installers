@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-19 12:05+0200\n"
+"POT-Creation-Date: 2004-08-18 16:03+0100\n"
 "PO-Revision-Date: 2004-07-29 12:20+0200\n"
 "Last-Translator: Bartosz Fenski <fenio@o2.pl>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
@@ -25,7 +25,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:4
+#: ../grub-installer.templates:4
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
@@ -34,7 +34,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:4
+#: ../grub-installer.templates:4
 msgid ""
 "If all of your operating systems are listed above, then it should be safe to "
 "install the boot loader to the master boot record of your first hard drive. "
@@ -44,19 +44,19 @@ msgstr ""
 "Je¶li powy¿sza lista zawiera wszystkie Twoje systemy operacyjne, to "
 "instalacja programu uruchomieniowego w g³ównym rekordzie uruchomieniowym "
 "pierwszego dysku twardego powinna byæ bezpieczna. Podczas uruchamiania "
-"komputera bêdzie mó¿liwo¶æ wyboru spo¶ród tych systemów operacyjnych "
-"i systemu Debian."
+"komputera bêdzie mó¿liwo¶æ wyboru spo¶ród tych systemów operacyjnych i "
+"systemu Debian."
 
 #. Type: boolean
 #. Description
-#: ../templates:16
+#: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
 msgstr ""
 "Zainstalowaæ program uruchomieniowy GRUB w g³ównym rekordzie uruchomieniowym?"
 
 #. Type: boolean
 #. Description
-#: ../templates:16
+#: ../grub-installer.templates:16
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
@@ -69,7 +69,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:16
+#: ../grub-installer.templates:16
 msgid ""
 "Warning: If the installer failed to detect another operating system that is "
 "present on your computer, modifying the master boot record will make that "
@@ -83,13 +83,13 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:28
+#: ../grub-installer.templates:28
 msgid "Device for boot loader installation:"
 msgstr "Urz±dzenie do instalacji programu uruchomienowego:"
 
 #. Type: string
 #. Description
-#: ../templates:28
+#: ../grub-installer.templates:28
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -98,13 +98,14 @@ msgid ""
 "even to a floppy."
 msgstr ""
 "Poprzez instalacjê programu uruchomieniowego GRUB, na uruchamialnym "
-"urz±dzeniu, musisz umo¿liwiæ samoczynne uruchamianie zainstalowanego "
-"systemu Debian. Najpopularniejszym sposobem by to osi±gn±æ, jest "
-"instalacja GRUBa w g³ównym rekordzie uruchomieniowym pierwszego dysku "
-"twardego. Mo¿esz jednak¿e u¿yæ innego miejsca na dysku, innego dysku czy "
-"nawet dyskietki je¶li chcesz."
+"urz±dzeniu, musisz umo¿liwiæ samoczynne uruchamianie zainstalowanego systemu "
+"Debian. Najpopularniejszym sposobem by to osi±gn±æ, jest instalacja GRUBa w "
+"g³ównym rekordzie uruchomieniowym pierwszego dysku twardego. Mo¿esz jednak¿e "
+"u¿yæ innego miejsca na dysku, innego dysku czy nawet dyskietki je¶li chcesz."
 
-#: ../templates:28
+#. Type: string
+#. Description
+#: ../grub-installer.templates:28
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -129,13 +130,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:48
+#: ../grub-installer.templates:48
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Instalacja GRUBa nie powiod³a siê. Kontynuowaæ mimo tego?"
 
 #. Type: boolean
 #. Description
-#: ../templates:48
+#: ../grub-installer.templates:48
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -147,79 +148,79 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:55
+#: ../grub-installer.templates:55
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Nie mo¿na zainstalowaæ GRUBa w ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:55
+#: ../grub-installer.templates:55
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Uruchomienie 'grub install ${BOOTDEV}' nie powiod³o siê."
 
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../grub-installer.templates:62
 msgid "Unable to configure GRUB"
 msgstr "Nie mo¿na skonfigurowaæ GRUBa"
 
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../grub-installer.templates:62
 msgid "Executing 'update-grub' failed."
 msgstr "Uruchomienie 'update-grub' nie powiod³o siê."
 
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../grub-installer.templates:62
 msgid "This is a fatal error."
 msgstr "B³±d krytyczny."
 
 #. Type: text
 #. Description
-#: ../templates:69
+#: ../grub-installer.templates:69
 msgid "Installing GRUB boot loader"
 msgstr "Instalacja programu uruchomieniowego GRUB."
 
 #. Type: text
 #. Description
-#: ../templates:73
+#: ../grub-installer.templates:73
 msgid "Looking for other operating systems..."
 msgstr "Poszukiwanie innych systemów operacyjnych..."
 
 #. Type: text
 #. Description
-#: ../templates:77
+#: ../grub-installer.templates:77
 msgid "Installing the 'grub' package..."
 msgstr "Instalowanie pakiety 'grub'..."
 
 #. Type: text
 #. Description
-#: ../templates:81
+#: ../grub-installer.templates:81
 msgid "Determining GRUB boot device..."
 msgstr "Ustalanie urz±dzenia uruchomieniowego GRUB..."
 
 #. Type: text
 #. Description
-#: ../templates:85
+#: ../grub-installer.templates:85
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Uruchamianie \"grub install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../templates:89
+#: ../grub-installer.templates:89
 msgid "Running \"update-grub\"..."
 msgstr "Uruchamianie \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:93
+#: ../grub-installer.templates:93
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Aktualizacja /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:98
+#: ../grub-installer.templates:98
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Instaluj program uruchomieniowy GRUB na dysku twardym"

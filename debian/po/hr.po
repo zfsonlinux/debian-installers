@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Debian-installer HR\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-19 12:05+0200\n"
+"POT-Creation-Date: 2004-08-18 16:03+0100\n"
 "PO-Revision-Date: 2004-07-13 23:06+0200\n"
 "Last-Translator: Kruno <kruno@linux.hr>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -13,7 +13,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:4
+#: ../grub-installer.templates:4
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
@@ -22,7 +22,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:4
+#: ../grub-installer.templates:4
 msgid ""
 "If all of your operating systems are listed above, then it should be safe to "
 "install the boot loader to the master boot record of your first hard drive. "
@@ -36,13 +36,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:16
+#: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
 msgstr "Instalirati GRUB boot uèitavaè u osnovni boot zapis?"
 
 #. Type: boolean
 #. Description
-#: ../templates:16
+#: ../grub-installer.templates:16
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
@@ -54,7 +54,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:16
+#: ../grub-installer.templates:16
 msgid ""
 "Warning: If the installer failed to detect another operating system that is "
 "present on your computer, modifying the master boot record will make that "
@@ -67,13 +67,13 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:28
+#: ../grub-installer.templates:28
 msgid "Device for boot loader installation:"
 msgstr "Ureðaj za instalaciju boot uèitavaèa:"
 
 #. Type: string
 #. Description
-#: ../templates:28
+#: ../grub-installer.templates:28
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -86,7 +86,9 @@ msgstr ""
 "boot zapis va¹eg prvog èvrstog diska, ali mo¾ete i kamo drugdje na tome "
 "disku, ili na drugi disk, ili èak i na disketu."
 
-#: ../templates:28
+#. Type: string
+#. Description
+#: ../grub-installer.templates:28
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -111,13 +113,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:48
+#: ../grub-installer.templates:48
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Instalacija GRUB-a neuspjela. Da ipak nastavim?"
 
 #. Type: boolean
 #. Description
-#: ../templates:48
+#: ../grub-installer.templates:48
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -129,79 +131,79 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:55
+#: ../grub-installer.templates:55
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Ne mogu instalirati GRUB na ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:55
+#: ../grub-installer.templates:55
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Izvr¹enje 'grub-install ${BOOTDEV}' neuspjelo."
 
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../grub-installer.templates:62
 msgid "Unable to configure GRUB"
 msgstr "Ne mogu podesiti GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../grub-installer.templates:62
 msgid "Executing 'update-grub' failed."
 msgstr "Izvr¹enje 'update-grub' neuspjelo."
 
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../grub-installer.templates:62
 msgid "This is a fatal error."
 msgstr "Ovo je kobna pogre¹ka."
 
 #. Type: text
 #. Description
-#: ../templates:69
+#: ../grub-installer.templates:69
 msgid "Installing GRUB boot loader"
 msgstr "Instaliram GRUB boot uèitavaè"
 
 #. Type: text
 #. Description
-#: ../templates:73
+#: ../grub-installer.templates:73
 msgid "Looking for other operating systems..."
 msgstr "Tra¾im druge upravljaèke sustave..."
 
 #. Type: text
 #. Description
-#: ../templates:77
+#: ../grub-installer.templates:77
 msgid "Installing the 'grub' package..."
 msgstr "Instaliram GRUB paket..."
 
 #. Type: text
 #. Description
-#: ../templates:81
+#: ../grub-installer.templates:81
 msgid "Determining GRUB boot device..."
 msgstr "Odreðujem GRUB-ov boot ureðaj..."
 
 #. Type: text
 #. Description
-#: ../templates:85
+#: ../grub-installer.templates:85
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Pokreæem \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../templates:89
+#: ../grub-installer.templates:89
 msgid "Running \"update-grub\"..."
 msgstr "Pokreæem \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:93
+#: ../grub-installer.templates:93
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Osvje¾avam /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:98
+#: ../grub-installer.templates:98
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Instaliraj GRUB boot uèitavaè na èvrsti disk"

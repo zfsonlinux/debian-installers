@@ -14,27 +14,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-19 12:05+0200\n"
+"POT-Creation-Date: 2004-08-18 16:03+0100\n"
 "PO-Revision-Date: 2004-08-11 23:36+0300\n"
 "Last-Translator: Aigars Mahinovs <aigarius@debian.org>\n"
 "Language-Team: Latvian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Transfer-Encoding: 8bit\n"
 
 #. Type: boolean
 #. Description
-#: ../templates:4
+#: ../grub-installer.templates:4
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr ""
-"Šīs ir operētājsistēmas, kas ir detektētas uz šī datora: "
-"${OS_LIST}"
+msgstr "Šīs ir operētājsistēmas, kas ir detektētas uz šī datora: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
-#: ../templates:4
+#: ../grub-installer.templates:4
 msgid ""
 "If all of your operating systems are listed above, then it should be safe to "
 "install the boot loader to the master boot record of your first hard drive. "
@@ -48,13 +46,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:16
+#: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
 msgstr "Instalēt GRUB sakņošanās lādētaju uz galvenā sakņošanas ieraksta?"
 
 #. Type: boolean
 #. Description
-#: ../templates:16
+#: ../grub-installer.templates:16
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
@@ -66,27 +64,27 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:16
+#: ../grub-installer.templates:16
 msgid ""
 "Warning: If the installer failed to detect another operating system that is "
 "present on your computer, modifying the master boot record will make that "
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
-"Uzmanību: Ja instalātors nesēja nodetektēt kādu no operētājsistēmām, "
-"kas atrodas uz Jūsu datora cietajiem diskiem, tad galvenā saknēšanas "
-"ieraksta izmainīšana padarīs šo operētājsistēmu par īslaicīgi nasasniedzamu, "
-"lai to iesaknētu, Jums vēlāk būs jāpārkonfigurē GRUB."
+"Uzmanību: Ja instalātors nesēja nodetektēt kādu no operētājsistēmām, kas "
+"atrodas uz Jūsu datora cietajiem diskiem, tad galvenā saknēšanas ieraksta "
+"izmainīšana padarīs šo operētājsistēmu par īslaicīgi nasasniedzamu, lai to "
+"iesaknētu, Jums vēlāk būs jāpārkonfigurē GRUB."
 
 #. Type: string
 #. Description
-#: ../templates:28
+#: ../grub-installer.templates:28
 msgid "Device for boot loader installation:"
 msgstr "Iekārta saknēšanas lādētāja instalācija:"
 
 #. Type: string
 #. Description
-#: ../templates:28
+#: ../grub-installer.templates:28
 msgid ""
 "You need to make the newly installed Debian system bootable, by installing "
 "the GRUB bootloader on a bootable device. The usual way to do this is to "
@@ -95,11 +93,13 @@ msgid ""
 "even to a floppy."
 msgstr ""
 "Jums ir jāpadara jaunā Debian sistēma par iesakņojamu instalējot GRUB "
-"sakņošanas lādētāju uz sakņojamas iekārtas. Parasti to dara instalējot "
-"GRUB uz pirmā cietā diska galvenā sakņošanas ieraksta. Taču Jūs varat "
-"instalēt GRUB arī citur uz diska, vai pat uz disketes."
+"sakņošanas lādētāju uz sakņojamas iekārtas. Parasti to dara instalējot GRUB "
+"uz pirmā cietā diska galvenā sakņošanas ieraksta. Taču Jūs varat instalēt "
+"GRUB arī citur uz diska, vai pat uz disketes."
 
-#: ../templates:28
+#. Type: string
+#. Description
+#: ../grub-installer.templates:28
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -112,22 +112,23 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Iekārtu ir jāspecificē lietojot GRUB \"(hdn,m)\" notāciju, vai arī kā iekartu "
-"/dev direktorijā. Piemēri:\n"
+"Iekārtu ir jāspecificē lietojot GRUB \"(hdn,m)\" notāciju, vai arī kā "
+"iekartu /dev direktorijā. Piemēri:\n"
 " - \"(hd0)\" vai \"/dev/hda\" instalēs GRUB uz pirmā IDE diska MBR;\n"
 " - \"(hd0,1)\" vai \"/dev/hda2\" lietos pirmā IDE diska otro partīciju;\n"
-" - \"(hd2,4)\" vai \"/dev/sdc5\" lietos treša SCSI diska pirmo paplašināto partīciju;\n"
+" - \"(hd2,4)\" vai \"/dev/sdc5\" lietos treša SCSI diska pirmo paplašināto "
+"partīciju;\n"
 " - \"(fd0)\" vai \"/dev/fd0\" instalēs GRUB uz disketes."
 
 #. Type: boolean
 #. Description
-#: ../templates:48
+#: ../grub-installer.templates:48
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "GRUB instalācija neizdevās.  Turpināt?"
 
 #. Type: boolean
 #. Description
-#: ../templates:48
+#: ../grub-installer.templates:48
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -139,80 +140,79 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:55
+#: ../grub-installer.templates:55
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Nevaru instalēt GRUB uz ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../templates:55
+#: ../grub-installer.templates:55
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Kļūda palaižot 'grub-install ${BOOTDEV}'."
 
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../grub-installer.templates:62
 msgid "Unable to configure GRUB"
 msgstr "Nevaru nokonfigurēt GRUB"
 
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../grub-installer.templates:62
 msgid "Executing 'update-grub' failed."
 msgstr "Kļūda palaižot 'update-grub'."
 
 #. Type: error
 #. Description
-#: ../templates:62
+#: ../grub-installer.templates:62
 msgid "This is a fatal error."
 msgstr "Šī ir fatāla kļūda."
 
 #. Type: text
 #. Description
-#: ../templates:69
+#: ../grub-installer.templates:69
 msgid "Installing GRUB boot loader"
 msgstr "GRUB saknēšanas lādētāja instalēsana"
 
 #. Type: text
 #. Description
-#: ../templates:73
+#: ../grub-installer.templates:73
 msgid "Looking for other operating systems..."
 msgstr "Meklēju citas operētājsistēmas..."
 
 #. Type: text
 #. Description
-#: ../templates:77
+#: ../grub-installer.templates:77
 msgid "Installing the 'grub' package..."
 msgstr "Instalēju 'grub' paku..."
 
 #. Type: text
 #. Description
-#: ../templates:81
+#: ../grub-installer.templates:81
 msgid "Determining GRUB boot device..."
 msgstr "Nosaku GRUB sakņošanas ierīci..."
 
 #. Type: text
 #. Description
-#: ../templates:85
+#: ../grub-installer.templates:85
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Palaižu \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../templates:89
+#: ../grub-installer.templates:89
 msgid "Running \"update-grub\"..."
 msgstr "Palaižu \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../templates:93
+#: ../grub-installer.templates:93
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Atjaunoju /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../templates:98
+#: ../grub-installer.templates:98
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Instalēt GRUB sakņošanas lādētāju uz cietā diska"
-
