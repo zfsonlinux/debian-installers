@@ -42,6 +42,9 @@ do_bootfloppy = no
 do_initrd = $do_initrd
 EOF
 
+# Make sure initrd-tools is installed before we change its configuration
+apt-install initrd-tools
+
 # Avoid possible root shell without giving passord while booting the
 # 2.4 kernel
 mkinitrdconf=/target/etc/mkinitrd/mkinitrd.conf
