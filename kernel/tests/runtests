@@ -108,3 +108,9 @@ fi
 if [ "$TEST_VERBOSE" -ge 1 ]; then
 	echo "$ARCH: $PASSES passes, $FAILURES failures."
 fi
+
+if [ "$FAILURES" -eq 0 ]; then
+	exit 0
+else
+	exit 1
+fi
