@@ -78,7 +78,7 @@ fi
     unset DEBCONF_FRONTEND
     unset DEBCONF_REDIR
 
-    if debootstrap \
+    debootstrap \
         --components="${COMPONENTS}" \
         --boot-floppies \
         ${INCLUDE} ${EXCLUDE} \
@@ -86,12 +86,7 @@ fi
         "$PROTOCOL://$MIRROR$DIRECTORY" \
         3>&1 > $LOGDIR/debootstrap.log \
         2> $LOGDIR/debootstrap.err.log </dev/null
-    then
-        :
-    else
-        debootstrap_failed=$?
-    fi
-)
+) || debootstrap_failed=$?
 
 if [ true = "$COPIED_FSTAB" ] ; then
     mv /target/etc/fstab.orig /target/etc/fstab
