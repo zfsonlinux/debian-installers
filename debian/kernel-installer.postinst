@@ -79,11 +79,14 @@ ARCH=`udpkg --print-architecture`
 #  [ -f /usr/lib/kernel-installer/$ARCH ] && . /usr/lib/kernel-installer/$ARCH
 case "$ARCH" in
     i386*)
-        version=2.4.20-1
+        version=2.4
         MODEL=`grep 'model name' /proc/cpuinfo | cut -d: -f2`
 	case "$MODEL" in 
-	    "Intel(R) Pentium(R) 4"*)
+	    " Intel(R) Pentium(R) 4"*)
 	    kernel=kernel-image-$version-686
+	    ;;
+	    " AMD Athlon(tm) Processor"*)
+	    kernel=kernel-image-$version-k7
 	    ;;
 	esac
         ;;
