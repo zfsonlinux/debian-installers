@@ -273,6 +273,11 @@ fi
 info "Setting do_initrd='$do_initrd'."
 info "Setting link_in_boot='$link_in_boot'."
 
+if [ -f /target/etc/kernel-img.conf ]; then
+   # Backup old kernel-img.conf
+    mv /target/etc/kernel-img.conf /target/etc/kernel-img.conf.$$
+fi
+
 cat > /target/etc/kernel-img.conf <<EOF
 # Do not create symbolic links in /
 do_symlinks = yes
@@ -306,6 +311,10 @@ if db_get debian-installer/kernel/image ; then
 	db_input critical kernel-installer/no-kernel || [ $? -eq 30 ]
 	db_go
 	db_progress STOP
+        if [ -f /target/etc/kernel-img.conf.$$ ]; then
+           # Revert old kernel-img.conf
+           mv /target/etc/kernel-img.conf.$$ /target/etc/kernel-img.conf
+        fi
 	exit 1
     fi
     kernel="$RET"
@@ -326,7 +335,16 @@ if ! apt-install "$kernel" 2>> $logfile ; then
     db_input critical kernel-installer/failed-install || [ $? -eq 30 ]
     db_go
     db_progress STOP
+    if [ -f /target/etc/kernel-img.conf.$$ ]; then
+      # Revert old kernel-img.conf
+      mv /target/etc/kernel-img.conf.$$ /target/etc/kernel-img.conf
+    fi
     exit 1
+fi
+
+if [ -f /target/etc/kernel-img.conf.$$ ]; then
+   # Revert old kernel-img.conf
+    mv /target/etc/kernel-img.conf.$$ /target/etc/kernel-img.conf
 fi
 
 db_progress STEP 1
