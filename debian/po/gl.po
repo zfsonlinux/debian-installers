@@ -1,28 +1,28 @@
+# translation of gl.po to Galego
 #
 #    Translators, if you are not familiar with the PO format, gettext
 #    documentation is worth reading, especially sections dedicated to
 #    this format, e.g. by running:
 #         info -n '(gettext)PO Files'
 #         info -n '(gettext)Header Entry'
-#
 #    Some information specific to po-debconf are available at
 #            /usr/share/doc/po-debconf/README-trans
-#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
-#
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans#
 #    Developers do not need to manually edit POT or PO files.
+# Héctor Fenández López <trorrr@yahoo.es>, 2004.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: base-installer\n"
+"Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-09-11 12:36-0400\n"
-"PO-Revision-Date: 2004-04-02 23:11+0100\n"
-"Last-Translator: Héctor Fernández López <trorrr@yahoo.es>\n"
-"Language-Team: Proxecto Trasno <trasno@ceu.fi.udc.es>\n"
+"PO-Revision-Date: 2004-09-14 18:55+0200\n"
+"Last-Translator: Héctor Fenández López <trorrr@yahoo.es>\n"
+"Language-Team: Galego <trasno@ceu.fi.udc.es>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.3.1\n"
 
 #. Type: boolean
 #. Description
@@ -46,7 +46,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:11
 msgid "Cannot install Debian"
-msgstr ""
+msgstr "Non se puido instalar Debian"
 
 #. Type: error
 #. Description
@@ -54,13 +54,13 @@ msgstr ""
 msgid ""
 "The installer cannot figure out how to install Debian. No installable CD-ROM "
 "was found and no valid mirror was configured."
-msgstr ""
+msgstr "O instalador non pode continuar a instalación:  Non se atoparon nin unidades de CD-ROM nin servidores espello configurados desde os que instalar."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:17
 msgid "No filesystem mounted on /target"
-msgstr ""
+msgstr "Non hai un sistema de ficheiros montado en /target"
 
 #. Type: error
 #. Description
@@ -68,29 +68,24 @@ msgstr ""
 msgid ""
 "Before the installation can proceed, a root filesystem must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
-msgstr ""
+msgstr "Antes de que comece a instalación, debe montarse un sistema de ficheiros en /target.  O particionador e o formateador deberían ter feito esto por tí."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:23
-#, fuzzy
 msgid "Not installing to unclean target"
-msgstr "¿Comenza-la instalación para 'deslimpar' o destino?"
+msgstr "Non instalando a un destino sen limpar"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:23
-#, fuzzy
 msgid ""
 "The installation to the target filesystem has been canceled, as the target "
 "filesystem contains files from a past installation, which could break the "
 "installation process or cause a broken system to be installed. You should go "
 "back and erase or format the target filesystem before proceeding with the "
 "install."
-msgstr ""
-"O sistema de ficheiros de destino contén ficheiros dunha instalación "
-"anterior.  Estes ficheiros poden facer mal no proceso de instalación ou "
-"poderían causar que o novo sistema non funcione correctamente."
+msgstr "A instalación ó sistema de ficheiros de destino foi cancelada porque contén ficheiros dunha instalación pasada que poden crear conflictos na instalación ou facer unha instalación fallida.  Deberías voltar atrás e borrar ou dar formato ó sistema de ficheiros de destino antes de continuar coa instalación."
 
 #. Type: error
 #. Description
@@ -107,8 +102,7 @@ msgstr "A instalación do sistema base en /target/ fallou."
 #. Type: error
 #. Description
 #: ../base-installer.templates:39
-msgid ""
-"The debootstrap program exited with an error (return value ${EXITCODE})."
+msgid "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr "O programa debootstrap producíu un error (Valor ${EXITCODE})."
 
 #. Type: error
@@ -204,10 +198,8 @@ msgstr "O kernel por defecto actual é '${KERNEL}'."
 #. Type: error
 #. Description
 #: ../base-installer.templates:84
-msgid ""
-"You may try to continue though this rather strange error is probably fatal."
-msgstr ""
-"Deberías continuar a pesar de que este extraño error probablemente sea fatal."
+msgid "You may try to continue though this rather strange error is probably fatal."
+msgstr "Deberías continuar a pesar de que este extraño error probablemente sea fatal."
 
 #. Type: error
 #. Description
@@ -286,16 +278,14 @@ msgstr "Instalando o sistema base de Debian"
 #. Type: text
 #. Description
 #: ../base-installer.templates:140
-#, fuzzy
 msgid "Preparing to install the Debian base system..."
-msgstr "Non se puido instalar o sistema base"
+msgstr "Preparando para instala-lo sistema base Debian..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:144
-#, fuzzy
 msgid "Running ${SCRIPT}..."
-msgstr "Collendo ${SUBST0}..."
+msgstr "Executando ${SCRIPT}..."
 
 #. Type: text
 #. Description
@@ -343,7 +333,7 @@ msgstr "Instalando o sistema base"
 #. Description
 #: ../base-installer.templates:176
 msgid "${SECTION}: ${INFO}..."
-msgstr ""
+msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
@@ -396,9 +386,8 @@ msgstr "Instalando os paquetes base..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:212
-#, fuzzy
 msgid "Base system installed successfully."
-msgstr "Error na instalación do sistema base"
+msgstr "Sistema base instalado"
 
 #. Type: text
 #. Description
@@ -422,13 +411,13 @@ msgstr "Instalando paquetes extra..."
 #. Description
 #: ../base-installer.templates:228
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
-msgstr ""
+msgstr "Instalando paquetes extra - recuperando e instalando ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:232
 msgid "Creating device files..."
-msgstr ""
+msgstr "Creando entradas dos dispositivos"
 
 #. Type: text
 #. Description
@@ -446,7 +435,7 @@ msgstr "Instalando o kernel..."
 #. Description
 #: ../base-installer.templates:244
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
-msgstr ""
+msgstr "Instalando o núcleo - recuperando e instalando ${SUBST0}..."
 
 #. Type: text
 #. Description
@@ -461,11 +450,3 @@ msgstr "Instalando os módulos PCMCIA..."
 msgid "Install the base system"
 msgstr "Instalar o sistema base"
 
-#~ msgid "Unable to install PCMCIA modules"
-#~ msgstr "Non se puideron instalar os módulos PCMCIA"
-
-#~ msgid ""
-#~ "An error was returned while trying to install the PCMCIA modules onto the "
-#~ "target system."
-#~ msgstr ""
-#~ "Atopouse un erro mentres se tentaba instala-los módulos PCMCIA no sistema."
