@@ -102,7 +102,6 @@ install_base_system () {
 	fi
 
 	if [ "$PROTOCOL" = "http" ]; then
-		# TODO: er, what uses this env var? Not apt, nor wget..
 		db_get mirror/http/proxy
 		http_proxy="$RET" || true
 		if [ "$http_proxy" ]; then
