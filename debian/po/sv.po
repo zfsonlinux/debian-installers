@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: base-installer 0.0.42\n"
 "POT-Creation-Date: 2004-01-08 08:49+0100\n"
-"PO-Revision-Date: 2003-12-28 14:15+0100\n"
+"PO-Revision-Date: 2004-01-18 16:33+0100\n"
 "Last-Translator: André Dahlqvist <andre.dahlqvist@telia.com>\n"
 "Language-Team: Swedish <debian-boot@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -103,20 +103,18 @@ msgstr "Kärnpaketet: \"${KERNEL}\""
 #. Type: select
 #. Description
 #: ../base-installer.templates:49
-#, fuzzy
 msgid "Kernel to install:"
-msgstr "Kärna som ska installeras till /target/:"
+msgstr "Kärna som ska installeras:"
 
 #. Type: select
 #. Description
 #: ../base-installer.templates:49
-#, fuzzy
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
 msgstr ""
-"Listan visar de kärnor som finns tillgängliga från APT-källorna. Välj en av "
-"dem för att göra systemet startbart från hårddisken."
+"Listan visar de tillgängliga kärnorna. Välj en av dem för att göra systemet "
+"startbart från hårddisken."
 
 #. Type: error
 #. Description
@@ -148,42 +146,41 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:64
-#, fuzzy
 msgid "Unable to install PCMCIA modules"
-msgstr "Oförmögen att installera en kärna"
+msgstr "Kunde inte installera PCMCIA-modulerna"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:64
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the PCMCIA modules onto the "
 "target system."
 msgstr ""
-"Ett fel returnerades när kärnan försökte installeras på mottagarsystemet"
+"Ett fel returnerades under installationen av PCMCIA-modulerna på "
+"mottagarsystemet."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:72
-#, fuzzy
 msgid "Unable to install initrd-tools"
-msgstr "Oförmögen att installera en kärna"
+msgstr "Kunde inte installera initrd-tools"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:72
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the initrd-tools package  onto "
 "the target system."
 msgstr ""
-"Ett fel returnerades när kärnan försökte installeras på mottagarsystemet"
+"Ett fel returnerades under installationen av initrd-tools-paketet på "
+"mottagarsystemet."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:72
 msgid "Check /var/log/messages or see virtual console 3 for the details."
-msgstr ""
+msgstr "Kontrollera /var/log/messages eller titta på virtuella konsol 3 för "
+"detaljerna."
 
 #. Type: error
 #. Description
@@ -206,16 +203,14 @@ msgstr "Misslyckades att hämta filen Release ${SUBST0}."
 #. Type: error
 #. Description
 #: ../base-installer.templates:95
-#, fuzzy
 msgid "Invalid Release file: no valid components."
-msgstr "Filen Release är ogiltig. Inga giltiga komponenter."
+msgstr "Release-filen är ogiltig: inga giltiga komponenter."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:100
-#, fuzzy
 msgid "Invalid Release file: no entry for ${SUBST0}."
-msgstr "Filen Release är ogiltig. Ingen post för ${SUBST0}."
+msgstr "Release-filen är ogiltig: ingen post för ${SUBST0}."
 
 #. Type: error
 #. Description
@@ -233,21 +228,19 @@ msgstr "Fel i debootstrap."
 #. Description
 #: ../base-installer.templates:110
 msgid "Interrupt caught ... exiting."
-msgstr "Avbrott togs emot ... avslutar."
+msgstr "Tog emot avbrott ... avslutar."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:115
-#, fuzzy
 msgid "Installing the Debian base system"
-msgstr "Installera grundsystemet"
+msgstr "Installerar Debians grundsystem"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:119
-#, fuzzy
 msgid "Retrieving Release file"
-msgstr "Hämtar filen Packages ..."
+msgstr "Hämtar Release-filen"
 
 # Orginalet är dåligt här. Borde vara exempelvis "Checking"
 #. Type: text
@@ -259,84 +252,72 @@ msgstr "Söker reda på paketstorlekar"
 #. Type: text
 #. Description
 #: ../base-installer.templates:127
-#, fuzzy
 msgid "Retrieving Packages files"
-msgstr "Hämtar filen Packages ..."
+msgstr "Hämtar Packages-filer"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:131
-#, fuzzy
 msgid "Retrieving packages"
-msgstr "Hämtar paket ..."
+msgstr "Hämtar paket"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:135
-#, fuzzy
 msgid "Extracting packages"
-msgstr "Packar upp paket..."
+msgstr "Packar upp paket"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:139
-#, fuzzy
 msgid "Installing the base system"
-msgstr "Installera grundsystemet"
+msgstr "Installerar grundsystemet"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:147
-#, fuzzy
 msgid "Validating ${SUBST0}..."
 msgstr "Bekräftar ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:151
-#, fuzzy
 msgid "Retrieving ${SUBST0}..."
 msgstr "Hämtar ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:155
-#, fuzzy
 msgid "Extracting ${SUBST0}..."
 msgstr "Packar upp ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:159
-#, fuzzy
 msgid "Checking package size: ${SUBST0}..."
-msgstr "Kontrollerar ${SUBST0}..."
+msgstr "Kontrollerar paketstorlek: ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:163
-#, fuzzy
 msgid "Installing core packages..."
 msgstr "Installerar de viktigaste paketen..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:167
-#, fuzzy
 msgid "Unpacking required packages..."
 msgstr "Packar upp krävda paket..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:171
-#, fuzzy
 msgid "Configuring required packages..."
 msgstr "Konfigurerar krävda paket..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:175
-#, fuzzy
 msgid "Installing base packages..."
 msgstr "Installerar grundpaketen..."
 
@@ -355,30 +336,26 @@ msgstr "Uppdaterar listan över tillgängliga paket..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:187
-#, fuzzy
 msgid "Installing extra packages..."
-msgstr "Installerar extrapaket"
+msgstr "Installerar extrapaket..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:191
-#, fuzzy
 msgid "Selecting the kernel to install..."
-msgstr "Väljer kärnan som ska installeras"
+msgstr "Väljer kärnan som ska installeras..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:195
-#, fuzzy
 msgid "Installing the kernel..."
-msgstr "Installera kärnan"
+msgstr "Installerar kärnan..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:199
-#, fuzzy
 msgid "Installing the PCMCIA modules"
-msgstr "Installerar kärnpaketet ${KERNEL} "
+msgstr "Installerar PCMCIA-modulerna"
 
 #. Type: text
 #. Description
@@ -386,76 +363,3 @@ msgstr "Installerar kärnpaketet ${KERNEL} "
 #: ../base-installer.templates:204
 msgid "Install the base system"
 msgstr "Installera grundsystemet"
-
-#~ msgid "Unknown download style."
-#~ msgstr "Okänd hämtningstyp."
-
-#~ msgid "Unknown mirror style."
-#~ msgstr "Okänd spegeltyp."
-
-#~ msgid "No ${SUBST0}. Cannot create devices."
-#~ msgstr "Ingen ${SUBST0}. Kan inte skapa enheter."
-
-#~ msgid "Unknown dselect method."
-#~ msgstr "Okänd dselect-metod."
-
-#~ msgid "Installing the kernel package ${KERNEL}"
-#~ msgstr "Installerar kärnpaketet ${KERNEL} "
-
-#~ msgid "Locating available kernels"
-#~ msgstr "Lokaliserar tillgängliga kärnor"
-
-#~ msgid "Setting up the kernel environment"
-#~ msgstr "Iordningställer kärnans miljö"
-
-#~ msgid "This is probably a fatal error."
-#~ msgstr "Detta är förmodligen ett ödesdigert fel."
-
-#~ msgid ""
-#~ "You might try to select the kernel installation step again on the main "
-#~ "menu. That will allow you to select another kernel to install."
-#~ msgstr ""
-#~ "Du kan försöka att välja installationssteget av kärnan igen i huvudmenyn. "
-#~ "Det ger dig möjlighet att välja en annan kärna för installation."
-
-#~ msgid "Installing kernel"
-#~ msgstr "Installerar kärnan"
-
-#~ msgid "Base system successfully installed"
-#~ msgstr "Grundsystemet installerades framgångsrikt"
-
-#~ msgid "Installing extra packages"
-#~ msgstr "Installerar extrapaket"
-
-#, fuzzy
-#~ msgid "Release file"
-#~ msgstr "Hämtar filen Release ..."
-
-#, fuzzy
-#~ msgid "Packages files"
-#~ msgstr "Hämtar filerna Packages ..."
-
-#, fuzzy
-#~ msgid "Installing base system"
-#~ msgstr "Installerar grundsystemet..."
-
-#, fuzzy
-#~ msgid "Installing additional packages..."
-#~ msgstr "Installerar extrapaketen..."
-
-#~ msgid ""
-#~ "Please check /target/var/log/debootstrap.log and /target/var/log/"
-#~ "debootstrap.err.log for the details."
-#~ msgstr ""
-#~ "Kolla /target/var/log/debootstrap.log och /target/var/log/debootstrap.err."
-#~ "log för detaljerna."
-
-#~ msgid "You might find more information in /target/var/log/debootstrap.log."
-#~ msgstr "Du kan hitta mer information i /target/var/log/debootstrap.log."
-
-#~ msgid ""
-#~ "You might find more information in /target/var/log/debootstrap.log or /"
-#~ "target/var/log/debootstrap.err.log."
-#~ msgstr ""
-#~ "Du kan hitta mer information i /target/var/log/debootstrap.log eller /"
-#~ "target/var/log/debootstrap.err.log."
