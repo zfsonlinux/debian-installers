@@ -19,6 +19,7 @@ clean:
 install: build
 	dh_testdir
 	dh_testroot
+	dh_install run-debootstrap usr/sbin
 	dh_clean -k
 
 binary-arch: install
