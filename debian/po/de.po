@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: grub-installer 0.33\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-05-16 08:27+0200\n"
-"PO-Revision-Date: 2004-04-11 17:05GMT\n"
+"PO-Revision-Date: 2004-05-23 21:49GMT\n"
 "Last-Translator: Dennis Stampfer <seppy@debian.org>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -59,15 +59,14 @@ msgstr "Den GRUB Bootloader in den Master Boot Record installieren?"
 #. Type: boolean
 #. Description
 #: ../templates:16
-#, fuzzy
 msgid ""
 "It seems that this installation of Debian is the only operating system on "
 "this computer. If so, it should be safe to install the GRUB boot loader to "
 "the master boot record of your first hard drive."
 msgstr ""
-"Es scheint, als sei Debian das einzige Betriebssystem auf diesem Computer. "
-"Wenn dies der Fall ist, sollte es kein Problem sein, den Bootloader in den "
-"Master Boot Record Ihrer ersten Festplatte zu installieren."
+"Es scheint, als ob diese Installation von Debian das einzige Betriebssystem auf "
+"diesem Computer ist. Wenn dies der Fall ist, sollte es kein Problem sein, den "
+"Bootloader in den Master Boot Record Ihrer ersten Festplatte zu installieren."
 
 #. Type: boolean
 #. Description
@@ -78,6 +77,9 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
+"Warnung: Wenn der Installer ein anderes Betriebssystem auf Ihrem Computer nicht "
+"richtig erkennt, Sie aber den Master Boot Record verändern, werden Sie dieses "
+"vorläufig nicht mehr starten können."
 
 #. Type: string
 #. Description
@@ -110,6 +112,10 @@ msgid ""
 "of your first hard drive, while \"/dev/hda2\" will install it to the second "
 "parrtition of your first IDE drive."
 msgstr ""
+"Das Gerät kann mit den \"(hdn)\" Bezeichnungen von GRUB oder als Gerätedatei "
+"in /dev angegeben werden. Beispielsweise wird bei \"(hd0)\" GRUB in den "
+"Master Boot Record Ihrer ersten Festplatte geschrieben. \"/dev/hda2\" wird GRUB "
+"auf die zweite Partition der ersten Festplatte installieren."
 
 #. Type: boolean
 #. Description
@@ -209,9 +215,3 @@ msgstr "Aktualisiere /etc/kernel-img.conf..."
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installiere den GRUB Bootloader auf einer Festplatte"
 
-#~ msgid ""
-#~ "The device can be specified using GRUB's \"(hdn)\" notation, or as a "
-#~ "device in /dev."
-#~ msgstr ""
-#~ "Das Gerät kann über GRUBs \"(hdn)\"-Notation oder als Gerät in /dev "
-#~ "angegeben werden."
