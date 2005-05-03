@@ -221,7 +221,7 @@ install_base_system () {
 	
 		    	if [ -x "$script" ] ; then
 				info "Running $script"
-				if ! "$script" 2>&1 $tmpfile ; then
+				if ! "$script" >"$tmpfile" 2>&1; then
 			    		log "warning: $script returned error code $?"
 				fi
 		    	else
