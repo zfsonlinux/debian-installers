@@ -4,6 +4,11 @@ base-installer (1.18) UNRELEASED; urgency=low
     - Redirect output from base-installer hooks properly.
     - Clarify and expand base-installer/debootstrap/error/couldntdl text to
       try to answer frequent problems such as badly burned CDs.
+    - Add a post-base-installation hook: scripts in
+      /usr/lib/post-base-installer.d/ will be run after the base system
+      installation is complete. This allows locales to be created earlier,
+      thereby silencing warnings from code that chroots into /target before
+      prebaseconfig runs.
 
  -- Colin Watson <cjwatson@debian.org>  Tue,  3 May 2005 18:44:17 +0100
 

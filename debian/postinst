@@ -584,6 +584,40 @@ install_extra () {
 	fi
 }
 
+post_install_hooks () {
+	partsdir="/usr/lib/post-base-installer.d"
+	if [ -d "$partsdir" ]; then
+		tmpfile=/tmp/post-base-installer-hook.log
+		info "Running post-base-installation hooks"
+		scriptcount=`ls "$partsdir"/* | wc -l`
+		scriptcur=0
+		for script in "$partsdir"/*; do
+			base="$(basename "$script" | sed 's/[0-9]*//')"
+			if ! db_progress INFO base-installer/progress/$base && \
+			   ! db_progress INFO prebaseconfig/progress/$base; then
+				db_subst base-installer/progress/fallback SCRIPT "$base"
+				db_progress INFO base-installer/progress/fallback
+			fi
+
+			if [ -x "$script" ]; then
+				info "Running $script"
+				if ! "$script" >"$tmpfile" 2>&1; then
+					log "warning: $script returned error code $?"
+				fi
+			else
+				error "Unable to execute $script"
+			fi
+			if [ -s "$tmpfile" ]; then
+				logger -t base-installer < "$tmpfile"
+				rm -f "$tmpfile"
+			fi
+
+			scriptcur="$(($scriptcur + 1))"
+			update_progress "$scriptcur" "$scriptcount"
+		done
+	fi
+}
+
 cleanup () {
 	info "Cleaning up"
 	rm -f $KERNEL_LIST
@@ -612,6 +646,7 @@ case "$ARCH" in
 	;;
 esac
 waypoint 10	install_extra
+waypoint 5	post_install_hooks
 waypoint 0	cleanup
 
 db_progress START 0 $NUM_STEPS base-installer/progress/installing-debian
