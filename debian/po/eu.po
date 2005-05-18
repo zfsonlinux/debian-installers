@@ -3,6 +3,7 @@
 #
 # DO NOT MODIFY IT DIRECTLY : SUCH CHANGES WILL BE LOST
 # 
+# translation of eu.po to 
 # translation of eu.po to lubrezale
 # Basque messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "POT-Creation-Date: 2005-02-14 03:53-0800\n"
-"PO-Revision-Date: 2004-10-01 00:08+0200\n"
-"Last-Translator: Piarres Beobide <pi@beobide.net>\n"
-"Language-Team: lubrezale <librezale@librezale.org>\n"
+"PO-Revision-Date: 2005-05-18 00:09+0200\n"
+"Last-Translator: \n"
+"Language-Team:  <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,8 +31,7 @@ msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
 msgstr ""
-"Hurrengo beste sistema eragile hauek aurkitu dira ordenagailu honetan: "
-"${OS_LIST}"
+"Beste sistema eragile hauek detektatu dira ordenagailu honetan: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -42,17 +42,17 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new Debian system."
 msgstr ""
-"Zure sistema eragile guztiak zerrendaturik badaude, ziurra da lehen diskako "
-"abiarazte erregistro nagusian (MBR) instalatzea. Zure ordenagailua "
-"abiaraztean hauetako zein sistema edo Debian sistema berria abiarazi aukera "
-"dezakezu."
+"Zure sistema eragile guztiak goiko zerrendan badaude, segurua izango "
+"litzateke abioko kargatzailea zure lehen disko gogorreko abioko erregistro "
+"maisuan instalatzea. Ordenagailua abiaraztean, sistema eragile horietako bat "
+"edo Debian sistema berria kargatzea aukera dezakezu."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
 msgstr ""
-"GRUB abiarazlea disko gogorreko abiarazte erregitro nagusian (MBR) instalatu?"
+"GRUB abioko kargatzailea abioko erregistro maisuan instalatu nahi duzu?"
 
 #. Type: boolean
 #. Description
@@ -62,9 +62,9 @@ msgid ""
 "this computer. If so, it should be safe to install the GRUB boot loader to "
 "the master boot record of your first hard drive."
 msgstr ""
-"Dirudienez Debian instalazio hau da ordanagailu honetako sistema eragile "
-"bakarra. Hala bada, ziurra da GRUB abiarazlea lehen diskako abiarazte "
-"erregistro nagusian instalatzea."
+"Debian-en instalazio hau ordenagailu honetako sistema eragile bakarra dela "
+"dirudi. Hala bada, segurua litzateke GRUB abioko kargatzailea zure lehen "
+"disko gogorreko abioko erregistro maisuan instalatzea."
 
 #. Type: boolean
 #. Description
@@ -75,10 +75,10 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
-"Oharra: Instalatzaileak zure ordenagailuan instalaturik dagoen sistema "
-"eragile batenbat atzematen ez badu, abiarazte erregistro nagusia aldatzeak "
-"sistema eragile hori momentuz abiarazi ezinik utz lezake, baina geroago GRUB "
-"eskuz konfigratu ahal izango duzu abiarazi ahal izateko."
+"Kontuz: instalatzaileak ordenagailuan dagoen beste sistema eragile bat "
+"detektatu ez badu, abioko erregistro maisua aldatzean sistema eragile hori "
+"ez abiarazteko moduan utziko du, nahiz eta gero GRUB eskuz konfiguratu ahal "
+"izango duzun hura abiarazteko."
 
 #. Type: boolean
 #. Description
@@ -92,15 +92,13 @@ msgstr "GRUB abiarazlea XFS fitxategi sisteman instalatu?"
 msgid ""
 "The GRUB bootloader installation often fails or hangs when /boot is on a XFS "
 "file system. Using LILO in this situation is recommended."
-msgstr ""
-"GRUB abiarazleak huts egin edo hizoztu egin liteke /boot XFS fitxategi "
-"sisteman badago. Egoera honetan LILO erabiltzea gomendatzen da."
+msgstr "abioa aktibatuta."
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
-msgstr "Abiarazlea instalatzeko gailua:"
+msgstr "Abioko kargatzailea instalatzeko gailua:"
 
 #. Type: string
 #. Description
@@ -112,10 +110,11 @@ msgid ""
 "prefer, you can install GRUB elsewhere on the drive, or to another drive, or "
 "even to a floppy."
 msgstr ""
-"Orain instalatu berri dezun Debian sistema abiarazgarri egiteko momentua da, "
-"Honetarako GRUB abiarazlea gailu abiarazgarri batetan ipini behar da. Hau "
-"egiteko era arruntena lehen diskako GRUB MBR-ean (abiarazte erregistro "
-"nagusia) ipintzea da."
+"Debian sistema instalatu berria abiagarri egin behar duzu, GRUB abioko "
+"kargatzailea gailu abiagarri batean instalatuz. Horretarako modurik ohikoena "
+"GRUB zure lehenengo disko gogorreko abioko erregistro maisuan instalatzea "
+"da. Nahi izanez gero, GRUB unitateko beste leku batean, beste unitate "
+"batean, edo baita diskete batean ere instala dezakezu."
 
 #. Type: string
 #. Description
@@ -132,19 +131,22 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Gailua GRUB izenematearekin \"(hdn)\" edo \"/dev\" gailu gisa ezarri "
-"daitezke. Berago adibide batzuk:  - \"(hd0)\" edo \"/dev/hda\"  GRUB zure "
-"lehen IDE diskako abiarazte erregistro nagusian instalatuko luke.\n"
-" - \"(hd0,1)\" edo \"/dev/hda2/\"-k zure lehen IDE diskako bigarren "
-"partizioa instalatuko luke.  - \"(hd2,4)\" edo \"/dev/sdc5/\"-k zure "
-"hirugarren SCSI diskako lehen partizio extendituan instalatuko luke.  - "
-"\"(fd0)\" edo \"/dev/fd0\" lehen diskete gailuan  instalatuko luke. "
+"Gailua GRUBen \"(hdn,m)\" notazioa erabiliz edo /dev-eko gailu baten gisa "
+"zehatz dezakezu. Hona hemen adibide batzuk:\n"
+" - \"(hd0)\"k edo \"/dev/hda\"k lehen disko gogorreko (IDE) abioko\n"
+"   erregistro maisuan instalatuko du GRUB;\n"
+" - \"(hd0,1)\"ek edo \"/dev/hda2\"k zure lehen IDE unitateko bigarren\n"
+"   partizioa erabiliko du;\n"
+" - \"(hd2,4)\"k edo \"/dev/sdc5\"ek zure hirugarren unitateko lehen\n"
+"   partizio hedatua\n"
+"   erabiliko du (hemen SCSI);\n"
+" - \"(fd0)\"-k edo \"/dev/fd0\"k GRUB diskete batean instalatuko du."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:55
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "GRUB instalazioak huts egin du. Jarraitu?"
+msgstr "Ezin izan da GRUB instalatu. Jarraitu egin nahi duzu hala ere?"
 
 #. Type: boolean
 #. Description
@@ -154,21 +156,21 @@ msgid ""
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"Huts GRUB paketea /target/-en instalatzerakoan. GRUB abiarazle bezala "
-"instalatzea beharreko pausu bat da. Instalazio arazoak ziurrenik ez du GRUB-"
-"ekin zerikuzirik, beraz instalazioarekin aurrera jarraitzea posible da."
+"Ezin izan da grub paketea /target/en instalatu. GRUB abioko kargatzaile gisa "
+"instalatzea ezinbesteko urratsa da. Instalatzeko arazoa, ordea, baliteke "
+"GRUBekin lotuta ez egotea; beraz, agian instalatzen jarrai dezakezu."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:62
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "Ezin da GRUB  ${BOOTDEV}-n instalatu"
+msgstr "Ezin da GRUB ${BOOTDEV}(e)n instalatu"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:62
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "Huts 'grub-install ${BOOTDEV}' exekutatzean."
+msgstr "Ezin izan da 'grub-install ${BOOTDEV}' exekutatu."
 
 #. Type: error
 #. Description
@@ -180,25 +182,25 @@ msgstr "Ezin da GRUB konfiguratu"
 #. Description
 #: ../grub-installer.templates:69
 msgid "Executing 'update-grub' failed."
-msgstr "Huts 'update-grub'  abiarazterakoan."
+msgstr "Ezin izan da 'update-grub' exekutatu."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:69
 msgid "This is a fatal error."
-msgstr "Hau errore konponezin bat da."
+msgstr "Hau errore larria da."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:76
 msgid "Installing GRUB boot loader"
-msgstr "GRUB abiarazlea instalatzen"
+msgstr "GRUB abioko kargatzailea instalatzen"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:80
 msgid "Looking for other operating systems..."
-msgstr "Beste Sistema eragileen bila..."
+msgstr "Beste sistema eragileak bilatzen..."
 
 #. Type: text
 #. Description
@@ -210,19 +212,19 @@ msgstr "'grub' paketea instalatzen..."
 #. Description
 #: ../grub-installer.templates:88
 msgid "Determining GRUB boot device..."
-msgstr "GRUB abiarazte gailua finkatzen..."
+msgstr "GRUB abioko gailua zehazten..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:92
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "\"grub-install ${BOOTDEV}\" abiarazten..."
+msgstr "\"grub-install ${BOOTDEV}\" exekutatzen..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:96
 msgid "Running \"update-grub\"..."
-msgstr " \"update-grub\"abiarazten..."
+msgstr "\"update-grub\" exekutatzen..."
 
 #. Type: text
 #. Description
@@ -235,4 +237,4 @@ msgstr "/etc/kernel-img.conf eguneratzen..."
 #. Main menu item
 #: ../grub-installer.templates:105
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "GRUB abiarazlea disko gogorrean instalatu"
+msgstr "Instalatu GRUB abioko kargatzailea disko gogorrean"
