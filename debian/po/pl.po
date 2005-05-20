@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"POT-Creation-Date: 2005-02-14 03:53-0800\n"
-"PO-Revision-Date: 2004-11-09 09:25+0100\n"
+"POT-Creation-Date: 2005-05-20 09:29-0600\n"
+"PO-Revision-Date: 2005-05-13 18:07+0100\n"
 "Last-Translator: Dominik Zablotny <dominz@wp.pl>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
 "MIME-Version: 1.0\n"
@@ -142,15 +142,40 @@ msgstr ""
 "   trzeciego dysku (SCSI);\n"
 " - \"(fd0)\" lub \"/dev/fd0\" zainstaluje GRUBa na dyskietce."
 
+#. Type: password
+#. Description
+#: ../grub-installer.templates:54
+msgid "Enter a GRUB password:"
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../grub-installer.templates:54
+msgid ""
+"The GRUB boot loader offers many powerful interactive features, which could "
+"be used to compromise your system if unauthorized users have access to the "
+"machine when it is starting up. To defend against this, you may choose a "
+"password which will be required before editing menu entries or entering the "
+"GRUB command-line interface. By default, any user will still be able to "
+"start any menu entry without entering the password."
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../grub-installer.templates:54
+#, fuzzy
+msgid "If you do not wish to set a GRUB password, leave this field blank."
+msgstr "Je¶li nie wiesz co wpisaæ, zostaw puste miejsce."
+
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:55
+#: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Instalacja GRUBa nie powiod³a siê. Kontynuowaæ mimo tego?"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:55
+#: ../grub-installer.templates:73
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -162,79 +187,79 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Nie mo¿na zainstalowaæ GRUBa w ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:80
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Uruchomienie 'grub install ${BOOTDEV}' nie powiod³o siê."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:69
+#: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
 msgstr "Nie mo¿na skonfigurowaæ GRUBa"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:69
+#: ../grub-installer.templates:87
 msgid "Executing 'update-grub' failed."
 msgstr "Uruchomienie 'update-grub' nie powiod³o siê."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:69
+#: ../grub-installer.templates:87
 msgid "This is a fatal error."
 msgstr "B³±d krytyczny."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:76
+#: ../grub-installer.templates:94
 msgid "Installing GRUB boot loader"
 msgstr "Instalacja programu uruchomieniowego GRUB."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:80
+#: ../grub-installer.templates:98
 msgid "Looking for other operating systems..."
 msgstr "Poszukiwanie innych systemów operacyjnych..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:84
+#: ../grub-installer.templates:102
 msgid "Installing the 'grub' package..."
 msgstr "Instalowanie pakiety 'grub'..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:88
+#: ../grub-installer.templates:106
 msgid "Determining GRUB boot device..."
 msgstr "Ustalanie urz±dzenia uruchomieniowego GRUB..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:92
+#: ../grub-installer.templates:110
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Uruchamianie \"grub install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:96
+#: ../grub-installer.templates:114
 msgid "Running \"update-grub\"..."
 msgstr "Uruchamianie \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:100
+#: ../grub-installer.templates:118
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Aktualizacja /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:105
+#: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Zainstaluj program uruchomieniowy GRUB na dysku twardym"

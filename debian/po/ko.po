@@ -10,8 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"POT-Creation-Date: 2005-02-14 03:53-0800\n"
-"PO-Revision-Date: 2004-09-30 22:56+0900\n"
+"POT-Creation-Date: 2005-05-20 09:29-0600\n"
+"PO-Revision-Date: 2005-04-18 03:11+0900\n"
 "Last-Translator:  Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team:  Korean <cwryu@debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -138,15 +138,40 @@ msgstr ""
 "   설치합니다.\n"
 " - \"(fd0)\" 혹은 \"/dev/fd0\"는 GRUB을 플로피에 설치합니다."
 
+#. Type: password
+#. Description
+#: ../grub-installer.templates:54
+msgid "Enter a GRUB password:"
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../grub-installer.templates:54
+msgid ""
+"The GRUB boot loader offers many powerful interactive features, which could "
+"be used to compromise your system if unauthorized users have access to the "
+"machine when it is starting up. To defend against this, you may choose a "
+"password which will be required before editing menu entries or entering the "
+"GRUB command-line interface. By default, any user will still be able to "
+"start any menu entry without entering the password."
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../grub-installer.templates:54
+#, fuzzy
+msgid "If you do not wish to set a GRUB password, leave this field blank."
+msgstr "뭘 입력해야 할 지 모르겠다면 비워 두십시오."
+
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:55
+#: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "GRUB 설치가 실패했습니다.  그래도 계속 하시겠습니까?"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:55
+#: ../grub-installer.templates:73
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -158,79 +183,79 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "GRUB을 ${BOOTDEV}에 설치할 수 없습니다"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:80
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "'grub-install ${BOOTDEV}' 실행이 실패했습니다."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:69
+#: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
 msgstr "GRUB을 설정할 수 없습니다"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:69
+#: ../grub-installer.templates:87
 msgid "Executing 'update-grub' failed."
 msgstr "'update-grub' 실행이 실패했습니다."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:69
+#: ../grub-installer.templates:87
 msgid "This is a fatal error."
 msgstr "치명적인 오류입니다."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:76
+#: ../grub-installer.templates:94
 msgid "Installing GRUB boot loader"
 msgstr "GRUB 부트 로더 설치"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:80
+#: ../grub-installer.templates:98
 msgid "Looking for other operating systems..."
 msgstr "다른 운영 체제가 있는지 검사하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:84
+#: ../grub-installer.templates:102
 msgid "Installing the 'grub' package..."
 msgstr "'grub' 꾸러미를 설치하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:88
+#: ../grub-installer.templates:106
 msgid "Determining GRUB boot device..."
 msgstr "GRUB 부트 장치를 결정하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:92
+#: ../grub-installer.templates:110
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "\"grub-install ${BOOTDEV}\" 실행 중입니다..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:96
+#: ../grub-installer.templates:114
 msgid "Running \"update-grub\"..."
 msgstr "\"update-grub\" 실행 중입니다..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:100
+#: ../grub-installer.templates:118
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "/etc/kernel-img.conf 업데이트 중입니다..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:105
+#: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "GRUB 부트로더를 하드 디스크에 설치"

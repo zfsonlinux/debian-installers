@@ -10,8 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"POT-Creation-Date: 2005-02-14 03:53-0800\n"
-"PO-Revision-Date: 2005-01-28 23:55+0000\n"
+"POT-Creation-Date: 2005-05-20 09:29-0600\n"
+"PO-Revision-Date: 2005-03-08 07:46+0000\n"
 "Last-Translator: Dafydd Harries <daf@muse.19inch.net>\n"
 "Language-Team: Welsh <daf@muse.19inch.net>\n"
 "MIME-Version: 1.0\n"
@@ -137,15 +137,40 @@ msgstr ""
 "   eich trydydd disgen (SCSI yma);\n"
 " - bydd \"(fd0)\" neu \"/dev/fd0\" yn sefydlu GRUB ar ddisgen hyblyg."
 
+#. Type: password
+#. Description
+#: ../grub-installer.templates:54
+msgid "Enter a GRUB password:"
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../grub-installer.templates:54
+msgid ""
+"The GRUB boot loader offers many powerful interactive features, which could "
+"be used to compromise your system if unauthorized users have access to the "
+"machine when it is starting up. To defend against this, you may choose a "
+"password which will be required before editing menu entries or entering the "
+"GRUB command-line interface. By default, any user will still be able to "
+"start any menu entry without entering the password."
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../grub-installer.templates:54
+#, fuzzy
+msgid "If you do not wish to set a GRUB password, leave this field blank."
+msgstr "Os nad ydych chi'n gwybod beth i'w rhoi, gadewch e'n wag"
+
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:55
+#: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Methodd sefydliad GRUB. Mynd ymlaen fodd bynnag?"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:55
+#: ../grub-installer.templates:73
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -157,79 +182,79 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Methywd sefydlu GRUB yn ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:80
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Methwyd rhedeg 'grub-install ${BOOTDEV}'."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:69
+#: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
 msgstr "Methwyd cyflunio GRUB"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:69
+#: ../grub-installer.templates:87
 msgid "Executing 'update-grub' failed."
 msgstr "Methwyd rhedeg 'update-grub'."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:69
+#: ../grub-installer.templates:87
 msgid "This is a fatal error."
 msgstr "Mae hyn yn wall marwol."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:76
+#: ../grub-installer.templates:94
 msgid "Installing GRUB boot loader"
 msgstr "Sefydlu'r bŵtlwythydd GRUB"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:80
+#: ../grub-installer.templates:98
 msgid "Looking for other operating systems..."
 msgstr "Yn chwilio am systemau gweithredu eraill..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:84
+#: ../grub-installer.templates:102
 msgid "Installing the 'grub' package..."
 msgstr "Yn sefydlu'r pecyn 'grub'..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:88
+#: ../grub-installer.templates:106
 msgid "Determining GRUB boot device..."
 msgstr "Yn dehongli dyfais bŵt GRUB..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:92
+#: ../grub-installer.templates:110
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Yn rhedeg \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:96
+#: ../grub-installer.templates:114
 msgid "Running \"update-grub\"..."
 msgstr "Yn rhedeg \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:100
+#: ../grub-installer.templates:118
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Yn diweddaru /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:105
+#: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Sefydlu'r bŵtlwythydd GRUB ar ddisgen galed"

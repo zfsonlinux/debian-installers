@@ -10,8 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"POT-Creation-Date: 2005-02-14 03:53-0800\n"
-"PO-Revision-Date: 2004-10-26 08:55+0200\n"
+"POT-Creation-Date: 2005-05-20 09:29-0600\n"
+"PO-Revision-Date: 2005-02-20 00:17+0100\n"
 "Last-Translator: Jure Čuhalev <gandalf@owca.info>\n"
 "Language-Team:  LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -139,15 +139,40 @@ msgstr ""
 "   tretje enote (tukaj SCSI);\n"
 " - \"(fd0)\" ali \"/dev/fd0\" bo namestil GRUB na disketo."
 
+#. Type: password
+#. Description
+#: ../grub-installer.templates:54
+msgid "Enter a GRUB password:"
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../grub-installer.templates:54
+msgid ""
+"The GRUB boot loader offers many powerful interactive features, which could "
+"be used to compromise your system if unauthorized users have access to the "
+"machine when it is starting up. To defend against this, you may choose a "
+"password which will be required before editing menu entries or entering the "
+"GRUB command-line interface. By default, any user will still be able to "
+"start any menu entry without entering the password."
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../grub-installer.templates:54
+#, fuzzy
+msgid "If you do not wish to set a GRUB password, leave this field blank."
+msgstr "Če ne veste kaj vnesti, ne vnesite ničesar."
+
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:55
+#: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "GRUB namestitev ni uspela. Naj vseeno nadaljujem?"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:55
+#: ../grub-installer.templates:73
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -160,79 +185,79 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Grub ne morem namestiti v ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:62
+#: ../grub-installer.templates:80
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Izvajanje 'grub-install ${BOOTDEV}' ni uspelo."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:69
+#: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
 msgstr "Ne morem nastaviti GRUB"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:69
+#: ../grub-installer.templates:87
 msgid "Executing 'update-grub' failed."
 msgstr "Izvajanje 'update-grub' nu uspelo.·"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:69
+#: ../grub-installer.templates:87
 msgid "This is a fatal error."
 msgstr "To je usodna napaka."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:76
+#: ../grub-installer.templates:94
 msgid "Installing GRUB boot loader"
 msgstr "Nameščam zagonski nalagalnik GRUB"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:80
+#: ../grub-installer.templates:98
 msgid "Looking for other operating systems..."
 msgstr "Iščem ostale operacijske sisteme..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:84
+#: ../grub-installer.templates:102
 msgid "Installing the 'grub' package..."
 msgstr "Nameščam paket 'grub'..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:88
+#: ../grub-installer.templates:106
 msgid "Determining GRUB boot device..."
 msgstr "Iščem zagonsko napravo GRUB..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:92
+#: ../grub-installer.templates:110
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Poganjam \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:96
+#: ../grub-installer.templates:114
 msgid "Running \"update-grub\"..."
 msgstr "Poganjam \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:100
+#: ../grub-installer.templates:118
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Posodabljam /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:105
+#: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Namesti sistemski zaganjalnik GRUB na trdi disk"
