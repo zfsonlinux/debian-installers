@@ -11,6 +11,10 @@ grub-installer (1.08) UNRELEASED; urgency=low
       default in d-i.
   * Matt Kraai
     - Fix the spelling of "file system".
+  * Colin Watson
+    - DOS/Windows can't deal with booting from a non-first hard drive, so,
+      if we're asked to install to hd* other than hd0, include suitable
+      'map' commands when chain-loading DOS or Windows (closes: #269351).
 
  -- Joey Hess <joeyh@debian.org>  Sun,  2 Jan 2005 17:08:25 -0500
 

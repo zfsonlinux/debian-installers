@@ -397,6 +397,7 @@ IFS="$newline"
 for os in $(cat /tmp/os-probed); do
 	IFS="$OLDIFS"
 	title=$(echo "$os" | cut -d: -f2)
+	shortname=$(echo "$os" | cut -d: -f3)
 	type=$(echo "$os" | cut -d: -f4)
 	case "$type" in
 		chain)
@@ -418,6 +419,22 @@ EOF
 makeactive
 EOF
 				fi
+				# DOS/Windows can't deal with booting from a
+				# non-first hard drive.
+				case $shortname in
+					MS*|Win*)
+						grubdisk="$(echo "$grubdrive" | sed 's/^(//; s/)$//; s/,.*//')"
+						case $grubdisk in
+							hd0)	;;
+							hd*)
+								cat >> $tmpfile <<EOF
+map		(hd0) ($grubdisk)
+map		($grubdisk) (hd0)
+EOF
+								;;
+						esac
+						;;
+				esac
 				cat >> $tmpfile <<EOF
 chainloader	+1
 
