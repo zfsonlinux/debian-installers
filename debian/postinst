@@ -381,6 +381,34 @@ db_progress INFO grub-installer/progress/step_config_loader
 rm -f /target/boot/grub/menu.lst
 update_grub
 
+# Set up a password if asked.
+db_input low grub-installer/password || true
+if ! db_go; then
+	# back up to menu
+	db_progress STOP
+	exit 10
+fi
+db_get grub-installer/password
+if [ "$RET" ]; then
+	password="$RET"
+	# check if the password is crypted
+	db_get grub-installer/password-crypted
+	if [ "$RET" = true ]; then
+		password_opts=--md5
+	fi
+	echo "password ${password_opts:+$password_opts }$password" \
+		> /tmp/menu.lst.password
+	# Add a line to menu.lst to use the given password
+	# The line is appended after the commented example
+	sed '/^# password/r /tmp/menu.lst.password' \
+		< /target/boot/grub/menu.lst > /target/boot/grub/menu.lst.new
+	mv /target/boot/grub/menu.lst.new /target/boot/grub/menu.lst
+	# By default, menu.lst is world-readable, which is not so good if it
+	# contains a password.
+	chmod o-r /target/boot/grub/menu.lst
+	rm -f /tmp/menu.lst.password
+fi 
+
 user_params=$(echo $(user-params)) || true
 if [ -n "$user_params" ]; then
 	# Modify menu.lst to include user parameters.
