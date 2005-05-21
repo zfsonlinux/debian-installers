@@ -31,8 +31,7 @@ export DEBCONF_ADMIN_EMAIL
 PB_POSITION=0
 PB_WAYPOINT_LENGTH=0
 
-db_get debian-installer/kernel/subarchitecture
-SUBARCH="$RET"
+SUBARCH="${$(archdetect)#*/}"
 
 log() {
 	logger -t base-installer "$@"
