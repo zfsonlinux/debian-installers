@@ -175,6 +175,26 @@ Template: base-installer/debootstrap/section/instbase
 Type: text
 _Description: Installing the base system
 
+Template: base-installer/debootstrap/section/instcore
+Type: text
+_Description: Installing core packages
+
+Template: base-installer/debootstrap/section/unpackreq
+Type: text
+_Description: Unpacking required packages
+
+Template: base-installer/debootstrap/section/confreq
+Type: text
+_Description: Configuring required packages
+
+Template: base-installer/debootstrap/section/unpackbase
+Type: text
+_Description: Unpacking the base system
+
+Template: base-installer/debootstrap/section/confbase
+Type: text
+_Description: Configuring the base system
+
 Template: base-installer/debootstrap/fallback-info
 Type: text
 _Description: ${SECTION}: ${INFO}...
@@ -190,6 +210,14 @@ _Description: Retrieving ${SUBST0}...
 Template: base-installer/debootstrap/info/extracting
 Type: text
 _Description: Extracting ${SUBST0}...
+
+Template: base-installer/debootstrap/info/unpacking
+Type: text
+_Description: Unpacking ${SUBST0}...
+
+Template: base-installer/debootstrap/info/configuring
+Type: text
+_Description: Configuring ${SUBST0}...
 
 Template: base-installer/debootstrap/info/checkingsize
 Type: text
@@ -210,6 +238,14 @@ _Description: Configuring required packages...
 Template: base-installer/debootstrap/info/instbase
 Type: text
 _Description: Installing base packages...
+
+Template: base-installer/debootstrap/info/unpackbase
+Type: text
+_Description: Unpacking the base system...
+
+Template: base-installer/debootstrap/info/confbase
+Type: text
+_Description: Configuring the base system...
 
 Template: base-installer/debootstrap/info/basesuccess
 Type: text
