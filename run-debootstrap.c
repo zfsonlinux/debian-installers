@@ -113,17 +113,13 @@ find_template(const char *prefix, char *code)
 void set_progress (int current_section, int phigh, int plow) {
     float section_fraction;
     int section_span, prev_waypoint, percent;
-	
+
+    prev_waypoint = waypoints[current_section].startpercent;
     if (current_section > 0)
-    {
-        prev_waypoint = waypoints[current_section - 1].endpercent;
         section_span = waypoints[current_section].endpercent - prev_waypoint;
-    }
-    else {
-        prev_waypoint = 0;
+    else
         section_span = 0;
-    }
-			
+
     if (phigh > 0)
         section_fraction = (float) plow / (float) phigh;
     else
