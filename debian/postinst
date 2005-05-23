@@ -431,6 +431,21 @@ pick_kernel () {
 	db_set base-installer/kernel/image "$KERNEL"
 }
 
+get_resume_partition () {
+	biggest_size=0
+	biggest_partition=
+	while read filename type size other; do
+		if [ "$type" != partition ]; then
+			continue
+		fi
+		if [ "$size" -gt "$biggest_size" ]; then
+			biggest_size="$size"
+			biggest_partition="$filename"
+		fi
+	done < /proc/swaps
+	echo "$biggest_partition"
+}
+
 install_kernel () {
 	target_kernel_major="$(echo "$KERNEL" | sed 's/^kernel-image-//; s/-.*//' | cut -d . -f 1,2)"
 	case $target_kernel_major in
@@ -501,6 +516,13 @@ EOF
 		rootpartfs=$(mount | grep "on /target " | cut -d' ' -f5)
 		rootpart=$(mapdevfs $rootpart_devfs)
 
+		resume_devfs="$(get_resume_partition)" || resume_devfs=
+		if [ "$resume_devfs" ] && [ -e "$resume_devfs" ]; then
+			resume="$(mapdevfs "$resume_devfs")" || resume=
+		else
+			resume=
+		fi
+
 		# Avoid possible root shell without giving passord while
 		# booting the 2.4 kernel
 		# This is here for back-compatability with woody's 
@@ -509,9 +531,16 @@ EOF
 		if [ -f $mkinitrdconf ] ; then
 			sed -e 's/^DELAY=.*/DELAY=0/' -e "s#^ROOT=.*#ROOT='$rootpart $rootpartfs'#" < $mkinitrdconf > $mkinitrdconf.new &&
 				mv $mkinitrdconf.new  $mkinitrdconf
+			if [ "$resume" ]; then
+				sed -e "s@^#* *RESUME=.*@RESUME=$resume@" < $mkinitrdconf > $mkinitrdconf.new &&
+					mv $mkinitrdconf.new $mkinitrdconf
+			fi
 		else
 			echo 'DELAY=0' >> $mkinitrdconf
 			echo "ROOT='$rootpart $rootpartfs'" >> $mkinitrdconf
+			if [ "$resume" ]; then
+				echo "RESUME=$resume" >> $mkinitrdconf
+			fi
 		fi
 	else
 		info "Not installing initrd-tools."

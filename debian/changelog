@@ -15,6 +15,8 @@ base-installer (1.18) UNRELEASED; urgency=low
       debootstrap.
     - Add necessary waypoints and strings to cope with the debootstrap
       granularity patch (#244563).
+    - Work out the largest swap partition, if any, and use its devfs-mapped
+      name as the value of RESUME= in /etc/mkinitrd/mkinitrd.conf.
   * Joey Hess
     - Call archdetect command instead of using template to get subarch.
 
