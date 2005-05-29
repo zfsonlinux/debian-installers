@@ -31,7 +31,8 @@ export DEBCONF_ADMIN_EMAIL
 PB_POSITION=0
 PB_WAYPOINT_LENGTH=0
 
-SUBARCH="${$(archdetect)#*/}"
+SUBARCH="$(archdetect)"
+SUBARCH="${SUBARCH#*/}"
 
 log() {
 	logger -t base-installer "$@"
