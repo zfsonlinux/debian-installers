@@ -16,6 +16,7 @@
 
 volatile int child_exit = 0;
 struct debconfclient *debconf = NULL;
+int progress_start_position = 0;
 
 static void
 sig_child(int sig)
@@ -106,6 +107,14 @@ find_template(const char *prefix, char *code)
     }
 }
 
+int get_progress_start_position (void) {
+    const char *progress_env = getenv("PB_PROGRESS");
+    if (progress_env)
+        return atoi(progress_env);
+    else
+        return 0;
+}
+
 /* Calculate progress bar location, starting at
  * previous waypoint, and advancing the percent of
  * the current section that corresponds to the percent
@@ -136,7 +145,7 @@ void set_progress (int current_section, int phigh, int plow) {
             section_fraction, plow, phigh, percent);
 #endif
 
-    debconf_progress_set(debconf, percent);
+    debconf_progress_set(debconf, progress_start_position + percent);
 }
 
 /*
@@ -192,6 +201,8 @@ exec_debootstrap(char **argv){
     }
 
     signal(SIGCHLD, &sig_child);
+
+    progress_start_position = get_progress_start_position();
 
     close(from_db[1]);
 
