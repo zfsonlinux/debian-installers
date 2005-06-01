@@ -318,6 +318,10 @@ create_devices () {
 		chroot /target vgscan --mknodes || true
 		umount /target/proc
 	fi
+	# UML: create ubd devices
+	if grep -q "model.*UML" /proc/cpuinfo; then
+		chroot /target /bin/sh -c '(cd /dev; ./MAKEDEV ubd)'
+	fi
 }
 
 # Test whether a kernel is usable at all. For the purposes of this test, we
