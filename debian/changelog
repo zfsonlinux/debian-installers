@@ -6,6 +6,8 @@ base-installer (1.19) UNRELEASED; urgency=low
     - In templates, say "install the base system" rather than "install
       Debian", and "the base system" rather than "the Debian base system",
       to help with derivative distribution branding.
+    - Make apt-get use gpgv --ignore-time-conflict to avoid validation
+      errors with apt 0.6 due to clock problems (Ubuntu #8496).
   * Matt Zimmerman
     - Create ubd devices in create_devices() if installing under UML
       (closes: #258307).

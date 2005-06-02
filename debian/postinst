@@ -586,7 +586,7 @@ install_pcmcia_modules () {
 }
 
 apt_update () {
-	chroot /target apt-get update >> $LOGFILE 2>&1 || apt_update_failed=$?
+	chroot /target apt-get -o Acquire::gpgv::Options::=--ignore-time-conflict update >> $LOGFILE 2>&1 || apt_update_failed=$?
 	
 	if [ "$apt_update_failed" ]; then
 		warning "apt update failed: $apt_update_failed"
