@@ -1,3 +1,15 @@
+base-installer (1.20) UNRELEASED; urgency=low
+
+  * dann frazier
+    - Update arch_get_kernel_flavour() for ia64 so that it keys off of
+      processor features instead of the family string.  This method should
+      remain relatively static as new processors (and new kernels that
+      can properly identify them) come out.  Specifically, use the mckinley
+      flavor for any processor that supports the branchlong feature.  Only
+      Itanium I chips do not support it.
+
+ -- dann frazier <dannf@debian.org>  Fri, 10 Jun 2005 14:27:12 -0600
+
 base-installer (1.19) unstable; urgency=low
 
   * Colin Watson

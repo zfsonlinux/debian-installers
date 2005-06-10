@@ -1,5 +1,5 @@
 arch_get_kernel_flavour () {
-	if grep -q 'Itanium 2' "$CPUINFO"; then
+	if grep '^features' "$CPUINFO" | grep -q branchlong; then
 		echo mckinley
 	else
 		echo itanium
