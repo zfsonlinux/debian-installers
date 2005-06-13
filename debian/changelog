@@ -7,6 +7,10 @@ base-installer (1.20) UNRELEASED; urgency=low
       can properly identify them) come out.  Specifically, use the mckinley
       flavor for any processor that supports the branchlong feature.  Only
       Itanium I chips do not support it.
+  * Joey Hess
+    - debootstrap (0.3.1) logs to /var/log/bootstrap.log in the target,
+      so change debconf messages about log files to point to here. No
+      provision is made for putting that log onto a virtual console.
 
  -- dann frazier <dannf@debian.org>  Fri, 10 Jun 2005 14:27:12 -0600
 
