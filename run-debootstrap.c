@@ -260,8 +260,14 @@ exec_debootstrap(char **argv){
                     }
                     return -1;
                 }
-            case 'W':  /* FIXME */
+            case 'W':
                 {
+                    ptr += 3;
+                    /* ptr now contains the identifier of the warning */
+                    template = find_template("warning", ptr);
+
+                    /* fprintf(stderr, "warning template: %s\n", template); */
+		    
                     args = read_arg_lines("WA: ", ifp, &arg_count, &line,
 					  &llen);
                     if (args == NULL)
@@ -269,19 +275,37 @@ exec_debootstrap(char **argv){
                         child_exit = 1;
                         break;
                     }
-		    
-                    if (strstr(line, "WF: ") == line)
+                    if (template != NULL)
+                    {
+			/* It's hard to choose whether to display a warning
+			 * as an error/informational template or as a
+			 * progress item. Currently a progress item seems
+			 * to fit best with how debootstrap uses warnings
+			 * that we care about. */
+                        n_subst(template, arg_count, args);
+                        debconf_progress_info(debconf, template);
+                    }
+                    else if (strstr(line, "WF:") == line)
                     {
                         ptr = n_sprintf(line+4, arg_count, args);
                         if (ptr == NULL)
                             return -1;
-
-                        di_log(DI_LOG_LEVEL_OUTPUT, ptr);
-		    } else {
+                        /* fallback warning message */
+                        debconf_subst(debconf, DEBCONF_BASE "fallback-warning",
+				      "INFO", ptr);
+			debconf_subst(debconf, DEBCONF_BASE "fallback-warning",
+			              "SECTION", section_text);
+                        debconf_progress_info(debconf,
+					      DEBCONF_BASE "fallback-warning");
+                        free(ptr);
+                    }
+                    else
+                    {
                         /* err, don't really know what to do here... there
                          * should always be a fallback... */
                     }
-                    break;
+
+		    break;
                 }
             case 'P':
                 {
@@ -385,6 +409,8 @@ exec_debootstrap(char **argv){
                         /* err, don't really know what to do here... there
                          * should always be a fallback... */
                     }
+
+		    break;
                 }
         }
 

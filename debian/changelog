@@ -21,6 +21,12 @@ base-installer (1.20) UNRELEASED; urgency=low
     - Add error templates for nogetrelsig and unknownrelsig.
     - Remove debootstrap template for check_target and checkingsize,
       which are not used by debootstrap 0.3.1 anymore.
+    - Improve run-debootstrap's warning handling, display warning on progress
+      bar. However, this is untested, since debootstrap's warning code is
+      a bit broken (bug filed).
+    - Add warning template for the only currently useful warning, for retrying
+      a failed download.
+    - Build run-debootstrap with -Os and -fomit-frame-pointer.
 
  -- dann frazier <dannf@debian.org>  Fri, 10 Jun 2005 14:27:12 -0600
 

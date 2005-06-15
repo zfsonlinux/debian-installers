@@ -3,6 +3,8 @@ CFLAGS = -Wall -g -D_GNU_SOURCE
 
 ifdef DEBUG
 CFLAGS:=$(CFLAGS) -g3
+else
+CFLAGS:=$(CFLAGS) -Os -fomit-frame-pointer
 endif
 
 $(BIN): run-debootstrap.c
