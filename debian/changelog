@@ -11,6 +11,16 @@ base-installer (1.20) UNRELEASED; urgency=low
     - debootstrap (0.3.1) logs to /var/log/bootstrap.log in the target,
       so change debconf messages about log files to point to here. No
       provision is made for putting that log onto a virtual console.
+    - Added progress and info templates for new debootstrap for downrelsig,
+      downmainpkgs, releasesig, validrelsig, resolvebase, resolvereq,
+      and checkingsizes. Did not bother with newbase, newrequired, and
+      redundantbase since they're more like debugging messages.
+    - Remove error template for notpredl, unknownloc, and interrupted, since
+      these are internal errors that should not happen normally (and there
+      are many other internal errors we do not translate).
+    - Add error templates for nogetrelsig and unknownrelsig.
+    - Remove debootstrap template for check_target and checkingsize,
+      which are not used by debootstrap 0.3.1 anymore.
 
  -- dann frazier <dannf@debian.org>  Fri, 10 Jun 2005 14:27:12 -0600
 

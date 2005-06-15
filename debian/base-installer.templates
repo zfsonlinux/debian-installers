@@ -96,20 +96,20 @@ _Description: Unable to install initrd-tools
  .
  Check /target/var/log/bootstrap.log for the details.
 
-Template: base-installer/debootstrap/error/notpredl
-Type: error
-_Description: Debootstrap Error
- ${SUBST0} was not pre-downloaded.
-
-Template: base-installer/debootstrap/error/unknownloc
-Type: error
-_Description: Debootstrap Error
- Unknown location ${SUBST0}.
-
 Template: base-installer/debootstrap/error/nogetrel
 Type: error
 _Description: Debootstrap Error
  Failed getting Release file ${SUBST0}.
+
+Template: base-installer/debootstrap/error/nogetrelsig
+Type: error
+_Description: Debootstrap Error
+ Failed getting Release signature file ${SUBST0}.
+
+Template: base-installer/debootstrap/error/unknownrelsig
+Type: error
+_Description: Debootstrap Error
+ Release signed by unknown key (key id ${SUBST0})
 
 Template: base-installer/debootstrap/error/invalidrel
 Type: error
@@ -130,11 +130,6 @@ _Description: Debootstrap Error
  If you are installing from CD-R or CD-RW, burning the CD at a lower
  speed may help.
 
-Template: base-installer/debootstrap/error/interrupted
-Type: error
-_Description: Debootstrap Error
- Interrupt caught... Exiting.
-
 Template: base-installer/progress/installing-debian
 Type: text
 _Description: Installing the base system
@@ -147,13 +142,13 @@ Template: base-installer/progress/fallback
 Type: text
 _Description: Running ${SCRIPT}...
 
-Template: base-installer/debootstrap/section/check_target
-Type: text
-_Description: Checking the target file system
-
 Template: base-installer/debootstrap/section/downrel
 Type: text
 _Description: Retrieving Release file
+
+Template: base-installer/debootstrap/progress/downrelsig
+Type: text
+_Description: Retrieving Release file signature
 
 Template: base-installer/debootstrap/section/sizedebs
 Type: text
@@ -162,6 +157,10 @@ _Description: Finding package sizes
 Template: base-installer/debootstrap/section/downpkgs
 Type: text
 _Description: Retrieving Packages files
+
+Template: base-installer/debootstrap/section/downmainpkgs
+Type: text
+_Description: Retrieving Packages file
 
 Template: base-installer/debootstrap/section/downdebs
 Type: text
@@ -219,9 +218,25 @@ Template: base-installer/debootstrap/info/configuring
 Type: text
 _Description: Configuring ${SUBST0}...
 
-Template: base-installer/debootstrap/info/checkingsize
+Template: base-installer/debootstrap/info/releasesig
 Type: text
-_Description: Checking package size: ${SUBST0}...
+_Description: Checking Release signature
+
+Template: base-installer/debootstrap/info/validrelsig
+Type: text
+_Description: Valid Release signature (key id ${SUBST0})
+
+Template: base-installer/debootstrap/info/resolvebase
+Type: text
+_Description: Resolving dependencies of base packages...
+
+Template: base-installer/debootstrap/info/resolvereq
+Type: text
+_Description: Resolving dependencies of required packages...
+
+Template: base-installer/debootstrap/info/checkingsizes
+Type: text
+_Description: "Checking component ${SUBST0} on ${SUBST1}..."
 
 Template: base-installer/debootstrap/info/instcore
 Type: text
