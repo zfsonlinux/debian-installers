@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"POT-Creation-Date: 2005-06-13 18:28-0600\n"
+"POT-Creation-Date: 2005-06-15 18:28-0600\n"
 "PO-Revision-Date: 2005-06-15 15:55+0200\n"
 "Last-Translator: Claus Hindsgaul <claus_h@image.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -240,20 +240,21 @@ msgstr "Se /target/var/log/bootstrap.log for detaljer."
 #. Type: error
 #. Description
 #: ../base-installer.templates:101
-msgid "${SUBST0} was not pre-downloaded."
-msgstr "${SUBST0} blev ikke hentet i forvejen."
+msgid "Failed getting Release file ${SUBST0}."
+msgstr "Kunne ikke hente Release-filen ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:106
-msgid "Unknown location ${SUBST0}."
-msgstr "${SUBST0} er en ukendt placering."
+#, fuzzy
+msgid "Failed getting Release signature file ${SUBST0}."
+msgstr "Kunne ikke hente Release-filen ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:111
-msgid "Failed getting Release file ${SUBST0}."
-msgstr "Kunne ikke hente Release-filen ${SUBST0}."
+msgid "Release signed by unknown key (key id ${SUBST0})"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -266,6 +267,12 @@ msgstr "Ugyldig Release-fil; ingen gyldige komponenter."
 #: ../base-installer.templates:121
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Ugyldig Release-fil; ingen forekomst af ${SUBST0}."
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:126
+msgid "Debootstrap Error"
+msgstr "Deboostrap-fejl"
 
 #. Type: error
 #. Description
@@ -287,243 +294,288 @@ msgstr ""
 "Hvis du installerer fra cd-r eller cd-rw, kan det hjælpe at brænde cd'en ved "
 "en lavere hastighed."
 
-#. Type: error
-#. Description
-#: ../base-installer.templates:135
-msgid "Debootstrap Error"
-msgstr "Deboostrap-fejl"
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:135
-msgid "Interrupt caught... Exiting."
-msgstr "Processen blev afbrudt."
-
 #. Type: text
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:139
 msgid "Preparing to install the base system..."
 msgstr "Forbereder installationen af basissystemet..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:148
+#: ../base-installer.templates:143
 msgid "Running ${SCRIPT}..."
 msgstr "Udfører ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:152
-msgid "Checking the target file system"
-msgstr "Tjekker mål-filsystemet"
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:156
+#: ../base-installer.templates:147
 msgid "Retrieving Release file"
 msgstr "Henter Release-fil"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:160
+#: ../base-installer.templates:151
+#, fuzzy
+msgid "Retrieving Release file signature"
+msgstr "Henter Release-fil"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:155
 msgid "Finding package sizes"
 msgstr "Finder pakkestørrelser"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
+#: ../base-installer.templates:159
 msgid "Retrieving Packages files"
 msgstr "Henter Packages-filer"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:168
+#: ../base-installer.templates:163
+#, fuzzy
+msgid "Retrieving Packages file"
+msgstr "Henter Packages-filer"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:167
 msgid "Retrieving packages"
 msgstr "Henter pakker"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:172
+#: ../base-installer.templates:171
 msgid "Extracting packages"
 msgstr "Pakker pakker ud"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:176
+#: ../base-installer.templates:175
 msgid "Installing the base system"
 msgstr "Installerer basissystemet"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:180
+#: ../base-installer.templates:179
 msgid "Installing core packages"
 msgstr "Installerer grundpakker"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:184
+#: ../base-installer.templates:183
 msgid "Unpacking required packages"
 msgstr "Pakker påkrævede pakker ud"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:188
+#: ../base-installer.templates:187
 msgid "Configuring required packages"
 msgstr "Sætter påkrævede pakker op"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:192
+#: ../base-installer.templates:191
 msgid "Unpacking the base system"
 msgstr "Pakke basissystemet ud"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:196
+#: ../base-installer.templates:195
 msgid "Configuring the base system"
 msgstr "Sætter basissystemet op"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:200
-msgid "${SECTION}: ${INFO}..."
-msgstr "${SECTION}: ${INFO}..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:204
+#: ../base-installer.templates:203
 msgid "Validating ${SUBST0}..."
 msgstr "Validerer ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:208
+#: ../base-installer.templates:207
 msgid "Retrieving ${SUBST0}..."
 msgstr "Henter ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:212
+#: ../base-installer.templates:211
 msgid "Extracting ${SUBST0}..."
 msgstr "Pakker ${SUBST0} ud..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:216
+#: ../base-installer.templates:215
 msgid "Unpacking ${SUBST0}..."
 msgstr "Pakker ${SUBST0} ud..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:220
+#: ../base-installer.templates:219
 msgid "Configuring ${SUBST0}..."
 msgstr "Sætter ${SUBST0} op..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:224
-msgid "Checking package size: ${SUBST0}..."
-msgstr "Tjekker pakkestørrelse: ${SUBST0}..."
+#: ../base-installer.templates:223
+#, fuzzy
+msgid "Checking Release signature"
+msgstr "Henter Release-fil"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:228
+#: ../base-installer.templates:227
+#, fuzzy
+msgid "Valid Release signature (key id ${SUBST0})"
+msgstr "Ugyldig Release-fil; ingen forekomst af ${SUBST0}."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:231
+#, fuzzy
+msgid "Resolving dependencies of base packages..."
+msgstr "Installerer basispakker..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:235
+#, fuzzy
+msgid "Resolving dependencies of required packages..."
+msgstr "Pakker påkrævede pakker ud..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:239
+msgid "\"Checking component ${SUBST0} on ${SUBST1}...\""
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:243
 msgid "Installing core packages..."
 msgstr "Installerer grundpakker..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:232
+#: ../base-installer.templates:247
 msgid "Unpacking required packages..."
 msgstr "Pakker påkrævede pakker ud..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:236
+#: ../base-installer.templates:251
 msgid "Configuring required packages..."
 msgstr "Sætter påkrævede pakker op..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:240
+#: ../base-installer.templates:255
 msgid "Installing base packages..."
 msgstr "Installerer basispakker..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:244
+#: ../base-installer.templates:259
 msgid "Unpacking the base system..."
 msgstr "Pakker basissystemet ud..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:248
+#: ../base-installer.templates:263
 msgid "Configuring the base system..."
 msgstr "Sætter basissystemet op..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:252
+#: ../base-installer.templates:267
 msgid "Base system installed successfully."
 msgstr "Basissystemet blev installeret."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:256
+#: ../base-installer.templates:271
+msgid "${SECTION}: ${INFO}..."
+msgstr "${SECTION}: ${INFO}..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:275
+msgid "Retrying failed download of ${SUBST0}"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:279
 msgid "Configuring APT sources..."
 msgstr "Sætter APT-kilder op..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:260
+#: ../base-installer.templates:283
 msgid "Updating the list of available packages..."
 msgstr "Opdaterer listen over tilgængelige pakker..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:264
+#: ../base-installer.templates:287
 msgid "Installing extra packages..."
 msgstr "Installerer ekstrapakker..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:268
+#: ../base-installer.templates:291
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "Installerer ekstra-pakker - henter og installerer ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:272
+#: ../base-installer.templates:295
 msgid "Creating device files..."
 msgstr "Opretter enhedsfiler..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:276
+#: ../base-installer.templates:299
 msgid "Selecting the kernel to install..."
 msgstr "Vælger den kerne, der skal installeres..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:280
+#: ../base-installer.templates:303
 msgid "Installing the kernel..."
 msgstr "Installerer kernen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:284
+#: ../base-installer.templates:307
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Installerer kernen - henter og installerer ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../base-installer.templates:311
 msgid "Installing the PCMCIA modules"
 msgstr "Installerer PCMCIA-modulerne"
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../base-installer.templates:293
+#: ../base-installer.templates:316
 msgid "Install the base system"
 msgstr "Installér basissystemet"
+
+#~ msgid "${SUBST0} was not pre-downloaded."
+#~ msgstr "${SUBST0} blev ikke hentet i forvejen."
+
+#~ msgid "Unknown location ${SUBST0}."
+#~ msgstr "${SUBST0} er en ukendt placering."
+
+#~ msgid "Interrupt caught... Exiting."
+#~ msgstr "Processen blev afbrudt."
+
+#~ msgid "Checking the target file system"
+#~ msgstr "Tjekker mål-filsystemet"
+
+#~ msgid "Checking package size: ${SUBST0}..."
+#~ msgstr "Tjekker pakkestørrelse: ${SUBST0}..."

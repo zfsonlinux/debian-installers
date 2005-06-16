@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
-"POT-Creation-Date: 2005-06-13 18:28-0600\n"
+"POT-Creation-Date: 2005-06-15 18:28-0600\n"
 "PO-Revision-Date: 2005-05-24 19:18+0400\n"
 "Last-Translator: Yuri Kozlov <yuray@id.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -247,20 +247,21 @@ msgstr "Подробности смотрите в /var/log/messages или на
 #. Type: error
 #. Description
 #: ../base-installer.templates:101
-msgid "${SUBST0} was not pre-downloaded."
-msgstr "${SUBST0} не был предварительно загружен."
+msgid "Failed getting Release file ${SUBST0}."
+msgstr "Не удалось получить файл Release ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:106
-msgid "Unknown location ${SUBST0}."
-msgstr "Неизвестный адрес ${SUBST0}."
+#, fuzzy
+msgid "Failed getting Release signature file ${SUBST0}."
+msgstr "Не удалось получить файл Release ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:111
-msgid "Failed getting Release file ${SUBST0}."
-msgstr "Не удалось получить файл Release ${SUBST0}."
+msgid "Release signed by unknown key (key id ${SUBST0})"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -273,6 +274,12 @@ msgstr "Неверный файл Release: нет допустимых комп�
 #: ../base-installer.templates:121
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Неверный файл Release: отсутствует описание для ${SUBST0}."
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:126
+msgid "Debootstrap Error"
+msgstr "Ошибка Debootstrap"
 
 #. Type: error
 #. Description
@@ -294,245 +301,290 @@ msgstr ""
 "Если вы производите установку с дисков CD-R или CD-RW, то иногда помогает "
 "прожиг дисков на более медленной скорости."
 
-#. Type: error
-#. Description
-#: ../base-installer.templates:135
-msgid "Debootstrap Error"
-msgstr "Ошибка Debootstrap"
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:135
-msgid "Interrupt caught... Exiting."
-msgstr "Получен сигнал прерывания... Выход."
-
 #. Type: text
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:139
 #, fuzzy
 msgid "Preparing to install the base system..."
 msgstr "Подготовка к установке базовой системы Debian..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:148
+#: ../base-installer.templates:143
 msgid "Running ${SCRIPT}..."
 msgstr "Запуск ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:152
-msgid "Checking the target file system"
-msgstr "Проверка целевой файловой системы"
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:156
+#: ../base-installer.templates:147
 msgid "Retrieving Release file"
 msgstr "Получение файла Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:160
+#: ../base-installer.templates:151
+#, fuzzy
+msgid "Retrieving Release file signature"
+msgstr "Получение файла Release"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:155
 msgid "Finding package sizes"
 msgstr "Определение размеров пакетов"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
+#: ../base-installer.templates:159
 msgid "Retrieving Packages files"
 msgstr "Получение файлов Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:168
+#: ../base-installer.templates:163
+#, fuzzy
+msgid "Retrieving Packages file"
+msgstr "Получение файлов Packages"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:167
 msgid "Retrieving packages"
 msgstr "Получение пакетов"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:172
+#: ../base-installer.templates:171
 msgid "Extracting packages"
 msgstr "Распаковка пакетов"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:176
+#: ../base-installer.templates:175
 msgid "Installing the base system"
 msgstr "Установка базовой системы"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:180
+#: ../base-installer.templates:179
 msgid "Installing core packages"
 msgstr "Установка основных (core) пакетов"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:184
+#: ../base-installer.templates:183
 msgid "Unpacking required packages"
 msgstr "Распаковка необходимых (required) пакетов"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:188
+#: ../base-installer.templates:187
 msgid "Configuring required packages"
 msgstr "Настройка необходимых (required) пакетов"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:192
+#: ../base-installer.templates:191
 msgid "Unpacking the base system"
 msgstr "Распаковка базовой системы"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:196
+#: ../base-installer.templates:195
 msgid "Configuring the base system"
 msgstr "Настройка базовой системы"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:200
-msgid "${SECTION}: ${INFO}..."
-msgstr "${SECTION}: ${INFO}..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:204
+#: ../base-installer.templates:203
 msgid "Validating ${SUBST0}..."
 msgstr "Проверка ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:208
+#: ../base-installer.templates:207
 msgid "Retrieving ${SUBST0}..."
 msgstr "Получение ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:212
+#: ../base-installer.templates:211
 msgid "Extracting ${SUBST0}..."
 msgstr "Распаковка ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:216
+#: ../base-installer.templates:215
 msgid "Unpacking ${SUBST0}..."
 msgstr "Распаковка ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:220
+#: ../base-installer.templates:219
 msgid "Configuring ${SUBST0}..."
 msgstr "Настройка ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:224
-msgid "Checking package size: ${SUBST0}..."
-msgstr "Проверка размера пакета: ${SUBST0}..."
+#: ../base-installer.templates:223
+#, fuzzy
+msgid "Checking Release signature"
+msgstr "Получение файла Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:228
+#: ../base-installer.templates:227
+#, fuzzy
+msgid "Valid Release signature (key id ${SUBST0})"
+msgstr "Неверный файл Release: отсутствует описание для ${SUBST0}."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:231
+#, fuzzy
+msgid "Resolving dependencies of base packages..."
+msgstr "Установка базовых (base) пакетов..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:235
+#, fuzzy
+msgid "Resolving dependencies of required packages..."
+msgstr "Распаковка необходимых (required) пакетов..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:239
+msgid "\"Checking component ${SUBST0} on ${SUBST1}...\""
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:243
 msgid "Installing core packages..."
 msgstr "Установка основных (core) пакетов..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:232
+#: ../base-installer.templates:247
 msgid "Unpacking required packages..."
 msgstr "Распаковка необходимых (required) пакетов..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:236
+#: ../base-installer.templates:251
 msgid "Configuring required packages..."
 msgstr "Настройка необходимых (required) пакетов..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:240
+#: ../base-installer.templates:255
 msgid "Installing base packages..."
 msgstr "Установка базовых (base) пакетов..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:244
+#: ../base-installer.templates:259
 msgid "Unpacking the base system..."
 msgstr "Распаковка базовой системы..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:248
+#: ../base-installer.templates:263
 msgid "Configuring the base system..."
 msgstr "Настройка базовой системы..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:252
+#: ../base-installer.templates:267
 msgid "Base system installed successfully."
 msgstr "Установка базовой системы прошла успешно."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:256
+#: ../base-installer.templates:271
+msgid "${SECTION}: ${INFO}..."
+msgstr "${SECTION}: ${INFO}..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:275
+msgid "Retrying failed download of ${SUBST0}"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:279
 msgid "Configuring APT sources..."
 msgstr "Настройка источников APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:260
+#: ../base-installer.templates:283
 msgid "Updating the list of available packages..."
 msgstr "Обновление списка доступных пакетов..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:264
+#: ../base-installer.templates:287
 msgid "Installing extra packages..."
 msgstr "Установка дополнительных (extra) пакетов..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:268
+#: ../base-installer.templates:291
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr ""
 "Установка дополнительных (extra) пакетов - получение и установка ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:272
+#: ../base-installer.templates:295
 msgid "Creating device files..."
 msgstr "Создание файлов устройств..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:276
+#: ../base-installer.templates:299
 msgid "Selecting the kernel to install..."
 msgstr "Выбор ядра для установки..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:280
+#: ../base-installer.templates:303
 msgid "Installing the kernel..."
 msgstr "Установка ядра..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:284
+#: ../base-installer.templates:307
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Установка ядра - получение и установка ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../base-installer.templates:311
 msgid "Installing the PCMCIA modules"
 msgstr "Установка модулей PCMCIA"
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../base-installer.templates:293
+#: ../base-installer.templates:316
 msgid "Install the base system"
 msgstr "Установка базовой системы"
+
+#~ msgid "${SUBST0} was not pre-downloaded."
+#~ msgstr "${SUBST0} не был предварительно загружен."
+
+#~ msgid "Unknown location ${SUBST0}."
+#~ msgstr "Неизвестный адрес ${SUBST0}."
+
+#~ msgid "Interrupt caught... Exiting."
+#~ msgstr "Получен сигнал прерывания... Выход."
+
+#~ msgid "Checking the target file system"
+#~ msgstr "Проверка целевой файловой системы"
+
+#~ msgid "Checking package size: ${SUBST0}..."
+#~ msgstr "Проверка размера пакета: ${SUBST0}..."

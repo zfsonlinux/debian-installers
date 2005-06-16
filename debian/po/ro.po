@@ -23,7 +23,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ro\n"
-"POT-Creation-Date: 2005-06-13 18:28-0600\n"
+"POT-Creation-Date: 2005-06-15 18:28-0600\n"
 "PO-Revision-Date: 2005-06-07 22:59+0200\n"
 "Last-Translator: Eddy Petrişor <eddy.petrisor@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
@@ -258,20 +258,21 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:101
-msgid "${SUBST0} was not pre-downloaded."
-msgstr "${SUBST0} nu a fost pre-descărcat."
+msgid "Failed getting Release file ${SUBST0}."
+msgstr "Eşec la preluarea fişierului Release ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:106
-msgid "Unknown location ${SUBST0}."
-msgstr "Loc necunoscut ${SUBST0}."
+#, fuzzy
+msgid "Failed getting Release signature file ${SUBST0}."
+msgstr "Eşec la preluarea fişierului Release ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:111
-msgid "Failed getting Release file ${SUBST0}."
-msgstr "Eşec la preluarea fişierului Release ${SUBST0}."
+msgid "Release signed by unknown key (key id ${SUBST0})"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -284,6 +285,12 @@ msgstr "Fişier Release invalid: fără componente valide."
 #: ../base-installer.templates:121
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Fişier Release invalid: nu există înregistrări pentru ${SUBST0}."
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:126
+msgid "Debootstrap Error"
+msgstr "Eroare la debootstrap"
 
 #. Type: error
 #. Description
@@ -305,253 +312,298 @@ msgstr ""
 "Dacă instalaţi de pe CD-R sau CD-RW s-ar putea să ajute să creeati CD-ul la "
 "o viteză mai mică."
 
-#. Type: error
-#. Description
-#: ../base-installer.templates:135
-msgid "Debootstrap Error"
-msgstr "Eroare la debootstrap"
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:135
-msgid "Interrupt caught... Exiting."
-msgstr "S-a recepţionat întrerupere ... Se iese."
-
 #. Type: text
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:139
 #, fuzzy
 msgid "Preparing to install the base system..."
 msgstr "Se pregăteşte instalarea sistemului de bază Debian..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:148
+#: ../base-installer.templates:143
 msgid "Running ${SCRIPT}..."
 msgstr "Se rulează ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:152
-msgid "Checking the target file system"
-msgstr "Se verifică sistemul de fişiere ţintă"
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:156
+#: ../base-installer.templates:147
 msgid "Retrieving Release file"
 msgstr "Se preia fişierul Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:160
+#: ../base-installer.templates:151
+#, fuzzy
+msgid "Retrieving Release file signature"
+msgstr "Se preia fişierul Release"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:155
 msgid "Finding package sizes"
 msgstr "Se caută dimensiunile pachetelor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
+#: ../base-installer.templates:159
 msgid "Retrieving Packages files"
 msgstr "Se preiau fişierele Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:168
+#: ../base-installer.templates:163
+#, fuzzy
+msgid "Retrieving Packages file"
+msgstr "Se preiau fişierele Packages"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:167
 msgid "Retrieving packages"
 msgstr "Se preiau pachetele"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:172
+#: ../base-installer.templates:171
 msgid "Extracting packages"
 msgstr "Se extrag pachetele"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:176
+#: ../base-installer.templates:175
 msgid "Installing the base system"
 msgstr "Se instalează sistemul de bază"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:180
+#: ../base-installer.templates:179
 #, fuzzy
 msgid "Installing core packages"
 msgstr "Se instalează pachetele centrale..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:184
+#: ../base-installer.templates:183
 #, fuzzy
 msgid "Unpacking required packages"
 msgstr "Se despachetează pachetele necesare..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:188
+#: ../base-installer.templates:187
 #, fuzzy
 msgid "Configuring required packages"
 msgstr "Se configurează pachetele necesare..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:192
+#: ../base-installer.templates:191
 #, fuzzy
 msgid "Unpacking the base system"
 msgstr "Se instalează sistemul de bază"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:196
+#: ../base-installer.templates:195
 #, fuzzy
 msgid "Configuring the base system"
 msgstr "Se instalează sistemul de bază"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:200
-msgid "${SECTION}: ${INFO}..."
-msgstr "${SECTION}: ${INFO}..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:204
+#: ../base-installer.templates:203
 msgid "Validating ${SUBST0}..."
 msgstr "Se validează ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:208
+#: ../base-installer.templates:207
 msgid "Retrieving ${SUBST0}..."
 msgstr "Se preia ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:212
+#: ../base-installer.templates:211
 msgid "Extracting ${SUBST0}..."
 msgstr "Se extrage ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:216
+#: ../base-installer.templates:215
 #, fuzzy
 msgid "Unpacking ${SUBST0}..."
 msgstr "Se extrage ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:220
+#: ../base-installer.templates:219
 #, fuzzy
 msgid "Configuring ${SUBST0}..."
 msgstr "Se validează ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:224
-msgid "Checking package size: ${SUBST0}..."
-msgstr "Se verifică dimensiunea pachetului: ${SUBST0}..."
+#: ../base-installer.templates:223
+#, fuzzy
+msgid "Checking Release signature"
+msgstr "Se preia fişierul Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:228
+#: ../base-installer.templates:227
+#, fuzzy
+msgid "Valid Release signature (key id ${SUBST0})"
+msgstr "Fişier Release invalid: nu există înregistrări pentru ${SUBST0}."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:231
+#, fuzzy
+msgid "Resolving dependencies of base packages..."
+msgstr "Se instalează pachetele de bază..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:235
+#, fuzzy
+msgid "Resolving dependencies of required packages..."
+msgstr "Se despachetează pachetele necesare..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:239
+msgid "\"Checking component ${SUBST0} on ${SUBST1}...\""
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:243
 msgid "Installing core packages..."
 msgstr "Se instalează pachetele centrale..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:232
+#: ../base-installer.templates:247
 msgid "Unpacking required packages..."
 msgstr "Se despachetează pachetele necesare..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:236
+#: ../base-installer.templates:251
 msgid "Configuring required packages..."
 msgstr "Se configurează pachetele necesare..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:240
+#: ../base-installer.templates:255
 msgid "Installing base packages..."
 msgstr "Se instalează pachetele de bază..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:244
+#: ../base-installer.templates:259
 #, fuzzy
 msgid "Unpacking the base system..."
 msgstr "Se instalează sistemul de bază"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:248
+#: ../base-installer.templates:263
 #, fuzzy
 msgid "Configuring the base system..."
 msgstr "Se instalează sistemul de bază"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:252
+#: ../base-installer.templates:267
 msgid "Base system installed successfully."
 msgstr "Sistemului de bază s-a instalat cu succes."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:256
+#: ../base-installer.templates:271
+msgid "${SECTION}: ${INFO}..."
+msgstr "${SECTION}: ${INFO}..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:275
+msgid "Retrying failed download of ${SUBST0}"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:279
 msgid "Configuring APT sources..."
 msgstr "Se configurează sursele APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:260
+#: ../base-installer.templates:283
 msgid "Updating the list of available packages..."
 msgstr "Se actualizează lista de pachete disponibile..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:264
+#: ../base-installer.templates:287
 msgid "Installing extra packages..."
 msgstr "Se instalează pachetele suplimentare..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:268
+#: ../base-installer.templates:291
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "Instalez pachetele suplimentare - preiau şi instalez ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:272
+#: ../base-installer.templates:295
 msgid "Creating device files..."
 msgstr "Se creează fişierele dispozitiv..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:276
+#: ../base-installer.templates:299
 msgid "Selecting the kernel to install..."
 msgstr "Se selectează nucleul de instalat..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:280
+#: ../base-installer.templates:303
 msgid "Installing the kernel..."
 msgstr "Se instalează nucleul..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:284
+#: ../base-installer.templates:307
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Se instalează nucleul - preiau şi instalez ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../base-installer.templates:311
 msgid "Installing the PCMCIA modules"
 msgstr "Se instalează modulele PCMCIA"
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../base-installer.templates:293
+#: ../base-installer.templates:316
 msgid "Install the base system"
 msgstr "Se instalează sistemul de bază"
+
+#~ msgid "${SUBST0} was not pre-downloaded."
+#~ msgstr "${SUBST0} nu a fost pre-descărcat."
+
+#~ msgid "Unknown location ${SUBST0}."
+#~ msgstr "Loc necunoscut ${SUBST0}."
+
+#~ msgid "Interrupt caught... Exiting."
+#~ msgstr "S-a recepţionat întrerupere ... Se iese."
+
+#~ msgid "Checking the target file system"
+#~ msgstr "Se verifică sistemul de fişiere ţintă"
+
+#~ msgid "Checking package size: ${SUBST0}..."
+#~ msgstr "Se verifică dimensiunea pachetului: ${SUBST0}..."

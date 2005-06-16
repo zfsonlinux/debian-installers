@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"POT-Creation-Date: 2005-06-13 18:28-0600\n"
+"POT-Creation-Date: 2005-06-15 18:28-0600\n"
 "PO-Revision-Date: 2005-05-22 22:12+0900\n"
 "Last-Translator:  Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team:  Korean <cwryu@debian.org>\n"
@@ -236,20 +236,21 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:101
-msgid "${SUBST0} was not pre-downloaded."
-msgstr "${SUBST0}은(는) 미리 내려받지 않았습니다."
+msgid "Failed getting Release file ${SUBST0}."
+msgstr "${SUBST0} Release 파일을 가져오는 데 실패했습니다."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:106
-msgid "Unknown location ${SUBST0}."
-msgstr "${SUBST0} 위치를 알 수 없습니다."
+#, fuzzy
+msgid "Failed getting Release signature file ${SUBST0}."
+msgstr "${SUBST0} Release 파일을 가져오는 데 실패했습니다."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:111
-msgid "Failed getting Release file ${SUBST0}."
-msgstr "${SUBST0} Release 파일을 가져오는 데 실패했습니다."
+msgid "Release signed by unknown key (key id ${SUBST0})"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -262,6 +263,12 @@ msgstr "Release 파일이 잘못되었습니다: 올바른 구성 요소가 없�
 #: ../base-installer.templates:121
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Release 파일이 잘못되었습니다: ${SUBST0}에 대한 항목이 없습니다."
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:126
+msgid "Debootstrap Error"
+msgstr "debootstrap 오류"
 
 #. Type: error
 #. Description
@@ -283,253 +290,298 @@ msgstr ""
 "CD-R이나 CD-RW에서 설치한다면, CD를 느린 속도에서 구우면 해결될 수도 있습니"
 "다."
 
-#. Type: error
-#. Description
-#: ../base-installer.templates:135
-msgid "Debootstrap Error"
-msgstr "debootstrap 오류"
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:135
-msgid "Interrupt caught... Exiting."
-msgstr "인터럽트 발생 ... 끝납니다."
-
 #. Type: text
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:139
 #, fuzzy
 msgid "Preparing to install the base system..."
 msgstr "데비안 베이스 시스템 설치를 준비하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:148
+#: ../base-installer.templates:143
 msgid "Running ${SCRIPT}..."
 msgstr "${SCRIPT} 스크립트를 실행하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:152
-msgid "Checking the target file system"
-msgstr "대상 파일 시스템을 검사하는 중입니다"
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:156
+#: ../base-installer.templates:147
 msgid "Retrieving Release file"
 msgstr "Release 파일을 가져오는 중입니다"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:160
+#: ../base-installer.templates:151
+#, fuzzy
+msgid "Retrieving Release file signature"
+msgstr "Release 파일을 가져오는 중입니다"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:155
 msgid "Finding package sizes"
 msgstr "꾸러미 크기를 찾는 중입니다"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
+#: ../base-installer.templates:159
 msgid "Retrieving Packages files"
 msgstr "꾸러미 파일을 가져오는 중입니다"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:168
+#: ../base-installer.templates:163
+#, fuzzy
+msgid "Retrieving Packages file"
+msgstr "꾸러미 파일을 가져오는 중입니다"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:167
 msgid "Retrieving packages"
 msgstr "꾸러미를 가져오는 중입니다"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:172
+#: ../base-installer.templates:171
 msgid "Extracting packages"
 msgstr "꾸러미를 푸는 중입니다"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:176
+#: ../base-installer.templates:175
 msgid "Installing the base system"
 msgstr "베이스 시스템을 설치하는 중입니다"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:180
+#: ../base-installer.templates:179
 #, fuzzy
 msgid "Installing core packages"
 msgstr "핵심 꾸러미들을 설치하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:184
+#: ../base-installer.templates:183
 #, fuzzy
 msgid "Unpacking required packages"
 msgstr "필수 꾸러미를 푸는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:188
+#: ../base-installer.templates:187
 #, fuzzy
 msgid "Configuring required packages"
 msgstr "필수 꾸러미를 설정하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:192
+#: ../base-installer.templates:191
 #, fuzzy
 msgid "Unpacking the base system"
 msgstr "베이스 시스템을 설치하는 중입니다"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:196
+#: ../base-installer.templates:195
 #, fuzzy
 msgid "Configuring the base system"
 msgstr "베이스 시스템을 설치하는 중입니다"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:200
-msgid "${SECTION}: ${INFO}..."
-msgstr "${SECTION}: ${INFO}..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:204
+#: ../base-installer.templates:203
 msgid "Validating ${SUBST0}..."
 msgstr "${SUBST0} 파일을 확인하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:208
+#: ../base-installer.templates:207
 msgid "Retrieving ${SUBST0}..."
 msgstr "${SUBST0} 파일을 가져오는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:212
+#: ../base-installer.templates:211
 msgid "Extracting ${SUBST0}..."
 msgstr "${SUBST0} 파일을 푸는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:216
+#: ../base-installer.templates:215
 #, fuzzy
 msgid "Unpacking ${SUBST0}..."
 msgstr "${SUBST0} 파일을 푸는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:220
+#: ../base-installer.templates:219
 #, fuzzy
 msgid "Configuring ${SUBST0}..."
 msgstr "${SUBST0} 파일을 확인하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:224
-msgid "Checking package size: ${SUBST0}..."
-msgstr "꾸러미 크기를 검사하는 중입니다: ${SUBST0}..."
+#: ../base-installer.templates:223
+#, fuzzy
+msgid "Checking Release signature"
+msgstr "Release 파일을 가져오는 중입니다"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:228
+#: ../base-installer.templates:227
+#, fuzzy
+msgid "Valid Release signature (key id ${SUBST0})"
+msgstr "Release 파일이 잘못되었습니다: ${SUBST0}에 대한 항목이 없습니다."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:231
+#, fuzzy
+msgid "Resolving dependencies of base packages..."
+msgstr "베이스 꾸러미를 설치하는 중입니다..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:235
+#, fuzzy
+msgid "Resolving dependencies of required packages..."
+msgstr "필수 꾸러미를 푸는 중입니다..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:239
+msgid "\"Checking component ${SUBST0} on ${SUBST1}...\""
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:243
 msgid "Installing core packages..."
 msgstr "핵심 꾸러미들을 설치하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:232
+#: ../base-installer.templates:247
 msgid "Unpacking required packages..."
 msgstr "필수 꾸러미를 푸는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:236
+#: ../base-installer.templates:251
 msgid "Configuring required packages..."
 msgstr "필수 꾸러미를 설정하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:240
+#: ../base-installer.templates:255
 msgid "Installing base packages..."
 msgstr "베이스 꾸러미를 설치하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:244
+#: ../base-installer.templates:259
 #, fuzzy
 msgid "Unpacking the base system..."
 msgstr "베이스 시스템을 설치하는 중입니다"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:248
+#: ../base-installer.templates:263
 #, fuzzy
 msgid "Configuring the base system..."
 msgstr "베이스 시스템을 설치하는 중입니다"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:252
+#: ../base-installer.templates:267
 msgid "Base system installed successfully."
 msgstr "베이스 시스템 설치 성공."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:256
+#: ../base-installer.templates:271
+msgid "${SECTION}: ${INFO}..."
+msgstr "${SECTION}: ${INFO}..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:275
+msgid "Retrying failed download of ${SUBST0}"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:279
 msgid "Configuring APT sources..."
 msgstr "APT 소스를 설정하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:260
+#: ../base-installer.templates:283
 msgid "Updating the list of available packages..."
 msgstr "사용 가능한 꾸러미의 목록을 업데이트하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:264
+#: ../base-installer.templates:287
 msgid "Installing extra packages..."
 msgstr "추가 꾸러미들을 설치하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:268
+#: ../base-installer.templates:291
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "추가 꾸러미를 설치합니다 - ${SUBST0} 내려받고 설치하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:272
+#: ../base-installer.templates:295
 msgid "Creating device files..."
 msgstr "장치 파일을 만드는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:276
+#: ../base-installer.templates:299
 msgid "Selecting the kernel to install..."
 msgstr "설치할 커널을 선택하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:280
+#: ../base-installer.templates:303
 msgid "Installing the kernel..."
 msgstr "커널을 설치하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:284
+#: ../base-installer.templates:307
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "커널을 설치합니다 - ${SUBST0} 내려받고 설치하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../base-installer.templates:311
 msgid "Installing the PCMCIA modules"
 msgstr "PCMCIA 모듈을 설치하는 중입니다"
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../base-installer.templates:293
+#: ../base-installer.templates:316
 msgid "Install the base system"
 msgstr "베이스 시스템 설치"
+
+#~ msgid "${SUBST0} was not pre-downloaded."
+#~ msgstr "${SUBST0}은(는) 미리 내려받지 않았습니다."
+
+#~ msgid "Unknown location ${SUBST0}."
+#~ msgstr "${SUBST0} 위치를 알 수 없습니다."
+
+#~ msgid "Interrupt caught... Exiting."
+#~ msgstr "인터럽트 발생 ... 끝납니다."
+
+#~ msgid "Checking the target file system"
+#~ msgstr "대상 파일 시스템을 검사하는 중입니다"
+
+#~ msgid "Checking package size: ${SUBST0}..."
+#~ msgstr "꾸러미 크기를 검사하는 중입니다: ${SUBST0}..."

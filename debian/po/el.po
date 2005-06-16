@@ -15,7 +15,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
-"POT-Creation-Date: 2005-06-13 18:28-0600\n"
+"POT-Creation-Date: 2005-06-15 18:28-0600\n"
 "PO-Revision-Date: 2005-06-15 16:56EEST\n"
 "Last-Translator: Greek Translation Team <debian-l10n-greek@lists.debian."
 "org>\n"
@@ -251,20 +251,21 @@ msgstr "Για τις λεπτομέρειες ανατρέξτε στο αρχ�
 #. Type: error
 #. Description
 #: ../base-installer.templates:101
-msgid "${SUBST0} was not pre-downloaded."
-msgstr "Η μονάδα ${SUBST0} δεν είχε προφορτωθεί."
+msgid "Failed getting Release file ${SUBST0}."
+msgstr "Αποτυχία στη φόρτωση του αρχείου Release ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:106
-msgid "Unknown location ${SUBST0}."
-msgstr "Άγνωστος τόπος ${SUBST0}"
+#, fuzzy
+msgid "Failed getting Release signature file ${SUBST0}."
+msgstr "Αποτυχία στη φόρτωση του αρχείου Release ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:111
-msgid "Failed getting Release file ${SUBST0}."
-msgstr "Αποτυχία στη φόρτωση του αρχείου Release ${SUBST0}."
+msgid "Release signed by unknown key (key id ${SUBST0})"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -277,6 +278,12 @@ msgstr "Άκυρο αρχείο Release: δεν περιέχει έγκυρα σ
 #: ../base-installer.templates:121
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Άκυρο αρχείο Release: δεν υπάρχει καταχώρηση για το ${SUBST0}."
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:126
+msgid "Debootstrap Error"
+msgstr "Σφάλμα στο debootstrap"
 
 #. Type: error
 #. Description
@@ -298,244 +305,289 @@ msgstr ""
 "Αν κάνετε την εγκατάταση από CD-R ή CD-RW,  μπορεί να είναι καλύτερα να "
 "γράψετε το CDσε χαμηλότερη ταχύτητα."
 
-#. Type: error
-#. Description
-#: ../base-installer.templates:135
-msgid "Debootstrap Error"
-msgstr "Σφάλμα στο debootstrap"
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:135
-msgid "Interrupt caught... Exiting."
-msgstr "Ανιχνεύθηκε διακοπή... η διαδικασία τερματίζεται."
-
 #. Type: text
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:139
 msgid "Preparing to install the base system..."
 msgstr "Προετοιμασία για εγκατάσταση του βασικού συστήματος..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:148
+#: ../base-installer.templates:143
 msgid "Running ${SCRIPT}..."
 msgstr "Εκτελείται το ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:152
-msgid "Checking the target file system"
-msgstr "Έλεγχος του συστήματος αρχείων προορισμού"
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:156
+#: ../base-installer.templates:147
 msgid "Retrieving Release file"
 msgstr "Ανάκτηση του αρχείου Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:160
+#: ../base-installer.templates:151
+#, fuzzy
+msgid "Retrieving Release file signature"
+msgstr "Ανάκτηση του αρχείου Release"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:155
 msgid "Finding package sizes"
 msgstr "Εύρεση των μεγεθών των πακέτων"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
+#: ../base-installer.templates:159
 msgid "Retrieving Packages files"
 msgstr "Ανάκτηση των αρχείων Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:168
+#: ../base-installer.templates:163
+#, fuzzy
+msgid "Retrieving Packages file"
+msgstr "Ανάκτηση των αρχείων Packages"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:167
 msgid "Retrieving packages"
 msgstr "Ανάκτηση των πακέτων"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:172
+#: ../base-installer.templates:171
 msgid "Extracting packages"
 msgstr "Αποσυμπίεση πακέτων"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:176
+#: ../base-installer.templates:175
 msgid "Installing the base system"
 msgstr "Εγκατάσταση του βασικού συστήματος"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:180
+#: ../base-installer.templates:179
 msgid "Installing core packages"
 msgstr "Εγκατάσταση ουσιαστικότερων πακέτων"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:184
+#: ../base-installer.templates:183
 msgid "Unpacking required packages"
 msgstr "Αποσυμπίεση των απαιτούμενων πακέτων"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:188
+#: ../base-installer.templates:187
 msgid "Configuring required packages"
 msgstr "Ρύθμιση των απαιτούμενων πακέτων"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:192
+#: ../base-installer.templates:191
 msgid "Unpacking the base system"
 msgstr "Εγκατάσταση του βασικού συστήματος"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:196
+#: ../base-installer.templates:195
 msgid "Configuring the base system"
 msgstr "Ρύθμιση του βασικού συστήματος"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:200
-msgid "${SECTION}: ${INFO}..."
-msgstr "${SECTION}: ${INFO}..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:204
+#: ../base-installer.templates:203
 msgid "Validating ${SUBST0}..."
 msgstr "Έλεγχος εγκυρότητας του ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:208
+#: ../base-installer.templates:207
 msgid "Retrieving ${SUBST0}..."
 msgstr "Ανάκτηση του ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:212
+#: ../base-installer.templates:211
 msgid "Extracting ${SUBST0}..."
 msgstr "Αποσυμπίεση του ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:216
+#: ../base-installer.templates:215
 msgid "Unpacking ${SUBST0}..."
 msgstr "Αποσυμπίεση του ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:220
+#: ../base-installer.templates:219
 msgid "Configuring ${SUBST0}..."
 msgstr "Ρύθμιση του ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:224
-msgid "Checking package size: ${SUBST0}..."
-msgstr "Έλεγχος μεγέθους πακέτου: ${SUBST0}..."
+#: ../base-installer.templates:223
+#, fuzzy
+msgid "Checking Release signature"
+msgstr "Ανάκτηση του αρχείου Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:228
+#: ../base-installer.templates:227
+#, fuzzy
+msgid "Valid Release signature (key id ${SUBST0})"
+msgstr "Άκυρο αρχείο Release: δεν υπάρχει καταχώρηση για το ${SUBST0}."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:231
+#, fuzzy
+msgid "Resolving dependencies of base packages..."
+msgstr "Εγκατάσταση των βασικών πακέτων..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:235
+#, fuzzy
+msgid "Resolving dependencies of required packages..."
+msgstr "Αποσυμπίεση των απαιτούμενων πακέτων..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:239
+msgid "\"Checking component ${SUBST0} on ${SUBST1}...\""
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:243
 msgid "Installing core packages..."
 msgstr "Εγκατάσταση ουσιαστικότερων πακέτων..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:232
+#: ../base-installer.templates:247
 msgid "Unpacking required packages..."
 msgstr "Αποσυμπίεση των απαιτούμενων πακέτων..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:236
+#: ../base-installer.templates:251
 msgid "Configuring required packages..."
 msgstr "Ρύθμιση των απαιτούμενων πακέτων..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:240
+#: ../base-installer.templates:255
 msgid "Installing base packages..."
 msgstr "Εγκατάσταση των βασικών πακέτων..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:244
+#: ../base-installer.templates:259
 msgid "Unpacking the base system..."
 msgstr "Εγκατάσταση του βασικού συστήματος..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:248
+#: ../base-installer.templates:263
 msgid "Configuring the base system..."
 msgstr "Ρύθμιση του βασικού συστήματος..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:252
+#: ../base-installer.templates:267
 msgid "Base system installed successfully."
 msgstr "Η εγκατάσταση του βασικού συστήματος ήταν επιτυχής."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:256
+#: ../base-installer.templates:271
+msgid "${SECTION}: ${INFO}..."
+msgstr "${SECTION}: ${INFO}..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:275
+msgid "Retrying failed download of ${SUBST0}"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:279
 msgid "Configuring APT sources..."
 msgstr "Ρύθμιση των πηγών του APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:260
+#: ../base-installer.templates:283
 msgid "Updating the list of available packages..."
 msgstr "Ανανέωση της λίστας των διαθέσιμων πακέτων..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:264
+#: ../base-installer.templates:287
 msgid "Installing extra packages..."
 msgstr "Εγκατάσταση επιπλέον πακέτων..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:268
+#: ../base-installer.templates:291
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr ""
 "Εγκατάσταση επιπλέον πακέτων - ανάκτηση και εγκατάσταση του ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:272
+#: ../base-installer.templates:295
 msgid "Creating device files..."
 msgstr "Δημιουργία αρχείων συσκευών..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:276
+#: ../base-installer.templates:299
 msgid "Selecting the kernel to install..."
 msgstr "Επιλογή του πυρήνα προς εγκατάσταση..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:280
+#: ../base-installer.templates:303
 msgid "Installing the kernel..."
 msgstr "Εγκατάσταση του πυρήνα..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:284
+#: ../base-installer.templates:307
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Εγκατάσταση του πυρήνα - ανάκτηση και εγκατάσταση του ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../base-installer.templates:311
 msgid "Installing the PCMCIA modules"
 msgstr "Εγκατάσταση των οδηγών PCMCIA"
 
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../base-installer.templates:293
+#: ../base-installer.templates:316
 msgid "Install the base system"
 msgstr "Εγκατάσταση του βασικού συστήματος"
+
+#~ msgid "${SUBST0} was not pre-downloaded."
+#~ msgstr "Η μονάδα ${SUBST0} δεν είχε προφορτωθεί."
+
+#~ msgid "Unknown location ${SUBST0}."
+#~ msgstr "Άγνωστος τόπος ${SUBST0}"
+
+#~ msgid "Interrupt caught... Exiting."
+#~ msgstr "Ανιχνεύθηκε διακοπή... η διαδικασία τερματίζεται."
+
+#~ msgid "Checking the target file system"
+#~ msgstr "Έλεγχος του συστήματος αρχείων προορισμού"
+
+#~ msgid "Checking package size: ${SUBST0}..."
+#~ msgstr "Έλεγχος μεγέθους πακέτου: ${SUBST0}..."
