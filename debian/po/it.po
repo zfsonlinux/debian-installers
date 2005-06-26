@@ -24,8 +24,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"POT-Creation-Date: 2005-06-16 09:29-0600\n"
-"PO-Revision-Date: 2005-06-05 15:59+0200\n"
+"POT-Creation-Date: 2005-06-26 13:37-0600\n"
+"PO-Revision-Date: 2005-06-26 15:46+0200\n"
 "Last-Translator: Giuseppe Sacco <eppesuig@debian.org>\n"
 "Language-Team:   Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -248,11 +248,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:93
-#, fuzzy
 msgid "Check /target/var/log/bootstrap.log for the details."
-msgstr ""
-"Controllare /var/log/messages o guardare il terminale virtuale 3 per i "
-"dettagli."
+msgstr "Controllare /target/var/log/bootstrap per i dettagli."
 
 #. Type: error
 #. Description
@@ -263,15 +260,16 @@ msgstr "Errore durante il download del file Release ${SUBST0}."
 #. Type: error
 #. Description
 #: ../base-installer.templates:106
-#, fuzzy
 msgid "Failed getting Release signature file ${SUBST0}."
-msgstr "Errore durante il download del file Release ${SUBST0}."
+msgstr ""
+"Errore durante il caricamento del file con la firma di Release ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:111
-msgid "Release signed by unknown key (key id ${SUBST0})"
-msgstr ""
+#, fuzzy
+msgid "Release file signed by unknown key (key id ${SUBST0})"
+msgstr "Il file Release è firmato con una chiave sconosciuta (id ${SUBST0})"
 
 #. Type: error
 #. Description
@@ -332,9 +330,8 @@ msgstr "Ricezione del file Release in corso"
 #. Type: text
 #. Description
 #: ../base-installer.templates:151
-#, fuzzy
 msgid "Retrieving Release file signature"
-msgstr "Ricezione del file Release in corso"
+msgstr "Ricezione del file della firma di Release in corso"
 
 #. Type: text
 #. Description
@@ -351,9 +348,8 @@ msgstr "Ricezione dei file Packages in corso"
 #. Type: text
 #. Description
 #: ../base-installer.templates:163
-#, fuzzy
 msgid "Retrieving Packages file"
-msgstr "Ricezione dei file Packages in corso"
+msgstr "Ricezione del file Packages in corso"
 
 #. Type: text
 #. Description
@@ -436,37 +432,32 @@ msgstr "Configurazione di ${SUBST0} in corso."
 #. Type: text
 #. Description
 #: ../base-installer.templates:223
-#, fuzzy
 msgid "Checking Release signature"
-msgstr "Ricezione del file Release in corso"
+msgstr "Controllo della firma del file Release in corso"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:227
-#, fuzzy
 msgid "Valid Release signature (key id ${SUBST0})"
-msgstr "File Release non valido: nessuna voce per ${SUBST0}."
+msgstr "Firma valida per il file Release (id ${SUBST0})."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:231
-#, fuzzy
 msgid "Resolving dependencies of base packages..."
-msgstr "Installazione dei pacchetti base in corso."
+msgstr "Risoluzione delle dipendenze dei pacchetti base in corso."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:235
-#, fuzzy
 msgid "Resolving dependencies of required packages..."
-msgstr "Scompattazione dei pacchetti richiesti in corso."
+msgstr "Risoluzione delle dipendenze dei pacchetti richiesti in corso."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:239
-#, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
-msgstr "Controllo della dimensione del pacchetto: ${SUBST0} in corso."
+msgstr "Controllo del componente ${SUBST0} di ${SUBST1} in corso."
 
 #. Type: text
 #. Description
@@ -519,9 +510,8 @@ msgstr "${SECTION}: ${INFO}..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:275
-#, fuzzy
 msgid "Retrying failed download of ${SUBST0}"
-msgstr "Impossibile scaricare ${SUBST0}."
+msgstr "Nuovo tentativo di scaricare ${SUBST0}."
 
 #. Type: text
 #. Description
@@ -583,6 +573,7 @@ msgstr "Installazione dei moduli PCMCIA in corso"
 #. Type: text
 #. Description
 #. Item in the main menu to select this package
-#: ../base-installer.templates:316
+#. TRANSLATORS: <65 columns
+#: ../base-installer.templates:317
 msgid "Install the base system"
 msgstr "Installare il sistema base"
