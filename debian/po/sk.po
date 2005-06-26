@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2005-06-16 09:29-0600\n"
-"PO-Revision-Date: 2005-04-29 22:35+0200\n"
+"PO-Revision-Date: 2005-06-25 20:59+0200\n"
 "Last-Translator:  Peter KLFMANiK Mann <Peter.Mann@tuke.sk>\n"
 "Language-Team:  Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -40,20 +40,18 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
-#, fuzzy
 msgid "Cannot install base system"
-msgstr "Chyba pri inštalácii základného systému"
+msgstr "Základný systém sa nedá nainštalovať"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
-#, fuzzy
 msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
 msgstr ""
-"Inštalačný program nie je schopný nainštalovať Debian. Nebolo nájdené žiadne "
-"inštalačné CD ani nebol nastavený žiaden Debian archív."
+"Inštalačný program nevie určiť spôsob inštalácie základného systému. Nebolo "
+"nájdené žiadne inštalačné CD ani nebol nastavený žiaden Debian archív."
 
 #. Type: error
 #. Description
@@ -226,11 +224,8 @@ msgstr "Pri inštalácii nástrojov initrd do cieľového systému nastala chyba
 #. Type: error
 #. Description
 #: ../base-installer.templates:93
-#, fuzzy
 msgid "Check /target/var/log/bootstrap.log for the details."
-msgstr ""
-"Podrobnosti nájdete v súbore /var/log/messages alebo na tretej virtuálnej "
-"konzole."
+msgstr "Podrobnosti nájdete v súbore /target/var/log/bootstrap.log"
 
 #. Type: error
 #. Description
@@ -241,15 +236,14 @@ msgstr "Zlyhalo stiahnutie Release súboru ${SUBST0}."
 #. Type: error
 #. Description
 #: ../base-installer.templates:106
-#, fuzzy
 msgid "Failed getting Release signature file ${SUBST0}."
-msgstr "Zlyhalo stiahnutie Release súboru ${SUBST0}."
+msgstr "Zlyhalo stiahnutie podpisu Release súboru ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:111
 msgid "Release signed by unknown key (key id ${SUBST0})"
-msgstr ""
+msgstr "Súbor Release je podpísaný neznámym kľúčom (key id ${SUBST0})"
 
 #. Type: error
 #. Description
@@ -276,6 +270,8 @@ msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
 msgstr ""
+"${SUBST0} sa nedá stiahnuť. V závislosti od metódy inštalácie to môže byť "
+"spôsobené chybným CD alebo problémom so sieťou."
 
 #. Type: error
 #. Description
@@ -284,13 +280,14 @@ msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
 msgstr ""
+"Ak inštalujete z CD-R alebo CD-RW, tak možno pomôže napálenie CD nižšou "
+"rýchlosťou."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:139
-#, fuzzy
 msgid "Preparing to install the base system..."
-msgstr "Pripravuje sa inštalácia základného Debian systému..."
+msgstr "Pripravuje sa inštalácia základného systému..."
 
 #. Type: text
 #. Description
@@ -307,9 +304,8 @@ msgstr "Sťahuje sa súbor Release"
 #. Type: text
 #. Description
 #: ../base-installer.templates:151
-#, fuzzy
 msgid "Retrieving Release file signature"
-msgstr "Sťahuje sa súbor Release"
+msgstr "Sťahuje sa podpis súboru Release"
 
 #. Type: text
 #. Description
@@ -326,7 +322,6 @@ msgstr "Sťahuje sa súbor Packages"
 #. Type: text
 #. Description
 #: ../base-installer.templates:163
-#, fuzzy
 msgid "Retrieving Packages file"
 msgstr "Sťahuje sa súbor Packages"
 
@@ -351,37 +346,32 @@ msgstr "Inštaluje sa základný systém"
 #. Type: text
 #. Description
 #: ../base-installer.templates:179
-#, fuzzy
 msgid "Installing core packages"
-msgstr "Inštalujú sa základné (core) balíky..."
+msgstr "Inštalujú sa základné (core) balíky"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:183
-#, fuzzy
 msgid "Unpacking required packages"
-msgstr "Rozbaľujú sa požadované balíky..."
+msgstr "Rozbaľujú sa vyžadované balíky"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:187
-#, fuzzy
 msgid "Configuring required packages"
-msgstr "Nastavujú sa požadované balíky..."
+msgstr "Nastavujú sa vyžadované balíky"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:191
-#, fuzzy
 msgid "Unpacking the base system"
-msgstr "Inštaluje sa základný systém"
+msgstr "Rozbaľuje sa základný systém"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:195
-#, fuzzy
 msgid "Configuring the base system"
-msgstr "Inštaluje sa základný systém"
+msgstr "Nastavuje sa základný systém"
 
 #. Type: text
 #. Description
@@ -404,51 +394,44 @@ msgstr "Rozbaľuje sa ${SUBST0}..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:215
-#, fuzzy
 msgid "Unpacking ${SUBST0}..."
 msgstr "Rozbaľuje sa ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:219
-#, fuzzy
 msgid "Configuring ${SUBST0}..."
-msgstr "Overuje sa ${SUBST0}..."
+msgstr "Nastavuje sa ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:223
-#, fuzzy
 msgid "Checking Release signature"
-msgstr "Sťahuje sa súbor Release"
+msgstr "Kontroluje sa podpis súboru Release"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:227
-#, fuzzy
 msgid "Valid Release signature (key id ${SUBST0})"
-msgstr "Neplatný Release súbor: neobsahuje položku pre ${SUBST0}."
+msgstr "Platný podpis súboru Release (id kľúča ${SUBST0}."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:231
-#, fuzzy
 msgid "Resolving dependencies of base packages..."
-msgstr "Inštalujú sa základné (base) balíky..."
+msgstr "Zisťujú sa závislosti základných balíkov..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:235
-#, fuzzy
 msgid "Resolving dependencies of required packages..."
-msgstr "Rozbaľujú sa požadované balíky..."
+msgstr "Zisťujú sa závislosti vyžadovaných balíkov..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:239
-#, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
-msgstr "Kontroluje sa veľkosť balíka: ${SUBST0}..."
+msgstr "Kontroluje sa komponent ${SUBST0} na ${SUBST1}..."
 
 #. Type: text
 #. Description
@@ -460,13 +443,13 @@ msgstr "Inštalujú sa základné (core) balíky..."
 #. Description
 #: ../base-installer.templates:247
 msgid "Unpacking required packages..."
-msgstr "Rozbaľujú sa požadované balíky..."
+msgstr "Rozbaľujú sa vyžadované balíky..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:251
 msgid "Configuring required packages..."
-msgstr "Nastavujú sa požadované balíky..."
+msgstr "Nastavujú sa vyžadované balíky..."
 
 #. Type: text
 #. Description
@@ -477,16 +460,14 @@ msgstr "Inštalujú sa základné (base) balíky..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:259
-#, fuzzy
 msgid "Unpacking the base system..."
-msgstr "Inštaluje sa základný systém"
+msgstr "Rozbaľuje sa základný systém"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:263
-#, fuzzy
 msgid "Configuring the base system..."
-msgstr "Inštaluje sa základný systém"
+msgstr "Nastavuje sa základný systém..."
 
 #. Type: text
 #. Description
@@ -503,9 +484,8 @@ msgstr "${SECTION}: ${INFO}..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:275
-#, fuzzy
 msgid "Retrying failed download of ${SUBST0}"
-msgstr "Nedá sa stiahnuť ${SUBST0}."
+msgstr "Opakuje sa neúspešné stiahnutie ${SUBST0}"
 
 #. Type: text
 #. Description
