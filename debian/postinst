@@ -325,40 +325,23 @@ create_devices () {
 	fi
 }
 
-# Test whether a kernel is usable at all. For the purposes of this test, we
-# assume that SMP is usable on UP and vice versa (is this safe?).
-# Some architectures just have a hierarchy of optimized kernels, whereas
-# some have subarchitectures that are incompatible at the kernel level. This
-# function should cope with both cases.
-check_usable_kernel () {
-	if arch_check_usable_kernel "$1" "$FLAVOUR"; then
-		info "kernel $1 usable on $FLAVOUR"
-		return 0
-	else
-		info "kernel $1 not usable on $FLAVOUR"
-		return 1
-	fi
-}
-
 kernel_update_list () {
 	# Using 'uniq' to avoid listing the same kernel more then once.
 	chroot /target apt-cache search kernel-image | grep ^kernel-image | \
 	cut -d" " -f1 | uniq > "$KERNEL_LIST.unfiltered"
 	kernels=`sort -r "$KERNEL_LIST.unfiltered" | tr '\n' ' ' | sed -e 's/ $//'`
 	for candidate in $kernels; do
-		if check_usable_kernel "$candidate"; then
+		if arch_check_usable_kernel "$candidate" "$FLAVOUR"; then
 			echo "$candidate"
+			info "kernel $1 usable on $FLAVOUR"
+		else
+			info "kernel $1 not usable on $FLAVOUR"
 		fi
 	done > "$KERNEL_LIST"
 }
 
 kernel_present () {
 	grep -q "^$1\$" $KERNEL_LIST
-}
-
-# Returns a kernel that seems appropriate for the machine.
-get_arch_kernel () {
-	arch_get_kernel "$FLAVOUR"
 }
 
 pick_kernel () {
@@ -389,7 +372,7 @@ pick_kernel () {
 		exit_error base-installer/kernel/no-kernels-found
 	fi
 
-	arch_kernel=$(get_arch_kernel)
+	arch_kernel=$(arch_get_kernel "$FLAVOUR")
 
 	# Try to make current rootskel setting the default, make sure it is
 	# available first.
