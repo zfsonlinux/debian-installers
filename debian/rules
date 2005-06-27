@@ -16,6 +16,10 @@ endif
 
 debian/templates: debian/templates-arch
 	debian/templates-build.pl $(ARCH) < $< > $@
+	# give the new templates file the same mtime as the input file, so
+	# that po2debconf doesn't decide that it needs to run
+	# debconf-updatepo
+	touch -mr $< $@
 
 clean:
 	dh_testdir
