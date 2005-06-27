@@ -240,6 +240,7 @@ install_base_system () {
 		/usr/sbin/run-debootstrap \
 		        --components="${COMPONENTS}" \
 		        --debian-installer \
+			--resolve-deps \
 		        ${include} ${exclude} \
 		        ${DISTRIBUTION} /target \
 		        "$PROTOCOL://$MIRROR$DIRECTORY" \
