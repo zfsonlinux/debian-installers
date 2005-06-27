@@ -234,10 +234,10 @@ install_base_system () {
 		done
 	fi
 
-	if [ -e /usr/bin/cdebootstrap ]; then
-		/usr/bin/cdebootstrap || debootstrap_failed=$?
+	if search-path cdebootstrap; then
+		cdebootstrap || debootstrap_failed=$?
 	else
-		/usr/sbin/run-debootstrap \
+		run-debootstrap \
 		        --components="${COMPONENTS}" \
 		        --debian-installer \
 			--resolve-deps \
