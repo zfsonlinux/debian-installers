@@ -22,12 +22,7 @@ KERNEL_ABI="$(uname -r | cut -d - -f 1,2)"
 MACHINE="$(uname -m)"
 CPUINFO=/proc/cpuinfo
 SPEAKUP=/proc/speakup
-
-if db_get anna/keyring; then
-	KEYRING="$RET"
-else
-	KEYRING=
-fi
+KEYRING=/usr/share/keyrings/archive.gpg
 
 # Avoid debconf sending email during the base install process.
 DEBCONF_ADMIN_EMAIL=""
@@ -194,7 +189,7 @@ install_base_system () {
 	if [ "${EXCLUDES}" ]; then
 		exclude="--exclude=${EXCLUDES}"
 	fi
-	if type gpgv >/dev/null && [ "$KEYRING" ] && [ -f "$KEYRING" ]; then
+	if type gpgv >/dev/null && [ -f "$KEYRING" ]; then
 		keyring="--keyring=${KEYRING}"
 	fi
 
