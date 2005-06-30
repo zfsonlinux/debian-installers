@@ -23,6 +23,12 @@ MACHINE="$(uname -m)"
 CPUINFO=/proc/cpuinfo
 SPEAKUP=/proc/speakup
 
+if db_get anna/keyring; then
+	KEYRING="$RET"
+else
+	KEYRING=
+fi
+
 # Avoid debconf sending email during the base install process.
 DEBCONF_ADMIN_EMAIL=""
 export DEBCONF_ADMIN_EMAIL
@@ -188,6 +194,9 @@ install_base_system () {
 	if [ "${EXCLUDES}" ]; then
 		exclude="--exclude=${EXCLUDES}"
 	fi
+	if type gpgv >/dev/null && [ "$KEYRING" ] && [ -f "$KEYRING" ]; then
+		keyring="--keyring=${KEYRING}"
+	fi
 
 	test -d $ETCDIR || mkdir -p $ETCDIR
 
@@ -242,6 +251,7 @@ install_base_system () {
 		        --debian-installer \
 			--resolve-deps \
 		        ${include} ${exclude} \
+		        ${keyring} \
 		        ${DISTRIBUTION} /target \
 		        "$PROTOCOL://$MIRROR$DIRECTORY" \
 		        2>> $LOGFILE || debootstrap_failed=$?
