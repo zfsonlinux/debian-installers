@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2005-06-26 13:37-0600\n"
-"PO-Revision-Date: 2005-05-29 03:05+1200\n"
+"PO-Revision-Date: 2005-07-08 00:51+1200\n"
 "Last-Translator:  Carlos Z.F. Liu <carlos_liu@yahoo.com>\n"
 "Language-Team:  Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -39,19 +39,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
-#, fuzzy
 msgid "Cannot install base system"
-msgstr "安装基本系统失败"
+msgstr "无法安装基本系统"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
-#, fuzzy
 msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
 msgstr ""
-"安装程序不知道如何安装 Debian。未找到任何可供安装的 CD-ROM，也没有设置任何有"
+"安装程序不知道如何安装基本系统。未找到任何可供安装的 CD-ROM，也没有设置任何有"
 "效的镜像。"
 
 #. Type: error
@@ -68,7 +66,7 @@ msgid ""
 "target. The partitioner and formatter should have done this for you."
 msgstr ""
 "要开始进行安装，在 /target 上必须挂载一个根文件系统。磁盘分区程序和格式化程序"
-"应该已经帮你完成了这些工作。"
+"应该已经帮您完成了这些工作。"
 
 #. Type: error
 #. Description
@@ -87,7 +85,7 @@ msgid ""
 "install."
 msgstr ""
 "在目标文件系统上的安装已被取消，其原因是这个文件系统上有以前安装所残留的文"
-"件，从而可能中断安装进程或导致被安装的系统受损。你应当退回，删除或格式化目标"
+"件，从而可能中断安装进程或导致被安装的系统受损。您应当退回，删除或格式化目标"
 "文件系统，然后再开始安装。"
 
 #. Type: error
@@ -221,9 +219,8 @@ msgstr "向目标系统中安装 initrd-tools 时出现一个错误。"
 #. Type: error
 #. Description
 #: ../base-installer.templates:93
-#, fuzzy
 msgid "Check /target/var/log/bootstrap.log for the details."
-msgstr "请检查 /var/log/messages 或查看第三个虚拟控制台信息来获得详细情况。"
+msgstr "请检查 /target/var/log/bootstrap.log 以获得详细信息。"
 
 #. Type: error
 #. Description
@@ -234,16 +231,14 @@ msgstr "无法获得 Release 文件 ${SUBST0}。"
 #. Type: error
 #. Description
 #: ../base-installer.templates:106
-#, fuzzy
 msgid "Failed getting Release signature file ${SUBST0}."
-msgstr "无法获得 Release 文件 ${SUBST0}。"
+msgstr "无法获得 Release 签名文件 ${SUBST0}。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:111
-#, fuzzy
 msgid "Release file signed by unknown key (key id ${SUBST0})"
-msgstr "无效的 Release 文件：没有 ${SUBST0} 项目。"
+msgstr "Release 文件由未知的 key 签名(key id ${SUBST0})"
 
 #. Type: error
 #. Description
@@ -286,9 +281,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../base-installer.templates:139
-#, fuzzy
 msgid "Preparing to install the base system..."
-msgstr "准备安装 Debian 基本系统..."
+msgstr "正在准备安装基本系统..."
 
 #. Type: text
 #. Description
@@ -305,9 +299,8 @@ msgstr "正在接收软件包文件"
 #. Type: text
 #. Description
 #: ../base-installer.templates:151
-#, fuzzy
 msgid "Retrieving Release file signature"
-msgstr "正在接收软件包文件"
+msgstr "正在接收 Release 文件签名"
 
 #. Type: text
 #. Description
@@ -324,7 +317,6 @@ msgstr "正在接收软件包文件"
 #. Type: text
 #. Description
 #: ../base-installer.templates:163
-#, fuzzy
 msgid "Retrieving Packages file"
 msgstr "正在接收软件包文件"
 
@@ -409,37 +401,32 @@ msgstr "正在配置 ${SUBST0}..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:223
-#, fuzzy
 msgid "Checking Release signature"
-msgstr "正在接收软件包文件"
+msgstr "正在接收 Release 签名"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:227
-#, fuzzy
 msgid "Valid Release signature (key id ${SUBST0})"
-msgstr "无效的 Release 文件：没有 ${SUBST0} 项目。"
+msgstr "有效的 Release 签名(key id ${SUBST0})"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:231
-#, fuzzy
 msgid "Resolving dependencies of base packages..."
-msgstr "正在安装基本软件包..."
+msgstr "正在解决基本软件包依赖关系..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:235
-#, fuzzy
 msgid "Resolving dependencies of required packages..."
-msgstr "正在解包必需的软件包..."
+msgstr "正在解决必需软件包依赖关系..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:239
-#, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
-msgstr "正在检查软件包的大小：${SUBST0}..."
+msgstr "正在检查组件 ${SUBST0} 于 ${SUBST1} 上..."
 
 #. Type: text
 #. Description
@@ -492,9 +479,8 @@ msgstr "${SECTION}：${INFO}..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:275
-#, fuzzy
 msgid "Retrying failed download of ${SUBST0}"
-msgstr "不能下载 ${SUBST0}。"
+msgstr "重新尝试下载 ${SUBST0} 失败"
 
 #. Type: text
 #. Description
