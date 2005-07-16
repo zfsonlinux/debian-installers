@@ -90,12 +90,10 @@ check_target () {
 		exit_error base-installer/no_target_mounted
 	fi
 	
-	# debootstrap has issues with awk already existing, and is not
-	# idempotent in general. Detect and abort.
-	if [ -e /target/usr/bin/awk -o -L /target/usr/bin/awk ] || \
-	   [ -e /target/bin/sh -o -L /target/bin/sh ]; then
+	# Warn about installation over an existing unix.
+	if [ -e /target/bin/sh -o -L /target/bin/sh ]; then
 		db_capb ""
-		db_input medium base-installer/use_unclean_target || true
+		db_input high base-installer/use_unclean_target || true
 		db_go || exit 10
 		db_capb backup
 		db_get base-installer/use_unclean_target
