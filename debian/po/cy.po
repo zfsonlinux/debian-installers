@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"POT-Creation-Date: 2005-06-26 13:37-0600\n"
+"POT-Creation-Date: 2005-07-16 18:29-0600\n"
 "PO-Revision-Date: 2005-03-08 07:46+0000\n"
 "Last-Translator: Dafydd Harries <daf@muse.19inch.net>\n"
 "Language-Team: Welsh <daf@muse.19inch.net>\n"
@@ -28,10 +28,11 @@ msgstr "Mynd ymlaen gyda sefydliad at darged nid yw'n lân?"
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:4
+#, fuzzy
 msgid ""
 "The target file system contains files from a past installation. These files "
-"could break the installation process or cause a broken system to be "
-"installed."
+"could cause problems with the installation process, and if you proceed, some "
+"of the existing files may be overwritten."
 msgstr ""
 "Mae'r system ffeiliau targed yn cynnwys ffeiliau o sefydliad blaenorol. Gall "
 "y ffeiliau hyn dorri'r broses sefydlu neu achosi i system wedi torri gael ei "
@@ -80,10 +81,9 @@ msgstr "Ddim yn sefydlu at darged aflan"
 #. Type: error
 #. Description
 #: ../base-installer.templates:23
+#, fuzzy
 msgid ""
-"The installation to the target file system has been canceled, as the target "
-"file system contains files from a past installation, which could break the "
-"installation process or cause a broken system to be installed. You should go "
+"The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
 "install."
 msgstr ""
@@ -95,19 +95,19 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:32
+#: ../base-installer.templates:30
 msgid "Failed to install the base system"
 msgstr "Methwyd sefydlu'r system sail"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:32
+#: ../base-installer.templates:30
 msgid "The base system installation into /target/ failed."
 msgstr "Methwyd sefydlu'r system sail i fewn i /target/."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:39
+#: ../base-installer.templates:37
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
@@ -115,49 +115,49 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:46
+#: ../base-installer.templates:44
 msgid "Base system installation error"
 msgstr "Gwall sefydlu system sail"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:46
+#: ../base-installer.templates:44
 msgid "The debootstrap program exited abnormally."
 msgstr "Gorffenodd y rhaglen debootstrap mewn ffordd anarferol."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:53
+#: ../base-installer.templates:51
 msgid "The following error occurred:"
 msgstr "Digwyddodd y gwall canlynol:"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:53
+#: ../base-installer.templates:51
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:62
+#: ../base-installer.templates:60
 msgid "Unable to install a kernel"
 msgstr "Ni ellir sefydlu cnewyllyn"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:62
+#: ../base-installer.templates:60
 msgid "No kernel package is selected for installation."
 msgstr "Does dim pecyn cnewyllyn wedi ei ddewis i'w sefydlu."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:67
+#: ../base-installer.templates:65
 msgid "Unable to install the selected kernel"
 msgstr "Ni ellir sefydlu'r cnewyllyn dewisiedig"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:67
+#: ../base-installer.templates:65
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -166,19 +166,19 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:67
+#: ../base-installer.templates:65
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Pecyn cnewyllyn: '${KERNEL}'."
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:78
+#: ../base-installer.templates:76
 msgid "Kernel to install:"
 msgstr "Y cnewyllyn i'w sefydlu:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:78
+#: ../base-installer.templates:76
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -188,26 +188,26 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:84
+#: ../base-installer.templates:82
 msgid "No installable kernel found"
 msgstr "Ni chanfuwyd cnewyllyn gellir sefydlu"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:84
+#: ../base-installer.templates:82
 msgid "No installable kernel was found in the defined APT sources."
 msgstr ""
 "Ni chanfuwyd cnewyllyn gellir sefydlu yn y ffynhonellau APT a ddiffiniwyd."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:84
+#: ../base-installer.templates:82
 msgid "The current default kernel package is '${KERNEL}'."
 msgstr "'${KERNEL} yw'r pecyn cnewyllyn rhagosod cyfredol."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:84
+#: ../base-installer.templates:82
 msgid ""
 "You may try to continue though this rather strange error is probably fatal."
 msgstr ""
@@ -215,13 +215,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:93
+#: ../base-installer.templates:91
 msgid "Unable to install initrd-tools"
 msgstr "Ni ellir sefydlu initrd-tools"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:93
+#: ../base-installer.templates:91
 msgid ""
 "An error was returned while trying to install the initrd-tools package onto "
 "the target system."
@@ -231,7 +231,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:93
+#: ../base-installer.templates:91
 #, fuzzy
 msgid "Check /target/var/log/bootstrap.log for the details."
 msgstr ""
@@ -239,45 +239,45 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:101
+#: ../base-installer.templates:99
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Methwyd cyrchu'r ffeil Release ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:106
+#: ../base-installer.templates:104
 #, fuzzy
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Methwyd cyrchu'r ffeil Release ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:111
+#: ../base-installer.templates:109
 #, fuzzy
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Ffeil Release annilys: dim cofnod ar gyfer ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:116
+#: ../base-installer.templates:114
 msgid "Invalid Release file: no valid components."
 msgstr "Ffeil Release annilys: dim cydrannau dilys."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:121
+#: ../base-installer.templates:119
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Ffeil Release annilys: dim cofnod ar gyfer ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:126
+#: ../base-installer.templates:124
 msgid "Debootstrap Error"
 msgstr "Gwall Debootstrap"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:126
+#: ../base-installer.templates:124
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -285,7 +285,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:126
+#: ../base-installer.templates:124
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -293,277 +293,277 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:139
+#: ../base-installer.templates:137
 #, fuzzy
 msgid "Preparing to install the base system..."
 msgstr "Yn paratoi i sefydlu system sail Debian..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:143
+#: ../base-installer.templates:141
 msgid "Running ${SCRIPT}..."
 msgstr "Yn rhedeg ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:147
+#: ../base-installer.templates:145
 msgid "Retrieving Release file"
 msgstr "Yn cyrchu'r ffeil Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:151
+#: ../base-installer.templates:149
 #, fuzzy
 msgid "Retrieving Release file signature"
 msgstr "Yn cyrchu'r ffeil Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:155
+#: ../base-installer.templates:153
 msgid "Finding package sizes"
 msgstr "Yn canfod meintiau pecynnau"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:159
+#: ../base-installer.templates:157
 msgid "Retrieving Packages files"
 msgstr "Yn cyrchu ffeiliau Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:163
+#: ../base-installer.templates:161
 #, fuzzy
 msgid "Retrieving Packages file"
 msgstr "Yn cyrchu ffeiliau Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:167
+#: ../base-installer.templates:165
 msgid "Retrieving packages"
 msgstr "Yn cyrchu pecynnau"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:171
+#: ../base-installer.templates:169
 msgid "Extracting packages"
 msgstr "Yn echdynnu pecynnau"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:175
+#: ../base-installer.templates:173
 msgid "Installing the base system"
 msgstr "Yn sefydlu'r system sail"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:179
+#: ../base-installer.templates:177
 #, fuzzy
 msgid "Installing core packages"
 msgstr "Yn sefydlu pecynnau craidd..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:183
+#: ../base-installer.templates:181
 #, fuzzy
 msgid "Unpacking required packages"
 msgstr "Yn dadbacio pecynnau angenrheidiol..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:187
+#: ../base-installer.templates:185
 #, fuzzy
 msgid "Configuring required packages"
 msgstr "Yn cyflunio pecynnau angenrheidiol..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:191
+#: ../base-installer.templates:189
 #, fuzzy
 msgid "Unpacking the base system"
 msgstr "Yn sefydlu'r system sail"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:195
+#: ../base-installer.templates:193
 #, fuzzy
 msgid "Configuring the base system"
 msgstr "Yn sefydlu'r system sail"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:203
+#: ../base-installer.templates:201
 msgid "Validating ${SUBST0}..."
 msgstr "Yn gwirio ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:207
+#: ../base-installer.templates:205
 msgid "Retrieving ${SUBST0}..."
 msgstr "Yn cyrchu ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:211
+#: ../base-installer.templates:209
 msgid "Extracting ${SUBST0}..."
 msgstr "Yn echdynnu ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:215
+#: ../base-installer.templates:213
 #, fuzzy
 msgid "Unpacking ${SUBST0}..."
 msgstr "Yn echdynnu ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:219
+#: ../base-installer.templates:217
 #, fuzzy
 msgid "Configuring ${SUBST0}..."
 msgstr "Yn gwirio ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:223
+#: ../base-installer.templates:221
 #, fuzzy
 msgid "Checking Release signature"
 msgstr "Yn cyrchu'r ffeil Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:227
+#: ../base-installer.templates:225
 #, fuzzy
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Ffeil Release annilys: dim cofnod ar gyfer ${SUBST0}."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:231
+#: ../base-installer.templates:229
 #, fuzzy
 msgid "Resolving dependencies of base packages..."
 msgstr "Yn sefydlu pecynnau sail..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:235
+#: ../base-installer.templates:233
 #, fuzzy
 msgid "Resolving dependencies of required packages..."
 msgstr "Yn dadbacio pecynnau angenrheidiol..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:239
+#: ../base-installer.templates:237
 #, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "Yn gwirio main y pecyn: ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:243
+#: ../base-installer.templates:241
 msgid "Installing core packages..."
 msgstr "Yn sefydlu pecynnau craidd..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:247
+#: ../base-installer.templates:245
 msgid "Unpacking required packages..."
 msgstr "Yn dadbacio pecynnau angenrheidiol..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:251
+#: ../base-installer.templates:249
 msgid "Configuring required packages..."
 msgstr "Yn cyflunio pecynnau angenrheidiol..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:255
+#: ../base-installer.templates:253
 msgid "Installing base packages..."
 msgstr "Yn sefydlu pecynnau sail..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:259
+#: ../base-installer.templates:257
 #, fuzzy
 msgid "Unpacking the base system..."
 msgstr "Yn sefydlu'r system sail"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:263
+#: ../base-installer.templates:261
 #, fuzzy
 msgid "Configuring the base system..."
 msgstr "Yn sefydlu'r system sail"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:267
+#: ../base-installer.templates:265
 msgid "Base system installed successfully."
 msgstr "Sefydliwyd y system sail yn llwyddiannus."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:271
+#: ../base-installer.templates:269
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:275
+#: ../base-installer.templates:273
 #, fuzzy
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Methwyd lawrlwytho ${SUBST0}."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:279
+#: ../base-installer.templates:277
 msgid "Configuring APT sources..."
 msgstr "Yn cyflunio ffynhonellau APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:283
+#: ../base-installer.templates:281
 msgid "Updating the list of available packages..."
 msgstr "Yn diweddaru'r rhestr o becynnau sydd ar gael..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:287
+#: ../base-installer.templates:285
 msgid "Installing extra packages..."
 msgstr "Yn sefydlu pecynnau ychwanegol..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:291
+#: ../base-installer.templates:289
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "Yn sefydlu pecynnau ychwanegol - yn cyrchu a sefydlu ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:295
+#: ../base-installer.templates:293
 msgid "Creating device files..."
 msgstr "Yn creu ffeiliau dyfais..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:299
+#: ../base-installer.templates:297
 msgid "Selecting the kernel to install..."
 msgstr "Yn dewis y cnewyllyn i sefydlu..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:303
+#: ../base-installer.templates:301
 msgid "Installing the kernel..."
 msgstr "Yn sefydlu'r cnewyllyn..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:307
+#: ../base-installer.templates:305
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Yn sefydlu'r cnewyllyn - yn cyrchu a sefydlu ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:311
+#: ../base-installer.templates:309
 msgid "Installing the PCMCIA modules"
 msgstr "Yn sefydlu'r modylau PCMCIA"
 
@@ -571,6 +571,6 @@ msgstr "Yn sefydlu'r modylau PCMCIA"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:317
+#: ../base-installer.templates:315
 msgid "Install the base system"
 msgstr "Sefydlu'r system sail"

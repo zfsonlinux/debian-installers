@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"POT-Creation-Date: 2005-06-26 13:37-0600\n"
+"POT-Creation-Date: 2005-07-16 18:29-0600\n"
 "PO-Revision-Date: 2005-04-19 07:06+0800\n"
 "Last-Translator: Tetralet <tetralet@pchome.com.tw>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
@@ -29,10 +29,11 @@ msgstr "是否要在未完全清空的檔案系統上進行安裝作業？"
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:4
+#, fuzzy
 msgid ""
 "The target file system contains files from a past installation. These files "
-"could break the installation process or cause a broken system to be "
-"installed."
+"could cause problems with the installation process, and if you proceed, some "
+"of the existing files may be overwritten."
 msgstr ""
 "該檔案系統還存在著上次安裝所殘留的檔案。這些檔案可能會妨礙安裝程序的進行，或"
 "是導致安裝完畢後的系統無法使用。"
@@ -80,10 +81,9 @@ msgstr "拒絕安裝至未完全清空之檔案系統上"
 #. Type: error
 #. Description
 #: ../base-installer.templates:23
+#, fuzzy
 msgid ""
-"The installation to the target file system has been canceled, as the target "
-"file system contains files from a past installation, which could break the "
-"installation process or cause a broken system to be installed. You should go "
+"The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
 "install."
 msgstr ""
@@ -93,68 +93,68 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:32
+#: ../base-installer.templates:30
 msgid "Failed to install the base system"
 msgstr "無法安裝 Base System"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:32
+#: ../base-installer.templates:30
 msgid "The base system installation into /target/ failed."
 msgstr "將 Base System 安裝至 /target/ 時失敗了。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:39
+#: ../base-installer.templates:37
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr "debootstrap 程式因發生錯誤而關閉 (回傳值 ${EXITCODE})。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:46
+#: ../base-installer.templates:44
 msgid "Base system installation error"
 msgstr "Base System 安裝作業發生錯誤"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:46
+#: ../base-installer.templates:44
 msgid "The debootstrap program exited abnormally."
 msgstr "debootstrap 程式異常結束。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:53
+#: ../base-installer.templates:51
 msgid "The following error occurred:"
 msgstr "發生了下列錯誤："
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:53
+#: ../base-installer.templates:51
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:62
+#: ../base-installer.templates:60
 msgid "Unable to install a kernel"
 msgstr "無法安裝 Kernel"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:62
+#: ../base-installer.templates:60
 msgid "No kernel package is selected for installation."
 msgstr "未指定所要安裝的 Kernel 套件。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:67
+#: ../base-installer.templates:65
 msgid "Unable to install the selected kernel"
 msgstr "無法安裝所指定的 Kernel"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:67
+#: ../base-installer.templates:65
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -162,19 +162,19 @@ msgstr "在試圖將 Kernel 安裝至系統中時發生錯誤。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:67
+#: ../base-installer.templates:65
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Kernel 套件：'${KERNEL}'。"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:78
+#: ../base-installer.templates:76
 msgid "Kernel to install:"
 msgstr "要安裝的 Kernel："
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:78
+#: ../base-installer.templates:76
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -182,38 +182,38 @@ msgstr "在列表中的則為可用的 Kernel。請選擇其中之一來讓系�
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:84
+#: ../base-installer.templates:82
 msgid "No installable kernel found"
 msgstr "未能找到可以用來安裝的 Kernel"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:84
+#: ../base-installer.templates:82
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "在指定的 APT 來源中未能找到可以用來安裝的 Kernel。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:84
+#: ../base-installer.templates:82
 msgid "The current default kernel package is '${KERNEL}'."
 msgstr "目前預設的 Kernel 套件 是 ${KERNEL}。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:84
+#: ../base-installer.templates:82
 msgid ""
 "You may try to continue though this rather strange error is probably fatal."
 msgstr "儘管這個不尋常的錯誤訊息可能非常重要，您還是可以試著繼續進行。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:93
+#: ../base-installer.templates:91
 msgid "Unable to install initrd-tools"
 msgstr "無法安裝 initrd-tools"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:93
+#: ../base-installer.templates:91
 msgid ""
 "An error was returned while trying to install the initrd-tools package onto "
 "the target system."
@@ -221,52 +221,52 @@ msgstr "在試著將 initrd-tools 安裝至系統中時發生錯誤。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:93
+#: ../base-installer.templates:91
 #, fuzzy
 msgid "Check /target/var/log/bootstrap.log for the details."
 msgstr "請查看 /var/log/messages 或是第三個虛擬主控台來獲得詳細訊息。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:101
+#: ../base-installer.templates:99
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "無法取得 Release 檔案 ${SUBST0}。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:106
+#: ../base-installer.templates:104
 #, fuzzy
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "無法取得 Release 檔案 ${SUBST0}。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:111
+#: ../base-installer.templates:109
 #, fuzzy
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "不正確的 Release 檔案：沒有 ${SUBST0} 項目。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:116
+#: ../base-installer.templates:114
 msgid "Invalid Release file: no valid components."
 msgstr "不正確的 Release 檔案：沒有可用的元件。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:121
+#: ../base-installer.templates:119
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "不正確的 Release 檔案：沒有 ${SUBST0} 項目。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:126
+#: ../base-installer.templates:124
 msgid "Debootstrap Error"
 msgstr "Debootstrap 錯誤"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:126
+#: ../base-installer.templates:124
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -276,7 +276,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:126
+#: ../base-installer.templates:124
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -286,267 +286,267 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:139
+#: ../base-installer.templates:137
 #, fuzzy
 msgid "Preparing to install the base system..."
 msgstr "正在準備安裝 Debian Base System..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:143
+#: ../base-installer.templates:141
 msgid "Running ${SCRIPT}..."
 msgstr "正在執行 ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:147
+#: ../base-installer.templates:145
 msgid "Retrieving Release file"
 msgstr "正在接收 Release 檔案"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:151
+#: ../base-installer.templates:149
 #, fuzzy
 msgid "Retrieving Release file signature"
 msgstr "正在接收 Release 檔案"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:155
+#: ../base-installer.templates:153
 msgid "Finding package sizes"
 msgstr "正在查詢套件大小"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:159
+#: ../base-installer.templates:157
 msgid "Retrieving Packages files"
 msgstr "正在接收套件檔案"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:163
+#: ../base-installer.templates:161
 #, fuzzy
 msgid "Retrieving Packages file"
 msgstr "正在接收套件檔案"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:167
+#: ../base-installer.templates:165
 msgid "Retrieving packages"
 msgstr "正在接收套件"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:171
+#: ../base-installer.templates:169
 msgid "Extracting packages"
 msgstr "正在解開套件"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:175
+#: ../base-installer.templates:173
 msgid "Installing the base system"
 msgstr "正在安裝 Base System"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:179
+#: ../base-installer.templates:177
 msgid "Installing core packages"
 msgstr "正在安裝核心套件"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:183
+#: ../base-installer.templates:181
 msgid "Unpacking required packages"
 msgstr "正在解開必需的套件"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:187
+#: ../base-installer.templates:185
 msgid "Configuring required packages"
 msgstr "正在設定必需的套件"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:191
+#: ../base-installer.templates:189
 msgid "Unpacking the base system"
 msgstr "正在解開 Base System"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:195
+#: ../base-installer.templates:193
 msgid "Configuring the base system"
 msgstr "正在設定 Base System"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:203
+#: ../base-installer.templates:201
 msgid "Validating ${SUBST0}..."
 msgstr "正在比對 ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:207
+#: ../base-installer.templates:205
 msgid "Retrieving ${SUBST0}..."
 msgstr "正在接收 ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:211
+#: ../base-installer.templates:209
 msgid "Extracting ${SUBST0}..."
 msgstr "正在解開 ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:215
+#: ../base-installer.templates:213
 msgid "Unpacking ${SUBST0}..."
 msgstr "正在解開 ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:219
+#: ../base-installer.templates:217
 msgid "Configuring ${SUBST0}..."
 msgstr "正在設定 ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:223
+#: ../base-installer.templates:221
 #, fuzzy
 msgid "Checking Release signature"
 msgstr "正在接收 Release 檔案"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:227
+#: ../base-installer.templates:225
 #, fuzzy
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "不正確的 Release 檔案：沒有 ${SUBST0} 項目。"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:231
+#: ../base-installer.templates:229
 #, fuzzy
 msgid "Resolving dependencies of base packages..."
 msgstr "正在安裝基本套件..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:235
+#: ../base-installer.templates:233
 #, fuzzy
 msgid "Resolving dependencies of required packages..."
 msgstr "正在解開必需的套件..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:239
+#: ../base-installer.templates:237
 #, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "正在檢驗套件的大小：${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:243
+#: ../base-installer.templates:241
 msgid "Installing core packages..."
 msgstr "正在安裝核心套件..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:247
+#: ../base-installer.templates:245
 msgid "Unpacking required packages..."
 msgstr "正在解開必需的套件..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:251
+#: ../base-installer.templates:249
 msgid "Configuring required packages..."
 msgstr "正在設定必需的套件..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:255
+#: ../base-installer.templates:253
 msgid "Installing base packages..."
 msgstr "正在安裝基本套件..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:259
+#: ../base-installer.templates:257
 msgid "Unpacking the base system..."
 msgstr "正在解開 Base System..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:263
+#: ../base-installer.templates:261
 msgid "Configuring the base system..."
 msgstr "正在設定 Base System..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:267
+#: ../base-installer.templates:265
 msgid "Base system installed successfully."
 msgstr "Base System 已安裝完成。"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:271
+#: ../base-installer.templates:269
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}：${INFO}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:275
+#: ../base-installer.templates:273
 msgid "Retrying failed download of ${SUBST0}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:279
+#: ../base-installer.templates:277
 msgid "Configuring APT sources..."
 msgstr "正在設定 APT 來源..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:283
+#: ../base-installer.templates:281
 msgid "Updating the list of available packages..."
 msgstr "正在更新可供使用套件的列表..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:287
+#: ../base-installer.templates:285
 msgid "Installing extra packages..."
 msgstr "正在安裝額外的套件..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:291
+#: ../base-installer.templates:289
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "正在安裝額外的套件 - 正在接收並安裝 ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:295
+#: ../base-installer.templates:293
 msgid "Creating device files..."
 msgstr "正在建立裝置檔..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:299
+#: ../base-installer.templates:297
 msgid "Selecting the kernel to install..."
 msgstr "正在選擇所要安裝的 Kernel..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:303
+#: ../base-installer.templates:301
 msgid "Installing the kernel..."
 msgstr "正在安裝 Kernel..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:307
+#: ../base-installer.templates:305
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "正在安裝 Kernel - 正在接收並安裝 ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:311
+#: ../base-installer.templates:309
 msgid "Installing the PCMCIA modules"
 msgstr "正在安裝 PCMCIA 模組"
 
@@ -554,6 +554,6 @@ msgstr "正在安裝 PCMCIA 模組"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:317
+#: ../base-installer.templates:315
 msgid "Install the base system"
 msgstr "安裝 Base System"
