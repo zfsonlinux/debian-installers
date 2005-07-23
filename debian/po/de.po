@@ -7,7 +7,7 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
-# Dennis Stampfer <seppy@debian.org>, 2003, 2004.
+# Dennis Stampfer <seppy@debian.org>, 2003, 2004, 2005.
 # Alwin Meschede <ameschede@gmx.de>, 2003, 2004.
 # Bastian Blank <waldi@debian.org>, 2003.
 # Jan Luebbe <jluebbe@lasnet.de>, 2003
@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2005-07-16 18:29-0600\n"
-"PO-Revision-Date: 2005-05-25 09:57GMT\n"
+"PO-Revision-Date: 2005-07-22 22:35GMT\n"
 "Last-Translator: Dennis Stampfer <seppy@debian.org>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -37,33 +37,32 @@ msgstr "Mit der Installation auf ein unsauberes Ziel fortfahren?"
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:4
-#, fuzzy
 msgid ""
 "The target file system contains files from a past installation. These files "
 "could cause problems with the installation process, and if you proceed, some "
 "of the existing files may be overwritten."
 msgstr ""
-"Das Ziel-Dateisystem enthält Dateien einer vergangenen Installation. Diese "
-"Dateien könnten den Installationsprozess abbrechen oder dazu führen, dass "
-"das installierte System nicht korrekt arbeitet."
+"Das Ziel-Dateisystem enthält Dateien einer vorherigen Installation. Diese "
+"Dateien könnten Probleme im Installations-Prozess verursachen. Wenn Sie die "
+"Installation fortsetzen, könnten einige der vorhandenen Dateien "
+"überschrieben werden."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
-#, fuzzy
 msgid "Cannot install base system"
-msgstr "Installation des Grundsystems fehlgeschlagen"
+msgstr "Grundsystem kann nicht installiert werden"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
-#, fuzzy
 msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
 msgstr ""
-"Der Installer kann Debian nicht installieren. Es wurde keine Installations-"
-"CD-ROM gefunden und kein Spiegelserver konfiguriert."
+"Der Installer kann das Grundsystem nicht installieren. Es wurde keine "
+"Installations CD-Rom gefunden und es wurde kein gültiger Spiegel "
+"eingerichtet."
 
 #. Type: error
 #. Description
@@ -91,16 +90,13 @@ msgstr "Installiere nicht auf ein unsauberes Ziel"
 #. Type: error
 #. Description
 #: ../base-installer.templates:23
-#, fuzzy
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
 "install."
 msgstr ""
-"Die Installation wurde abgebrochen, da das Zieldateisystem Daten einer "
-"vergangenen Installation enthält, welche den Installationsprozess behindern "
-"oder zu einem unsauberen System führen könnten. Sie sollten zurückkehren und "
-"das Zieldateisystem entfernen oder formatieren bevor Sie mit der "
+"Die Installation auf das Zieldateisystem wurde abgebrochen. Sie sollten "
+"zurück gehen und das Ziel löschen oder formatieren bevor Sie mit der "
 "Installation fortfahren."
 
 #. Type: error
@@ -246,11 +242,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:91
-#, fuzzy
 msgid "Check /target/var/log/bootstrap.log for the details."
-msgstr ""
-"Für mehr Informationen, prüfen Sie /var/log/messages oder sehen Sie auf der "
-"virtuellen Konsole 3 nach."
+msgstr "Prüfen Sie /target/var/log/bootstrap.log für genauere Informationen."
 
 #. Type: error
 #. Description
@@ -261,16 +254,17 @@ msgstr "Fehler beim Laden der Release-Datei ${SUBST0}."
 #. Type: error
 #. Description
 #: ../base-installer.templates:104
-#, fuzzy
 msgid "Failed getting Release signature file ${SUBST0}."
-msgstr "Fehler beim Laden der Release-Datei ${SUBST0}."
+msgstr ""
+"Unterschrift für Release-Datei ${SUBST0} konnten nicht empfangen werden."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:109
-#, fuzzy
 msgid "Release file signed by unknown key (key id ${SUBST0})"
-msgstr "Ungültige Release-Datei: Kein Eintrag für ${SUBST0}."
+msgstr ""
+"Release-Datei wurde von einem unbekannten Schlüssel signiert. (Schlüssel-"
+"Nr.: ${SUBST0})"
 
 #. Type: error
 #. Description
@@ -313,9 +307,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../base-installer.templates:137
-#, fuzzy
 msgid "Preparing to install the base system..."
-msgstr "Bereite die Installation des Debian-Grundsystems vor..."
+msgstr "Bereite die Installation des Grundsystems vor..."
 
 #. Type: text
 #. Description
@@ -332,9 +325,8 @@ msgstr "Lade Release-Datei"
 #. Type: text
 #. Description
 #: ../base-installer.templates:149
-#, fuzzy
 msgid "Retrieving Release file signature"
-msgstr "Lade Release-Datei"
+msgstr "Lade Unterschrift für Release-Datei"
 
 #. Type: text
 #. Description
@@ -351,7 +343,6 @@ msgstr "Lade Packages-Datei"
 #. Type: text
 #. Description
 #: ../base-installer.templates:161
-#, fuzzy
 msgid "Retrieving Packages file"
 msgstr "Lade Packages-Datei"
 
@@ -436,37 +427,32 @@ msgstr "Konfiguriere ${SUBST0}..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:221
-#, fuzzy
 msgid "Checking Release signature"
-msgstr "Lade Release-Datei"
+msgstr "Prüfe Unterschrift der Release-Datei"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:225
-#, fuzzy
 msgid "Valid Release signature (key id ${SUBST0})"
-msgstr "Ungültige Release-Datei: Kein Eintrag für ${SUBST0}."
+msgstr "Gültige Unterschrift für Release-Datei (Schlüssel-Nr. ${SUBST0})"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:229
-#, fuzzy
 msgid "Resolving dependencies of base packages..."
-msgstr "Installiere Basis-Pakete..."
+msgstr "Löse Abhänigkeiten der Grundpakete auf..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:233
-#, fuzzy
 msgid "Resolving dependencies of required packages..."
-msgstr "Entpacke benötigte Pakete..."
+msgstr "Löse Abhänigkeiten der benötigten Dateien auf..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:237
-#, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
-msgstr "Prüfe Paket-Größe: ${SUBST0}..."
+msgstr "Prüfe Komponente ${SUBST0} auf ${SUBST1}..."
 
 #. Type: text
 #. Description
@@ -520,7 +506,7 @@ msgstr "${SECTION}: ${INFO}..."
 #. Description
 #: ../base-installer.templates:273
 msgid "Retrying failed download of ${SUBST0}"
-msgstr ""
+msgstr "Download-Versuch von ${SUBST0} fehlgeschlagen"
 
 #. Type: text
 #. Description
