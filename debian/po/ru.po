@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "POT-Creation-Date: 2005-07-16 18:29-0600\n"
-"PO-Revision-Date: 2005-05-24 19:18+0400\n"
+"PO-Revision-Date: 2005-07-25 21:11+0400\n"
 "Last-Translator: Yuri Kozlov <yuray@id.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,33 +35,30 @@ msgstr "Продолжить установку на непустой разде
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:4
-#, fuzzy
 msgid ""
 "The target file system contains files from a past installation. These files "
 "could cause problems with the installation process, and if you proceed, some "
 "of the existing files may be overwritten."
 msgstr ""
 "Целевая файловая система содержит файлы от предыдущей установки. Эти файлы "
-"могут помешать процессу установки или привести к тому, что установленная "
-"система окажется неработоспособной."
+"могут помешать процессу установки или если вы продолжите, то содержимое "
+"существующих файлов вероятно будет изменено."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
-#, fuzzy
 msgid "Cannot install base system"
 msgstr "Не удалось установить базовую систему"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
-#, fuzzy
 msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
 msgstr ""
-"Программа установки не смогла определить как установить Debian. Не было "
-"найдено установочных дисков CD-ROM и не было настроено рабочих серверов-"
+"Программа установки не смогла определить как установить базовую систему. Не "
+"было найдено установочных дисков CD-ROM и не было настроено рабочих серверов-"
 "зеркал."
 
 #. Type: error
@@ -89,17 +86,14 @@ msgstr "Не установлено на непустой раздел"
 #. Type: error
 #. Description
 #: ../base-installer.templates:23
-#, fuzzy
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
 "install."
 msgstr ""
-"Установка в целевую файловую систему была отменена, так как она содержит "
-"файлы от предыдущей установки, что может помешать процессу установки или "
-"привести к тому, что установленная система окажется неработоспособной. Вы "
-"должны вернуться и стереть или отформатировать целевую файловую систему "
-"перед продолжением установки."
+"Установка в целевую файловую систему была отменена. Чтобы продолжить "
+"установку вы должны вернуться назад, чтобы стереть или отформатировать "
+"целевую файловую систему."
 
 #. Type: error
 #. Description
@@ -240,9 +234,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:91
-#, fuzzy
 msgid "Check /target/var/log/bootstrap.log for the details."
-msgstr "Подробности смотрите в /var/log/messages или на консоли 3."
+msgstr "Подробности смотрите в /var/log/bootstrap.log."
 
 #. Type: error
 #. Description
@@ -253,16 +246,14 @@ msgstr "Не удалось получить файл Release ${SUBST0}."
 #. Type: error
 #. Description
 #: ../base-installer.templates:104
-#, fuzzy
 msgid "Failed getting Release signature file ${SUBST0}."
-msgstr "Не удалось получить файл Release ${SUBST0}."
+msgstr "Не удалось получить подпись для файла Release ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:109
-#, fuzzy
 msgid "Release file signed by unknown key (key id ${SUBST0})"
-msgstr "Неверный файл Release: отсутствует описание для ${SUBST0}."
+msgstr "Файл Release подписан неизвестным ключём (key id ${SUBST0})"
 
 #. Type: error
 #. Description
@@ -305,9 +296,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../base-installer.templates:137
-#, fuzzy
 msgid "Preparing to install the base system..."
-msgstr "Подготовка к установке базовой системы Debian..."
+msgstr "Подготовка к установке базовой системы..."
 
 #. Type: text
 #. Description
@@ -324,9 +314,8 @@ msgstr "Получение файла Release"
 #. Type: text
 #. Description
 #: ../base-installer.templates:149
-#, fuzzy
 msgid "Retrieving Release file signature"
-msgstr "Получение файла Release"
+msgstr "Получение подписи для файла Release"
 
 #. Type: text
 #. Description
@@ -343,9 +332,8 @@ msgstr "Получение файлов Packages"
 #. Type: text
 #. Description
 #: ../base-installer.templates:161
-#, fuzzy
 msgid "Retrieving Packages file"
-msgstr "Получение файлов Packages"
+msgstr "Получение файла Packages"
 
 #. Type: text
 #. Description
@@ -411,7 +399,7 @@ msgstr "Получение ${SUBST0}..."
 #. Description
 #: ../base-installer.templates:209
 msgid "Extracting ${SUBST0}..."
-msgstr "Распаковка ${SUBST0}..."
+msgstr "Извлечение ${SUBST0}..."
 
 #. Type: text
 #. Description
@@ -428,37 +416,32 @@ msgstr "Настройка ${SUBST0}..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:221
-#, fuzzy
 msgid "Checking Release signature"
-msgstr "Получение файла Release"
+msgstr "Проверка подписи файла Release"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:225
-#, fuzzy
 msgid "Valid Release signature (key id ${SUBST0})"
-msgstr "Неверный файл Release: отсутствует описание для ${SUBST0}."
+msgstr "Подпись файла Release верна (id ${SUBST0})"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:229
-#, fuzzy
 msgid "Resolving dependencies of base packages..."
-msgstr "Установка базовых (base) пакетов..."
+msgstr "Обработка зависимостей базовых (base) пакетов..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:233
-#, fuzzy
 msgid "Resolving dependencies of required packages..."
-msgstr "Распаковка необходимых (required) пакетов..."
+msgstr "Обработка зависимостей необходимых (required) пакетов..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:237
-#, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
-msgstr "Проверка размера пакета: ${SUBST0}..."
+msgstr "Проверка компонента ${SUBST0} на ${SUBST1}..."
 
 #. Type: text
 #. Description
@@ -511,9 +494,8 @@ msgstr "${SECTION}: ${INFO}..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:273
-#, fuzzy
 msgid "Retrying failed download of ${SUBST0}"
-msgstr "Не удалось загрузить ${SUBST0}."
+msgstr "Повторная загрузка ${SUBST0}"
 
 #. Type: text
 #. Description
