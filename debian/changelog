@@ -2,7 +2,8 @@ base-installer (1.23) UNRELEASED; urgency=low
 
   * Avoid using dmesg to guess if the machine is smp on alpha, amd64, and
     i386, since the ring buffer can overflow. Instead, use the new numcpus
-    file written by rootskel on these three architectures. Closes: #228252
+    file written by rootskel on these three architectures.
+    Closes: #228252, #247371
   * The new smp detection will work too, unlike the old code. Closes: #246483
   * Depend on new enough rootskel.
 
