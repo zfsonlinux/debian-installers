@@ -30,7 +30,7 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	if dmesg | grep -q "WARNING: NR_CPUS limit of 1 reached."; then
+	if [ "$(cat /var/numcpus)" -gt 1 ]; then
 		SMP=-smp
 	else
 		SMP=

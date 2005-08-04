@@ -44,7 +44,7 @@ arch_get_kernel () {
 		return
 	fi
 
-	if dmesg | grep -q ^Processors:; then
+	if [ "$(cat /var/numcpus)" -gt 1 ]; then
 		SMP=-smp
 	else
 		SMP=

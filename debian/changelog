@@ -1,3 +1,13 @@
+base-installer (1.23) UNRELEASED; urgency=low
+
+  * Avoid using dmesg to guess if the machine is smp on alpha, amd64, and
+    i386, since the ring buffer can overflow. Instead, use the new numcpus
+    file written by rootskel on these three architectures. Closes: #228252
+  * The new smp detection will work too, unlike the old code. Closes: #246483
+  * Depend on new enough rootskel.
+
+ -- Joey Hess <joeyh@debian.org>  Thu,  4 Aug 2005 14:11:22 -0400
+
 base-installer (1.22) unstable; urgency=low
 
   * debootstrap can now install to unclean targets, mostly, so reword the
