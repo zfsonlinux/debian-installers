@@ -180,13 +180,8 @@ update_mtab() {
 
 # Run update-grub in /target.
 update_grub () {
-	# Pipe from 'yes' to tell grub to create menu.lst when it is missing. A
-	# better correct fix is to get update-grub to be able to run in
-	# noninteractive mode.  Newer versions of the grub package support
-	# '-y' for noninteractive installs.  But we'll keep it as-is for
-	# Skolelinux.
-	if ! chroot /target /usr/bin/yes | chroot /target /sbin/update-grub >> $log 2>&1 ; then
-		error "Running 'update-grub' failed." 1>&2
+	if ! chroot /target /sbin/update-grub -y >> $log 2>&1 ; then
+		error "Running 'update-grub -y' failed." 1>&2
 		db_input critical grub-installer/update-grub-failed || [ $? -eq 30 ]
 		db_go || true
 		db_progress STOP
