@@ -30,7 +30,7 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	if [ "$(cat /var/numcpus)" -gt 1 ]; then
+	if [ -n "$NUMCPUS" ] && [ "$NUMCPUS" -gt 1 ]; then
 		SMP=-smp
 	else
 		SMP=

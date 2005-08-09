@@ -55,6 +55,10 @@ Shell variables all functions may expect:
     Not appropriate on all architectures.
   MACHINE
     The machine hardware name (as returned by uname -m).
+  NUMCPUS
+    The number of CPUs in the machine. Will only be set if /var/numcpus
+    exists, and may not be very accurate (ie, 2 for any SMP machine).
+    Only of use when grepping CPUINFO won't work.
 
 Please update the regression tests in the tests/ directory when making
 changes here. In particular, calls to inspect the kernel version or

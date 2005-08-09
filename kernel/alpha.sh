@@ -8,8 +8,8 @@ arch_check_usable_kernel () {
 
 arch_get_kernel () {
 	version=2.4.27-2
-
-	if [ "$(cat /var/numcpus)" -gt 1 ]; then
+	
+	if [ -n "$NUMCPUS" ] && [ "$NUMCPUS" -gt 1 ]; then
 		SMP=smp
 	else
 		SMP=genric

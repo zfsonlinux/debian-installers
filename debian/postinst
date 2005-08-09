@@ -20,6 +20,7 @@ KERNEL_MAJOR="$(uname -r | cut -d . -f 1,2)"
 KERNEL_VERSION="$(uname -r | cut -d - -f 1)"
 KERNEL_ABI="$(uname -r | cut -d - -f 1,2)"
 MACHINE="$(uname -m)"
+NUMCPUS=$(cat /var/numcpus) || true
 CPUINFO=/proc/cpuinfo
 SPEAKUP=/proc/speakup
 KEYRING=/usr/share/keyrings/archive.gpg

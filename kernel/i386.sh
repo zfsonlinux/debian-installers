@@ -43,8 +43,8 @@ arch_get_kernel () {
 		echo "kernel-image-$KERNEL_VERSION-speakup"
 		return
 	fi
-
-	if [ "$(cat /var/numcpus)" -gt 1 ]; then
+	
+	if [ -n "$NUMCPUS" ] && [ "$NUMCPUS" -gt 1 ]; then
 		SMP=-smp
 	else
 		SMP=
