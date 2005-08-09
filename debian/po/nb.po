@@ -3,6 +3,7 @@
 #
 # DO NOT MODIFY IT DIRECTLY : SUCH CHANGES WILL BE LOST
 # 
+# translation of nb.po to Norwegian Bokmål
 # translation of debian-installer.po to Norwegian bokmål
 # Norwegian Bokmal messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
@@ -12,14 +13,15 @@
 # Axel Bojer <axelb@skolelinux.no>, 2004.
 # Bjorn Steensrud <bjornst@powertech.no>, 2004.
 # Hans Fredrik Nordhaug <hans@nordhaug.priv.no>, 2005.
+# Bjørn Steensrud <bjornst@powertech.no>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer\n"
+"Project-Id-Version: nb\n"
 "POT-Creation-Date: 2005-07-06 09:28-0700\n"
-"PO-Revision-Date: 2005-05-23 12:17+0100\n"
-"Last-Translator: Hans Fredrik Nordhaug <hans@nordhaug.priv.no>\n"
-"Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
+"PO-Revision-Date: 2005-08-08 15:27+0200\n"
+"Last-Translator: Bjørn Steensrud <bjornst@powertech.no>\n"
+"Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,7 +40,6 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:4
-#, fuzzy
 msgid ""
 "If all of your operating systems are listed above, then it should be safe to "
 "install the boot loader to the master boot record of your first hard drive. "
@@ -60,7 +61,6 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
-#, fuzzy
 msgid ""
 "It seems that this new installation is the only operating system on this "
 "computer. If so, it should be safe to install the GRUB boot loader to the "
@@ -109,7 +109,6 @@ msgstr "Enheten oppstartslasteren skal installeres på:"
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
-#, fuzzy
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -117,12 +116,12 @@ msgid ""
 "can install GRUB elsewhere on the drive, or to another drive, or even to a "
 "floppy."
 msgstr ""
-"Nå er det på tide å gjøre det mulig å starte opp det nyinstallerte "
-"Debiansystemet, ved å installere oppstartslasteren Grub på en enhet som er "
-"oppstartbar. Den vanlige måten å gjøre dette på, er å installere Grub på "
-"hovedoppstartssporet (MBR) på den første harddisken. Hvis du foretrekker det "
-"kan du installere Grub andre steder på harddisken, eller på en annen "
-"harddisk, eller til og med på en diskett."
+"Du må gjøre det mulig å starte opp det nyinstallerte systemet, ved å "
+"installere oppstartslasteren Grub på en enhet som er oppstartbar. Den "
+"vanlige måten å gjøre dette på, er å installere Grub på hovedoppstartssporet "
+"(MBR) på den første harddisken. Hvis du foretrekker det kan du installere "
+"Grub andre steder på harddisken, eller på en annen harddisk, eller til og "
+"med på en diskett."
 
 #. Type: string
 #. Description
@@ -154,7 +153,7 @@ msgstr ""
 #. Description
 #: ../grub-installer.templates:54
 msgid "GRUB password:"
-msgstr ""
+msgstr "GRUB passord:"
 
 #. Type: password
 #. Description
@@ -167,19 +166,24 @@ msgid ""
 "GRUB command-line interface. By default, any user will still be able to "
 "start any menu entry without entering the password."
 msgstr ""
+"GRUB oppstartslaster har mange kraftige interaktive egenskaper, som kan "
+"brukes til å bryte inn i systemet ditt hvis uvedkommende brukere har tilgang "
+"til maskinen mens den starter. Som forsvar mot denne kan du velge et passord "
+"som må oppgis før meny-oppføringer kan endres eller GRUBs kommandolinje kan "
+"brukes. Som standard kan alle brukere starte alle menyoppføringer uten å "
+"oppgi noe passord."
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
-#, fuzzy
 msgid "If you do not wish to set a GRUB password, leave this field blank."
-msgstr "Hvis du ikke vet hva du skal skrive, så la feltet stå tomt."
+msgstr "Hvis du ikke vil innføre et GRUB-passord, så la feltet stå tomt."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "Klarte ikke å installere Grub. Vil du fortsette likevel?"
+msgstr "Klarte ikke å installere GRUB. Vil du fortsette likevel?"
 
 #. Type: boolean
 #. Description
@@ -189,15 +193,15 @@ msgid ""
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"Klarte ikke å installere Grub-pakken i /target. Å installere Grub som "
+"Klarte ikke å installere grub-pakken i /target. Å installere GRUB som "
 "oppstartssystem er et nødvendig steg. Men det kan likevel hende at problemet "
-"er uavhengig av Grub, så kanskje det går an å fortsette installasjonen."
+"er uavhengig av GRUB, så kanskje det går an å fortsette installasjonen."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "Klarte ikke å installere Grub på ${BOOTDEV}"
+msgstr "Klarte ikke å installere GRUB på ${BOOTDEV}"
 
 #. Type: error
 #. Description
@@ -209,7 +213,7 @@ msgstr "Kommandoen «grub-install ${BOOTDEV}» mislyktes."
 #. Description
 #: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
-msgstr "Klarte ikke å sette opp Grub"
+msgstr "Klarte ikke å sette opp GRUB"
 
 #. Type: error
 #. Description
@@ -227,7 +231,7 @@ msgstr "Dette er en kritisk feil."
 #. Description
 #: ../grub-installer.templates:94
 msgid "Installing GRUB boot loader"
-msgstr "Installerer oppstartssystemet Grub"
+msgstr "Installerer oppstartssystemet GRUB"
 
 #. Type: text
 #. Description
@@ -239,13 +243,13 @@ msgstr "Leter etter andre operativsystemer ..."
 #. Description
 #: ../grub-installer.templates:102
 msgid "Installing the 'grub' package..."
-msgstr "Installerer Grub-pakka ..."
+msgstr "Installerer «grub»-pakka ..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:106
 msgid "Determining GRUB boot device..."
-msgstr "Avgjør oppstartsenhet for Grub ..."
+msgstr "Avgjør oppstartsenhet for GRUB ..."
 
 #. Type: text
 #. Description
@@ -270,4 +274,4 @@ msgstr "Oppdaterer /etc/kernel-img.conf ..."
 #. Main menu item
 #: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "Installer oppstartssystemet Grub på en harddisk"
+msgstr "Installer oppstartssystemet GRUB på en harddisk"
