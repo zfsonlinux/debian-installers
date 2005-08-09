@@ -25,7 +25,7 @@ run_test () {
 
 	unset SUBARCH CPUINFO FLAVOUR KERNEL_24 KERNEL_26 USABLE UNUSABLE \
 		|| true
-	PROCESSORS=1
+	NUMCPUS=1
 	MAJORS=2.4
 
 	while read name value; do
@@ -36,8 +36,8 @@ run_test () {
 			cpuinfo)
 				CPUINFO="${TEST%/*}/$value"
 				;;
-			processors)
-				PROCESSORS="$value"
+			numcpus)
+				NUMCPUS="$value"
 				;;
 			machine)
 				MACHINE="$value"
@@ -68,7 +68,7 @@ run_test () {
 		esac
 	done < "$TEST"
 
-	export ARCH SUBARCH CPUINFO PROCESSORS MACHINE
+	export ARCH SUBARCH CPUINFO NUMCPUS MACHINE
 	export MAJORS FLAVOUR KERNEL_24 KERNEL_26
 	export USABLE UNUSABLE
 

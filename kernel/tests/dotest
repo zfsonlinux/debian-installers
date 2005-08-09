@@ -23,13 +23,6 @@ warning () {
 	echo "warning: $*" >&2
 }
 
-dmesg () {
-	# The only use made of this is for dodgy CPU detection.
-	if [ "$PROCESSORS" != 1 ]; then
-		echo "Processors: $PROCESSORS"
-	fi
-}
-
 for KERNEL_MAJOR in $MAJORS; do
 	WANT_FLAVOUR="$FLAVOUR"
 	case $KERNEL_MAJOR in

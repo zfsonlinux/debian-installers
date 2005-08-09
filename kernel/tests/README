@@ -20,8 +20,10 @@ directives are as follows:
     /proc/cpuinfo while running this test. If not specified, $CPUINFO will
     be unset.
 
-  processors <number of processors>
+  numcpus <number of processors>
     The number of processors in the machine to emulate for the test.
+    Only needed on arches that expect a /var/numcpus file and don't have
+    the info in /proc/cpuinfo.
 
   machine <machine hardware name>
     The machine hardware name, as returned by 'uname -m'.
