@@ -8,8 +8,12 @@ base-installer (1.23) UNRELEASED; urgency=low
   * Depend on new enough rootskel.
   * Fix some messages that referred to the debootstrap error log for
     non-debootstrap errors.
+  * Move link_in_boot here from rootskel, and rename it to
+    base-installer/kernel/linux/link_in_boot. Stuff that assumes it is on
+    the initrd will need to be updated.
+  * Turn off link_in_boot for amd64 to be same as i386.
 
- -- Joey Hess <joeyh@debian.org>  Mon,  8 Aug 2005 15:09:13 -0400
+ -- Joey Hess <joeyh@debian.org>  Tue,  9 Aug 2005 15:18:25 -0400
 
 base-installer (1.22) unstable; urgency=low
 
