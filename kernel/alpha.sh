@@ -12,7 +12,7 @@ arch_get_kernel () {
 	if [ -n "$NUMCPUS" ] && [ "$NUMCPUS" -gt 1 ]; then
 		SMP=smp
 	else
-		SMP=genric
+		SMP=generic
 	fi
 	
 	echo "kernel-image-$version-$SMP"
