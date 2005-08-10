@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2005-07-06 09:28-0700\n"
-"PO-Revision-Date: 2005-07-07 20:01+0300\n"
+"PO-Revision-Date: 2005-07-11 08:31+0300\n"
 "Last-Translator:  Ognyan Kulev <ogi@fmi.uni-sofia.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,8 +27,7 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr ""
-"Следните други операционни системи са разпознати на този компютър:${OS_LIST}"
+msgstr "        :${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -38,17 +37,13 @@ msgid ""
 "install the boot loader to the master boot record of your first hard drive. "
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new system."
-msgstr ""
-"Ако всички Ваши операционни системи са изброени по-долу, тогава е безопасно "
-"да бъде инсталирана програма за начално зареждане в MBR на Вашия първи твърд "
-"диск. Когато компютърът ви се зарежда, ще можете да избирате за зареждане "
-"измежду тези операционни системи или Вашата нова система."
+msgstr "       -,            MBR     .     ,              ."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "Инсталиране на програмата за начално зареждане GRUB върху MBR?"
+msgstr "      GRUB  MBR?"
 
 #. Type: boolean
 #. Description
@@ -57,10 +52,7 @@ msgid ""
 "It seems that this new installation is the only operating system on this "
 "computer. If so, it should be safe to install the GRUB boot loader to the "
 "master boot record of your first hard drive."
-msgstr ""
-"Изглежда тази нова инсталация е единствената операционна система на този "
-"компютър. Ако е така, безопасно е да инсталирате програмата за начално "
-"зареждане GRUB в MBR (master boot record) на Вашия първи твърд диск."
+msgstr "          .   ,         GRUB  MBR (master boot record)     ."
 
 #. Type: boolean
 #. Description
@@ -71,16 +63,13 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
-"Внимание: Ако инсталаторът не успее да разпознае друга операционна система, "
-"която я има на Вашия компютър, промяната на MBR (master boot record) ще "
-"направи тази операционна система временно неспособна да бъде заредена, но "
-"GRUB може по-късно ръчно да бъде настроен да я зарежда."
+":         ,      ,   MBR (master boot record)          ,  GRUB  -       ."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Install the GRUB boot loader to XFS file system?"
-msgstr "Инсталиране на GRUB върху XFS?"
+msgstr "  GRUB  XFS?"
 
 #. Type: boolean
 #. Description
@@ -88,16 +77,13 @@ msgstr "Инсталиране на GRUB върху XFS?"
 msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
-msgstr ""
-"Инсталирането на програмата за начално зареждане GRUB често се проваля или "
-"зависва, когато /boot е върху файлова система XFS. Използването на LILO при "
-"този случай е препоръчително."
+msgstr "      GRUB     ,  /boot     XFS.   LILO     ."
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
-msgstr "Устройство, в което да се инсталира програмата за начално зареждане:"
+msgstr ",         :"
 
 #. Type: string
 #. Description
@@ -109,11 +95,8 @@ msgid ""
 "can install GRUB elsewhere on the drive, or to another drive, or even to a "
 "floppy."
 msgstr ""
-"Сега е време да бъде направена новоинсталираната система способна за "
-"зареждане, като бъде инсталирана програмата за начално зареждане GRUB. "
-"Обикновено GRUB се инсталира в първия сектор на твърдия диск (master boot "
-"record, MBR). Ако предпочитате, може да инсталирате GRUB някъде другаде в "
-"устройството, а може и в друго устройство или на флопидиск."
+"          ,        GRUB.  GRUB         (master boot record, MBR).  ,    "
+"GRUB    ,         ."
 
 #. Type: string
 #. Description
@@ -130,21 +113,17 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Устройството може да бъде зададено чрез означението \"(hdn,m)\" на GRUB или "
-"като устройство в /dev.  Следват няколко примера:\n"
-" - \"(hd0)\" или \"/dev/hda\" ще инсталира GRUB в главния блок за начално "
-"зареждане (MBR) на Вашия първи твърд диск (IDE);\n"
-" - \"(hd0,1)\" или \"/dev/hda2\" ще използват втория дял на Вашето първо IDE "
-"устройство;\n"
-" - \"(hd2,4)\" или \"/dev/sdc5\" ще използват първия разширен (extended) дял "
-"на Вашето първо устройство (SCSI);\n"
-" - \"(fd0)\" или \"/dev/fd0\" ще инсталира GRUB върху флопидиск."
+"       \"(hdn,m)\"  GRUB     /dev.    :\n"
+" - \"(hd0)\"  \"/dev/hda\"   GRUB       (MBR)      (IDE);\n"
+" - \"(hd0,1)\"  \"/dev/hda2\"        IDE ;\n"
+" - \"(hd2,4)\"  \"/dev/sdc5\"     (extended)      (SCSI);\n"
+" - \"(fd0)\"  \"/dev/fd0\"   GRUB  ."
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
 msgid "GRUB password:"
-msgstr "Парола за GRUB:"
+msgstr "  GRUB:"
 
 #. Type: password
 #. Description
@@ -157,25 +136,20 @@ msgid ""
 "GRUB command-line interface. By default, any user will still be able to "
 "start any menu entry without entering the password."
 msgstr ""
-"Програмата за начално зареждане GRUB предлага много и мощни интерактивни "
-"възможности, които могат да бъдат използвани за излагане на системата на "
-"риск, ако неупълномощен потребител има достъп до машината, когато тя се "
-"стартира. За да се защитите от такава възможност, можете да сложите парола, "
-"която да бъде изисквана преди редактиране на елементи от менюто или "
-"въвеждане в командния интерфейс на GRUB. По подразбиране всеки потребител ще "
-"може да пуска всичко от менюто без въвеждане на парола."
+"    GRUB      ,           ,       ,    .       ,    ,                 "
+"GRUB.               ."
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
 msgid "If you do not wish to set a GRUB password, leave this field blank."
-msgstr "Ако не искате задаване на парола за GRUB, оставете полето празно."
+msgstr "       GRUB,   ."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "Инсталацията на GRUB завърши неуспешно. Продължение?"
+msgstr "  GRUB  . ?"
 
 #. Type: boolean
 #. Description
@@ -184,87 +158,83 @@ msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
-msgstr ""
-"Пакетът grub не успя да се инсталира върху /target/. Инсталирането на GRUB "
-"като програма за начално зареждане е необходима стъпка. Проблемът с "
-"инсталирането обаче може да не е свързан с GRUB, така че продължаването на "
-"инсталацията е възможно."
+msgstr " grub       /target/.   GRUB        .           GRUB,       ."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "Невъзможност за инсталиране на GRUB в ${BOOTDEV}"
+msgstr "    GRUB  ${BOOTDEV}"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "Изпълнението на \"grub-install ${BOOTDEV}\" завърши неуспешно."
+msgstr "  \"grub-install ${BOOTDEV}\"  ."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
-msgstr "Невъзможност за настройване на GRUB"
+msgstr "    GRUB"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Executing 'update-grub' failed."
-msgstr "Изпълнението на \"update-grub\" завърши неуспешно."
+msgstr "  \"update-grub\"  ."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "This is a fatal error."
-msgstr "Това е фатална грешка."
+msgstr "   ."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:94
 msgid "Installing GRUB boot loader"
-msgstr "Инсталиране на програмата за начално зареждане GRUB"
+msgstr "      GRUB"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:98
 msgid "Looking for other operating systems..."
-msgstr "Търсене на други операционни системи..."
+msgstr "    ..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:102
 msgid "Installing the 'grub' package..."
-msgstr "Инсталиране на пакета 'grub'..."
+msgstr "   'grub'..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:106
 msgid "Determining GRUB boot device..."
-msgstr "Определяне на зареждащото устройство на GRUB..."
+msgstr "     GRUB..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:110
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "Изпълнение на \"grub-install ${BOOTDEV}\"..."
+msgstr "  \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:114
 msgid "Running \"update-grub\"..."
-msgstr "Изпълнение на \"update-grub\"..."
+msgstr "  \"update-grub\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:118
 msgid "Updating /etc/kernel-img.conf..."
-msgstr "Обновяване на /etc/kernel-img.conf..."
+msgstr "  /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
 #: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "Инсталиране на GRUB върху твърд диск"
+msgstr "  GRUB   "

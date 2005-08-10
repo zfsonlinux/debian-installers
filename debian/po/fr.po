@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2005-07-06 09:28-0700\n"
-"PO-Revision-Date: 2005-07-06 20:58+0200\n"
+"PO-Revision-Date: 2005-08-01 19:27+0200\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
 msgstr ""
-"Les systèmes d'exploitation suivants ont été détectés sur cet ordinateur : "
+"Les systmes d'exploitation suivants ont t dtects sur cet ordinateur: "
 "${OS_LIST}"
 
 #. Type: boolean
@@ -48,16 +48,16 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new system."
 msgstr ""
-"Si tous les systèmes d'exploitation de votre ordinateur sont mentionnés, il "
-"est possible d'installer le programme de démarrage sur le secteur d'amorçage "
-"de votre premier disque dur. Au démarrage de votre ordinateur, vous pourrez "
-"choisir de lancer un de ces systèmes ou votre nouveau système."
+"Si tous les systmes d'exploitation de votre ordinateur sont mentionns, il "
+"est possible d'installer le programme de dmarrage sur le secteur d'amorage "
+"de votre premier disque dur. Au dmarrage de votre ordinateur, vous pourrez "
+"choisir de lancer un de ces systmes ou votre nouveau systme."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "Installer le programme de démarrage GRUB sur le secteur d'amorçage ?"
+msgstr "Installer le programme de dmarrage GRUB sur le secteur d'amorage?"
 
 #. Type: boolean
 #. Description
@@ -67,10 +67,10 @@ msgid ""
 "computer. If so, it should be safe to install the GRUB boot loader to the "
 "master boot record of your first hard drive."
 msgstr ""
-"Il semble que cette nouvelle installation soit le seul système "
-"d'exploitation existant sur cet ordinateur. Si c'est bien le cas, il est "
-"possible d'installer le programme de démarrage GRUB sur le secteur "
-"d'amorçage du premier disque dur."
+"Il semble que cette nouvelle installation soit le seul systme d'exploitation "
+"existant sur cet ordinateur. Si c'est bien le cas, il est possible "
+"d'installer le programme de dmarrage GRUB sur le secteur d'amorage du "
+"premier disque dur."
 
 #. Type: boolean
 #. Description
@@ -81,17 +81,17 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
-"Attention : si le programme d'installation ne détecte pas un système "
-"d'exploitation installé sur votre ordinateur, la modification du secteur "
-"principal d'amorçage empêchera temporairement ce système de démarrer. "
-"Toutefois, le programme de démarrage GRUB pourra être manuellement "
-"reconfiguré plus tard pour permettre ce démarrage. "
+"Attention: si le programme d'installation ne dtecte pas un systme "
+"d'exploitation install sur votre ordinateur, la modification du secteur "
+"principal d'amorage empchera temporairement ce systme de dmarrer. Toutefois, "
+"le programme de dmarrage GRUB pourra tre manuellement reconfigur plus tard "
+"pour permettre ce dmarrage. "
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Install the GRUB boot loader to XFS file system?"
-msgstr "Installer le programme de démarrage GRUB un système de fichiers XFS ?"
+msgstr "Installer le programme de dmarrage GRUB un systme de fichiers XFS?"
 
 #. Type: boolean
 #. Description
@@ -100,15 +100,15 @@ msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
 msgstr ""
-"L'installation du programme de démarrage GRUB échoue ou se fige souvent "
-"lorsque /boot est placé sur un système de fichiers XFS. Il est recommandé "
+"L'installation du programme de dmarrage GRUB choue ou se fige souvent "
+"lorsque /boot est plac sur un systme de fichiers XFS. Il est recommand "
 "d'utiliser LILO dans cette situation."
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
-msgstr "Périphérique où sera installé le programme de démarrage :"
+msgstr "Priphrique o sera install le programme de dmarrage:"
 
 #. Type: string
 #. Description
@@ -120,11 +120,11 @@ msgid ""
 "can install GRUB elsewhere on the drive, or to another drive, or even to a "
 "floppy."
 msgstr ""
-"Le système nouvellement installé doit pouvoir être démarré. Cette opération "
-"consiste à installer le programme de démarrage GRUB sur un périphérique de "
-"démarrage. La méthode habituelle pour cela est de l'installer sur le secteur "
-"d'amorçage principal de votre premier disque dur. Vous pouvez, si vous le "
-"souhaitez, l'installer ailleurs sur le disque, sur un autre disque ou même "
+"Le systme nouvellement install doit pouvoir tre dmarr. Cette opration "
+"consiste  installer le programme de dmarrage GRUB sur un priphrique de "
+"dmarrage. La mthode habituelle pour cela est de l'installer sur le secteur "
+"d'amorage principal de votre premier disque dur. Vous pouvez, si vous le "
+"souhaitez, l'installer ailleurs sur le disque, sur un autre disque ou mme "
 "sur une disquette."
 
 #. Type: string
@@ -142,22 +142,21 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Le périphérique peut être indiqué avec la notation de GRUB (« (hdn) ») ou "
-"avec le nom d'un périphérique dans /dev. Quelques exemples :\n"
-" - « (hd0) » ou « /dev/hda » utiliseront le secteur principal d'amorçage du\n"
-"   premier disque dur ;\n"
-" - « (hd0,1) » ou « /dev/hda2 » utiliseront la deuxième partition du "
-"premier\n"
-"   disque IDE ;\n"
-" - « (hd2,4) » ou « /dev/sdc5 » utiliseront la première partition étendue\n"
-"   du troisième disque (SCSI, ici) ;\n"
-" - « (fd0) » ou « /dev/fd0 » installeront GRUB sur une disquette."
+"Le priphrique peut tre indiqu avec la notation de GRUB ((hdn)) ou avec le "
+"nom d'un priphrique dans /dev. Quelques exemples:\n"
+" - (hd0) ou /dev/hda utiliseront le secteur principal d'amorage du\n"
+"   premier disque dur;\n"
+" - (hd0,1) ou /dev/hda2 utiliseront la deuxime partition du premier\n"
+"   disque IDE;\n"
+" - (hd2,4) ou /dev/sdc5 utiliseront la premire partition tendue\n"
+"   du troisime disque (SCSI, ici);\n"
+" - (fd0) ou /dev/fd0 installeront GRUB sur une disquette."
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
 msgid "GRUB password:"
-msgstr "Mot de passe de GRUB :"
+msgstr "Mot de passe de GRUB:"
 
 #. Type: password
 #. Description
@@ -170,27 +169,27 @@ msgid ""
 "GRUB command-line interface. By default, any user will still be able to "
 "start any menu entry without entering the password."
 msgstr ""
-"Le programme de démarrage GRUB offre des fonctionnalités interactives très "
-"puissantes qui peuvent permettre de compromettre la sécurité du système si "
-"des utilisateurs non autorisés ont accès à la machine pendant son démarrage. "
-"Pour éviter cela, il est possible de choisir un mot de passe qui sera "
-"demandé avant toute modification des entrées du menu ou tout accès à la "
-"ligne de commande de GRUB. Par défaut, ces opérations sont possibles sans "
-"avoir à fournir un mot de passe."
+"Le programme de dmarrage GRUB offre des fonctionnalits interactives trs "
+"puissantes qui peuvent permettre de compromettre la scurit du systme si des "
+"utilisateurs non autoriss ont accs  la machine pendant son dmarrage. Pour "
+"viter cela, il est possible de choisir un mot de passe qui sera demand avant "
+"toute modification des entres du menu ou tout accs  la ligne de commande de "
+"GRUB. Par dfaut, ces oprations sont possibles sans avoir  fournir un mot de "
+"passe."
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr ""
-"Si vous ne souhaitez pas établir de mot de passe pour GRUB, laissez ce champ "
+"Si vous ne souhaitez pas tablir de mot de passe pour GRUB, laissez ce champ "
 "vide."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "Échec de l'installation de GRUB. Continuer malgré tout ?"
+msgstr "chec de l'installation de GRUB. Continuer malgr tout?"
 
 #. Type: boolean
 #. Description
@@ -200,10 +199,9 @@ msgid ""
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"Le paquet GRUB n'a pas pu être installé dans /target/. L'installation du "
-"programme de démarrage GRUB est une étape indispensable. Ce problème n'est "
-"peut-être pas lié à GRUB ; il est peut-être possible de continuer "
-"l'installation."
+"Le paquet GRUB n'a pas pu tre install dans /target/. L'installation du "
+"programme de dmarrage GRUB est une tape indispensable. Ce problme n'est peut-"
+"tre pas li  GRUB; il est peut-tre possible de continuer l'installation."
 
 #. Type: error
 #. Description
@@ -215,7 +213,7 @@ msgstr "Impossible d'installer GRUB dans ${BOOTDEV}"
 #. Description
 #: ../grub-installer.templates:80
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "L'exécution de « grub-install ${BOOTDEV} » a échoué."
+msgstr "L'excution de grub-install ${BOOTDEV} a chou."
 
 #. Type: error
 #. Description
@@ -227,7 +225,7 @@ msgstr "Impossible de configurer GRUB"
 #. Description
 #: ../grub-installer.templates:87
 msgid "Executing 'update-grub' failed."
-msgstr "L'exécution de « update-grub » a échoué."
+msgstr "L'excution de update-grub a chou."
 
 #. Type: error
 #. Description
@@ -239,13 +237,13 @@ msgstr "Cette erreur est fatale."
 #. Description
 #: ../grub-installer.templates:94
 msgid "Installing GRUB boot loader"
-msgstr "Installation du programme de démarrage GRUB"
+msgstr "Installation du programme de dmarrage GRUB"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:98
 msgid "Looking for other operating systems..."
-msgstr "Recherche d'autres systèmes d'exploitation..."
+msgstr "Recherche d'autres systmes d'exploitation..."
 
 #. Type: text
 #. Description
@@ -257,29 +255,29 @@ msgstr "Installation du paquet de GRUB..."
 #. Description
 #: ../grub-installer.templates:106
 msgid "Determining GRUB boot device..."
-msgstr "Recherche du périphérique d'amorce de GRUB..."
+msgstr "Recherche du priphrique d'amorce de GRUB..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:110
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "Exécution de « grub-install ${BOOTDEV} »..."
+msgstr "Excution de grub-install ${BOOTDEV}..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:114
 msgid "Running \"update-grub\"..."
-msgstr "Exécution de « update-grub »..."
+msgstr "Excution de update-grub..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:118
 msgid "Updating /etc/kernel-img.conf..."
-msgstr "Mise à jour de « /etc/kernel-img.conf »..."
+msgstr "Mise  jour de /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
 #: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "Installer le programme de démarrage GRUB sur un disque dur"
+msgstr "Installer le programme de dmarrage GRUB sur un disque dur"
