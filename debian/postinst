@@ -502,7 +502,8 @@ EOF
 		db_subst base-installer/section/install_kernel_package SUBST0 "initrd-tools"
 		db_progress INFO base-installer/section/install_kernel_package
 		if ! apt-install initrd-tools 2>> $LOGFILE ; then
-			exit_error base-installer/kernel/failed-initrd-tools-install
+			db_subst base-installer/kernel/failed-package-install PACKAGE initrd-tools
+			exit_error base-installer/kernel/failed-package-install
 		fi
 
 		rootpart_devfs=$(mount | grep "on /target " | cut -d' ' -f1)
