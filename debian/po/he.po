@@ -27,7 +27,7 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr "       :${OS_LIST}"
+msgstr "אלו מערכות ההפעלה הנוספות שזוהו על מחשב זה:${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -37,13 +37,16 @@ msgid ""
 "install the boot loader to the master boot record of your first hard drive. "
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new system."
-msgstr "      ,         -master boot record    .      ,             ."
+msgstr ""
+"אם כל מערכות ההפעלה שלך רשומות למעלה, אז אפשר להתקין בבטחה את מנהל האתחול על "
+"ה-master boot record של הדיסק הקשיח הראשון. כאשר המחשב שלך מאתחל את עצמו, "
+"תוכל לבחור לטעון את אחת ממערכות ההפעלה הרשומות או את המערכת החדשה שלך."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "    GRUB   ?"
+msgstr "להתקין את מנהל האתחול GRUB על הדיסק הקשיח?"
 
 #. Type: boolean
 #. Description
@@ -52,7 +55,9 @@ msgid ""
 "It seems that this new installation is the only operating system on this "
 "computer. If so, it should be safe to install the GRUB boot loader to the "
 "master boot record of your first hard drive."
-msgstr "         .  ,       GRUB  -master boot record    ."
+msgstr ""
+"נראה שההתקנה החדשה היא המערכת ההפעלה היחידה על המחשב זה. אם כך, אפשר להתקין "
+"בבטחה את מנהל האתחול GRUB על ה-master boot record של הדיסק הקשיח הראשון."
 
 #. Type: boolean
 #. Description
@@ -62,13 +67,16 @@ msgid ""
 "present on your computer, modifying the master boot record will make that "
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
-msgstr ":           ,   -master boot record          ,     GRUB     ."
+msgstr ""
+"אזהרה: אם המתקין יכשל בזיהוי מערכת הפעלה נוספת שנמצאת על המחשב שלך, התאמה של "
+"ה-master boot record יהפוך את אותה מערכת הפעלה ללא ניתנת לאתחול באופן זמני, "
+"למרות שניתן להגדיר את GRUB באופן ידני כדי שיאתחל אותה."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Install the GRUB boot loader to XFS file system?"
-msgstr "    GRUB     XFS?"
+msgstr "להתקין את מנהל האתחול GRUB על מערכת קבצים מסוג XFS?"
 
 #. Type: boolean
 #. Description
@@ -76,13 +84,15 @@ msgstr "    GRUB     XFS?"
 msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
-msgstr "   GRUB       /boot      XFS.  ,   -LILO."
+msgstr ""
+"התקנת מנהל האתחול GRUB נכשלת לעיתים קרובות או נתקעת כאשר /boot נמצא על מערכת "
+"קבצים מסוג XFS. במצב זה, מומלץ להשתמש ב-LILO."
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
-msgstr "    :"
+msgstr "התקן עבור התקנת מנהל האתחול:"
 
 #. Type: string
 #. Description
@@ -94,8 +104,10 @@ msgid ""
 "can install GRUB elsewhere on the drive, or to another drive, or even to a "
 "floppy."
 msgstr ""
-"        \"     GRUB    .        GRUB  -master boot record     .  ,    "
-"GRUB     ,    ,  ."
+"צריך להפוך את המערכת החדשה שהותקנה לברת אתחול ע\"י התקנה של מנהל האתחול GRUB "
+"על התקן ניתן לאתחול. הדרך הרגילה לעשות זאת היא להתקין את GRUB על ה-master "
+"boot record של הדיסק הקשיח הראשון שלך. אם תעדיף, תוכל להתקין את GRUB במקום "
+"אחר על הדסיק הקשיח, או לדיסק קשיח אחר, או לדיסקט."
 
 #. Type: string
 #. Description
@@ -112,17 +124,21 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"    \"   GRUB   (hdn,m),  \"  -/dev. :\n"
-" - \"(hd0)\"  /dev/hda   GRUB  -mastetr-boot-record   ;\n"
-" - \"(hd0,1)\"  \"/dev/hda2\"   GRUB      ;\n"
-" - \"(hd2,4)\"\"/dev/sdc5\"       ( SCSI  );\n"
-" - \"(fd0)\"\"/dev/fd0\"  GRUB  ."
+"ניתן לפרט את ההתקן ע\"י השיטה של GRUB לציון כוננים (hdn,m), או ע\"י התקן ב-/"
+"dev. דוגמאות:\n"
+" - \"(hd0)\" או /dev/hda יתקין את GRUB על ה-mastetr-boot-record של הדיסק "
+"הראשון;\n"
+" - \"(hd0,1)\" או \"/dev/hda2\" יתקין את GRUB לתוך המחיצה השניה של הדיסק "
+"הראשון;\n"
+" - \"(hd2,4)\"·או·\"/dev/sdc5\"·ישתמש במחיצה המורחבת הראשונה של הדיסק השלישי "
+"(בחיבור SCSI במקרה זה);\n"
+" - \"(fd0)\"·או·\"/dev/fd0\"·יתקין את GRUB על דיסקט."
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
 msgid "GRUB password:"
-msgstr " GRUB:"
+msgstr "סיסמת GRUB:"
 
 #. Type: password
 #. Description
@@ -135,19 +151,22 @@ msgid ""
 "GRUB command-line interface. By default, any user will still be able to "
 "start any menu entry without entering the password."
 msgstr ""
-"  GRUB    ,               .  ,            GRUB      GRUB.  ,          ."
+"מנהל האתחול GRUB מציע הרבה יכולות אינטראקטיביות, שיכולות לסכן את המערכת שלך "
+"אם למשתמשים לא מורשים יש גישה למכונה כאשר היא מודלקת. כדי להגן, ניתן לבחור "
+"סיסמה שתהיה דרושה כדי לערוך את ערכי התפריט של GRUB או להיכנס לשורת הפקודה של "
+"GRUB. כברירת מחדל, כל משתמש יוכל להתחיל כל ערך בתפריט ללא צורך בסיסמה."
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
 msgid "If you do not wish to set a GRUB password, leave this field blank."
-msgstr "     GRUB,    ."
+msgstr "אם אינך רוצה לקבוע סיסמת GRUB, השאר את הדה ריק."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr " GRUB .   ?"
+msgstr "התקנת GRUB נכשלה. להמשיך בכל זאת?"
 
 #. Type: boolean
 #. Description
@@ -156,83 +175,85 @@ msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
-msgstr "  grub    /target/.  GRUB     .       GRUB,     ."
+msgstr ""
+"התקנת החבילה grub נכשלה בהתקנה לתוך /target/. התקנת GRUB כמנהל אתחול היא שלב "
+"חיוני. בעיית ההתקנה לא בהכרח קשורה להתקנת GRUB, כך שאולי ניתן להמשיך בהתקנה."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "    GRUB -${BOOTDEV}"
+msgstr "לא ניתן להתקין את GRUB ב-${BOOTDEV}"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr " 'grub-install ${BOOTDEV}' "
+msgstr "הרצת 'grub-install ${BOOTDEV}' נכשלה"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
-msgstr "    GRUB"
+msgstr "לא מצליח להגדיר את GRUB"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Executing 'update-grub' failed."
-msgstr " 'update-grub' ."
+msgstr "הרצת 'update-grub' נכשלה."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "This is a fatal error."
-msgstr "  "
+msgstr "זאת שגיאה קטלנית"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:94
 msgid "Installing GRUB boot loader"
-msgstr "    GRUB"
+msgstr "מתקין את מנהל האתחול GRUB"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:98
 msgid "Looking for other operating systems..."
-msgstr "   ..."
+msgstr "מחפש מערכות הפעלה אחרות..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:102
 msgid "Installing the 'grub' package..."
-msgstr "   'grub'..."
+msgstr "מתקין את החבילה 'grub'..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:106
 msgid "Determining GRUB boot device..."
-msgstr "     GRUB..."
+msgstr "קובע את רכיב האתחול של GRUB..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:110
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr " \"grub-install ${BOOTDEV}\"..."
+msgstr "מריץ \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:114
 msgid "Running \"update-grub\"..."
-msgstr " \"update-grub\"..."
+msgstr "מריץ \"update-grub\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:118
 msgid "Updating /etc/kernel-img.conf..."
-msgstr "  /etc/kernel-img.conf..."
+msgstr "מעדכן את /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
 #: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "   GRUB   "
+msgstr "התקנת מנהל האתחול GRUB על הדיסק הקשיח"

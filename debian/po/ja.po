@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2005-07-06 09:28-0700\n"
-"PO-Revision-Date: 2005-08-01 18:41+0900\n"
+"PO-Revision-Date: 2005-07-07 00:46+0900\n"
 "Last-Translator:  Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,9 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr ": ${OS_LIST}"
+msgstr ""
+"以下のほかのオペレーティングシステムがこのコンピュータに検出されました: "
+"${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -35,13 +37,17 @@ msgid ""
 "install the boot loader to the master boot record of your first hard drive. "
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new system."
-msgstr " 1  1 "
+msgstr ""
+"もしあなたのオペレーティングシステムのすべてが上のリストにあるようであれば、"
+"あなたの 1 番目のハードドライブのマスターブートレコードにブートローダをインス"
+"トールするのが無難でしょう。コンピュータを起動すると、これらのオペーレティン"
+"グシステムの 1 つまたはあなたの新しいシステムのロードを選ぶことができます。"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr " GRUB ?"
+msgstr "マスターブートレコードに GRUB ブートローダをインストールしますか?"
 
 #. Type: boolean
 #. Description
@@ -50,7 +56,10 @@ msgid ""
 "It seems that this new installation is the only operating system on this "
 "computer. If so, it should be safe to install the GRUB boot loader to the "
 "master boot record of your first hard drive."
-msgstr " 1 "
+msgstr ""
+"ここでインストールされるものは、このコンピュータの唯一のオペレーティングシス"
+"テムのように見えます。もしそうであれば、あなたの 1 番目のハードドライブのマス"
+"ターブートレコードにブートローダをインストールするのが無難でしょう。"
 
 #. Type: boolean
 #. Description
@@ -60,13 +69,17 @@ msgid ""
 "present on your computer, modifying the master boot record will make that "
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
-msgstr ": ( GRUB ) "
+msgstr ""
+"警告: インストーラがあなたのコンピュータに存在するほかのオペレーティングシス"
+"テムを検出するのに失敗すると、マスターブートレコードの変更は、(ブートしたあと"
+"で GRUB を手動で変更できるものの) そのオペレーティングシステムを一時的に起動"
+"不可能にすることになります。"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Install the GRUB boot loader to XFS file system?"
-msgstr "XFS  GRUB ?"
+msgstr "XFS ファイルシステムに GRUB ブートローダをインストールしますか?"
 
 #. Type: boolean
 #. Description
@@ -74,13 +87,15 @@ msgstr "XFS  GRUB ?"
 msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
-msgstr "/boot  XFS GRUB  LILO "
+msgstr ""
+"/boot が XFS ファイルシステムのとき、GRUB ブートローダのインストールにときど"
+"き失敗したりハングすることがあります。この状況では LILO が推奨されます。"
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
-msgstr ":"
+msgstr "ブートローダをインストールするデバイス:"
 
 #. Type: string
 #. Description
@@ -91,7 +106,12 @@ msgid ""
 "GRUB on the master boot record of your first hard drive. If you prefer, you "
 "can install GRUB elsewhere on the drive, or to another drive, or even to a "
 "floppy."
-msgstr "GRUB GRUB  1 GRUB "
+msgstr ""
+"GRUB ブートローダを起動可能デバイスにインストールして、新しくインストールされ"
+"たシステムを起動可能にするときがきました。通常のやり方は、GRUB をあなたの 1 "
+"番目のハードドライブのマスターブートレコードにインストールするというもので"
+"す。望むなら、GRUB をドライブの別の場所や別のドライブ、あるいはフロッピーにイ"
+"ンストールすることもできます。"
 
 #. Type: string
 #. Description
@@ -108,17 +128,21 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"GRUB  \"(hdn,m)\"  /dev :\n"
-" - \"(hd0)\"  \"/dev/hda\"  GRUB  1  (IDE) \n"
-" - \"(hd0,1)\"  \"/dev/hda2\"  1  IDE  2 \n"
-" - \"(hd2,4)\"  \"/dev/sdc5\"  3  ( SCSI) \n"
-" - \"(fd0)\"  \"/dev/fd0\"  GRUB "
+"デバイスは、GRUB の \"(hdn,m)\" 記法を使うかまたは /dev のデバイスとして指定"
+"できます。例を以下に示します:\n"
+" - \"(hd0)\" または \"/dev/hda\" は GRUB を 1 番目のハードドライブ (IDE) のマ"
+"スターブートレコードにインストールします。\n"
+" - \"(hd0,1)\" または \"/dev/hda2\" は 1 番目の IDE ドライブの 2 番目のパー"
+"ティションを使います。\n"
+" - \"(hd2,4)\" または \"/dev/sdc5\" は 3 番目のドライブ (ここでは SCSI) の最"
+"初の拡張パーティションを使います。\n"
+" - \"(fd0)\" または \"/dev/fd0\" は GRUB をフロッピーにインストールします。"
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
 msgid "GRUB password:"
-msgstr "GRUB :"
+msgstr "GRUB パスワード:"
 
 #. Type: password
 #. Description
@@ -130,19 +154,25 @@ msgid ""
 "password which will be required before editing menu entries or entering the "
 "GRUB command-line interface. By default, any user will still be able to "
 "start any menu entry without entering the password."
-msgstr "GRUB GRUB "
+msgstr ""
+"GRUB ブートローダは多くの強力なインタラクティブ機能を提供しますが、起動時に承"
+"認されていないユーザがマシンへのアクセスを持ったときにはあなたのシステムを侵"
+"害するのに使われかねません。これを防ぐために、メニューのエントリの編集やGRUB "
+"コマンドラインインターフェイスに入る前に必須とするパスワードを選択できます。"
+"デフォルトでは、すべてのユーザはパスワードの入力なしにどのメニューエントリか"
+"らまだ開始できます。"
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
 msgid "If you do not wish to set a GRUB password, leave this field blank."
-msgstr "GRUB "
+msgstr "GRUB パスワードを設定するつもりがなければ、空のままにしておきます。"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "grub ?"
+msgstr "grub のインストールに失敗しました。続けますか?"
 
 #. Type: boolean
 #. Description
@@ -151,83 +181,87 @@ msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
-msgstr "grub  /target/ GRUB  GRUB "
+msgstr ""
+"grub パッケージを /target/ にインストールするのに失敗しました。GRUB をブート"
+"�ーダとしてインストールすることは必須のステップです。インストールの問題が "
+"GRUB に関係ないので��れば、可能な限りのインストール作業を続けることができま"
+"す。"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "GRUB  ${BOOTDEV} "
+msgstr "GRUB を ${BOOTDEV} にインストールできません"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "'grub-install ${BOOTDEV}' "
+msgstr "'grub-install ${BOOTDEV}' の実行に失敗しました。"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
-msgstr "GRUB "
+msgstr "GRUB の設定ができません"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Executing 'update-grub' failed."
-msgstr "'update-grub' "
+msgstr "'update-grub' の実行に失敗しました。"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "This is a fatal error."
-msgstr ""
+msgstr "これは致命的なエラーです。"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:94
 msgid "Installing GRUB boot loader"
-msgstr "GRUB "
+msgstr "GRUB ブートローダをインストールしています"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:98
 msgid "Looking for other operating systems..."
-msgstr "..."
+msgstr "ほかのオペレーティングシステムを探しています..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:102
 msgid "Installing the 'grub' package..."
-msgstr "'grub' ..."
+msgstr "'grub' パッケージをインストールしています..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:106
 msgid "Determining GRUB boot device..."
-msgstr "GRUB ..."
+msgstr "GRUB のブートデバイスを決めています..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:110
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "\"grub-install ${BOOTDEV}\" ..."
+msgstr "\"grub-install ${BOOTDEV}\" を実行しています..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:114
 msgid "Running \"update-grub\"..."
-msgstr "\"update-grub\" ..."
+msgstr "\"update-grub\" を実行しています..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:118
 msgid "Updating /etc/kernel-img.conf..."
-msgstr "/etc/kernel-img.conf ..."
+msgstr "/etc/kernel-img.conf を更新しています..."
 
 #. Type: text
 #. Description
 #. Main menu item
 #: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr " GRUB "
+msgstr "ハードディスクへの GRUB ブートローダのインストール"

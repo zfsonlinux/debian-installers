@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2005-07-06 09:28-0700\n"
-"PO-Revision-Date: 2005-07-19 15:00+0200\n"
+"PO-Revision-Date: 2005-07-10 13:55+0200\n"
 "Last-Translator: Peter Mann <Peter.Mann@tuke.sk>\n"
 "Language-Team:  Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,8 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr "Na tomto potai boli zisten nasledovn in operan systmy: ${OS_LIST}"
+msgstr ""
+"Na tomto počítači boli zistené nasledovné iné operačné systémy: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -36,16 +37,16 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new system."
 msgstr ""
-"Ak s tu zobrazen vetky vae operan systmy, tak by malo by bezpen "
-"naintalovanie zavdzaa na hlavn tartovac zznam (MBR) vho prvho pevnho disku. "
-"Po natartovan vho potaa si budete mc zvoli jeden z tchto operanch systmov "
-"alebo v nov systm."
+"Ak sú tu zobrazené všetky vaše operačné systémy, tak by malo byť bezpečné "
+"nainštalovanie zavádzača na hlavný štartovací záznam (MBR) vášho prvého "
+"pevného disku. Po naštartovaní vášho počítača si budete môcť zvoliť jeden z "
+"týchto operačných systémov alebo váš nový systém."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "Naintalova zavdza GRUB na hlavn tartovac zznam (MBR)?"
+msgstr "Nainštalovať zavádzač GRUB na hlavný štartovací záznam (MBR)?"
 
 #. Type: boolean
 #. Description
@@ -55,9 +56,9 @@ msgid ""
 "computer. If so, it should be safe to install the GRUB boot loader to the "
 "master boot record of your first hard drive."
 msgstr ""
-"Vyzer to tak, e tto intalcia je jedinm operanm systmom na tomto potai. V "
-"takomto prpade by mala bez problmov prebehn intalcia zavdzaa GRUB na hlavn "
-"tartovac zznam (MBR) vho prvho pevnho disku."
+"Vyzerá to tak, že táto inštalácia je jediným operačným systémom na tomto "
+"počítači. V takomto prípade by mala bez problémov prebehnúť inštalácia "
+"zavádzača GRUB na hlavný štartovací záznam (MBR) vášho prvého pevného disku."
 
 #. Type: boolean
 #. Description
@@ -68,16 +69,16 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
-"Upozornenie: Ak intalan program nerozpozn na vaom potai al operan systm, "
-"zmena hlavnho tartovacieho zznamu (MBR) bude ma za nsledok to, e tento systm "
-"sa doasne nebude mc spusti. Neskr sa vak me GRUB manulne nastavi tak, aby sa "
-"tento systm mohol spusti."
+"Upozornenie: Ak inštalačný program nerozpozná na vašom počítači ďalší "
+"operačný systém, zmena hlavného štartovacieho záznamu (MBR) bude mať za "
+"následok to, že tento systém sa dočasne nebude môcť spustiť. Neskôr sa však "
+"môže GRUB manuálne nastaviť tak, aby sa tento systém mohol spustiť."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Install the GRUB boot loader to XFS file system?"
-msgstr "Naintalova zavdza GRUB na sborov systm XFS?"
+msgstr "Nainštalovať zavádzač GRUB na súborový systém XFS?"
 
 #. Type: boolean
 #. Description
@@ -86,14 +87,14 @@ msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
 msgstr ""
-"Intalcia zavdzaa GRUB asto zlyhva, ak sa /boot nachdza na sborovom systme "
-"XFS. V takomto prpade sa odpora pouitie zavdzaa LILO."
+"Inštalácia zavádzača GRUB často zlyháva, ak sa /boot nachádza na súborovom "
+"systéme XFS. V takomto prípade sa odporúča použitie zavádzača LILO."
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
-msgstr "Zariadenie na intalciu zavdzaa:"
+msgstr "Zariadenie na inštaláciu zavádzača:"
 
 #. Type: string
 #. Description
@@ -105,11 +106,11 @@ msgid ""
 "can install GRUB elsewhere on the drive, or to another drive, or even to a "
 "floppy."
 msgstr ""
-"Teraz nastal as umoni erstvo naintalovanmu systmu tartovanie z disku, a to "
-"naintalovanm GRUB zavdzaa na tartovacie zariadenie. Vinou sa to dosiahne "
-"intalciou GRUB zavdzaa na hlavn tartovac zznam (MBR) vho prvho pevnho disku. "
-"Samozrejme, GRUB mete intalova hocikde na tento alebo aj na in disk, prpadne "
-"aj na disketu. "
+"Teraz nastal čas umožniť čerstvo nainštalovanému systému štartovanie z "
+"disku, a to nainštalovaním GRUB zavádzača na štartovacie zariadenie. "
+"Väčšinou sa to dosiahne inštaláciou GRUB zavádzača na hlavný štartovací "
+"záznam (MBR) vášho prvého pevného disku. Samozrejme, GRUB môžete inštalovať "
+"hocikde na tento alebo aj na iný disk, prípadne aj na disketu. "
 
 #. Type: string
 #. Description
@@ -126,14 +127,15 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Zariadenie me by uren pouitm GRUB oznaenia \"(hdn)\" alebo pouitm zariadenia "
-"v /dev. Nasleduje niekoko prkladov:\n"
-" - \"(hd0)\" alebo \"/dev/hda\" naintaluje GRUB na hlavn tartovac zznam    "
-"(MBR) vho prvho pevnho disku (IDE);\n"
-" - \"(hd0,1) alebo \"/dev/hda2\" pouije druh oblas vho prvho IDE disku;\n"
-" - \"(hd2,4) alebo \"/dev/sdc5\" pouije prv rozren oblas vho tretieho    "
-"disku (v tomto prpade SCSI disku);\n"
-" - \"(fd0)\" alebo \"/dev/fd0\" naintaluje GRUB na disketu."
+"Zariadenie môže byť určené použitím GRUB označenia \"(hdn)\" alebo použitím "
+"zariadenia v /dev. Nasleduje niekoľko príkladov:\n"
+" - \"(hd0)\" alebo \"/dev/hda\" nainštaluje GRUB na hlavný štartovací "
+"záznam    (MBR) vášho prvého pevného disku (IDE);\n"
+" - \"(hd0,1) alebo \"/dev/hda2\" použije druhú oblasť vášho prvého IDE "
+"disku;\n"
+" - \"(hd2,4) alebo \"/dev/sdc5\" použije prvú rozšírenú oblasť vášho "
+"tretieho    disku (v tomto prípade SCSI disku);\n"
+" - \"(fd0)\" alebo \"/dev/fd0\" nainštaluje GRUB na disketu."
 
 #. Type: password
 #. Description
@@ -152,24 +154,24 @@ msgid ""
 "GRUB command-line interface. By default, any user will still be able to "
 "start any menu entry without entering the password."
 msgstr ""
-"Zavdza GRUB poskytuje vea uitonch interaktvnych funkci, ktor sa daj zneui na "
-"kompromitciu vho systmu, ak k nemu maj prstup neautorizovan pouvatelia poas "
-"tartovania. Na ochranu tohto prstupu si mete zvoli heslo, ktor sa bude "
-"poadova pred pravou poloiek menu alebo pred vstupom do rozhrania prkazovho "
-"riadku. tandartne me ubovon pouvate spusti ubovon poloku menu bez zadvania "
-"hesla."
+"Zavádzač GRUB poskytuje veľa užitočných interaktívnych funkcií, ktoré sa "
+"dajú zneužiť na kompromitáciu vášho systému, ak k nemu majú prístup "
+"neautorizovaní používatelia počas štartovania. Na ochranu tohto prístupu si "
+"môžete zvoliť heslo, ktoré sa bude požadovať pred úpravou položiek menu "
+"alebo pred vstupom do rozhrania príkazového riadku. Štandartne môže "
+"ľubovoľný používateľ spustiť ľubovoľnú položku menu bez zadávania hesla."
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
 msgid "If you do not wish to set a GRUB password, leave this field blank."
-msgstr "Ak si neelte nastavi heslo pre GRUB, nechajte toto pole przdne."
+msgstr "Ak si neželáte nastaviť heslo pre GRUB, nechajte toto pole prázdne."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "Intalcia GRUB-u zlyhala. Mm napriek tomu pokraova?"
+msgstr "Inštalácia GRUB-u zlyhala. Mám napriek tomu pokračovať?"
 
 #. Type: boolean
 #. Description
@@ -179,14 +181,15 @@ msgid ""
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"Balk grub sa nedokzal naintalova do /target. Intalcia GRUB-u ako zavdzaa je "
-"nutn. Tento problm mono nesvis s GRUB-om, take je mon pokraova v intalcii."
+"Balík grub sa nedokázal nainštalovať do /target. Inštalácia GRUB-u ako "
+"zavádzača je nutná. Tento problém možno nesúvisí s GRUB-om, takže je možné "
+"pokračovať v inštalácii."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "GRUB sa ned naintalova na ${BOOTDEV}"
+msgstr "GRUB sa nedá nainštalovať na ${BOOTDEV}"
 
 #. Type: error
 #. Description
@@ -198,7 +201,7 @@ msgstr "Zlyhalo vykonanie 'grub-install ${BOOTDEV}'."
 #. Description
 #: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
-msgstr "GRUB sa ned nastavi"
+msgstr "GRUB sa nedá nastaviť"
 
 #. Type: error
 #. Description
@@ -210,43 +213,43 @@ msgstr "Zlyhalo vykonanie 'update-grub'."
 #. Description
 #: ../grub-installer.templates:87
 msgid "This is a fatal error."
-msgstr "Toto je kritick chyba."
+msgstr "Toto je kritická chyba."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:94
 msgid "Installing GRUB boot loader"
-msgstr "Intaluje sa zavdza GRUB"
+msgstr "Inštaluje sa zavádzač GRUB"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:98
 msgid "Looking for other operating systems..."
-msgstr "Hadaj sa in operan systmy..."
+msgstr "Hľadajú sa iné operačné systémy..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:102
 msgid "Installing the 'grub' package..."
-msgstr "Intaluje sa balk 'grub'..."
+msgstr "Inštaluje sa balík 'grub'..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:106
 msgid "Determining GRUB boot device..."
-msgstr "Zisuj sa tartovacie zariadenie pre GRUB..."
+msgstr "Zisťujú sa štartovacie zariadenie pre GRUB..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:110
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "Spa sa \"grub-install ${BOOTDEV}\"..."
+msgstr "Spúšťa sa \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:114
 msgid "Running \"update-grub\"..."
-msgstr "Spa sa \"update-grub\"..."
+msgstr "Spúšťa sa \"update-grub\"..."
 
 #. Type: text
 #. Description
@@ -259,4 +262,4 @@ msgstr "Aktualizuje sa /etc/kernel-img.conf..."
 #. Main menu item
 #: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "Intalcia zavdzaa GRUB na pevn disk"
+msgstr "Inštalácia zavádzača GRUB na pevný disk"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fa\n"
 "POT-Creation-Date: 2005-07-06 09:28-0700\n"
-"PO-Revision-Date: 2005-07-31 18:31+0430\n"
+"PO-Revision-Date: 2004-09-06 10:53+0200\n"
 "Last-Translator: Arash Bijanzadeh\n"
 "Language-Team:  <fa@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr "        : ${OS_LIST}"
+msgstr " سیستم عاملهای زیر بر روی رایانه پیدا شد: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -38,13 +38,16 @@ msgid ""
 "install the boot loader to the master boot record of your first hard drive. "
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new system."
-msgstr "                 MBR  .                  ."
+msgstr ""
+"اگر تمام سیتم عاملهای شما در لیست زیر موجود است منطقی است که راه‌انداز را بر "
+"روی MBR نصب کنید. هنگامی که کامپیوتر شما مجددا راه‌اندازی میگردد شما قادر "
+"خواهید بود هر کدام از آنها را انتخاب کنید."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "  GRUB    MBR  "
+msgstr "آیا میخواهید GRUB را بر روی MBR نصب کنید؟"
 
 #. Type: boolean
 #. Description
@@ -54,7 +57,9 @@ msgid ""
 "It seems that this new installation is the only operating system on this "
 "computer. If so, it should be safe to install the GRUB boot loader to the "
 "master boot record of your first hard drive."
-msgstr "   GRUB        .     GRUB   MBR      . "
+msgstr ""
+"به نظر میرسد GRUB تنها سیستم عامل بر روی این رایانه است. در این صورت نصب "
+"GRUB بر روی MBR دیسک سخت اول بی خطر است. "
 
 #. Type: boolean
 #. Description
@@ -64,14 +69,17 @@ msgid ""
 "present on your computer, modifying the master boot record will make that "
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
-msgstr ":                MBR           .  GRUB          ."
+msgstr ""
+"اخطار: اگر نصاب نتواند سیستم عاملی ر ا بر روی رایانه‌ی شما تشخیص دهد، تغیرات "
+"در MBR این سیستم عامل را به طور موقت غیر قابل راه‌اندازی مینماید. بعدا GRUB  "
+"میتواند به طور دستی برای راه‌اندازی آن تنظیم گردد."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 #, fuzzy
 msgid "Install the GRUB boot loader to XFS file system?"
-msgstr "  GRUB     "
+msgstr "نصب راه‌انداز GRUB بر روی یک دیسک سخت"
 
 #. Type: boolean
 #. Description
@@ -85,7 +93,7 @@ msgstr ""
 #. Description
 #: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
-msgstr "       :"
+msgstr "دستگاهی که راه‌انداز بر روی آن نصب میگردد:"
 
 #. Type: string
 #. Description
@@ -98,7 +106,10 @@ msgid ""
 "can install GRUB elsewhere on the drive, or to another drive, or even to a "
 "floppy."
 msgstr ""
-"         .      GRUB   .       GRUB     (MBR) .    GRUB               ."
+"شما باید سیستم تازه نصب شده را قابل راه‌اندازی کنید. این کار با نصب راه‌انداز "
+"GRUB امکان پذیر است. راه معمول برای این مار نصب GRUB بر روی رکورد راه‌انداز "
+"اصلی(MBR) است. اما شما میتوانید GRUB  را در محل دیگری و یا بر روی دیسک یا "
+"فلاپی دیگری نصب کنید."
 
 #. Type: string
 #. Description
@@ -115,11 +126,14 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"      GRUB   \"(hdn,m)\"         /dev/  :  - \"(hd0)\"  \"/dev/hda\"  "
-"GRUB    MBR  IDE1  .\n"
-"- \"(hd0,1)\"  \"/dev/hda2\"       IDE   .\n"
-" - \"(hd2,4)\"  \"/dev/sdc5\"         )     SCSI.(\n"
-"- \"(fd0)\"  \"/dev/fd0\"        ."
+"دستگاه میتواند بر اساس نمادگذاری  GRUB مانند  \"(hdn,m)\" و یا مانند مسیر ین "
+"دستگاه بر روی /dev/ مشخص گزدد، مثلا:  - \"(hd0)\" یا \"/dev/hda\" راه‌انداز "
+"GRUB را بر روی MBR در IDE1 نصب میکند.\n"
+"- \"(hd0,1)\" یا \"/dev/hda2\" از پارتیشن دوم بر روی درایو IDE اول استفاده "
+"میکند.\n"
+" - \"(hd2,4)\" یا \"/dev/sdc5\" از پارتیشن مجازی اول دیسک سوم شما استفاده "
+"میکند)که در اینجا یک دیسک SCSIاست.(\n"
+"- \"(fd0)\" یا \"/dev/fd0\" این راه‌انداز را بر روی فلاپی نصب میکند."
 
 #. Type: password
 #. Description
@@ -144,13 +158,13 @@ msgstr ""
 #: ../grub-installer.templates:54
 #, fuzzy
 msgid "If you do not wish to set a GRUB password, leave this field blank."
-msgstr "       ."
+msgstr "اگر نمیدانید چه وارد کنید؛ آنرا خالی بگذارید."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr " GRUB        "
+msgstr "نصب GRUB شکست خورد، آیا مایل به ادامه‌ی کار هستید؟"
 
 #. Type: boolean
 #. Description
@@ -159,83 +173,85 @@ msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
-msgstr "  GRUB    /target/.  .               GRUB  .    ."
+msgstr ""
+"نصب بسته‌ی GRUB  بر روی /target/. شکست خورد. نصب راه‌آنداز یک مرحله‌ی ضروری "
+"است، گر چه ممکن است مشکل نصب ربطی به GRUB نداشته باشد. ادامه‌ی نصب ممکن است."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr " GRUB    ${BOOTDEV}  ."
+msgstr "نمیتوان GRUB را بر روی ${BOOTDEV} نصب کرد."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr " 'grub-install ${BOOTDEV}'  ."
+msgstr "اجرای 'grub-install ${BOOTDEV}' شکست خورد."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
-msgstr " GRUB   ."
+msgstr "نمیتوان GRUB زا پیکربندی کرد."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Executing 'update-grub' failed."
-msgstr "  'update-grub'   ."
+msgstr "اجرای  'update-grub'  شکست خورد."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "This is a fatal error."
-msgstr "    ."
+msgstr "این یک خطای مهلک است."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:94
 msgid "Installing GRUB boot loader"
-msgstr "  GRUB"
+msgstr "نصب راه‌انداز GRUB"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:98
 msgid "Looking for other operating systems..."
-msgstr "   ..."
+msgstr "جستجوی سایر سیستم عاملها..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:102
 msgid "Installing the 'grub' package..."
-msgstr "  GRUB..."
+msgstr "نصب بسته‌ی GRUB..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:106
 msgid "Determining GRUB boot device..."
-msgstr "   GRUB..."
+msgstr "تشخیص دستگاه راه‌انداز GRUB..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:110
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "   \"grub-install ${BOOTDEV}\"..."
+msgstr "در حال اجرای \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:114
 msgid "Running \"update-grub\"..."
-msgstr "   \"update-grub\"..."
+msgstr "در حال اجرای \"update-grub\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:118
 msgid "Updating /etc/kernel-img.conf..."
-msgstr " /etc/kernel-img.conf..."
+msgstr "بروزرسانی /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
 #: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "  GRUB     "
+msgstr "نصب راه‌انداز GRUB بر روی یک دیسک سخت"

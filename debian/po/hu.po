@@ -27,7 +27,9 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr "A szmtgp feldertse a kvetkez opercis rendszereket tallta: ${OS_LIST}"
+msgstr ""
+"A számítógép felderítése a következő operációs rendszereket találta: "
+"${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -39,16 +41,16 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new system."
 msgstr ""
-"Ha a lista a szmtgpn tallhat sszes opercis rendszert tartalmazza, akkor a "
-"rendszerbetltt nyugodtan teleptheti az els merevlemeznek f rendszerbetlt-"
-"rekordjba. A szmtgp indulsakor vlaszthat ezen opercis rendszerek egyike, "
-"vagy ppen az j Debian-rendszer indtsa kzt."
+"Ha a lista a számítógépén található összes operációs rendszert tartalmazza, "
+"akkor a rendszerbetöltőt nyugodtan telepítheti az első merevlemezének fő "
+"rendszerbetöltő-rekordjába. A számítógép indulásakor választhat ezen "
+"operációs rendszerek egyike, vagy éppen az új Debian-rendszer indítása közt."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "A GRUB rendszerbetltt a f rendszerbetlt-rekordba telepti?"
+msgstr "A GRUB rendszerbetöltőt a fő rendszerbetöltő-rekordba telepíti?"
 
 #. Type: boolean
 #. Description
@@ -59,9 +61,9 @@ msgid ""
 "computer. If so, it should be safe to install the GRUB boot loader to the "
 "master boot record of your first hard drive."
 msgstr ""
-"gy tnik, ezen a gpen a most teleptett Debian lesz az egyetlen opercis "
-"rendszer. Ha ez tnyleg gy van, akkor a GRUB rendszerbetltt nyugodtan "
-"teleptheti az els merevlemeznek f rendszerbetlt-rekordjba."
+"Úgy tűnik, ezen a gépen a most telepített Debian lesz az egyetlen operációs "
+"rendszer. Ha ez tényleg így van, akkor a GRUB rendszerbetöltőt nyugodtan "
+"telepítheti az első merevlemezének fő rendszerbetöltő-rekordjába."
 
 #. Type: boolean
 #. Description
@@ -72,16 +74,16 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
-"Figyelem: Ha a gpen van egyb opercis rendszer is, de a felderts azt nem "
-"tallta meg; akkor a f rendszerbetlt-rekord mdostsa azt tmenetileg "
-"indtskptelenn teheti, a GRUB rendszerbetltt azonban ksbb sajtkezleg rbrhatja "
-"annak indtsra."
+"Figyelem: Ha a gépen van egyéb operációs rendszer is, de a felderítés azt "
+"nem találta meg; akkor a fő rendszerbetöltő-rekord módosítása azt "
+"átmenetileg indításképtelenné teheti, a GRUB rendszerbetöltőt azonban később "
+"sajátkezűleg rábírhatja annak indítására."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Install the GRUB boot loader to XFS file system?"
-msgstr "A GRUB rendszerbetltt XFS fjlrendszerre telepti?"
+msgstr "A GRUB rendszerbetöltőt XFS fájlrendszerre telepíti?"
 
 #. Type: boolean
 #. Description
@@ -90,15 +92,15 @@ msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
 msgstr ""
-"XFS fjlrendszerre helyezett /boot knyvtr esetn a GRUB rendszerbetlt teleptse "
-"gyakran vgzdhet kudarccal vagy akr a rendszer lefagysval. Ilyenkor tancsos "
-"inkbb a LILO rendszerbetlthz folyamodni."
+"XFS fájlrendszerre helyezett /boot könyvtár esetén a GRUB rendszerbetöltő "
+"telepítése gyakran végződhet kudarccal vagy akár a rendszer lefagyásával. "
+"Ilyenkor tanácsos inkább a LILO rendszerbetöltőhöz folyamodni."
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
-msgstr "A rendszerbetlt erre az eszkzre kerl:"
+msgstr "A rendszerbetöltő erre az eszközre kerül:"
 
 #. Type: string
 #. Description
@@ -111,11 +113,12 @@ msgid ""
 "can install GRUB elsewhere on the drive, or to another drive, or even to a "
 "floppy."
 msgstr ""
-"Az jonnan teleptett Debian-rendszert indthatv is kell tenni, ehhez a GRUB "
-"rendszerbetltt kell egy indtsra kpes eszkzre telepteni. Az esetek elspr "
-"tbbsgben ilyenkor a GRUB-ot az els merevlemez f rendszerbetlt-rekordjba "
-"teszik. Igny esetn a GRUB-ot a lemezen mshov is teleptheti, esetleg egy msik "
-"lemezre is, st, akr egy hajlkonylemezre is."
+"Az újonnan telepített Debian-rendszert indíthatóvá is kell tenni, ehhez a "
+"GRUB rendszerbetöltőt kell egy indításra képes eszközre telepíteni. Az "
+"esetek elsöprő többségében ilyenkor a GRUB-ot az első merevlemez fő "
+"rendszerbetöltő-rekordjába teszik. Igény esetén a GRUB-ot a lemezen máshová "
+"is telepítheti, esetleg egy másik lemezre is, sőt, akár egy hajlékonylemezre "
+"is."
 
 #. Type: string
 #. Description
@@ -132,16 +135,17 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Az eszkzt vagy a GRUB \"(hdn,m)\"-jellsvel, vagy a /dev knyvtrban szerepl "
-"egyik eszkzknt adja meg. Pldul:\n"
-" - a \"(hd0)\" vagy a \"/dev/hda\" hatsra a GRUB az els (IDE-) merevlemez\n"
-"   f rendszerbetlt-rekordjba kerl;\n"
-" - a \"(hd0,1)\" vagy a \"/dev/hda2\" az els IDE-meghajt msodik\n"
-"   partcijt eredmnyezi;\n"
-" - a \"(hd2,4)\" vagy a \"/dev/sdc5\" a harmadik (itt: SCSI-) meghajt els\n"
-"   kiterjesztett partcijt jelenti;\n"
-" - a \"(fd0)\" vagy a \"/dev/fd0\" megadsa pedig a GRUB-ot egy\n"
-"   hajlkonylemezre telepti."
+"Az eszközt vagy a GRUB \"(hdn,m)\"-jelölésével, vagy a /dev könyvtárban "
+"szereplő egyik eszközként adja meg. Például:\n"
+" - a \"(hd0)\" vagy a \"/dev/hda\" hatására a GRUB az első (IDE-) "
+"merevlemez\n"
+"   fő rendszerbetöltő-rekordjába kerül;\n"
+" - a \"(hd0,1)\" vagy a \"/dev/hda2\" az első IDE-meghajtó második\n"
+"   partícióját eredményezi;\n"
+" - a \"(hd2,4)\" vagy a \"/dev/sdc5\" a harmadik (itt: SCSI-) meghajtó első\n"
+"   kiterjesztett partícióját jelenti;\n"
+" - a \"(fd0)\" vagy a \"/dev/fd0\" megadása pedig a GRUB-ot egy\n"
+"   hajlékonylemezre telepíti."
 
 #. Type: password
 #. Description
@@ -166,13 +170,13 @@ msgstr ""
 #: ../grub-installer.templates:54
 #, fuzzy
 msgid "If you do not wish to set a GRUB password, leave this field blank."
-msgstr "Ha nem tud mit berni, hagyja resen."
+msgstr "Ha nem tud mit beírni, hagyja üresen."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "A GRUB teleptse sikertelenl zrult. Mgis tovbblp?"
+msgstr "A GRUB telepítése sikertelenül zárult. Mégis továbblép?"
 
 #. Type: boolean
 #. Description
@@ -182,86 +186,86 @@ msgid ""
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"A grub csomag /target/ knyvtrba teleptse sikertelenl zrult. A GRUB "
-"rendszerbetltknt teleptse pedig felttlenl szksges. Elfordulhat persze, hogy "
-"a telepts sorn felmerlt problmnak nincs kze a GRUB-hoz, ez esetben a telepts "
-"folytatsnak elvileg nincs akadlya."
+"A grub csomag /target/ könyvtárba telepítése sikertelenül zárult. A GRUB "
+"rendszerbetöltőként telepítése pedig feltétlenül szükséges. Előfordulhat "
+"persze, hogy a telepítés során felmerült problémának nincs köze a GRUB-hoz, "
+"ez esetben a telepítés folytatásának elvileg nincs akadálya."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "A GRUB ${BOOTDEV} eszkzre teleptse sikertelenl zrult"
+msgstr "A GRUB ${BOOTDEV} eszközre telepítése sikertelenül zárult"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "A 'grub-install ${BOOTDEV}' parancs vgrehajtsa hibt eredmnyezett."
+msgstr "A 'grub-install ${BOOTDEV}' parancs végrehajtása hibát eredményezett."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
-msgstr "A GRUB konfigurlsa meghisult"
+msgstr "A GRUB konfigurálása meghiúsult"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Executing 'update-grub' failed."
-msgstr "Az 'update-grub' parancs vgrehajtsa hibt eredmnyezett."
+msgstr "Az 'update-grub' parancs végrehajtása hibát eredményezett."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "This is a fatal error."
-msgstr "Ez a hiba megkerlhetetlen."
+msgstr "Ez a hiba megkerülhetetlen."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:94
 msgid "Installing GRUB boot loader"
-msgstr "A GRUB rendszerbetlt teleptse"
+msgstr "A GRUB rendszerbetöltő telepítése"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:98
 msgid "Looking for other operating systems..."
-msgstr "Egyb opercis rendszerek feldertse folyamatban..."
+msgstr "Egyéb operációs rendszerek felderítése folyamatban..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:102
 msgid "Installing the 'grub' package..."
-msgstr "A 'grub' csomag teleptse folyamatban..."
+msgstr "A 'grub' csomag telepítése folyamatban..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:106
 msgid "Determining GRUB boot device..."
-msgstr "A GRUB rendszerbetlthz hasznlt eszkz feldertse folyamatban..."
+msgstr "A GRUB rendszerbetöltőhöz használt eszköz felderítése folyamatban..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:110
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "A \"grub-install ${BOOTDEV}\" parancs futtatsa folyamatban..."
+msgstr "A \"grub-install ${BOOTDEV}\" parancs futtatása folyamatban..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:114
 msgid "Running \"update-grub\"..."
-msgstr "Az \"update-grub\" parancs futtatsa folyamatban..."
+msgstr "Az \"update-grub\" parancs futtatása folyamatban..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:118
 msgid "Updating /etc/kernel-img.conf..."
-msgstr "Az /etc/kernel-img.conf frisstse folyamatban..."
+msgstr "Az /etc/kernel-img.conf frissítése folyamatban..."
 
 #. Type: text
 #. Description
 #. Main menu item
 #: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "A GRUB rendszerbetlt merevlemezre teleptse"
+msgstr "A GRUB rendszerbetöltő merevlemezre telepítése"

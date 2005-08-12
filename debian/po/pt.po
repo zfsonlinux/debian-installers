@@ -33,7 +33,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2005-07-06 09:28-0700\n"
-"PO-Revision-Date: 2005-07-30 08:57+0000\n"
+"PO-Revision-Date: 2005-07-03 09:00+0000\n"
 "Last-Translator:  Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team:  Portuguese <traduz@debianpt.org>\n"
 "MIME-Version: 1.0\n"
@@ -60,9 +60,9 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new system."
 msgstr ""
-"Se todos os seus sistemas operativos se encontram listados acima, ento deve "
+"Se todos os seus sistemas operativos se encontram listados acima, então deve "
 "ser seguro instalar o gestor de arranque no master boot record do seu "
-"primeiro disco rgido. Quando o seu computador arrancar, vai poder escolher "
+"primeiro disco rígido. Quando o seu computador arrancar, vai poder escolher "
 "um desses sistemas operativos ou o seu novo sistema Debian."
 
 #. Type: boolean
@@ -79,9 +79,9 @@ msgid ""
 "computer. If so, it should be safe to install the GRUB boot loader to the "
 "master boot record of your first hard drive."
 msgstr ""
-"Parece que esta nova instalao  o nico sistema operativo neste computador. Se "
-"assim for, ento deve ser seguro instalar o gestor de arranque GRUB no master "
-"boot record do seu primeiro disco rgido."
+"Parece que esta nova instalação é o único sistema operativo neste "
+"computador. Se assim for, então deve ser seguro instalar o gestor de "
+"arranque GRUB no master boot record do seu primeiro disco rígido."
 
 #. Type: boolean
 #. Description
@@ -92,10 +92,10 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
-"Aviso: Se o instalador falhou a deteco de outro sistema operativo que esteja "
-"presente no seu computador, modificar o master boot record vai deixar esse "
-"sistema operativo temporariamente no inicivel, embora o GRUB possa ser "
-"posteriormente configurado manualmente para o iniciar."
+"Aviso: Se o instalador falhou a detecção de outro sistema operativo que "
+"esteja presente no seu computador, modificar o master boot record vai deixar "
+"esse sistema operativo temporariamente não iniciável, embora o GRUB possa "
+"ser posteriormente configurado manualmente para o iniciar."
 
 #. Type: boolean
 #. Description
@@ -110,14 +110,15 @@ msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
 msgstr ""
-"A instalao do gestor de arranque GRUB por vezes falha ou pra quando /boot "
-"est num sistema de ficheiros XFS.  recomendado utilizar o LILO nesta situao."
+"A instalação do gestor de arranque GRUB por vezes falha ou pára quando /boot "
+"está num sistema de ficheiros XFS. É recomendado utilizar o LILO nesta "
+"situação."
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
-msgstr "Dispositivo para a instalao do gestor de arranque:"
+msgstr "Dispositivo para a instalação do gestor de arranque:"
 
 #. Type: string
 #. Description
@@ -129,9 +130,9 @@ msgid ""
 "can install GRUB elsewhere on the drive, or to another drive, or even to a "
 "floppy."
 msgstr ""
-"Necessita fazer com que a nova instalao do sistema arranque, instalando o "
+"Necessita fazer com que a nova instalação do sistema arranque, instalando o "
 "gestor de arranque GRUB num dispositivo de arranque. Normalmente instala-se "
-"o GRUB no master boot record do disco primrio. Se preferir, pode instalar o "
+"o GRUB no master boot record do disco primário. Se preferir, pode instalar o "
 "GRUB noutro local do disco, ou noutro disco, ou mesmo numa disquete."
 
 #. Type: string
@@ -149,14 +150,14 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"O dispositivo pode ser especificado utilizando a notao GRUB \"(hdn,m)\", ou "
-"como um dispositivo em /dev. Abaixo esto alguns exemplos:\n"
+"O dispositivo pode ser especificado utilizando a notação GRUB \"(hdn,m)\", "
+"ou como um dispositivo em /dev. Abaixo estão alguns exemplos:\n"
 " - \"(hd0)\" ou \"/dev/hda\" vai instalar o GRUB no master boot record do    "
-"primeiro disco rgido (IDE);\n"
-" - \"(hd0,1)\" ou \"/dev/hda2\" vai utilizar a segunda partio da sua    "
+"primeiro disco rígido (IDE);\n"
+" - \"(hd0,1)\" ou \"/dev/hda2\" vai utilizar a segunda partição da sua    "
 "primeira drive IDE;\n"
-" - \"(hd2,4)\" ou \"/dev/sdc5\" vai utilizar a primeira partio extendida  da "
-"sua terceira drive (aqui SCSI);\n"
+" - \"(hd2,4)\" ou \"/dev/sdc5\" vai utilizar a primeira partição extendida  "
+"da sua terceira drive (aqui SCSI);\n"
 " - \"(fd0)\" ou \"/dev/fd0\" vai instalar o GRUB numa disquete.\""
 
 #. Type: password
@@ -178,23 +179,24 @@ msgid ""
 msgstr ""
 "O gestor de arranque GRUB disponibiliza muitas funcionalidades interactivas "
 "poderosas, que podem ser utilizadas para comprometer o seu sistema se "
-"utilizadores no autorizados tiverem acesso  mquina quando esta inicia. Para "
-"se proteger contra isso, voc pode escolher uma password que ser necessria "
-"antes de editar entradas do menu ou antes de entrar no interface de linha de "
-"comandos do GRUB. Por omisso, qualquer utilizador poder iniciar qualquer "
-"entrada do menu sem introduzir a password."
+"utilizadores não autorizados tiverem acesso à máquina quando esta inicia. "
+"Para se proteger contra isso, você pode escolher uma password que será "
+"necessária antes de editar entradas do menu ou antes de entrar no interface "
+"de linha de comandos do GRUB. Por omissão, qualquer utilizador poderá "
+"iniciar qualquer entrada do menu sem introduzir a password."
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
 msgid "If you do not wish to set a GRUB password, leave this field blank."
-msgstr "Se no deseja definir uma password para o GRUB, deixe este campo vazio."
+msgstr ""
+"Se não deseja definir uma password para o GRUB, deixe este campo vazio."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "A instalao do GRUB falhou. Continuar mesmo assim ?"
+msgstr "A instalação do GRUB falhou. Continuar mesmo assim ?"
 
 #. Type: boolean
 #. Description
@@ -204,40 +206,40 @@ msgid ""
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"A instalao do pacote grub em /target/ falhou.  necessrio que o GRUB seja "
-"instalado como carregador do sistema.  No entanto o problema de instalao "
-"pode no estar relacionado com o GRUB, e poder assim ser possvel continuar "
-"com a instalao."
+"A instalação do pacote grub em /target/ falhou. É necessário que o GRUB seja "
+"instalado como carregador do sistema.  No entanto o problema de instalação "
+"pode não estar relacionado com o GRUB, e poderá assim ser possível continuar "
+"com a instalação."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "No  possvel instalar o GRUB em ${BOOTDEV}"
+msgstr "Não é possível instalar o GRUB em ${BOOTDEV}"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "A execuo de 'grub-install ${BOOTDEV}' falhou."
+msgstr "A execução de 'grub-install ${BOOTDEV}' falhou."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
-msgstr "No  possvel configurar o GRUB"
+msgstr "Não é possível configurar o GRUB"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Executing 'update-grub' failed."
-msgstr "A execuo de 'update-grub' falhou."
+msgstr "A execução de 'update-grub' falhou."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "This is a fatal error."
-msgstr "Este  um erro fatal."
+msgstr "Este é um erro fatal."
 
 #. Type: text
 #. Description
@@ -249,7 +251,7 @@ msgstr "A instalar o carregador do sistema GRUB"
 #. Description
 #: ../grub-installer.templates:98
 msgid "Looking for other operating systems..."
-msgstr " procura de outros sistemas operativos..."
+msgstr "Á procura de outros sistemas operativos..."
 
 #. Type: text
 #. Description
@@ -286,4 +288,4 @@ msgstr "A actualizar /etc/kernel-img.conf..."
 #. Main menu item
 #: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "Instalar o GRUB no disco rgido"
+msgstr "Instalar o GRUB no disco rígido"

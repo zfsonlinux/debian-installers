@@ -26,7 +26,7 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr "${OS_LIST}"
+msgstr "以下列出的是在這台電腦上所偵測到的其它作業系統：${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -37,13 +37,16 @@ msgid ""
 "install the boot loader to the master boot record of your first hard drive. "
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new system."
-msgstr " (MBR)  Debian "
+msgstr ""
+"如果以上已列出了您電腦中所有的作業系統，那麼把開機程式安裝在第一個硬碟的主要"
+"開機記錄 (MBR) 上應該不會出什麼問題。當您的電腦開機時，您可以選擇載入其中一個"
+"作業系統，或是由新的 Debian 系統開機。"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr " GRUB  (MBR) "
+msgstr "是否將 GRUB 開機程式安裝至主要開機記錄 (MBR) 上？"
 
 #. Type: boolean
 #. Description
@@ -53,7 +56,9 @@ msgid ""
 "It seems that this new installation is the only operating system on this "
 "computer. If so, it should be safe to install the GRUB boot loader to the "
 "master boot record of your first hard drive."
-msgstr " Debian  GRUB  (MBR) "
+msgstr ""
+"看來目前正在安裝的 Debian 是這台電腦中唯一的作業系統。如果沒錯，那麼把 GRUB "
+"開機程式安裝在第一個硬碟的主要開機記錄 (MBR) 上應該不會出什麼問題。"
 
 #. Type: boolean
 #. Description
@@ -63,13 +68,16 @@ msgid ""
 "present on your computer, modifying the master boot record will make that "
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
-msgstr " (MBR)  GRUB "
+msgstr ""
+"警告：如果安裝程式無法偵測到您的電腦上已存在的其它作業系統，修改主要開機記錄 "
+"(MBR) 將會使得該作業系統暫時無法開機。然而，在事後還是可以藉由手動設定 GRUB "
+"來啟動它。"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Install the GRUB boot loader to XFS file system?"
-msgstr " GRUB  XFS "
+msgstr "是否將 GRUB 開機程式安裝至 XFS 檔案系統上？"
 
 #. Type: boolean
 #. Description
@@ -77,13 +85,15 @@ msgstr " GRUB  XFS "
 msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
-msgstr " /boot  XFS  GRUB  LILO"
+msgstr ""
+"如果 /boot 所使用的是 XFS 檔案系統，常會導致 GRUB 開機程式在安裝時失敗或當"
+"掉。在此狀況下，建議替而使用 LILO。"
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
-msgstr ""
+msgstr "用來安裝開機程式的裝置："
 
 #. Type: string
 #. Description
@@ -95,7 +105,11 @@ msgid ""
 "GRUB on the master boot record of your first hard drive. If you prefer, you "
 "can install GRUB elsewhere on the drive, or to another drive, or even to a "
 "floppy."
-msgstr " GRUB  Debian  GRUB  (MBR)  GRUB "
+msgstr ""
+"必須把 GRUB 開機程式安裝至可開機裝置上，才能讓這個新安裝的 Debian 系統能夠開"
+"機。一般作法是將 GRUB 安裝至您第一顆硬碟的主要開機磁區 (MBR) 上。而或者，也可"
+"以依您喜好將 GRUB 安裝至磁碟的其它地方，或安裝至另一顆磁碟上，或甚至也可以將"
+"它安裝至磁碟片上。"
 
 #. Type: string
 #. Description
@@ -112,19 +126,19 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-" GRUB  (hdn,m)  /dev \n"
-" - (hd0)  /dev/hda  GRUB  (IDE) \n"
-"    (MBR) \n"
-" - (hd0,1)  /dev/hda2  IDE \n"
-" - (hd2,4)  /dev/sdc5  SCSI\n"
-"   \n"
-" - (fd0)  /dev/fd0  GRUB "
+"可以使用 GRUB 的 (hdn,m) 表示法，或是以 /dev 裡的裝置來指定磁碟。範例如下：\n"
+" - (hd0) 或 /dev/hda 將會把 GRUB 安裝至第一顆 (IDE) 硬碟的\n"
+"   主要開機記錄 (MBR) 上﹔\n"
+" - (hd0,1) 或 /dev/hda2 將安裝至第一顆 IDE 硬碟的第二個分割區﹔\n"
+" - (hd2,4) 或 /dev/sdc5 將安裝至第三顆（在此為 SCSI）硬碟的第一個\n"
+"   延伸分割區﹔\n"
+" - (fd0) 或 /dev/fd0 則會將 GRUB 安裝至磁碟片上。"
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
 msgid "GRUB password:"
-msgstr "GRUB "
+msgstr "GRUB 的密碼："
 
 #. Type: password
 #. Description
@@ -136,19 +150,23 @@ msgid ""
 "password which will be required before editing menu entries or entering the "
 "GRUB command-line interface. By default, any user will still be able to "
 "start any menu entry without entering the password."
-msgstr "GRUB  GRUB "
+msgstr ""
+"GRUB 開機程式提供了很多強大的互動式功能，若在它啟動時有未經授權的使用者可以直"
+"接接觸您的機器，它可能會被利用來破壞您的系統。為了防止類似的情事發生，您可以"
+"設定一個密碼，而在編輯選單上的項目或進入 GRUB 的命令列介面時則必須輸入這個密"
+"碼。在預設上，所有的使用者仍然不需要輸入這個密碼就可以啟動選單上的任何項目。"
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
 msgid "If you do not wish to set a GRUB password, leave this field blank."
-msgstr " GRUB "
+msgstr "如果您不想設定 GRUB 的密碼，請直接留白。"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "GRUB "
+msgstr "GRUB 的安裝作業失敗了。是否無論如何仍然繼續？"
 
 #. Type: boolean
 #. Description
@@ -157,83 +175,86 @@ msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
-msgstr " grub  /target/ GRUB  GRUB "
+msgstr ""
+"無法將 grub 套件安裝至 /target/。安裝 GRUB 以作為開機程式乃是不可或缺的步驟﹔"
+"然而，可能並不是因為 GRUB 套件才導致安裝失敗的，所以繼續進行安裝作業或許也是"
+"無妨的。"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr " GRUB  ${BOOTDEV}"
+msgstr "無法將 GRUB 安裝至 ${BOOTDEV}"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr " grub-install ${BOOTDEV} "
+msgstr "在執行 grub-install ${BOOTDEV} 時失敗了。"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
-msgstr " GRUB"
+msgstr "無法設定 GRUB"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Executing 'update-grub' failed."
-msgstr " update-grub "
+msgstr "在執行 update-grub 時失敗了。"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "This is a fatal error."
-msgstr ""
+msgstr "這是一個嚴重錯誤。"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:94
 msgid "Installing GRUB boot loader"
-msgstr " GRUB "
+msgstr "正在安裝 GRUB 開機程式"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:98
 msgid "Looking for other operating systems..."
-msgstr "..."
+msgstr "正在尋找其它的作業系統..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:102
 msgid "Installing the 'grub' package..."
-msgstr " grub ..."
+msgstr "正在安裝 grub 套件..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:106
 msgid "Determining GRUB boot device..."
-msgstr " GRUB ..."
+msgstr "正在決定 GRUB 的開機裝置..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:110
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr " \"grub-install ${BOOTDEV}\"..."
+msgstr "正在執行 \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:114
 msgid "Running \"update-grub\"..."
-msgstr " \"update-grub\"..."
+msgstr "正在執行 \"update-grub\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:118
 msgid "Updating /etc/kernel-img.conf..."
-msgstr " /etc/kernel-img.conf..."
+msgstr "正在更新 /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
 #: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr " GRUB "
+msgstr "將 GRUB 開機程式安裝至硬碟上"

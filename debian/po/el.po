@@ -37,7 +37,9 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr "       : ${OS_LIST}"
+msgstr ""
+"Ανιχνεύθηκαν τα ακόλουθα λειτουργικά συστήματα στον υπολογιστή σας: "
+"${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -47,13 +49,17 @@ msgid ""
 "install the boot loader to the master boot record of your first hard drive. "
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new system."
-msgstr "        ,             .       ,          ,     ."
+msgstr ""
+"Αν εμφανίζονται όλα τα λειτουργικά συστήματα που έχετε εγκατεστημένα, τότε "
+"είναι ασφαλές να εγκαταστήσετε το φορτωτή εκκίνησης στον πρώτο σκληρό σας "
+"δίσκο.  Κατά την εκκίνηση του υπολογιστή σας, θα μπορείτε να επιλέξετε ένα "
+"από αυτά τα λειτουργικά συστήματα, ή το νέο σας σύστημα."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "     GRUB  master boot record;"
+msgstr "Να εγκατασταθεί ο φορτωτής εκκίνησης GRUB στο master boot record;"
 
 #. Type: boolean
 #. Description
@@ -62,7 +68,10 @@ msgid ""
 "It seems that this new installation is the only operating system on this "
 "computer. If so, it should be safe to install the GRUB boot loader to the "
 "master boot record of your first hard drive."
-msgstr " , ,            .    ,      GRUB  master boot record      ."
+msgstr ""
+"Από ό,τι φαίνεται, αυτή η νέα εγκατάσταση είναι το μόνο λειτουργικό σύστημα "
+"στον υπολογιστή αυτό. Αν είναι όντως έτσι, η εγκατάσταση του φορτωτή "
+"εκκίνησης GRUB στο master boot record του πρώτου δίσκου σας είναι ασφαλής."
 
 #. Type: boolean
 #. Description
@@ -72,13 +81,17 @@ msgid ""
 "present on your computer, modifying the master boot record will make that "
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
-msgstr ":        ,      ,     master boot record       .  GRUB          ."
+msgstr ""
+"ΠΡΟΣΟΧΗ: Αν ο εγκαταστάτης δεν βρήκε άλλο λειτουργικό σύστημα, το οποίο "
+"υπάρχει στον υπολογιστή σας, τότε η τροποποίηση του master boot record θα "
+"καταστήσει αυτό το λειτουργικό σύστημα απροσπέλαστο. Το GRUB θα μπορεί "
+"φυσικά να ρυθμιστεί για να το εκκινεί χειροκίνητα."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Install the GRUB boot loader to XFS file system?"
-msgstr "    GRUB    XFS;"
+msgstr "Εγκατάσταση του φορτωτή εκκίνησης GRUB σε σύστημα αρχείων XFS;"
 
 #. Type: boolean
 #. Description
@@ -86,13 +99,16 @@ msgstr "    GRUB    XFS;"
 msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
-msgstr "O   GRUB       /boot     XFS.         LILO."
+msgstr ""
+"O φορτωτής εκκίνησης GRUB συχνά αποτυγχάνει την εκκίνηση όταν ο κατάλογος/"
+"boot βρίσκεται σε σύστημα αρχείων XFS. Σε αυτήν την περίπτωση συνιστάται η "
+"χρήση του LILO."
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
-msgstr "     :"
+msgstr "Μονάδα για εγκατάσταση του φορτωτή εκκίνησης:"
 
 #. Type: string
 #. Description
@@ -104,8 +120,11 @@ msgid ""
 "can install GRUB elsewhere on the drive, or to another drive, or even to a "
 "floppy."
 msgstr ""
-"        ,     GRUB    .        GRUB  master boot record    .  ,     "
-"GRUB      ,           ."
+"Θα πρέπει να κάνετε το νέο σας σύστημα εκκινήσιμο, εγκαθιστώντας το φορτωτή "
+"εκκίνησης GRUB σε μια εκκινήσιμη συσκευή. Ο συνήθης τρόπος είναι να "
+"εγκαταστήσετε το GRUB στο master boot record του πρώτου σκληρού δίσκου. Αν "
+"επιθυμείτε, μπορείτε να εγκαταστήσετε το GRUB σε κάποιο άλλο σημείο του "
+"δίσκου, ή σε κάποιο άλλο δίσκο ή ακόμη και σε μια δισκέτα."
 
 #. Type: string
 #. Description
@@ -122,20 +141,22 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"         GRUB \"(hdn)\"     /dev.    \n"
-" - \"(hd0)\"  \"/dev/hda\"    GRUB  master boot record  \n"
-"      (IDE).\n"
-" - \"(hd0,1)\"  \"/dev/hda2\"        \n"
-"      IDE.\n"
-" - \"(hd2,4)\"  \"/dev/sdc5\"       \n"
-"       (    SCSI.\n"
-" - \"(fd0)\"  \"/dev/fd0\"    GRUB   ."
+"Η μονάδα μπορεί να καθοριστεί χρησιμοποιώντας τη σημειολογία του GRUB \"(hdn)"
+"\" ή ως συσκευή του /dev. Ακολουθούν μερικά παραδείγματα \n"
+" - \"(hd0)\" ή \"/dev/hda\" θα εγκαταστήσει το GRUB στο master boot record "
+"του \n"
+"   πρώτου σκληρού δίσκου (IDE).\n"
+" - \"(hd0,1)\" ή \"/dev/hda2\" θα το εγκαταστήσει στο δεύτερο τμήμα του \n"
+"   πρώτου σκληρού δίσκου IDE.\n"
+" - \"(hd2,4)\" ή \"/dev/sdc5\" θα το εγκαταστήσει στο πρώτο εκτεταμένο \n"
+"   τμήμα του τρίτου δίσκου (σε αυτήν την περίπτωση SCSI.\n"
+" - \"(fd0)\" ή \"/dev/fd0\" θα εγκαταστήσει το GRUB σε μια δισκέτα."
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
 msgid "GRUB password:"
-msgstr "   GRUB:"
+msgstr "Κωδικός για το GRUB:"
 
 #. Type: password
 #. Description
@@ -148,20 +169,26 @@ msgid ""
 "GRUB command-line interface. By default, any user will still be able to "
 "start any menu entry without entering the password."
 msgstr ""
-"   GRUB    ,            ,             .      ,                          "
-"GRUB.  ,             ."
+"Ο φορτωτής εκκίνησης GRUB προσφέρει πολλά διαδραστικές λειτουργίες, οι "
+"οποίες μπορούν να χρησιμοποιηθούν για παραβίαση της ασφαλείας του συστήματός "
+"σας, αν κάποιος μη εξουσιοδοτημένος χρήστης αποκτήσει πρόσβαση στο σύστημα "
+"κατά την εκκίνησή του. Για την προστασία από τέτοια ενδεχόμενα, μπορείτε να "
+"επιλέξετε έναν κωδικό ασφαλείας ο οποίος θα απαιτείται πριν την επεξεργασία "
+"των επιλογών του μενού ή κατά την εισαγωγή στη γραμμή εντολών του GRUB. Εξ "
+"ορισμού, οποιοσδήποτε χρήστης θα μπορεί να επιλέγει οποιαδήποτε καταχώριση "
+"στο μενού χωρίς εισαγωγή κωδικού."
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
 msgid "If you do not wish to set a GRUB password, leave this field blank."
-msgstr "         GRUB,    ."
+msgstr "Αν δε θέλετε να ορίσετε ένα κωδικό για το GRUB, αφήστε το πεδίο κενό."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "    GRUB.      ;"
+msgstr "Αδύνατη η εγκατάσταση του GRUB. Θέλετε να συνεχίσετε ούτως ή άλλως;"
 
 #. Type: boolean
 #. Description
@@ -170,83 +197,86 @@ msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
-msgstr "   grub  /target/ .    grub     .          grub        ."
+msgstr ""
+"Η εγκατάσταση του grub στο /target/ απέτυχε. Η εγκατάσταση του grub ως "
+"φορτωτή εκκίνησης είναι απαραίτητη. Ίσως το πρόβλημα να μην έχει σχέση με το "
+"grub και να μπορείτε να συνεχίσετε με την εγκατάσταση."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "    grub   ${BOOTDEV}"
+msgstr "Αδύνατη η εγκατάσταση του grub στη μονάδα ${BOOTDEV}"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "   'grub-install ${BOOTDEV}' ."
+msgstr "Η εκτέλεση του 'grub-install ${BOOTDEV}' απέτυχε."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
-msgstr "    grub"
+msgstr "Αδύνατη η ρύθμιση του grub"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Executing 'update-grub' failed."
-msgstr "   'update-grub' ."
+msgstr "Η εκτέλεση του 'update-grub' απέτυχε."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "This is a fatal error."
-msgstr "    ."
+msgstr "Αυτό είναι ένα μοιραίο σφάλμα."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:94
 msgid "Installing GRUB boot loader"
-msgstr "    GRUB"
+msgstr "Εγκατάσταση του φορτωτή εκκίνησης GRUB"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:98
 msgid "Looking for other operating systems..."
-msgstr "   ..."
+msgstr "Ανίχνευση άλλων λειτουργικών συστημάτων..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:102
 msgid "Installing the 'grub' package..."
-msgstr "   'grub'..."
+msgstr "Εγκατάσταση του πακέτου 'grub'..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:106
 msgid "Determining GRUB boot device..."
-msgstr "      GRUB..."
+msgstr "Εξακριβώνεται η συσκευή εκκίνησης για το GRUB..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:110
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "  \"grub-install ${BOOTDEV}\"..."
+msgstr "Εκτελείται το \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:114
 msgid "Running \"update-grub\"..."
-msgstr "  \"update-grub\"..."
+msgstr "Εκτελείται το \"update-grub\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:118
 msgid "Updating /etc/kernel-img.conf..."
-msgstr "  /etc/kernel-img.conf..."
+msgstr "Ενημέρωση του /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
 #: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "    GRUB"
+msgstr "Εγκατάσταση του φορτωτή εκκίνησης GRUB"

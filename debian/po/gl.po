@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2005-07-06 09:28-0700\n"
-"PO-Revision-Date: 2005-08-05 19:01+0200\n"
+"PO-Revision-Date: 2005-07-13 23:31+0300\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@debian.org>\n"
 "Language-Team: Galego <trasno@ceu.fi.udc.es>\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
 msgstr ""
-"Detectronse os seguintes sistemas operativos neste ordenador: ${OS_LIST}"
+"Detectáronse os seguintes sistemas operativos neste ordenador: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -37,7 +37,7 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new system."
 msgstr ""
-"Se tdolos seus sistemas operativos aparecen na lista de enriba, debera "
+"Se tódolos seus sistemas operativos aparecen na lista de enriba, debería "
 "poderse instalar con seguridade o cargador de inicio no rexistro mestre de "
 "inicio do seu primeiro disco duro. Cando o ordenador arrinque, ha poder "
 "iniciar un destes sistemas operativos ou o seu novo sistema."
@@ -46,7 +46,7 @@ msgstr ""
 #. Description
 #: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "Instalar o cargador de inicio GRUB no rexistro mestre de inicio?"
+msgstr "¿Instalar o cargador de inicio GRUB no rexistro mestre de inicio?"
 
 #. Type: boolean
 #. Description
@@ -56,9 +56,9 @@ msgid ""
 "computer. If so, it should be safe to install the GRUB boot loader to the "
 "master boot record of your first hard drive."
 msgstr ""
-"Semella que esta nova instalacin  o nico sistema operativo deste ordenador. "
-"Se  as, debera ser seguro instalar o cargador de inicio GRUB no rexistro "
-"mestre de inicio do seu primeiro disco duro."
+"Semella que esta nova instalación é o único sistema operativo deste "
+"ordenador. Se é así, debería ser seguro instalar o cargador de inicio GRUB "
+"no rexistro mestre de inicio do seu primeiro disco duro."
 
 #. Type: boolean
 #. Description
@@ -71,14 +71,14 @@ msgid ""
 msgstr ""
 "Aviso: Se o instalador non puido detectar outro sistema operativo presente "
 "no seu ordenador, modificar o rexistro mestre de inicio ha facer que, de "
-"xeito temporal, non se poida iniciar ese outro sistema operativo, anda que "
+"xeito temporal, non se poida iniciar ese outro sistema operativo, aínda que "
 "despois se pode configurar GRUB para que o inicie."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Install the GRUB boot loader to XFS file system?"
-msgstr "Instalar o cargador de inicio GRUB no sistema de ficheiros XFS?"
+msgstr "¿Instalar o cargador de inicio GRUB no sistema de ficheiros XFS?"
 
 #. Type: boolean
 #. Description
@@ -87,15 +87,15 @@ msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
 msgstr ""
-"A instalacin do cargador de inicio GRUB adoita fallar ou colgarse cando /"
-"boot est nun sistema de ficheiros XFS. Recomndase empregar LILO nestas "
-"situacins."
+"A instalación do cargador de inicio GRUB adoita fallar ou colgarse cando /"
+"boot está nun sistema de ficheiros XFS. Recoméndase empregar LILO nestas "
+"situacións."
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
-msgstr "Dispositivo para a instalacin do cargador de inicio:"
+msgstr "Dispositivo para a instalación do cargador de inicio:"
 
 #. Type: string
 #. Description
@@ -108,7 +108,7 @@ msgid ""
 "floppy."
 msgstr ""
 "Ten que facer que o novo sistema se poida iniciar, instalando o cargador de "
-"inicio GRUB nun dispositivo de inicio. O xeito mis habitual de o facer  "
+"inicio GRUB nun dispositivo de inicio. O xeito máis habitual de o facer é "
 "instalando GRUB no rexistro mestre de inicio do seu primeiro disco duro. Se "
 "o prefire, pode instalar GRUB noutra parte do disco, ou noutro disco, ou "
 "incluso nun disquete."
@@ -128,16 +128,16 @@ msgid ""
 "   third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Pdese especificar o dispositivo empregando a notacin \"(hdn,m)\" de GRUB, ou "
-"coma un dispositivo de /dev. Embaixo aparecen algns exemplos:\n"
+"Pódese especificar o dispositivo empregando a notación \"(hdn,m)\" de GRUB, "
+"ou coma un dispositivo de /dev. Embaixo aparecen algúns exemplos:\n"
 " - \"(hd0)\" ou \"/dev/hda\" han instalar GRUB no rexistro mestre de inicio "
 "do\n"
 "   seu primeiro disco duro (IDE);\n"
-" - \"(hd0,1)\" ou \"/dev/hda2\" han empregar a segunda particin do seu\n"
+" - \"(hd0,1)\" ou \"/dev/hda2\" han empregar a segunda partición do seu\n"
 "   primeiro disco IDE;\n"
-" - \"(hd2,4)\" ou \"/dev/sdc5\" han empregar a primeira particin extendida "
+" - \"(hd2,4)\" ou \"/dev/sdc5\" han empregar a primeira partición extendida "
 "do\n"
-"   seu terceiro disco (que aqu  SCSI);\n"
+"   seu terceiro disco (que aquí é SCSI);\n"
 " - \"(fd0)\" ou \"/dev/fd0\" han instalar GRUB nun disquete."
 
 #. Type: password
@@ -157,12 +157,13 @@ msgid ""
 "GRUB command-line interface. By default, any user will still be able to "
 "start any menu entry without entering the password."
 msgstr ""
-"O cargador de inicio GRUB ofrece varias potentes caractersticas interactivas "
-"que, se usuarios non autorizados teen acceso  mquina durante o seu inicio, "
-"poden empregar para comprometer o sistema. Para se defender contra isto, "
-"pode escoller un contrasinal que se solicitar antes de editar as entradas do "
-"men ou antes de entrar na lia de ordes de GRUB. Por defecto, calquera "
-"usuario pode escoller calquera entrada no men sen introducir un contrasinal."
+"O cargador de inicio GRUB ofrece varias potentes características "
+"interactivas que, se usuarios non autorizados teñen acceso á máquina durante "
+"o seu inicio, poden empregar para comprometer o sistema. Para se defender "
+"contra isto, pode escoller un contrasinal que se solicitará antes de editar "
+"as entradas do menú ou antes de entrar na liña de ordes de GRUB. Por "
+"defecto, calquera usuario pode escoller calquera entrada no menú sen "
+"introducir un contrasinal."
 
 #. Type: password
 #. Description
@@ -175,7 +176,7 @@ msgstr ""
 #. Description
 #: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "Non se puido instalar GRUB. Continuar igualmente?"
+msgstr "Non se puido instalar GRUB. ¿Continuar igualmente?"
 
 #. Type: boolean
 #. Description
@@ -186,9 +187,9 @@ msgid ""
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
 "Non se puido instalar o paquete grub en /target/. Instalar GRUB coma "
-"cargador de inicio  un paso necesario. O problema de instalacin podera, "
+"cargador de inicio é un paso necesario. O problema de instalación podería, "
 "nembargantes, non estar relacionado con GRUB, polo que pode ser posible "
-"continuar coa instalacin."
+"continuar coa instalación."
 
 #. Type: error
 #. Description
@@ -218,7 +219,7 @@ msgstr "Non se puido executar 'update-grub'."
 #. Description
 #: ../grub-installer.templates:87
 msgid "This is a fatal error."
-msgstr "Este  un erro moi grave."
+msgstr "Este é un erro moi grave."
 
 #. Type: text
 #. Description
