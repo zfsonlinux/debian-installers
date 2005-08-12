@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"POT-Creation-Date: 2005-08-10 13:45-0600\n"
-"PO-Revision-Date: 2005-07-11 08:31+0300\n"
+"POT-Creation-Date: 2005-08-08 18:29-0600\n"
+"PO-Revision-Date: 2005-07-07 20:01+0300\n"
 "Last-Translator:  Ognyan Kulev <ogi@fmi.uni-sofia.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:4
 msgid "Proceed with installation to unclean target?"
-msgstr "      ?"
+msgstr "Продължаване на инсталацията върху неизчистена файлова система?"
 
 #. Type: boolean
 #. Description
@@ -35,13 +35,16 @@ msgid ""
 "The target file system contains files from a past installation. These files "
 "could cause problems with the installation process, and if you proceed, some "
 "of the existing files may be overwritten."
-msgstr "       .              ."
+msgstr ""
+"Целевата файлова система съдържа файлове от друга инсталация. Тези файлове "
+"могат да провалят инсталационния процес или да предизвикат инсталиране на "
+"развалена система."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
 msgid "Cannot install base system"
-msgstr "      "
+msgstr "Не може да бъде инсталирана основната система"
 
 #. Type: error
 #. Description
@@ -49,13 +52,15 @@ msgstr "      "
 msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
-msgstr "         .           ."
+msgstr ""
+"Инсталаторът не може да определи как да инсталира основната система. Не е "
+"намерен инсталационен компактдиск и не е настроено валидно огледало."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:17
 msgid "No file system mounted on /target"
-msgstr "      /target"
+msgstr "Не е монтирана файлова система в /target"
 
 #. Type: error
 #. Description
@@ -63,13 +68,16 @@ msgstr "      /target"
 msgid ""
 "Before the installation can proceed, a root file system must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
-msgstr "   ,         /target.            ."
+msgstr ""
+"Преди инсталацията да продължи, трябва да е монтирана коренова файлова "
+"система в /target. Манипулаторът на дялове би трябвало вече да е свършил "
+"това за Вас."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:23
 msgid "Not installing to unclean target"
-msgstr "       "
+msgstr "Не се инсталира върху неизчистени целеви файлови системи"
 
 #. Type: error
 #. Description
@@ -79,44 +87,49 @@ msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
 "install."
-msgstr "      ,        ,             .                 ."
+msgstr ""
+"Инсталирането върху целевата файлова система е прекъснато, тъй като тя "
+"съдържа файлове от друга инсталация, които могат да провалят инсталационния "
+"процес или да предизвикат инсталиране на развалена система. Трябва да се "
+"върнете обратно и да изтриете или форматирате целевата файлова система преди "
+"продължаване на инсталацията."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:30
 msgid "Failed to install the base system"
-msgstr "     "
+msgstr "Грешка при инсталирането на основната система"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:30
 msgid "The base system installation into /target/ failed."
-msgstr "     /target/  ."
+msgstr "Инсталирането на основната система в /target/ завърши неуспешно."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:37
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
-msgstr "Debootstrap    (  ${EXITCODE})."
+msgstr "Debootstrap завърши с грешка (със стойност ${EXITCODE})."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:44
 msgid "Base system installation error"
-msgstr "     "
+msgstr "Грешка при инсталирането на основната система"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:44
 msgid "The debootstrap program exited abnormally."
-msgstr " debootstrap   ."
+msgstr "Програмата debootstrap не приключи нормално."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:51
 msgid "The following error occurred:"
-msgstr "   :"
+msgstr "Получена бе следната грешка:"
 
 #. Type: error
 #. Description
@@ -128,25 +141,25 @@ msgstr "${ERROR}"
 #. Description
 #: ../base-installer.templates:51
 msgid "Check /target/var/log/bootstrap.log for the details."
-msgstr " /target/var/log/bootstrap.log  ."
+msgstr "Проверете /target/var/log/bootstrap.log за подробности."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:60
 msgid "Unable to install a kernel"
-msgstr "     "
+msgstr "Не може да бъде инсталирано ядро"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:60
 msgid "No kernel package is selected for installation."
-msgstr "       ."
+msgstr "Не е избран за инсталиране пакет с ядро."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:65
 msgid "Unable to install the selected kernel"
-msgstr "      "
+msgstr "Не може да бъде инсталирано избраното ядро"
 
 #. Type: error
 #. Description
@@ -154,19 +167,19 @@ msgstr "      "
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
-msgstr "  ,       ."
+msgstr "Беше получена грешка, докато се инсталираше ядрото в целевата система."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:65
 msgid "Kernel package: '${KERNEL}'."
-msgstr "  : \"${KERNEL}\"."
+msgstr "Пакет с ядро: \"${KERNEL}\"."
 
 #. Type: select
 #. Description
 #: ../base-installer.templates:76
 msgid "Kernel to install:"
-msgstr ",    :"
+msgstr "Ядро, което да бъде инсталирано:"
 
 #. Type: select
 #. Description
@@ -174,91 +187,96 @@ msgstr ",    :"
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
-msgstr "   . ,    ,           ."
+msgstr ""
+"Списъкът показва наличните ядра. Моля, изберете едно от тях, за да направите "
+"системата си способна за зареждане от твърдия диск."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:82
 msgid "No installable kernel found"
-msgstr "      "
+msgstr "Не е намерено подходящо ядро за инсталиране"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:82
 msgid "No installable kernel was found in the defined APT sources."
-msgstr "       APT ."
+msgstr "Не е намерено подходящо ядро в дадените APT източници."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:82
 msgid "The current default kernel package is '${KERNEL}'."
-msgstr "       \"${KERNEL}\"."
+msgstr "Текущият подразбиращ се пакет с ядро е \"${KERNEL}\"."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:82
 msgid ""
 "You may try to continue though this rather strange error is probably fatal."
-msgstr "     ,        ."
+msgstr ""
+"Можете да се опитате да продължите, въпреки че тази необичайна грешка "
+"вероятно е фатална."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:91
-#, fuzzy
-msgid "Unable to install ${PACKAGE}"
-msgstr "    GRUB  ${BOOTDEV}"
+msgid "Unable to install initrd-tools"
+msgstr "Не може да бъде инсталиран пакетът initrd-tools"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:91
-#, fuzzy
 msgid ""
-"An error was returned while trying to install the ${PACKAGE} package onto "
+"An error was returned while trying to install the initrd-tools package onto "
 "the target system."
-msgstr "  ,     initrd-tools   ."
+msgstr ""
+"Беше получена грешка, докато се инсталираше пакетът initrd-tools в целевата "
+"система."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:91
 #, fuzzy
 msgid "Check /var/log/messages or see virtual console 3 for the details."
-msgstr " /target/var/log/bootstrap.log  ."
+msgstr "Проверете /target/var/log/bootstrap.log за подробности."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:99
 msgid "Failed getting Release file ${SUBST0}."
-msgstr "     Release ${SUBST0}."
+msgstr "Грешка при взимането на файла Release ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:104
 msgid "Failed getting Release signature file ${SUBST0}."
-msgstr "      Release,  ${SUBST0}."
+msgstr "Грешка при взимането на подписа на Release, файла ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:109
 msgid "Release file signed by unknown key (key id ${SUBST0})"
-msgstr " Release      (  ${SUBST0})"
+msgstr ""
+"Файлът Release е подписан от неизвестен ключ (ключов идентификатор ${SUBST0})"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:114
 msgid "Invalid Release file: no valid components."
-msgstr "  Release:   ."
+msgstr "Невалиден файл Release: няма валидни компоненти."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:119
 msgid "Invalid Release file: no entry for ${SUBST0}."
-msgstr "  Release:  ${SUBST0}."
+msgstr "Невалиден файл Release: няма ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:124
 msgid "Debootstrap Error"
-msgstr "    debootstrap"
+msgstr "Грешка по време на debootstrap"
 
 #. Type: error
 #. Description
@@ -266,7 +284,9 @@ msgstr "    debootstrap"
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
-msgstr "     ${SUBST0}.           ,      ."
+msgstr ""
+"Не може да бъде доставен ${SUBST0}. Причината може да е в мрежов проблем или "
+"в развален компактдиск, в зависимост от начина на инсталиране."
 
 #. Type: error
 #. Description
@@ -274,199 +294,201 @@ msgstr "     ${SUBST0}.           ,      ."
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
-msgstr "   ,     -    ."
+msgstr ""
+"Ако инсталирате от компактдиск, записването на компактдиска на по-ниска "
+"скорост може да помогне."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:137
 msgid "Preparing to install the base system..."
-msgstr "     ..."
+msgstr "Подготовка за инсталиране на основната система..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:141
 msgid "Running ${SCRIPT}..."
-msgstr "  ${SCRIPT}..."
+msgstr "Изпълнение на ${SCRIPT}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:145
 msgid "Retrieving Release file"
-msgstr "   Release"
+msgstr "Доставяне на файл Release"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:149
 msgid "Retrieving Release file signature"
-msgstr "     Release"
+msgstr "Доставяне на подписа на файла Release"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:153
 msgid "Finding package sizes"
-msgstr "   "
+msgstr "Намиране големините на пакетите"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:157
 msgid "Retrieving Packages files"
-msgstr "   Packages"
+msgstr "Доставяне на файл Packages"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:161
 msgid "Retrieving Packages file"
-msgstr "   Packages"
+msgstr "Доставяне на файла Packages"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:165
 msgid "Retrieving packages"
-msgstr "  "
+msgstr "Доставяне на пакети"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:169
 msgid "Extracting packages"
-msgstr "  "
+msgstr "Разопаковане на пакети"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:173
 msgid "Installing the base system"
-msgstr "   "
+msgstr "Инсталиране на основната система"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:177
 msgid "Installing core packages"
-msgstr "   "
+msgstr "Инсталиране на ключовите пакети"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:181
 msgid "Unpacking required packages"
-msgstr "   "
+msgstr "Разопаковане на необходимите пакети"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:185
 msgid "Configuring required packages"
-msgstr "   "
+msgstr "Настройване на необходимите пакети"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:189
 msgid "Unpacking the base system"
-msgstr "   "
+msgstr "Разопаковане на основната система"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:193
 msgid "Configuring the base system"
-msgstr "   "
+msgstr "Настройване на основната система"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:201
 msgid "Validating ${SUBST0}..."
-msgstr "  ${SUBST0}..."
+msgstr "Проверка на ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:205
 msgid "Retrieving ${SUBST0}..."
-msgstr "  ${SUBST0}..."
+msgstr "Доставяне на ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:209
 msgid "Extracting ${SUBST0}..."
-msgstr "  ${SUBST0}..."
+msgstr "Разопаковане на ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:213
 msgid "Unpacking ${SUBST0}..."
-msgstr "  ${SUBST0}..."
+msgstr "Разопаковане на ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:217
 msgid "Configuring ${SUBST0}..."
-msgstr "  ${SUBST0}..."
+msgstr "Настройване на ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:221
 msgid "Checking Release signature"
-msgstr "    Release"
+msgstr "Проверка за подпис на Release"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:225
 msgid "Valid Release signature (key id ${SUBST0})"
-msgstr "   Release: ( ${SUBST0})."
+msgstr "Валиден подпис на Release: (ключ ${SUBST0})."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:229
 msgid "Resolving dependencies of base packages..."
-msgstr "     ..."
+msgstr "Разрешаване на зависимостите на основните пакети..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:233
 msgid "Resolving dependencies of required packages..."
-msgstr "     ..."
+msgstr "Разрешаване на зависимостите на необходимите пакети..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:237
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
-msgstr "   ${SUBST0}  ${SUBST1}..."
+msgstr "Проверка на компонент ${SUBST0} в ${SUBST1}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:241
 msgid "Installing core packages..."
-msgstr "   ..."
+msgstr "Инсталиране на ключовите пакети..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:245
 msgid "Unpacking required packages..."
-msgstr "   ..."
+msgstr "Разопаковане на необходимите пакети..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:249
 msgid "Configuring required packages..."
-msgstr "   ..."
+msgstr "Настройване на необходимите пакети..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:253
 msgid "Installing base packages..."
-msgstr "   ..."
+msgstr "Инсталиране на основните пакети..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:257
 msgid "Unpacking the base system..."
-msgstr "   ..."
+msgstr "Разопаковане на основната система..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:261
 msgid "Configuring the base system..."
-msgstr "   ..."
+msgstr "Настройване на основната система..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:265
 msgid "Base system installed successfully."
-msgstr "    ."
+msgstr "Основната система е инсталирана успешно."
 
 #. Type: text
 #. Description
@@ -478,61 +500,62 @@ msgstr "${SECTION}: ${INFO}..."
 #. Description
 #: ../base-installer.templates:273
 msgid "Retrying failed download of ${SUBST0}"
-msgstr "     ${SUBST0}"
+msgstr "Нов опит за изтегляне на ${SUBST0}"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:277
 msgid "Configuring APT sources..."
-msgstr "  APT ..."
+msgstr "Настройване на APT източници..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:281
 msgid "Updating the list of available packages..."
-msgstr "     ..."
+msgstr "Обновяване на списъка на достъпните пакети..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:285
 msgid "Installing extra packages..."
-msgstr "   ..."
+msgstr "Инсталиране на допълнителните пакети..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:289
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
-msgstr "    -     ${SUBST0}..."
+msgstr ""
+"Инсталиране на допълнителни пакети - доставяне и инсталиране на ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:293
 msgid "Creating device files..."
-msgstr "  device ..."
+msgstr "Създаване на device файлове..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:297
 msgid "Selecting the kernel to install..."
-msgstr "    ..."
+msgstr "Избиране на ядро за инсталиране..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:301
 msgid "Installing the kernel..."
-msgstr "  ..."
+msgstr "Инсталиране на ядрото..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:305
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
-msgstr "   -     ${SUBST0}..."
+msgstr "Инсталиране на ядро - доставяне и инсталиране на ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:309
 msgid "Installing the PCMCIA modules"
-msgstr "  PCMCIA "
+msgstr "Инсталиране на PCMCIA модулите"
 
 #. Type: text
 #. Description
@@ -540,4 +563,4 @@ msgstr "  PCMCIA "
 #. TRANSLATORS: <65 columns
 #: ../base-installer.templates:315
 msgid "Install the base system"
-msgstr "   "
+msgstr "Инсталиране на основната система"
