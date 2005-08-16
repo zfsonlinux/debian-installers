@@ -1,11 +1,8 @@
 arch_get_kernel_flavour () {
 	CPU=`grep '^cpu[[:space:]]*:' "$CPUINFO" | head -n1 | cut -d: -f2 | sed 's/^ *//; s/[, ].*//' | tr A-Z a-z`
 	case "$CPU" in
-		power3|i-star|s-star)
-			family=power3
-			;;
-		power4|power4+|ppc970|ppc970fx)
-			family=power4
+		power3|i-star|s-star|power4|power4+|ppc970|ppc970fx)
+			family=powerpc64
 			;;
 		*)
 			family=powerpc
@@ -31,7 +28,7 @@ arch_check_usable_kernel () {
 arch_get_kernel () {
 	version=
 	case "$KERNEL_MAJOR" in
-		2.6)	version=2.6.8 ;;
+		2.6)	version=2.6.12 ;;
 		*)	version=2.4.27 ;;
 	esac
 	# The APUS kernels are in a separate source package, so may
@@ -39,7 +36,7 @@ arch_get_kernel () {
 	apusversion=2.4.27
 
 	CPUS="$(grep -ci ^processor "$CPUINFO")" || CPUS=1
-	if [ "$CPUS" ] && [ "$CPUS" -gt 1 ]; then
+	if [ "$CPUS" ] && [ "$CPUS" -gt 1 ] && [ "$family" != "powerpc64" ]; then
 		SMP=-smp
 	else
 		SMP=
@@ -50,7 +47,7 @@ arch_get_kernel () {
 		*)
 			case "$KERNEL_MAJOR" in
 				2.6)
-					echo "kernel-image-$KERNEL_MAJOR-$1$SMP"
+					echo "linux-image-$KERNEL_MAJOR-$1$SMP"
 					;;
 				*)
 					if [ "$1" != powerpc ]; then
