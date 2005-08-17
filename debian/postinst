@@ -438,6 +438,11 @@ get_resume_partition () {
 }
 
 install_kernel () {
+	if [ "$KERNEL" = none ]; then
+		info "Not installing any kernel"
+		return
+	fi
+	
 	target_kernel_major="$(echo "$KERNEL" | sed 's/^kernel-image-//; s/-.*//' | cut -d . -f 1,2)"
 	case $target_kernel_major in
 		2.?)	;;
@@ -567,6 +572,10 @@ EOF
 }
 
 install_pcmcia_modules () {
+	if [ "$KERNEL" = none ]; then
+		info "Not installing any pcmcia modules"
+		return
+	fi
 	pcmcia_package=$(echo "$KERNEL" | sed 's/^kernel-image/kernel-pcmcia-modules/')
 	info "Installing pcmcia modules package '$pcmcia_package'."
 	apt-install "$pcmcia_package" 2>> $LOGFILE || true
