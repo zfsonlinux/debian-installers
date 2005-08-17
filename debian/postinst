@@ -378,8 +378,6 @@ pick_kernel () {
 
 	arch_kernel=$(arch_get_kernel "$FLAVOUR")
 
-	# Try to make current rootskel setting the default, make sure it is
-	# available first.
 	if [ "$arch_kernel" ] && kernel_present "$arch_kernel"; then
 		# Recommended kernel for this architecture exists; use that.
 		info "arch_kernel: $arch_kernel (present)"
