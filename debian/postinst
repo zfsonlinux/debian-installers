@@ -337,9 +337,9 @@ kernel_update_list () {
 	for candidate in $kernels; do
 		if arch_check_usable_kernel "$candidate" "$FLAVOUR"; then
 			echo "$candidate"
-			info "kernel $1 usable on $FLAVOUR"
+			info "kernel $candidate usable on $FLAVOUR"
 		else
-			info "kernel $1 not usable on $FLAVOUR"
+			info "kernel $candidate not usable on $FLAVOUR"
 		fi
 	done > "$KERNEL_LIST"
 }
