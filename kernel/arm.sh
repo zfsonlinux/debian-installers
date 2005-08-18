@@ -4,9 +4,11 @@ arch_get_kernel_flavour () {
 			echo "$SUBARCH"
 			return 0
 		;;
+		# NOTE: the following kernel is not in Debian (sarge), but
+		# makes it easier to offer unofficial support from a private
+		# apt-archive.
 		ads)
-			# Currently no kernel in debian for ADS boards.
-			echo "none"
+			echo "ads"
 			return 0
 		;;
 		*)

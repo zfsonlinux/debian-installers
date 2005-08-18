@@ -372,8 +372,16 @@ pick_kernel () {
 	if [ "$kernels" ] ; then
 		db_subst base-installer/kernel/which-kernel KERNELS "$kernels"
 	else
-		db_subst base-installer/kernel/no-kernels-found KERNEL "$KERNEL"
-		exit_error base-installer/kernel/no-kernels-found
+		db_set base-installer/kernel/image "none"
+		db_input high base-installer/kernel/skip-install || true
+		db_go || true
+		db_get base-installer/kernel/skip-install
+		if [ "$RET" != true ]; then
+			exit_error base-installer/kernel/no-kernels-found
+		else
+			db_set base-installer/kernel/image "none"
+			return
+		fi
 	fi
 
 	arch_kernel=$(arch_get_kernel "$FLAVOUR")

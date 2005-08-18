@@ -72,14 +72,20 @@ _Description: Kernel to install:
  The list shows the available kernels. Please choose one of them in order
  to make the system bootable from the hard drive.
 
-Template: base-installer/kernel/no-kernels-found
-Type: error
-_Description: No installable kernel found
+Template: base-installer/kernel/skip-install
+Type: boolean
+Default: false
+_Description: Continue without installing a kernel?
  No installable kernel was found in the defined APT sources.
  .
- The current default kernel package is '${KERNEL}'.
- .
- You may try to continue though this rather strange error is probably fatal.
+ You may try to continue without a kernel, and manually install your own
+ kernel later. This is only recommended for experts, otherwise you will
+ likely end up with a machine that doesn't boot.
+
+Template: base-installer/kernel/no-kernels-found
+Type: error
+_Description: Cannot install kernel
+ The installer cannot find a suitable kernel package to install. 
 
 Template: base-installer/kernel/failed-package-install
 Type: error
