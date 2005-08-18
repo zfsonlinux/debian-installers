@@ -4,7 +4,7 @@ arch_get_kernel_flavour () {
 			echo "$SUBARCH"
 			return 0
 		;;
-		ads*)
+		ads)
 			# Currently no kernel in debian for ADS boards.
 			echo "none"
 			return 0
