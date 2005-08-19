@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wo\n"
-"POT-Creation-Date: 2005-08-17 13:08-0400\n"
+"POT-Creation-Date: 2005-08-18 18:29-0600\n"
 "PO-Revision-Date: 2005-07-06 17:45+0000\n"
 "Last-Translator: Mouhamadou Mamoune Mbacke <mouhamadoumamoune@gmail.com>\n"
 "Language-Team: Wolof\n"
@@ -185,43 +185,50 @@ msgstr ""
 "List bi dafay wane kernel yi fi am. Tannal benn ci ñoom ngir sistem bi mana "
 "boot ci disk bu dëgër bi."
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../base-installer.templates:77
-msgid "No installable kernel found"
-msgstr "Giseeful benn kernel buñu mana istale"
+#: ../base-installer.templates:78
+msgid "Continue without installing a kernel?"
+msgstr ""
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../base-installer.templates:77
+#: ../base-installer.templates:78
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "Giseeful benn kernel bu ñu mana istalee ci suursu yu APT yi nga joxe."
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../base-installer.templates:77
-msgid "The current default kernel package is '${KERNEL}'."
-msgstr "Paket u kernel bu defóo bi fimune moodi '${KERNEL}'."
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:77
+#: ../base-installer.templates:78
 msgid ""
-"You may try to continue though this rather strange error is probably fatal."
+"You may try to continue without a kernel, and manually install your own "
+"kernel later. This is only recommended for experts, otherwise you will "
+"likely end up with a machine that doesn't boot."
 msgstr ""
-"Man ngaa jéema eggale, doonte sax njuumte bu doy waar bii man naa doon bu "
-"mana faat la."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:87
+#, fuzzy
+msgid "Cannot install kernel"
+msgstr "Manula istale sistem u baas bi"
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:87
+msgid "The installer cannot find a suitable kernel package to install."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:92
 #, fuzzy
 msgid "Unable to install ${PACKAGE}"
 msgstr "Manula istale GRUB ci ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:92
 #, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
@@ -232,51 +239,51 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:92
 #, fuzzy
 msgid "Check /var/log/messages or see virtual console 3 for the details."
 msgstr "Xoolal /target/var/log/bootstrap.log ngir ay ay faramfacce."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:94
+#: ../base-installer.templates:100
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Manu ñoo jot ci fiise génne bu ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:99
+#: ../base-installer.templates:105
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Manu ñoo jot ci fiise bu siñaatiir u génne bu ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:104
+#: ../base-installer.templates:110
 #, fuzzy
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Génne bi ñi ngi ko siñee ak caabi bu nu xamul (key id ${SUBST0})"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:109
+#: ../base-installer.templates:115
 msgid "Invalid Release file: no valid components."
 msgstr "Fiise génne bu baaxul: amul ay komposaŋ yu baax."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:114
+#: ../base-installer.templates:120
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Fiise génne bi baaxul: amul ab antre bu ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:125
 msgid "Debootstrap Error"
 msgstr "Njuumte bu debootstrap"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:125
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -286,7 +293,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:125
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -296,259 +303,259 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:132
+#: ../base-installer.templates:138
 msgid "Preparing to install the base system..."
 msgstr "Mi ngi waajal a istale sistem u baas bi..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:136
+#: ../base-installer.templates:142
 msgid "Running ${SCRIPT}..."
 msgstr "Mi ngi doxal ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:140
+#: ../base-installer.templates:146
 msgid "Retrieving Release file"
 msgstr "Mi ngi génne fiise bu génnebi"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:150
 msgid "Retrieving Release file signature"
 msgstr "Mi ngi génne siñaatir u fiise génnebi"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:148
+#: ../base-installer.templates:154
 msgid "Finding package sizes"
 msgstr "Mi ngi xoole rëyaay i paket yi"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:152
+#: ../base-installer.templates:158
 msgid "Retrieving Packages files"
 msgstr "Mi ngi génne fiise yu paket yi"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:156
+#: ../base-installer.templates:162
 msgid "Retrieving Packages file"
 msgstr "Mi ngi génne fiise bu paket yi"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:160
+#: ../base-installer.templates:166
 msgid "Retrieving packages"
 msgstr "Mi ngi génne paket yi"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
+#: ../base-installer.templates:170
 msgid "Extracting packages"
 msgstr "Mi ngi nocci paket yi"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:168
+#: ../base-installer.templates:174
 msgid "Installing the base system"
 msgstr "Mi ngi istale sistem u baas bi"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:172
+#: ../base-installer.templates:178
 msgid "Installing core packages"
 msgstr "Mi ngi istale paket yi ëppu solo"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:176
+#: ../base-installer.templates:182
 msgid "Unpacking required packages"
 msgstr "Mi ngi tajji paket yi nga laaj"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:180
+#: ../base-installer.templates:186
 msgid "Configuring required packages"
 msgstr "Mi ngi komfigure paket yi nga laaj"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:184
+#: ../base-installer.templates:190
 msgid "Unpacking the base system"
 msgstr "Mi ngi tajji sistem u baas bi"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:188
+#: ../base-installer.templates:194
 msgid "Configuring the base system"
 msgstr "Mi ngi komfigure sistem u baas bi"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:196
+#: ../base-installer.templates:202
 msgid "Validating ${SUBST0}..."
 msgstr "Mi ngi wëyal ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:200
+#: ../base-installer.templates:206
 msgid "Retrieving ${SUBST0}..."
 msgstr "Mi ngi génne ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:204
+#: ../base-installer.templates:210
 msgid "Extracting ${SUBST0}..."
 msgstr "Mi ngi nocci ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:208
+#: ../base-installer.templates:214
 msgid "Unpacking ${SUBST0}..."
 msgstr "Mi ngi tajji ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:212
+#: ../base-installer.templates:218
 msgid "Configuring ${SUBST0}..."
 msgstr "Mi ngi komfigure ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:216
+#: ../base-installer.templates:222
 msgid "Checking Release signature"
 msgstr "Mi ngi seet siñaatiir u génne bi"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:220
+#: ../base-installer.templates:226
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Siñaatiir u génne bi baaxna (key id ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:224
+#: ../base-installer.templates:230
 msgid "Resolving dependencies of base packages..."
 msgstr "Mi ngi lijjanti wéeruwóonte bu paket yu baas yi..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:228
+#: ../base-installer.templates:234
 msgid "Resolving dependencies of required packages..."
 msgstr "Mi ngi lijjanti wóoruwónte bu paket yi nga laaj..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:232
+#: ../base-installer.templates:238
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "Mi ngi seet komposaŋ ${SUBST0} ci ${SUBST1}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:236
+#: ../base-installer.templates:242
 msgid "Installing core packages..."
 msgstr "Mi ngi istale paket yi ëppu solo..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:240
+#: ../base-installer.templates:246
 msgid "Unpacking required packages..."
 msgstr "Mi ngi tajji paket yis laaj..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:244
+#: ../base-installer.templates:250
 msgid "Configuring required packages..."
 msgstr "Mi ngi komfigure paket yis laaj..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:248
+#: ../base-installer.templates:254
 msgid "Installing base packages..."
 msgstr "Mi ngi istale paket yu baas yi..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:252
+#: ../base-installer.templates:258
 msgid "Unpacking the base system..."
 msgstr "Mi ngi tajji sistem u baasbi..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:256
+#: ../base-installer.templates:262
 msgid "Configuring the base system..."
 msgstr "Mi ngi komfigure sistem u baasbi..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:260
+#: ../base-installer.templates:266
 msgid "Base system installed successfully."
 msgstr "Istaleesna sistem u baas bi bamu aw yoon."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:264
+#: ../base-installer.templates:270
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:268
+#: ../base-installer.templates:274
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Mi ngi jéemaat wacce bi antuwulóon di bu ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:272
+#: ../base-installer.templates:278
 msgid "Configuring APT sources..."
 msgstr "Mi ngi komfigure suursu yu APT yi..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:276
+#: ../base-installer.templates:282
 msgid "Updating the list of available packages..."
 msgstr "Mi ngi yeesalaat list bu paket yi jappundi..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:280
+#: ../base-installer.templates:286
 msgid "Installing extra packages..."
 msgstr "Mi ngi istale paket i ndolliit..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:284
+#: ../base-installer.templates:290
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "Mi ngi istale paket i ndolliit - mi ngi génne ta istale ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../base-installer.templates:294
 msgid "Creating device files..."
 msgstr "Mi ngi sos fiise yu periferik ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:292
+#: ../base-installer.templates:298
 msgid "Selecting the kernel to install..."
 msgstr "Mi ngi tann kernel bunuy istale..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:296
+#: ../base-installer.templates:302
 msgid "Installing the kernel..."
 msgstr "Mi ngi istale kernel bi..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:300
+#: ../base-installer.templates:306
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Mi ngi istale kernel bi - mi ngi génne ta istale ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:304
+#: ../base-installer.templates:310
 msgid "Installing the PCMCIA modules"
 msgstr "Mi ngi istale modil yu PCMCIA"
 
@@ -556,6 +563,19 @@ msgstr "Mi ngi istale modil yu PCMCIA"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:310
+#: ../base-installer.templates:316
 msgid "Install the base system"
 msgstr "Istale sistem u baas bi"
+
+#~ msgid "No installable kernel found"
+#~ msgstr "Giseeful benn kernel buñu mana istale"
+
+#~ msgid "The current default kernel package is '${KERNEL}'."
+#~ msgstr "Paket u kernel bu defóo bi fimune moodi '${KERNEL}'."
+
+#~ msgid ""
+#~ "You may try to continue though this rather strange error is probably "
+#~ "fatal."
+#~ msgstr ""
+#~ "Man ngaa jéema eggale, doonte sax njuumte bu doy waar bii man naa doon bu "
+#~ "mana faat la."

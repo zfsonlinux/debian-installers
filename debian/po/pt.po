@@ -33,7 +33,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"POT-Creation-Date: 2005-08-17 13:08-0400\n"
+"POT-Creation-Date: 2005-08-18 18:29-0600\n"
 "PO-Revision-Date: 2005-08-14 11:31+0000\n"
 "Last-Translator:  Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team:  Portuguese <traduz@debianpt.org>\n"
@@ -205,42 +205,50 @@ msgstr ""
 "A lista mostra os kernel disponíveis. Por favor escolha um deles de modo a "
 "tornar o sistema iniciável a partir do disco rígido."
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../base-installer.templates:77
-msgid "No installable kernel found"
-msgstr "Não foi encontrado um kernel instalável"
+#: ../base-installer.templates:78
+msgid "Continue without installing a kernel?"
+msgstr ""
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../base-installer.templates:77
+#: ../base-installer.templates:78
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "Não foi encontrado nenhum kernel instalável nas fontes APT definidas."
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../base-installer.templates:77
-msgid "The current default kernel package is '${KERNEL}'."
-msgstr "O pacote de kernel por omissão actual é '${KERNEL}'."
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:77
+#: ../base-installer.templates:78
 msgid ""
-"You may try to continue though this rather strange error is probably fatal."
+"You may try to continue without a kernel, and manually install your own "
+"kernel later. This is only recommended for experts, otherwise you will "
+"likely end up with a machine that doesn't boot."
 msgstr ""
-"Pode tentar continuar embora este estranho erro seja provavelmente fatal."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:87
+#, fuzzy
+msgid "Cannot install kernel"
+msgstr "Não pode instalar o sistema base"
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:87
+msgid "The installer cannot find a suitable kernel package to install."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:92
 #, fuzzy
 msgid "Unable to install ${PACKAGE}"
 msgstr "Não é possível instalar o GRUB em ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:92
 #, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
@@ -251,50 +259,50 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:92
 msgid "Check /var/log/messages or see virtual console 3 for the details."
 msgstr "Para detalhes verifique /var/log/messages ou veja a consola virtual 3."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:94
+#: ../base-installer.templates:100
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Não foi possível obter o ficheiro Release ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:99
+#: ../base-installer.templates:105
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Não foi possível obter a assinatura do ficheiro Release ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:104
+#: ../base-installer.templates:110
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr ""
 "Ficheiro Release assinado por uma chave desconhecida (key id ${SUBST0})"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:109
+#: ../base-installer.templates:115
 msgid "Invalid Release file: no valid components."
 msgstr "Ficheiro Release inválido: sem componentes válidos."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:114
+#: ../base-installer.templates:120
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Ficheiro Release inválido: sem entrada para ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:125
 msgid "Debootstrap Error"
 msgstr "Erro de Debootstrap"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:125
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -304,7 +312,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:125
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -314,259 +322,259 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:132
+#: ../base-installer.templates:138
 msgid "Preparing to install the base system..."
 msgstr "A preparar para instalar o sistema base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:136
+#: ../base-installer.templates:142
 msgid "Running ${SCRIPT}..."
 msgstr "A correr ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:140
+#: ../base-installer.templates:146
 msgid "Retrieving Release file"
 msgstr "A obter o ficheiro Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:150
 msgid "Retrieving Release file signature"
 msgstr "A obter a assinatura do ficheiro Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:148
+#: ../base-installer.templates:154
 msgid "Finding package sizes"
 msgstr "A procurar o tamanho dos pacotes"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:152
+#: ../base-installer.templates:158
 msgid "Retrieving Packages files"
 msgstr "A obter os ficheiros Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:156
+#: ../base-installer.templates:162
 msgid "Retrieving Packages file"
 msgstr "A obter o ficheiro Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:160
+#: ../base-installer.templates:166
 msgid "Retrieving packages"
 msgstr "A obter os pacotes"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
+#: ../base-installer.templates:170
 msgid "Extracting packages"
 msgstr "A extrair os pacotes"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:168
+#: ../base-installer.templates:174
 msgid "Installing the base system"
 msgstr "A instalar o sistema base"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:172
+#: ../base-installer.templates:178
 msgid "Installing core packages"
 msgstr "A instalar pacotes fundamentais"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:176
+#: ../base-installer.templates:182
 msgid "Unpacking required packages"
 msgstr "A extrair pacotes necessários"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:180
+#: ../base-installer.templates:186
 msgid "Configuring required packages"
 msgstr "A configurar pacotes necessários"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:184
+#: ../base-installer.templates:190
 msgid "Unpacking the base system"
 msgstr "A extrair o sistema base"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:188
+#: ../base-installer.templates:194
 msgid "Configuring the base system"
 msgstr "A configurar o sistema base"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:196
+#: ../base-installer.templates:202
 msgid "Validating ${SUBST0}..."
 msgstr "A validar ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:200
+#: ../base-installer.templates:206
 msgid "Retrieving ${SUBST0}..."
 msgstr "A obter ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:204
+#: ../base-installer.templates:210
 msgid "Extracting ${SUBST0}..."
 msgstr "A extrair ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:208
+#: ../base-installer.templates:214
 msgid "Unpacking ${SUBST0}..."
 msgstr "A extrair ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:212
+#: ../base-installer.templates:218
 msgid "Configuring ${SUBST0}..."
 msgstr "A configurar ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:216
+#: ../base-installer.templates:222
 msgid "Checking Release signature"
 msgstr "A verificar a assinatura do ficheiro Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:220
+#: ../base-installer.templates:226
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Assinatura válida do ficheiro Release (key id ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:224
+#: ../base-installer.templates:230
 msgid "Resolving dependencies of base packages..."
 msgstr "A resolver dependências dos pacotes base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:228
+#: ../base-installer.templates:234
 msgid "Resolving dependencies of required packages..."
 msgstr "A resolver dependências dos pacotes necessários..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:232
+#: ../base-installer.templates:238
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "A verificar o componente ${SUBST0} em ${SUBST1}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:236
+#: ../base-installer.templates:242
 msgid "Installing core packages..."
 msgstr "A instalar pacotes fundamentais..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:240
+#: ../base-installer.templates:246
 msgid "Unpacking required packages..."
 msgstr "A extrair pacotes necessários..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:244
+#: ../base-installer.templates:250
 msgid "Configuring required packages..."
 msgstr "A configurar pacotes necessários..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:248
+#: ../base-installer.templates:254
 msgid "Installing base packages..."
 msgstr "A instalar pacotes base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:252
+#: ../base-installer.templates:258
 msgid "Unpacking the base system..."
 msgstr "A extrair o sistema base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:256
+#: ../base-installer.templates:262
 msgid "Configuring the base system..."
 msgstr "A configurar o sistema base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:260
+#: ../base-installer.templates:266
 msgid "Base system installed successfully."
 msgstr "O sistema base foi instalado com sucesso."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:264
+#: ../base-installer.templates:270
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:268
+#: ../base-installer.templates:274
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "A tentar novamente o download, que tinha falhado, de ${SUBST0}."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:272
+#: ../base-installer.templates:278
 msgid "Configuring APT sources..."
 msgstr "A configurar as fontes APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:276
+#: ../base-installer.templates:282
 msgid "Updating the list of available packages..."
 msgstr "A actualizar a lista de pacotes disponíveis..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:280
+#: ../base-installer.templates:286
 msgid "Installing extra packages..."
 msgstr "A instalar pacotes extra..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:284
+#: ../base-installer.templates:290
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "A instalar os pacotes extra - a obter e a instalar ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../base-installer.templates:294
 msgid "Creating device files..."
 msgstr "A criar ficheiros dos dispositivos..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:292
+#: ../base-installer.templates:298
 msgid "Selecting the kernel to install..."
 msgstr "A seleccionar o kernel a instalar..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:296
+#: ../base-installer.templates:302
 msgid "Installing the kernel..."
 msgstr "A instalar o kernel..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:300
+#: ../base-installer.templates:306
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "A instalar o kernel - a obter e a instalar ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:304
+#: ../base-installer.templates:310
 msgid "Installing the PCMCIA modules"
 msgstr "A instalar os módulos PCMCIA"
 
@@ -574,6 +582,18 @@ msgstr "A instalar os módulos PCMCIA"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:310
+#: ../base-installer.templates:316
 msgid "Install the base system"
 msgstr "Instalar o sistema base"
+
+#~ msgid "No installable kernel found"
+#~ msgstr "Não foi encontrado um kernel instalável"
+
+#~ msgid "The current default kernel package is '${KERNEL}'."
+#~ msgstr "O pacote de kernel por omissão actual é '${KERNEL}'."
+
+#~ msgid ""
+#~ "You may try to continue though this rather strange error is probably "
+#~ "fatal."
+#~ msgstr ""
+#~ "Pode tentar continuar embora este estranho erro seja provavelmente fatal."

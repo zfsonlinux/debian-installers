@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer 1.0\n"
-"POT-Creation-Date: 2005-08-17 13:08-0400\n"
+"POT-Creation-Date: 2005-08-18 18:29-0600\n"
 "PO-Revision-Date: 2005-07-27 03:19+0300\n"
 "Last-Translator: Guillem Jover <guillem@debian.org>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
@@ -188,43 +188,50 @@ msgstr ""
 "La llista mostra els nuclis disponibles. Si us plau, seleccioneu un d'ells "
 "per a fer el sistema arrencable des del disc dur."
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../base-installer.templates:77
-msgid "No installable kernel found"
-msgstr "No s'ha trobat cap nucli instal·lable"
+#: ../base-installer.templates:78
+msgid "Continue without installing a kernel?"
+msgstr ""
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../base-installer.templates:77
+#: ../base-installer.templates:78
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "No s'ha trobat cap nucli instal·lable a les fonts d'APT definits."
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../base-installer.templates:77
-msgid "The current default kernel package is '${KERNEL}'."
-msgstr "El paquet de nucli predeterminat actual és «${KERNEL}»."
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:77
+#: ../base-installer.templates:78
 msgid ""
-"You may try to continue though this rather strange error is probably fatal."
+"You may try to continue without a kernel, and manually install your own "
+"kernel later. This is only recommended for experts, otherwise you will "
+"likely end up with a machine that doesn't boot."
 msgstr ""
-"Podeu intentar continuar encara que aquest error estrany probablement és "
-"fatal."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:87
+#, fuzzy
+msgid "Cannot install kernel"
+msgstr "No es pot instal·lar el sistema base"
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:87
+msgid "The installer cannot find a suitable kernel package to install."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:92
 #, fuzzy
 msgid "Unable to install ${PACKAGE}"
 msgstr "No s'ha pogut instal·lar GRUB en ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:92
 #, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
@@ -235,51 +242,51 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:92
 #, fuzzy
 msgid "Check /var/log/messages or see virtual console 3 for the details."
 msgstr "Comproveu /target/var/log/bootstrap.log per als detalls."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:94
+#: ../base-installer.templates:100
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "No s'ha pogut obtenir el fitxer Release ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:99
+#: ../base-installer.templates:105
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "No s'ha pogut obtenir el fitxer de firma de Release ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:104
+#: ../base-installer.templates:110
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr ""
 "El fitxer Release està firmat per una clau desconeguda (clau id ${SUBST0})"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:109
+#: ../base-installer.templates:115
 msgid "Invalid Release file: no valid components."
 msgstr "El fitxer Release és invàlid: no hi ha components vàlids."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:114
+#: ../base-installer.templates:120
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "El fitxer Release és invàlid: no hi ha una entrada per a ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:125
 msgid "Debootstrap Error"
 msgstr "Error de Debootstrap"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:125
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -287,7 +294,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:125
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -295,230 +302,230 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:132
+#: ../base-installer.templates:138
 msgid "Preparing to install the base system..."
 msgstr "S'està preparant per a instal·lar el sistema base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:136
+#: ../base-installer.templates:142
 msgid "Running ${SCRIPT}..."
 msgstr "S'està executant ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:140
+#: ../base-installer.templates:146
 msgid "Retrieving Release file"
 msgstr "S'està obtenint el fitxer Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:150
 msgid "Retrieving Release file signature"
 msgstr "S'està obtenint la firma del fitxer Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:148
+#: ../base-installer.templates:154
 msgid "Finding package sizes"
 msgstr "S'estan obtenint les mides dels fitxers"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:152
+#: ../base-installer.templates:158
 msgid "Retrieving Packages files"
 msgstr "S'estan obtenint els fitxers Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:156
+#: ../base-installer.templates:162
 msgid "Retrieving Packages file"
 msgstr "S'està obtenint el fitxer Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:160
+#: ../base-installer.templates:166
 msgid "Retrieving packages"
 msgstr "S'estan obtenint els paquets"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
+#: ../base-installer.templates:170
 msgid "Extracting packages"
 msgstr "S'estan extraient els paquets"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:168
+#: ../base-installer.templates:174
 msgid "Installing the base system"
 msgstr "S'està instal·lant el sistema base"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:172
+#: ../base-installer.templates:178
 msgid "Installing core packages"
 msgstr "S'estan instal·lant els paquets principals"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:176
+#: ../base-installer.templates:182
 msgid "Unpacking required packages"
 msgstr "S'estan desempaquetant els paquets requerits"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:180
+#: ../base-installer.templates:186
 msgid "Configuring required packages"
 msgstr "S'estan configurant els paquets requerits"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:184
+#: ../base-installer.templates:190
 msgid "Unpacking the base system"
 msgstr "S'està desempaquetant el sistema base"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:188
+#: ../base-installer.templates:194
 msgid "Configuring the base system"
 msgstr "S'està configurant el sistema base"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:196
+#: ../base-installer.templates:202
 msgid "Validating ${SUBST0}..."
 msgstr "S'està validant ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:200
+#: ../base-installer.templates:206
 msgid "Retrieving ${SUBST0}..."
 msgstr "S'està obtenint ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:204
+#: ../base-installer.templates:210
 msgid "Extracting ${SUBST0}..."
 msgstr "S'està extraient ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:208
+#: ../base-installer.templates:214
 msgid "Unpacking ${SUBST0}..."
 msgstr "S'està desempaquetant ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:212
+#: ../base-installer.templates:218
 msgid "Configuring ${SUBST0}..."
 msgstr "S'està configurant ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:216
+#: ../base-installer.templates:222
 msgid "Checking Release signature"
 msgstr "S'està comprovant la firma del fitxer Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:220
+#: ../base-installer.templates:226
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "La firma del fitxer Release és vàlida (id de la clau ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:224
+#: ../base-installer.templates:230
 msgid "Resolving dependencies of base packages..."
 msgstr "S'estan resolent les dependències dels paquets base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:228
+#: ../base-installer.templates:234
 msgid "Resolving dependencies of required packages..."
 msgstr "S'estan resolent les dependències dels paquets requerits..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:232
+#: ../base-installer.templates:238
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "S'està comprovant el component ${SUBST0} en ${SUBST1}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:236
+#: ../base-installer.templates:242
 msgid "Installing core packages..."
 msgstr "S'estan instal·lant els paquets principals..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:240
+#: ../base-installer.templates:246
 msgid "Unpacking required packages..."
 msgstr "S'estan desempaquetant els paquets requerits..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:244
+#: ../base-installer.templates:250
 msgid "Configuring required packages..."
 msgstr "S'estan configurant els paquets requerits..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:248
+#: ../base-installer.templates:254
 msgid "Installing base packages..."
 msgstr "S'estan instal·lant els paquets base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:252
+#: ../base-installer.templates:258
 msgid "Unpacking the base system..."
 msgstr "S'està desempaquetant el sistema base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:256
+#: ../base-installer.templates:262
 msgid "Configuring the base system..."
 msgstr "S'està configurant el sistema base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:260
+#: ../base-installer.templates:266
 msgid "Base system installed successfully."
 msgstr "El sistema base s'ha instal·lat amb èxit."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:264
+#: ../base-installer.templates:270
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:268
+#: ../base-installer.templates:274
 #, fuzzy
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "No s'ha pogut descarregar ${SUBST0}."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:272
+#: ../base-installer.templates:278
 msgid "Configuring APT sources..."
 msgstr "S'estan configurant les fonts d'APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:276
+#: ../base-installer.templates:282
 msgid "Updating the list of available packages..."
 msgstr "S'està actualitzant la llista de paquets disponibles..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:280
+#: ../base-installer.templates:286
 msgid "Installing extra packages..."
 msgstr "S'estan instal·lant els paquets extra..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:284
+#: ../base-installer.templates:290
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr ""
 "S'estan instal·lant els paquets extra - s'està obtenint i instal·lant "
@@ -526,32 +533,32 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../base-installer.templates:294
 msgid "Creating device files..."
 msgstr "S'estan creant els fitxers de dispositius..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:292
+#: ../base-installer.templates:298
 msgid "Selecting the kernel to install..."
 msgstr "S'està seleccionant el nucli a instal·lar..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:296
+#: ../base-installer.templates:302
 msgid "Installing the kernel..."
 msgstr "S'està instal·lant el nucli..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:300
+#: ../base-installer.templates:306
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr ""
 "S'està instal·lant el nucli - s'està obtenint i instal·lant ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:304
+#: ../base-installer.templates:310
 msgid "Installing the PCMCIA modules"
 msgstr "S'estan instal·lant els mòduls PCMCIA"
 
@@ -559,6 +566,19 @@ msgstr "S'estan instal·lant els mòduls PCMCIA"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:310
+#: ../base-installer.templates:316
 msgid "Install the base system"
 msgstr "Instal·la el sistema base"
+
+#~ msgid "No installable kernel found"
+#~ msgstr "No s'ha trobat cap nucli instal·lable"
+
+#~ msgid "The current default kernel package is '${KERNEL}'."
+#~ msgstr "El paquet de nucli predeterminat actual és «${KERNEL}»."
+
+#~ msgid ""
+#~ "You may try to continue though this rather strange error is probably "
+#~ "fatal."
+#~ msgstr ""
+#~ "Podeu intentar continuar encara que aquest error estrany probablement és "
+#~ "fatal."

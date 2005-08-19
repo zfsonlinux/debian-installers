@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"POT-Creation-Date: 2005-08-17 13:08-0400\n"
+"POT-Creation-Date: 2005-08-18 18:29-0600\n"
 "PO-Revision-Date: 2005-04-06 17:27+0300\n"
 "Last-Translator: Tapio Lehtonen <tale@debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -192,42 +192,50 @@ msgstr ""
 "Luettelossa on käytettävissä olevat ytimet. Valitse niistä yksi, jotta "
 "järjestelmä voidaan käynnistää kiintolevyltä."
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../base-installer.templates:77
-msgid "No installable kernel found"
-msgstr "Asennettavissa olevaa ydintä ei löytynyt"
+#: ../base-installer.templates:78
+msgid "Continue without installing a kernel?"
+msgstr ""
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../base-installer.templates:77
+#: ../base-installer.templates:78
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "Asennettavissa olevaa ydintä ei löytynyt määritetyistä APT-lähteistä."
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../base-installer.templates:77
-msgid "The current default kernel package is '${KERNEL}'."
-msgstr "Nykyinen oletusydinpaketti on \"${KERNEL}\"."
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:77
+#: ../base-installer.templates:78
 msgid ""
-"You may try to continue though this rather strange error is probably fatal."
+"You may try to continue without a kernel, and manually install your own "
+"kernel later. This is only recommended for experts, otherwise you will "
+"likely end up with a machine that doesn't boot."
 msgstr ""
-"Voit yrittää jatkaa, vaikka tämä melko outo virhe luultavasti on vakava."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:87
+#, fuzzy
+msgid "Cannot install kernel"
+msgstr "Perusjärjestelmän asennus epäonnistui"
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:87
+msgid "The installer cannot find a suitable kernel package to install."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:92
 #, fuzzy
 msgid "Unable to install ${PACKAGE}"
 msgstr "GRUB:ia ei voitu asentaa laitteelle ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:92
 #, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
@@ -236,7 +244,7 @@ msgstr "Tapahtui virhe asenttaessa pakettia initrd-tools kohdejärjestelmään."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:92
 #, fuzzy
 msgid "Check /var/log/messages or see virtual console 3 for the details."
 msgstr ""
@@ -245,45 +253,45 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:94
+#: ../base-installer.templates:100
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Release-tiedoston ${SUBST0} nouto epäonnistui."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:99
+#: ../base-installer.templates:105
 #, fuzzy
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Release-tiedoston ${SUBST0} nouto epäonnistui."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:104
+#: ../base-installer.templates:110
 #, fuzzy
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Kelvoton Release-tiedosto, ei tietuetta ${SUBST0} -paketille."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:109
+#: ../base-installer.templates:115
 msgid "Invalid Release file: no valid components."
 msgstr "Kelvoton Release-tiedosto, ei kelvollisia osia."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:114
+#: ../base-installer.templates:120
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Kelvoton Release-tiedosto, ei tietuetta ${SUBST0} -paketille."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:125
 msgid "Debootstrap Error"
 msgstr "Debootstrap-virhe"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:125
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -291,7 +299,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:125
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -299,277 +307,277 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:132
+#: ../base-installer.templates:138
 #, fuzzy
 msgid "Preparing to install the base system..."
 msgstr "Valmistaudutaan Debianin perusjärjestelmän asentamiseen ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:136
+#: ../base-installer.templates:142
 msgid "Running ${SCRIPT}..."
 msgstr "Suoritetaan ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:140
+#: ../base-installer.templates:146
 msgid "Retrieving Release file"
 msgstr "Noudetaan Release-tiedostoa"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:150
 #, fuzzy
 msgid "Retrieving Release file signature"
 msgstr "Noudetaan Release-tiedostoa"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:148
+#: ../base-installer.templates:154
 msgid "Finding package sizes"
 msgstr "Selvitetään asennuspakettien koot"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:152
+#: ../base-installer.templates:158
 msgid "Retrieving Packages files"
 msgstr "Noudetaan Packages-tiedostoa"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:156
+#: ../base-installer.templates:162
 #, fuzzy
 msgid "Retrieving Packages file"
 msgstr "Noudetaan Packages-tiedostoa"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:160
+#: ../base-installer.templates:166
 msgid "Retrieving packages"
 msgstr "Noudetaan paketteja"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
+#: ../base-installer.templates:170
 msgid "Extracting packages"
 msgstr "Puretaan paketteja..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:168
+#: ../base-installer.templates:174
 msgid "Installing the base system"
 msgstr "Asennetaan peruskokoonpano"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:172
+#: ../base-installer.templates:178
 #, fuzzy
 msgid "Installing core packages"
 msgstr "Asennetaan tärkeimpiä paketteja..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:176
+#: ../base-installer.templates:182
 #, fuzzy
 msgid "Unpacking required packages"
 msgstr "Puretaan vaadittuja paketteja..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:180
+#: ../base-installer.templates:186
 #, fuzzy
 msgid "Configuring required packages"
 msgstr "Tehdään vaadittujen pakettien asetukset..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:184
+#: ../base-installer.templates:190
 #, fuzzy
 msgid "Unpacking the base system"
 msgstr "Asennetaan peruskokoonpano"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:188
+#: ../base-installer.templates:194
 #, fuzzy
 msgid "Configuring the base system"
 msgstr "Asennetaan peruskokoonpano"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:196
+#: ../base-installer.templates:202
 msgid "Validating ${SUBST0}..."
 msgstr "Tarkastetaan ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:200
+#: ../base-installer.templates:206
 msgid "Retrieving ${SUBST0}..."
 msgstr "Noudetaan ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:204
+#: ../base-installer.templates:210
 msgid "Extracting ${SUBST0}..."
 msgstr "Puretaan ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:208
+#: ../base-installer.templates:214
 #, fuzzy
 msgid "Unpacking ${SUBST0}..."
 msgstr "Puretaan ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:212
+#: ../base-installer.templates:218
 #, fuzzy
 msgid "Configuring ${SUBST0}..."
 msgstr "Tarkastetaan ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:216
+#: ../base-installer.templates:222
 #, fuzzy
 msgid "Checking Release signature"
 msgstr "Noudetaan Release-tiedostoa"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:220
+#: ../base-installer.templates:226
 #, fuzzy
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Kelvoton Release-tiedosto, ei tietuetta ${SUBST0} -paketille."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:224
+#: ../base-installer.templates:230
 #, fuzzy
 msgid "Resolving dependencies of base packages..."
 msgstr "Asennetaan peruskokoonpanon paketteja..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:228
+#: ../base-installer.templates:234
 #, fuzzy
 msgid "Resolving dependencies of required packages..."
 msgstr "Puretaan vaadittuja paketteja..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:232
+#: ../base-installer.templates:238
 #, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "Tarkistetaan paketin koko: ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:236
+#: ../base-installer.templates:242
 msgid "Installing core packages..."
 msgstr "Asennetaan tärkeimpiä paketteja..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:240
+#: ../base-installer.templates:246
 msgid "Unpacking required packages..."
 msgstr "Puretaan vaadittuja paketteja..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:244
+#: ../base-installer.templates:250
 msgid "Configuring required packages..."
 msgstr "Tehdään vaadittujen pakettien asetukset..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:248
+#: ../base-installer.templates:254
 msgid "Installing base packages..."
 msgstr "Asennetaan peruskokoonpanon paketteja..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:252
+#: ../base-installer.templates:258
 #, fuzzy
 msgid "Unpacking the base system..."
 msgstr "Asennetaan peruskokoonpano"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:256
+#: ../base-installer.templates:262
 #, fuzzy
 msgid "Configuring the base system..."
 msgstr "Asennetaan peruskokoonpano"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:260
+#: ../base-installer.templates:266
 msgid "Base system installed successfully."
 msgstr "Perusjärjestelmän asennus onnistui"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:264
+#: ../base-installer.templates:270
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:268
+#: ../base-installer.templates:274
 #, fuzzy
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Ei voitu noutaa pakettia ${SUBST0}."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:272
+#: ../base-installer.templates:278
 msgid "Configuring APT sources..."
 msgstr "Muokataan APT-lähteitä..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:276
+#: ../base-installer.templates:282
 msgid "Updating the list of available packages..."
 msgstr "Päivitetään luetteloa käytettävissä olevista paketeista..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:280
+#: ../base-installer.templates:286
 msgid "Installing extra packages..."
 msgstr "Asennetaan lisäpaketteja..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:284
+#: ../base-installer.templates:290
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "Asennetaan lisäpaketteja - noudetaan ja asennetaan ${SUBST0} ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../base-installer.templates:294
 msgid "Creating device files..."
 msgstr "Luodaan laitetiedostot ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:292
+#: ../base-installer.templates:298
 msgid "Selecting the kernel to install..."
 msgstr "Valitaan asennettava ydin..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:296
+#: ../base-installer.templates:302
 msgid "Installing the kernel..."
 msgstr "Asennetaan ydin..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:300
+#: ../base-installer.templates:306
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Asennetaan ydin - noudetaan ja asennetaan ${SUBST0} ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:304
+#: ../base-installer.templates:310
 msgid "Installing the PCMCIA modules"
 msgstr "Asennetaan PCMCIA-moduulit"
 
@@ -577,6 +585,18 @@ msgstr "Asennetaan PCMCIA-moduulit"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:310
+#: ../base-installer.templates:316
 msgid "Install the base system"
 msgstr "Asenna perusjärjestelmä"
+
+#~ msgid "No installable kernel found"
+#~ msgstr "Asennettavissa olevaa ydintä ei löytynyt"
+
+#~ msgid "The current default kernel package is '${KERNEL}'."
+#~ msgstr "Nykyinen oletusydinpaketti on \"${KERNEL}\"."
+
+#~ msgid ""
+#~ "You may try to continue though this rather strange error is probably "
+#~ "fatal."
+#~ msgstr ""
+#~ "Voit yrittää jatkaa, vaikka tämä melko outo virhe luultavasti on vakava."

@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
-"POT-Creation-Date: 2005-08-17 13:08-0400\n"
+"POT-Creation-Date: 2005-08-18 18:29-0600\n"
 "PO-Revision-Date: 2005-08-09 20:49+0200\n"
 "Last-Translator: \n"
 "Language-Team:  <eu@li.org>\n"
@@ -187,43 +187,50 @@ msgstr ""
 "Zerrendan erabilgarri dauden nukleoak daude. Aukeratu bat sistema unitate "
 "gogorretik abia dadin."
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../base-installer.templates:77
-msgid "No installable kernel found"
-msgstr "Ez da nukleo instalagarririk aurkitu"
+#: ../base-installer.templates:78
+msgid "Continue without installing a kernel?"
+msgstr ""
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../base-installer.templates:77
+#: ../base-installer.templates:78
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "Ez da nukleo instalagarririk aurkitu definitutako APT iturburuetan."
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../base-installer.templates:77
-msgid "The current default kernel package is '${KERNEL}'."
-msgstr "Uneko nukleo-pakete lehenetsia '${KERNEL}' da."
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:77
+#: ../base-installer.templates:78
 msgid ""
-"You may try to continue though this rather strange error is probably fatal."
+"You may try to continue without a kernel, and manually install your own "
+"kernel later. This is only recommended for experts, otherwise you will "
+"likely end up with a machine that doesn't boot."
 msgstr ""
-"Agian jarraitu ahal izango duzu, errore arraro hau ziurrenik larria izango "
-"den arren."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:87
+#, fuzzy
+msgid "Cannot install kernel"
+msgstr "Ezin izan da oinarri-sistema instalatu"
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:87
+msgid "The installer cannot find a suitable kernel package to install."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:92
 #, fuzzy
 msgid "Unable to install ${PACKAGE}"
 msgstr "Ezin da GRUB ${BOOTDEV}(e)n instalatu"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:92
 #, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
@@ -233,7 +240,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:92
 msgid "Check /var/log/messages or see virtual console 3 for the details."
 msgstr ""
 "Egiaztatu /var/log/messages edo begiratu 3. kontsola birtuala "
@@ -241,43 +248,43 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:94
+#: ../base-installer.templates:100
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Ezin izan da Release fitxategia lortu ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:99
+#: ../base-installer.templates:105
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Ezin izan da Release sinadura fitxategia lortu ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:104
+#: ../base-installer.templates:110
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Release gako ezezaguna batek sinaturik (gako id ${SUBST0})"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:109
+#: ../base-installer.templates:115
 msgid "Invalid Release file: no valid components."
 msgstr "Release fitxategi baliogabea: osagaiak ez dira baliozkoak."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:114
+#: ../base-installer.templates:120
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Release fitxategi baliogabea: sarrerarik ez dago ${SUBST0}(r)entzat."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:125
 msgid "Debootstrap Error"
 msgstr "Debootstrap errorea"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:125
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -287,7 +294,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:119
+#: ../base-installer.templates:125
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -297,260 +304,260 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:132
+#: ../base-installer.templates:138
 msgid "Preparing to install the base system..."
 msgstr "Debian oinarri-sistema instalatzeko prestatzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:136
+#: ../base-installer.templates:142
 msgid "Running ${SCRIPT}..."
 msgstr "${SCRIPT} exekutatzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:140
+#: ../base-installer.templates:146
 msgid "Retrieving Release file"
 msgstr "Release fitxategia berreskuratzen"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:150
 msgid "Retrieving Release file signature"
 msgstr "Release fitxategi sinadura eskuratzen"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:148
+#: ../base-installer.templates:154
 msgid "Finding package sizes"
 msgstr "Pakete-tamainak bilatzen"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:152
+#: ../base-installer.templates:158
 msgid "Retrieving Packages files"
 msgstr "Pakete-fitxategiak eskuratzen"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:156
+#: ../base-installer.templates:162
 msgid "Retrieving Packages file"
 msgstr "Pakete-fitxategiak eskuratzen"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:160
+#: ../base-installer.templates:166
 msgid "Retrieving packages"
 msgstr "Paketeak eskuratzen"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
+#: ../base-installer.templates:170
 msgid "Extracting packages"
 msgstr "Paketeak ateratzen"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:168
+#: ../base-installer.templates:174
 msgid "Installing the base system"
 msgstr "Oinarri-sistema instalatzen"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:172
+#: ../base-installer.templates:178
 msgid "Installing core packages"
 msgstr "Oinarrizko paketeak instalatzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:176
+#: ../base-installer.templates:182
 msgid "Unpacking required packages"
 msgstr "Behar diren paketeak deskonprimitzen"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:180
+#: ../base-installer.templates:186
 msgid "Configuring required packages"
 msgstr "Behar diren paketeak konfiguratzen"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:184
+#: ../base-installer.templates:190
 msgid "Unpacking the base system"
 msgstr "Oinarri-sistema deskonprimitzen"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:188
+#: ../base-installer.templates:194
 msgid "Configuring the base system"
 msgstr "Oinarri-sistema konfiguratzen"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:196
+#: ../base-installer.templates:202
 msgid "Validating ${SUBST0}..."
 msgstr "${SUBST0} balidatzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:200
+#: ../base-installer.templates:206
 msgid "Retrieving ${SUBST0}..."
 msgstr "${SUBST0} eskuratzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:204
+#: ../base-installer.templates:210
 msgid "Extracting ${SUBST0}..."
 msgstr "${SUBST0} ateratzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:208
+#: ../base-installer.templates:214
 msgid "Unpacking ${SUBST0}..."
 msgstr "${SUBST0} ateratzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:212
+#: ../base-installer.templates:218
 msgid "Configuring ${SUBST0}..."
 msgstr "${SUBST0} konfiguratzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:216
+#: ../base-installer.templates:222
 msgid "Checking Release signature"
 msgstr "Release sinadura egiaztatzen"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:220
+#: ../base-installer.templates:226
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Baliozko Release sinadura (key id ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:224
+#: ../base-installer.templates:230
 msgid "Resolving dependencies of base packages..."
 msgstr "Oinarri-paketeen beharrak ebazten..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:228
+#: ../base-installer.templates:234
 msgid "Resolving dependencies of required packages..."
 msgstr "Beharrezko-paketeen beharrak ebazten..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:232
+#: ../base-installer.templates:238
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "Osagaia egiaztatzen ${SUBST0} ${SUBST1}-en..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:236
+#: ../base-installer.templates:242
 msgid "Installing core packages..."
 msgstr "Nukleo-paketeak instalatzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:240
+#: ../base-installer.templates:246
 msgid "Unpacking required packages..."
 msgstr "Behar diren paketeak deskonprimitzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:244
+#: ../base-installer.templates:250
 msgid "Configuring required packages..."
 msgstr "Behar diren paketeak konfiguratzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:248
+#: ../base-installer.templates:254
 msgid "Installing base packages..."
 msgstr "Oinarri-paketeak instalatzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:252
+#: ../base-installer.templates:258
 msgid "Unpacking the base system..."
 msgstr "Oinarri-sistema despaketatzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:256
+#: ../base-installer.templates:262
 msgid "Configuring the base system..."
 msgstr "Oinarri-sistema konfigruatzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:260
+#: ../base-installer.templates:266
 msgid "Base system installed successfully."
 msgstr "Oinarri-sistema ondo instalatu da."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:264
+#: ../base-installer.templates:270
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:268
+#: ../base-installer.templates:274
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Huts egindako ${SUBST0} deskarga berriz saiatzen"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:272
+#: ../base-installer.templates:278
 msgid "Configuring APT sources..."
 msgstr "APT iturburuak konfiguratzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:276
+#: ../base-installer.templates:282
 msgid "Updating the list of available packages..."
 msgstr "Pakete erabilgarrien zerrenda eguneratzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:280
+#: ../base-installer.templates:286
 msgid "Installing extra packages..."
 msgstr "Pakete gehigarriak instalatzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:284
+#: ../base-installer.templates:290
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr ""
 "Pakete gehigarriak instalatzen - ${SUBST0} eskuratzen eta instalatzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../base-installer.templates:294
 msgid "Creating device files..."
 msgstr "Gailu-fitxategiak sortzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:292
+#: ../base-installer.templates:298
 msgid "Selecting the kernel to install..."
 msgstr "Instalatzeko nukleoa hautatzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:296
+#: ../base-installer.templates:302
 msgid "Installing the kernel..."
 msgstr "Nukleoa instalatzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:300
+#: ../base-installer.templates:306
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Nukleoa instalatzen - ${SUBST0} eskuratzen eta instalatzen..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:304
+#: ../base-installer.templates:310
 msgid "Installing the PCMCIA modules"
 msgstr "PCMCIA moduluak instalatzen"
 
@@ -558,6 +565,19 @@ msgstr "PCMCIA moduluak instalatzen"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:310
+#: ../base-installer.templates:316
 msgid "Install the base system"
 msgstr "Instalatu oinarri-sistema"
+
+#~ msgid "No installable kernel found"
+#~ msgstr "Ez da nukleo instalagarririk aurkitu"
+
+#~ msgid "The current default kernel package is '${KERNEL}'."
+#~ msgstr "Uneko nukleo-pakete lehenetsia '${KERNEL}' da."
+
+#~ msgid ""
+#~ "You may try to continue though this rather strange error is probably "
+#~ "fatal."
+#~ msgstr ""
+#~ "Agian jarraitu ahal izango duzu, errore arraro hau ziurrenik larria "
+#~ "izango den arren."
