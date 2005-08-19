@@ -29,6 +29,7 @@
 # 26-07-2005 - Miguel Figueiredo <elmig@debianpt.org> - 1f
 # 30-07-2005 - Miguel Figueiredo <elmig@debianpt.org> - 6f18u
 # 14-08-2005 - Miguel Figueiredo <elmig@debianpt.org> - 7f14u
+# 18-08-2005 - Miguel Figueiredo <elmig@debianpt.org> - 35f42u
 #
 msgid ""
 msgstr ""
@@ -187,7 +188,7 @@ msgstr "Pacote de Kernel: '${KERNEL}'."
 #. Choices
 #: ../base-installer.templates:70
 msgid "${KERNELS}, none"
-msgstr ""
+msgstr "${KERNELS}, nenhum"
 
 #. Type: select
 #. Description
@@ -208,8 +209,9 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:78
+#, fuzzy
 msgid "Continue without installing a kernel?"
-msgstr ""
+msgstr "Continuar com a instalação?"
 
 #. Type: boolean
 #. Description
@@ -231,7 +233,7 @@ msgstr ""
 #: ../base-installer.templates:87
 #, fuzzy
 msgid "Cannot install kernel"
-msgstr "Não pode instalar o sistema base"
+msgstr "Não pode instalar Debian"
 
 #. Type: error
 #. Description
@@ -242,20 +244,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:92
-#, fuzzy
 msgid "Unable to install ${PACKAGE}"
-msgstr "Não é possível instalar o GRUB em ${BOOTDEV}"
+msgstr "Não é possível instalar ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:92
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
 msgstr ""
-"Foi retornado um erro ao tentar instalar o pacote initrd-tools no sistema "
-"alvo."
+"Foi retornado um erro ao tentar instalar o pacote ${PACKAGE} no sistema alvo."
 
 #. Type: error
 #. Description
@@ -585,15 +584,3 @@ msgstr "A instalar os módulos PCMCIA"
 #: ../base-installer.templates:316
 msgid "Install the base system"
 msgstr "Instalar o sistema base"
-
-#~ msgid "No installable kernel found"
-#~ msgstr "Não foi encontrado um kernel instalável"
-
-#~ msgid "The current default kernel package is '${KERNEL}'."
-#~ msgstr "O pacote de kernel por omissão actual é '${KERNEL}'."
-
-#~ msgid ""
-#~ "You may try to continue though this rather strange error is probably "
-#~ "fatal."
-#~ msgstr ""
-#~ "Pode tentar continuar embora este estranho erro seja provavelmente fatal."

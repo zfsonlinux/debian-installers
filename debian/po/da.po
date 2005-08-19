@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2005-08-18 18:29-0600\n"
-"PO-Revision-Date: 2005-08-15 20:24+0200\n"
+"PO-Revision-Date: 2005-08-18 12:41+0200\n"
 "Last-Translator: Claus Hindsgaul <claus_h@image.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
 "MIME-Version: 1.0\n"
@@ -164,7 +164,7 @@ msgstr "Kernepakke: '${KERNEL}'."
 #. Choices
 #: ../base-installer.templates:70
 msgid "${KERNELS}, none"
-msgstr ""
+msgstr "${KERNELS}, ingen"
 
 #. Type: select
 #. Description
@@ -185,8 +185,9 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:78
+#, fuzzy
 msgid "Continue without installing a kernel?"
-msgstr ""
+msgstr "Fortsæt installationen?"
 
 #. Type: boolean
 #. Description
@@ -209,7 +210,7 @@ msgstr ""
 #: ../base-installer.templates:87
 #, fuzzy
 msgid "Cannot install kernel"
-msgstr "Kan ikke installere basissystemet"
+msgstr "Kan ikke installere Debian"
 
 #. Type: error
 #. Description
@@ -220,19 +221,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:92
-#, fuzzy
 msgid "Unable to install ${PACKAGE}"
-msgstr "Kunne ikke installere GRUB i ${BOOTDEV}"
+msgstr "Kunne ikke installere ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:92
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
 msgstr ""
-"Der opstod en fejl under forsøget på at installere pakken initrd-tools på "
+"Der opstod en fejl under forsøget på at installere pakken ${PACKAGE} på "
 "målsystemet."
 
 #. Type: error
@@ -563,16 +562,3 @@ msgstr "Installerer PCMCIA-modulerne"
 #: ../base-installer.templates:316
 msgid "Install the base system"
 msgstr "Installér basissystemet"
-
-#~ msgid "No installable kernel found"
-#~ msgstr "Fandt ingen installérbare kerner"
-
-#~ msgid "The current default kernel package is '${KERNEL}'."
-#~ msgstr "Den aktuelle standard-kernepakke er '${KERNEL}'."
-
-#~ msgid ""
-#~ "You may try to continue though this rather strange error is probably "
-#~ "fatal."
-#~ msgstr ""
-#~ "Du kan forsøge at fortsætte, selv om denne usædvanlige fejl formentlig er "
-#~ "fatal."
