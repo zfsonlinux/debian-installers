@@ -28,7 +28,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:4
 msgid "Proceed with installation to unclean target?"
-msgstr ""
+msgstr "Daŭrigu instaladon anstataŭ la antaŭa instalaĵo ?"
 
 #. Type: boolean
 #. Description
@@ -38,13 +38,16 @@ msgid ""
 "could cause problems with the installation process, and if you proceed, some "
 "of the existing files may be overwritten."
 msgstr ""
+"La cela dosiersitemo enhavas antaŭajn intalajn dosierojn. Ĝi eble perturbas "
+"la intaladan procezon. Tamen, se vi daŭras tiel, iuj ĉeestantaj dosieroj "
+"anstataŭ skribos."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
 #, fuzzy
 msgid "Cannot install base system"
-msgstr "Akomodi klavaro ..."
+msgstr "Neebla instalado de la baza dosiersistemo"
 
 #. Type: error
 #. Description
@@ -53,12 +56,15 @@ msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
 msgstr ""
+"La instalilo ne trovas la manieron por instali la bazan dosiersistemon. "
+"Neniu instalebla lumdisko estis trovita. Neniu valida spegularkivo estis "
+"akomodita."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:17
 msgid "No file system mounted on /target"
-msgstr ""
+msgstr "Neniu dosiersistemo surmetingas en '/target'"
 
 #. Type: error
 #. Description
@@ -67,12 +73,14 @@ msgid ""
 "Before the installation can proceed, a root file system must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
 msgstr ""
+"Antaŭ la instalada procezo, radika dosiersistemo nepre surmetingas en '/"
+"target'. La subdiskilo kaj surmetingilo estus farinta tiun agadon por vi."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:23
 msgid "Not installing to unclean target"
-msgstr ""
+msgstr "Neniu instalado anstataŭ antaŭa instalaĵo ?"
 
 #. Type: error
 #. Description
@@ -82,43 +90,45 @@ msgid ""
 "back and erase or format the target file system before proceeding with the "
 "install."
 msgstr ""
+"La instalado al cela dosiersitemo estis nuligata. Vi divos retroiri por viŝi "
+"aŭ strukturi la cela dosiersistemo antaŭ reinstali."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:30
 msgid "Failed to install the base system"
-msgstr ""
+msgstr "Instalado de baza dosiersistemo malsukcesas"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:30
 msgid "The base system installation into /target/ failed."
-msgstr ""
+msgstr "La instalado de baza dosiersistemo al '/target/' malsukcesis."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:37
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
-msgstr ""
+msgstr "La praŝargo ĉesis kun eraro (elirstato : ${EXITCODE})."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:44
 msgid "Base system installation error"
-msgstr ""
+msgstr "Eraro en la instalado de la baza sistemo"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:44
 msgid "The debootstrap program exited abnormally."
-msgstr ""
+msgstr "Praŝargo nenormale eliris."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:51
 msgid "The following error occurred:"
-msgstr ""
+msgstr "Le sekvanta eraro okazis :"
 
 #. Type: error
 #. Description
@@ -130,13 +140,13 @@ msgstr "${ERROR}"
 #. Description
 #: ../base-installer.templates:51
 msgid "Check /target/var/log/bootstrap.log for the details."
-msgstr ""
+msgstr "Vidu '/target/var/log/bootstrap.log' por akiri detalojn."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:60
 msgid "Unable to install the selected kernel"
-msgstr ""
+msgstr "Neebla instalado de elekta kerno"
 
 #. Type: error
 #. Description
@@ -144,25 +154,25 @@ msgstr ""
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
-msgstr ""
+msgstr "Eraro okazis dum la prova instalado de kerno en la cela sistemo."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:60
 msgid "Kernel package: '${KERNEL}'."
-msgstr ""
+msgstr "Kerna pakaĵo : '${KERNEL}'."
 
 #. Type: select
 #. Choices
 #: ../base-installer.templates:70
 msgid "${KERNELS}, none"
-msgstr ""
+msgstr "${KERNELS}, neniu"
 
 #. Type: select
 #. Description
 #: ../base-installer.templates:71
 msgid "Kernel to install:"
-msgstr ""
+msgstr "Instalanta kerno :"
 
 #. Type: select
 #. Description
@@ -171,19 +181,22 @@ msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
 msgstr ""
+"La listo montras disponajn kernojn. Bonvolu elekti iun el ili por "
+"strartigebli la sistemon ekde fiksita disko."
 
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:78
 #, fuzzy
 msgid "Continue without installing a kernel?"
-msgstr "Ĉu vi daŭrigas la instaladon ?"
+msgstr "Ĉu vi daŭrigas la instaladon sen kerno ?"
 
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:78
 msgid "No installable kernel was found in the defined APT sources."
 msgstr ""
+"Neniu instalebla kerno estis travita inter difinaj 'APT'-aj fonttekstoj."
 
 #. Type: boolean
 #. Description
@@ -193,26 +206,29 @@ msgid ""
 "kernel later. This is only recommended for experts, otherwise you will "
 "likely end up with a machine that doesn't boot."
 msgstr ""
+"Vi eble daŭrus sen kerno, kaj pli malfrue instali mane vian kernon. "
+"Tiamaniere estas nur rekomendata por spertulo. Kontraŭe vi verŝajne ĉesigi "
+"la instaladon kun ne strartigebla sistemo."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:87
 #, fuzzy
 msgid "Cannot install kernel"
-msgstr "Akomodi klavaro ..."
+msgstr "Neebla instalado de Debiana kerno"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:87
 msgid "The installer cannot find a suitable kernel package to install."
-msgstr ""
+msgstr "La instalilo ne trovas instalontan taŭgan kernan pakaĵon."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:92
 #, fuzzy
 msgid "Unable to install ${PACKAGE}"
-msgstr "Malpakado de ${PACKAGE}"
+msgstr "Neebla instalado de ${PACKAGE}"
 
 #. Type: error
 #. Description
@@ -221,42 +237,46 @@ msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
 msgstr ""
+"Eraro okazis dum la prova instalado de '${PACKAGE}' pako sur la cela sistemo."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:92
 msgid "Check /var/log/messages or see virtual console 3 for the details."
 msgstr ""
+"Vidu '/var/log/messages' aŭ la tria virtuala konzolo por akiri detalojn."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:100
 msgid "Failed getting Release file ${SUBST0}."
-msgstr ""
+msgstr "La akirado de 'Release' dosiero ${SUBST0} malsukcesis."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:105
 msgid "Failed getting Release signature file ${SUBST0}."
-msgstr ""
+msgstr "La akirado de 'Release' signatura dosiero ${SUBST0} malsukcesis."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:110
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr ""
+"'Release' dosiero estis signaturata per nekona ĉifroŝlosilo (identŝlosilo : "
+"${SUBST0})"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:115
 msgid "Invalid Release file: no valid components."
-msgstr ""
+msgstr "Malvalida 'Release' dosiero : neniu validaj konsistigaĵoj."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:120
 msgid "Invalid Release file: no entry for ${SUBST0}."
-msgstr ""
+msgstr "Malvalida 'Release' dosiero : nuniu enirejo por ${SUBST0}."
 
 #. Type: error
 #. Description
