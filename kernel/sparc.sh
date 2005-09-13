@@ -28,15 +28,20 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
+	if [ "$KERNEL_MAJOR" = 2.4 ]; then
+		imgbase=kernel-image
+	else
+		imgbase=linux-image
+	fi
 	CPUS=`grep 'ncpus probed' "$CPUINFO" | cut -d: -f2`
 	if [ "$CPUS" -eq 1 ]; then
-		echo "kernel-image-$KERNEL_MAJOR-$1"
+		echo "$imgbase-$KERNEL_MAJOR-$1"
 	else
 		if [ "$1" = sparc32 ] && [ "$KERNEL_MAJOR" = 2.6 ]; then
 			# No working SMP yet
-			echo "kernel-image-$KERNEL_MAJOR-$1"
+			echo "$imgbase-$KERNEL_MAJOR-$1"
 		else
-			echo "kernel-image-$KERNEL_MAJOR-$1-smp"
+			echo "$imgbase-$KERNEL_MAJOR-$1-smp"
 		fi
 	fi
 }
