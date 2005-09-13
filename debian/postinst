@@ -331,7 +331,8 @@ create_devices () {
 
 kernel_update_list () {
 	# Using 'uniq' to avoid listing the same kernel more then once.
-	chroot /target apt-cache search kernel-image | grep ^kernel-image | \
+	(chroot /target apt-cache search kernel-image | grep ^kernel-image; \
+	chroot /target apt-cache search linux-image | grep ^linux-image; ) | \
 	cut -d" " -f1 | uniq > "$KERNEL_LIST.unfiltered"
 	kernels=`sort -r "$KERNEL_LIST.unfiltered" | tr '\n' ' ' | sed -e 's/ $//'`
 	for candidate in $kernels; do
@@ -452,7 +453,7 @@ install_kernel () {
 		return
 	fi
 	
-	target_kernel_major="$(echo "$KERNEL" | sed 's/^kernel-image-//; s/-.*//' | cut -d . -f 1,2)"
+	target_kernel_major="$(echo "$KERNEL" | sed 's/^kernel-image-//; s/^linux-image-//; s/-.*//' | cut -d . -f 1,2)"
 	case $target_kernel_major in
 		2.?)	;;
 		*)
@@ -585,6 +586,8 @@ install_pcmcia_modules () {
 		info "Not installing any pcmcia modules"
 		return
 	fi
+	# Note pcmcia modules are only separate for 2.4 kernels, which
+	# use the old kernel-image names.
 	pcmcia_package=$(echo "$KERNEL" | sed 's/^kernel-image/kernel-pcmcia-modules/')
 	info "Installing pcmcia modules package '$pcmcia_package'."
 	apt-install "$pcmcia_package" 2>> $LOGFILE || true

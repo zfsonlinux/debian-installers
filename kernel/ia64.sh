@@ -24,5 +24,5 @@ arch_get_kernel () {
 	else
 		SMP=
 	fi
-	echo "kernel-image-$KERNEL_MAJOR-$1$SMP"
+	echo "linux-image-$KERNEL_MAJOR-$1$SMP"
 }

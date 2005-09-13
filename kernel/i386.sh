@@ -54,11 +54,16 @@ arch_get_kernel () {
 			k6|586tsc)	set 386 ;;
 		esac
 	fi
+	if [ "$KERNEL_MAJOR" = 2.4 ]; then
+		imgbase=kernel-image
+	else
+		imgbase=linux-image
+	fi
 	case "$1" in
-		k7)	echo "kernel-image-$KERNEL_MAJOR-k7$SMP" ;;
-		k6)	echo "kernel-image-$KERNEL_MAJOR-k6" ;;
-		686)	echo "kernel-image-$KERNEL_MAJOR-686$SMP" ;;
-		586tsc)	echo "kernel-image-$KERNEL_MAJOR-586tsc" ;;
-		*)	echo "kernel-image-$KERNEL_MAJOR-386" ;;
+		k7)	echo "$imgbase-$KERNEL_MAJOR-k7$SMP" ;;
+		k6)	echo "$imgbase-$KERNEL_MAJOR-k6" ;;
+		686)	echo "$imgbase-$KERNEL_MAJOR-686$SMP" ;;
+		586tsc)	echo "$imgbase-$KERNEL_MAJOR-586tsc" ;;
+		*)	echo "$imgbase-$KERNEL_MAJOR-386" ;;
 	esac
 }

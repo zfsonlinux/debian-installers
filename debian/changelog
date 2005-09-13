@@ -1,3 +1,17 @@
+base-installer (1.28) UNRELEASED; urgency=low
+
+  * In the postinst, look for new linux-image packages as well as old
+    kernel-image packages.
+  * In the fallback template, switch preferred i386 kernel to
+    linux-image-2.6.12-1-386.
+  * For i386, make arch_get_kernel return linux-image packages for 2.6
+    kernels, while still using kernel-image packages for 2.4.
+  * Switch a few missing ia64 peices over to linux-image kernels.
+  * Note that amd64, hppa, sparc, etc are still preferring the old
+    linux-image packages in arch_get_kernel and should be updated.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 13 Sep 2005 12:19:06 -0400
+
 base-installer (1.27) unstable; urgency=low
 
   * Set KERNEL in the case where we continue w/o installing a kernel.
