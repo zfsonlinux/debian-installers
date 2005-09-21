@@ -478,14 +478,14 @@ install_kernel () {
 		do_initrd=yes
 	fi
 
-	if db_get debian-installer/kernel/linux/link_in_boot ; then
+	if db_get base-installer/kernel/linux/link_in_boot ; then
 		if [ "$RET" = "true" ]; then
 			link_in_boot=yes
 		else
 			link_in_boot=no
 		fi
 	else
-		warning "Failed to get debconf answer 'debian-installer/kernel/linux/link_in_boot'."
+		warning "Failed to get debconf answer 'base-installer/kernel/linux/link_in_boot'."
 		link_in_boot=no
 	fi
 
