@@ -7,9 +7,12 @@ arch_get_kernel_flavour () {
 }
 
 arch_check_usable_kernel () {
-	if expr "$1" : '.*-parisc.*' >/dev/null; then return 0; fi
+	if expr "$1" : '.*-parisc-' >/dev/null; then return 0; fi
+	if expr "$1" : '.*-parisc$' >/dev/null; then return 0; fi
+	if expr "$1" : '.*-32.*' >/dev/null; then return 0; fi
 	if [ "$2" = parisc32 ]; then return 1; fi
 	if expr "$1" : '.*-parisc64.*' >/dev/null; then return 0; fi
+	if expr "$1" : '.*-64.*' >/dev/null; then return 0; fi
 
 	# default to usable in case of strangeness
 	warning "Unknown kernel usability: $1 / $2"
@@ -25,7 +28,7 @@ arch_get_kernel () {
 	fi
 
 	case "$1" in
-		parisc32)	echo "linux-image-$KERNEL_ABI-parisc$SMP" ;;
-		parisc64)	echo "linux-image-$KERNEL_ABI-parisc64$SMP" ;;
+		parisc32)	echo "linux-image-parisc$SMP" ;;
+		parisc64)	echo "linux-image-parisc64$SMP" ;;
 	esac
 }
