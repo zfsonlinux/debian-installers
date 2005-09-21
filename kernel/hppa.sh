@@ -17,12 +17,6 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	case "$KERNEL_MAJOR" in
-		2.4)	version="$KERNEL_VERSION" ;;
-		2.6)	version="$KERNEL_ABI" ;;
-		*)	warning "Unknown kernel major '$KERNEL_MAJOR'." ;;
-	esac
-
 	CPUS="$(grep ^processor /proc/cpuinfo | tail -n 1 | cut -d: -f2)"
 	if [ -z "$CPUS" ] || [ "$CPUS" -ne 0 ]; then
 		SMP=-smp
@@ -31,7 +25,7 @@ arch_get_kernel () {
 	fi
 
 	case "$1" in
-		parisc32)	echo "linux-image-$version-parisc$SMP" ;;
-		parisc64)	echo "linux-image-$version-parisc64$SMP" ;;
+		parisc32)	echo "linux-image-$KERNEL_ABI-parisc$SMP" ;;
+		parisc64)	echo "linux-image-$KERNEL_ABI-parisc64$SMP" ;;
 	esac
 }
