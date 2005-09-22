@@ -178,7 +178,7 @@ update_mtab() {
 
 # Run update-grub in /target.
 update_grub () {
-	if ! log-output grub-installer chroot /target /sbin/update-grub -y ; then
+	if ! log-output -t grub-installer chroot /target /sbin/update-grub -y ; then
 		error "Running 'update-grub -y' failed." 1>&2
 		db_input critical grub-installer/update-grub-failed || [ $? -eq 30 ]
 		db_go || true
@@ -356,7 +356,7 @@ if ! is_floppy "$bootdev"; then
 fi
 
 info "Running chroot /target /sbin/grub-install --recheck $floppyparam \"$bootdev\""
-if log-output grub-installer chroot /target /sbin/grub-install --recheck $floppyparam "$bootdev"; then
+if log-output -t grub-installer chroot /target /sbin/grub-install --recheck $floppyparam "$bootdev"; then
 	info "grub-install ran successfully"
 else
 	error "Running 'grub-install --recheck $floppyparam \"$bootdev\"' failed."
