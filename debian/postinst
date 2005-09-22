@@ -9,8 +9,6 @@ newline="
 
 db_capb backup
 
-log=/var/log/messages
-
 log() {
 	logger -t grub-installer "$@"
 }
@@ -180,7 +178,7 @@ update_mtab() {
 
 # Run update-grub in /target.
 update_grub () {
-	if ! chroot /target /sbin/update-grub -y >> $log 2>&1 ; then
+	if ! log-output grub-installer chroot /target /sbin/update-grub -y ; then
 		error "Running 'update-grub -y' failed." 1>&2
 		db_input critical grub-installer/update-grub-failed || [ $? -eq 30 ]
 		db_go || true
@@ -358,7 +356,7 @@ if ! is_floppy "$bootdev"; then
 fi
 
 info "Running chroot /target /sbin/grub-install --recheck $floppyparam \"$bootdev\""
-if chroot /target /sbin/grub-install --recheck $floppyparam "$bootdev" >> $log 2>&1 ; then
+if log-output grub-installer chroot /target /sbin/grub-install --recheck $floppyparam "$bootdev"; then
 	info "grub-install ran successfully"
 else
 	error "Running 'grub-install --recheck $floppyparam \"$bootdev\"' failed."
