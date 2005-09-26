@@ -4,7 +4,6 @@ set -e
 . /usr/share/debconf/confmodule
 db_capb backup
 
-LOGFILE=/var/log/messages
 ETCDIR=/target/etc
 ARCH=`udpkg --print-architecture`
 PROTOCOL=
@@ -240,7 +239,7 @@ install_base_system () {
 	if search-path cdebootstrap; then
 		cdebootstrap || debootstrap_failed=$?
 	else
-		run-debootstrap \
+		log-output -t debootstrap run-debootstrap \
 		        --components="${COMPONENTS}" \
 		        --debian-installer \
 			--resolve-deps \
@@ -248,7 +247,7 @@ install_base_system () {
 		        ${keyring} \
 		        ${DISTRIBUTION} /target \
 		        "$PROTOCOL://$MIRROR$DIRECTORY" \
-		        2>> $LOGFILE || debootstrap_failed=$?
+		        || debootstrap_failed=$?
 	fi
 
 	if [ true = "$copied_fstab" ] ; then
@@ -513,7 +512,7 @@ EOF
 		# configuration
 		db_subst base-installer/section/install_kernel_package SUBST0 "initrd-tools"
 		db_progress INFO base-installer/section/install_kernel_package
-		if ! apt-install initrd-tools 2>> $LOGFILE ; then
+		if ! log-output -t base-installer apt-install initrd-tools; then
 			db_subst base-installer/kernel/failed-package-install PACKAGE initrd-tools
 			exit_error base-installer/kernel/failed-package-install
 		fi
@@ -559,7 +558,7 @@ EOF
 	info "Installing kernel '$KERNEL'."
 	db_subst base-installer/section/install_kernel_package SUBST0 "$KERNEL"
 	db_progress INFO base-installer/section/install_kernel_package
-	apt-install "$KERNEL" 2>> $LOGFILE || kernel_install_failed=$?
+	log-output -t base-installer apt-install "$KERNEL" || kernel_install_failed=$?
 
 	# Advance progress bar to 90% of allocated space for install_kernel
 	update_progress 90 100
@@ -589,11 +588,11 @@ install_pcmcia_modules () {
 	# use the old kernel-image names.
 	pcmcia_package=$(echo "$KERNEL" | sed 's/^kernel-image/kernel-pcmcia-modules/')
 	info "Installing pcmcia modules package '$pcmcia_package'."
-	apt-install "$pcmcia_package" 2>> $LOGFILE || true
+	log-output -t base-installer apt-install "$pcmcia_package" || true
 }
 
 apt_update () {
-	chroot /target apt-get -o Acquire::gpgv::Options::=--ignore-time-conflict update >> $LOGFILE 2>&1 || apt_update_failed=$?
+	log-output -t base-installer chroot /target apt-get -o Acquire::gpgv::Options::=--ignore-time-conflict update || apt_update_failed=$?
 	
 	if [ "$apt_update_failed" ]; then
 		warning "apt update failed: $apt_update_failed"
@@ -611,7 +610,7 @@ install_extra () {
 			db_subst base-installer/section/install_extra_package SUBST0 "$PKG"
 			db_progress INFO base-installer/section/install_extra_package
 
-			if apt-install $PKG >> $LOGFILE 2>&1 ; then
+			if log-output -t base-installer apt-install $PKG; then
 				info "Installed $PKG successfully into /target/"
 			else
 				warning "Failed to install $PKG into /target/: $?"

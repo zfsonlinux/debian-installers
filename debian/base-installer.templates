@@ -30,21 +30,21 @@ Type: error
 _Description: Failed to install the base system
  The base system installation into /target/ failed.
  .
- Check /target/var/log/bootstrap.log for the details.
+ Check /var/log/syslog or see virtual console 3 for the details.
 
 Template: base-installer/debootstrap/error-exitcode
 Type: error
 _Description: Base system installation error
  The debootstrap program exited with an error (return value ${EXITCODE}).
  .
- Check /target/var/log/bootstrap.log for the details.
+ Check /var/log/syslog or see virtual console 3 for the details.
 
 Template: base-installer/debootstrap/error-abnormal
 Type: error
 _Description: Base system installation error
  The debootstrap program exited abnormally.
  .
- Check /target/var/log/bootstrap.log for the details.
+ Check /var/log/syslog or see virtual console 3 for the details.
 
 Template: base-installer/debootstrap/fallback-error
 Type: error
@@ -53,7 +53,7 @@ _Description: Debootstrap Error
  .
  ${ERROR}
  .
- Check /target/var/log/bootstrap.log for the details.
+ Check /var/log/syslog or see virtual console 3 for the details.
 
 Template: base-installer/kernel/failed-install
 Type: error
@@ -63,7 +63,7 @@ _Description: Unable to install the selected kernel
  .
  Kernel package: '${KERNEL}'.
  .
- Check /var/log/messages or see virtual console 3 for the details.
+ Check /var/log/syslog or see virtual console 3 for the details.
 
 Template: base-installer/kernel/which-kernel
 Type: select
@@ -93,7 +93,7 @@ _Description: Unable to install ${PACKAGE}
  An error was returned while trying to install the ${PACKAGE} package
  onto the target system.
  .
- Check /var/log/messages or see virtual console 3 for the details.
+ Check /var/log/syslog or see virtual console 3 for the details.
 
 Template: base-installer/debootstrap/error/nogetrel
 Type: error
