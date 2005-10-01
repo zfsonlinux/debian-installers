@@ -239,7 +239,7 @@ install_base_system () {
 	if search-path cdebootstrap; then
 		cdebootstrap || debootstrap_failed=$?
 	else
-		log-output -t debootstrap run-debootstrap \
+		run-debootstrap \
 		        --components="${COMPONENTS}" \
 		        --debian-installer \
 			--resolve-deps \
@@ -247,7 +247,7 @@ install_base_system () {
 		        ${keyring} \
 		        ${DISTRIBUTION} /target \
 		        "$PROTOCOL://$MIRROR$DIRECTORY" \
-		        || debootstrap_failed=$?
+			2>> /var/log/messages || debootstrap_failed=$?
 	fi
 
 	if [ true = "$copied_fstab" ] ; then
