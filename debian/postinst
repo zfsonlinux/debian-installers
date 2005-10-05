@@ -506,6 +506,7 @@ do_initrd = $do_initrd
 link_in_boot = $link_in_boot
 EOF
 
+	mkinitrdconf=/target/etc/mkinitrd/mkinitrd.conf
 	if [ yes = "$do_initrd" ] ; then
 		info "Installing initrd-tools."
 
@@ -518,33 +519,17 @@ EOF
 			exit_error base-installer/kernel/failed-package-install
 		fi
 
-		rootpart_devfs=$(mount | grep "on /target " | cut -d' ' -f1)
-		rootpartfs=$(mount | grep "on /target " | cut -d' ' -f5)
-		rootpart=$(mapdevfs $rootpart_devfs)
-
 		resume_devfs="$(get_resume_partition)" || resume_devfs=
 		if [ "$resume_devfs" ] && [ -e "$resume_devfs" ]; then
 			resume="$(mapdevfs "$resume_devfs")" || resume=
 		else
 			resume=
 		fi
-
-		# Avoid possible root shell without giving passord while
-		# booting the 2.4 kernel
-		# This is here for back-compatability with woody's 
-		# initrd-tools; it's fixed in more recent versions
-		mkinitrdconf=/target/etc/mkinitrd/mkinitrd.conf
-		if [ -f $mkinitrdconf ] ; then
-			sed -e 's/^DELAY=.*/DELAY=0/' -e "s#^ROOT=.*#ROOT='$rootpart $rootpartfs'#" < $mkinitrdconf > $mkinitrdconf.new &&
-				mv $mkinitrdconf.new  $mkinitrdconf
-			if [ "$resume" ]; then
+		if [ "$resume" ]; then
+			if [ -f $mkinitrdconf ] ; then
 				sed -e "s@^#* *RESUME=.*@RESUME=$resume@" < $mkinitrdconf > $mkinitrdconf.new &&
 					mv $mkinitrdconf.new $mkinitrdconf
-			fi
-		else
-			echo 'DELAY=0' >> $mkinitrdconf
-			echo "ROOT='$rootpart $rootpartfs'" >> $mkinitrdconf
-			if [ "$resume" ]; then
+			else
 				echo "RESUME=$resume" >> $mkinitrdconf
 			fi
 		fi
