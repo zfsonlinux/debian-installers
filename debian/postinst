@@ -519,6 +519,18 @@ EOF
 			exit_error base-installer/kernel/failed-package-install
 		fi
 
+		# Temporarily hardcode the root partition.
+		rootpart_devfs=$(mount | grep "on /target " | cut -d' ' -f1)
+		rootpartfs=$(mount | grep "on /target " | cut -d' ' -f5)
+		rootpart=$(mapdevfs $rootpart_devfs)
+		if [ -f $mkinitrdconf ]; then
+			sed -e "s#^ROOT=.*#ROOT='$rootpart $rootpartfs'#" < $mkinitrdconf > $mkinitrdconf.new &&
+				mv $mkinitrdconf.new $mkinitrdconf
+		else
+			echo "ROOT='$rootpart $rootpartfs'" >> $mkinitrdconf
+		fi
+
+		# Set up a default resume partition.
 		resume_devfs="$(get_resume_partition)" || resume_devfs=
 		if [ "$resume_devfs" ] && [ -e "$resume_devfs" ]; then
 			resume="$(mapdevfs "$resume_devfs")" || resume=
@@ -551,7 +563,8 @@ EOF
 
 	# /proc/filesystems will accomodate this past the second bootup.
 	if [ "$do_initrd" = yes ]; then
-		sed -e 's/^ROOT=.*/ROOT=probe/' $mkinitrdconf > $mkinitrdconf.new && mv $mkinitrdconf.new $mkinitrdconf
+		sed -e 's/^ROOT=.*/ROOT=probe/' $mkinitrdconf > $mkinitrdconf.new &&
+			mv $mkinitrdconf.new $mkinitrdconf
 	fi
 
 	if [ -f /target/etc/kernel-img.conf.$$ ]; then
