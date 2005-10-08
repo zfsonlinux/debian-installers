@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2005-09-26 16:28+0200\n"
-"PO-Revision-Date: 2005-05-27 18:27+0300\n"
+"PO-Revision-Date: 2005-10-07 21:04+0300\n"
 "Last-Translator: Recai Oktaş <roktas@omu.edu.tr>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -36,31 +36,29 @@ msgstr "Kurulum boş olmayan hedef dizine yapılsın mı?"
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:4
-#, fuzzy
 msgid ""
 "The target file system contains files from a past installation. These files "
 "could cause problems with the installation process, and if you proceed, some "
 "of the existing files may be overwritten."
 msgstr ""
 "Hedef dosya sistemi önceki bir kurulumdan kalan dosyalar içeriyor.  Bu "
-"dosyalar kurulum işlemini veya kurulacak olan sistemi olumsuz etkileyebilir."
+"dosyalar kurulum işlemini veya kurulacak olan sistemi olumsuz etkileyebilir, "
+"ve önceden mevcut bazı dosyaların üzerine yazılabilir."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
-#, fuzzy
 msgid "Cannot install base system"
 msgstr "Temel sistem kurulamadı"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
-#, fuzzy
 msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
 msgstr ""
-"Kurulum programı Debian'ın nasıl kurulacağını bilemiyor.  Kurulabilir "
+"Kurulum programı temel sistemin nasıl kurulacağını bilemiyor.  Kurulabilir "
 "durumda bir CD-ROM yok ve geçerli bir yansı da yapılandırılmadı."
 
 #. Type: error
@@ -189,9 +187,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:78
-#, fuzzy
 msgid "Continue without installing a kernel?"
-msgstr "Kuruluma devam edilsin mi?"
+msgstr "Bir çekirdek kurmadan kuruluma devam edilsin mi?"
 
 #. Type: boolean
 #. Description
@@ -212,40 +209,35 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:87
-#, fuzzy
 msgid "Cannot install kernel"
-msgstr "Debian kurulamıyor"
+msgstr "Çekirdek kurulamıyor"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:87
 msgid "The installer cannot find a suitable kernel package to install."
-msgstr ""
+msgstr "Kurulum programı uygun bir çekirdek paketi bulamadı"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:92
-#, fuzzy
 msgid "Unable to install ${PACKAGE}"
-msgstr "GRUB ${BOOTDEV} aygıtına kurulamadı"
+msgstr "${PACKAGE} paketi kurulamıyor"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:92
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
-msgstr "Hedef sisteme initrd-tools kurulumu denenirken hata oluştu."
+msgstr "Hedef sisteme ${PACKAGE} paketinin kurulumu denenirken hata oluştu."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:92
-#, fuzzy
 msgid "Check /var/log/syslog or see virtual console 3 for the details."
 msgstr ""
-"Ayrıntılı bilgi için /var/log/messages dosyasına veya üçüncü konsola göz "
-"atın."
+"Ayrıntılı bilgi için /var/log/syslog dosyasına veya üçüncü konsola göz atın."
 
 #. Type: error
 #. Description
@@ -256,16 +248,16 @@ msgstr "\"Release\" dosyası ${SUBST0} alınamadı."
 #. Type: error
 #. Description
 #: ../base-installer.templates:105
-#, fuzzy
 msgid "Failed getting Release signature file ${SUBST0}."
-msgstr "\"Release\" dosyası ${SUBST0} alınamadı."
+msgstr "\"Release\" dosyasına ait imza dosyası ${SUBST0} alınamadı."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:110
-#, fuzzy
 msgid "Release file signed by unknown key (key id ${SUBST0})"
-msgstr "Geçersiz \"Release\" dosyası: ${SUBST0} için gerekli girdiler yok."
+msgstr ""
+"\"Release\" dosyası bilinmeyen bir anahtarla imzalanmış (anahtar kimliği "
+"${SUBST0})"
 
 #. Type: error
 #. Description
@@ -308,9 +300,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../base-installer.templates:138
-#, fuzzy
 msgid "Preparing to install the base system..."
-msgstr "Debian temel sistemi kurulumuna hazırlanılıyor..."
+msgstr "Temel sistem kurulumuna hazırlanılıyor..."
 
 #. Type: text
 #. Description
@@ -327,9 +318,8 @@ msgstr "\"Release\" dosyası alınıyor"
 #. Type: text
 #. Description
 #: ../base-installer.templates:150
-#, fuzzy
 msgid "Retrieving Release file signature"
-msgstr "\"Release\" dosyası alınıyor"
+msgstr "\"Release\" dosyasına ait imza dosyası alınıyor"
 
 #. Type: text
 #. Description
@@ -346,7 +336,6 @@ msgstr "\"Packages\" dosyası alınıyor"
 #. Type: text
 #. Description
 #: ../base-installer.templates:162
-#, fuzzy
 msgid "Retrieving Packages file"
 msgstr "\"Packages\" dosyası alınıyor"
 
@@ -431,37 +420,32 @@ msgstr "${SUBST0} yapılandırılıyor..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:222
-#, fuzzy
 msgid "Checking Release signature"
-msgstr "\"Release\" dosyası alınıyor"
+msgstr "\"Release\" dosyasına ait imza denetleniyor"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:226
-#, fuzzy
 msgid "Valid Release signature (key id ${SUBST0})"
-msgstr "Geçersiz \"Release\" dosyası: ${SUBST0} için gerekli girdiler yok."
+msgstr "Geçersiz \"Release\" imzası (anahtar kimliği: ${SUBST0})"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:230
-#, fuzzy
 msgid "Resolving dependencies of base packages..."
-msgstr "Temel paketler kuruluyor..."
+msgstr "\"Temel\" paketlerin bağımlılıkları çözülüyor..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:234
-#, fuzzy
 msgid "Resolving dependencies of required packages..."
-msgstr "Gerekli paketler açılıyor..."
+msgstr "\"Gerekli\" paketlerin bağımlılıkları çözülüyor..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:238
-#, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
-msgstr "Paket boyutu kontrol ediliyor: ${SUBST0}..."
+msgstr "${SUBST1} üzerindeki ${SUBST0} bileşeni denetleniyor..."
 
 #. Type: text
 #. Description
@@ -514,9 +498,8 @@ msgstr "${SECTION}: ${INFO}..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:274
-#, fuzzy
 msgid "Retrying failed download of ${SUBST0}"
-msgstr "${SUBST0} indirilemedi."
+msgstr "Başarısız ${SUBST0} indirme girişimi tekrar ediliyor"
 
 #. Type: text
 #. Description
