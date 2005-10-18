@@ -32,7 +32,8 @@ Each architecture must define the following functions in kernel/$ARCH.sh:
 
   arch_get_kernel (flavour)
 
-    Print the preferred kernel for this flavour.
+    Print the preferred kernels for this flavour, one per line, in order of
+    preference.
 
     No return value; must not fail. (If there's a problem, one of the two
     functions above should already have failed.)

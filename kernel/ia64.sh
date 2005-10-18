@@ -20,9 +20,7 @@ arch_check_usable_kernel () {
 arch_get_kernel () {
 	CPUS="$(grep ^processor "$CPUINFO" | tail -n 1 | cut -d: -f2)"
 	if [ -z "$CPUS" ] || [ "$CPUS" -ne 0 ]; then
-		SMP=-smp
-	else
-		SMP=
+		echo "linux-image-$KERNEL_MAJOR-$1-smp"
 	fi
-	echo "linux-image-$KERNEL_MAJOR-$1$SMP"
+	echo "linux-image-$KERNEL_MAJOR-$1"
 }

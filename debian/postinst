@@ -387,17 +387,27 @@ pick_kernel () {
 
 	arch_kernel=$(arch_get_kernel "$FLAVOUR")
 
-	if [ "$arch_kernel" ] && kernel_present "$arch_kernel"; then
-		# Recommended kernel for this architecture exists; use that.
-		info "arch_kernel: $arch_kernel (present)"
-		KERNEL="$arch_kernel"
-	elif kernel_present "$KERNEL"; then
+	got_arch_kernel=
+	if [ "$arch_kernel" ]; then
+		info "arch_kernel candidates: $arch_kernel"
+		# Walk through recommended list for this architecture in order.
+		for candidate in $arch_kernel; do
+			if kernel_present "$candidate"; then
+				# Recommended kernel for this architecture exists; use that.
+				info "arch_kernel: $candidate (present)"
+				KERNEL="$candidate"
+				break
+			else
+				info "arch_kernel: $candidate (absent)"
+			fi
+		done
+	fi
+
+	if kernel_present "$KERNEL"; then
 		# Current selection is available, nothing to do
 		:
 	else
 		# No recommendations available; try to guess.
-		info "arch_kernel: $arch_kernel (absent)"
-
 		# Try to default to running kernel version.
 		KVERS=`uname -r | cut -d'-' -f 1`
 		KERNEL="$(echo "$kernels" | sed 's/,/\n/g' | grep -- "-$KVERS" | head -n 1)"

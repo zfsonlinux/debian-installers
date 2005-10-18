@@ -34,14 +34,13 @@ arch_get_kernel () {
 		imgbase=linux-image
 	fi
 	CPUS=`grep 'ncpus probed' "$CPUINFO" | cut -d: -f2`
-	if [ "$CPUS" -eq 1 ]; then
-		echo "$imgbase-$KERNEL_MAJOR-$1"
-	else
+	if [ "$CPUS" -ne 1 ]; then
 		if [ "$1" = sparc32 ] && [ "$KERNEL_MAJOR" = 2.6 ]; then
 			# No working SMP yet
-			echo "$imgbase-$KERNEL_MAJOR-$1"
+			:
 		else
 			echo "$imgbase-$KERNEL_MAJOR-$1-smp"
 		fi
 	fi
+	echo "$imgbase-$KERNEL_MAJOR-$1"
 }

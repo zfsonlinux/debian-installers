@@ -26,8 +26,10 @@ arch_check_usable_kernel () {
 	if [ "$2" = 386 ]; then return 1; fi
 	if expr "$1" : '.*-586.*' >/dev/null; then return 0; fi
 	if [ "$2" = 586tsc ]; then return 1; fi
-	if expr "$1" : '.*-686.*' >/dev/null; then return 0; fi
-	if [ "$2" = 686 ]; then return 1; fi
+	if [ "$2" = 686 ]; then
+		if expr "$1" : '.*-686.*' >/dev/null; then return 0; fi
+		return 1
+	fi
 	if expr "$1" : '.*-k6.*' >/dev/null; then return 0; fi
 	if [ "$2" = k6 ]; then return 1; fi
 	if expr "$1" : '.*-k7.*' >/dev/null; then return 0; fi
@@ -49,21 +51,37 @@ arch_get_kernel () {
 	else
 		SMP=
 	fi
-	if [ "$KERNEL_MAJOR" != 2.4 ]; then
-		case "$1" in
-			k6|586tsc)	set 386 ;;
-		esac
-	fi
+
 	if [ "$KERNEL_MAJOR" = 2.4 ]; then
 		imgbase=kernel-image
 	else
 		imgbase=linux-image
 	fi
-	case "$1" in
-		k7)	echo "$imgbase-$KERNEL_MAJOR-k7$SMP" ;;
-		k6)	echo "$imgbase-$KERNEL_MAJOR-k6" ;;
-		686)	echo "$imgbase-$KERNEL_MAJOR-686$SMP" ;;
-		586tsc)	echo "$imgbase-$KERNEL_MAJOR-586tsc" ;;
-		*)	echo "$imgbase-$KERNEL_MAJOR-386" ;;
-	esac
+	if [ "$1" = k7 ]; then
+		if [ "$SMP" ]; then
+			echo "$imgbase-$KERNEL_MAJOR-k7$SMP"
+		fi
+		echo "$imgbase-$KERNEL_MAJOR-k7"
+		set k6
+	fi
+	if [ "$1" = k6 ]; then
+		if [ "$KERNEL_MAJOR" = 2.4 ]; then
+			echo "$imgbase-$KERNEL_MAJOR-k6"
+		fi
+		set 586tsc
+	fi
+	if [ "$1" = 686 ]; then
+		if [ "$SMP" ]; then
+			echo "$imgbase-$KERNEL_MAJOR-686$SMP"
+		fi
+		echo "$imgbase-$KERNEL_MAJOR-686"
+		set 586tsc
+	fi
+	if [ "$1" = 586tsc ]; then
+		if [ "$KERNEL_MAJOR" = 2.4 ]; then
+			echo "$imgbase-$KERNEL_MAJOR-586tsc"
+		fi
+		set 386
+	fi
+	echo "$imgbase-$KERNEL_MAJOR-386"
 }

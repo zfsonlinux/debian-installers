@@ -27,13 +27,16 @@ for KERNEL_MAJOR in $MAJORS; do
 	WANT_FLAVOUR="$FLAVOUR"
 	case $KERNEL_MAJOR in
 		2.4)
-			WANT_KERNEL="$KERNEL_24"
+			WANT_KERNELS="$KERNEL_24"
 			;;
 		2.6)
-			WANT_KERNEL="$KERNEL_26"
+			WANT_KERNELS="$KERNEL_26"
 			;;
 	esac
-	WANT_KERNEL_STEM="${WANT_KERNEL#kernel-image-}"
+	WANT_KERNELS="$(echo "$WANT_KERNELS" | tr '\n' ' ' | tr -s ' ' | sed 's/ *$//')"
+	WANT_KERNEL_STEM="${WANT_KERNELS%% *}"
+	WANT_KERNEL_STEM="${WANT_KERNEL_STEM#kernel-image-}"
+	WANT_KERNEL_STEM="${WANT_KERNEL_STEM#linux-image-}"
 	export KERNEL_MAJOR
 	export KERNEL_VERSION="$(echo "$WANT_KERNEL_STEM" | cut -d - -f 1)"
 	export KERNEL_ABI="$(echo "$WANT_KERNEL_STEM" | cut -d - -f 1,2)"
@@ -75,18 +78,18 @@ for KERNEL_MAJOR in $MAJORS; do
 		fi
 	done
 
-	# Is the correct default kernel selected?
+	# Is the correct preference order of default kernels selected?
 
 	testname="arch_get_kernel $KERNEL_MAJOR exit code"
-	if GOT_KERNEL="$(arch_get_kernel "$GOT_FLAVOUR")"; then
+	if GOT_KERNELS="$(arch_get_kernel "$GOT_FLAVOUR" | tr '\n' ' ' | sed 's/ *$//')"; then
 		ok
 	else
 		notok
 		continue # the rest won't work
 	fi
 
-	testname="arch_get_kernel want $WANT_KERNEL, got $GOT_KERNEL"
-	if [ "$WANT_KERNEL" = "$GOT_KERNEL" ]; then
+	testname="arch_get_kernel want '$WANT_KERNELS', got '$GOT_KERNELS'"
+	if [ "$WANT_KERNELS" = "$GOT_KERNELS" ]; then
 		ok
 	else
 		notok

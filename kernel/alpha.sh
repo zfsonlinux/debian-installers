@@ -10,10 +10,8 @@ arch_get_kernel () {
 	version=2.4.27-2
 	
 	if [ -n "$NUMCPUS" ] && [ "$NUMCPUS" -gt 1 ]; then
-		SMP=smp
-	else
-		SMP=generic
+		echo "kernel-image-$version-smp"
 	fi
 	
-	echo "kernel-image-$version-$SMP"
+	echo "kernel-image-$version-generic"
 }
