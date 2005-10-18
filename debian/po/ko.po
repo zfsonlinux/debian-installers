@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "POT-Creation-Date: 2005-09-26 16:28+0200\n"
-"PO-Revision-Date: 2005-05-22 22:12+0900\n"
+"PO-Revision-Date: 2005-10-17 21:37+0900\n"
 "Last-Translator:  Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team:  Korean <cwryu@debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -28,32 +28,29 @@ msgstr "비어있지 않은 대상에 설치를 계속 하시겠습니까?"
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:4
-#, fuzzy
 msgid ""
 "The target file system contains files from a past installation. These files "
 "could cause problems with the installation process, and if you proceed, some "
 "of the existing files may be overwritten."
 msgstr ""
-"대상 파일 시스템에 이전에 설치한 파일들이 남아 있습니다. 이 파일때문에 설치 "
-"과정이 방해를 받을 수도 있고 설치된 시스템을 망가뜨릴 수도 있습니다."
+"대상 파일 시스템에 기전에 설치한 파일들이 남아 있습니다. 설치 과정에 문제가발"
+"생할 수도 있고 기존에 설치된 시스템을 망가뜨릴 수도 있습니다."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
-#, fuzzy
 msgid "Cannot install base system"
 msgstr "베이스 시스템을 설치하는 데 실패했습니다"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
-#, fuzzy
 msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
 msgstr ""
-"설치 프로그램에서 데비안 설치 방법을 찾지 못했습니다. 설치 CD-ROM이 없고, 올"
-"바른 미러 사이트를 설정하지도 못했습니다."
+"데비안 설치를 더 이상 진행시키지 못합니다. 설치 CD-ROM이 없고, 적절한미러 사"
+"이트도 설정되지 않았습니다."
 
 #. Type: error
 #. Description
@@ -80,7 +77,6 @@ msgstr "비어있지 않은 대상에는 설치하지 않습니다"
 #. Type: error
 #. Description
 #: ../base-installer.templates:23
-#, fuzzy
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
@@ -159,7 +155,7 @@ msgstr "커널 꾸러미: '${KERNEL}'."
 #. Choices
 #: ../base-installer.templates:70
 msgid "${KERNELS}, none"
-msgstr ""
+msgstr "${KERNELS}, 없음"
 
 #. Type: select
 #. Description
@@ -180,9 +176,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:78
-#, fuzzy
 msgid "Continue without installing a kernel?"
-msgstr "설치를 계속하시겠습니까?"
+msgstr "커널 없이 설치를 계속하시겠습니까?"
 
 #. Type: boolean
 #. Description
@@ -198,43 +193,41 @@ msgid ""
 "kernel later. This is only recommended for experts, otherwise you will "
 "likely end up with a machine that doesn't boot."
 msgstr ""
+"커널없이 진행한 후 수동으로 커널을 설치할 수도 있습니다만, 잘못하면 부팅이안"
+"되는 수가 있으니 고급 사용자에게만 권장합니다. "
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:87
-#, fuzzy
 msgid "Cannot install kernel"
-msgstr "데비안을 설치할 수 없습니다"
+msgstr "커널을 설치할 수 없습니다"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:87
 msgid "The installer cannot find a suitable kernel package to install."
-msgstr ""
+msgstr "설치 프로그램이 필요한 커널 꾸러미를 찾는데 실패했습니다."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:92
-#, fuzzy
 msgid "Unable to install ${PACKAGE}"
-msgstr "GRUB을 ${BOOTDEV}에 설치할 수 없습니다"
+msgstr "${PACKAGE}를 설치하는데 실패했습니다"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:92
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
-msgstr "initrd-tools 꾸러미를 대상 시스템에 설치하는 데 오류가 발생했습니다."
+msgstr "대상 시스템에 ${PACKAGE}를 설치하는데 오류가 발생했습니다."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:92
-#, fuzzy
 msgid "Check /var/log/syslog or see virtual console 3 for the details."
 msgstr ""
-"자세한 정보를 확인하시려면 /var/log/messages를 보시거나 가상 콘솔 3을 보십시"
+"자세한 정보를 확인하시려면 /var/log/messages를 보시거나 가상 콘솔 3을보십시"
 "오."
 
 #. Type: error
@@ -246,16 +239,15 @@ msgstr "${SUBST0} Release 파일을 가져오는 데 실패했습니다."
 #. Type: error
 #. Description
 #: ../base-installer.templates:105
-#, fuzzy
 msgid "Failed getting Release signature file ${SUBST0}."
-msgstr "${SUBST0} Release 파일을 가져오는 데 실패했습니다."
+msgstr "${SUBST0} Release 서명 파일을 가져오는 데 실패했습니다."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:110
-#, fuzzy
 msgid "Release file signed by unknown key (key id ${SUBST0})"
-msgstr "Release 파일이 잘못되었습니다: ${SUBST0}에 대한 항목이 없습니다."
+msgstr ""
+"Release 파일의 서명이 잘못되었습니다: 키 ${SUBST0}에 대한 항목이 없습니다."
 
 #. Type: error
 #. Description
@@ -298,9 +290,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../base-installer.templates:138
-#, fuzzy
 msgid "Preparing to install the base system..."
-msgstr "데비안 베이스 시스템 설치를 준비하는 중입니다..."
+msgstr "데비안 베이스 시스템 설치를 준비하는 중입니다.."
 
 #. Type: text
 #. Description
@@ -317,9 +308,8 @@ msgstr "Release 파일을 가져오는 중입니다"
 #. Type: text
 #. Description
 #: ../base-installer.templates:150
-#, fuzzy
 msgid "Retrieving Release file signature"
-msgstr "Release 파일을 가져오는 중입니다"
+msgstr "Release 파일의 서명을 가져오는 중입니다"
 
 #. Type: text
 #. Description
@@ -336,7 +326,6 @@ msgstr "꾸러미 파일을 가져오는 중입니다"
 #. Type: text
 #. Description
 #: ../base-installer.templates:162
-#, fuzzy
 msgid "Retrieving Packages file"
 msgstr "꾸러미 파일을 가져오는 중입니다"
 
@@ -361,37 +350,32 @@ msgstr "베이스 시스템을 설치하는 중입니다"
 #. Type: text
 #. Description
 #: ../base-installer.templates:178
-#, fuzzy
 msgid "Installing core packages"
-msgstr "핵심 꾸러미들을 설치하는 중입니다..."
+msgstr "핵심 꾸러미들을 설치하는 중입니다"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:182
-#, fuzzy
 msgid "Unpacking required packages"
-msgstr "필수 꾸러미를 푸는 중입니다..."
+msgstr "필수 꾸러미를 푸는 중입니다"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:186
-#, fuzzy
 msgid "Configuring required packages"
-msgstr "필수 꾸러미를 설정하는 중입니다..."
+msgstr "필수 꾸러미를 설정하는 중입니다"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:190
-#, fuzzy
 msgid "Unpacking the base system"
-msgstr "베이스 시스템을 설치하는 중입니다"
+msgstr "베이스 시스템을 푸는 중입니다"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:194
-#, fuzzy
 msgid "Configuring the base system"
-msgstr "베이스 시스템을 설치하는 중입니다"
+msgstr "베이스 시스템을 설정하는 중입니다"
 
 #. Type: text
 #. Description
@@ -414,51 +398,44 @@ msgstr "${SUBST0} 파일을 푸는 중입니다..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:214
-#, fuzzy
 msgid "Unpacking ${SUBST0}..."
 msgstr "${SUBST0} 파일을 푸는 중입니다..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:218
-#, fuzzy
 msgid "Configuring ${SUBST0}..."
-msgstr "${SUBST0} 파일을 확인하는 중입니다..."
+msgstr "${SUBST0} 파일을 설정하는 중입니다..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:222
-#, fuzzy
 msgid "Checking Release signature"
-msgstr "Release 파일을 가져오는 중입니다"
+msgstr "Release 서명을 확인하는 중입니다"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:226
-#, fuzzy
 msgid "Valid Release signature (key id ${SUBST0})"
-msgstr "Release 파일이 잘못되었습니다: ${SUBST0}에 대한 항목이 없습니다."
+msgstr "Release 서명이 유효합니다(키 ${SUBST0})"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:230
-#, fuzzy
 msgid "Resolving dependencies of base packages..."
-msgstr "베이스 꾸러미를 설치하는 중입니다..."
+msgstr "베이스 꾸러미가 의존하는 꾸러미를 푸는 중입니다..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:234
-#, fuzzy
 msgid "Resolving dependencies of required packages..."
-msgstr "필수 꾸러미를 푸는 중입니다..."
+msgstr "필수 꾸러미가 의존하는 꾸러미를 푸는 중입니다..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:238
-#, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
-msgstr "꾸러미 크기를 검사하는 중입니다: ${SUBST0}..."
+msgstr "${SUBST1}의 구성요소인 ${SUBST0} 꾸러미를 확인하는 중입니다.."
 
 #. Type: text
 #. Description
@@ -487,16 +464,14 @@ msgstr "베이스 꾸러미를 설치하는 중입니다..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:258
-#, fuzzy
 msgid "Unpacking the base system..."
-msgstr "베이스 시스템을 설치하는 중입니다"
+msgstr "베이스 시스템을 푸는 중입니다..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:262
-#, fuzzy
 msgid "Configuring the base system..."
-msgstr "베이스 시스템을 설치하는 중입니다"
+msgstr "베이스 시스템을 설정하는 중입니다..."
 
 #. Type: text
 #. Description
@@ -513,9 +488,8 @@ msgstr "${SECTION}: ${INFO}..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:274
-#, fuzzy
 msgid "Retrying failed download of ${SUBST0}"
-msgstr "${SUBST0}을(를) 내려받을 수 없습니다."
+msgstr "${SUBST0}을(를) 받는데 실패하여 다시 내려받는 중입니다"
 
 #. Type: text
 #. Description
