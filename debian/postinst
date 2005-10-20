@@ -303,6 +303,12 @@ configure_apt () {
 
 	[ ! -d /target/etc/apt ] && mkdir -p /target/etc/apt
 	echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
+
+	# Make apt trust Debian CDs. This is not on by default (we think).
+	if [ ! -e /target/etc/apt/apt.conf ] || \
+	   ! grep -iq 'APT::Authentication::TrustCDROM' /target/etc/apt/apt.conf; then
+		echo "APT::Authentication::TrustCDROM \"true\";" >> /target/etc/apt/apt.conf
+	fi
 }
 
 create_devices () {
