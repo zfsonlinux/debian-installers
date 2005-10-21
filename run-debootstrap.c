@@ -178,11 +178,6 @@ exec_debootstrap(char **argv){
         if (freopen("/dev/null", "r", stdin) == NULL)
             perror("freopen");
 
-        if (freopen("/var/log/messages", "a", stderr) == NULL)
-            perror("freopen");
-
-        dup2(2, 1);
-
         setenv("PERL_BADLANG", "0", 1);
         /* These are needed to hack around a hack (!) in update-inetd
          * and to not confuse debconf's postinst */
