@@ -37,17 +37,17 @@ arch_get_kernel () {
 	fi
 
 	if [ "$1" = amd64-k8 ]; then
-		echo "linux-image-$KERNEL_MAJOR-amd64-k8$SMP"
 		if [ "$SMP" ]; then
-			echo "linux-image-$KERNEL_MAJOR-amd64-k8"
+			echo "linux-image-$KERNEL_MAJOR-amd64-k8$SMP"
 		fi
+		echo "linux-image-$KERNEL_MAJOR-amd64-k8"
 		set amd64-generic
 	fi
 	if [ "$1" = em64t-p4 ]; then
-		echo "linux-image-$KERNEL_MAJOR-em64t-p4$SMP"
 		if [ "$SMP" ]; then
-			echo "linux-image-$KERNEL_MAJOR-em64t-p4"
+			echo "linux-image-$KERNEL_MAJOR-em64t-p4$SMP"
 		fi
+		echo "linux-image-$KERNEL_MAJOR-em64t-p4"
 		set amd64-generic
 	fi
 	echo "linux-image-$KERNEL_MAJOR-amd64-generic"
