@@ -20,7 +20,11 @@ base-installer (1.36) UNRELEASED; urgency=low
   * Remove hard-coded redirection to /var/log/messages in run-debootstrap so
     that log-output in the postinst can do its work.
 
- -- Frans Pop <fjp@debian.org>  Fri, 21 Oct 2005 17:49:44 +0200
+  [ Joey Hess ]
+  * Remove code that munged/demunged Packages and Release filename in the
+    cache for debootstrap, since debootstrap no longer does that munging.
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 26 Oct 2005 12:48:21 -0400
 
 base-installer (1.35) unstable; urgency=low
 

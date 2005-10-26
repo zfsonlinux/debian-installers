@@ -174,10 +174,8 @@ get_mirror_info () {
 	fi
 
 	DISTRIBUTION=`grep ^Codename: $APTLISTDIR/tmp | cut -d' ' -f 2`
-	DEBOOTSTRAPLIST="$APTLISTDIR/debootstrap.invalid_dists_${DISTRIBUTION}"
-	mv $APTLISTDIR/tmp ${DEBOOTSTRAPLIST}_Release
 }
-	
+
 install_base_system () {
 	db_progress INFO base-installer/progress/preparing
 
@@ -287,14 +285,6 @@ configure_apt () {
 		# The bind mount is left mounted after this postinst exits,
 		# for future apt-install calls to use.
 	fi
-
-	# Move files to where apt expects them to avoid another download or copy.
-	APTLISTDIR=/target/var/lib/apt/lists
-	APTDIR=`echo $DIRECTORY | tr "/" "_"`
-	DEBOOTSTRAPLIST="$APTLISTDIR/debootstrap.invalid_dists_${DISTRIBUTION}"
-	APTLIST="$APTLISTDIR/${MIRROR}${APTDIR}_dists_${DISTRIBUTION}"
-	mv ${DEBOOTSTRAPLIST}_Release ${APTLIST}_Release
-	mv ${DEBOOTSTRAPLIST}_main_binary-${ARCH}_Packages ${APTLIST}_main_binary-${ARCH}_Packages
 
 	# sources.list uses space to separate the components, not comma
 	COMPONENTS=`echo $COMPONENTS | tr , " "`
