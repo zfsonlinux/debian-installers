@@ -291,7 +291,16 @@ configure_apt () {
 	APTSOURCE="$PROTOCOL://$MIRROR$DIRECTORY"
 
 	[ ! -d /target/etc/apt ] && mkdir -p /target/etc/apt
-	echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
+	if [ "$PROTOCOL" = file ] ; then
+		# This assumes the file protocol is only used for CD (image) installs
+		if ! log-output -t base-installer chroot /target apt-cdrom -m add ; then
+			error "error while running apt-cdrom"
+		else
+			log-output -t base-installer chroot /target apt-get update
+		fi
+	else
+		echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
+	fi
 
 	# Make apt trust Debian CDs. This is not on by default (we think).
 	if [ ! -e /target/etc/apt/apt.conf ] || \
