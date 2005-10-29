@@ -292,11 +292,10 @@ configure_apt () {
 
 	[ ! -d /target/etc/apt ] && mkdir -p /target/etc/apt
 	if [ "$PROTOCOL" = file ] ; then
+		: > /target/etc/apt/sources.list
 		# This assumes the file protocol is only used for CD (image) installs
 		if ! log-output -t base-installer chroot /target apt-cdrom -m add ; then
 			error "error while running apt-cdrom"
-		else
-			log-output -t base-installer chroot /target apt-get update
 		fi
 	else
 		echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
