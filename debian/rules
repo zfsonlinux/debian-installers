@@ -40,6 +40,8 @@ install: build test
 		install -m644 "kernel/$(ARCH).sh" \
 		              $(tmp)/usr/lib/base-installer/kernel.sh; \
 	fi
+	dh_installdirs usr/lib/prebaseconfig.d
+	install -m755 prebaseconfig $(tmp)/usr/lib/prebaseconfig.d/90base-installer
 
 binary-arch: install
 	dh_testdir
