@@ -36,8 +36,14 @@ base-installer (1.36) UNRELEASED; urgency=low
     of in the progress bar, since they can be arbitrarily bad. Warnings that
     have a template (ie, the download retry warning) still display as progress
     bar updates.
+  * Delete any cruft left behind by a past debootstrap run in
+    /target/var/lib/apt. This avoids a problem where 1) debootstrap is run
+    before dinstall 2) Packages file download fails and aborts the run 3)
+    debootstrap is re-run after dinstall, does not refresh Release file, and
+    fails since the new Packages file it does download has a m5sum mismatch
+    with the old Release file. (Ah, the joys of running d-i on dialup..)
 
- -- Joey Hess <joeyh@debian.org>  Thu,  3 Nov 2005 00:58:47 -0500
+ -- Joey Hess <joeyh@debian.org>  Thu,  3 Nov 2005 01:12:24 -0500
 
 base-installer (1.35) unstable; urgency=low
 

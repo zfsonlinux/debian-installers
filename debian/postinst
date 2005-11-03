@@ -234,6 +234,9 @@ install_base_system () {
 		done
 	fi
 
+	# clean up after any past debootstrap run
+	rm -f /target/var/lib/apt/* 2>/dev/null || true
+	
 	if search-path cdebootstrap; then
 		cdebootstrap || debootstrap_failed=$?
 	else
