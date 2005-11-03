@@ -31,7 +31,13 @@ base-installer (1.36) UNRELEASED; urgency=low
   * Make sure that neither apt-cdrom or apt unount/mount CD-ROMs; needed to
     make cdrom: source lines also work with CD images.
 
- -- Frans Pop <fjp@debian.org>  Sun, 30 Oct 2005 13:48:48 +0100
+  [ Joey Hess ]
+  * Display fallback warning messages as using an error template instead
+    of in the progress bar, since they can be arbitrarily bad. Warnings that
+    have a template (ie, the download retry warning) still display as progress
+    bar updates.
+
+ -- Joey Hess <joeyh@debian.org>  Thu,  3 Nov 2005 00:58:47 -0500
 
 base-installer (1.35) unstable; urgency=low
 

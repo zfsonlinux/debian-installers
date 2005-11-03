@@ -285,13 +285,16 @@ exec_debootstrap(char **argv){
                         ptr = n_sprintf(line+4, arg_count, args);
                         if (ptr == NULL)
                             return -1;
-                        /* fallback warning message */
+                        /* Fallback warning message. Unlike the above,
+			 * display this as an error, since it could be
+			 * arbitrarily bad. */
                         debconf_subst(debconf, DEBCONF_BASE "fallback-warning",
 				      "INFO", ptr);
 			debconf_subst(debconf, DEBCONF_BASE "fallback-warning",
 			              "SECTION", section_text);
-                        debconf_progress_info(debconf,
-					      DEBCONF_BASE "fallback-warning");
+                        debconf_input(debconf, "critical",
+				      DEBCONF_BASE "fallback-warning");
+                        debconf_go(debconf);
                         free(ptr);
                     }
                     else
