@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"POT-Creation-Date: 2005-10-21 15:12+0200\n"
+"POT-Creation-Date: 2005-11-03 18:31-0700\n"
 "PO-Revision-Date: 2005-05-13 18:04+0100\n"
 "Last-Translator: VEROK Istvan <vi@fsf.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
@@ -404,6 +404,12 @@ msgstr "Alaprendszer telepítése folyamatban"
 
 #. Type: text
 #. Description
+#: ../base-installer.templates:198
+msgid "${SECTION}: ${INFO}..."
+msgstr "${SECTION}: ${INFO}..."
+
+#. Type: text
+#. Description
 #: ../base-installer.templates:202
 msgid "Validating ${SUBST0}..."
 msgstr "Épség ellenőrzése folyamatban: ${SUBST0}..."
@@ -513,40 +519,47 @@ msgstr "Alaprendszer telepítése folyamatban"
 msgid "Base system installed successfully."
 msgstr "Alaprendszer telepítése sikeresen megtörtént."
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../base-installer.templates:270
-msgid "${SECTION}: ${INFO}..."
-msgstr "${SECTION}: ${INFO}..."
+#, fuzzy
+msgid "Debootstrap warning"
+msgstr "Debootstrap hiba"
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:270
+msgid "Warning: ${INFO}"
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:274
+#: ../base-installer.templates:275
 #, fuzzy
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Letöltés meghiúsult: ${SUBST0}."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:278
+#: ../base-installer.templates:279
 msgid "Configuring APT sources..."
 msgstr "APT-források konfigurálása..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:282
+#: ../base-installer.templates:283
 msgid "Updating the list of available packages..."
 msgstr "Elérhető csomagok listájának frissítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:286
+#: ../base-installer.templates:287
 msgid "Installing extra packages..."
 msgstr "Extra csomagok telepítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:290
+#: ../base-installer.templates:291
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr ""
 "Extra csomagok telepítése folyamatban - beszerzés és telepítés folyamatban: "
@@ -554,25 +567,25 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:294
+#: ../base-installer.templates:295
 msgid "Creating device files..."
 msgstr "Eszközfájlok létrehozása folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:298
+#: ../base-installer.templates:299
 msgid "Selecting the kernel to install..."
 msgstr "Telepítendő rendszermag kiválasztása folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:302
+#: ../base-installer.templates:303
 msgid "Installing the kernel..."
 msgstr "Rendszermag telepítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:306
+#: ../base-installer.templates:307
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr ""
 "Rendszermag telepítése folyamatban - beszerzés és telepítés folyamatban: "
@@ -580,7 +593,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:310
+#: ../base-installer.templates:311
 msgid "Installing the PCMCIA modules"
 msgstr "PCMCIA-modulok telepítése"
 
@@ -588,6 +601,6 @@ msgstr "PCMCIA-modulok telepítése"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:316
+#: ../base-installer.templates:317
 msgid "Install the base system"
 msgstr "Alaprendszer telepítése"
