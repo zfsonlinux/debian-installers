@@ -48,6 +48,11 @@ base-installer (1.36) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Fix code to avoid -smp variants on powerpc64.
+  * Support configuring initramfs-tools rather than initrd-tools, and make
+    that the default when installing 2.6. We still use initrd-tools on hppa
+    and ia64, as the most current information I have indicates that
+    initramfs-tools doesn't work there; porters should feel free to update
+    this. I've left notes for where I think yaird could best be slotted in.
 
  -- Sven Luther <luther@debian.org>  Mon, 14 Nov 2005 14:09:20 +0000
 

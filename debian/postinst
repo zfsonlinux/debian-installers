@@ -508,6 +508,19 @@ install_kernel () {
 		do_initrd=yes
 	fi
 
+	do_initramfs=no
+	if [ "$do_initrd" = yes ]; then
+		if db_get "base-installer/kernel/linux/initramfs-$target_kernel_major"; then
+			if [ "$RET" = true ]; then
+				do_initramfs=yes
+			fi
+		elif db_get base-installer/kernel/linux/initramfs; then
+			if [ "$RET" = true ]; then
+				do_initramfs=yes
+			fi
+		fi
+	fi
+
 	if db_get base-installer/kernel/linux/link_in_boot ; then
 		if [ "$RET" = "true" ]; then
 			link_in_boot=yes
@@ -536,28 +549,43 @@ do_initrd = $do_initrd
 link_in_boot = $link_in_boot
 EOF
 
-	mkinitrdconf=/target/etc/mkinitrd/mkinitrd.conf
-	if [ yes = "$do_initrd" ] ; then
-		info "Installing initrd-tools."
+	if [ "$do_initramfs" = yes ]; then
+		# TODO: This would be a good place for a question about
+		# whether to use initramfs-tools or yaird, if desired. The
+		# next block would need to take into account any differences
+		# in configuration file syntax.
+		package=initramfs-tools
+		ramdiskconf=/target/etc/mkinitramfs/initramfs.conf
+	else
+		package=initrd-tools
+		ramdiskconf=/target/etc/mkinitrd/mkinitrd.conf
+	fi
 
-		# Make sure initrd-tools is installed before we change its
-		# configuration
-		db_subst base-installer/section/install_kernel_package SUBST0 "initrd-tools"
+	if [ yes = "$do_initrd" ] ; then
+		info "Installing $package."
+
+		# Make sure the ramdisk creation tool is installed before we
+		# change its configuration
+		db_subst base-installer/section/install_kernel_package SUBST0 "$package"
 		db_progress INFO base-installer/section/install_kernel_package
-		if ! log-output -t base-installer apt-install initrd-tools; then
-			db_subst base-installer/kernel/failed-package-install PACKAGE initrd-tools
+		if ! log-output -t base-installer apt-install "$package"; then
+			db_subst base-installer/kernel/failed-package-install PACKAGE "$package"
 			exit_error base-installer/kernel/failed-package-install
 		fi
 
-		# Temporarily hardcode the root partition.
-		rootpart_devfs=$(mount | grep "on /target " | cut -d' ' -f1)
-		rootpartfs=$(mount | grep "on /target " | cut -d' ' -f5)
-		rootpart=$(mapdevfs $rootpart_devfs)
-		if [ -f $mkinitrdconf ]; then
-			sed -e "s#^ROOT=.*#ROOT='$rootpart $rootpartfs'#" < $mkinitrdconf > $mkinitrdconf.new &&
-				mv $mkinitrdconf.new $mkinitrdconf
-		else
-			echo "ROOT='$rootpart $rootpartfs'" >> $mkinitrdconf
+		if [ "$do_initramfs" = no ]; then
+			# Temporarily hardcode the root partition.
+			# This isn't needed with initramfs-tools (TODO:
+			# check yaird).
+			rootpart_devfs=$(mount | grep "on /target " | cut -d' ' -f1)
+			rootpartfs=$(mount | grep "on /target " | cut -d' ' -f5)
+			rootpart=$(mapdevfs $rootpart_devfs)
+			if [ -f $ramdiskconf ]; then
+				sed -e "s#^ROOT=.*#ROOT='$rootpart $rootpartfs'#" < $ramdiskconf > $ramdiskconf.new &&
+					mv $ramdiskconf.new $ramdiskconf
+			else
+				echo "ROOT='$rootpart $rootpartfs'" >> $ramdiskconf
+			fi
 		fi
 
 		# Set up a default resume partition.
@@ -568,15 +596,15 @@ EOF
 			resume=
 		fi
 		if [ "$resume" ]; then
-			if [ -f $mkinitrdconf ] ; then
-				sed -e "s@^#* *RESUME=.*@RESUME=$resume@" < $mkinitrdconf > $mkinitrdconf.new &&
-					mv $mkinitrdconf.new $mkinitrdconf
+			if [ -f $ramdiskconf ] ; then
+				sed -e "s@^#* *RESUME=.*@RESUME=$resume@" < $ramdiskconf > $ramdiskconf.new &&
+					mv $ramdiskconf.new $ramdiskconf
 			else
-				echo "RESUME=$resume" >> $mkinitrdconf
+				echo "RESUME=$resume" >> $ramdiskconf
 			fi
 		fi
 	else
-		info "Not installing initrd-tools."
+		info "Not installing $package."
 	fi
 
 	# Advance progress bar to 30% of allocated space for install_kernel
@@ -592,9 +620,9 @@ EOF
 	update_progress 90 100
 
 	# /proc/filesystems will accomodate this past the second bootup.
-	if [ "$do_initrd" = yes ]; then
-		sed -e 's/^ROOT=.*/ROOT=probe/' $mkinitrdconf > $mkinitrdconf.new &&
-			mv $mkinitrdconf.new $mkinitrdconf
+	if [ "$do_initrd" = yes ] && [ "$do_initramfs" = no ]; then
+		sed -e 's/^ROOT=.*/ROOT=probe/' $ramdiskconf > $ramdiskconf.new &&
+			mv $ramdiskconf.new $ramdiskconf
 	fi
 
 	if [ -f /target/etc/kernel-img.conf.$$ ]; then
