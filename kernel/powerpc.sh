@@ -36,7 +36,7 @@ arch_get_kernel () {
 	apusversion=2.4.27
 
 	CPUS="$(grep -ci ^processor "$CPUINFO")" || CPUS=1
-	if [ "$CPUS" ] && [ "$CPUS" -gt 1 ] && [ "$family" != "powerpc64" ]; then
+	if [ "$CPUS" ] && [ "$CPUS" -gt 1 ] && [ "$1" != "powerpc64" ]; then
 		SMP=-smp
 	else
 		SMP=
