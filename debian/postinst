@@ -573,6 +573,21 @@ EOF
 			exit_error base-installer/kernel/failed-package-install
 		fi
 
+		if db_get "base-installer/kernel/linux/extra-packages-$target_kernel_major"; then
+			EXTRAS="$RET"
+		elif db_get base-installer/kernel/linux/extra-packages; then
+			EXTRAS="$RET"
+		else
+			EXTRAS=
+		fi
+		for package in $EXTRAS; do
+			info "Installing $package."
+			db_subst base-installer/section/install_kernel_package SUBST0 "$package"
+			db_progress INFO base-installer/section/install_kernel_package
+			# The package might not exist; don't worry about it.
+			apt-install "$package" 2>> $LOGFILE || true
+		done
+
 		if [ "$do_initramfs" = no ]; then
 			# Temporarily hardcode the root partition.
 			# This isn't needed with initramfs-tools (TODO:

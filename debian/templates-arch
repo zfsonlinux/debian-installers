@@ -50,6 +50,16 @@ Default[ia64]: false
 # defaults if you want to select among different initramfs creation tools.
 Description: use an initramfs (linux 2.6 only)
 
+Template: base-installer/kernel/linux/extra-packages
+Type: string
+Default:
+Description: extra packages to install with init*-tools (linux only)
+
+Template: base-installer/kernel/linux/extra-packages-2.6
+Type: string
+Default:
+Description: extra packages to install with init*-tools (linux 2.6 only)
+
 Template: base-installer/kernel/linux/link_in_boot
 Type: boolean
 Default: true
