@@ -589,9 +589,8 @@ EOF
 		done
 
 		if [ "$do_initramfs" = no ]; then
-			# Temporarily hardcode the root partition.
-			# This isn't needed with initramfs-tools (TODO:
-			# check yaird).
+			# Temporarily hardcode the root partition for
+			# initrd-tools.
 			rootpart_devfs=$(mount | grep "on /target " | cut -d' ' -f1)
 			rootpartfs=$(mount | grep "on /target " | cut -d' ' -f5)
 			rootpart=$(mapdevfs $rootpart_devfs)
