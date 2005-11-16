@@ -1,3 +1,11 @@
+base-installer (1.37) UNRELEASED; urgency=low
+
+  * Remove sigchld handler in run_debootstrap. It caused it to stop processing
+    before it got to debootstrap error messages, so useful error messages
+    were not displayed. Closes: #337191
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 16 Nov 2005 14:19:17 -0500
+
 base-installer (1.36) unstable; urgency=low
 
   [ Joey Hess ]
