@@ -311,7 +311,7 @@ Acquire::cdrom {
 EOT
 		# Scan CD-ROM or CD image; start with clean sources.list
 		: > /target/etc/apt/sources.list
-		if ! chroot /target apt-cdrom add >>$LOGFILE 2>&1 ; then
+		if ! log-output -t base-installer chroot /target apt-cdrom add ; then
 			error "error while running apt-cdrom"
 		fi
 	else
