@@ -554,8 +554,10 @@ EOF
 		# whether to use initramfs-tools or yaird, if desired. The
 		# next block would need to take into account any differences
 		# in configuration file syntax.
-		package=initramfs-tools
-		ramdiskconf=/target/etc/mkinitramfs/initramfs.conf
+		#package=initramfs-tools
+		#ramdiskconf=/target/etc/mkinitramfs/initramfs.conf
+		package=initrd-tools
+		ramdiskconf=/target/etc/mkinitrd/mkinitrd.conf
 	else
 		package=initrd-tools
 		ramdiskconf=/target/etc/mkinitrd/mkinitrd.conf
