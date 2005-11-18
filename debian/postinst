@@ -587,7 +587,7 @@ EOF
 			db_subst base-installer/section/install_kernel_package SUBST0 "$package"
 			db_progress INFO base-installer/section/install_kernel_package
 			# The package might not exist; don't worry about it.
-			apt-install "$package" 2>> $LOGFILE || true
+			log-output -t base-installer apt-install "$package" || true
 		done
 
 		if [ "$do_initramfs" = no ]; then
