@@ -3,23 +3,24 @@
 #
 # DO NOT MODIFY IT DIRECTLY : SUCH CHANGES WILL BE LOST
 # 
+# translation of lv.po to Latvian
 # Latvian messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-#
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer\n"
+"Project-Id-Version: lv\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-11-03 18:31-0700\n"
-"PO-Revision-Date: 2004-10-26 08:41+0200\n"
-"Last-Translator: Aigars Mahinovs <aigarius@debian.org>\n"
-"Language-Team: Latvian <locale@laka.lv>\n"
+"PO-Revision-Date: 2005-12-02 01:32+0200\n"
+"Last-Translator: Aigars Mahinovs <aigarius@laka.lv>\n"
+"Language-Team: locale@laka.lv <locale@laka.lv>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
+"X-Generator: KBabel 1.10\n"
+"X-Poedit-Language: Latvian\n"
+"X-Poedit-Country: LATVIA\n"
 
 #. Type: boolean
 #. Description
@@ -30,19 +31,18 @@ msgstr "Turpināt instalēt uz 'netīru' mērķa direktoriju?"
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:4
-#, fuzzy
 msgid ""
 "The target file system contains files from a past installation. These files "
 "could cause problems with the installation process, and if you proceed, some "
 "of the existing files may be overwritten."
 msgstr ""
-"Mērķa failu sistēma satur failus no iepriekšējās instalācijas. Šie faili var "
-"traucēt instalācijas procesu vai izsaukt kļudas jau uzinstalētajā sistēmā."
+"Izvēlētā failu sistēma satur failus no iepriekšējās instalācijas. Šie faili "
+"var traucēt instalācijas procesu, ja turpināsiet daļa esošo failu var tikt "
+"parrakstīti."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
-#, fuzzy
 msgid "Cannot install base system"
 msgstr "Kļūda instalējot bāzes sistēmu"
 
@@ -53,12 +53,14 @@ msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
 msgstr ""
+"Instalācijas sistēma nevar noteikt kā instalēt bāzes sistēmu. Instalācijas "
+"CD vai korekti nokonfigurēts spogulis nav atrasts."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:17
 msgid "No file system mounted on /target"
-msgstr ""
+msgstr "Mērķa direktorjai (/target) nav piemontēta failu sistēma"
 
 #. Type: error
 #. Description
@@ -67,6 +69,8 @@ msgid ""
 "Before the installation can proceed, a root file system must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
 msgstr ""
+"Pirms instalācija var turpināties, pie /target ir jāpiemontē saknes failu "
+"sistēma. Partīciju veidošanas rīkam to vajadzēja jau izdarīt jūsu vietā."
 
 #. Type: error
 #. Description
@@ -77,16 +81,13 @@ msgstr "Neinstalēju uz 'netīru' mērķa direktoriju"
 #. Type: error
 #. Description
 #: ../base-installer.templates:23
-#, fuzzy
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
 "install."
 msgstr ""
-"Mērķa failu sistēma satur failus no iepriekšējās instalācijas. Šie faili var "
-"traucēt instalācijas procesu vai izsaukt kļudas jau uzinstalētajā sistēmā. "
-"Instalācija tika pārtraukta, lūdzu atgriezieties un nodzēsiet šo failus vai "
-"arī noformatizējiet atbilstošās partīcijas pirms turpinat instalāciju."
+"Instalācija izvēlētajā failu sistēmā ir atcelta. Pirms turpinat instalāciju, "
+"atgriezieties un izdzēsiet vai pārformatējiet izvēlēto failu sistēmu."
 
 #. Type: error
 #. Description
@@ -135,7 +136,7 @@ msgstr "${ERROR}"
 #. Description
 #: ../base-installer.templates:60
 msgid "Unable to install the selected kernel"
-msgstr "Nevaru uzinstalēt izvēlēto Linux kodolu"
+msgstr "Nevaru uzinstalēt izvēlēto kodolu"
 
 #. Type: error
 #. Description
@@ -143,25 +144,25 @@ msgstr "Nevaru uzinstalēt izvēlēto Linux kodolu"
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
-msgstr "Mēģinot uzinstalēt Linux kodolu bāzes sistēmā, notika kļūda."
+msgstr "Mēģinot uzinstalēt kodolu bāzes sistēmā, notika kļūda."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:60
 msgid "Kernel package: '${KERNEL}'."
-msgstr "Linux kodola paka: '${KERNEL}'."
+msgstr "Kodola paka: '${KERNEL}'."
 
 #. Type: select
 #. Choices
 #: ../base-installer.templates:70
 msgid "${KERNELS}, none"
-msgstr ""
+msgstr "${KERNELS}, nav norādīts"
 
 #. Type: select
 #. Description
 #: ../base-installer.templates:71
 msgid "Kernel to install:"
-msgstr "Kādu Linux kodolu instalēt:"
+msgstr "Kādu kodolu instalēt:"
 
 #. Type: select
 #. Description
@@ -170,21 +171,20 @@ msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
 msgstr ""
-"Šie ir pieejamie Linux kodoli.Lūdzu izvēlaties vienu no tiem, lai sistēma "
-"varētu iesakņoties no cietā diska."
+"Šie ir pieejamie kodoli.Lūdzu izvēlaties vienu no tiem, lai sistēma varētu "
+"sāknēties no cietā diska."
 
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:78
-#, fuzzy
 msgid "Continue without installing a kernel?"
-msgstr "Turpināt instalāciju?"
+msgstr "Turpināt neinstalējot kodolu?"
 
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:78
 msgid "No installable kernel was found in the defined APT sources."
-msgstr "Instalējami Linux kodoli nav atrasti definētajos APT avotos."
+msgstr "Instalējami kodoli nav atrasti definētajos APT avotos."
 
 #. Type: boolean
 #. Description
@@ -194,44 +194,43 @@ msgid ""
 "kernel later. This is only recommended for experts, otherwise you will "
 "likely end up with a machine that doesn't boot."
 msgstr ""
+"Jūs varat turpinār atī bez kodola, tad jums to vajadzēs manuāli uzinstalet "
+"vēlāk. Šāda izvēle ir ieteicama tikai ekspertiem, pretējā'gadījumā jūs varat "
+"nonākt pie sistēmas, kas nesāknējas."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:87
-#, fuzzy
 msgid "Cannot install kernel"
-msgstr "Kļūda instalējot bāzes sistēmu"
+msgstr "Kļūda instalējot kodolu"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:87
 msgid "The installer cannot find a suitable kernel package to install."
-msgstr ""
+msgstr "Instalators nevar atrast piemērotu kodola paku ko instalēt."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:92
-#, fuzzy
 msgid "Unable to install ${PACKAGE}"
-msgstr "Nevaru instalēt GRUB uz ${BOOTDEV}"
+msgstr "Nevaru uzinstalēt ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:92
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
-msgstr "Notika kļūda mēģinot uzinstalēt initrd-tools paku jaunajā sistēmā."
+msgstr "Kļūda mēģinot uzinstalēt ${PACKAGE} paku izvēlētajā sistēmā."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:92
-#, fuzzy
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
-"Pārbaudiet /var/log/messages faila saturu, vai skatieties detaļas uz trešās "
-"virtuālās konsoles (ALT+F3)."
+"Pārbaudiet /var/log/syslog vai skatieties sīkāk ceturtajā virtuālajā konsolē "
+"(ALT+F4)."
 
 #. Type: error
 #. Description
@@ -242,16 +241,15 @@ msgstr "Kļūda iegūstot Release failu ${SUBST0}."
 #. Type: error
 #. Description
 #: ../base-installer.templates:105
-#, fuzzy
 msgid "Failed getting Release signature file ${SUBST0}."
-msgstr "Kļūda iegūstot Release failu ${SUBST0}."
+msgstr "Kļūda iegūstot Release paraksta failu ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:110
-#, fuzzy
 msgid "Release file signed by unknown key (key id ${SUBST0})"
-msgstr "Nekorekts Release fails: nav ${SUBST0} ieraksta."
+msgstr ""
+"Release fails ir parakstīts ar nezināmu atslēgu (atslēgas id ${SUBST0})"
 
 #. Type: error
 #. Description
@@ -278,6 +276,8 @@ msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
 msgstr ""
+"Nevar iegūt ${SUBST0}. Šādu problēmu atkarībā no instalācijas metodes var "
+"izraisīt problēmas ar tīklu vai bojāts CD."
 
 #. Type: error
 #. Description
@@ -286,13 +286,14 @@ msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
 msgstr ""
+"Ja instalējat no CD-R vai CD-RW, diska ierakstīšana ar lēnāku ātrumu varētu "
+"palīdzēt."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:138
-#, fuzzy
 msgid "Preparing to install the base system..."
-msgstr "Gatavojos instalēt Debian bāzes sistēmu"
+msgstr "Gatavojos instalēt bāzes sistēmu..."
 
 #. Type: text
 #. Description
@@ -309,9 +310,8 @@ msgstr "Saņemu Release failu"
 #. Type: text
 #. Description
 #: ../base-installer.templates:150
-#, fuzzy
 msgid "Retrieving Release file signature"
-msgstr "Saņemu Release failu"
+msgstr "Saņemu Release failu parakstu"
 
 #. Type: text
 #. Description
@@ -328,7 +328,6 @@ msgstr "Saņemu Packages failu"
 #. Type: text
 #. Description
 #: ../base-installer.templates:162
-#, fuzzy
 msgid "Retrieving Packages file"
 msgstr "Saņemu Packages failu"
 
@@ -353,43 +352,38 @@ msgstr "Instalēju bāzes sistēmu"
 #. Type: text
 #. Description
 #: ../base-installer.templates:178
-#, fuzzy
 msgid "Installing core packages"
-msgstr "Instalēju kodola līmeņa pakas..."
+msgstr "Instalēju pamatpakas"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:182
-#, fuzzy
 msgid "Unpacking required packages"
-msgstr "Atpakoju nepieciešamās pakas..."
+msgstr "Atpakoju nepieciešamās pakas"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:186
-#, fuzzy
 msgid "Configuring required packages"
-msgstr "Konfigurēju nepieciešamās pakas..."
+msgstr "Konfigurēju nepieciešamās pakas"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:190
-#, fuzzy
 msgid "Unpacking the base system"
-msgstr "Instalēju bāzes sistēmu"
+msgstr "Atpakoju bāzes sistēmu"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:194
-#, fuzzy
 msgid "Configuring the base system"
-msgstr "Instalēju bāzes sistēmu"
+msgstr "Konfigurēju bāzes sistēmu"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:198
 msgid "${SECTION}: ${INFO}..."
-msgstr ""
+msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
@@ -412,57 +406,50 @@ msgstr "Atpakoju ${SUBST0}..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:214
-#, fuzzy
 msgid "Unpacking ${SUBST0}..."
 msgstr "Atpakoju ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:218
-#, fuzzy
 msgid "Configuring ${SUBST0}..."
-msgstr "Pārbaudu ${SUBST0}"
+msgstr "Konfigurēju ${SUBST0}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:222
-#, fuzzy
 msgid "Checking Release signature"
-msgstr "Saņemu Release failu"
+msgstr "Pārbaudu Release parakstu"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:226
-#, fuzzy
 msgid "Valid Release signature (key id ${SUBST0})"
-msgstr "Nekorekts Release fails: nav ${SUBST0} ieraksta."
+msgstr "Korekts Release paraksts (atslēgas id ${SUBST0})"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:230
-#, fuzzy
 msgid "Resolving dependencies of base packages..."
-msgstr "Instalēju bāzes pakas..."
+msgstr "Atrisinu bāzes paku savstarpējās atkarības..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:234
-#, fuzzy
 msgid "Resolving dependencies of required packages..."
-msgstr "Atpakoju nepieciešamās pakas..."
+msgstr "Atrisinu nepieciešamo paku savstarpējās atkarības..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:238
-#, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
-msgstr "Pārbaudu izmērus: ${SUBST0}..."
+msgstr "Pārbaudu ${SUBST0} komponentes ${SUBST1}..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:242
 msgid "Installing core packages..."
-msgstr "Instalēju kodola līmeņa pakas..."
+msgstr "Instalēju pamatpakas..."
 
 #. Type: text
 #. Description
@@ -485,16 +472,14 @@ msgstr "Instalēju bāzes pakas..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:258
-#, fuzzy
 msgid "Unpacking the base system..."
-msgstr "Instalēju bāzes sistēmu"
+msgstr "Atpakoju bāzes sistēmu..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:262
-#, fuzzy
 msgid "Configuring the base system..."
-msgstr "Instalēju bāzes sistēmu"
+msgstr "Konfigurēju bāzes sistēmu..."
 
 #. Type: text
 #. Description
@@ -505,22 +490,20 @@ msgstr "Bāzes sistēma veiksmīgi uzinstalēta."
 #. Type: error
 #. Description
 #: ../base-installer.templates:270
-#, fuzzy
 msgid "Debootstrap warning"
-msgstr "Debootstrap Kļūda"
+msgstr "Debootstrap brīdinājums"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:270
 msgid "Warning: ${INFO}"
-msgstr ""
+msgstr "Brīdinājums: ${INFO}"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:275
-#, fuzzy
 msgid "Retrying failed download of ${SUBST0}"
-msgstr "Nevarēju lejuplādēt ${SUBST0}."
+msgstr "Atkārtota ${SUBST0} lejupielade nav izdevusies"
 
 #. Type: text
 #. Description
@@ -544,7 +527,7 @@ msgstr "Instalēju papildus pakas..."
 #. Description
 #: ../base-installer.templates:291
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
-msgstr ""
+msgstr "Instalēju papildus pakas - iegūstu un instalēju ${SUBST0}..."
 
 #. Type: text
 #. Description
@@ -568,7 +551,7 @@ msgstr "Instalēju kodolu..."
 #. Description
 #: ../base-installer.templates:307
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
-msgstr ""
+msgstr "Instalēju kodolu - iegūstu un instalēju ${SUBST0}..."
 
 #. Type: text
 #. Description
