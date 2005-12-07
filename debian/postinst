@@ -106,6 +106,12 @@ check_target () {
 }
 
 get_mirror_info () {
+	if db_get mirror/codename && [ "$RET" ] ; then
+		DISTRIBUTION=$RET
+	else
+		exit_error base-installer/no_codename
+	fi
+
 	if [ -f /cdrom/.disk/base_installable ]; then
 		PROTOCOL=file
 		MIRROR=""
@@ -146,34 +152,6 @@ get_mirror_info () {
 			exit_error base-installer/cannot_install
 		fi
 	fi
-
-	if db_get mirror/suite && [ "$RET" ] ; then
-		SUITE=$RET
-	fi
-
-	# Find the distribution codename
-	APTLISTDIR=/target/var/lib/apt/lists
-	mkdir -p $APTLISTDIR
-	if [ file = "$PROTOCOL" ]; then
-		cp /cdrom/dists/$SUITE/Release $APTLISTDIR/tmp || nogetrel="/cdrom/dists/$SUITE/Release"
-	else
-		if [ "$PROTOCOL" = "http" ]; then
-			db_get mirror/http/proxy
-			http_proxy="$RET" || true
-			if [ "$http_proxy" ]; then
-				export http_proxy
-			fi
-		fi
-
-		wget "$PROTOCOL://$MIRROR$DIRECTORY/dists/$SUITE/Release" -O $APTLISTDIR/tmp || nogetrel="$PROTOCOL://$MIRROR$DIRECTORY/dists/$SUITE/Release"
-	fi
-
-	if [ "$nogetrel" != "" ]; then
-		db_subst base-installer/debootstrap/error/nogetrel SUBST0 "$nogetrel"
-		exit_error base-installer/debootstrap/error/nogetrel
-	fi
-
-	DISTRIBUTION=`grep ^Codename: $APTLISTDIR/tmp | cut -d' ' -f 2`
 }
 
 install_base_system () {
