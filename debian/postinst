@@ -726,6 +726,7 @@ waypoint 100	install_base_system
 waypoint 1	configure_apt
 waypoint 3	apt_update
 waypoint 2	create_devices
+waypoint 5	post_install_hooks
 waypoint 1	pick_kernel
 waypoint 20	install_kernel
 case "$ARCH" in
@@ -736,7 +737,6 @@ case "$ARCH" in
 	;;
 esac
 waypoint 10	install_extra
-waypoint 5	post_install_hooks
 waypoint 0	cleanup
 
 db_progress START 0 $NUM_STEPS base-installer/progress/installing-debian

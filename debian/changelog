@@ -1,3 +1,11 @@
+base-installer (1.41) UNRELEASED; urgency=low
+
+  * Move post install hooks to run after debootstrap but before the
+    installation of the kernel and other extra packages. This allows
+    this hook to be used for preseeding packages installed after debootstrap.
+
+ -- Joey Hess <joeyh@debian.org>  Thu,  1 Dec 2005 17:45:37 -0500
+
 base-installer (1.40) UNRELEASED; urgency=low
 
   * Get codename from mirror/codename instead of determining it from SUITE.
