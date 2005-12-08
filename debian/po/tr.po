@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-03 18:31-0700\n"
+"POT-Creation-Date: 2005-12-07 18:43-0700\n"
 "PO-Revision-Date: 2005-11-08 08:26+0200\n"
 "Last-Translator: Recai Oktaş <roktas@omu.edu.tr>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -64,12 +64,18 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:17
+msgid "Failed to determine the codename for the release."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:22
 msgid "No file system mounted on /target"
 msgstr "Herhangi bir dosya sistemi bulunamadı"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:17
+#: ../base-installer.templates:22
 msgid ""
 "Before the installation can proceed, a root file system must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
@@ -80,13 +86,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:28
 msgid "Not installing to unclean target"
 msgstr "Temiz durumda olmayan hedef dizine kurulum yapılmayacak"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:28
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
@@ -97,56 +103,56 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:30
+#: ../base-installer.templates:35
 msgid "Failed to install the base system"
 msgstr "Temel sistem kurulamadı"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:30
+#: ../base-installer.templates:35
 msgid "The base system installation into /target/ failed."
 msgstr "Temel sistemin /target/'a kurulumu başarısız."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:37
+#: ../base-installer.templates:42
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr "debootstrap bir hata ile sonlandı (hata kodu ${EXITCODE})."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:44
+#: ../base-installer.templates:49
 msgid "Base system installation error"
 msgstr "Temel sistem kurulum hatası"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:44
+#: ../base-installer.templates:49
 msgid "The debootstrap program exited abnormally."
 msgstr "debootstrap beklenmedik şekilde sonlandı."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:51
+#: ../base-installer.templates:56
 msgid "The following error occurred:"
 msgstr "Aşağıdaki hata oluştu:"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:51
+#: ../base-installer.templates:56
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:60
+#: ../base-installer.templates:65
 msgid "Unable to install the selected kernel"
 msgstr "Seçilen çekirdek kurulamıyor"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:60
+#: ../base-installer.templates:65
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -154,25 +160,25 @@ msgstr "Hedef sisteme çekirdek kurulumu denenirken hata oluştu."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:60
+#: ../base-installer.templates:65
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Çekirdek paketi: '${KERNEL}'."
 
 #. Type: select
 #. Choices
-#: ../base-installer.templates:70
+#: ../base-installer.templates:75
 msgid "${KERNELS}, none"
 msgstr "${KERNELS}, hiçbiri"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:71
+#: ../base-installer.templates:76
 msgid "Kernel to install:"
 msgstr "Kurulacak çekirdek:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:71
+#: ../base-installer.templates:76
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -182,20 +188,20 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:78
+#: ../base-installer.templates:83
 msgid "Continue without installing a kernel?"
 msgstr "Bir çekirdek kurmadan kuruluma devam edilsin mi?"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:78
+#: ../base-installer.templates:83
 msgid "No installable kernel was found in the defined APT sources."
 msgstr ""
 "Belirtilen APT kaynaklarında kurulabilir nitelikte bir çekirdek bulunamadı."
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:78
+#: ../base-installer.templates:83
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -208,25 +214,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:87
+#: ../base-installer.templates:92
 msgid "Cannot install kernel"
 msgstr "Çekirdek kurulamıyor"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:87
+#: ../base-installer.templates:92
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr "Kurulum programı uygun bir çekirdek paketi bulamadı"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:92
+#: ../base-installer.templates:97
 msgid "Unable to install ${PACKAGE}"
 msgstr "${PACKAGE} paketi kurulamıyor"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:92
+#: ../base-installer.templates:97
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -234,26 +240,26 @@ msgstr "Hedef sisteme ${PACKAGE} paketinin kurulumu denenirken hata oluştu."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:92
+#: ../base-installer.templates:97
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
 "Ayrıntılı bilgi için /var/log/syslog dosyasına veya dördüncü konsola bakın."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:100
+#: ../base-installer.templates:105
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "\"Release\" dosyası ${SUBST0} alınamadı."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:105
+#: ../base-installer.templates:110
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "\"Release\" dosyasına ait imza dosyası ${SUBST0} alınamadı."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:110
+#: ../base-installer.templates:115
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr ""
 "\"Release\" dosyası bilinmeyen bir anahtarla imzalanmış (anahtar kimliği "
@@ -261,25 +267,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:115
+#: ../base-installer.templates:120
 msgid "Invalid Release file: no valid components."
 msgstr "Geçersiz \"Release\" dosyası: geçerli bileşenler yok."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:120
+#: ../base-installer.templates:125
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Geçersiz \"Release\" dosyası: ${SUBST0} için gerekli girdiler yok."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:125
+#: ../base-installer.templates:130
 msgid "Debootstrap Error"
 msgstr "Debootstrap Hatası"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:125
+#: ../base-installer.templates:130
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -289,7 +295,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:125
+#: ../base-installer.templates:130
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -299,271 +305,271 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:138
+#: ../base-installer.templates:143
 msgid "Preparing to install the base system..."
 msgstr "Temel sistem kurulumuna hazırlanılıyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:142
+#: ../base-installer.templates:147
 msgid "Running ${SCRIPT}..."
 msgstr "${SCRIPT} çalıştırılıyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:146
+#: ../base-installer.templates:151
 msgid "Retrieving Release file"
 msgstr "\"Release\" dosyası alınıyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:150
+#: ../base-installer.templates:155
 msgid "Retrieving Release file signature"
 msgstr "\"Release\" dosyasına ait imza dosyası alınıyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:154
+#: ../base-installer.templates:159
 msgid "Finding package sizes"
 msgstr "Paket boyutları bulunuyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:158
+#: ../base-installer.templates:163
 msgid "Retrieving Packages files"
 msgstr "\"Packages\" dosyası alınıyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:162
+#: ../base-installer.templates:167
 msgid "Retrieving Packages file"
 msgstr "\"Packages\" dosyası alınıyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:166
+#: ../base-installer.templates:171
 msgid "Retrieving packages"
 msgstr "Paketler alınıyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:170
+#: ../base-installer.templates:175
 msgid "Extracting packages"
 msgstr "Paketler açılıyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:174
+#: ../base-installer.templates:179
 msgid "Installing the base system"
 msgstr "Temel sistem kuruluyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:178
+#: ../base-installer.templates:183
 msgid "Installing core packages"
 msgstr "Çekirdek paketler kuruluyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:182
+#: ../base-installer.templates:187
 msgid "Unpacking required packages"
 msgstr "Gerekli paketler açılıyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:186
+#: ../base-installer.templates:191
 msgid "Configuring required packages"
 msgstr "Gerekli paketler yapılandırılıyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:190
+#: ../base-installer.templates:195
 msgid "Unpacking the base system"
 msgstr "Temel sistem paketleri açılıyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:194
+#: ../base-installer.templates:199
 msgid "Configuring the base system"
 msgstr "Temel sistem yapılandırılıyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:198
+#: ../base-installer.templates:203
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:202
+#: ../base-installer.templates:207
 msgid "Validating ${SUBST0}..."
 msgstr "${SUBST0} doğrulanıyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:206
+#: ../base-installer.templates:211
 msgid "Retrieving ${SUBST0}..."
 msgstr "${SUBST0} alınıyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:210
+#: ../base-installer.templates:215
 msgid "Extracting ${SUBST0}..."
 msgstr " ${SUBST0} açılıyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:214
+#: ../base-installer.templates:219
 msgid "Unpacking ${SUBST0}..."
 msgstr " ${SUBST0} açılıyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:218
+#: ../base-installer.templates:223
 msgid "Configuring ${SUBST0}..."
 msgstr "${SUBST0} yapılandırılıyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:222
+#: ../base-installer.templates:227
 msgid "Checking Release signature"
 msgstr "\"Release\" dosyasına ait imza denetleniyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:226
+#: ../base-installer.templates:231
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Geçersiz \"Release\" imzası (anahtar kimliği: ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:230
+#: ../base-installer.templates:235
 msgid "Resolving dependencies of base packages..."
 msgstr "\"Temel\" paketlerin bağımlılıkları çözülüyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:234
+#: ../base-installer.templates:239
 msgid "Resolving dependencies of required packages..."
 msgstr "\"Gerekli\" paketlerin bağımlılıkları çözülüyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:238
+#: ../base-installer.templates:243
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "${SUBST1} üzerindeki ${SUBST0} bileşeni denetleniyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:242
+#: ../base-installer.templates:247
 msgid "Installing core packages..."
 msgstr "Ana paketler kuruluyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:246
+#: ../base-installer.templates:251
 msgid "Unpacking required packages..."
 msgstr "Gerekli paketler açılıyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:250
+#: ../base-installer.templates:255
 msgid "Configuring required packages..."
 msgstr "Gerekli paketler yapılandırılıyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:254
+#: ../base-installer.templates:259
 msgid "Installing base packages..."
 msgstr "Temel paketler kuruluyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:258
+#: ../base-installer.templates:263
 msgid "Unpacking the base system..."
 msgstr "Temel sistem paketleri açılıyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:262
+#: ../base-installer.templates:267
 msgid "Configuring the base system..."
 msgstr "Temel sistem yapılandırılıyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:266
+#: ../base-installer.templates:271
 msgid "Base system installed successfully."
 msgstr "Temel sistem başarıyla kuruldu."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:270
+#: ../base-installer.templates:275
 msgid "Debootstrap warning"
 msgstr "Debootstrap uyarısı"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:270
+#: ../base-installer.templates:275
 msgid "Warning: ${INFO}"
 msgstr "Uyarı: ${INFO}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:275
+#: ../base-installer.templates:280
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Başarısız ${SUBST0} indirme girişimi tekrar ediliyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:279
+#: ../base-installer.templates:284
 msgid "Configuring APT sources..."
 msgstr "APT kaynakları yapılandırılıyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:283
+#: ../base-installer.templates:288
 msgid "Updating the list of available packages..."
 msgstr "Mevcut paketlere ilişkin liste güncelleniyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:287
+#: ../base-installer.templates:292
 msgid "Installing extra packages..."
 msgstr "Ekstra paketler kuruluyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:291
+#: ../base-installer.templates:296
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "Ekstra paketler kuruluyor - ${SUBST0} alınıyor ve kuruluyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:295
+#: ../base-installer.templates:300
 msgid "Creating device files..."
 msgstr "Aygıt dosyaları oluşturuluyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:299
+#: ../base-installer.templates:304
 msgid "Selecting the kernel to install..."
 msgstr "Kurulacak çekirdek seçiliyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:303
+#: ../base-installer.templates:308
 msgid "Installing the kernel..."
 msgstr "Çekirdek kuruluyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:307
+#: ../base-installer.templates:312
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Çekirdek kuruluyor - ${SUBST0} alınıyor ve kuruluyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:311
+#: ../base-installer.templates:316
 msgid "Installing the PCMCIA modules"
 msgstr "PCMCIA modülleri kuruluyor"
 
@@ -571,6 +577,6 @@ msgstr "PCMCIA modülleri kuruluyor"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:317
+#: ../base-installer.templates:322
 msgid "Install the base system"
 msgstr "Temel sistemi kur"

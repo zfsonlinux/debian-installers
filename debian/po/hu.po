@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-03 18:31-0700\n"
+"POT-Creation-Date: 2005-12-07 18:43-0700\n"
 "PO-Revision-Date: 2005-05-13 18:04+0100\n"
 "Last-Translator: VEROK Istvan <vi@fsf.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
@@ -61,12 +61,18 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:17
+msgid "Failed to determine the codename for the release."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:22
 msgid "No file system mounted on /target"
 msgstr "Hiányzik a /target könyvtár fájlrendszere"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:17
+#: ../base-installer.templates:22
 msgid ""
 "Before the installation can proceed, a root file system must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
@@ -78,13 +84,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:28
 msgid "Not installing to unclean target"
 msgstr "Félbehagyott célhely miatt megszakad a telepítés"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:23
+#: ../base-installer.templates:28
 #, fuzzy
 msgid ""
 "The installation to the target file system has been canceled. You should go "
@@ -98,19 +104,19 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:30
+#: ../base-installer.templates:35
 msgid "Failed to install the base system"
 msgstr "Az alaprendszer telepítése meghiúsult"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:30
+#: ../base-installer.templates:35
 msgid "The base system installation into /target/ failed."
 msgstr "Az alaprendszer /target/ könyvtárba telepítése meghiúsult."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:37
+#: ../base-installer.templates:42
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
@@ -118,37 +124,37 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:44
+#: ../base-installer.templates:49
 msgid "Base system installation error"
 msgstr "Alaprendszer telepítési hiba"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:44
+#: ../base-installer.templates:49
 msgid "The debootstrap program exited abnormally."
 msgstr "A debootstrap program futása hibával ért véget."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:51
+#: ../base-installer.templates:56
 msgid "The following error occurred:"
 msgstr "A következő hiba történt:"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:51
+#: ../base-installer.templates:56
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:60
+#: ../base-installer.templates:65
 msgid "Unable to install the selected kernel"
 msgstr "A kiválasztott rendszermag telepítése meghiúsult"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:60
+#: ../base-installer.templates:65
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -156,25 +162,25 @@ msgstr "A rendszermag célrendszerbe telepítése során hiba jelentkezett."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:60
+#: ../base-installer.templates:65
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Rendszermag-csomag: '${KERNEL}'."
 
 #. Type: select
 #. Choices
-#: ../base-installer.templates:70
+#: ../base-installer.templates:75
 msgid "${KERNELS}, none"
 msgstr ""
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:71
+#: ../base-installer.templates:76
 msgid "Kernel to install:"
 msgstr "Telepítendő rendszermag:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:71
+#: ../base-installer.templates:76
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -184,21 +190,21 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:78
+#: ../base-installer.templates:83
 #, fuzzy
 msgid "Continue without installing a kernel?"
 msgstr "Folytatja a telepítést?"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:78
+#: ../base-installer.templates:83
 msgid "No installable kernel was found in the defined APT sources."
 msgstr ""
 "A megadott APT-forrásokban nincs fellelhető telepítésképes rendszermag."
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:78
+#: ../base-installer.templates:83
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -207,27 +213,27 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:87
+#: ../base-installer.templates:92
 #, fuzzy
 msgid "Cannot install kernel"
 msgstr "Debian telepítése megszakad"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:87
+#: ../base-installer.templates:92
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:92
+#: ../base-installer.templates:97
 #, fuzzy
 msgid "Unable to install ${PACKAGE}"
 msgstr "A GRUB ${BOOTDEV} eszközre telepítése sikertelenül zárult"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:92
+#: ../base-installer.templates:97
 #, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
@@ -237,7 +243,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:92
+#: ../base-installer.templates:97
 #, fuzzy
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
@@ -246,27 +252,27 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:100
-msgid "Failed getting Release file ${SUBST0}."
-msgstr "A következő 'Release' fájl letöltése meghiúsult: ${SUBST0}."
-
-#. Type: error
-#. Description
 #: ../base-installer.templates:105
-#, fuzzy
-msgid "Failed getting Release signature file ${SUBST0}."
+msgid "Failed getting Release file ${SUBST0}."
 msgstr "A következő 'Release' fájl letöltése meghiúsult: ${SUBST0}."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:110
 #, fuzzy
+msgid "Failed getting Release signature file ${SUBST0}."
+msgstr "A következő 'Release' fájl letöltése meghiúsult: ${SUBST0}."
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:115
+#, fuzzy
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Érvénytelen 'Release' fájl, nincs ${SUBST0} bejegyzése."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:115
+#: ../base-installer.templates:120
 msgid "Invalid Release file: no valid components."
 msgstr ""
 "Érvénytelen 'Release' fájl, egyetlen összetevőről sem nyújt használható "
@@ -274,19 +280,19 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:120
+#: ../base-installer.templates:125
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Érvénytelen 'Release' fájl, nincs ${SUBST0} bejegyzése."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:125
+#: ../base-installer.templates:130
 msgid "Debootstrap Error"
 msgstr "Debootstrap hiba"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:125
+#: ../base-installer.templates:130
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -296,7 +302,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:125
+#: ../base-installer.templates:130
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -306,260 +312,260 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:138
+#: ../base-installer.templates:143
 #, fuzzy
 msgid "Preparing to install the base system..."
 msgstr "Debian-alaprendszer telepítésének előkészítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:142
+#: ../base-installer.templates:147
 msgid "Running ${SCRIPT}..."
 msgstr "Parancsfájl (${SCRIPT}) futtatása folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:146
+#: ../base-installer.templates:151
 msgid "Retrieving Release file"
 msgstr "'Release' fájl beszerzése folyamatban"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:150
+#: ../base-installer.templates:155
 #, fuzzy
 msgid "Retrieving Release file signature"
 msgstr "'Release' fájl beszerzése folyamatban"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:154
+#: ../base-installer.templates:159
 msgid "Finding package sizes"
 msgstr "'Packages' fájlok méretének megállapítása folyamatban"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:158
+#: ../base-installer.templates:163
 msgid "Retrieving Packages files"
 msgstr "'Packages' fájlok beszerzése folyamatban"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:162
+#: ../base-installer.templates:167
 #, fuzzy
 msgid "Retrieving Packages file"
 msgstr "'Packages' fájlok beszerzése folyamatban"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:166
+#: ../base-installer.templates:171
 msgid "Retrieving packages"
 msgstr "Csomagok beszerzése folyamatban"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:170
+#: ../base-installer.templates:175
 msgid "Extracting packages"
 msgstr "Csomagok kitömörítése folyamatban"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:174
+#: ../base-installer.templates:179
 msgid "Installing the base system"
 msgstr "Alaprendszer telepítése folyamatban"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:178
+#: ../base-installer.templates:183
 #, fuzzy
 msgid "Installing core packages"
 msgstr "Legfontosabb csomagok telepítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:182
+#: ../base-installer.templates:187
 #, fuzzy
 msgid "Unpacking required packages"
 msgstr "Szükséges csomagok kitömörítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:186
+#: ../base-installer.templates:191
 #, fuzzy
 msgid "Configuring required packages"
 msgstr "Szükséges csomagok konfigurálása folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:190
+#: ../base-installer.templates:195
 #, fuzzy
 msgid "Unpacking the base system"
 msgstr "Alaprendszer telepítése folyamatban"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:194
+#: ../base-installer.templates:199
 #, fuzzy
 msgid "Configuring the base system"
 msgstr "Alaprendszer telepítése folyamatban"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:198
+#: ../base-installer.templates:203
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:202
+#: ../base-installer.templates:207
 msgid "Validating ${SUBST0}..."
 msgstr "Épség ellenőrzése folyamatban: ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:206
+#: ../base-installer.templates:211
 msgid "Retrieving ${SUBST0}..."
 msgstr "Beszerzés folyamatban: ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:210
+#: ../base-installer.templates:215
 msgid "Extracting ${SUBST0}..."
 msgstr "Kitömörítés folyamatban: ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:214
+#: ../base-installer.templates:219
 #, fuzzy
 msgid "Unpacking ${SUBST0}..."
 msgstr "Kitömörítés folyamatban: ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:218
+#: ../base-installer.templates:223
 #, fuzzy
 msgid "Configuring ${SUBST0}..."
 msgstr "Épség ellenőrzése folyamatban: ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:222
+#: ../base-installer.templates:227
 #, fuzzy
 msgid "Checking Release signature"
 msgstr "'Release' fájl beszerzése folyamatban"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:226
+#: ../base-installer.templates:231
 #, fuzzy
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Érvénytelen 'Release' fájl, nincs ${SUBST0} bejegyzése."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:230
+#: ../base-installer.templates:235
 #, fuzzy
 msgid "Resolving dependencies of base packages..."
 msgstr "Alapcsomagok telepítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:234
+#: ../base-installer.templates:239
 #, fuzzy
 msgid "Resolving dependencies of required packages..."
 msgstr "Szükséges csomagok kitömörítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:238
+#: ../base-installer.templates:243
 #, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "Csomagméret ellenőrzése: ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:242
+#: ../base-installer.templates:247
 msgid "Installing core packages..."
 msgstr "Legfontosabb csomagok telepítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:246
+#: ../base-installer.templates:251
 msgid "Unpacking required packages..."
 msgstr "Szükséges csomagok kitömörítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:250
+#: ../base-installer.templates:255
 msgid "Configuring required packages..."
 msgstr "Szükséges csomagok konfigurálása folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:254
+#: ../base-installer.templates:259
 msgid "Installing base packages..."
 msgstr "Alapcsomagok telepítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:258
+#: ../base-installer.templates:263
 #, fuzzy
 msgid "Unpacking the base system..."
 msgstr "Alaprendszer telepítése folyamatban"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:262
+#: ../base-installer.templates:267
 #, fuzzy
 msgid "Configuring the base system..."
 msgstr "Alaprendszer telepítése folyamatban"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:266
+#: ../base-installer.templates:271
 msgid "Base system installed successfully."
 msgstr "Alaprendszer telepítése sikeresen megtörtént."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:270
+#: ../base-installer.templates:275
 #, fuzzy
 msgid "Debootstrap warning"
 msgstr "Debootstrap hiba"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:270
+#: ../base-installer.templates:275
 msgid "Warning: ${INFO}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:275
+#: ../base-installer.templates:280
 #, fuzzy
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Letöltés meghiúsult: ${SUBST0}."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:279
+#: ../base-installer.templates:284
 msgid "Configuring APT sources..."
 msgstr "APT-források konfigurálása..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:283
+#: ../base-installer.templates:288
 msgid "Updating the list of available packages..."
 msgstr "Elérhető csomagok listájának frissítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:287
+#: ../base-installer.templates:292
 msgid "Installing extra packages..."
 msgstr "Extra csomagok telepítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:291
+#: ../base-installer.templates:296
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr ""
 "Extra csomagok telepítése folyamatban - beszerzés és telepítés folyamatban: "
@@ -567,25 +573,25 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:295
+#: ../base-installer.templates:300
 msgid "Creating device files..."
 msgstr "Eszközfájlok létrehozása folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:299
+#: ../base-installer.templates:304
 msgid "Selecting the kernel to install..."
 msgstr "Telepítendő rendszermag kiválasztása folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:303
+#: ../base-installer.templates:308
 msgid "Installing the kernel..."
 msgstr "Rendszermag telepítése folyamatban..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:307
+#: ../base-installer.templates:312
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr ""
 "Rendszermag telepítése folyamatban - beszerzés és telepítés folyamatban: "
@@ -593,7 +599,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:311
+#: ../base-installer.templates:316
 msgid "Installing the PCMCIA modules"
 msgstr "PCMCIA-modulok telepítése"
 
@@ -601,6 +607,6 @@ msgstr "PCMCIA-modulok telepítése"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:317
+#: ../base-installer.templates:322
 msgid "Install the base system"
 msgstr "Alaprendszer telepítése"
