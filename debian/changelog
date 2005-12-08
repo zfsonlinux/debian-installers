@@ -1,18 +1,16 @@
-base-installer (1.41) UNRELEASED; urgency=low
-
-  * Move post install hooks to run after debootstrap but before the
-    installation of the kernel and other extra packages. This allows
-    this hook to be used for preseeding packages installed after debootstrap.
-
- -- Joey Hess <joeyh@debian.org>  Thu,  1 Dec 2005 17:45:37 -0500
-
 base-installer (1.40) UNRELEASED; urgency=low
 
+  [ Frans Pop ]
   * Get codename from mirror/codename instead of determining it from SUITE.
     Requires: cdrom-detect >=1.11; choose-mirror >=1.16; iso-scan >=1.10.
   * Enable the use of initramfs-tools again now that it is in testing.
 
- -- Frans Pop <fjp@debian.org>  Wed,  7 Dec 2005 19:56:26 +0100
+  [ Joey Hess ]
+  * Move post install hooks to run after debootstrap but before the
+    installation of the kernel and other extra packages. This allows
+    this hook to be used for preseeding packages installed after debootstrap.
+
+ -- Joey Hess <joeyh@debian.org>  Wed,  7 Dec 2005 22:05:01 -0500
 
 base-installer (1.39) unstable; urgency=low
 
