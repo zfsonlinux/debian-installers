@@ -9,8 +9,12 @@ base-installer (1.40) UNRELEASED; urgency=low
   * Move post install hooks to run after debootstrap but before the
     installation of the kernel and other extra packages. This allows
     this hook to be used for preseeding packages installed after debootstrap.
+  * Avoid crashing the postinst if arch_get_kernel_flavour fails, this better
+    supports the case of some unknown subarch since later tests will result
+    in a warning message being shown to the user about there being no usable
+    kernel.
 
- -- Joey Hess <joeyh@debian.org>  Wed,  7 Dec 2005 22:05:01 -0500
+ -- Joey Hess <joeyh@debian.org>  Tue, 13 Dec 2005 16:40:33 -0500
 
 base-installer (1.39) unstable; urgency=low
 

@@ -73,7 +73,7 @@ else
 	}
 fi
 
-FLAVOUR="$(arch_get_kernel_flavour)"
+FLAVOUR="$(arch_get_kernel_flavour || true)"
 
 update_progress () {
 	# Updates the progress bar to a new position within the space allocated
