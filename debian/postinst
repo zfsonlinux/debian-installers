@@ -333,11 +333,15 @@ kernel_update_list () {
 	cut -d" " -f1 | uniq > "$KERNEL_LIST.unfiltered"
 	kernels=`sort -r "$KERNEL_LIST.unfiltered" | tr '\n' ' ' | sed -e 's/ $//'`
 	for candidate in $kernels; do
-		if arch_check_usable_kernel "$candidate" "$FLAVOUR"; then
-			echo "$candidate"
-			info "kernel $candidate usable on $FLAVOUR"
+		if [ -n "$FLAVOUR" ]; then
+			if arch_check_usable_kernel "$candidate" "$FLAVOUR"; then
+				echo "$candidate"
+				info "kernel $candidate usable on $FLAVOUR"
+			else
+				info "kernel $candidate not usable on $FLAVOUR"
+			fi
 		else
-			info "kernel $candidate not usable on $FLAVOUR"
+			info "could not determine kernel flavour"
 		fi
 	done > "$KERNEL_LIST"
 }
@@ -383,7 +387,11 @@ pick_kernel () {
 		fi
 	fi
 
-	arch_kernel=$(arch_get_kernel "$FLAVOUR")
+	if [ -n "$FLAVOUR" ]; then
+		arch_kernel=$(arch_get_kernel "$FLAVOUR")
+	else
+		arch_kernel=""
+	fi
 
 	got_arch_kernel=
 	if [ "$arch_kernel" ]; then
