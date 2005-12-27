@@ -11,15 +11,15 @@
 # Emmanuel Galatoulas <galas@tee.gr>, 2004.
 # Konstantinos Margaritis <markos@debian.org>, 2004.
 # Greek Translation Team <debian-l10n-greek@lists.debian.org>, 2004, 2005.
+# quad-nrg.net <galaxico@quad-nrg.net>, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-12-07 18:43-0700\n"
-"PO-Revision-Date: 2005-09-15 21:29EEST\n"
-"Last-Translator: Greek Translation Team <debian-l10n-greek@lists.debian."
-"org>\n"
+"PO-Revision-Date: 2005-12-27 03:08+0200\n"
+"Last-Translator: quad-nrg.net <galaxico@quad-nrg.net>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,8 +29,8 @@ msgstr ""
 "org>\n"
 "org>\n"
 "org>\n"
-"X-Generator: KBabel 1.9.1\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.10.2\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #. Type: boolean
 #. Description
@@ -41,7 +41,6 @@ msgstr "Θέλετε να συνεχίσετε την εγκατάσταση σ�
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:4
-#, fuzzy
 msgid ""
 "The target file system contains files from a past installation. These files "
 "could cause problems with the installation process, and if you proceed, some "
@@ -49,8 +48,8 @@ msgid ""
 msgstr ""
 "Το σύστημα αρχείων προορισμού ήδη περιέχει αρχεία από προηγούμενη "
 "εγκατάσταση. Αυτά τα αρχεία πιθανόν να προκαλέσουν προβλήματα στη διαδικασία "
-"της εγκατάστασης ή να αφήσουν το σύστημα σε μια ημιτελή κατάσταση μετά την "
-"εγκατάσταση."
+"της εγκατάστασης και αν συνεχίσετε μερικά από τα υπάρχοντα αρχεία μπορεί να "
+"υπεργραφούν."
 
 #. Type: error
 #. Description
@@ -67,14 +66,13 @@ msgid ""
 msgstr ""
 "Το πρόγραμμα εγκατάστασης δε μπορεί να συνεχίσει στην εγκατάσταση του "
 "βασικού συστήματος. Δε βρέθηκε CD-ROM εγκατάστασης και δε ρυθμίστηκε έγκυρος "
-"κατοπτριστή αρχείων."
+"καθρέφτη αρχείων."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:17
-#, fuzzy
 msgid "Failed to determine the codename for the release."
-msgstr "Αδύνατη η ανάκτηση του αρχείου προρύθμισης"
+msgstr "Αποτυχία προσδιορισμού του κωδικού ονόματος για την έκδοση."
 
 #. Type: error
 #. Description
@@ -102,18 +100,14 @@ msgstr "Δεν θα γίνει εγκατάσταση σε μη κενό προ�
 #. Type: error
 #. Description
 #: ../base-installer.templates:28
-#, fuzzy
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
 "install."
 msgstr ""
-"Η εγκατάσταση στο προοριζόμενο σύστημα αρχείων ακυρώθηκε, καθώς αυτό "
-"περιέχει αρχεία από προηγούμενη εγκατάσταση, τα οποία θα μπορούσαν να "
-"δημιουργήσουν προβλήματα στην παρούσα εγκατάσταση ή να έχουν ως αποτέλεσμα "
-"την εγκατάσταση ενός ελαττωματικού συστήματος. Θα πρέπει να επιστρέψετε και "
-"να διαγράψετε ή να διαμορφώσετε το προοριζόμενο σύστημα αρχείων προτού "
-"συνεχίσετε με την εγκατάσταση."
+"Η εγκατάσταση στο σύστημα αρχείων προορισμού ακυρώθηκε. Θα πρέπει να πάτε "
+"πίσω και να διαγράψετε ή να μορφοποιήσετε το σύστημα αρχείων προορισμού πριν "
+"να προχωρήσετε με την εγκατάσταση."
 
 #. Type: error
 #. Description
@@ -223,6 +217,10 @@ msgid ""
 "kernel later. This is only recommended for experts, otherwise you will "
 "likely end up with a machine that doesn't boot."
 msgstr ""
+"Μπορείτε να προσπαθήσετε να συνεχίσετε χωρίς έναν πυρήνα και να "
+"εγκαταστήσετε το δικό σας πυρήνα αργότερα με το χέρι. Αυτό ενδείκνυται μόνο "
+"για έμπειρους χρήστες, αλλιώς το πιο πιθανό είναι να καταλήξετε με ένα "
+"μηχάνημα που δεν μπορεί να εκκινηθεί."
 
 #. Type: error
 #. Description
@@ -245,20 +243,20 @@ msgstr "Αδύνατη η εγκατάσταση του πακέτου ${PACKAGE
 #. Type: error
 #. Description
 #: ../base-installer.templates:97
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
 msgstr ""
-"Κάποιο σφάλμα παρουσιάστηκε κατά την εγκατάσταση των εργαλείων αρχικού "
-"δίσκου μνήμης (initrd) στο σύστημα προορισμού."
+"Παρουσιάστηκε κάποιο σφάλμα κατά την προσπάθεια εγκατάστασης του πακέτου "
+"${PACKAGE} στο σύστημα προορισμού."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:97
-#, fuzzy
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
-msgstr "Για τις λεπτομέρειες ανατρέξτε στο αρχείο /var/log/bootstrap.log."
+msgstr ""
+"Ελέγξτε το αρχείο /var/log/syslog ή δείτε την εικονική κονσόλα 4 για "
+"λεπτομέρειες."
 
 #. Type: error
 #. Description
@@ -519,15 +517,14 @@ msgstr "Η εγκατάσταση του βασικού συστήματος ή�
 #. Type: error
 #. Description
 #: ../base-installer.templates:275
-#, fuzzy
 msgid "Debootstrap warning"
-msgstr "Σφάλμα στο debootstrap"
+msgstr "Προειδοποίηση στο debootstrap"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:275
 msgid "Warning: ${INFO}"
-msgstr ""
+msgstr "Προειδοποίηση: ${INFO}"
 
 #. Type: text
 #. Description
