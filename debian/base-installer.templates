@@ -68,6 +68,19 @@ _Description: Tool to use to generate initramfs initrd:
  you should select the default. If your system fails to reboot, you can
  retry the installation using the other options.
 
+Template: base-installer/intramfs/no-generator
+Type: error
+_Description: No initramfs initrd generator
+ The kernel that has been selected for installation needs an initramfs
+ initrd. However, no package to generate that initrd is available that
+ supports your configuration. This would leave your system unable to boot.
+
+Template: base-installer/intramfs/unsupported
+Type: error
+_Description: Unsupported initramfs initrd generator
+ The package ${GENERATOR} that was selected to generate the initramfs
+ initrd is not supported.
+
 Template: base-installer/kernel/failed-install
 Type: error
 _Description: Unable to install the selected kernel

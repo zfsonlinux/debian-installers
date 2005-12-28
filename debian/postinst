@@ -562,15 +562,20 @@ EOF
 				package="$generators"
 			fi
 		fi
-		if [ -z "$package" ]; then
-			package=initramfs-tools
-		fi
 		case "$package" in
 		    initramfs-tools)
 			ramdiskconf=/target/etc/mkinitramfs/initramfs.conf
 			;;
 		    yaird)
 			ramdiskconf=
+			;;
+		    "")
+			db_subst base-installer/intramfs/no-generator
+			exit_error base-installer/intramfs/no-generator
+			;;
+		    *)
+			db_subst base-installer/intramfs/unsupported GENERATOR "$package"
+			exit_error base-installer/intramfs/unsupported
 			;;
 		esac
 	else
