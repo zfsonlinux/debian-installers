@@ -462,6 +462,22 @@ get_resume_partition () {
 	echo "$biggest_partition"
 }
 
+select_initramfs_generator () {
+	irf_choices="$(echo $1 | sed "s/ */, /g")"
+	irf_default="${1%% *}"
+	db_subst base-installer/initramfs/generator GENERATORS "$irf_choices"
+	db_set base-installer/initramfs/generator "$irf_default"
+
+	db_input high base-installer/initramfs/generator || [ $? -eq 30 ]
+	if ! db_go; then
+		db_progress stop
+		exit 10
+	fi
+
+	db_get base-installer/initramfs/generator
+	echo $RET
+}
+
 install_kernel () {
 	if [ "$KERNEL" = none ]; then
 		info "Not installing any kernel"
@@ -535,18 +551,36 @@ do_initrd = $do_initrd
 link_in_boot = $link_in_boot
 EOF
 
+	package=""
 	if [ "$do_initramfs" = yes ]; then
-		# TODO: This would be a good place for a question about
-		# whether to use initramfs-tools or yaird, if desired. The
-		# next block would need to take into account any differences
-		# in configuration file syntax.
-		package=initramfs-tools
-		ramdiskconf=/target/etc/mkinitramfs/initramfs.conf
+		if db_get base-installer/kernel/linux/initramfs-generators; then
+			generators="$RET"
+			info "Available initramfs generator(s) '$generators'"
+			if echo "$generators" | grep -q " "; then
+				package="$(select_initramfs_generator "$generators")"
+			else
+				package="$generators"
+			fi
+		fi
+		if [ -z "$package" ]; then
+			package=initramfs-tools
+		fi
+		case "$package" in
+		    initramfs-tools)
+			ramdiskconf=/target/etc/mkinitramfs/initramfs.conf
+			;;
+		    yaird)
+			ramdiskconf=
+			;;
+		esac
 	else
 		package=initrd-tools
 		ramdiskconf=/target/etc/mkinitrd/mkinitrd.conf
 	fi
+	echo "Selected initrd generator '$package'"
 
+	# TODO This should probably be restructured to better support
+	#      differences between initrd generators
 	if [ yes = "$do_initrd" ] ; then
 		info "Installing $package."
 
@@ -595,7 +629,7 @@ EOF
 		else
 			resume=
 		fi
-		if [ "$resume" ]; then
+		if [ -n "$ramdiskconf" -a "$resume" ]; then
 			if [ -f $ramdiskconf ] ; then
 				sed -e "s@^#* *RESUME=.*@RESUME=$resume@" < $ramdiskconf > $ramdiskconf.new &&
 					mv $ramdiskconf.new $ramdiskconf

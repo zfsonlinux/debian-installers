@@ -50,6 +50,16 @@ Default[ia64]: false
 # defaults if you want to select among different initramfs creation tools.
 Description: use an initramfs (linux 2.6 only)
 
+Template: base-installer/kernel/linux/initramfs-generators
+Type: string
+Default: yaird initramfs-tools
+Default[hppa]: yaird
+Default[sparc]: yaird
+# Space separated list of initrd generator packages to use. If you list more
+# than one for an architecture, the user will be asked to select one.
+# Note: if you add a new one, don't forget to support it in the postinst.
+Description: package to use to generate initramfs
+
 Template: base-installer/kernel/linux/extra-packages
 Type: string
 Default:

@@ -60,6 +60,14 @@ _Description: Debootstrap Error
  .
  Check /var/log/syslog or see virtual console 4 for the details.
 
+Template: base-installer/initramfs/generator
+Type: select
+Choices: ${GENERATORS}
+_Description: Tool to use to generate initramfs initrd:
+ The list shows the available tools. If you are unsure which to select,
+ you should select the default. If your system fails to reboot, you can
+ retry the installation using the other options.
+
 Template: base-installer/kernel/failed-install
 Type: error
 _Description: Unable to install the selected kernel
