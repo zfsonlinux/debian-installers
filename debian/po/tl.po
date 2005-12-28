@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-07 18:43-0700\n"
+"POT-Creation-Date: 2005-12-27 18:36-0700\n"
 "PO-Revision-Date: 2005-12-18 01:58+0800\n"
 "Last-Translator: Eric Pareja <xenos@upm.edu.ph>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
@@ -146,15 +146,30 @@ msgstr "Naganap ang susunod na error:"
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
+#. Type: select
+#. Description
+#: ../base-installer.templates:66
+msgid "Tool to use to generate initramfs initrd:"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../base-installer.templates:66
+msgid ""
+"The list shows the available tools. If you are unsure which to select, you "
+"should select the default. If your system fails to reboot, you can retry the "
+"installation using the other options."
+msgstr ""
+
 #. Type: error
 #. Description
-#: ../base-installer.templates:65
+#: ../base-installer.templates:73
 msgid "Unable to install the selected kernel"
 msgstr "Hindi ma-install ang napiling kernel"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:65
+#: ../base-installer.templates:73
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -164,25 +179,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:65
+#: ../base-installer.templates:73
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Kernel pakete: '${KERNEL}'."
 
 #. Type: select
 #. Choices
-#: ../base-installer.templates:75
+#: ../base-installer.templates:83
 msgid "${KERNELS}, none"
 msgstr "${KERNELS}, wala"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:76
+#: ../base-installer.templates:84
 msgid "Kernel to install:"
 msgstr "Kernel na iluluklok:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:76
+#: ../base-installer.templates:84
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -192,20 +207,20 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:83
+#: ../base-installer.templates:91
 msgid "Continue without installing a kernel?"
 msgstr "Magpatuloy na hindi nagluluklok ng kernel?"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:83
+#: ../base-installer.templates:91
 msgid "No installable kernel was found in the defined APT sources."
 msgstr ""
 "Walang ma-install na kernal na nahanap sa mga takdang mga pagkukunan ng APT."
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:83
+#: ../base-installer.templates:91
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -217,25 +232,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:92
+#: ../base-installer.templates:100
 msgid "Cannot install kernel"
 msgstr "Hindi mailuklok ang kernel"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:92
+#: ../base-installer.templates:100
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr "Hindi makahanap ng nararapat na pakete ng kernel na iluluklok."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:97
+#: ../base-installer.templates:105
 msgid "Unable to install ${PACKAGE}"
 msgstr "Hindi mailuklok ang paketeng ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:97
+#: ../base-installer.templates:105
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -245,7 +260,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:97
+#: ../base-installer.templates:105
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
 "Basahin ang /var/log/syslog o tignan ang virtuwal na konsol 4 para sa mga "
@@ -253,43 +268,43 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:105
+#: ../base-installer.templates:113
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Bigo ang pagkuha ng talaksang Release ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:110
+#: ../base-installer.templates:118
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Bigo ang pagkuha ng talaksang lagda ng Release ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:115
+#: ../base-installer.templates:123
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Di kilala ang lagda sa talaksang Release (key id ${SUBST0})"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:120
+#: ../base-installer.templates:128
 msgid "Invalid Release file: no valid components."
 msgstr "Hindi tanggap na talaksang Release: walang tanggap na mga bahagi."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:125
+#: ../base-installer.templates:133
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Hindi tanggap na talaksang Release: walang entry para sa ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:130
+#: ../base-installer.templates:138
 msgid "Debootstrap Error"
 msgstr "Error ng debootstrap"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:130
+#: ../base-installer.templates:138
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -299,7 +314,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:130
+#: ../base-installer.templates:138
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -309,241 +324,241 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:143
+#: ../base-installer.templates:151
 msgid "Preparing to install the base system..."
 msgstr "Naghahanda na iluklok ang batayang sistema..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:147
+#: ../base-installer.templates:155
 msgid "Running ${SCRIPT}..."
 msgstr "Pinapatakbo ang ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:151
+#: ../base-installer.templates:159
 msgid "Retrieving Release file"
 msgstr "Kinukuha ang talaksang Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:155
+#: ../base-installer.templates:163
 msgid "Retrieving Release file signature"
 msgstr "Kinukuha ang lagda ng talaksang Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:159
+#: ../base-installer.templates:167
 msgid "Finding package sizes"
 msgstr "Hinahanap ang laki ng mga pakete"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:163
+#: ../base-installer.templates:171
 msgid "Retrieving Packages files"
 msgstr "Kinukuha ang mga talaksan ng Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:167
+#: ../base-installer.templates:175
 msgid "Retrieving Packages file"
 msgstr "Kinukuha ang mga talaksan ng Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:171
+#: ../base-installer.templates:179
 msgid "Retrieving packages"
 msgstr "Kinukuha ang mga pakete"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:175
+#: ../base-installer.templates:183
 msgid "Extracting packages"
 msgstr "Binubuksan ang mga pakete"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:179
+#: ../base-installer.templates:187
 msgid "Installing the base system"
 msgstr "Iniluluklok ang base system"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:183
+#: ../base-installer.templates:191
 msgid "Installing core packages"
 msgstr "Iniluluklok ang mga pakete ng core..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:187
+#: ../base-installer.templates:195
 msgid "Unpacking required packages"
 msgstr "Binubuklat ang mga kailangan na mga pakete..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:191
+#: ../base-installer.templates:199
 msgid "Configuring required packages"
 msgstr "Isinasaayos ang mga kailangang mga pakete..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:195
+#: ../base-installer.templates:203
 msgid "Unpacking the base system"
 msgstr "Binubuklat ang base system"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:199
+#: ../base-installer.templates:207
 msgid "Configuring the base system"
 msgstr "Isinasaayos ang base system"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:203
+#: ../base-installer.templates:211
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:207
+#: ../base-installer.templates:215
 msgid "Validating ${SUBST0}..."
 msgstr "Sinusuri ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:211
+#: ../base-installer.templates:219
 msgid "Retrieving ${SUBST0}..."
 msgstr "Kinukuha ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:215
+#: ../base-installer.templates:223
 msgid "Extracting ${SUBST0}..."
 msgstr "Binubuksan ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:219
+#: ../base-installer.templates:227
 msgid "Unpacking ${SUBST0}..."
 msgstr "Binubuklat ang ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:223
+#: ../base-installer.templates:231
 msgid "Configuring ${SUBST0}..."
 msgstr "Isinasaayos ang ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:227
+#: ../base-installer.templates:235
 msgid "Checking Release signature"
 msgstr "Sinusuri ang lagda ng talaksang Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:231
+#: ../base-installer.templates:239
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Tanggap na lagda ng talaksang Release (key id ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:235
+#: ../base-installer.templates:243
 msgid "Resolving dependencies of base packages..."
 msgstr "Pinagiisipan ang dependensiya ng mga paketeng batayan..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:239
+#: ../base-installer.templates:247
 msgid "Resolving dependencies of required packages..."
 msgstr "Inaayos ang dependensiya ng mga kinakailangan na mga pakete..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:243
+#: ../base-installer.templates:251
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "Sinusuri ang bahaging ${SUBST0} na nasa ${SUBST1}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:247
+#: ../base-installer.templates:255
 msgid "Installing core packages..."
 msgstr "Nag-iinstall ng mga pakete ng core..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:251
+#: ../base-installer.templates:259
 msgid "Unpacking required packages..."
 msgstr "Binubuklat ang mga kailangan na mga pakete..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:255
+#: ../base-installer.templates:263
 msgid "Configuring required packages..."
 msgstr "Isinasaayos ang mga kailangang mga pakete..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:259
+#: ../base-installer.templates:267
 msgid "Installing base packages..."
 msgstr "Nag-iinstall ng mga pakete na base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:263
+#: ../base-installer.templates:271
 msgid "Unpacking the base system..."
 msgstr "Binubuklat ang base system..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:267
+#: ../base-installer.templates:275
 msgid "Configuring the base system..."
 msgstr "Isinasaayos ang base system"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:271
+#: ../base-installer.templates:279
 msgid "Base system installed successfully."
 msgstr "Tagumpay ang pagluklok ng base system."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:275
+#: ../base-installer.templates:283
 msgid "Debootstrap warning"
 msgstr "Babalang debootstrap"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:275
+#: ../base-installer.templates:283
 msgid "Warning: ${INFO}"
 msgstr "Babala: ${INFO}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:280
+#: ../base-installer.templates:288
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Susubukan muling kunin ang ${SUBST0}."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:284
+#: ../base-installer.templates:292
 msgid "Configuring APT sources..."
 msgstr "Isinasaayos ang mga pagkukunan ng APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../base-installer.templates:296
 msgid "Updating the list of available packages..."
 msgstr "Sinasariwa ang talaan ng mga pakete na makukuha..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:292
+#: ../base-installer.templates:300
 msgid "Installing extra packages..."
 msgstr "Nag-iinstall ng mga pakete na extra..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:296
+#: ../base-installer.templates:304
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr ""
 "Nag-iinstall ng mga pakete na ekstra - kinukuha at nag-iinstall ng "
@@ -551,31 +566,31 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:300
+#: ../base-installer.templates:308
 msgid "Creating device files..."
 msgstr "Binubuo ang mga talaksan ng mga device..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:304
+#: ../base-installer.templates:312
 msgid "Selecting the kernel to install..."
 msgstr "Pinipili ang kernel na iinstall..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:308
+#: ../base-installer.templates:316
 msgid "Installing the kernel..."
 msgstr "Nag-iinstall ng kernel..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:312
+#: ../base-installer.templates:320
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Nag-iinstall ng kernel - kinukuha at nag-iinstall ng ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:316
+#: ../base-installer.templates:324
 msgid "Installing the PCMCIA modules"
 msgstr "Nag-iinstall ng mga module na pang-PCMCIA"
 
@@ -583,6 +598,6 @@ msgstr "Nag-iinstall ng mga module na pang-PCMCIA"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:322
+#: ../base-installer.templates:330
 msgid "Install the base system"
 msgstr "Iluklok ang base system"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-07 18:43-0700\n"
+"POT-Creation-Date: 2005-12-27 18:36-0700\n"
 "PO-Revision-Date: 2005-12-14 20:35+0200\n"
 "Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
 "Language-Team: Ukrainian\n"
@@ -143,15 +143,30 @@ msgstr "Виникла наступна помилка:"
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
+#. Type: select
+#. Description
+#: ../base-installer.templates:66
+msgid "Tool to use to generate initramfs initrd:"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../base-installer.templates:66
+msgid ""
+"The list shows the available tools. If you are unsure which to select, you "
+"should select the default. If your system fails to reboot, you can retry the "
+"installation using the other options."
+msgstr ""
+
 #. Type: error
 #. Description
-#: ../base-installer.templates:65
+#: ../base-installer.templates:73
 msgid "Unable to install the selected kernel"
 msgstr "Не вдалося встановити вибране ядро"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:65
+#: ../base-installer.templates:73
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -159,25 +174,25 @@ msgstr "При спробі встановлення ядра виникла п�
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:65
+#: ../base-installer.templates:73
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Пакунок з ядром: „${KERNEL}“."
 
 #. Type: select
 #. Choices
-#: ../base-installer.templates:75
+#: ../base-installer.templates:83
 msgid "${KERNELS}, none"
 msgstr "${KERNELS}, не встановлювати"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:76
+#: ../base-installer.templates:84
 msgid "Kernel to install:"
 msgstr "Ядро для встановлення:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:76
+#: ../base-installer.templates:84
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -187,13 +202,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:83
+#: ../base-installer.templates:91
 msgid "Continue without installing a kernel?"
 msgstr "Продовжити без встановлення ядра?"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:83
+#: ../base-installer.templates:91
 msgid "No installable kernel was found in the defined APT sources."
 msgstr ""
 "У вказаних джерелах APT не був знайдений жоден пакунок з ядром, який можна "
@@ -201,7 +216,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:83
+#: ../base-installer.templates:91
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -213,26 +228,26 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:92
+#: ../base-installer.templates:100
 msgid "Cannot install kernel"
 msgstr "Неможливо встановити ядро"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:92
+#: ../base-installer.templates:100
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr ""
 "Встановлювач не може знайти пакунок ядра що придатний для встановлення."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:97
+#: ../base-installer.templates:105
 msgid "Unable to install ${PACKAGE}"
 msgstr "Неможливо встановити ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:97
+#: ../base-installer.templates:105
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -242,49 +257,49 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:97
+#: ../base-installer.templates:105
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr "Подробиці дивіться в /var/log/syslog або на віртуальній консолі 4."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:105
+#: ../base-installer.templates:113
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Не вдалося отримати файл Release для ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:110
+#: ../base-installer.templates:118
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Не вдалося отримати файл підпису для Release ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:115
+#: ../base-installer.templates:123
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Файл Release підписано невідомим ключем (ID ${SUBST0})"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:120
+#: ../base-installer.templates:128
 msgid "Invalid Release file: no valid components."
 msgstr "Невірний файл Release: відсутні дозволені компоненти."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:125
+#: ../base-installer.templates:133
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Невірний файл Release: відсутній запис для ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:130
+#: ../base-installer.templates:138
 msgid "Debootstrap Error"
 msgstr "Помилка при виконанні debootstrap"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:130
+#: ../base-installer.templates:138
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -294,7 +309,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:130
+#: ../base-installer.templates:138
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -304,272 +319,272 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:143
+#: ../base-installer.templates:151
 msgid "Preparing to install the base system..."
 msgstr "Підготовка до встановлення базової системи..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:147
+#: ../base-installer.templates:155
 msgid "Running ${SCRIPT}..."
 msgstr "Запуск ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:151
+#: ../base-installer.templates:159
 msgid "Retrieving Release file"
 msgstr "Отримання файлу Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:155
+#: ../base-installer.templates:163
 msgid "Retrieving Release file signature"
 msgstr "Отримання підпису файлу Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:159
+#: ../base-installer.templates:167
 msgid "Finding package sizes"
 msgstr "Визначення розмірів пакунків"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:163
+#: ../base-installer.templates:171
 msgid "Retrieving Packages files"
 msgstr "Отримання файлів Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:167
+#: ../base-installer.templates:175
 msgid "Retrieving Packages file"
 msgstr "Отримання файлу Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:171
+#: ../base-installer.templates:179
 msgid "Retrieving packages"
 msgstr "Отримання пакунків"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:175
+#: ../base-installer.templates:183
 msgid "Extracting packages"
 msgstr "Видобування пакунків"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:179
+#: ../base-installer.templates:187
 msgid "Installing the base system"
 msgstr "Встановлення базової системи"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:183
+#: ../base-installer.templates:191
 msgid "Installing core packages"
 msgstr "Встановлення основних пакунків"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:187
+#: ../base-installer.templates:195
 msgid "Unpacking required packages"
 msgstr "Розпаковування необхідних пакунків"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:191
+#: ../base-installer.templates:199
 msgid "Configuring required packages"
 msgstr "Налаштування необхідних пакунків"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:195
+#: ../base-installer.templates:203
 msgid "Unpacking the base system"
 msgstr "Розпаковування базової системи"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:199
+#: ../base-installer.templates:207
 msgid "Configuring the base system"
 msgstr "Налаштування базової системи"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:203
+#: ../base-installer.templates:211
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:207
+#: ../base-installer.templates:215
 msgid "Validating ${SUBST0}..."
 msgstr "Перевірка ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:211
+#: ../base-installer.templates:219
 msgid "Retrieving ${SUBST0}..."
 msgstr "Отримання ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:215
+#: ../base-installer.templates:223
 msgid "Extracting ${SUBST0}..."
 msgstr "Видобування ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:219
+#: ../base-installer.templates:227
 msgid "Unpacking ${SUBST0}..."
 msgstr "Розпаковування ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:223
+#: ../base-installer.templates:231
 msgid "Configuring ${SUBST0}..."
 msgstr "Налаштування ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:227
+#: ../base-installer.templates:235
 msgid "Checking Release signature"
 msgstr "Перевірка підпису файлу Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:231
+#: ../base-installer.templates:239
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Дійсний підпис файлу Release (ID ключа ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:235
+#: ../base-installer.templates:243
 msgid "Resolving dependencies of base packages..."
 msgstr "Розв'язання залежностей для базових пакунків..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:239
+#: ../base-installer.templates:247
 msgid "Resolving dependencies of required packages..."
 msgstr "Розв'язання залежностей для необхідних пакунків..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:243
+#: ../base-installer.templates:251
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "Перевірка компонента ${SUBST0} на ${SUBST1}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:247
+#: ../base-installer.templates:255
 msgid "Installing core packages..."
 msgstr "Встановлення основних пакунків..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:251
+#: ../base-installer.templates:259
 msgid "Unpacking required packages..."
 msgstr "Розпаковування необхідних пакунків..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:255
+#: ../base-installer.templates:263
 msgid "Configuring required packages..."
 msgstr "Налаштування необхідних пакунків..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:259
+#: ../base-installer.templates:267
 msgid "Installing base packages..."
 msgstr "Встановлення базових пакунків..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:263
+#: ../base-installer.templates:271
 msgid "Unpacking the base system..."
 msgstr "Розпаковування базової системи..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:267
+#: ../base-installer.templates:275
 msgid "Configuring the base system..."
 msgstr "Налаштування базової системи..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:271
+#: ../base-installer.templates:279
 msgid "Base system installed successfully."
 msgstr "Базова система встановлена успішно."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:275
+#: ../base-installer.templates:283
 msgid "Debootstrap warning"
 msgstr "Попередження debootstrap"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:275
+#: ../base-installer.templates:283
 msgid "Warning: ${INFO}"
 msgstr "Попередження: ${INFO}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:280
+#: ../base-installer.templates:288
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Повторення невдалого завантаження ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:284
+#: ../base-installer.templates:292
 msgid "Configuring APT sources..."
 msgstr "Налаштування джерел APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../base-installer.templates:296
 msgid "Updating the list of available packages..."
 msgstr "Оновлення списку наявних пакунків..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:292
+#: ../base-installer.templates:300
 msgid "Installing extra packages..."
 msgstr "Встановлення додаткових пакунків..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:296
+#: ../base-installer.templates:304
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr ""
 "Встановлення додаткових пакунків: отримання та встановлення ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:300
+#: ../base-installer.templates:308
 msgid "Creating device files..."
 msgstr "Створення файлів пристроїв..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:304
+#: ../base-installer.templates:312
 msgid "Selecting the kernel to install..."
 msgstr "Вибір ядра для встановлення..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:308
+#: ../base-installer.templates:316
 msgid "Installing the kernel..."
 msgstr "Встановлення ядра..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:312
+#: ../base-installer.templates:320
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Встановлення ядра: отримання та встановлення ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:316
+#: ../base-installer.templates:324
 msgid "Installing the PCMCIA modules"
 msgstr "Встановлення модулів PCMCIA"
 
@@ -577,6 +592,6 @@ msgstr "Встановлення модулів PCMCIA"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:322
+#: ../base-installer.templates:330
 msgid "Install the base system"
 msgstr "Встановити базову систему"
