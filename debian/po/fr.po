@@ -3,6 +3,7 @@
 #
 # DO NOT MODIFY IT DIRECTLY : SUCH CHANGES WILL BE LOST
 # 
+# translation of fr2.po to French
 # translation of fr.po to French
 # French messages for debian-installer.
 # Copyright (C) 2004 Software in the Public Interest, Inc.
@@ -16,10 +17,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: fr\n"
+"Project-Id-Version: fr2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-27 18:36-0700\n"
-"PO-Revision-Date: 2005-12-08 06:38+0100\n"
+"POT-Creation-Date: 2005-12-29 03:21-0700\n"
+"PO-Revision-Date: 2005-12-28 07:59+0100\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -158,6 +159,7 @@ msgstr "${ERROR}"
 #: ../base-installer.templates:66
 msgid "Tool to use to generate initramfs initrd:"
 msgstr ""
+"Outil de création de l'image disque de démarrage (« initramfs initrd ») :"
 
 #. Type: select
 #. Description
@@ -167,16 +169,49 @@ msgid ""
 "should select the default. If your system fails to reboot, you can retry the "
 "installation using the other options."
 msgstr ""
+"La liste vous donne tous les outils disponibles. Si vous ne savez pas lequel "
+"choisir, laissez la valeur par défaut. Si le système ne redémarre pas "
+"correctement, vous pourrez retenter l'installation avec une des autres "
+"options."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:73
+msgid "No initramfs initrd generator"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:73
+msgid ""
+"The kernel that has been selected for installation needs an initramfs "
+"initrd. However, no package to generate that initrd is available that "
+"supports your configuration. This would leave your system unable to boot."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:80
+msgid "Unsupported initramfs initrd generator"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:80
+msgid ""
+"The package ${GENERATOR} that was selected to generate the initramfs initrd "
+"is not supported."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:86
 msgid "Unable to install the selected kernel"
 msgstr "Impossible d'installer le noyau choisi"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:73
+#: ../base-installer.templates:86
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -186,25 +221,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:73
+#: ../base-installer.templates:86
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Paquet du noyau : « ${KERNEL} »."
 
 #. Type: select
 #. Choices
-#: ../base-installer.templates:83
+#: ../base-installer.templates:96
 msgid "${KERNELS}, none"
 msgstr "${KERNELS}, Aucun"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:84
+#: ../base-installer.templates:97
 msgid "Kernel to install:"
 msgstr "Noyau à installer :"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:84
+#: ../base-installer.templates:97
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -214,19 +249,19 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:91
+#: ../base-installer.templates:104
 msgid "Continue without installing a kernel?"
 msgstr "Voulez-vous poursuivre sans installer un noyau ?"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:91
+#: ../base-installer.templates:104
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "Aucun noyau installable n'a été trouvé parmi les sources APT définies."
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:91
+#: ../base-installer.templates:104
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -238,25 +273,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:100
+#: ../base-installer.templates:113
 msgid "Cannot install kernel"
 msgstr "Impossible d'installer le noyau"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:100
+#: ../base-installer.templates:113
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr "L'installateur ne peut pas trouver de noyau adapté à installer."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:105
+#: ../base-installer.templates:118
 msgid "Unable to install ${PACKAGE}"
 msgstr "Impossible d'installer ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:105
+#: ../base-installer.templates:118
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -266,7 +301,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:105
+#: ../base-installer.templates:118
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
 "Veuillez consulter le fichier /var/log/syslog ou la quatrième console "
@@ -274,43 +309,43 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:113
+#: ../base-installer.templates:126
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Échec de la récupération du fichier « Release » ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:118
+#: ../base-installer.templates:131
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Échec de la récupération du fichier « Release » ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:123
+#: ../base-installer.templates:136
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Fichier « Release » signé par une clé inconnue (${SUBST0})"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:128
+#: ../base-installer.templates:141
 msgid "Invalid Release file: no valid components."
 msgstr "Fichier « Release » non valable : aucun composant n'est valable."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:133
+#: ../base-installer.templates:146
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Fichier « Release » invalide : pas d'entrée pour ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:138
+#: ../base-installer.templates:151
 msgid "Debootstrap Error"
 msgstr "Erreur de debootstrap"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:138
+#: ../base-installer.templates:151
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -320,7 +355,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:138
+#: ../base-installer.templates:151
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -330,241 +365,241 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:151
+#: ../base-installer.templates:164
 msgid "Preparing to install the base system..."
 msgstr "Préparation de l'installation du système de base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:155
+#: ../base-installer.templates:168
 msgid "Running ${SCRIPT}..."
 msgstr "Exécution du script ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:159
+#: ../base-installer.templates:172
 msgid "Retrieving Release file"
 msgstr "Réception du fichier « Release »"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:163
+#: ../base-installer.templates:176
 msgid "Retrieving Release file signature"
 msgstr "Réception de la signature du fichier « Release »"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:167
+#: ../base-installer.templates:180
 msgid "Finding package sizes"
 msgstr "Calcul de la taille des paquets"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:171
+#: ../base-installer.templates:184
 msgid "Retrieving Packages files"
 msgstr "Réception des fichiers « Packages »"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:175
+#: ../base-installer.templates:188
 msgid "Retrieving Packages file"
 msgstr "Réception du fichier « Packages »"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:179
+#: ../base-installer.templates:192
 msgid "Retrieving packages"
 msgstr "Réception des paquets"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:183
+#: ../base-installer.templates:196
 msgid "Extracting packages"
 msgstr "Extraction des paquets"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:187
+#: ../base-installer.templates:200
 msgid "Installing the base system"
 msgstr "Installation du système de base"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:191
+#: ../base-installer.templates:204
 msgid "Installing core packages"
 msgstr "Installation des paquets de base"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:195
+#: ../base-installer.templates:208
 msgid "Unpacking required packages"
 msgstr "Décompression des paquets nécessaires"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:199
+#: ../base-installer.templates:212
 msgid "Configuring required packages"
 msgstr "Configuration des paquets nécessaires"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:203
+#: ../base-installer.templates:216
 msgid "Unpacking the base system"
 msgstr "Décompression du système de base"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:207
+#: ../base-installer.templates:220
 msgid "Configuring the base system"
 msgstr "Configuration du système de base"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:211
+#: ../base-installer.templates:224
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:215
+#: ../base-installer.templates:228
 msgid "Validating ${SUBST0}..."
 msgstr "Validation de ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:219
+#: ../base-installer.templates:232
 msgid "Retrieving ${SUBST0}..."
 msgstr "Réception de ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:223
+#: ../base-installer.templates:236
 msgid "Extracting ${SUBST0}..."
 msgstr "Extraction de ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:227
+#: ../base-installer.templates:240
 msgid "Unpacking ${SUBST0}..."
 msgstr "Décompression de ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:231
+#: ../base-installer.templates:244
 msgid "Configuring ${SUBST0}..."
 msgstr "Configuration de ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:235
+#: ../base-installer.templates:248
 msgid "Checking Release signature"
 msgstr "Contrôle de la signature du fichier « Release »"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:239
+#: ../base-installer.templates:252
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Signature valable pour le fichier « Release » (clé ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:243
+#: ../base-installer.templates:256
 msgid "Resolving dependencies of base packages..."
 msgstr "Résolution des dépendances des paquets de base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:247
+#: ../base-installer.templates:260
 msgid "Resolving dependencies of required packages..."
 msgstr "Résolution des dépendances des paquets nécessaires..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:251
+#: ../base-installer.templates:264
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "Vérification du composant ${SUBST0} de ${SUBST1}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:255
+#: ../base-installer.templates:268
 msgid "Installing core packages..."
 msgstr "Installation des paquets essentiels..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:259
+#: ../base-installer.templates:272
 msgid "Unpacking required packages..."
 msgstr "Décompression des paquets nécessaires..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:263
+#: ../base-installer.templates:276
 msgid "Configuring required packages..."
 msgstr "Configuration des paquets nécessaires..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:267
+#: ../base-installer.templates:280
 msgid "Installing base packages..."
 msgstr "Installation des paquets de base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:271
+#: ../base-installer.templates:284
 msgid "Unpacking the base system..."
 msgstr "Décompression du système de base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:275
+#: ../base-installer.templates:288
 msgid "Configuring the base system..."
 msgstr "Configuration du système de base..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:279
+#: ../base-installer.templates:292
 msgid "Base system installed successfully."
 msgstr "Le système de base a été correctement installé."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:283
+#: ../base-installer.templates:296
 msgid "Debootstrap warning"
 msgstr "Avertissement de debootstrap"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:283
+#: ../base-installer.templates:296
 msgid "Warning: ${INFO}"
 msgstr "Avertissement : ${INFO}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../base-installer.templates:301
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Tentative de reprise du téléchargement de ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:292
+#: ../base-installer.templates:305
 msgid "Configuring APT sources..."
 msgstr "Configuration des sources d'APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:296
+#: ../base-installer.templates:309
 msgid "Updating the list of available packages..."
 msgstr "Mise à jour de la liste des paquets disponibles..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:300
+#: ../base-installer.templates:313
 msgid "Installing extra packages..."
 msgstr "Installation des paquets supplémentaires..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:304
+#: ../base-installer.templates:317
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr ""
 "Installation de paquets supplémentaires : récupération et installation de "
@@ -572,31 +607,31 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:308
+#: ../base-installer.templates:321
 msgid "Creating device files..."
 msgstr "Création des fichiers des périphériques..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:312
+#: ../base-installer.templates:325
 msgid "Selecting the kernel to install..."
 msgstr "Choix du noyau à installer dans /target/..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:316
+#: ../base-installer.templates:329
 msgid "Installing the kernel..."
 msgstr "Installation du noyau..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:320
+#: ../base-installer.templates:333
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Installation du noyau : récupération et installation de ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:324
+#: ../base-installer.templates:337
 msgid "Installing the PCMCIA modules"
 msgstr "Installation des modules PCMCIA"
 
@@ -604,6 +639,6 @@ msgstr "Installation des modules PCMCIA"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:330
+#: ../base-installer.templates:343
 msgid "Install the base system"
 msgstr "Installer le système de base"

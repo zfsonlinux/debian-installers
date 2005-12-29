@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-27 18:36-0700\n"
+"POT-Creation-Date: 2005-12-29 03:21-0700\n"
 "PO-Revision-Date: 2005-12-21 17:15+0700\n"
 "Last-Translator: Parlin Imanuel Toh <pt@samip-online.com>\n"
 "Language-Team: Debian Indonesia Team <debian-l10n-id@gurame.fisika.ui.ac."
@@ -150,7 +150,7 @@ msgstr "${ERROR}"
 #. Description
 #: ../base-installer.templates:66
 msgid "Tool to use to generate initramfs initrd:"
-msgstr ""
+msgstr "Alat yang ingin dipakai untuk membuat initramfs initrd:"
 
 #. Type: select
 #. Description
@@ -160,16 +160,47 @@ msgid ""
 "should select the default. If your system fails to reboot, you can retry the "
 "installation using the other options."
 msgstr ""
+"Daftar menampilkan alat-alat yang tersedia. Jika anda tak yakin, pilih alat "
+"bawaan. Jika sistem anda gagal reboot, coba lagi dengan pilihan yang lain."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:73
+msgid "No initramfs initrd generator"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:73
+msgid ""
+"The kernel that has been selected for installation needs an initramfs "
+"initrd. However, no package to generate that initrd is available that "
+"supports your configuration. This would leave your system unable to boot."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:80
+msgid "Unsupported initramfs initrd generator"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:80
+msgid ""
+"The package ${GENERATOR} that was selected to generate the initramfs initrd "
+"is not supported."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:86
 msgid "Unable to install the selected kernel"
 msgstr "Tidak dapat memasang kernel yang dipilih"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:73
+#: ../base-installer.templates:86
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -177,25 +208,25 @@ msgstr "Terjadi kesalahan saat mencoba memasang kernel pada sistem target."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:73
+#: ../base-installer.templates:86
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Paket kernel: '${KERNEL}'."
 
 #. Type: select
 #. Choices
-#: ../base-installer.templates:83
+#: ../base-installer.templates:96
 msgid "${KERNELS}, none"
 msgstr "${KERNELS}, none"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:84
+#: ../base-installer.templates:97
 msgid "Kernel to install:"
 msgstr "Kernel yang ingin dipasang:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:84
+#: ../base-installer.templates:97
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -205,13 +236,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:91
+#: ../base-installer.templates:104
 msgid "Continue without installing a kernel?"
 msgstr "Meneruskan tanpa instalasi kernel?"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:91
+#: ../base-installer.templates:104
 msgid "No installable kernel was found in the defined APT sources."
 msgstr ""
 "Tidak ditemukan kernel yang dapat dipasang pada sumber-sumber APT yang telah "
@@ -219,7 +250,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:91
+#: ../base-installer.templates:104
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -231,25 +262,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:100
+#: ../base-installer.templates:113
 msgid "Cannot install kernel"
 msgstr "Tidak dapat memasang kernel"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:100
+#: ../base-installer.templates:113
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr "Instaler tidak menemukan paket kernel yang cocok untuk dipasang."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:105
+#: ../base-installer.templates:118
 msgid "Unable to install ${PACKAGE}"
 msgstr "Tidak dapat memasang ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:105
+#: ../base-installer.templates:118
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -257,49 +288,49 @@ msgstr "Terjadi kesalahan saat mencoba memasang ${PACKAGE} pada sistem target."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:105
+#: ../base-installer.templates:118
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr "Periksa /var/log/syslog atau lihat konsol maya no. 4."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:113
+#: ../base-installer.templates:126
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Gagal mengambil berkas Release ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:118
+#: ../base-installer.templates:131
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Gagal mengambil berkas tanda tangan Release ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:123
+#: ../base-installer.templates:136
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Berkas Release ditandatangani dengan kunci asing (id kunci ${SUBST0})"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:128
+#: ../base-installer.templates:141
 msgid "Invalid Release file: no valid components."
 msgstr "Berkas Release tidak sah: tak ada komponen yang sah."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:133
+#: ../base-installer.templates:146
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Berkas Release tidak sah: tak ada masukan (entry) untuk ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:138
+#: ../base-installer.templates:151
 msgid "Debootstrap Error"
 msgstr "Kesalahan Debootstrap"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:138
+#: ../base-installer.templates:151
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -309,7 +340,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:138
+#: ../base-installer.templates:151
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -319,271 +350,271 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:151
+#: ../base-installer.templates:164
 msgid "Preparing to install the base system..."
 msgstr "Sedang bersiap-siap memasang sistem dasar..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:155
+#: ../base-installer.templates:168
 msgid "Running ${SCRIPT}..."
 msgstr "Sedang menjalankan ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:159
+#: ../base-installer.templates:172
 msgid "Retrieving Release file"
 msgstr "Mengambil berkas Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:163
+#: ../base-installer.templates:176
 msgid "Retrieving Release file signature"
 msgstr "Mengambil tanda tangan berkas Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:167
+#: ../base-installer.templates:180
 msgid "Finding package sizes"
 msgstr "Mencari ukuran paket"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:171
+#: ../base-installer.templates:184
 msgid "Retrieving Packages files"
 msgstr "Mengambil berkas Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:175
+#: ../base-installer.templates:188
 msgid "Retrieving Packages file"
 msgstr "Mengambil berkas Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:179
+#: ../base-installer.templates:192
 msgid "Retrieving packages"
 msgstr "Mengambil paket-paket"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:183
+#: ../base-installer.templates:196
 msgid "Extracting packages"
 msgstr "Membuka paket-paket"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:187
+#: ../base-installer.templates:200
 msgid "Installing the base system"
 msgstr "Memasang sistem dasar"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:191
+#: ../base-installer.templates:204
 msgid "Installing core packages"
 msgstr "Sedang memasang paket-paket inti..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:195
+#: ../base-installer.templates:208
 msgid "Unpacking required packages"
 msgstr "Sedang membuka paket-paket yang diperlukan..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:199
+#: ../base-installer.templates:212
 msgid "Configuring required packages"
 msgstr "Sedang mempersiapkan paket-paket yang diperlukan..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:203
+#: ../base-installer.templates:216
 msgid "Unpacking the base system"
 msgstr "Memasang sistem dasar"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:207
+#: ../base-installer.templates:220
 msgid "Configuring the base system"
 msgstr "Sedang mempersiapkan sistem dasar"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:211
+#: ../base-installer.templates:224
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:215
+#: ../base-installer.templates:228
 msgid "Validating ${SUBST0}..."
 msgstr "Sedang memeriksa keabsahan ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:219
+#: ../base-installer.templates:232
 msgid "Retrieving ${SUBST0}..."
 msgstr "Sedang mengambil ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:223
+#: ../base-installer.templates:236
 msgid "Extracting ${SUBST0}..."
 msgstr "Sedang membuka ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:227
+#: ../base-installer.templates:240
 msgid "Unpacking ${SUBST0}..."
 msgstr "Sedang membuka ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:231
+#: ../base-installer.templates:244
 msgid "Configuring ${SUBST0}..."
 msgstr "Sedang mempersiapkan ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:235
+#: ../base-installer.templates:248
 msgid "Checking Release signature"
 msgstr "Memeriksa tanda tangan Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:239
+#: ../base-installer.templates:252
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Berkas Release sah: (id kunci ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:243
+#: ../base-installer.templates:256
 msgid "Resolving dependencies of base packages..."
 msgstr "Sedang mencari dependensi paket-paket dasar..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:247
+#: ../base-installer.templates:260
 msgid "Resolving dependencies of required packages..."
 msgstr "Sedang mencari dependensi paket-paket yang diperlukan..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:251
+#: ../base-installer.templates:264
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "Sedang memeriksa komponen ${SUBST0} pada ${SUBST1}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:255
+#: ../base-installer.templates:268
 msgid "Installing core packages..."
 msgstr "Sedang memasang paket-paket inti..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:259
+#: ../base-installer.templates:272
 msgid "Unpacking required packages..."
 msgstr "Sedang membuka paket-paket yang diperlukan..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:263
+#: ../base-installer.templates:276
 msgid "Configuring required packages..."
 msgstr "Sedang mengonfigurasikan paket-paket yang diperlukan..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:267
+#: ../base-installer.templates:280
 msgid "Installing base packages..."
 msgstr "Sedang memasang paket-paket dasar..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:271
+#: ../base-installer.templates:284
 msgid "Unpacking the base system..."
 msgstr "Membuka dan memasang sistem dasar..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:275
+#: ../base-installer.templates:288
 msgid "Configuring the base system..."
 msgstr "Mempersiapkan sistem dasar..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:279
+#: ../base-installer.templates:292
 msgid "Base system installed successfully."
 msgstr "Sistem dasar telah berhasil dipasang."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:283
+#: ../base-installer.templates:296
 msgid "Debootstrap warning"
 msgstr "Peringatan Debootstrap"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:283
+#: ../base-installer.templates:296
 msgid "Warning: ${INFO}"
 msgstr "Peringatan: ${INFO}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../base-installer.templates:301
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Mengulangi download ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:292
+#: ../base-installer.templates:305
 msgid "Configuring APT sources..."
 msgstr "Sedang mengonfigurasikan sumber-sumber APT"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:296
+#: ../base-installer.templates:309
 msgid "Updating the list of available packages..."
 msgstr "Sedang memperbaharui daftar paket-paket yang tersedia..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:300
+#: ../base-installer.templates:313
 msgid "Installing extra packages..."
 msgstr "Sedang memasang paket-paket tambahan..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:304
+#: ../base-installer.templates:317
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "Memasang paket-paket ekstra - mengambil dan memasang ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:308
+#: ../base-installer.templates:321
 msgid "Creating device files..."
 msgstr "Membuat berkas-berkas piranti..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:312
+#: ../base-installer.templates:325
 msgid "Selecting the kernel to install..."
 msgstr "Sedang memilih kernel untuk dipasang..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:316
+#: ../base-installer.templates:329
 msgid "Installing the kernel..."
 msgstr "Sedang memasang kernel..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:320
+#: ../base-installer.templates:333
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Memasang kernel - mengambil dan memasang ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:324
+#: ../base-installer.templates:337
 msgid "Installing the PCMCIA modules"
 msgstr "Sedang memasang modul-modul PCMCIA"
 
@@ -591,6 +622,6 @@ msgstr "Sedang memasang modul-modul PCMCIA"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:330
+#: ../base-installer.templates:343
 msgid "Install the base system"
 msgstr "Memasang sistem dasar"
