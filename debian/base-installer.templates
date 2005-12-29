@@ -63,22 +63,22 @@ _Description: Debootstrap Error
 Template: base-installer/initramfs/generator
 Type: select
 Choices: ${GENERATORS}
-_Description: Tool to use to generate initramfs initrd:
+_Description: Tool to use to generate boot initrd:
  The list shows the available tools. If you are unsure which to select,
- you should select the default. If your system fails to reboot, you can
+ you should select the default. If your system fails to boot, you can
  retry the installation using the other options.
 
 Template: base-installer/intramfs/no-generator
 Type: error
-_Description: No initramfs initrd generator
- The kernel that has been selected for installation needs an initramfs
- initrd. However, no package to generate that initrd is available that
- supports your configuration. This would leave your system unable to boot.
+_Description: No initrd generator
+ The kernel that has been selected for installation needs an initrd to boot.
+ However, no package to generate that initrd is available that supports
+ your configuration. This would leave your system unable to boot.
 
 Template: base-installer/intramfs/unsupported
 Type: error
-_Description: Unsupported initramfs initrd generator
- The package ${GENERATOR} that was selected to generate the initramfs
+_Description: Unsupported initrd generator
+ The package ${GENERATOR} that was selected to generate the
  initrd is not supported.
 
 Template: base-installer/kernel/failed-install
