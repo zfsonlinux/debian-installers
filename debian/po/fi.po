@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-11-16 18:32-0700\n"
-"PO-Revision-Date: 2005-04-06 17:27+0300\n"
+"PO-Revision-Date: 2005-12-28 19:18+0200\n"
 "Last-Translator: Tapio Lehtonen <tale@debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,6 @@ msgstr "Koneelta löytyivät seuraavat muut käyttöjärjestelmät: ${OS_LIST}"
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:4
-#, fuzzy
 msgid ""
 "If all of your operating systems are listed above, then it should be safe to "
 "install the boot loader to the master boot record of your first hard drive. "
@@ -44,8 +43,7 @@ msgstr ""
 "Jos koneen kaikki käyttöjärjestelmät löytyvät yllä olevasta listasta, "
 "pitäisi olla turvallista asentaa alkulatausohjelma ensimmäisen kiintolevyn "
 "pääkäynnistyslohkoon. Kun tietokone käynnistyy, voit valita "
-"käynnistettäväksi yhden näistä käyttöjärjestelmistä tai uuden Debian-"
-"järjestelmän."
+"käynnistettäväksi jonkin näistä käyttöjärjestelmistä tai uuden järjestelmän."
 
 #. Type: boolean
 #. Description
@@ -56,13 +54,12 @@ msgstr "Asennetaanko GRUB-alkulatausohjelma pääkäynnistyslohkoon?"
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
-#, fuzzy
 msgid ""
 "It seems that this new installation is the only operating system on this "
 "computer. If so, it should be safe to install the GRUB boot loader to the "
 "master boot record of your first hard drive."
 msgstr ""
-"Nähtävästi tämä Debian-asennus on tämän tietokoneen ainoa käyttöjärjestelmä. "
+"Nähtävästi tämä uusi asennus on tämän tietokoneen ainoa käyttöjärjestelmä. "
 "Mikäli näin on, pitäisi olla turvallista asentaa GRUB-alkulatausohjelma "
 "ensimmäisen kiintolevyn pääkäynnistyslohkoon."
 
@@ -106,7 +103,6 @@ msgstr "Laite johon alkulatausohjelma asennetaan:"
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
-#, fuzzy
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -114,16 +110,15 @@ msgid ""
 "can install GRUB elsewhere on the drive, or to another drive, or even to a "
 "floppy."
 msgstr ""
-"Nyt on aika tehdä vasta asennettu Debian-järjestelmä käynnistyväksi "
-"asentamalla GRUB-alkulatausohjelma käynnistyskelpoiselle laitteelle. Tämä "
-"tehdään tavallisesti asentamalla GRUB ensimmäisen kiintolevyn "
-"pääkäynnistyslohkoon. Halutessasi voit asentaa GRUB:n muualle levylle, "
-"toiselle kiintolevylle tai jopa levykkeelle."
+"Asennettu järjestelmä on tehtävä käynnistyväksi asentamalla GRUB-"
+"alkulatausohjelma käynnistyskelpoiselle laitteelle. Tämä tehdään "
+"tavallisesti asentamalla GRUB ensimmäisen kiintolevyn pääkäynnistyslohkoon. "
+"Halutessasi voit asentaa GRUB:n muualle levylle, toiselle kiintolevylle tai "
+"jopa levykkeelle."
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
-#, fuzzy
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -137,12 +132,12 @@ msgid ""
 msgstr ""
 "Laite voidaan määrittää käyttäen GRUB:n \"(hdn,m)\"-merkintää tai laitteena "
 "hakemistossa /dev. Muutamia esimerkkejä:\n"
-" - \"(hd0)\" tai \"/dev/hda\" asentaa GRUB:n ensimmäisen IDE-kiintolevyn\n"
-"   pääkäynnistyslohkoon;\n"
+" - \"(hd0)\" tai \"/dev/hda\" asentaa GRUB:n ensimmäisen kiintolevyn\n"
+"   pääkäynnistyslohkoon (IDE);\n"
 "  - \"(hd0,1)\" tai \"/dev/hda2\" käyttää ensimmäisen IDE-levyn toista\n"
 "   levyosiota;\n"
-" - \"(hd2,4)\" tai \"/dev/sdc5\" käyttää kolmannen SCSI-levyn ensimmäistä\n"
-"   jatkettua osiota;\n"
+" - \"(hd2,4)\" tai \"/dev/sdc5\" käyttää kolmannen levyn ensimmäistä\n"
+"   jatkettua osiota (tässä SCSI);\n"
 " - \"(fd0)\" tai \"/dev/fd0\" asentaa GRUB:n levykkeelle."
 
 #. Type: password
@@ -166,9 +161,8 @@ msgstr ""
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
-#, fuzzy
 msgid "If you do not wish to set a GRUB password, leave this field blank."
-msgstr "Jos et tiedä mitä syöttää, jätä tyhjäksi."
+msgstr "Jos et halua asettaa GRUB-salasanaa, jätä tyhjäksi."
 
 #. Type: boolean
 #. Description
