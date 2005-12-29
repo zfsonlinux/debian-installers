@@ -51,7 +51,7 @@ Description: use an initramfs (linux 2.6 only)
 
 Template: base-installer/kernel/linux/initramfs-generators
 Type: string
-Default: yaird initramfs-tools
+Default: initramfs-tools yaird
 Default[alpha]: initramfs-tools
 Default[hppa]: yaird
 Default[ia64]: yaird
@@ -60,7 +60,8 @@ Default[mips]: yaird
 Default[mipsel]: yaird
 Default[sparc]: yaird
 # Space separated list of initrd generator packages to use. If you list more
-# than one for an architecture, the user will be asked to select one.
+# than one for an architecture, the user will be asked to select one
+# (depending on priority). The generator listed first will be the default.
 # Note: if you add a new one, don't forget to support it in the postinst.
 Description: package to use to generate initramfs
 
