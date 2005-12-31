@@ -10,19 +10,20 @@
 # Vũ Quang Trung <vu.quang.trung@auf.org>
 # Trịnh Minh Thành <tmthanh@yahoo.com>
 # Clytie Siddall <clytie@riverland.net.au>, 2005.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer Level 1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-11-16 18:32-0700\n"
-"PO-Revision-Date: 2005-07-10 17:33+0930\n"
+"PO-Revision-Date: 2005-12-30 22:22+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
-"Language-Team: Vietnamese <debian-l10n-vietnamese@lists.debian.org>\n"
+"Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+"X-Generator: LocFactoryEditor 1.5.1b\n"
 
 #. Type: boolean
 #. Description
@@ -30,7 +31,9 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr "Trên máy vi tính này, mới phát hiện những hệ thống theo đây:${OS_LIST}"
+msgstr ""
+"Những hệ điều hành khác theo đây đã được phát hiện trên máy tính này:"
+"${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -41,9 +44,9 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new system."
 msgstr ""
-"Nếu danh sách ở trên chứa tất cả những hệ điều hành của bạn thì sẽ cài đặt "
-"bộ tải khởi động vào mục ghi khởi động chủ của đĩa cứng thứ nhất một cách an "
-"toàn. Khi máy vi tính của bạn khởi động thì có thể chọn tải một của những hệ "
+"Nếu danh sách ở trên chứa tất cả những hệ điều hành của bạn thì có thể cài "
+"đặt an toàn bộ tải khởi động vào mục ghi khởi động chủ trên đĩa cứng thứ "
+"nhất. Khi máy tính của bạn khởi động thì có thể chọn tải một của những hệ "
 "điều hành này hoặc hệ thống mới của bạn."
 
 # Type: boolean
@@ -64,9 +67,9 @@ msgid ""
 "computer. If so, it should be safe to install the GRUB boot loader to the "
 "master boot record of your first hard drive."
 msgstr ""
-"Hình như bản cài đặt mới này là chỉ hệ điều hành riêng lẻ trên máy vi tính "
-"này. Nếu có phải thì có thể cài đặt bộ tải khởi động GRUB vào mục ghi khởi "
-"động chủ của đĩa cứng thứ nhất một cách an toàn."
+"Hình như bản cài đặt mới này là hệ điều hành duy nhất trên máy tính này. Nếu "
+"có phải thì có thể cài đặt an toàn bộ tải khởi động GRUB vào mục ghi khởi "
+"động chủ trên đĩa cứng thứ nhất."
 
 #. Type: boolean
 #. Description
@@ -77,10 +80,9 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
-"Cảnh báo: nếu trình cài đặt đã không phát hiện một hệ điều hành khác đã có "
-"trên máy vi tính của bạn, sửa đổi mục ghi khởi động chủ sẽ ngăn cản hệ thống "
-"ấy khởi động tạm thời, nhưng mà có thể tự định cấu hình GRUB sau này để khởi "
-"động nó."
+"Cảnh báo: nếu trình cài đặt đã không phát hiện một hệ điều hành khác có trên "
+"máy tính của bạn, việc sửa đổi mục ghi khởi động chủ sẽ tạm thời ngăn cản hệ "
+"thống đó khởi động, còn có thể tự cấu hình GRUB sau này để khởi động nó."
 
 # Type: boolean
 # Description
@@ -88,7 +90,7 @@ msgstr ""
 #. Description
 #: ../grub-installer.templates:29
 msgid "Install the GRUB boot loader to XFS file system?"
-msgstr "Cài đặt GRUB boot loader vào hệ thông tập tin XFS không?"
+msgstr "Cài đặt bộ tải khởi động GRUB vào hệ thông tập tin XFS không?"
 
 #. Type: boolean
 #. Description
@@ -97,8 +99,8 @@ msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
 msgstr ""
-"Việc cài đặt bộ tải khởi động GRUB thường không thàng công khi /boot có trên "
-"hệ thống tập tin loại XFS. Như thế thì khuyến khích sư dụng LILO."
+"Việc cài đặt bộ tải khởi động GRUB thường bị lỗi hoặc treo cứng khi </boot> "
+"có trên hệ thống tập tin kiểu XFS. Như thế thì khuyên bạn sư dụng LILO."
 
 # #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
 # Type: string
@@ -116,7 +118,7 @@ msgstr ""
 #. Description
 #: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
-msgstr "Thiết bị cần cài đặt bộ tảỉ khởi động:"
+msgstr "Thiết bị nơi cần cài đặt bộ tảỉ khởi động:"
 
 #. Type: string
 #. Description
@@ -128,16 +130,15 @@ msgid ""
 "can install GRUB elsewhere on the drive, or to another drive, or even to a "
 "floppy."
 msgstr ""
-"Bạn cần phải làm cho hệ thống mới cài đặt thì có thể khởi động, bằng cách "
-"cài đặt bộ tải khởi động GRUB vào một thiết bị có thể khởi động. Cách thường "
-"làm như thể là cài đặt GRUB vào mục khởi động chủ trên đĩa cứng thứ nhất của "
-"bạn. Nếu muốn, bạn có thể cài đặt GRUB vào nơi khác trên đĩa ấy, hoặc vào "
+"Bạn cần phải cho hệ thống mới cài đặt có khả năng khởi động, bằng cách cài "
+"đặt bộ tải khởi động GRUB vào một thiết bị khởi động được. Cách làm như thể "
+"thường là cài đặt GRUB vào mục ghi khởi động chủ trên đĩa cứng thứ nhất của "
+"bạn. Nếu muốn, bạn có thể cài đặt GRUB vào nơi khác trên đĩa  đó, hoặc vào "
 "đĩa khác, hoặc ngay cả vào đĩa mềm."
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
-#, fuzzy
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -149,15 +150,15 @@ msgid ""
 "   your third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Có thể ghi rõ thiết bị ấy dùng cách ghi \"(hdn,m)\" của GRUB, hoặc như là "
-"thiết bị trong /dev. Có một số lời thí dụ bên dưới:\n"
-" - \"(hd0)\" hay \"/dev/hda\" sẽ cài đặt GRUB vào mục ghi khởi động chủ trên "
-"đĩa cứng (IDE) thứ nhất;\n"
-" - \"(hd0,1)\" hay \"/dev/hda2\" sẽ sử dụng vùng thứ hai trên đĩa cứng IDE "
-"thứ nhất;\n"
-" - \"(hd2,4)\" hay \"/dev/sdc5\" sẽ sử dụng vùng đã mở rộng thứ nhất trên "
-"đĩa cứng thứ ba (SCSI trong lời thí dụ này)\n"
-" - \"(fd0)\" hay \"/dev/fd0\" sẽ cài đặt GRUB vào một đĩa mềm."
+"Có thể ghi rõ thiết bị bằng kiểu ghi « (hdn,m) » của GRUB, hoặc kiểu thiết "
+"bị trong </dev>. Có một số lời thí dụ bên dưới:\n"
+" • « (hd0) » hay « /dev/hda » sẽ cài đặt GRUB vào mục ghi khởi động chủ\n"
+"trên đĩa cứng (IDE) thứ nhất;\n"
+" • « (hd0,1) » hay « /dev/hda2 » sẽ chiếm vùng thứ hai\n"
+"trên đĩa cứng IDE thứ nhất;\n"
+" • « (hd2,4) » hay « /dev/sdc5 » sẽ chiếm vùng kéo dài thứ nhất\n"
+"trên đĩa cứng thứ ba (SCSI trong lời thí dụ này)\n"
+" • « (fd0) » hay « /dev/fd0 » sẽ cài đặt GRUB vào một đĩa mềm."
 
 #. Type: password
 #. Description
@@ -179,10 +180,9 @@ msgstr ""
 "Bộ tải khởi động GRUB cung cấp nhiều tính năng tương tác mạnh mẽ, mà có thể "
 "được dùng để làm cho hệ thống bạn bị hại thậm nếu người dùng không có quyền "
 "hạn có truy cập máy này trong khi khởi động. Để tránh trường hợp này, bạn có "
-"thể chọn một mật khẩu mà sẽ được cần đến trước khi bất cứ người dùng nào có "
-"thể sửa đổi mục nhập trình đơn, hoặc vào giao diện dòng lệnh. Mặc định là "
-"mọi người dùng sẽ vẫn còn có thể thực hiện bất cứ mục nhập trình đơn nào "
-"không có nhập mật khẩu ấy."
+"thể chọn một mật khẩu sẽ được cần đến trước khi sửa đổi mục nhập trình đơn, "
+"hoặc vào giao diện dòng lệnh GRUB. Mặc định là mọi người dùng sẽ vẫn còn có "
+"thể thực hiện bất cứ mục nhập trình đơn nào, không có nhập mật khẩu."
 
 # Type: string
 # Description
@@ -190,7 +190,7 @@ msgstr ""
 #. Description
 #: ../grub-installer.templates:54
 msgid "If you do not wish to set a GRUB password, leave this field blank."
-msgstr "Nếu bạn không muốn lập một mật khẩu GRUB, hãy bỏ rỗng."
+msgstr "Nếu bạn không muốn lập mật khẩu GRUB, hãy bỏ rỗng."
 
 # Type: boolean
 # Description
@@ -198,7 +198,7 @@ msgstr "Nếu bạn không muốn lập một mật khẩu GRUB, hãy bỏ rỗn
 #. Description
 #: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr "Không cài đặt GRUB được. Vẫn cứ tiếp tục không?"
+msgstr "Việc cài đặt GRUB bị lỗi. Vẫn cứ tiếp tục không?"
 
 #. Type: boolean
 #. Description
@@ -208,9 +208,9 @@ msgid ""
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
-"Không cài đặt gói GRUB vào /target/ được. Cài đặt GRUB như là bộ tải khởi "
-"động là một bước cần thiết. Nhưng mà, có lẽ lỗi cài đặt không liên quan đến "
-"GRUB thì có thể thử tiếp tục cài đặt."
+"Gói GRUB không cài đặt được vào </target/>. Cài đặt GRUB kiểu bộ tải khởi "
+"động là bước cần thiết. Nhưng mà, lỗi cài đặt có lẽ không liên quan đến GRUB "
+"thì có thể thử tiếp tục cài đặt."
 
 # Type: error
 # Description
@@ -218,7 +218,7 @@ msgstr ""
 #. Description
 #: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "Không thể cài đặt GRUB vào ${BOOTDEV}."
+msgstr "Không thể cài đặt GRUB vào ${BOOTDEV}"
 
 # Type: error
 # Description
@@ -226,7 +226,7 @@ msgstr "Không thể cài đặt GRUB vào ${BOOTDEV}."
 #. Description
 #: ../grub-installer.templates:80
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "Không thực thi 'grub-install ${BOOTDEV}' được."
+msgstr "Việc thực thi « grub-install ${BOOTDEV} » bị lỗi."
 
 # Type: error
 # Description
@@ -234,13 +234,13 @@ msgstr "Không thực thi 'grub-install ${BOOTDEV}' được."
 #. Description
 #: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
-msgstr "Không thể định cấu hình Grub."
+msgstr "Không thể cấu hình GRUB."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Executing 'update-grub' failed."
-msgstr "Không thực hiện 'update grub' (cập nhật GRUB) được."
+msgstr "Việc thực hiện « update grub » (cập nhật GRUB) bị lỗi."
 
 # Type: error
 # Description
@@ -256,7 +256,7 @@ msgstr "Đây là lỗi trầm trọng."
 #. Description
 #: ../grub-installer.templates:94
 msgid "Installing GRUB boot loader"
-msgstr "Cài đặt trình tải khởi động GRUB."
+msgstr "Đang cài đặt bộ tải khởi động GRUB"
 
 # Type: text
 # Description
@@ -264,7 +264,7 @@ msgstr "Cài đặt trình tải khởi động GRUB."
 #. Description
 #: ../grub-installer.templates:98
 msgid "Looking for other operating systems..."
-msgstr "Tìm các hệ điều hành khác..."
+msgstr "Đang tìm hệ điều hành khác nào..."
 
 # Type: text
 # Description
@@ -272,7 +272,7 @@ msgstr "Tìm các hệ điều hành khác..."
 #. Description
 #: ../grub-installer.templates:102
 msgid "Installing the 'grub' package..."
-msgstr "Cài đặt 'grub' package..."
+msgstr "Đang cài đặt gói « grub »..."
 
 # Type: text
 # Description
@@ -282,7 +282,7 @@ msgstr "Cài đặt 'grub' package..."
 #. Description
 #: ../grub-installer.templates:106
 msgid "Determining GRUB boot device..."
-msgstr "Xác định thiết bị khởi động GRUB..."
+msgstr "Đang xác định thiết bị khởi động GRUB..."
 
 # Type: text
 # Description
@@ -290,7 +290,7 @@ msgstr "Xác định thiết bị khởi động GRUB..."
 #. Description
 #: ../grub-installer.templates:110
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "Chạy \"grub-install ${BOOTDEV}\"..."
+msgstr "Đang chạy « grub-install ${BOOTDEV} » (grub-cài đặt)..."
 
 # Type: text
 # Description
@@ -298,7 +298,7 @@ msgstr "Chạy \"grub-install ${BOOTDEV}\"..."
 #. Description
 #: ../grub-installer.templates:114
 msgid "Running \"update-grub\"..."
-msgstr "Chạy \"update-grub\"..."
+msgstr "Đang chạy « update-grub » (cập nhật grub)..."
 
 # Type: text
 # Description
@@ -306,7 +306,7 @@ msgstr "Chạy \"update-grub\"..."
 #. Description
 #: ../grub-installer.templates:118
 msgid "Updating /etc/kernel-img.conf..."
-msgstr "Cập nhật /etc/kernel-img.conf..."
+msgstr "Đang cập nhật </etc/kernel-img.conf>..."
 
 # Type: text
 # Description
@@ -316,4 +316,4 @@ msgstr "Cập nhật /etc/kernel-img.conf..."
 #. Main menu item
 #: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr "Cài đặt trình tải khởi động GRUB vào đĩa cứng"
+msgstr "Cài đặt bộ tải khởi động GRUB vào đĩa cứng"
