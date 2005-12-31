@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-12-29 18:37-0700\n"
-"PO-Revision-Date: 2005-12-28 20:38+0300\n"
+"PO-Revision-Date: 2005-12-31 10:03+0300\n"
 "Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:4
 msgid "Proceed with installation to unclean target?"
-msgstr "Продолжить установку на непустой раздел?"
+msgstr "Продолжить установку на не пустой раздел?"
 
 #. Type: boolean
 #. Description
@@ -150,28 +150,26 @@ msgstr "${ERROR}"
 #. Type: select
 #. Description
 #: ../base-installer.templates:66
-#, fuzzy
 msgid "Tool to use to generate boot initrd:"
-msgstr "Утилита для создания initramfs initrd:"
+msgstr "Утилита для создания initrd для загрузки:"
 
 #. Type: select
 #. Description
 #: ../base-installer.templates:66
-#, fuzzy
 msgid ""
 "The list shows the available tools. If you are unsure which to select, you "
 "should select the default. If your system fails to boot, you can retry the "
 "installation using the other options."
 msgstr ""
 "В списке показаны доступные утилиты. Если вы не знаете что выбрать, "
-"используйте значение по умолчанию. Если система не перезагрузилась, "
+"используйте значение по умолчанию. Если система не смогла загрузиться, "
 "повторите установку с использованием другого параметра."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:73
 msgid "No initrd generator"
-msgstr ""
+msgstr "Недоступна программа создания initrd"
 
 #. Type: error
 #. Description
@@ -181,12 +179,15 @@ msgid ""
 "However, no package to generate that initrd is available that supports your "
 "configuration. This would leave your system unable to boot."
 msgstr ""
+"Для ядра, выбранного для установки, требуется initrd. Однако пакет, с "
+"помощью которого создаётся данный initrd, недоступен в вашей конфигурации. "
+"Cистема в таком состоянии загружаться не сможет."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:80
 msgid "Unsupported initrd generator"
-msgstr ""
+msgstr "Неподдерживаемая программа создания initrd"
 
 #. Type: error
 #. Description
@@ -194,7 +195,7 @@ msgstr ""
 msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
-msgstr ""
+msgstr "Пакет ${GENERATOR} для создания initrd не поддерживается."
 
 #. Type: error
 #. Description
