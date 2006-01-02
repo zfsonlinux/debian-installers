@@ -570,12 +570,12 @@ EOF
 			ramdiskconf=
 			;;
 		    "")
-			db_subst base-installer/intramfs/no-generator
-			exit_error base-installer/intramfs/no-generator
+			db_subst base-installer/initramfs/no-generator
+			exit_error base-installer/initramfs/no-generator
 			;;
 		    *)
-			db_subst base-installer/intramfs/unsupported GENERATOR "$package"
-			exit_error base-installer/intramfs/unsupported
+			db_subst base-installer/initramfs/unsupported GENERATOR "$package"
+			exit_error base-installer/initramfs/unsupported
 			;;
 		esac
 	else
