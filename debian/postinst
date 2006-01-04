@@ -587,16 +587,28 @@ EOF
 	# TODO This should probably be restructured to better support
 	#      differences between initrd generators
 	if [ yes = "$do_initrd" ] ; then
-		info "Installing $package."
+		while :; do
+			info "Installing $package."
 
-		# Make sure the ramdisk creation tool is installed before we
-		# change its configuration
-		db_subst base-installer/section/install_kernel_package SUBST0 "$package"
-		db_progress INFO base-installer/section/install_kernel_package
-		if ! log-output -t base-installer apt-install "$package"; then
-			db_subst base-installer/kernel/failed-package-install PACKAGE "$package"
-			exit_error base-installer/kernel/failed-package-install
-		fi
+			# Make sure the ramdisk creation tool is installed
+			# before we change its configuration
+			db_subst base-installer/section/install_kernel_package SUBST0 "$package"
+			db_progress INFO base-installer/section/install_kernel_package
+			if ! log-output -t base-installer apt-install "$package"; then
+				if [ "$DISTRIBUTION" = sarge ] && \
+				   [ "$package" != initrd-tools ]; then
+					info "Falling back to initrd-tools for sarge."
+					do_initramfs=no
+					package=initrd-tools
+					ramdiskconf=/target/etc/mkinitrd/mkinitrd.conf
+					continue
+				fi
+				db_subst base-installer/kernel/failed-package-install PACKAGE "$package"
+				exit_error base-installer/kernel/failed-package-install
+			fi
+
+			break
+		done
 
 		if db_get "base-installer/kernel/linux/extra-packages-$target_kernel_major"; then
 			EXTRAS="$RET"
