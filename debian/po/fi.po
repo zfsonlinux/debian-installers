@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-12-29 18:37-0700\n"
-"PO-Revision-Date: 2005-12-28 19:18+0200\n"
+"PO-Revision-Date: 2006-01-04 16:23+0200\n"
 "Last-Translator: Tapio Lehtonen <tale@debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -145,7 +145,7 @@ msgstr "${ERROR}"
 #. Description
 #: ../base-installer.templates:66
 msgid "Tool to use to generate boot initrd:"
-msgstr ""
+msgstr "Käynnistyksen initrd:n tekevä työkalu:"
 
 #. Type: select
 #. Description
@@ -155,12 +155,15 @@ msgid ""
 "should select the default. If your system fails to boot, you can retry the "
 "installation using the other options."
 msgstr ""
+"Luettelossa on saatavilla olevat työkalut. Jos et ole varma valinnasta, "
+"pitäisi valita oletusarvo. Jos järjestelmä ei käynnisty, asennus voidaan "
+"tehdä uudestaan käyttäen muita vaihtoehtoja."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:73
 msgid "No initrd generator"
-msgstr ""
+msgstr "Ei työkalua tuottamaan käynnistysmuistilevyn levyotos (initrd)"
 
 #. Type: error
 #. Description
@@ -170,12 +173,15 @@ msgid ""
 "However, no package to generate that initrd is available that supports your "
 "configuration. This would leave your system unable to boot."
 msgstr ""
+"Asennettavaksi valittu ydin tarvitsee käynnistysmuistilevyn (initrd). Yhtään "
+"työkalua tuottamaan käynnistysmuistilevy tälle laitekokoonpanolle ei ole "
+"käytettävissä. Tämä jättäisi järjestelmän käynnistyskelvottomaksi."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:80
 msgid "Unsupported initrd generator"
-msgstr ""
+msgstr "Käynnistysmuistilevyn tuottava työkalu ei ole tuettu"
 
 #. Type: error
 #. Description
@@ -184,6 +190,7 @@ msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
 msgstr ""
+"Käynnistysmuistilevyn tekemiseen valittu paketti ${GENERATOR} ei ole tuettu."
 
 #. Type: error
 #. Description
@@ -209,7 +216,7 @@ msgstr "Ydinpaketti: \"${KERNEL}\"."
 #. Choices
 #: ../base-installer.templates:96
 msgid "${KERNELS}, none"
-msgstr ""
+msgstr "${KERNELS}, ei mikään"
 
 #. Type: select
 #. Description
@@ -247,6 +254,9 @@ msgid ""
 "kernel later. This is only recommended for experts, otherwise you will "
 "likely end up with a machine that doesn't boot."
 msgstr ""
+"Voidaan yrittää jatkaa ilman ydintä, ja asennetaan itse oma ydin myöhemmin. "
+"Tätä suositellaan vain asiantuntijoille. Muut luultavimmin tekevät koneen "
+"joka ei käynnisty."
 
 #. Type: error
 #. Description
@@ -258,7 +268,7 @@ msgstr "Ydintä ei voi asentaa"
 #. Description
 #: ../base-installer.templates:113
 msgid "The installer cannot find a suitable kernel package to install."
-msgstr ""
+msgstr "Asennin ei löydä asennettavaksi sopivaa ytimen pakettia."
 
 #. Type: error
 #. Description
@@ -328,6 +338,8 @@ msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
 msgstr ""
+"Paketin ${SUBST0} nouto ei onnistunut. Tämä voi johtua verkon viasta tai "
+"rikkinäisestä rompusta, asennustavasta riippuen."
 
 #. Type: error
 #. Description
@@ -336,6 +348,8 @@ msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
 msgstr ""
+"Jos asennetaan CD-R tai CD-RW -levyltä, levyn kirjoittaminen hitaammalla "
+"nopeudella saattaa auttaa."
 
 #. Type: text
 #. Description
@@ -545,7 +559,7 @@ msgstr "Debootstrap-varoitus"
 #. Description
 #: ../base-installer.templates:296
 msgid "Warning: ${INFO}"
-msgstr ""
+msgstr "Varoitus: ${INFO}"
 
 #. Type: text
 #. Description
