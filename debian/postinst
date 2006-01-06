@@ -586,7 +586,7 @@ EOF
 
 	# Sarge does not have any initramfs generators, though custom images may
 	if [ "$DISTRIBUTION" = sarge ] ; then
-		if [ "$(chroot /target apt-cache show "$package" 2>/dev/null || true)" ] ; then
+		if [ -z "$(chroot /target apt-cache show "$package" 2>/dev/null || true)" ] ; then
 			info "$package not available; falling back to initrd-tools."
 			do_initramfs=no
 			package=initrd-tools
