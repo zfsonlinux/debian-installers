@@ -29,32 +29,29 @@ msgstr "是否要在未完全清空的檔案系統上進行安裝作業？"
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:4
-#, fuzzy
 msgid ""
 "The target file system contains files from a past installation. These files "
 "could cause problems with the installation process, and if you proceed, some "
 "of the existing files may be overwritten."
 msgstr ""
-"該檔案系統還存在著上次安裝所殘留的檔案。這些檔案可能會妨礙安裝程序的進行，或"
-"是導致安裝完畢後的系統無法使用。"
+"該檔案系統還存在著上次安裝所殘留的檔案。這些檔案可能會妨礙安裝程序的進行，如"
+"果您執意繼續的話，有些現有的檔案很可能會被覆蓋掉。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
-#, fuzzy
 msgid "Cannot install base system"
 msgstr "無法安裝 Base System"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:11
-#, fuzzy
 msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
 msgstr ""
-"安裝程式無法判斷該如何安裝 Debian。既找不到可供安裝的 CD-ROM，且也沒有設定可"
-"用的鏡像站。"
+"安裝程式無法判斷該如何才能安裝 Base System。既找不到可供安裝的光碟，且也沒有"
+"設定可用的鏡像站。"
 
 #. Type: error
 #. Description
@@ -88,15 +85,13 @@ msgstr "拒絕安裝至未完全清空之檔案系統上"
 #. Type: error
 #. Description
 #: ../base-installer.templates:28
-#, fuzzy
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
 "install."
 msgstr ""
-"因為這個檔案系統還存留在著上次安裝所殘餘下來的檔案，這些檔案可能會妨礙安裝程"
-"序的進行，或是導致安裝完畢後的系統無法使用。所以在該檔案系統上所進行的安裝作"
-"業已經取消了。您應該返回並刪除或格式化該檔案系統，然後再繼續進行安裝。"
+"在該檔案系統上所進行的安裝作業已經取消了。您應該返回並刪除或格式化該檔案系"
+"統，然後才能再繼續進行安裝作業。"
 
 #. Type: error
 #. Description
@@ -209,7 +204,7 @@ msgstr "Kernel 套件：'${KERNEL}'。"
 #. Choices
 #: ../base-installer.templates:96
 msgid "${KERNELS}, none"
-msgstr ""
+msgstr "${KERNELS}, 無"
 
 #. Type: select
 #. Description
@@ -228,9 +223,8 @@ msgstr "在列表中的則為可用的 Kernel。請選擇其中之一來讓系�
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:104
-#, fuzzy
 msgid "Continue without installing a kernel?"
-msgstr "是否繼續進行安裝作業？"
+msgstr "是否在沒有安裝 Kernel 的狀況下繼續進行？"
 
 #. Type: boolean
 #. Description
@@ -246,42 +240,40 @@ msgid ""
 "kernel later. This is only recommended for experts, otherwise you will "
 "likely end up with a machine that doesn't boot."
 msgstr ""
+"您可以試著在沒有 Kernel 的狀況下繼續進行，並在稍後再自行安裝您自己的 Kernel。"
+"但這只建議給進階使用者採用，否則很可能到最後您的機器會無法開機。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:113
-#, fuzzy
 msgid "Cannot install kernel"
-msgstr "無法安裝 Debian"
+msgstr "無法安裝 Kernel"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:113
 msgid "The installer cannot find a suitable kernel package to install."
-msgstr ""
+msgstr "安裝程式無法找到合適的 Kernel 以進行安裝。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:118
-#, fuzzy
 msgid "Unable to install ${PACKAGE}"
-msgstr "無法將 GRUB 安裝至 ${BOOTDEV}"
+msgstr "無法安裝 ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:118
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
-msgstr "在試著將 initrd-tools 安裝至系統中時發生錯誤。"
+msgstr "在試著將 ${PACKAGE} 套件安裝至系統中時發生錯誤。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:118
-#, fuzzy
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
-msgstr "請查看 /var/log/messages 或是第三個虛擬主控台來獲得詳細訊息。"
+msgstr "請查看 /var/log/syslog 或是第四個虛擬主控台來獲得詳細訊息。"
 
 #. Type: error
 #. Description
@@ -292,16 +284,14 @@ msgstr "無法取得 Release 檔案 ${SUBST0}。"
 #. Type: error
 #. Description
 #: ../base-installer.templates:131
-#, fuzzy
 msgid "Failed getting Release signature file ${SUBST0}."
-msgstr "無法取得 Release 檔案 ${SUBST0}。"
+msgstr "無法取得 Release 的簽名檔 ${SUBST0}。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:136
-#, fuzzy
 msgid "Release file signed by unknown key (key id ${SUBST0})"
-msgstr "不正確的 Release 檔案：沒有 ${SUBST0} 項目。"
+msgstr "Release 檔案的簽名所使用的金鑰不明 (鍵值 ${SUBST0})"
 
 #. Type: error
 #. Description
@@ -344,9 +334,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../base-installer.templates:164
-#, fuzzy
 msgid "Preparing to install the base system..."
-msgstr "正在準備安裝 Debian Base System..."
+msgstr "正在準備安裝 Base System..."
 
 #. Type: text
 #. Description
@@ -363,9 +352,8 @@ msgstr "正在接收 Release 檔案"
 #. Type: text
 #. Description
 #: ../base-installer.templates:176
-#, fuzzy
 msgid "Retrieving Release file signature"
-msgstr "正在接收 Release 檔案"
+msgstr "正在接收 Release 的簽名"
 
 #. Type: text
 #. Description
@@ -377,14 +365,13 @@ msgstr "正在查詢套件大小"
 #. Description
 #: ../base-installer.templates:184
 msgid "Retrieving Packages files"
-msgstr "正在接收套件檔案"
+msgstr "正在接收套件檔"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:188
-#, fuzzy
 msgid "Retrieving Packages file"
-msgstr "正在接收套件檔案"
+msgstr "正在接收套件檔"
 
 #. Type: text
 #. Description
@@ -473,37 +460,32 @@ msgstr "正在設定 ${SUBST0}..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:248
-#, fuzzy
 msgid "Checking Release signature"
-msgstr "正在接收 Release 檔案"
+msgstr "正在確認 Release 簽名"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:252
-#, fuzzy
 msgid "Valid Release signature (key id ${SUBST0})"
-msgstr "不正確的 Release 檔案：沒有 ${SUBST0} 項目。"
+msgstr "不正確的 Release 簽名 (鍵值 ${SUBST0})"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:256
-#, fuzzy
 msgid "Resolving dependencies of base packages..."
-msgstr "正在安裝基本套件..."
+msgstr "正在解析基本套件的相依性..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:260
-#, fuzzy
 msgid "Resolving dependencies of required packages..."
-msgstr "正在解開必需的套件..."
+msgstr "正在解析必需套件的相依性..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:264
-#, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
-msgstr "正在檢驗套件的大小：${SUBST0}..."
+msgstr "正在檢驗 ${SUBST1} 上的 ${SUBST0} 元件..."
 
 #. Type: text
 #. Description
@@ -550,21 +532,20 @@ msgstr "Base System 已安裝完成。"
 #. Type: error
 #. Description
 #: ../base-installer.templates:296
-#, fuzzy
 msgid "Debootstrap warning"
-msgstr "Debootstrap 錯誤"
+msgstr "Debootstrap 警告"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:296
 msgid "Warning: ${INFO}"
-msgstr ""
+msgstr "警告：${INFO}"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:301
 msgid "Retrying failed download of ${SUBST0}"
-msgstr ""
+msgstr "再次試著下載失敗的 ${SUBST0}"
 
 #. Type: text
 #. Description
