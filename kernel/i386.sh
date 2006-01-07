@@ -22,7 +22,7 @@ arch_get_kernel_flavour () {
 }
 
 arch_check_usable_kernel () {
-	if expr "$1" : '.*-386.*' >/dev/null; then return 0; fi
+	if expr "$1" : '.*-[34]86.*' >/dev/null; then return 0; fi
 	if [ "$2" = 386 ]; then return 1; fi
 	if expr "$1" : '.*-586.*' >/dev/null; then return 0; fi
 	if [ "$2" = 586tsc ]; then return 1; fi
@@ -82,6 +82,9 @@ arch_get_kernel () {
 			echo "$imgbase-$KERNEL_MAJOR-586tsc"
 		fi
 		set 386
+	fi
+	if [ "$KERNEL_MAJOR" = 2.6 ]; then
+		echo "$imgbase-$KERNEL_MAJOR-486"
 	fi
 	echo "$imgbase-$KERNEL_MAJOR-386"
 }
