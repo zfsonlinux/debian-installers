@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-12-29 18:37-0700\n"
-"PO-Revision-Date: 2005-04-19 07:06+0800\n"
+"PO-Revision-Date: 2006-01-08 22:51+0800\n"
 "Last-Translator: Tetralet <tetralet@pchome.com.tw>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
@@ -56,9 +56,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:17
-#, fuzzy
 msgid "Failed to determine the codename for the release."
-msgstr "無法取得事先準備好的設定檔"
+msgstr "無法判別這個發行版的代碼 (codename)。"
 
 #. Type: error
 #. Description
@@ -140,7 +139,7 @@ msgstr "${ERROR}"
 #. Description
 #: ../base-installer.templates:66
 msgid "Tool to use to generate boot initrd:"
-msgstr ""
+msgstr "要用來建立開機 initr 的工具："
 
 #. Type: select
 #. Description
@@ -150,12 +149,14 @@ msgid ""
 "should select the default. If your system fails to boot, you can retry the "
 "installation using the other options."
 msgstr ""
+"列表中列出的是可用的工具。如果您不確定該如何抉擇，您應該使用預設值。如果您的"
+"系統無法開機，您可以再次執行安裝程式並使用其它的方式。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:73
 msgid "No initrd generator"
-msgstr ""
+msgstr "沒有 initrd 的產生工具"
 
 #. Type: error
 #. Description
@@ -165,12 +166,14 @@ msgid ""
 "However, no package to generate that initrd is available that supports your "
 "configuration. This would leave your system unable to boot."
 msgstr ""
+"為了能進行安裝而指定的 Kernel 需要 initrd 才能開機。可是，卻沒有任何的套件能"
+"夠依據您的設定來建立 initrd。這將會導致您的系統無法開機。"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:80
 msgid "Unsupported initrd generator"
-msgstr ""
+msgstr "不被支援的 initrd 產生工具"
 
 #. Type: error
 #. Description
@@ -178,7 +181,7 @@ msgstr ""
 msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
-msgstr ""
+msgstr "被指定用來建立 initrd 的 ${GENERATOR} 套件尚未被支援。"
 
 #. Type: error
 #. Description
