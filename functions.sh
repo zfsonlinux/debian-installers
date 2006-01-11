@@ -1,6 +1,6 @@
 # Make sure mtab in the chroot reflects the currently mounted partitions.
 update_mtab() {
-	[ "$ROOT" ] || return
+	[ "$ROOT" ] || return 0
 
 	mtab=$ROOT/etc/mtab
 	grep "$ROOT" /proc/mounts | (
