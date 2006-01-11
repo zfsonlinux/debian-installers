@@ -463,7 +463,7 @@ get_resume_partition () {
 }
 
 select_initramfs_generator () {
-	irf_choices="$(echo $1 | sed "s/ */, /g")"
+	irf_choices="$(echo "$1" | sed "s/ \+/, /g")"
 	irf_default="${1%% *}"
 	db_subst base-installer/initramfs/generator GENERATORS "$irf_choices"
 	db_set base-installer/initramfs/generator "$irf_default"
