@@ -6,7 +6,7 @@
 # Bulgarian messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-# Ognyan Kulev <ogi@fmi.uni-sofia.bg>, 2004, 2005.
+# Ognyan Kulev <ogi@fmi.uni-sofia.bg>, 2004, 2005, 2006.
 # Nikola Antonov <nikola@linux-bg.org>, 2004.
 #
 msgid ""
@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-12-29 18:37-0700\n"
-"PO-Revision-Date: 2005-11-02 15:01+0200\n"
+"PO-Revision-Date: 2006-01-09 23:06+0200\n"
 "Last-Translator:  Ognyan Kulev <ogi@fmi.uni-sofia.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -58,9 +58,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:17
-#, fuzzy
 msgid "Failed to determine the codename for the release."
-msgstr "Грешка при доставяне на файла с предварителни настройки"
+msgstr "Неуспех при определяне на кодовото име на изданието."
 
 #. Type: error
 #. Description
@@ -88,15 +87,12 @@ msgstr "Не се инсталира върху неизчистени целе�
 #. Type: error
 #. Description
 #: ../base-installer.templates:28
-#, fuzzy
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
 "install."
 msgstr ""
-"Инсталирането върху целевата файлова система е прекъснато, тъй като тя "
-"съдържа файлове от друга инсталация, които могат да провалят инсталационния "
-"процес или да предизвикат инсталиране на развалена система. Трябва да се "
+"Инсталирането върху целевата файлова система е прекъснато. Трябва да се "
 "върнете обратно и да изтриете или форматирате целевата файлова система преди "
 "продължаване на инсталацията."
 
@@ -147,7 +143,7 @@ msgstr "${ERROR}"
 #. Description
 #: ../base-installer.templates:66
 msgid "Tool to use to generate boot initrd:"
-msgstr ""
+msgstr "Инструмент за генериране на initrd:"
 
 #. Type: select
 #. Description
@@ -157,12 +153,15 @@ msgid ""
 "should select the default. If your system fails to boot, you can retry the "
 "installation using the other options."
 msgstr ""
+"Списъкът показва наличните инструменти. Ако сте неуверен какво да изберете, "
+"изберете подразбиращия се инструмент. Ако системата не успее да зареди, "
+"можете да опитате отново инсталирането, използвайки друга опция."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:73
 msgid "No initrd generator"
-msgstr ""
+msgstr "Няма генератор на initrd"
 
 #. Type: error
 #. Description
@@ -172,12 +171,15 @@ msgid ""
 "However, no package to generate that initrd is available that supports your "
 "configuration. This would leave your system unable to boot."
 msgstr ""
+"Ядрото, което е избрано за инсталиране, се нуждае от initrd, за да зареди. "
+"Обаче няма пакет, който да може да генерира initrd за Вашите настройки. Това "
+"ще остави системата неспособна за начално зареждане."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:80
 msgid "Unsupported initrd generator"
-msgstr ""
+msgstr "Неподдържан генератор на initrd"
 
 #. Type: error
 #. Description
@@ -186,6 +188,7 @@ msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
 msgstr ""
+"Пакетът ${GENERATOR}, който е избран за генериране на initrd, не се поддържа."
 
 #. Type: error
 #. Description
@@ -211,7 +214,7 @@ msgstr "Пакет с ядро: \"${KERNEL}\"."
 #. Choices
 #: ../base-installer.templates:96
 msgid "${KERNELS}, none"
-msgstr ""
+msgstr "${KERNELS}, без инсталирано ядро"
 
 #. Type: select
 #. Description
@@ -249,6 +252,9 @@ msgid ""
 "kernel later. This is only recommended for experts, otherwise you will "
 "likely end up with a machine that doesn't boot."
 msgstr ""
+"Можете да опитате да продължите без ядро и по-късно ръчно да инсталирате "
+"собствено. Това е препоръчително да се прави само от експерти, иначе ще "
+"получите машина, която не може да зареди."
 
 #. Type: error
 #. Description
@@ -260,7 +266,7 @@ msgstr "Не може да бъде инсталирано ядро"
 #. Description
 #: ../base-installer.templates:113
 msgid "The installer cannot find a suitable kernel package to install."
-msgstr ""
+msgstr "Инсталаторът не може да намери подходящ пакет на ядро за инсталиране."
 
 #. Type: error
 #. Description
@@ -271,12 +277,11 @@ msgstr "Не може да бъде инсталиран ${PACKAGE}"
 #. Type: error
 #. Description
 #: ../base-installer.templates:118
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
 msgstr ""
-"Беше получена грешка, докато се инсталираше пакетът initrd-tools в целевата "
+"Беше получена грешка, докато се инсталираше пакетът ${PACKAGE} в целевата "
 "система."
 
 #. Type: error
@@ -545,15 +550,14 @@ msgstr "Основната система е инсталирана успешн
 #. Type: error
 #. Description
 #: ../base-installer.templates:296
-#, fuzzy
 msgid "Debootstrap warning"
-msgstr "Грешка по време на debootstrap"
+msgstr "Предупреждение на debootstrap"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:296
 msgid "Warning: ${INFO}"
-msgstr ""
+msgstr "Внимание: ${INFO}"
 
 #. Type: text
 #. Description
