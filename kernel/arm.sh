@@ -19,15 +19,34 @@ arch_get_kernel_flavour () {
 }
 
 arch_check_usable_kernel () {
+	# Handle some packages renamed from 2.4 to 2.6
+	if [ "$2" = "netwinder" ]; then
+		if expr "$1" : ".*-footbridge\$" >/dev/null; then return 0; fi
+	fi
+	if [ "$2" = "bast" ]; then
+		if expr "$1" : ".*-s3c2410\$" >/dev/null; then return 0; fi
+	fi
 	# Subarchitecture must match exactly.
 	if expr "$1" : ".*-$2\$" >/dev/null; then return 0; fi
 	return 1
 }
 
 arch_get_kernel () {
-	if [ "$1" = none ]; then
-		echo none
-	else
-		echo "kernel-image-$KERNEL_VERSION-$1"
-	fi
+	case "$KERNEL_MAJOR" in
+		2.4)
+			echo "kernel-image-$KERNEL_VERSION-$1"
+			;;
+		*)
+			case "$1" in
+				netwinder)
+					echo "linux-image-$KERNEL_MAJOR-footbridge"
+					;;
+				bast)
+					echo "linux-image-$KERNEL_MAJOR-s3c2410"
+					;;
+				*)
+					echo "linux-image-$KERNEL_MAJOR-$1"
+					;;
+			esac
+		esac
 }
