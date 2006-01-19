@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: debian-installer Level 1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-12-29 18:37-0700\n"
-"PO-Revision-Date: 2005-12-30 22:22+1030\n"
+"PO-Revision-Date: 2006-01-18 22:53+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:4
 msgid "Proceed with installation to unclean target?"
-msgstr "Tiếp tục cài đặt vào « đích không sạch » không ?"
+msgstr "Tiếp tục lại cài đặt vào đích không sạch không ?"
 
 #. Type: boolean
 #. Description
@@ -40,7 +40,7 @@ msgid ""
 "of the existing files may be overwritten."
 msgstr ""
 "Hệ thống tập tin đích có chứa tập tin của bản cài đặt trước. Những tập tin "
-"này có thể sẽ gây ra lỗi trong tiến trình cài đặt, và nếu bạn tiếp tục thì "
+"này có thể sẽ gây ra lỗi trong tiến trình cài đặt, và nếu bạn tiếp tục lại, "
 "một số tập tin đã có sẽ bị ghi đè."
 
 #. Type: error
@@ -56,8 +56,8 @@ msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
 msgstr ""
-"Trình cài đặt không thể quyết định cách cài đặt hệ thống cơ bản. Chưa tìm "
-"thấy địa CD-ROM có khả năng cài đặt, và chưa cấu hình máy nhân bản hợp lệ."
+"Bộ cài đặt không thể quyết định cách cài đặt hệ thống cơ bản. Chưa tìm thấy "
+"địa CD-ROM có khả năng cài đặt, và chưa cấu hình máy nhân bản hợp lệ."
 
 # Type: error
 # Description
@@ -65,7 +65,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:17
 msgid "Failed to determine the codename for the release."
-msgstr "Lỗi quyết định tên mã cho bản phát hành này."
+msgstr "Việc quyết định tên mã cho bản phát hành này bị lỗi."
 
 # Type: error
 # Description
@@ -75,7 +75,7 @@ msgstr "Lỗi quyết định tên mã cho bản phát hành này."
 #. Description
 #: ../base-installer.templates:22
 msgid "No file system mounted on /target"
-msgstr "Không có hệ thống tập tin nào được lắp tại </target>"
+msgstr "Không có hệ thống tập tin được lắp vào </target>"
 
 #. Type: error
 #. Description
@@ -84,8 +84,9 @@ msgid ""
 "Before the installation can proceed, a root file system must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
 msgstr ""
-"Trước khi việc cài đặt có tiếp tục được, một hệ thống tập tin gốc phải được "
-"lắp vào </target>. Trình phân vùng và định dạng nên đã làm như thế cho bạn."
+"Trước khi tiến trình cài đặt có thể tiếp tục lại, một hệ thống tập tin gốc "
+"phải được lắp vào </target> (đích). Bộ phân vùng và định dạng nên đã làm như "
+"thế cho bạn."
 
 # Type: error
 # Description
@@ -93,7 +94,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:28
 msgid "Not installing to unclean target"
-msgstr "Không đang cài đặt vào « đích không sạch »"
+msgstr "Không đang cài đặt vào đích không sạch"
 
 # Type: error
 # Description
@@ -106,13 +107,13 @@ msgid ""
 "install."
 msgstr ""
 "Việc cài đặt vào hệ thống tập tin đích đã bị thôi. Bạn nên trở về và xóa bỏ "
-"hoặc định dạng hệ thống tập tin đích trước khi tiếp tục cài đặt."
+"hoặc định dạng hệ thống tập tin đích trước khi tiếp tục lại cài đặt."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:35
 msgid "Failed to install the base system"
-msgstr "Việc cài đặt hệ thống cơ sở đã bị lỗi"
+msgstr "Việc cài đặt hệ thống cơ sở bị lỗi"
 
 #. Type: error
 #. Description
@@ -126,13 +127,13 @@ msgstr "Việc cài đặt hệ thống cơ sỏ vào </target/> đã bị lỗi
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
-"Chương trình debootstrap đã thoát với lỗi (giá trị gởi về « ${EXITCODE} »)."
+"Chương trình debootstrap đã thoát với lỗi (giá trị trả gởi ${EXITCODE})."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:49
 msgid "Base system installation error"
-msgstr "Gặp lỗi kiểu cài đặt hệ thống cơ sở"
+msgstr "Gặp lỗi cài đặt hệ thống cơ sở"
 
 #. Type: error
 #. Description
@@ -167,9 +168,9 @@ msgid ""
 "should select the default. If your system fails to boot, you can retry the "
 "installation using the other options."
 msgstr ""
-"Danh sách hiển thị những công cụ sẵn sàng. Nếu bạn chưa chắc nên chọn gì, "
-"bạn nên chọn mặc định. Nếu hệ thống bạn không khởi động được, bạn có thể cố "
-"cài đặt lại bằng những tùy chọn khác."
+"Danh sách này hiển thị những công cụ có sẵn. Nếu bạn chưa chắc cần chọn gì, "
+"bạn nên chọn điều mặc định. Nếu hệ thống bạn không khởi động được, bạn có "
+"thể cố cài đặt lại bằng những tùy chọn khác."
 
 #. Type: error
 #. Description
@@ -185,9 +186,9 @@ msgid ""
 "However, no package to generate that initrd is available that supports your "
 "configuration. This would leave your system unable to boot."
 msgstr ""
-"Hạt nhân đã chọn để cài đặt có cần initrd để khởi động được. Tuy nhiên, "
-"không có gói nào sẵn sàng để tạo ra initrd mà hỗ trợ cấu hình bạn. Như thế "
-"thì, hệ thống bạn không thể khởi động."
+"Hạt nhân đã chọn để cài đặt cần thiết initrd để khởi động được. Tuy nhiên, "
+"không có gói sẵn sàng để tạo ra initrd mà hỗ trợ cấu hình này. Như thế thì, "
+"hệ thống bạn không thể khởi động."
 
 #. Type: error
 #. Description
@@ -201,7 +202,7 @@ msgstr "Bộ tạo ra initrd không được hỗ trợ"
 msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
-msgstr "Gói ${GENERATOR} đã được chọn để tạo ra initrd không có được hỗ trợ."
+msgstr "Gói ${GENERATOR} đã chọn để tạo ra initrd không có được hỗ trợ."
 
 #. Type: error
 #. Description
@@ -233,7 +234,7 @@ msgstr "${KERNELS}, không có"
 #. Description
 #: ../base-installer.templates:97
 msgid "Kernel to install:"
-msgstr "Hạt nhân cần cài đặt :"
+msgstr "Hạt nhân cần cài đặt:"
 
 #. Type: select
 #. Description
@@ -242,8 +243,8 @@ msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
 msgstr ""
-"Danh sách hiển thị các hạt nhân có sẵn. Hãy chọn một trong chúng để mà hệ "
-"thống khởi động được từ đĩa cứng."
+"Danh sách này hiển thị các hạt nhân có sẵn. Hãy chọn một trong chúng để mà "
+"hệ thống khởi động được từ đĩa cứng."
 
 # Type: boolean
 # Description
@@ -251,13 +252,14 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:104
 msgid "Continue without installing a kernel?"
-msgstr "Tiếp tục mà không cài đặt hạt nhân không?"
+msgstr "Tiếp tục lại mà không cài đặt hạt nhân không?"
 
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:104
 msgid "No installable kernel was found in the defined APT sources."
-msgstr "Không tìm thấy hạt nhân cài đặt được trong những nguồn APT đã định ra."
+msgstr ""
+"Không tìm thấy hạt nhân có khả năng cài đặt trong những nguồn APT đã định ra."
 
 #. Type: boolean
 #. Description
@@ -267,9 +269,9 @@ msgid ""
 "kernel later. This is only recommended for experts, otherwise you will "
 "likely end up with a machine that doesn't boot."
 msgstr ""
-"Bạn có thể cố tiếp tục không có hạt nhân, và tự cài đặt hạt nhân mình lần "
-"sau. Chỉ đệ nghị cách này cho nhà chuyên môn, không thì rất có thể bạn sẽ có "
-"kết quả là máy không thể khởi động."
+"Bạn có thể cố tiếp tục lại không có hạt nhân, và tự cài đặt hạt nhân mình "
+"lần sau. Chỉ đệ nghị cách này cho nhà chuyên môn, không thì rất có thể kết "
+"quả là máy không thể khởi động."
 
 #. Type: error
 #. Description
@@ -281,7 +283,7 @@ msgstr "Không thể cài đặt hạt nhân"
 #. Description
 #: ../base-installer.templates:113
 msgid "The installer cannot find a suitable kernel package to install."
-msgstr "Trình cài đặt không tìm thấy gói hạt nhân thích hợp để cài đặt."
+msgstr "Bộ cài đặt không tìm thấy gói hạt nhân thích hợp để cài đặt."
 
 # Type: error
 # Description
@@ -311,32 +313,35 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:126
 msgid "Failed getting Release file ${SUBST0}."
-msgstr "Việc lấy tập tin Phát hành ${SUBST0} đã bị lỗi."
+msgstr "Việc lấy tập tin Release (Phát hành) ${SUBST0} đã bị lỗi."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:131
 msgid "Failed getting Release signature file ${SUBST0}."
-msgstr "Việc lấy tập tin chữ ký Phát hành ${SUBST0} đã bị lỗi."
+msgstr "Việc lấy tập tin chữ ký Release (Phát hành) ${SUBST0} đã bị lỗi."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:136
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr ""
-"Tập tin Phát hành được ký bởi khóa lạ (chuỗi nhận ra khóa là ${SUBST0})"
+"Tập tin Release (Phát hành) được ký bởi khóa lạ (chuỗi nhận ra khóa là "
+"${SUBST0})"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:141
 msgid "Invalid Release file: no valid components."
-msgstr "Tập tin Phát hanh không hợp lệ: không có thành phần hợp lệ."
+msgstr ""
+"Tập tin Release (Phát hành) không hợp lệ: không có thành phần hợp lệ nào."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:146
 msgid "Invalid Release file: no entry for ${SUBST0}."
-msgstr "Tập tin Phát hành không hợp lệ: không có mục nhập cho ${SUBST0}."
+msgstr ""
+"Tập tin Release (Phát hành) không hợp lệ: không có mục nhập cho ${SUBST0}."
 
 #. Type: error
 #. Description
@@ -362,7 +367,7 @@ msgid ""
 "may help."
 msgstr ""
 "Nếu bạn đang cài đặt từ đĩa CD-R hay CD-RW, cách chép ra đĩa CD tại tốc độ "
-"thấp hơn có lẽ sẽ giúp đớ."
+"thấp hơn có lẽ sẽ giúp đỡ."
 
 # Type: text
 # Description
@@ -382,79 +387,79 @@ msgstr "Đang chạy tập lệnh ${SCRIPT}..."
 #. Description
 #: ../base-installer.templates:172
 msgid "Retrieving Release file"
-msgstr "Đang lấy tập tin Phát hành"
+msgstr "Đang lấy tập tin Release (Phát hành)..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:176
 msgid "Retrieving Release file signature"
-msgstr "Đang lấy chữ ký tập tin Phát hành"
+msgstr "Đang lấy chữ ký tập tin Release (Phát hành)..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:180
 msgid "Finding package sizes"
-msgstr "Đang tìm kích cơ các gói"
+msgstr "Đang tìm kích cơ gói..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:184
 msgid "Retrieving Packages files"
-msgstr "Đang lấy các tập tin Gói"
+msgstr "Đang lấy các tập tin Gói.."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:188
 msgid "Retrieving Packages file"
-msgstr "Đang lấy tập tin Gói"
+msgstr "Đang lấy tập tin Gói..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:192
 msgid "Retrieving packages"
-msgstr "Đang lấy gói"
+msgstr "Đang lấy gói..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:196
 msgid "Extracting packages"
-msgstr "Đang giải nén gói"
+msgstr "Đang giải nén gói..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:200
 msgid "Installing the base system"
-msgstr "Đang cài đặt hệ thống cơ sở"
+msgstr "Đang cài đặt hệ thống cơ sở..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:204
 msgid "Installing core packages"
-msgstr "Đang cài đặt các gói tin lõi"
+msgstr "Đang cài đặt các gói lõi..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:208
 msgid "Unpacking required packages"
-msgstr "Đang giải nén các gói cần thiết"
+msgstr "Đang giải nén các gói cần thiết..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:212
 msgid "Configuring required packages"
-msgstr "Đang cấu hình các gói cần thiết"
+msgstr "Đang cấu hình các gói cần thiết..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:216
 msgid "Unpacking the base system"
-msgstr "Đang giải nén hệ thống cơ sở"
+msgstr "Đang giải nén hệ thống cơ sở..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:220
 msgid "Configuring the base system"
-msgstr "Đang cấu hình hệ thống cơ sở"
+msgstr "Đang cấu hình hệ thống cơ sở..."
 
 # Type: text
 # Description
@@ -487,7 +492,7 @@ msgstr "Đang giải nén ${SUBST0}..."
 #. Description
 #: ../base-installer.templates:240
 msgid "Unpacking ${SUBST0}..."
-msgstr "Đang giải nén ${SUBST0}..."
+msgstr "Đang mở gói ${SUBST0}..."
 
 #. Type: text
 #. Description
@@ -499,13 +504,13 @@ msgstr "Đang cấu hình ${SUBST0}..."
 #. Description
 #: ../base-installer.templates:248
 msgid "Checking Release signature"
-msgstr "Đang kiểm tra chữ ký Phát hành"
+msgstr "Đang kiểm tra chữ ký Release (Phát hành)"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:252
 msgid "Valid Release signature (key id ${SUBST0})"
-msgstr "Chữ ký Phát hành hợp lệ (chuỗi nhân ra khóa là ${SUBST0})"
+msgstr "Chữ ký Release (Phát hành) hợp lệ (chuỗi nhân ra khóa là ${SUBST0})"
 
 #. Type: text
 #. Description
@@ -535,7 +540,7 @@ msgstr "Đang cài đặt các gói lõi..."
 #. Description
 #: ../base-installer.templates:272
 msgid "Unpacking required packages..."
-msgstr "Đang giải nén các gói dữ liệu cần thiết..."
+msgstr "Đang mở gói các gói dữ liệu cần thiết..."
 
 #. Type: text
 #. Description
@@ -553,7 +558,7 @@ msgstr "Đang cài đặt các gói dữ liệu cơ sở..."
 #. Description
 #: ../base-installer.templates:284
 msgid "Unpacking the base system..."
-msgstr "Đang giải nén hệ thống cơ sở..."
+msgstr "Đang mở gói hệ thống cơ sở..."
 
 #. Type: text
 #. Description
@@ -579,13 +584,13 @@ msgstr "Cảnh báo Debootstrap"
 #. Description
 #: ../base-installer.templates:296
 msgid "Warning: ${INFO}"
-msgstr "Cảnh báo: ${INFO}"
+msgstr "Cảnh báo : ${INFO}"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:301
 msgid "Retrying failed download of ${SUBST0}"
-msgstr "Đang thử lại việc tải xuống ${SUBST0} đã bị lỗi"
+msgstr "Đang thử lại việc tải xuống ${SUBST0} đã bị lỗi..."
 
 #. Type: text
 #. Description
@@ -597,19 +602,19 @@ msgstr "Đang cấu hình các nguồn APT..."
 #. Description
 #: ../base-installer.templates:309
 msgid "Updating the list of available packages..."
-msgstr "Đang cập nhật danh sách các gói dữ liệu công bố..."
+msgstr "Đang cập nhật danh sách gói có sẵn..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:313
 msgid "Installing extra packages..."
-msgstr "Đang cài đặt các gói dữ liệu thêm..."
+msgstr "Đang cài đặt gói thêm..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:317
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
-msgstr "Đang cài đặt các gói thêm: đang lấy và cài đặt ${SUBST0}..."
+msgstr "Đang cài đặt gói thêm: đang lấy và cài đặt ${SUBST0}..."
 
 # Type: text
 # Description
@@ -617,7 +622,7 @@ msgstr "Đang cài đặt các gói thêm: đang lấy và cài đặt ${SUBST0}
 #. Description
 #: ../base-installer.templates:321
 msgid "Creating device files..."
-msgstr "Đang tạo các tập tin thiết bị..."
+msgstr "Đang tạo tập tin thiết bị..."
 
 #. Type: text
 #. Description
@@ -641,7 +646,7 @@ msgstr "Đang cài đặt hạt nhân: đang lấy và cài đặt ${SUBST0}..."
 #. Description
 #: ../base-installer.templates:337
 msgid "Installing the PCMCIA modules"
-msgstr "Đang cài đặt các mô-đun PCMCIA"
+msgstr "Đang cài đặt những mô-đun PCMCIA..."
 
 #. Type: text
 #. Description
