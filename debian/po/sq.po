@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-12-29 18:37-0700\n"
-"PO-Revision-Date: 2005-06-23 19:48+0200\n"
-"Last-Translator:  Elian Myftiu <elian@alblinux.net>\n"
+"PO-Revision-Date: 2006-01-20 13:42+0100\n"
+"Last-Translator:  Elian Myftiu <elian.myftiu@gmail.com>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,15 +30,14 @@ msgstr "Të vazhdoj me instalimin në pozicionin e paqartë?"
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:4
-#, fuzzy
 msgid ""
 "The target file system contains files from a past installation. These files "
 "could cause problems with the installation process, and if you proceed, some "
 "of the existing files may be overwritten."
 msgstr ""
 "Filesistemi ku synohet të kryhet instalimi përmban file nga një instalim i "
-"shkuar. Këto file mund të dëmtojnë proçesin e instalimit ose mund të "
-"instalojnë një sistem problematik."
+"shkuar. Këto file mund të dëmtojnë proçesin e instalimit, dhe nëse vazhdon, "
+"disa nga file-t ekzistues mund të mbishkruhen."
 
 #. Type: error
 #. Description
@@ -59,9 +58,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:17
-#, fuzzy
 msgid "Failed to determine the codename for the release."
-msgstr "Dështova në shkarkimin e skedarit të parakonfiguruar"
+msgstr "Dështova në zbulimin e emrit të koduar për këtë shpërndarje."
 
 #. Type: error
 #. Description
@@ -88,17 +86,14 @@ msgstr "Duke mos instaluar në pozicionin e paqartë"
 #. Type: error
 #. Description
 #: ../base-installer.templates:28
-#, fuzzy
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
 "install."
 msgstr ""
-"Instalimi në filesistemin e zgjedhur u pezullua, meqë filesistemi ku synohet "
-"të kryhet instalimi përmban kartela nga një instalim i shkuar, të cilat mund "
-"të dëmtojnë proçesin e instalimit ose mund të instalojnë një sistem "
-"problematik. Duhet të kthehesh mbrapa dhe të fshish ose formatosh "
-"filesistemin e zgjedhur para se të vazhdosh me installimin."
+"Instalimi në filesistemin e zgjedhur u pezullua. Duhet të kthehesh prapa dhe "
+"të fshish ose formatosh filesistemin e zgjedhur para se të vazhdosh me "
+"installimin."
 
 #. Type: error
 #. Description
@@ -147,7 +142,7 @@ msgstr "${ERROR}"
 #. Description
 #: ../base-installer.templates:66
 msgid "Tool to use to generate boot initrd:"
-msgstr ""
+msgstr "Vegla e përdorur për përftimin e initrd-së së nisjes:"
 
 #. Type: select
 #. Description
@@ -157,12 +152,15 @@ msgid ""
 "should select the default. If your system fails to boot, you can retry the "
 "installation using the other options."
 msgstr ""
+"Lista shfaq veglat në dispozicion. Nëse nuk je i sigurtë cilën të zgjedhësh, "
+"prano të parazgjedhurën. Nëse sistemi yt dështon në nisje, mund të riprovosh "
+"instalimin duke përdorur mundësitë e tjera."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:73
 msgid "No initrd generator"
-msgstr ""
+msgstr "Pa përftues initrd"
 
 #. Type: error
 #. Description
@@ -172,12 +170,15 @@ msgid ""
 "However, no package to generate that initrd is available that supports your "
 "configuration. This would leave your system unable to boot."
 msgstr ""
+"Kerneli që është zgjedhur për instalim ka nevojë për një initrd për të "
+"nisur. Sidoqoftë, nuk gjendet asnjë paket për të gjeneruar atë initrd që "
+"suporton konfigurimin tënd. Kjo nuk do bënte të mundur nisjen e sistemit."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:80
 msgid "Unsupported initrd generator"
-msgstr ""
+msgstr "Përftues initrd-je jo i suportueshëm"
 
 #. Type: error
 #. Description
@@ -186,6 +187,8 @@ msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
 msgstr ""
+"Paketi i zgjedhur ${GENERATOR} për të përftuar initrd nuk është i "
+"suportueshëm."
 
 #. Type: error
 #. Description
@@ -211,7 +214,7 @@ msgstr "Paketa kernel: '${KERNEL}'."
 #. Choices
 #: ../base-installer.templates:96
 msgid "${KERNELS}, none"
-msgstr ""
+msgstr "${KERNELS}, asnjë"
 
 #. Type: select
 #. Description
@@ -232,9 +235,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:104
-#, fuzzy
 msgid "Continue without installing a kernel?"
-msgstr "Të vazhdoj me instalimin?"
+msgstr "Të vazhdoj pa instaluar një kernel?"
 
 #. Type: boolean
 #. Description
@@ -250,44 +252,43 @@ msgid ""
 "kernel later. This is only recommended for experts, otherwise you will "
 "likely end up with a machine that doesn't boot."
 msgstr ""
+"Mund të provosh të vazhdosh pa një kernel, dhe të instalosh vetë kernelin "
+"tënd më vonë. Ky veprim këshillohet për ekspertët, përndryshe ka shumë "
+"mundësi të përfundoni me një sistem që nuk niset."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:113
-#, fuzzy
 msgid "Cannot install kernel"
-msgstr "Nuk mund ta instaloj Debian"
+msgstr "Nuk mund të instaloj kernelin"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:113
 msgid "The installer cannot find a suitable kernel package to install."
-msgstr ""
+msgstr "Instaluesi nuk mund të gjejë një paketë kerneli për t'u instaluar."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:118
-#, fuzzy
 msgid "Unable to install ${PACKAGE}"
-msgstr "GRUB nuk mund të instalohet në ${BOOTDEV}"
+msgstr "E pamundur të instalohet ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:118
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
 msgstr ""
-"Ndodhi një gabim gjatë instalimit të paketit initrd-tools në sistemin e "
+"Ndodhi një gabim gjatë instalimit të paketit ${PACKAGE} në sistemin e "
 "zgjedhur."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:118
-#, fuzzy
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
-msgstr "Kontrollo /target/var/log/bootstrap.log për hollësi."
+msgstr "Kontrollo /var/log/syslog ose shiko konsolën virtuale 4 për hollësitë."
 
 #. Type: error
 #. Description
@@ -304,7 +305,6 @@ msgstr "Dështoi në marrjen e file-t nënshkrues për Release ${SUBST0}."
 #. Type: error
 #. Description
 #: ../base-installer.templates:136
-#, fuzzy
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Lëshim i nënshkruar nga një çelës i panjohur (id e çelësit ${SUBST0})"
 
@@ -547,15 +547,14 @@ msgstr "Sistemi bazë u instalua me sukses."
 #. Type: error
 #. Description
 #: ../base-installer.templates:296
-#, fuzzy
 msgid "Debootstrap warning"
-msgstr "Gabim i Debootstrap"
+msgstr "Paralajmërim i Debootstrap"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:296
 msgid "Warning: ${INFO}"
-msgstr ""
+msgstr "Kujdes: ${INFO}"
 
 #. Type: text
 #. Description
