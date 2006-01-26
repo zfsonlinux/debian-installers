@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-25 08:16-0700\n"
+"POT-Creation-Date: 2006-01-25 18:33-0700\n"
 "PO-Revision-Date: 2006-01-25 11:51+0100\n"
 "Last-Translator: Peter Mann <Peter.Mann@tuke.sk>\n"
 "Language-Team:  Slovak <sk-i18n@lists.linux.sk>\n"
@@ -290,43 +290,45 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:126
+#: ../base-installer.templates:127
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Zlyhalo stiahnutie Release súboru ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:131
+#: ../base-installer.templates:133
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Zlyhalo stiahnutie podpisu Release súboru ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:136
+#: ../base-installer.templates:139
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Súbor Release je podpísaný neznámym kľúčom (key id ${SUBST0})"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:141
+#: ../base-installer.templates:144
 msgid "Invalid Release file: no valid components."
 msgstr "Neplatný Release súbor: neobsahuje platné časti."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:146
+#: ../base-installer.templates:150
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Neplatný Release súbor: neobsahuje položku pre ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:151
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
+#: ../base-installer.templates:157
 msgid "Debootstrap Error"
 msgstr "Chyba programu debootstrap"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:151
+#: ../base-installer.templates:157
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -336,7 +338,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:151
+#: ../base-installer.templates:157
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -346,291 +348,314 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
+#: ../base-installer.templates:170
 msgid "Preparing to install the base system..."
 msgstr "Pripravuje sa inštalácia základného systému..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:168
+#: ../base-installer.templates:174
 msgid "Running ${SCRIPT}..."
 msgstr "Spúšťa sa ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:172
+#. Release is a filename which should not be translated
+#: ../base-installer.templates:179
 msgid "Retrieving Release file"
 msgstr "Sťahuje sa súbor Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:176
+#. Release is a filename which should not be translated
+#: ../base-installer.templates:184
 msgid "Retrieving Release file signature"
 msgstr "Sťahuje sa podpis súboru Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:180
+#. "packages" here can be translated
+#: ../base-installer.templates:189
 msgid "Finding package sizes"
 msgstr "Zisťujú sa veľkosti balíkov"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:184
+#. Packages is a filename which should not be translated
+#: ../base-installer.templates:194
 msgid "Retrieving Packages files"
 msgstr "Sťahuje sa súbor Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:188
+#. Packages is a filename which should not be translated
+#: ../base-installer.templates:199
 msgid "Retrieving Packages file"
 msgstr "Sťahuje sa súbor Packages"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:192
+#. "packages" here can be translated
+#: ../base-installer.templates:204
 msgid "Retrieving packages"
 msgstr "Sťahujú sa balíky"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:196
+#. "packages" here can be translated
+#: ../base-installer.templates:209
 msgid "Extracting packages"
 msgstr "Rozbaľujú sa balíky"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:200
+#: ../base-installer.templates:213
 msgid "Installing the base system"
 msgstr "Inštaluje sa základný systém"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:204
+#: ../base-installer.templates:217
 msgid "Installing core packages"
 msgstr "Inštalujú sa základné (core) balíky"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:208
+#: ../base-installer.templates:221
 msgid "Unpacking required packages"
 msgstr "Rozbaľujú sa vyžadované balíky"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:212
+#: ../base-installer.templates:225
 msgid "Configuring required packages"
 msgstr "Nastavujú sa vyžadované balíky"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:216
+#: ../base-installer.templates:229
 msgid "Unpacking the base system"
 msgstr "Rozbaľuje sa základný systém"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:220
+#: ../base-installer.templates:233
 msgid "Configuring the base system"
 msgstr "Nastavuje sa základný systém"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:224
+#: ../base-installer.templates:237
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:228
+#. SUBST0 is a package name
+#: ../base-installer.templates:242
 msgid "Validating ${SUBST0}..."
 msgstr "Overuje sa ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:232
+#. SUBST0 is a package name
+#: ../base-installer.templates:247
 msgid "Retrieving ${SUBST0}..."
 msgstr "Sťahuje sa ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:236
+#. SUBST0 is a package name
+#: ../base-installer.templates:252
 msgid "Extracting ${SUBST0}..."
 msgstr "Rozbaľuje sa ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:240
+#. SUBST0 is a package name
+#: ../base-installer.templates:257
 msgid "Unpacking ${SUBST0}..."
 msgstr "Rozbaľuje sa ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:244
+#. SUBST0 is a package name
+#: ../base-installer.templates:262
 msgid "Configuring ${SUBST0}..."
 msgstr "Nastavuje sa ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:248
+#: ../base-installer.templates:266
 msgid "Checking Release signature"
 msgstr "Kontroluje sa podpis súboru Release"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:252
+#. SUBST0 is a gpg key id
+#. Release is a filename which should not be translated
+#: ../base-installer.templates:272
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Platný podpis súboru Release (id kľúča ${SUBST0}."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:256
+#: ../base-installer.templates:276
 msgid "Resolving dependencies of base packages..."
 msgstr "Zisťujú sa závislosti základných balíkov..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:260
+#. SUBST0 is a list of packages
+#: ../base-installer.templates:281
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr "Našli sa dodatočné základné závislosti: ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:264
+#. SUBST0 is a list of packages
+#: ../base-installer.templates:286
 #, fuzzy
 msgid "Found additional required dependencies: ${SUBST0}"
 msgstr "Našli sa dodatočné základné závislosti: ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:268
+#. SUBST0 is a list of packages
+#: ../base-installer.templates:291
 #, fuzzy
 msgid "Found packages in base already in required: ${SUBST0}"
 msgstr "Našli sa dodatočné základné závislosti: ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:272
+#: ../base-installer.templates:295
 msgid "Resolving dependencies of required packages..."
 msgstr "Zisťujú sa závislosti vyžadovaných balíkov..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:276
+#. SUBST0 is an archive component (main, etc)
+#. SUBST1 is a mirror
+#: ../base-installer.templates:301
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "Kontroluje sa komponent ${SUBST0} na ${SUBST1}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:280
+#: ../base-installer.templates:305
 msgid "Installing core packages..."
 msgstr "Inštalujú sa základné (core) balíky..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:284
+#: ../base-installer.templates:309
 msgid "Unpacking required packages..."
 msgstr "Rozbaľujú sa vyžadované balíky..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../base-installer.templates:313
 msgid "Configuring required packages..."
 msgstr "Nastavujú sa vyžadované balíky..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:292
+#: ../base-installer.templates:317
 msgid "Installing base packages..."
 msgstr "Inštalujú sa základné (base) balíky..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:296
+#: ../base-installer.templates:321
 msgid "Unpacking the base system..."
 msgstr "Rozbaľuje sa základný systém..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:300
+#: ../base-installer.templates:325
 msgid "Configuring the base system..."
 msgstr "Nastavuje sa základný systém..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:304
+#: ../base-installer.templates:329
 msgid "Base system installed successfully."
 msgstr "Základný systém je úspešne nainštalovaný."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:308
+#. Debootstrap is a program name: should not be translated
+#: ../base-installer.templates:334
 msgid "Debootstrap warning"
 msgstr "Upozornenie debootstrap-u"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:308
+#: ../base-installer.templates:334
 msgid "Warning: ${INFO}"
 msgstr "Upozornenie: ${INFO}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:313
+#. SUBST0 is an url
+#: ../base-installer.templates:340
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Opakuje sa neúspešné stiahnutie ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:317
+#: ../base-installer.templates:344
 msgid "Configuring APT sources..."
 msgstr "Nastavujú sa zdroje pre APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:321
+#: ../base-installer.templates:348
 msgid "Updating the list of available packages..."
 msgstr "Aktualizuje sa zoznam dostupných balíkov..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:325
+#: ../base-installer.templates:352
 msgid "Installing extra packages..."
 msgstr "Inštalujú sa extra balíky..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:329
+#. SUBST0 is a package name
+#: ../base-installer.templates:357
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "Inštalujú sa extra balíky - sťahujem a inštalujem ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:333
+#: ../base-installer.templates:361
 msgid "Creating device files..."
 msgstr "Vytvárajú sa súbory zariadení..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:337
+#: ../base-installer.templates:365
 msgid "Selecting the kernel to install..."
 msgstr "Vyberá sa jadro na inštaláciu..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:341
+#: ../base-installer.templates:369
 msgid "Installing the kernel..."
 msgstr "Inštaluje sa jadro..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:345
+#. SUBST0 is a package name
+#: ../base-installer.templates:374
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Inštaluje sa jadro - sťahuje a inštaluje sa ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:349
+#: ../base-installer.templates:378
 msgid "Installing the PCMCIA modules"
 msgstr "Inštalujú sa PCMCIA moduly"
 
@@ -638,6 +663,6 @@ msgstr "Inštalujú sa PCMCIA moduly"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:355
+#: ../base-installer.templates:384
 msgid "Install the base system"
 msgstr "Inštalácia základného systému"

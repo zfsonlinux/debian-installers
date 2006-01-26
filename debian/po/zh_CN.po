@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-25 08:16-0700\n"
+"POT-Creation-Date: 2006-01-25 18:33-0700\n"
 "PO-Revision-Date: 2006-01-12 17:47-0600\n"
 "Last-Translator: Ming Hua <minghua@rice.edu>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -282,43 +282,45 @@ msgstr "请检查 /var/log/syslog 或查看第四虚拟控制台以获得详细�
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:126
+#: ../base-installer.templates:127
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "无法获得 Release 文件 ${SUBST0}。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:131
+#: ../base-installer.templates:133
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "无法获得 Release 签名文件 ${SUBST0}。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:136
+#: ../base-installer.templates:139
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Release 文件由未知的 key 签名(key id ${SUBST0})"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:141
+#: ../base-installer.templates:144
 msgid "Invalid Release file: no valid components."
 msgstr "无效的 Release 文件：非有效的组件。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:146
+#: ../base-installer.templates:150
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "无效的 Release 文件：没有 ${SUBST0} 项目。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:151
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
+#: ../base-installer.templates:157
 msgid "Debootstrap Error"
 msgstr "Debootstrap 错误"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:151
+#: ../base-installer.templates:157
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -328,7 +330,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:151
+#: ../base-installer.templates:157
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -338,289 +340,312 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:164
+#: ../base-installer.templates:170
 msgid "Preparing to install the base system..."
 msgstr "正在准备安装基本系统..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:168
+#: ../base-installer.templates:174
 msgid "Running ${SCRIPT}..."
 msgstr "正在运行 ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:172
+#. Release is a filename which should not be translated
+#: ../base-installer.templates:179
 msgid "Retrieving Release file"
 msgstr "正在接收软件包文件"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:176
+#. Release is a filename which should not be translated
+#: ../base-installer.templates:184
 msgid "Retrieving Release file signature"
 msgstr "正在接收 Release 文件签名"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:180
+#. "packages" here can be translated
+#: ../base-installer.templates:189
 msgid "Finding package sizes"
 msgstr "查询软件包大小"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:184
+#. Packages is a filename which should not be translated
+#: ../base-installer.templates:194
 msgid "Retrieving Packages files"
 msgstr "正在接收软件包文件"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:188
+#. Packages is a filename which should not be translated
+#: ../base-installer.templates:199
 msgid "Retrieving Packages file"
 msgstr "正在接收软件包文件"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:192
+#. "packages" here can be translated
+#: ../base-installer.templates:204
 msgid "Retrieving packages"
 msgstr "正在接收软件包"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:196
+#. "packages" here can be translated
+#: ../base-installer.templates:209
 msgid "Extracting packages"
 msgstr "正在解开软件包"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:200
+#: ../base-installer.templates:213
 msgid "Installing the base system"
 msgstr "正在安装基本系统"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:204
+#: ../base-installer.templates:217
 msgid "Installing core packages"
 msgstr "正在安装核心软件包"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:208
+#: ../base-installer.templates:221
 msgid "Unpacking required packages"
 msgstr "正在解包必需的软件包"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:212
+#: ../base-installer.templates:225
 msgid "Configuring required packages"
 msgstr "正在配置必需的软件包"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:216
+#: ../base-installer.templates:229
 msgid "Unpacking the base system"
 msgstr "正在解包基本系统"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:220
+#: ../base-installer.templates:233
 msgid "Configuring the base system"
 msgstr "正在配置基本系统"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:224
+#: ../base-installer.templates:237
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}：${INFO}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:228
+#. SUBST0 is a package name
+#: ../base-installer.templates:242
 msgid "Validating ${SUBST0}..."
 msgstr "正在校验 ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:232
+#. SUBST0 is a package name
+#: ../base-installer.templates:247
 msgid "Retrieving ${SUBST0}..."
 msgstr "正在接收 ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:236
+#. SUBST0 is a package name
+#: ../base-installer.templates:252
 msgid "Extracting ${SUBST0}..."
 msgstr "正在解开 ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:240
+#. SUBST0 is a package name
+#: ../base-installer.templates:257
 msgid "Unpacking ${SUBST0}..."
 msgstr "正在解包 ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:244
+#. SUBST0 is a package name
+#: ../base-installer.templates:262
 msgid "Configuring ${SUBST0}..."
 msgstr "正在配置 ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:248
+#: ../base-installer.templates:266
 msgid "Checking Release signature"
 msgstr "正在接收 Release 签名"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:252
+#. SUBST0 is a gpg key id
+#. Release is a filename which should not be translated
+#: ../base-installer.templates:272
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "有效的 Release 签名(key id ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:256
+#: ../base-installer.templates:276
 msgid "Resolving dependencies of base packages..."
 msgstr "正在解决基本软件包依赖关系..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:260
+#. SUBST0 is a list of packages
+#: ../base-installer.templates:281
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:264
+#. SUBST0 is a list of packages
+#: ../base-installer.templates:286
 msgid "Found additional required dependencies: ${SUBST0}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:268
+#. SUBST0 is a list of packages
+#: ../base-installer.templates:291
 msgid "Found packages in base already in required: ${SUBST0}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:272
+#: ../base-installer.templates:295
 msgid "Resolving dependencies of required packages..."
 msgstr "正在解决必需软件包依赖关系..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:276
+#. SUBST0 is an archive component (main, etc)
+#. SUBST1 is a mirror
+#: ../base-installer.templates:301
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "正在检查组件 ${SUBST0} 于 ${SUBST1} 上..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:280
+#: ../base-installer.templates:305
 msgid "Installing core packages..."
 msgstr "正在安装核心软件包..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:284
+#: ../base-installer.templates:309
 msgid "Unpacking required packages..."
 msgstr "正在解包必需的软件包..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../base-installer.templates:313
 msgid "Configuring required packages..."
 msgstr "正在配置必需的软件包..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:292
+#: ../base-installer.templates:317
 msgid "Installing base packages..."
 msgstr "正在安装基本软件包..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:296
+#: ../base-installer.templates:321
 msgid "Unpacking the base system..."
 msgstr "正在解包基本系统..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:300
+#: ../base-installer.templates:325
 msgid "Configuring the base system..."
 msgstr "正在配置基本系统..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:304
+#: ../base-installer.templates:329
 msgid "Base system installed successfully."
 msgstr "基本系统安装成功。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:308
+#. Debootstrap is a program name: should not be translated
+#: ../base-installer.templates:334
 msgid "Debootstrap warning"
 msgstr "Debootstrap 警告"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:308
+#: ../base-installer.templates:334
 msgid "Warning: ${INFO}"
 msgstr "警告：${INFO}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:313
+#. SUBST0 is an url
+#: ../base-installer.templates:340
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "重新尝试下载 ${SUBST0} 失败"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:317
+#: ../base-installer.templates:344
 msgid "Configuring APT sources..."
 msgstr "配置 APT 源..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:321
+#: ../base-installer.templates:348
 msgid "Updating the list of available packages..."
 msgstr "更新可用软件包列表..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:325
+#: ../base-installer.templates:352
 msgid "Installing extra packages..."
 msgstr "正在安装额外的软件包..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:329
+#. SUBST0 is a package name
+#: ../base-installer.templates:357
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "安装额外软件包 - 正在接收并安装 ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:333
+#: ../base-installer.templates:361
 msgid "Creating device files..."
 msgstr "正在创建设备文件..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:337
+#: ../base-installer.templates:365
 msgid "Selecting the kernel to install..."
 msgstr "选择要安装的内核..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:341
+#: ../base-installer.templates:369
 msgid "Installing the kernel..."
 msgstr "正在安装内核..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:345
+#. SUBST0 is a package name
+#: ../base-installer.templates:374
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "安装内核 - 正在接收并安装 ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:349
+#: ../base-installer.templates:378
 msgid "Installing the PCMCIA modules"
 msgstr "正在安装 PCMCIA 模块"
 
@@ -628,6 +653,6 @@ msgstr "正在安装 PCMCIA 模块"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:355
+#: ../base-installer.templates:384
 msgid "Install the base system"
 msgstr "安装基本系统"
