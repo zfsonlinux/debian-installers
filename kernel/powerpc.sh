@@ -26,11 +26,6 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	version=
-	case "$KERNEL_MAJOR" in
-		2.6)	version=2.6.12 ;;
-		*)	version=2.4.27 ;;
-	esac
 	# The APUS kernels are in a separate source package, so may
 	# sometimes have a different version number.
 	apusversion=2.4.27
