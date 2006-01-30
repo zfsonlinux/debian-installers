@@ -12,16 +12,22 @@ arch_get_kernel_flavour () {
 }
 
 arch_check_usable_kernel () {
-	# Subarchitecture must match exactly (is this right?).
+	# Subarchitecture must match exactly.
 	if expr "$1" : ".*-$2\$" >/dev/null; then return 0; fi
 	return 1
 }
 
 arch_get_kernel () {
 	case "$KERNEL_MAJOR" in
-		2.4)	version=2.4.27 ;;
-		2.6)	version=2.6.8 ;;
+		2.2)
+			echo "kernel-image-$KERNEL_VERSION-$1"
+			;;
+		2.4)
+			echo "kernel-image-$KERNEL_VERSION-$1"
+			;;
+		2.6)
+			echo "linux-image-$KERNEL_MAJOR-$1"
+			;;
 		*)	warning "Unknown kernel major '$KERNEL_MAJOR'." ;;
 	esac
-	echo "kernel-image-$version-$1"
 }
