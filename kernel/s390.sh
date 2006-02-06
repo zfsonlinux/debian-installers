@@ -1,4 +1,5 @@
 arch_get_kernel_flavour () {
+	echo $MACHINE
 	return 0
 }
 

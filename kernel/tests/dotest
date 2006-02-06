@@ -44,7 +44,7 @@ for KERNEL_MAJOR in $MAJORS; do
 	# Is the correct kernel flavour selected?
 
 	testname="arch_get_kernel_flavour $KERNEL_MAJOR exit code"
-	if GOT_FLAVOUR="$(arch_get_kernel_flavour)"; then
+	if GOT_FLAVOUR="$(arch_get_kernel_flavour)" && [ "$GOT_FLAVOUR" ] ; then
 		ok
 	else
 		notok
