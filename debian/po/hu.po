@@ -6,19 +6,20 @@
 # Hungarian messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
+# Maintains: VI fsfhu
+# comm2: sas 321hu
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-11 18:34-0700\n"
-"PO-Revision-Date: 2006-02-05 20:14+0100\n"
+"PO-Revision-Date: 2006-02-07 17:03+0100\n"
 "Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9.1\n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
 
 #. Type: boolean
@@ -34,17 +35,15 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:4
-#, fuzzy
 msgid ""
 "If all of your operating systems are listed above, then it should be safe to "
 "install the boot loader to the master boot record of your first hard drive. "
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new system."
 msgstr ""
-"Ha a lista a számítógépén található összes operációs rendszert tartalmazza, "
-"akkor a rendszerbetöltőt nyugodtan telepítheti az első merevlemezének fő "
-"rendszerbetöltő-rekordjába. A számítógép indulásakor választhat ezen "
-"operációs rendszerek egyike, vagy éppen az új Debian-rendszer indítása közt."
+"Ha a gépen lévő összes operációs rendszer a listában van, a boot betöltő "
+"nyugodtan telepíthető az 1. merevlemez MBR-jébe. A gép indulásakor lehet "
+"majd választani az új rendszer vagy netán e régebbiek között."
 
 #. Type: boolean
 #. Description
@@ -55,15 +54,14 @@ msgstr "A GRUB rendszerbetöltőt a fő rendszerbetöltő-rekordba telepíti?"
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
-#, fuzzy
 msgid ""
 "It seems that this new installation is the only operating system on this "
 "computer. If so, it should be safe to install the GRUB boot loader to the "
 "master boot record of your first hard drive."
 msgstr ""
-"Úgy tűnik, ezen a gépen a most telepített Debian lesz az egyetlen operációs "
-"rendszer. Ha ez tényleg így van, akkor a GRUB rendszerbetöltőt nyugodtan "
-"telepítheti az első merevlemezének fő rendszerbetöltő-rekordjába."
+"Úgy tűnik, e gépen a most telepített Debian lesz az egyetlen operációs "
+"rendszer. Ha így van, a GRUB boot betöltő célszerűen telepíthető az első "
+"merevlemez MBR-jébe."
 
 #. Type: boolean
 #. Description
@@ -105,7 +103,6 @@ msgstr "A rendszerbetöltő erre az eszközre kerül:"
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
-#, fuzzy
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -113,17 +110,14 @@ msgid ""
 "can install GRUB elsewhere on the drive, or to another drive, or even to a "
 "floppy."
 msgstr ""
-"Az újonnan telepített Debian-rendszert indíthatóvá is kell tenni, ehhez a "
-"GRUB rendszerbetöltőt kell egy indításra képes eszközre telepíteni. Az "
-"esetek elsöprő többségében ilyenkor a GRUB-ot az első merevlemez fő "
-"rendszerbetöltő-rekordjába teszik. Igény esetén a GRUB-ot a lemezen máshová "
-"is telepítheti, esetleg egy másik lemezre is, sőt, akár egy hajlékonylemezre "
-"is."
+"Az újonnan telepített Debian rendszert a GRUB boot betöltő egy indítható "
+"eszközre telepítésével indíthatóvá kell tenni. Általában az 1. merevlemez "
+"MBR-jébe telepítjük a GRUB-ot, de a meghajtó más helyére vagy más meghajtóra "
+"vagy akár flopira is telepíthető."
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
-#, fuzzy
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -135,17 +129,13 @@ msgid ""
 "   your third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Az eszközt vagy a GRUB \"(hdn,m)\"-jelölésével, vagy a /dev könyvtárban "
-"szereplő egyik eszközként adja meg. Például:\n"
-" - a \"(hd0)\" vagy a \"/dev/hda\" hatására a GRUB az első (IDE-) "
-"merevlemez\n"
-"   fő rendszerbetöltő-rekordjába kerül;\n"
-" - a \"(hd0,1)\" vagy a \"/dev/hda2\" az első IDE-meghajtó második\n"
-"   partícióját eredményezi;\n"
-" - a \"(hd2,4)\" vagy a \"/dev/sdc5\" a harmadik (itt: SCSI-) meghajtó első\n"
-"   kiterjesztett partícióját jelenti;\n"
-" - a \"(fd0)\" vagy a \"/dev/fd0\" megadása pedig a GRUB-ot egy\n"
-"   hajlékonylemezre telepíti."
+"Az eszközt a GRUB \"(hdn,m)\" leírásával vagy a /dev-ben lévő eszközként "
+"kell megadni. Alább pár példa:\n"
+" - \"(hd0)\" vagy \"/dev/hda\" az 1. merevlemez MBR-jébe telepít.\n"
+"- \"(hd0,1)\" vagy \"/dev/hda2\" az 1. IDE meghajtó 2. partíciója- \"(hd2,4)"
+"\" vagy \"/dev/sdc5\" a 3. meghajtó (itt SCSI) \n"
+"1. kiterjesztett partícióját fogja használni - \"(fd0)\" or \"/dev/fd0\" a "
+"GRUB-ot egy flopira fogja telepíteni"
 
 #. Type: password
 #. Description
@@ -172,9 +162,8 @@ msgstr ""
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
-#, fuzzy
 msgid "If you do not wish to set a GRUB password, leave this field blank."
-msgstr "Ha nem tud mit beírni, hagyja üresen."
+msgstr "Ha nem akarunk GRUB jelszót adni, hagyjuk üresen e mezőt."
 
 #. Type: boolean
 #. Description
@@ -278,6 +267,5 @@ msgstr "A GRUB rendszerbetöltő merevlemezre telepítése"
 #. Description
 #. Rescue menu item
 #: ../grub-installer.templates:128
-#, fuzzy
 msgid "Reinstall GRUB boot loader"
-msgstr "A GRUB rendszerbetöltő telepítése"
+msgstr "A GRUB boot betöltő újratelepítése"
