@@ -462,6 +462,28 @@ get_resume_partition () {
 	echo "$biggest_partition"
 }
 
+available_initramfs_generators () {
+	irf_list=""
+	db_get base-installer/kernel/linux/initramfs-generators || return 1
+	info "Possible initramfs generator(s): '$RET'"
+
+	for irf in $RET; do
+		if LANG=C chroot /target apt-cache policy $irf | \
+			grep "Candidate:" | grep -v "(none)" >/dev/null 2>&1; then
+			if [ "$irf_list" ]; then
+				irf_list="$irf_list $irf"
+			else
+				irf_list="$irf"
+			fi
+		fi
+	done
+	info "Available initramfs generator(s): '$irf_list'"
+
+	[ "$irf_list" ] || return 1
+	echo "$irf_list"
+	return 0
+}
+
 select_initramfs_generator () {
 	irf_choices="$(echo "$1" | sed "s/ \+/, /g")"
 	irf_default="${1%% *}"
@@ -553,9 +575,7 @@ EOF
 
 	package=""
 	if [ "$do_initramfs" = yes ]; then
-		if db_get base-installer/kernel/linux/initramfs-generators; then
-			generators="$RET"
-			info "Available initramfs generator(s) '$generators'"
+		if generators="$(available_initramfs_generators)"; then
 			if echo "$generators" | grep -q " "; then
 				package="$(select_initramfs_generator "$generators")"
 			else
