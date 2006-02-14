@@ -287,6 +287,9 @@ Acquire::cdrom {
   };
 }
 EOT
+		cat > /target/etc/apt/apt.conf.d/00IgnoreTimeConflict << EOT
+Acquire::gpgv::Options { "--ignore-time-conflict"; };
+EOT
 		# Scan CD-ROM or CD image; start with clean sources.list
 		: > /target/etc/apt/sources.list
 		if ! log-output -t base-installer chroot /target apt-cdrom add ; then
@@ -717,8 +720,7 @@ install_pcmcia_modules () {
 }
 
 apt_update () {
-	log-output -t base-installer chroot /target \
-		apt-get -o Acquire::gpgv::Options::=--ignore-time-conflict update \
+	log-output -t base-installer chroot /target apt-get update \
 		|| apt_update_failed=$?
 	
 	if [ "$apt_update_failed" ]; then
