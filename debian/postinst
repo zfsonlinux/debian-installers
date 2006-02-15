@@ -199,6 +199,7 @@ install_base_system () {
 	
 		    	if [ -x "$script" ] ; then
 				info "Running $script"
+				# be careful to preserve exit code
 				if "$script" >"$tmpfile" 2>&1; then
 					:
 				else
@@ -771,6 +772,7 @@ post_install_hooks () {
 
 			if [ -x "$script" ]; then
 				info "Running $script"
+				# be careful to preserve exit code
 				if "$script" >"$tmpfile" 2>&1; then
 					:
 				else
