@@ -202,7 +202,7 @@ install_base_system () {
 				if "$script" >"$tmpfile" 2>&1; then
 					:
 				else
-			    		log "warning: $script returned error code $?"
+			    		warning "$script returned error code $?"
 				fi
 		    	else
 				error "Unable to execute $script"
@@ -774,7 +774,7 @@ post_install_hooks () {
 				if "$script" >"$tmpfile" 2>&1; then
 					:
 				else
-					log "warning: $script returned error code $?"
+					warning "$script returned error code $?"
 				fi
 			else
 				error "Unable to execute $script"
