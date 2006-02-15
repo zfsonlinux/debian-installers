@@ -199,7 +199,9 @@ install_base_system () {
 	
 		    	if [ -x "$script" ] ; then
 				info "Running $script"
-				if ! "$script" >"$tmpfile" 2>&1; then
+				if "$script" >"$tmpfile" 2>&1; then
+					:
+				else
 			    		log "warning: $script returned error code $?"
 				fi
 		    	else
@@ -769,7 +771,9 @@ post_install_hooks () {
 
 			if [ -x "$script" ]; then
 				info "Running $script"
-				if ! "$script" >"$tmpfile" 2>&1; then
+				if "$script" >"$tmpfile" 2>&1; then
+					:
+				else
 					log "warning: $script returned error code $?"
 				fi
 			else
