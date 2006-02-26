@@ -8,6 +8,8 @@ _Description: Proceed with installation to unclean target?
 
 Template: base-installer/cannot_install
 Type: error
+# The base system is the minimal Debian system 
+# See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 _Description: Cannot install base system
  The installer cannot figure out how to install the base system. No
  installable CD-ROM was found and no valid mirror was configured.
@@ -214,10 +216,18 @@ _Description: Installing the base system
 
 Template: base-installer/debootstrap/section/instcore
 Type: text
+# Core packages are packages that are part of the Debian base system
+# The "core" packages are indeed packages that are specifically
+# recorded as part of the base system. Other packages may
+# be installed on the base system because of dependency resolution
 _Description: Installing core packages
 
 Template: base-installer/debootstrap/section/unpackreq
 Type: text
+# Required packages are packages which installation is triggered
+# by the dependency chain of core packages
+# In short, they are "required" because at least one of the
+# packages from the core packages depends on them
 _Description: Unpacking required packages
 
 Template: base-installer/debootstrap/section/confreq
@@ -226,10 +236,14 @@ _Description: Configuring required packages
 
 Template: base-installer/debootstrap/section/unpackbase
 Type: text
+# The base system is the minimal Debian system 
+# See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 _Description: Unpacking the base system
 
 Template: base-installer/debootstrap/section/confbase
 Type: text
+# The base system is the minimal Debian system 
+# See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 _Description: Configuring the base system
 
 Template: base-installer/debootstrap/fallback-info
@@ -263,6 +277,7 @@ _Description: Configuring ${SUBST0}...
 
 Template: base-installer/debootstrap/info/releasesig
 Type: text
+# Release is a filename which should not be translated
 _Description: Checking Release signature
 
 Template: base-installer/debootstrap/info/validrelsig
@@ -302,14 +317,26 @@ _Description: Checking component ${SUBST0} on ${SUBST1}...
 
 Template: base-installer/debootstrap/info/instcore
 Type: text
+# Core packages are packages that are part of the Debian base system
+# The "core" packages are indeed packages that are specifically
+# recorded as part of the base system. Other packages may
+# be installed on the base system because of dependency resolution
 _Description: Installing core packages...
 
 Template: base-installer/debootstrap/info/unpackreq
 Type: text
+# Required packages are packages which installation is triggered
+# by the dependency chain of core packages
+# In short, they are "required" because at least one of the
+# packages from the core packages depends on them
 _Description: Unpacking required packages...
 
 Template: base-installer/debootstrap/info/confreq
 Type: text
+# Required packages are packages which installation is triggered
+# by the dependency chain of core packages
+# In short, they are "required" because at least one of the
+# packages from the core packages depends on them
 _Description: Configuring required packages...
 
 Template: base-installer/debootstrap/info/instbase
