@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-25 18:33-0700\n"
+"POT-Creation-Date: 2006-02-26 18:44-0700\n"
 "PO-Revision-Date: 2006-01-25 16:24+0100\n"
 "Last-Translator: Bart Cornelis <cobaco@linux.be>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
@@ -42,13 +42,15 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:11
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#: ../base-installer.templates:13
 msgid "Cannot install base system"
 msgstr "Kan het basissysteem niet installeren"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:11
+#: ../base-installer.templates:13
 msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
@@ -59,19 +61,19 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:17
+#: ../base-installer.templates:19
 msgid "Failed to determine the codename for the release."
 msgstr "Bepalen van de codenaam van de release is mislukt."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:22
+#: ../base-installer.templates:24
 msgid "No file system mounted on /target"
 msgstr "Er is geen bestandssysteem aangekoppeld op '/target'"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:22
+#: ../base-installer.templates:24
 msgid ""
 "Before the installation can proceed, a root file system must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
@@ -82,13 +84,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:28
+#: ../base-installer.templates:30
 msgid "Not installing to unclean target"
 msgstr "Er wordt niet geïnstalleerd in een vervuild doel"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:28
+#: ../base-installer.templates:30
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
@@ -100,19 +102,19 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:35
+#: ../base-installer.templates:37
 msgid "Failed to install the base system"
 msgstr "Installatie van het basissysteem is mislukt"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:35
+#: ../base-installer.templates:37
 msgid "The base system installation into /target/ failed."
 msgstr "Installatie van het basissysteem naar /target/ is mislukt"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:42
+#: ../base-installer.templates:44
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
@@ -121,37 +123,37 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:49
+#: ../base-installer.templates:51
 msgid "Base system installation error"
 msgstr "Fout bij installatie van het basissysteem"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:49
+#: ../base-installer.templates:51
 msgid "The debootstrap program exited abnormally."
 msgstr "Het debootstrap-programma is op abnormale wijze geëindigd."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:56
+#: ../base-installer.templates:58
 msgid "The following error occurred:"
 msgstr "De volgende fout is opgetreden:"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:56
+#: ../base-installer.templates:58
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:66
+#: ../base-installer.templates:68
 msgid "Tool to use to generate boot initrd:"
 msgstr "Te gebruiken hulpprogramma voor het genereren van een initrd:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:66
+#: ../base-installer.templates:68
 msgid ""
 "The list shows the available tools. If you are unsure which to select, you "
 "should select the default. If your system fails to boot, you can retry the "
@@ -163,13 +165,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:73
+#: ../base-installer.templates:75
 msgid "No initrd generator"
 msgstr "Geen initrd generator"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:73
+#: ../base-installer.templates:75
 msgid ""
 "The kernel that has been selected for installation needs an initrd to boot. "
 "However, no package to generate that initrd is available that supports your "
@@ -182,13 +184,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:80
+#: ../base-installer.templates:82
 msgid "Unsupported initrd generator"
 msgstr "initrd generator niet ondersteund"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:80
+#: ../base-installer.templates:82
 msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
@@ -198,13 +200,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:88
 msgid "Unable to install the selected kernel"
 msgstr "De geselecteerde kernel kan niet geïnstalleerd worden"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:88
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -214,25 +216,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:88
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Kernelpakket: '${KERNEL}'"
 
 #. Type: select
 #. Choices
-#: ../base-installer.templates:96
+#: ../base-installer.templates:98
 msgid "${KERNELS}, none"
 msgstr "${KERNELS}, geen"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:97
+#: ../base-installer.templates:99
 msgid "Kernel to install:"
 msgstr "Te installeren kernel:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:97
+#: ../base-installer.templates:99
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -242,20 +244,20 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:104
+#: ../base-installer.templates:106
 msgid "Continue without installing a kernel?"
 msgstr "Doorgaan zonder een kernel te installeren?"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:104
+#: ../base-installer.templates:106
 msgid "No installable kernel was found in the defined APT sources."
 msgstr ""
 "Er is geen installeerbare kernel gevonden in de gedefinieerde apt-bronnen."
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:104
+#: ../base-installer.templates:106
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -267,13 +269,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:113
+#: ../base-installer.templates:115
 msgid "Cannot install kernel"
 msgstr "Kan geen kernel installeren"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:113
+#: ../base-installer.templates:115
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr ""
 "Het installatiesysteem kan geen geschikt kernelpakket vinden om te "
@@ -281,13 +283,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:118
+#: ../base-installer.templates:120
 msgid "Unable to install ${PACKAGE}"
 msgstr "Kan ${PACKAGE} niet installeren"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:118
+#: ../base-installer.templates:120
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -297,7 +299,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:118
+#: ../base-installer.templates:120
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
 "Controleer /var/log/syslog of kijk op de vierde virtuele console (VT4) voor "
@@ -305,19 +307,19 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:127
+#: ../base-installer.templates:129
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Ophalen van 'Release'-bestand ${SUBST0} is mislukt."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:133
+#: ../base-installer.templates:135
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Ophalen van de 'Release'-bestand-ondertekening ${SUBST0} is mislukt."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:139
+#: ../base-installer.templates:141
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr ""
 "'Release'-bestand is ondertekend met onbekende sleutel (sleutel-id "
@@ -325,13 +327,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:146
 msgid "Invalid Release file: no valid components."
 msgstr "Ongeldig 'Release'-bestand, geen geldige onderdelen."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:150
+#: ../base-installer.templates:152
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Ongeldig 'Release'-bestand, geen ingang voor ${SUBST0}."
 
@@ -339,13 +341,13 @@ msgstr "Ongeldig 'Release'-bestand, geen ingang voor ${SUBST0}."
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:157
+#: ../base-installer.templates:159
 msgid "Debootstrap Error"
 msgstr "Debootstrap-fout"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:157
+#: ../base-installer.templates:159
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -355,7 +357,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:157
+#: ../base-installer.templates:159
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -365,145 +367,158 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:170
+#: ../base-installer.templates:172
 msgid "Preparing to install the base system..."
 msgstr "Installatie van het basissysteem wordt voorbereid..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:174
+#: ../base-installer.templates:176
 msgid "Running ${SCRIPT}..."
 msgstr "${SCRIPT} wordt uitgevoerd..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:179
+#: ../base-installer.templates:181
 msgid "Retrieving Release file"
 msgstr "'Release'-bestand wordt opgehaald"
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:184
+#: ../base-installer.templates:186
 msgid "Retrieving Release file signature"
 msgstr "Ondertekening 'Release'-bestand wordt opgehaald"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:189
+#: ../base-installer.templates:191
 msgid "Finding package sizes"
 msgstr "Pakketgroottes worden opgezocht"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:194
+#: ../base-installer.templates:196
 msgid "Retrieving Packages files"
 msgstr "'Packages'-bestand wordt opgehaald"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:199
+#: ../base-installer.templates:201
 msgid "Retrieving Packages file"
 msgstr "'Packages'-bestand wordt opgehaald"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:204
+#: ../base-installer.templates:206
 msgid "Retrieving packages"
 msgstr "Pakketten worden opgehaald"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:209
+#: ../base-installer.templates:211
 msgid "Extracting packages"
 msgstr "Pakketten worden uitgepakt"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:213
+#: ../base-installer.templates:215
 msgid "Installing the base system"
 msgstr "Het basissysteem wordt geïnstalleerd"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:217
+#. Core packages are packages that are part of the Debian base system
+#. The "core" packages are indeed packages that are specifically
+#. recorded as part of the base system. Other packages may
+#. be installed on the base system because of dependency resolution
+#: ../base-installer.templates:223
 msgid "Installing core packages"
 msgstr "Kernpakketten worden geïnstalleerd"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:221
+#. Required packages are packages which installation is triggered
+#. by the dependency chain of core packages
+#. In short, they are "required" because at least one of the
+#. packages from the core packages depends on them
+#: ../base-installer.templates:231
 msgid "Unpacking required packages"
 msgstr "Verplichte pakketten worden uitgepakt"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:225
+#: ../base-installer.templates:235
 msgid "Configuring required packages"
 msgstr "Verplichte pakketten worden geconfigureerd"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:229
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#: ../base-installer.templates:241
 msgid "Unpacking the base system"
 msgstr "Het basissysteem wordt uitgepakt"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:233
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#: ../base-installer.templates:247
 msgid "Configuring the base system"
 msgstr "Het basissysteem wordt geconfigureerd"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:237
+#: ../base-installer.templates:251
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:242
+#: ../base-installer.templates:256
 msgid "Validating ${SUBST0}..."
 msgstr "${SUBST0} wordt gevalideerd..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:247
+#: ../base-installer.templates:261
 msgid "Retrieving ${SUBST0}..."
 msgstr "${SUBST0} wordt opgehaald..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:252
+#: ../base-installer.templates:266
 msgid "Extracting ${SUBST0}..."
 msgstr "${SUBST0} wordt uitgepakt..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:257
+#: ../base-installer.templates:271
 msgid "Unpacking ${SUBST0}..."
 msgstr "${SUBST0} wordt uitgepakt..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:262
+#: ../base-installer.templates:276
 msgid "Configuring ${SUBST0}..."
 msgstr "${SUBST0} wordt geconfigureerd..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:266
+#. Release is a filename which should not be translated
+#: ../base-installer.templates:281
 msgid "Checking Release signature"
 msgstr "'Release'-handtekening wordt gecontroleerd"
 
@@ -511,40 +526,40 @@ msgstr "'Release'-handtekening wordt gecontroleerd"
 #. Description
 #. SUBST0 is a gpg key id
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:272
+#: ../base-installer.templates:287
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "'Release'-handtekening is geldig (sleutel-id ${SUBST0})."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:276
+#: ../base-installer.templates:291
 msgid "Resolving dependencies of base packages..."
 msgstr "Vereisten voor basispakketten worden berekend..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:281
+#: ../base-installer.templates:296
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr "Extra vereisten voor basispakketten gevonden: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:286
+#: ../base-installer.templates:301
 msgid "Found additional required dependencies: ${SUBST0}"
 msgstr "Extra vereisten voor verplichte pakketten gevonden: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:291
+#: ../base-installer.templates:306
 msgid "Found packages in base already in required: ${SUBST0}"
 msgstr "Basispakketten gevonden die ook al voorkomen als verplicht: ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:295
+#: ../base-installer.templates:310
 msgid "Resolving dependencies of required packages..."
 msgstr "Vereisten voor verplichte pakketten worden bepaald..."
 
@@ -552,94 +567,106 @@ msgstr "Vereisten voor verplichte pakketten worden bepaald..."
 #. Description
 #. SUBST0 is an archive component (main, etc)
 #. SUBST1 is a mirror
-#: ../base-installer.templates:301
+#: ../base-installer.templates:316
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "Component ${SUBST0} op ${SUBST1} wordt gecontroleerd..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:305
+#. Core packages are packages that are part of the Debian base system
+#. The "core" packages are indeed packages that are specifically
+#. recorded as part of the base system. Other packages may
+#. be installed on the base system because of dependency resolution
+#: ../base-installer.templates:324
 msgid "Installing core packages..."
 msgstr "Kernpakketten worden geïnstalleerd..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:309
+#. Required packages are packages which installation is triggered
+#. by the dependency chain of core packages
+#. In short, they are "required" because at least one of the
+#. packages from the core packages depends on them
+#: ../base-installer.templates:332
 msgid "Unpacking required packages..."
 msgstr "Verplichte pakketten worden uitgepakt..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:313
+#. Required packages are packages which installation is triggered
+#. by the dependency chain of core packages
+#. In short, they are "required" because at least one of the
+#. packages from the core packages depends on them
+#: ../base-installer.templates:340
 msgid "Configuring required packages..."
 msgstr "Verplichte pakketten worden geconfigureerd..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:317
+#: ../base-installer.templates:344
 msgid "Installing base packages..."
 msgstr "Basispakketten worden geïnstalleerd..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:321
+#: ../base-installer.templates:348
 msgid "Unpacking the base system..."
 msgstr "Het basissysteem wordt uitgepakt"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:325
+#: ../base-installer.templates:352
 msgid "Configuring the base system..."
 msgstr "Het basissysteem wordt geconfigureerd"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:329
+#: ../base-installer.templates:356
 msgid "Base system installed successfully."
 msgstr "Basissysteem is met succes geïnstalleerd."
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:334
+#: ../base-installer.templates:361
 msgid "Debootstrap warning"
 msgstr "Debootstrap-waarchuwing"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:334
+#: ../base-installer.templates:361
 msgid "Warning: ${INFO}"
 msgstr "Waarchuwing: ${INFO}"
 
 #. Type: text
 #. Description
 #. SUBST0 is an url
-#: ../base-installer.templates:340
+#: ../base-installer.templates:367
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Ophalen van ${SUBST0} (was mislukt) wordt opnieuw geprobeerd"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:344
+#: ../base-installer.templates:371
 msgid "Configuring APT sources..."
 msgstr "APT-bronnen worden ingesteld..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:348
+#: ../base-installer.templates:375
 msgid "Updating the list of available packages..."
 msgstr "Lijst van beschikbare pakketten wordt bijgewerkt..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:352
+#: ../base-installer.templates:379
 msgid "Installing extra packages..."
 msgstr "Extra pakketten worden geïnstalleerd..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:357
+#: ../base-installer.templates:384
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr ""
 "Extra pakketten worden geïnstalleerd - ${SUBST0} wordt opgehaald en "
@@ -647,33 +674,33 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:361
+#: ../base-installer.templates:388
 msgid "Creating device files..."
 msgstr "Apparaatbestanden worden aangemaakt ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:365
+#: ../base-installer.templates:392
 msgid "Selecting the kernel to install..."
 msgstr "De te installeren kernel wordt geselecteerd..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:369
+#: ../base-installer.templates:396
 msgid "Installing the kernel..."
 msgstr "Kernel wordt geïnstalleerd..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:374
+#: ../base-installer.templates:401
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr ""
 "Kernel wordt geïnstalleerd - ${SUBST0} wordt opgehaald en geïnstalleerd ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:378
+#: ../base-installer.templates:405
 msgid "Installing the PCMCIA modules"
 msgstr "PCMCIA-modules worden geïnstalleerd"
 
@@ -681,6 +708,6 @@ msgstr "PCMCIA-modules worden geïnstalleerd"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:384
+#: ../base-installer.templates:411
 msgid "Install the base system"
 msgstr "Basissysteem installeren"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-25 18:33-0700\n"
+"POT-Creation-Date: 2006-02-26 18:44-0700\n"
 "PO-Revision-Date: 2005-06-13 14:08+0200\n"
 "Last-Translator: Canonical Ltd <translations@canonical.com>\n"
 "Language-Team: Xhosa <xh-translate@ubuntu.com>\n"
@@ -40,14 +40,16 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:11
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#: ../base-installer.templates:13
 #, fuzzy
 msgid "Cannot install base system"
 msgstr "Ayiphumelelangaukuseka inkqubo esisiseko"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:11
+#: ../base-installer.templates:13
 #, fuzzy
 msgid ""
 "The installer cannot figure out how to install the base system. No "
@@ -58,21 +60,21 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:17
+#: ../base-installer.templates:19
 #, fuzzy
 msgid "Failed to determine the codename for the release."
 msgstr "Ayiphumelelanga ukufumana kwakhona ifayili yommiselo ongaphambili"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:22
+#: ../base-installer.templates:24
 #, fuzzy
 msgid "No file system mounted on /target"
 msgstr "Akukho nkqubo yefayili enyusiweyo kwi- /target"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:22
+#: ../base-installer.templates:24
 #, fuzzy
 msgid ""
 "Before the installation can proceed, a root file system must be mounted on /"
@@ -83,13 +85,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:28
+#: ../base-installer.templates:30
 msgid "Not installing to unclean target"
 msgstr "Akukho kusekwa kwento ekujolise kuyo emdaka"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:28
+#: ../base-installer.templates:30
 #, fuzzy
 msgid ""
 "The installation to the target file system has been canceled. You should go "
@@ -104,20 +106,20 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:35
+#: ../base-installer.templates:37
 msgid "Failed to install the base system"
 msgstr "Ayiphumelelangaukuseka inkqubo esisiseko"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:35
+#: ../base-installer.templates:37
 msgid "The base system installation into /target/ failed."
 msgstr ""
 "Inkqubo esisiseko yokusekela inkqubo kwi- /target ayiphumelelanga esisiseko."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:42
+#: ../base-installer.templates:44
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
@@ -125,37 +127,37 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:49
+#: ../base-installer.templates:51
 msgid "Base system installation error"
 msgstr "Impazamo yesisiseki-nkqubo yenkqubo esisiseko"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:49
+#: ../base-installer.templates:51
 msgid "The debootstrap program exited abnormally."
 msgstr "I-debootstrap iphume ngokungaqhelekanga."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:56
+#: ../base-installer.templates:58
 msgid "The following error occurred:"
 msgstr "Impazamo elandelayo yenzekile:"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:56
+#: ../base-installer.templates:58
 msgid "${ERROR}"
 msgstr "${ERROR}"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:66
+#: ../base-installer.templates:68
 msgid "Tool to use to generate boot initrd:"
 msgstr ""
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:66
+#: ../base-installer.templates:68
 msgid ""
 "The list shows the available tools. If you are unsure which to select, you "
 "should select the default. If your system fails to boot, you can retry the "
@@ -164,13 +166,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:73
+#: ../base-installer.templates:75
 msgid "No initrd generator"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:73
+#: ../base-installer.templates:75
 msgid ""
 "The kernel that has been selected for installation needs an initrd to boot. "
 "However, no package to generate that initrd is available that supports your "
@@ -179,13 +181,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:80
+#: ../base-installer.templates:82
 msgid "Unsupported initrd generator"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:80
+#: ../base-installer.templates:82
 msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
@@ -193,13 +195,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:88
 msgid "Unable to install the selected kernel"
 msgstr "Ayikwazi kuseka inkqubo ekhethiweyo ye-kernel"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:88
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -208,25 +210,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:86
+#: ../base-installer.templates:88
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Umqulu we-kernel: '${KERNEL}'."
 
 #. Type: select
 #. Choices
-#: ../base-installer.templates:96
+#: ../base-installer.templates:98
 msgid "${KERNELS}, none"
 msgstr ""
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:97
+#: ../base-installer.templates:99
 msgid "Kernel to install:"
 msgstr "I-Kernel iza kumilisela:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:97
+#: ../base-installer.templates:99
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -236,20 +238,20 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:104
+#: ../base-installer.templates:106
 #, fuzzy
 msgid "Continue without installing a kernel?"
 msgstr "Gqiba ukumisela inkqubo"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:104
+#: ../base-installer.templates:106
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "Akukho kernel ingasekwayo ifunyenweyo kwimithombo ye-APT."
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:104
+#: ../base-installer.templates:106
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -258,27 +260,27 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:113
+#: ../base-installer.templates:115
 #, fuzzy
 msgid "Cannot install kernel"
 msgstr "Ayikwazi kuseka inkqubo ye-Debian"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:113
+#: ../base-installer.templates:115
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:118
+#: ../base-installer.templates:120
 #, fuzzy
 msgid "Unable to install ${PACKAGE}"
 msgstr "Ayikwazi kuseka i-kernel"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:118
+#: ../base-installer.templates:120
 #, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
@@ -289,7 +291,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:118
+#: ../base-installer.templates:120
 #, fuzzy
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
@@ -298,32 +300,32 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:127
+#: ../base-installer.templates:129
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Ayiphumelelanga ukufumana ifayili yokukhulula i ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:133
+#: ../base-installer.templates:135
 #, fuzzy
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Ayiphumelelanga ukufumana ifayili yokukhulula i ${SUBST0}."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:139
+#: ../base-installer.templates:141
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:144
+#: ../base-installer.templates:146
 msgid "Invalid Release file: no valid components."
 msgstr "Ifayili yokukhulula ayikho mthethweni: akukho malungu asemthethweni."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:150
+#: ../base-installer.templates:152
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr ""
 "Ifayili yokukhulula ayikho mthethweni: akukho kungena okwenzelwe i-${SUBST0}"
@@ -332,13 +334,13 @@ msgstr ""
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:157
+#: ../base-installer.templates:159
 msgid "Debootstrap Error"
 msgstr "Impazamo kumcu wokuvala"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:157
+#: ../base-installer.templates:159
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -349,7 +351,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:157
+#: ../base-installer.templates:159
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -359,49 +361,49 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:170
+#: ../base-installer.templates:172
 #, fuzzy
 msgid "Preparing to install the base system..."
 msgstr "Ilungiselela ukuseka inkqubo esisiseko ye-Debian..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:174
+#: ../base-installer.templates:176
 msgid "Running ${SCRIPT}..."
 msgstr "Iphumeza inkqubo i-${SCRIPT}..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:179
+#: ../base-installer.templates:181
 msgid "Retrieving Release file"
 msgstr "Ifumana kwakhona ifayili Yokukhutshwa"
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:184
+#: ../base-installer.templates:186
 msgid "Retrieving Release file signature"
 msgstr "Ifumana kwakhona ifayili Yokukhutshwa"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:189
+#: ../base-installer.templates:191
 msgid "Finding package sizes"
 msgstr "Ifumana ubungakanani bemiqulu yenkqubo"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:194
+#: ../base-installer.templates:196
 msgid "Retrieving Packages files"
 msgstr "Ifumana kwakhona iifayili Zemiqulu yenkqubo"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:199
+#: ../base-installer.templates:201
 #, fuzzy
 msgid "Retrieving Packages file"
 msgstr "Ifumana kwakhona iifayili Zemiqulu yenkqubo"
@@ -409,97 +411,110 @@ msgstr "Ifumana kwakhona iifayili Zemiqulu yenkqubo"
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:204
+#: ../base-installer.templates:206
 msgid "Retrieving packages"
 msgstr "Ifumana kwakhona imiqulu yenkqubo"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:209
+#: ../base-installer.templates:211
 msgid "Extracting packages"
 msgstr "Ikhupha imiqulu yenkqubo"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:213
+#: ../base-installer.templates:215
 msgid "Installing the base system"
 msgstr "Iseka inkqubo esisiseko"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:217
+#. Core packages are packages that are part of the Debian base system
+#. The "core" packages are indeed packages that are specifically
+#. recorded as part of the base system. Other packages may
+#. be installed on the base system because of dependency resolution
+#: ../base-installer.templates:223
 msgid "Installing core packages"
 msgstr "Iseka imiqulu yenkqubo engundoqo"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:221
+#. Required packages are packages which installation is triggered
+#. by the dependency chain of core packages
+#. In short, they are "required" because at least one of the
+#. packages from the core packages depends on them
+#: ../base-installer.templates:231
 msgid "Unpacking required packages"
 msgstr "Ikhupha imiqulu yenkqubo efunekayo"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:225
+#: ../base-installer.templates:235
 msgid "Configuring required packages"
 msgstr "Yakha imiqulu yenkqubo engundoqo"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:229
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#: ../base-installer.templates:241
 msgid "Unpacking the base system"
 msgstr "Ikhupha inkqubo esisiseko"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:233
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#: ../base-installer.templates:247
 msgid "Configuring the base system"
 msgstr "Yakha inkqubo esisiseko"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:237
+#: ../base-installer.templates:251
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:242
+#: ../base-installer.templates:256
 msgid "Validating ${SUBST0}..."
 msgstr "Ingqinelana ne-${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:247
+#: ../base-installer.templates:261
 msgid "Retrieving ${SUBST0}..."
 msgstr "Ifumana kwakhona i-${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:252
+#: ../base-installer.templates:266
 msgid "Extracting ${SUBST0}..."
 msgstr "Ikhupha i-${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:257
+#: ../base-installer.templates:271
 msgid "Unpacking ${SUBST0}..."
 msgstr "Ikhupha i-${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:262
+#: ../base-installer.templates:276
 msgid "Configuring ${SUBST0}..."
 msgstr "Imisela inkqubo i-${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:266
+#. Release is a filename which should not be translated
+#: ../base-installer.templates:281
 #, fuzzy
 msgid "Checking Release signature"
 msgstr "Ifumana kwakhona ifayili Yokukhutshwa"
@@ -508,7 +523,7 @@ msgstr "Ifumana kwakhona ifayili Yokukhutshwa"
 #. Description
 #. SUBST0 is a gpg key id
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:272
+#: ../base-installer.templates:287
 #, fuzzy
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr ""
@@ -516,7 +531,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:276
+#: ../base-installer.templates:291
 #, fuzzy
 msgid "Resolving dependencies of base packages..."
 msgstr "Iseka imiqulu yenkqubo yesiseko..."
@@ -524,27 +539,27 @@ msgstr "Iseka imiqulu yenkqubo yesiseko..."
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:281
+#: ../base-installer.templates:296
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr ""
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:286
+#: ../base-installer.templates:301
 msgid "Found additional required dependencies: ${SUBST0}"
 msgstr ""
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:291
+#: ../base-installer.templates:306
 msgid "Found packages in base already in required: ${SUBST0}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:295
+#: ../base-installer.templates:310
 #, fuzzy
 msgid "Resolving dependencies of required packages..."
 msgstr "Ikhupha imiqulu yenkqubo efunekayo..."
@@ -553,96 +568,108 @@ msgstr "Ikhupha imiqulu yenkqubo efunekayo..."
 #. Description
 #. SUBST0 is an archive component (main, etc)
 #. SUBST1 is a mirror
-#: ../base-installer.templates:301
+#: ../base-installer.templates:316
 #, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "Ikhangela ubungakanani bomqulu wenkqubo: ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:305
+#. Core packages are packages that are part of the Debian base system
+#. The "core" packages are indeed packages that are specifically
+#. recorded as part of the base system. Other packages may
+#. be installed on the base system because of dependency resolution
+#: ../base-installer.templates:324
 msgid "Installing core packages..."
 msgstr "Iseka imiqulu engundoqo yenkqubo..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:309
+#. Required packages are packages which installation is triggered
+#. by the dependency chain of core packages
+#. In short, they are "required" because at least one of the
+#. packages from the core packages depends on them
+#: ../base-installer.templates:332
 msgid "Unpacking required packages..."
 msgstr "Ikhupha imiqulu yenkqubo efunekayo..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:313
+#. Required packages are packages which installation is triggered
+#. by the dependency chain of core packages
+#. In short, they are "required" because at least one of the
+#. packages from the core packages depends on them
+#: ../base-installer.templates:340
 msgid "Configuring required packages..."
 msgstr "Imisela imiqulu yenkqubo..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:317
+#: ../base-installer.templates:344
 msgid "Installing base packages..."
 msgstr "Iseka imiqulu yenkqubo yesiseko..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:321
+#: ../base-installer.templates:348
 msgid "Unpacking the base system..."
 msgstr "Ikhupha inkqubo esisiseko..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:325
+#: ../base-installer.templates:352
 msgid "Configuring the base system..."
 msgstr "Imisela inkqubo esisiseko..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:329
+#: ../base-installer.templates:356
 msgid "Base system installed successfully."
 msgstr "Inkqubo yesiseko isekwe ngempumelelo."
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:334
+#: ../base-installer.templates:361
 #, fuzzy
 msgid "Debootstrap warning"
 msgstr "Impazamo kumcu wokuvala"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:334
+#: ../base-installer.templates:361
 msgid "Warning: ${INFO}"
 msgstr ""
 
 #. Type: text
 #. Description
 #. SUBST0 is an url
-#: ../base-installer.templates:340
+#: ../base-installer.templates:367
 msgid "Retrying failed download of ${SUBST0}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:344
+#: ../base-installer.templates:371
 msgid "Configuring APT sources..."
 msgstr "Imisela iinkqubo zemithombo ye-APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:348
+#: ../base-installer.templates:375
 msgid "Updating the list of available packages..."
 msgstr "Ihlaziya uluhlu lwemiqulu efumanekayo yeenkqubo..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:352
+#: ../base-installer.templates:379
 msgid "Installing extra packages..."
 msgstr "Iseka imiqulu yeenkqubo eyongeziweyo..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:357
+#: ../base-installer.templates:384
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr ""
 "Iseka imiqulu yeenkqubo eyongeziweyo - ilungisa iseka nokuseka inkqubo "
@@ -650,32 +677,32 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:361
+#: ../base-installer.templates:388
 msgid "Creating device files..."
 msgstr "Idala iifayili zezixhobo..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:365
+#: ../base-installer.templates:392
 msgid "Selecting the kernel to install..."
 msgstr "Ikhetha i-kernel ukuze iyiseke..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:369
+#: ../base-installer.templates:396
 msgid "Installing the kernel..."
 msgstr "Iseka inkqubo i-kernel..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:374
+#: ../base-installer.templates:401
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Iseka inkqubo i-kernel - ifumana kwakhona iseka inkqubo i-${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:378
+#: ../base-installer.templates:405
 msgid "Installing the PCMCIA modules"
 msgstr "Iseka imiqulu esisiseko ye-PCMCIA"
 
@@ -683,6 +710,6 @@ msgstr "Iseka imiqulu esisiseko ye-PCMCIA"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:384
+#: ../base-installer.templates:411
 msgid "Install the base system"
 msgstr "Seka inkqubo esisiseko"
