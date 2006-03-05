@@ -474,7 +474,7 @@ available_initramfs_generators () {
 	info "Possible initramfs generator(s): '$RET'"
 
 	for irf in $RET; do
-		if LANG=C chroot /target apt-cache policy $irf | \
+		if LANG=C chroot /target apt-cache policy $irf 2>&1 | \
 			grep "Candidate:" | grep -v "(none)" >/dev/null 2>&1; then
 			if [ "$irf_list" ]; then
 				irf_list="$irf_list $irf"
@@ -596,7 +596,6 @@ EOF
 			ramdiskconf=
 			;;
 		    "")
-			db_subst base-installer/initramfs/no-generator
 			exit_error base-installer/initramfs/no-generator
 			;;
 		    *)
