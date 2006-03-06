@@ -244,6 +244,12 @@ install_base_system () {
 }
 
 configure_apt () {
+	# Avoid clock skew causing gpg verification issues.
+	# This file will be left in place until the end of the install.
+	cat > /target/etc/apt/apt.conf.d/00IgnoreTimeConflict << EOT
+Acquire::gpgv::Options { "--ignore-time-conflict"; };
+EOT
+
 	# let apt inside the chroot see the cdrom
 	if [ "$PROTOCOL" = file ] ; then
 		if [ -n "$DIRECTORY" ]; then
@@ -289,9 +295,6 @@ Acquire::cdrom {
     UMount "true";
   };
 }
-EOT
-		cat > /target/etc/apt/apt.conf.d/00IgnoreTimeConflict << EOT
-Acquire::gpgv::Options { "--ignore-time-conflict"; };
 EOT
 		# Scan CD-ROM or CD image; start with clean sources.list
 		: > /target/etc/apt/sources.list
