@@ -21,6 +21,11 @@ arch_get_kernel_flavour () {
 
 arch_check_usable_kernel () {
 	# CPU family must match exactly.
+	if [ "$2" = powerpc ]; then
+		# powerpc is a substring of powerpc64, so we have to check
+		# this separately.
+		if expr "$1" : ".*-powerpc64.*" >/dev/null; then return 1; fi
+	fi
 	if expr "$1" : ".*-$2.*" >/dev/null; then return 0; fi
 	return 1
 }
