@@ -1,7 +1,11 @@
 arch_get_kernel_flavour () {
 	case "$SUBARCH" in
-		r3k-kn02|r4k-kn04|sb1-swarm-bn)
+		r3k-kn02|r4k-kn04)
 			echo "$SUBARCH"
+			return 0
+		;;
+		sb1-bcm91250a)
+			echo "sb1-swarm-bn"
 			return 0
 		;;
 		cobalt)
@@ -20,6 +24,11 @@ arch_get_kernel_flavour () {
 }
 
 arch_check_usable_kernel () {
+	# Handle some package renamed from 2.4 to 2.6
+	if [ "$2" = "sb1-bcm91250a" ]; then
+		if expr "$1" : ".*-sb1-swarm-bn\$" >/dev/null; then return 0; fi
+	fi
+	# Subarchitecture must match exactly.
 	if expr "$1" : ".*-$2.*" >/dev/null; then return 0; fi
 	return 1
 }
