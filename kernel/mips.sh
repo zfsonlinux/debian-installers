@@ -21,14 +21,27 @@ arch_get_kernel_flavour () {
 arch_check_usable_kernel () {
 	# Subarchitecture must match exactly.
 	if expr "$1" : ".*-$2.*" >/dev/null; then return 0; fi
+	# For 2.6, the r4k-ip22 kernel will do for r5k-ip22 as well.
+	if expr "$1" : ".*-2\.6.*-r4k-ip22.*" >/dev/null && \
+	   [ "$2" = r5k-ip22 ]; then
+		return 0
+	fi
 	return 1
 }
 
 arch_get_kernel () {
 	# use the more generic package versioning for 2.6 ff.
 	case "$KERNEL_MAJOR" in
-		2.4)	version="$KERNEL_VERSION" ;;
-		*)	version="$KERNEL_MAJOR" ;;
+		2.4)
+			echo "kernel-image-$KERNEL_VERSION-$1"
+			;;
+		*)
+			case $1 in
+				r5k-ip22)
+					set r4k-ip22
+					;;
+			esac
+			echo "linux-image-$KERNEL_MAJOR-$1"
+			;;
 	esac
-	echo "kernel-image-$version-$1"
 }
