@@ -1,11 +1,7 @@
 arch_get_kernel_flavour () {
 	case "$SUBARCH" in
-		r3k-kn02|r4k-kn04)
+		r3k-kn02|r4k-kn04|sb1-bcm91250a|sb1a-bcm91480b)
 			echo "$SUBARCH"
-			return 0
-		;;
-		sb1-bcm91250a)
-			echo "sb1-swarm-bn"
 			return 0
 		;;
 		cobalt)
@@ -32,8 +28,18 @@ arch_check_usable_kernel () {
 arch_get_kernel () {
 	# use the more generic package versioning for 2.6 ff.
 	case "$KERNEL_MAJOR" in
-		2.4)	version="$KERNEL_VERSION" ;;
-		*)	version="$KERNEL_MAJOR" ;;
+		2.4)
+			case $1 in
+				sb1-bcm91250a)
+					set sb1-swarm-bn
+				;;
+			esac
+			version="$KERNEL_VERSION"
+			echo "kernel-image-$version-$1"
+			;;
+		*)
+			version="$KERNEL_MAJOR"
+			echo "linux-image-$version-$1"
+			;;
 	esac
-	echo "kernel-image-$version-$1"
 }

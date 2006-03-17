@@ -1,18 +1,7 @@
 arch_get_kernel_flavour () {
 	case "$SUBARCH" in
-		r4k-ip22|r5k-ip22)
+		r4k-ip22|r5k-ip22|r5k-ip32|sb1-bcm91250a|sb1a-bcm91480b)
 			echo "$SUBARCH"
-			return 0
-		;;
-		# NOTE: the following kernel is not in Debian (sarge), but
-		# makes it easier to offer unofficial support from a private
-		# apt-archive.
-		r5k-ip32)
-			echo "$SUBARCH"
-			return 0
-		;;
-		sb1-bcm91250a)
-			echo "sb1-swarm-bn"
 			return 0
 		;;
 		*)
@@ -41,6 +30,11 @@ arch_get_kernel () {
 	# use the more generic package versioning for 2.6 ff.
 	case "$KERNEL_MAJOR" in
 		2.4)
+			case $1 in
+				sb1-bcm91250a)
+					set sb1-swarm-bn
+					;;
+			esac
 			echo "kernel-image-$KERNEL_VERSION-$1"
 			;;
 		*)
