@@ -39,24 +39,14 @@ arch_check_usable_kernel () {
 	return 0
 }
 
-arch_get_kernel () {
-	if [ -e "$SPEAKUP" ]; then
-		# Override and use speakup kernel. There's only one.
-		echo "kernel-image-$KERNEL_VERSION-speakup"
-		return
-	fi
-	
-	if [ -n "$NUMCPUS" ] && [ "$NUMCPUS" -gt 1 ]; then
-		SMP=-smp
-	else
-		SMP=
-	fi
-
+arch_get_kernel_etch () {
 	if [ "$KERNEL_MAJOR" = 2.4 ]; then
-		imgbase=kernel-image
+		# Kernel images are identical with Sarge
+		return
 	else
 		imgbase=linux-image
 	fi
+
 	if [ "$1" = k7 ]; then
 		if [ "$SMP" ]; then
 			echo "$imgbase-$KERNEL_MAJOR-k7$SMP"
@@ -70,6 +60,7 @@ arch_get_kernel () {
 		fi
 		set 586tsc
 	fi
+
 	if [ "$1" = 686 ]; then
 		if [ "$SMP" ]; then
 			echo "$imgbase-$KERNEL_MAJOR-686$SMP"
@@ -83,8 +74,55 @@ arch_get_kernel () {
 		fi
 		set 386
 	fi
-	if [ "$KERNEL_MAJOR" = 2.6 ]; then
-		echo "$imgbase-$KERNEL_MAJOR-486"
+	echo "$imgbase-$KERNEL_MAJOR-486"
+}
+
+arch_get_kernel_sarge () {
+	imgbase=kernel-image
+
+	if [ "$1" = k7 ]; then
+		if [ "$SMP" ]; then
+			echo "$imgbase-$KERNEL_MAJOR-k7$SMP"
+		fi
+		echo "$imgbase-$KERNEL_MAJOR-k7"
+		set k6
+	fi
+	if [ "$1" = k6 ]; then
+		if [ "$KERNEL_MAJOR" = 2.4 ]; then
+			echo "$imgbase-$KERNEL_MAJOR-k6"
+		fi
+		set 586tsc
+	fi
+
+	if [ "$1" = 686 ]; then
+		if [ "$SMP" ]; then
+			echo "$imgbase-$KERNEL_MAJOR-686$SMP"
+		fi
+		echo "$imgbase-$KERNEL_MAJOR-686"
+		set 586tsc
+	fi
+	if [ "$1" = 586tsc ]; then
+		if [ "$KERNEL_MAJOR" = 2.4 ]; then
+			echo "$imgbase-$KERNEL_MAJOR-586tsc"
+		fi
+		set 386
 	fi
 	echo "$imgbase-$KERNEL_MAJOR-386"
+}
+
+arch_get_kernel () {
+	if [ -e "$SPEAKUP" ]; then
+		# Override and use speakup kernel. There's only one.
+		echo "kernel-image-$KERNEL_VERSION-speakup"
+		return
+	fi
+
+	if [ -n "$NUMCPUS" ] && [ "$NUMCPUS" -gt 1 ]; then
+		SMP=-smp
+	else
+		SMP=
+	fi
+
+	arch_get_kernel_etch "$1"
+	arch_get_kernel_sarge "$1"
 }
