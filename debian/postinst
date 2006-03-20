@@ -430,9 +430,10 @@ pick_kernel () {
 		done
 	fi
 
+	WHICH_KERNEL_PRIO=high
 	if kernel_present "$KERNEL"; then
-		# Current selection is available, nothing to do
-		:
+		# Current selection is available
+		WHICH_KERNEL_PRIO=medium
 	else
 		# No recommendations available; try to guess.
 		# Try to default to running kernel version.
@@ -453,7 +454,7 @@ pick_kernel () {
 		db_set base-installer/kernel/which-kernel "$KERNEL"
 	fi
 
-	db_input medium base-installer/kernel/which-kernel || [ $? -eq 30 ]
+	db_input $WHICH_KERNEL_PRIO base-installer/kernel/which-kernel || [ $? -eq 30 ]
 	if ! db_go; then
 		db_progress stop
 		exit 10
