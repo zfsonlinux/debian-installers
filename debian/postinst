@@ -23,6 +23,8 @@ NUMCPUS=$(cat /var/numcpus 2>/dev/null) || true
 CPUINFO=/proc/cpuinfo
 SPEAKUP=/proc/speakup
 KEYRING=/usr/share/keyrings/archive.gpg
+LF="
+"
 
 # Avoid debconf sending email during the base install process.
 DEBCONF_ADMIN_EMAIL=""
@@ -400,6 +402,16 @@ pick_kernel () {
 		arch_kernel=$(arch_get_kernel "$FLAVOUR")
 	else
 		arch_kernel=""
+	fi
+
+	# Hack for backwards compatibility for Sarge
+	# Append arch_kernel list to self, but with linux-image replaced with kernel-image
+	if [ "$DISTRIBUTION" = sarge ]; then
+		arch_kernel_extra=$(echo "$arch_kernel" \
+				    grep linux-image | sed "s/linux-image/kernel-image/")
+		if [ "$arch_kernel_extra" ]; then
+			arch_kernel="$arch_kernel$LF$arch_kernel_extra"
+		fi
 	fi
 
 	got_arch_kernel=
