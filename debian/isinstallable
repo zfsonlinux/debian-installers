@@ -13,6 +13,20 @@ findfstype () {
 	mount | grep "on /target${1%/} " | cut -d' ' -f5
 }
 
+ARCH="$(archdetect)"
+
+case $ARCH in
+	i386/*)
+		MANUFACTURER="$(dmidecode -s system-manufacturer)"
+		case $MANUFACTURER in
+			Apple*)
+				log "GRUB not usable on Intel-based Macs yet; use elilo"
+				exit 1
+				;;
+		esac
+		;;
+esac
+
 bootfs=$(findfs /boot)
 [ -n "$bootfs" ] || bootfs="$(findfs /)"
 
