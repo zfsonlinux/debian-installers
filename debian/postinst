@@ -620,10 +620,10 @@ EOF
 			do_initramfs=no
 			package=initrd-tools
 			ramdiskconf=/target/etc/mkinitrd/mkinitrd.conf
+		else
+			# We can only get here if $do_initramfs=yes
+			exit_error base-installer/initramfs/no-generator
 		fi
-	else
-		# We can only get here if $do_initramfs=yes
-		exit_error base-installer/initramfs/no-generator
 	fi
 
 	# TODO This should probably be restructured to better support
