@@ -3,21 +3,20 @@
 #
 # DO NOT MODIFY IT DIRECTLY : SUCH CHANGES WILL BE LOST
 # 
-# translation of km.po to khmer
+# translation of template.po to khmer
 #
 # Debian Installer master translation file template
 # Don't forget to properly fill-in the header of PO files#
 # Debian Installer translators, please read the D-I i18n documentation
 # in doc/i18n/i18n.txt#
 #
-# Hok Kakada <hokkakada@khmeros.info>, 2005, 2006.
 # hok kakada <hokkakada@khmeros.info>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: km\n"
+"Project-Id-Version: template\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-11 18:34-0700\n"
-"PO-Revision-Date: 2006-03-18 10:34+0700\n"
+"PO-Revision-Date: 2006-03-23 17:50+0700\n"
 "Last-Translator: hok kakada <hokkakada@khmeros.info>\n"
 "Language-Team: khmer <support@khmeros.info>\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +27,6 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:4
-#, fuzzy
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
@@ -37,7 +35,6 @@ msgstr "ប្រព័ន្ធ​ប្រត្តិបត្តិ​ដទ
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:4
-#, fuzzy
 msgid ""
 "If all of your operating systems are listed above, then it should be safe to "
 "install the boot loader to the master boot record of your first hard drive. "
@@ -51,14 +48,12 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
-#, fuzzy
 msgid "Install the GRUB boot loader to the master boot record?"
 msgstr "ដំឡើង​ GRUB boot loader ទៅក្នុង​ master boot record ឬ?"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
-#, fuzzy
 msgid ""
 "It seems that this new installation is the only operating system on this "
 "computer. If so, it should be safe to install the GRUB boot loader to the "
@@ -70,7 +65,6 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
-#, fuzzy
 msgid ""
 "Warning: If the installer failed to detect another operating system that is "
 "present on your computer, modifying the master boot record will make that "
@@ -84,14 +78,12 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
-#, fuzzy
 msgid "Install the GRUB boot loader to XFS file system?"
 msgstr "ដំឡើង GRUB boot loader ទៅក្នុង​ឯកសារ​ប្រព័ន្ធ XFS ឬ?"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
-#, fuzzy
 msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
@@ -102,14 +94,12 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
-#, fuzzy
 msgid "Device for boot loader installation:"
 msgstr "ឧបករណ៍​សម្រាប់​ដំឡើង​ boot loader ៖"
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
-#, fuzzy
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -125,7 +115,6 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
-#, fuzzy
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -150,14 +139,12 @@ msgstr ""
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
-#, fuzzy
 msgid "GRUB password:"
 msgstr "ពាក្យសម្ងាត់​ GRUB  ៖"
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
-#, fuzzy
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -175,21 +162,18 @@ msgstr ""
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
-#, fuzzy
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "ប្រសិន​បើ​អ្នក​មិន​ចង់​កំណត់ពាក្យ​សម្ងាត់​លើ​ GRUB ទេ​ សូម​ចាកចេញ​ពី​វាល​ទទេ​។"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:73
-#, fuzzy
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "ការ​ដំឡើង​ GRUB ទទួល​បាន​បរាជ័យ ។​  សូម​បន្ត​វិធីផ្សេងទៀត ?"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:73
-#, fuzzy
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -202,84 +186,72 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
-#, fuzzy
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "មិន​អាច​ដំឡើង​ GRUB ក្នុង​ ${BOOTDEV}"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
-#, fuzzy
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "ការ​ប្រត្តិបត្តិ​ 'grub-install ${BOOTDEV}' បរាជ័យ​។​"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
-#, fuzzy
 msgid "Unable to configure GRUB"
 msgstr "មិន​អាច​កំណត់​រចនា​សម្ព័ន្ធ GRUB បានទេ"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
-#, fuzzy
 msgid "Executing 'update-grub' failed."
 msgstr "ការ​ប្រត្តិបត្តិ​ 'update-grub' បរាជ័យ ។"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
-#, fuzzy
 msgid "This is a fatal error."
 msgstr "នេះ​ជា​កំហុស​ធ្ងន់​ធ្ងរ ។"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:94
-#, fuzzy
 msgid "Installing GRUB boot loader"
 msgstr "កំពុង​ដំឡើង​ GRUB boot loader"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:98
-#, fuzzy
 msgid "Looking for other operating systems..."
 msgstr "កំពុងរក​មើល​ប្រព័ន្ធ​ប្រត្តិបត្តិផ្សេង​ទៀត..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:102
-#, fuzzy
 msgid "Installing the 'grub' package..."
 msgstr "កំពុង​ដំឡើង​កញ្ចប់​ 'grub' ..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:106
-#, fuzzy
 msgid "Determining GRUB boot device..."
 msgstr "កំពុង​កំណត់​ឧបករណ៍ GRUB boot ..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:110
-#, fuzzy
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "កំពុង​រត់​ \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:114
-#, fuzzy
 msgid "Running \"update-grub\"..."
 msgstr "កំពុង​រត់​ \"update-grub\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:118
-#, fuzzy
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "កំពុង​ធ្វើ​ឲ្យ​ទាន់​សម័យ​ /etc/kernel-img.conf..."
 
@@ -287,7 +259,6 @@ msgstr "កំពុង​ធ្វើ​ឲ្យ​ទាន់​សម័យ
 #. Description
 #. Main menu item
 #: ../grub-installer.templates:123
-#, fuzzy
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "ដំឡើង GRUB boot loader នៅ​លើ​ថាស​រឹង"
 
@@ -295,6 +266,5 @@ msgstr "ដំឡើង GRUB boot loader នៅ​លើ​ថាស​រឹង
 #. Description
 #. Rescue menu item
 #: ../grub-installer.templates:128
-#, fuzzy
 msgid "Reinstall GRUB boot loader"
 msgstr "ដំឡើង​ GRUB boot loader ម្តង​ទៀត​"
