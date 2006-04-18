@@ -510,6 +510,35 @@ select_initramfs_generator () {
 	echo $RET
 }
 
+addmodule_easy () {
+	if [ -f "$CFILE" ]; then
+		if [ "$2" = 1 ]; then
+			echo -e "\n# Added by Debian Installer" >>$CFILE
+		fi
+		echo "$1" >> $CFILE
+	fi
+}
+
+addmodule_initrd_tools () {
+	CFILE='/target/etc/mkinitrd/modules'
+	addmodule_easy "$1" "$2"
+}
+
+addmodule_initramfs_tools () {
+	CFILE='/target/etc/mkinitramfs/modules'
+	addmodule_easy "$1" "$2"
+}
+
+addmodule_yaird () {
+	CFILE='/target/etc/yaird/Default.cfg'
+	if [ -f "$CFILE" ]; then
+		if [ "$2" = 1 ]; then
+			sed -i "/END GOALS/s/^/\n\t\t#\n\t\t# Added by Debian Installer\n/" $CFILE
+		fi
+		sed -i "/END GOALS/s/^/\t\tMODULE $1\n/" $CFILE
+	fi
+}
+
 install_kernel () {
 	if [ "$KERNEL" = none ]; then
 		info "Not installing any kernel"
@@ -640,6 +669,19 @@ EOF
 			exit_error base-installer/kernel/failed-package-install
 		fi
 
+		# Add modules that have been queued for inclusion in the initrd
+		FIRSTMODULE=1
+		for QUEUEFILE in /var/lib/register-module/*.initrd; do
+			[ ! -e $QUEUEFILE ] && break
+			MODULE=$(basename $QUEUEFILE ".initrd")
+			addmodule_initrd_tools "$MODULE" $FIRSTMODULE
+			addmodule_initramfs_tools "$MODULE" $FIRSTMODULE
+			addmodule_yaird "$MODULE" $FIRSTMODULE
+			rm $QUEUEFILE
+			FIRSTMODULE=0
+		done
+
+		# Install any extra (kernel related) packages
 		if db_get "base-installer/kernel/linux/extra-packages-$target_kernel_major"; then
 			EXTRAS="$RET"
 		elif db_get base-installer/kernel/linux/extra-packages; then
