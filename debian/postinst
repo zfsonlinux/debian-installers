@@ -106,13 +106,13 @@ check_target () {
 }
 
 get_mirror_info () {
-	if db_get mirror/codename && [ "$RET" ] ; then
-		DISTRIBUTION=$RET
-	else
-		exit_error base-installer/no_codename
-	fi
-
 	if [ -f /cdrom/.disk/base_installable ]; then
+		if db_get cdrom/codename && [ "$RET" ] ; then
+			DISTRIBUTION=$RET
+		else
+			exit_error base-installer/no_codename
+		fi
+
 		PROTOCOL=file
 		MIRROR=""
 		DIRECTORY="/cdrom/"
@@ -135,6 +135,12 @@ get_mirror_info () {
 			exit_error base-installer/cannot_install
 		fi
 	else
+		if db_get mirror/codename && [ "$RET" ] ; then
+			DISTRIBUTION=$RET
+		else
+			exit_error base-installer/no_codename
+		fi
+
 		mirror_error=""
 		
 		db_get mirror/protocol || mirror_error=1
