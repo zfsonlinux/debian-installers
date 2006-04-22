@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-26 18:44-0700\n"
+"POT-Creation-Date: 2006-04-21 23:25-0600\n"
 "PO-Revision-Date: 2006-01-23 17:48-0600\n"
 "Last-Translator: Tetralet <tetralet@pchome.com.tw>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
@@ -47,6 +47,8 @@ msgstr "無法安裝 Base System"
 
 #. Type: error
 #. Description
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 #: ../base-installer.templates:13
 msgid ""
 "The installer cannot figure out how to install the base system. No "
@@ -282,18 +284,21 @@ msgstr "請查看 /var/log/syslog 或是第四個虛擬主控台來獲得詳細�
 
 #. Type: error
 #. Description
+#. SUBST0 is a Release file name.
 #: ../base-installer.templates:129
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "無法取得 Release 檔案 ${SUBST0}。"
 
 #. Type: error
 #. Description
+#. SUBST0 is a Release.gpg file name
 #: ../base-installer.templates:135
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "無法取得 Release 的簽名檔 ${SUBST0}。"
 
 #. Type: error
 #. Description
+#. SUBST0 is a gpg key ID
 #: ../base-installer.templates:141
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Release 檔案的簽名所使用的金鑰不明 (鍵值 ${SUBST0})"
@@ -306,6 +311,7 @@ msgstr "不正確的 Release 檔案：沒有可用的元件。"
 
 #. Type: error
 #. Description
+#. SUBST0 is a filename
 #: ../base-installer.templates:152
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "不正確的 Release 檔案：沒有 ${SUBST0} 項目。"
@@ -320,6 +326,8 @@ msgstr "Debootstrap 錯誤"
 
 #. Type: error
 #. Description
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:159
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
@@ -330,6 +338,8 @@ msgstr ""
 
 #. Type: error
 #. Description
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:159
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
@@ -607,6 +617,7 @@ msgstr "Debootstrap 警告"
 
 #. Type: error
 #. Description
+#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:361
 msgid "Warning: ${INFO}"
 msgstr "警告：${INFO}"

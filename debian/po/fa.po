@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-26 18:44-0700\n"
+"POT-Creation-Date: 2006-04-21 23:25-0600\n"
 "PO-Revision-Date: 2005-07-31 18:31+0430\n"
 "Last-Translator: Arash Bijanzadeh\n"
 "Language-Team:  <fa@li.org>\n"
@@ -47,6 +47,8 @@ msgstr "نصب پایه‌ی سیستم  شکست خورد."
 
 #. Type: error
 #. Description
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 #: ../base-installer.templates:13
 msgid ""
 "The installer cannot figure out how to install the base system. No "
@@ -282,18 +284,21 @@ msgstr "برای جزئیات بیشتر پرونده‌ی/var/log/bootstrap.log
 
 #. Type: error
 #. Description
+#. SUBST0 is a Release file name.
 #: ../base-installer.templates:129
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "دریافت پرونده‌ی انتشار ${SUBST0} شکست خورد."
 
 #. Type: error
 #. Description
+#. SUBST0 is a Release.gpg file name
 #: ../base-installer.templates:135
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "دریافت پرونده‌ی امضای انتشار ${SUBST0} شکست خورد."
 
 #. Type: error
 #. Description
+#. SUBST0 is a gpg key ID
 #: ../base-installer.templates:141
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "پرونده‌ی انتشار نامعتبر است. هیچ ورودی برای ${SUBST0} وجود ندارد."
@@ -306,6 +311,7 @@ msgstr "پرونده انتشار نامعتبر است. مولفه‌های م�
 
 #. Type: error
 #. Description
+#. SUBST0 is a filename
 #: ../base-installer.templates:152
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "پرونده‌ی انتشار نامعتبر است. هیچ ورودی برای ${SUBST0} وجود ندارد."
@@ -320,6 +326,8 @@ msgstr "خطای Debootstrap"
 
 #. Type: error
 #. Description
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:159
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
@@ -328,6 +336,8 @@ msgstr ""
 
 #. Type: error
 #. Description
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:159
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
@@ -619,6 +629,7 @@ msgstr "خطای Debootstrap"
 
 #. Type: error
 #. Description
+#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:361
 msgid "Warning: ${INFO}"
 msgstr ""

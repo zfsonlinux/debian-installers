@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-26 18:44-0700\n"
+"POT-Creation-Date: 2006-04-21 23:25-0600\n"
 "PO-Revision-Date: 2006-01-25 18:02+0200\n"
 "Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
 "Language-Team: Ukrainian\n"
@@ -52,6 +52,8 @@ msgstr "Неможливо встановити базову систему"
 
 #. Type: error
 #. Description
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 #: ../base-installer.templates:13
 msgid ""
 "The installer cannot figure out how to install the base system. No "
@@ -301,18 +303,21 @@ msgstr "Подробиці дивіться в /var/log/syslog або на ві�
 
 #. Type: error
 #. Description
+#. SUBST0 is a Release file name.
 #: ../base-installer.templates:129
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Не вдалося отримати файл Release для ${SUBST0}."
 
 #. Type: error
 #. Description
+#. SUBST0 is a Release.gpg file name
 #: ../base-installer.templates:135
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Не вдалося отримати файл підпису для Release ${SUBST0}."
 
 #. Type: error
 #. Description
+#. SUBST0 is a gpg key ID
 #: ../base-installer.templates:141
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Файл Release підписано невідомим ключем (ID ${SUBST0})"
@@ -325,6 +330,7 @@ msgstr "Невірний файл Release: відсутні дозволені �
 
 #. Type: error
 #. Description
+#. SUBST0 is a filename
 #: ../base-installer.templates:152
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Невірний файл Release: відсутній запис для ${SUBST0}."
@@ -339,6 +345,8 @@ msgstr "Помилка при виконанні debootstrap"
 
 #. Type: error
 #. Description
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:159
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
@@ -349,6 +357,8 @@ msgstr ""
 
 #. Type: error
 #. Description
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:159
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
@@ -626,6 +636,7 @@ msgstr "Попередження debootstrap"
 
 #. Type: error
 #. Description
+#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:361
 msgid "Warning: ${INFO}"
 msgstr "Попередження: ${INFO}"
