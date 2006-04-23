@@ -17,8 +17,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-22 18:33-0600\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2006-04-22 23:50-0600\n"
 "PO-Revision-Date: 2006-01-25 18:03+0100\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -58,6 +58,8 @@ msgstr "Impossible d'installer le système de base"
 
 #. Type: error
 #. Description
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 #: ../base-installer.templates:13
 msgid ""
 "The installer cannot figure out how to install the base system. No "
@@ -315,18 +317,21 @@ msgstr ""
 
 #. Type: error
 #. Description
+#. SUBST0 is a Release file name.
 #: ../base-installer.templates:129
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Échec de la récupération du fichier « Release » ${SUBST0}."
 
 #. Type: error
 #. Description
+#. SUBST0 is a Release.gpg file name
 #: ../base-installer.templates:135
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Échec de la récupération du fichier « Release » ${SUBST0}."
 
 #. Type: error
 #. Description
+#. SUBST0 is a gpg key ID
 #: ../base-installer.templates:141
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Fichier « Release » signé par une clé inconnue (${SUBST0})"
@@ -339,6 +344,7 @@ msgstr "Fichier « Release » non valable : aucun composant n'est valable."
 
 #. Type: error
 #. Description
+#. SUBST0 is a filename
 #: ../base-installer.templates:152
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Fichier « Release » invalide : pas d'entrée pour ${SUBST0}."
@@ -353,6 +359,8 @@ msgstr "Erreur de debootstrap"
 
 #. Type: error
 #. Description
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:159
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
@@ -363,6 +371,8 @@ msgstr ""
 
 #. Type: error
 #. Description
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:159
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
@@ -641,6 +651,7 @@ msgstr "Avertissement de debootstrap"
 
 #. Type: error
 #. Description
+#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:361
 msgid "Warning: ${INFO}"
 msgstr "Avertissement : ${INFO}"

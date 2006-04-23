@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-22 18:33-0600\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2006-04-22 23:50-0600\n"
 "PO-Revision-Date: 2006-01-27 21:24+0900\n"
 "Last-Translator:  Sunjae park <darehanl@gmail.com>\n"
 "Language-Team:  Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -47,6 +47,8 @@ msgstr "베이스 시스템을 설치하는 데 실패했습니다"
 
 #. Type: error
 #. Description
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 #: ../base-installer.templates:13
 msgid ""
 "The installer cannot figure out how to install the base system. No "
@@ -291,18 +293,21 @@ msgstr ""
 
 #. Type: error
 #. Description
+#. SUBST0 is a Release file name.
 #: ../base-installer.templates:129
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "${SUBST0} Release 파일을 가져오는 데 실패했습니다."
 
 #. Type: error
 #. Description
+#. SUBST0 is a Release.gpg file name
 #: ../base-installer.templates:135
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "${SUBST0} Release 서명 파일을 가져오는 데 실패했습니다."
 
 #. Type: error
 #. Description
+#. SUBST0 is a gpg key ID
 #: ../base-installer.templates:141
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr ""
@@ -316,6 +321,7 @@ msgstr "Release 파일이 잘못되었습니다: 올바른 구성 요소가 없�
 
 #. Type: error
 #. Description
+#. SUBST0 is a filename
 #: ../base-installer.templates:152
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Release 파일이 잘못되었습니다: ${SUBST0}에 대한 항목이 없습니다."
@@ -330,6 +336,8 @@ msgstr "debootstrap 오류"
 
 #. Type: error
 #. Description
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:159
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
@@ -340,6 +348,8 @@ msgstr ""
 
 #. Type: error
 #. Description
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:159
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
@@ -618,6 +628,7 @@ msgstr "debootstrap 문제"
 
 #. Type: error
 #. Description
+#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:361
 msgid "Warning: ${INFO}"
 msgstr "경고: ${INFO}"
