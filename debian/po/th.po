@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-11 18:34-0700\n"
-"PO-Revision-Date: 2006-04-17 17:19+0700\n"
+"PO-Revision-Date: 2006-04-24 20:02+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
-msgstr ""
+msgstr "ตรวจพบระบบปฏิบัติการอื่นในเครื่องคอมพิวเตอร์นี้: ${OS_LIST}"
 
 #. Type: boolean
 #. Description
@@ -36,12 +36,15 @@ msgid ""
 "When your computer boots, you will be able to choose to load one of these "
 "operating systems or your new system."
 msgstr ""
+"ถ้าระบบปฏิบัติการทั้งหมดของคุณอยู่ในรายการข้างบนนี้ "
+"ก็น่าจะปลอดภัยที่จะติดตั้งบูตโหลดเดอร์ลงในมาสเตอร์บูตเรคอร์ดของฮาร์ดดิสก์ตัวแรกของคุณ "
+"เมื่อเครื่องของคุณบูต คุณจะสามารถเลือกโหลดระบบปฏิบัติการเหล่านี้ หรือจะโหลดระบบใหม่ที่เพิ่งติดตั้งนี้"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:16
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr ""
+msgstr "จะติดตั้งบูตโหลดเดอร์ GRUB ลงในมาสเตอร์บูตเรคอร์ดหรือไม่?"
 
 #. Type: boolean
 #. Description
@@ -51,6 +54,8 @@ msgid ""
 "computer. If so, it should be safe to install the GRUB boot loader to the "
 "master boot record of your first hard drive."
 msgstr ""
+"ดูเหมือนว่า ระบบที่ติดตั้งใหม่นี้ จะเป็นเพียงระบบปฏิบัติการเดียวที่มีในคอมพิวเตอร์นี้ หากเป็นเช่นนั้น "
+"ก็น่าจะปลอดภัยที่จะติดตั้งบูตโหลดเดอร์ GRUB ลงในมาสเตอร์บูตเรคอร์ดของฮาร์ดดิสก์ตัวแรกของคุณ"
 
 #. Type: boolean
 #. Description
@@ -61,12 +66,15 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
+"คำเตือน: ถ้าโปรแกรมติดตั้งไม่สามารถตรวจระบบปฏิบัติการอื่นที่มีอยู่ในเครื่องคุณพบ "
+"การเปลี่ยนแปลงมาสเตอร์บูตเรคอร์ดจะทำให้ไม่สามารถบูตระบบปฏิบัติการดังกล่าวได้ชั่วคราว "
+"แม้จะสามารถตั้งค่า GRUB ในภายหลังให้สามารถบูตได้ก็ตาม"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Install the GRUB boot loader to XFS file system?"
-msgstr ""
+msgstr "จะติดตั้งบูตโหลดเดอร์ GRUB ลงในระบบแฟ้ม XFS หรือไม่?"
 
 #. Type: boolean
 #. Description
@@ -75,12 +83,14 @@ msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
 msgstr ""
+"บูตโหลดเดอร์ GRUB มักจะบูตไม่ขึ้นหรือค้างเมื่อ /boot อยู่ในระบบแฟ้ม XFS ขอแนะนำให้ใช้ LILO "
+"ในสถานการณ์นี้"
 
 #. Type: string
 #. Description
 #: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
-msgstr ""
+msgstr "อุปกรณ์สำหรับติดตั้งบูตโหลดเดอร์:"
 
 #. Type: string
 #. Description
@@ -92,6 +102,9 @@ msgid ""
 "can install GRUB elsewhere on the drive, or to another drive, or even to a "
 "floppy."
 msgstr ""
+"คุณต้องทำให้ระบบที่เพิ่งติดตั้งใหม่นี้บูตได้ โดยติดตั้งบูตโหลดเดอร์ GRUB ในอุปกรณ์ที่บูตได้ วิธีปกติก็คือ "
+"ติดตั้ง GRUB ลงในมาสเตอร์บูตเรคอร์ดของฮาร์ดดิสก์ตัวแรกของคุณ หรือถ้าคุณต้องการ คุณสามารถติดตั้ง "
+"GRUB ในที่อื่นในไดรว์ ในไดรว์อื่น หรือกระทั่งในแผ่นฟลอปปี้ก็ได้"
 
 #. Type: string
 #. Description
@@ -107,12 +120,20 @@ msgid ""
 "   your third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
+"อุปกรณ์สามารถระบุได้โดยอาศัยรูปแบบ \"(hdn,m)\" ของ GRUB หรือโดยอ้างอุปกรณ์ใน /dev "
+"ดังตัวอย่างข้างล่าง:\n"
+" - \"(hd0)\" หรือ \"/dev/hda\" จะติดตั้ง GRUB ลงในมาสเตอร์บูตเรคอร์ดของฮาร์ดดิสก์\n"
+"   IDE ตัวแรกของคุณ\n"
+" - \"(hd0,1)\" หรือ \"/dev/hda2\" จะใช้พาร์ทิชันที่สองของฮาร์ดดิสก์ IDE ตัวแรกของคุณ\n"
+" - \"(hd2,4)\" หรือ \"/dev/sdc5\" จะใช้พาร์ทิชันขยายพาร์ทิชันแรกของฮาร์ดดิสก์ SCSI\n"
+"   ตัวที่สามของคุณ\n"
+" - \"(fd0)\" หรือ \"/dev/fd0\" จะติดตั้ง GRUB ลงในแผ่นฟลอปปี้"
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
 msgid "GRUB password:"
-msgstr ""
+msgstr "รหัสผ่าน GRUB:"
 
 #. Type: password
 #. Description
@@ -125,18 +146,23 @@ msgid ""
 "GRUB command-line interface. By default, any user will still be able to "
 "start any menu entry without entering the password."
 msgstr ""
+"บูตโหลดเดอร์ GRUB มีความสามารถในการโต้ตอบที่ทรงพลัง ซึ่งสามารถถูกใช้เพื่อบุกรุกระบบของคุณได้ "
+"ถ้าผู้ที่ไม่มีสิทธิ์สามารถเข้าถึงเครื่องตอนที่เปิดเครื่องได้ ดังนั้น เพื่อป้องกันสถานการณ์ดังกล่าว "
+"คุณอาจเลือกรหัสผ่าน ซึ่งจะบังคับให้ป้อนก่อนที่จะแก้ไขรายการเมนู หรือเข้าสู่ส่วนติดต่อ GRUB "
+"แบบบรรทัดคำสั่ง ค่าปกติก็คือ ผู้ใช้ใดๆ ก็ตาม จะยังสามารถเลือกรายการบูตใดๆ ก็ได้ "
+"โดยไม่ต้องป้อนรหัสผ่าน"
 
 #. Type: password
 #. Description
 #: ../grub-installer.templates:54
 msgid "If you do not wish to set a GRUB password, leave this field blank."
-msgstr ""
+msgstr "หากคุณไม่ต้องการตั้งรหัสผ่าน GRUB ก็ปล่อยช่องนี้ให้ว่างไว้"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
-msgstr ""
+msgstr "ติดตั้ง GRUB ไม่สำเร็จ จะดำเนินการต่อไปหรือไม่?"
 
 #. Type: boolean
 #. Description
@@ -146,89 +172,92 @@ msgid ""
 "loader is a required step.  The install problem might however be unrelated "
 "to GRUB, so continuing the installation may be possible."
 msgstr ""
+"ติดตั้งแพกเกจ grub ลงใน /target/ ไม่สำเร็จ การติดตั้ง GRUB เป็นบูตโหลดเดอร์ "
+"เป็นขั้นตอนที่จำเป็น แต่ปัญหาของการติดตั้งอาจไม่เกี่ยวกับ GRUB ก็ได้ ดังนั้น "
+"การดำเนินการติดตั้งต่อไปก็อาจทำได้"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr ""
+msgstr "ไม่สามารถติดตั้ง GRUB ลงใน ${BOOTDEV}"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:80
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr ""
+msgstr "การทำงานคำสั่ง 'grub-install ${BOOTDEV}' ล้มเหลว"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
-msgstr ""
+msgstr "ไม่สามารถตั้งค่า GRUB"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "Executing 'update-grub' failed."
-msgstr ""
+msgstr "การทำงานคำสั่ง 'update-grub' ล้มเหลว"
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:87
 msgid "This is a fatal error."
-msgstr ""
+msgstr "ถือเป็นความผิดพลาดร้ายแรง"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:94
 msgid "Installing GRUB boot loader"
-msgstr ""
+msgstr "กำลังติดตั้งบูตโหลดเดอร์ GRUB"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:98
 msgid "Looking for other operating systems..."
-msgstr ""
+msgstr "กำลังตรวจหาระบบปฏิบัติการอื่น..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:102
 msgid "Installing the 'grub' package..."
-msgstr ""
+msgstr "กำลังติดตั้งแพกเกจ 'grub'..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:106
 msgid "Determining GRUB boot device..."
-msgstr ""
+msgstr "กำลังพิจารณาอุปกรณ์บูตสำหรับ GRUB..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:110
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr ""
+msgstr "กำลังทำงาน \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:114
 msgid "Running \"update-grub\"..."
-msgstr ""
+msgstr "กำลังทำงาน \"update-grub\"..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:118
 msgid "Updating /etc/kernel-img.conf..."
-msgstr ""
+msgstr "กำลังปรับข้อมูล /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
 #: ../grub-installer.templates:123
 msgid "Install the GRUB boot loader on a hard disk"
-msgstr ""
+msgstr "ติดตั้งบูตโหลดเดอร์ GRUB ลงในฮาร์ดดิสก์"
 
 #. Type: text
 #. Description
 #. Rescue menu item
 #: ../grub-installer.templates:128
 msgid "Reinstall GRUB boot loader"
-msgstr ""
+msgstr "ติดตั้งบูตโหลดเดอร์ GRUB ใหม่"
