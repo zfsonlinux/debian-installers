@@ -1,6 +1,6 @@
 arch_get_kernel_flavour () {
 	case "$SUBARCH" in
-		netwinder|bast|riscpc|riscstation|lart|nslu2)
+		netwinder|bast|riscpc|riscstation|nslu2)
 			echo "$SUBARCH"
 			return 0
 		;;
@@ -22,9 +22,6 @@ arch_check_usable_kernel () {
 	# Handle some packages renamed from 2.4 to 2.6
 	if [ "$2" = "netwinder" ]; then
 		if expr "$1" : ".*-footbridge\$" >/dev/null; then return 0; fi
-	fi
-	if [ "$2" = "bast" ]; then
-		if expr "$1" : ".*-s3c2410\$" >/dev/null; then return 0; fi
 	fi
 	# Subarchitecture must match exactly.
 	if expr "$1" : ".*-$2\$" >/dev/null; then return 0; fi
