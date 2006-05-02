@@ -323,18 +323,20 @@ create_devices () {
 	if [ -e /proc/mdstat ] && grep -q ^md /proc/mdstat ; then
 		apt-install mdadm
 	fi
-	# LVM: create VG and LV devices
-	if pvdisplay | grep -iq "physical volume ---" && grep -q " device-mapper$" /proc/misc; then
-		apt-install lvm2
-		mount -t proc proc /target/proc
+	# device-mapper
+	if grep -q " device-mapper$" /proc/misc; then
 		mkdir -p /target/dev/mapper
 		if [ ! -e /target/dev/mapper/control ] ; then
 			major=$(grep "[0-9] misc$" /proc/devices | sed 's/[ ]\+misc//')
 			minor=$(grep "[0-9] device-mapper$" /proc/misc | sed 's/[ ]\+device-mapper//')
 			mknod /target/dev/mapper/control c $major $minor
 		fi
-		chroot /target vgscan --mknodes || true
-		umount /target/proc
+		if pvdisplay | grep -iq "physical volume ---"; then
+			apt-install lvm2
+			mount -t proc proc /target/proc
+			chroot /target vgscan --mknodes || true
+			umount /target/proc
+		fi
 	fi
 	# UML: create ubd devices
 	if grep -q "model.*UML" /proc/cpuinfo; then
