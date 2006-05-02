@@ -1,6 +1,6 @@
 arch_get_kernel_flavour () {
 	case "$SUBARCH" in
-		netwinder|bast|riscpc|nslu2)
+		netwinder|riscpc|nslu2)
 			echo "$SUBARCH"
 			return 0
 		;;
