@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2006-04-22 23:50-0600\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-05-05 22:30+0200\n"
 "PO-Revision-Date: 2006-01-27 21:24+0900\n"
 "Last-Translator:  Sunjae park <darehanl@gmail.com>\n"
 "Language-Team:  Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -214,19 +214,19 @@ msgstr "커널 꾸러미: '${KERNEL}'."
 
 #. Type: select
 #. Choices
-#: ../base-installer.templates:98
-msgid "${KERNELS}, none"
-msgstr "${KERNELS}, 없음"
+#: ../base-installer.templates:99
+msgid "none"
+msgstr "없음"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:99
+#: ../base-installer.templates:100
 msgid "Kernel to install:"
 msgstr "설치할 커널:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:99
+#: ../base-installer.templates:100
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -236,19 +236,19 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:106
+#: ../base-installer.templates:107
 msgid "Continue without installing a kernel?"
 msgstr "커널 없이 설치를 계속하시겠습니까?"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:106
+#: ../base-installer.templates:107
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "지정한 APT 소스에는 설치할 수 있는 커널이 하나도 없습니다."
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:106
+#: ../base-installer.templates:107
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -259,25 +259,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:115
+#: ../base-installer.templates:116
 msgid "Cannot install kernel"
 msgstr "커널을 설치할 수 없습니다"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:115
+#: ../base-installer.templates:116
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr "설치 프로그램이 필요한 커널 꾸러미를 찾는데 실패했습니다."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:120
+#: ../base-installer.templates:121
 msgid "Unable to install ${PACKAGE}"
 msgstr "${PACKAGE}를 설치하는데 실패했습니다"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:120
+#: ../base-installer.templates:121
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -285,7 +285,7 @@ msgstr "대상 시스템에 ${PACKAGE}를 설치하는데 오류가 발생했습
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:120
+#: ../base-installer.templates:121
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
 "자세한 정보를 확인하시려면 /var/log/messages를 보시거나 가상 콘솔 4을보십시"
@@ -294,35 +294,35 @@ msgstr ""
 #. Type: error
 #. Description
 #. SUBST0 is a Release file name.
-#: ../base-installer.templates:129
+#: ../base-installer.templates:130
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "${SUBST0} Release 파일을 가져오는 데 실패했습니다."
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release.gpg file name
-#: ../base-installer.templates:135
+#: ../base-installer.templates:136
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "${SUBST0} Release 서명 파일을 가져오는 데 실패했습니다."
 
 #. Type: error
 #. Description
 #. SUBST0 is a gpg key ID
-#: ../base-installer.templates:141
+#: ../base-installer.templates:142
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr ""
 "Release 파일의 서명이 잘못되었습니다: 키 ${SUBST0}에 대한 항목이 없습니다."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:146
+#: ../base-installer.templates:147
 msgid "Invalid Release file: no valid components."
 msgstr "Release 파일이 잘못되었습니다: 올바른 구성 요소가 없습니다."
 
 #. Type: error
 #. Description
 #. SUBST0 is a filename
-#: ../base-installer.templates:152
+#: ../base-installer.templates:153
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Release 파일이 잘못되었습니다: ${SUBST0}에 대한 항목이 없습니다."
 
@@ -330,7 +330,7 @@ msgstr "Release 파일이 잘못되었습니다: ${SUBST0}에 대한 항목이 �
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:159
+#: ../base-installer.templates:160
 msgid "Debootstrap Error"
 msgstr "debootstrap 오류"
 
@@ -338,7 +338,7 @@ msgstr "debootstrap 오류"
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:159
+#: ../base-installer.templates:160
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -350,7 +350,7 @@ msgstr ""
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:159
+#: ../base-installer.templates:160
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -360,68 +360,68 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:172
+#: ../base-installer.templates:173
 msgid "Preparing to install the base system..."
 msgstr "데비안 베이스 시스템 설치를 준비하는 중입니다.."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:176
+#: ../base-installer.templates:177
 msgid "Running ${SCRIPT}..."
 msgstr "${SCRIPT} 스크립트를 실행하는 중입니다..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:181
+#: ../base-installer.templates:182
 msgid "Retrieving Release file"
 msgstr "Release 파일을 가져오는 중입니다"
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:186
+#: ../base-installer.templates:187
 msgid "Retrieving Release file signature"
 msgstr "Release 파일의 서명을 가져오는 중입니다"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:191
+#: ../base-installer.templates:192
 msgid "Finding package sizes"
 msgstr "꾸러미 크기를 찾는 중입니다"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:196
+#: ../base-installer.templates:197
 msgid "Retrieving Packages files"
 msgstr "꾸러미 파일을 가져오는 중입니다"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:201
+#: ../base-installer.templates:202
 msgid "Retrieving Packages file"
 msgstr "꾸러미 파일을 가져오는 중입니다"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:206
+#: ../base-installer.templates:207
 msgid "Retrieving packages"
 msgstr "꾸러미를 가져오는 중입니다"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:211
+#: ../base-installer.templates:212
 msgid "Extracting packages"
 msgstr "꾸러미를 푸는 중입니다"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:215
+#: ../base-installer.templates:216
 msgid "Installing the base system"
 msgstr "베이스 시스템을 설치하는 중입니다"
 
@@ -431,7 +431,7 @@ msgstr "베이스 시스템을 설치하는 중입니다"
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:223
+#: ../base-installer.templates:224
 msgid "Installing core packages"
 msgstr "핵심 꾸러미들을 설치하는 중입니다"
 
@@ -441,13 +441,13 @@ msgstr "핵심 꾸러미들을 설치하는 중입니다"
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:231
+#: ../base-installer.templates:232
 msgid "Unpacking required packages"
 msgstr "필수 꾸러미를 푸는 중입니다"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:235
+#: ../base-installer.templates:236
 msgid "Configuring required packages"
 msgstr "필수 꾸러미를 설정하는 중입니다"
 
@@ -455,7 +455,7 @@ msgstr "필수 꾸러미를 설정하는 중입니다"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:241
+#: ../base-installer.templates:242
 msgid "Unpacking the base system"
 msgstr "베이스 시스템을 푸는 중입니다"
 
@@ -463,55 +463,55 @@ msgstr "베이스 시스템을 푸는 중입니다"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:247
+#: ../base-installer.templates:248
 msgid "Configuring the base system"
 msgstr "베이스 시스템을 설정하는 중입니다"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:251
+#: ../base-installer.templates:252
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:256
+#: ../base-installer.templates:257
 msgid "Validating ${SUBST0}..."
 msgstr "${SUBST0} 파일을 확인하는 중입니다..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:261
+#: ../base-installer.templates:262
 msgid "Retrieving ${SUBST0}..."
 msgstr "${SUBST0} 파일을 가져오는 중입니다..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:266
+#: ../base-installer.templates:267
 msgid "Extracting ${SUBST0}..."
 msgstr "${SUBST0} 파일을 푸는 중입니다..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:271
+#: ../base-installer.templates:272
 msgid "Unpacking ${SUBST0}..."
 msgstr "${SUBST0} 파일을 푸는 중입니다..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:276
+#: ../base-installer.templates:277
 msgid "Configuring ${SUBST0}..."
 msgstr "${SUBST0} 파일을 설정하는 중입니다..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:281
+#: ../base-installer.templates:282
 msgid "Checking Release signature"
 msgstr "Release 서명을 확인하는 중입니다"
 
@@ -519,41 +519,41 @@ msgstr "Release 서명을 확인하는 중입니다"
 #. Description
 #. SUBST0 is a gpg key id
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:287
+#: ../base-installer.templates:288
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Release 서명이 유효합니다(키 ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:291
+#: ../base-installer.templates:292
 msgid "Resolving dependencies of base packages..."
 msgstr "베이스 꾸러미가 의존하는 꾸러미를 푸는 중입니다..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:296
+#: ../base-installer.templates:297
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr "기본 꾸러미의 의존 관계를 추가적으로 발견했습니다: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:301
+#: ../base-installer.templates:302
 msgid "Found additional required dependencies: ${SUBST0}"
 msgstr "필요한 의존 관계를 추가적으로 발견했습니다: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:306
+#: ../base-installer.templates:307
 msgid "Found packages in base already in required: ${SUBST0}"
 msgstr ""
 "기본 꾸러미 중에서 이미 설치 대상에 포함된 꾸러미를 발견했습니다: ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:310
+#: ../base-installer.templates:311
 msgid "Resolving dependencies of required packages..."
 msgstr "필수 꾸러미가 의존하는 꾸러미를 푸는 중입니다..."
 
@@ -561,7 +561,7 @@ msgstr "필수 꾸러미가 의존하는 꾸러미를 푸는 중입니다..."
 #. Description
 #. SUBST0 is an archive component (main, etc)
 #. SUBST1 is a mirror
-#: ../base-installer.templates:316
+#: ../base-installer.templates:317
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "${SUBST1}의 구성요소인 ${SUBST0} 꾸러미를 확인하는 중입니다.."
 
@@ -571,7 +571,7 @@ msgstr "${SUBST1}의 구성요소인 ${SUBST0} 꾸러미를 확인하는 중입�
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:324
+#: ../base-installer.templates:325
 msgid "Installing core packages..."
 msgstr "핵심 꾸러미들을 설치하는 중입니다..."
 
@@ -581,7 +581,7 @@ msgstr "핵심 꾸러미들을 설치하는 중입니다..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:332
+#: ../base-installer.templates:333
 msgid "Unpacking required packages..."
 msgstr "필수 꾸러미를 푸는 중입니다..."
 
@@ -591,108 +591,108 @@ msgstr "필수 꾸러미를 푸는 중입니다..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:340
+#: ../base-installer.templates:341
 msgid "Configuring required packages..."
 msgstr "필수 꾸러미를 설정하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:344
+#: ../base-installer.templates:345
 msgid "Installing base packages..."
 msgstr "베이스 꾸러미를 설치하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:348
+#: ../base-installer.templates:349
 msgid "Unpacking the base system..."
 msgstr "베이스 시스템을 푸는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:352
+#: ../base-installer.templates:353
 msgid "Configuring the base system..."
 msgstr "베이스 시스템을 설정하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:356
+#: ../base-installer.templates:357
 msgid "Base system installed successfully."
 msgstr "베이스 시스템 설치 성공."
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:361
+#: ../base-installer.templates:362
 msgid "Debootstrap warning"
 msgstr "debootstrap 문제"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:361
+#: ../base-installer.templates:362
 msgid "Warning: ${INFO}"
 msgstr "경고: ${INFO}"
 
 #. Type: text
 #. Description
 #. SUBST0 is an url
-#: ../base-installer.templates:367
+#: ../base-installer.templates:368
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "${SUBST0}을(를) 받는데 실패하여 다시 내려받는 중입니다"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:371
+#: ../base-installer.templates:372
 msgid "Configuring APT sources..."
 msgstr "APT 소스를 설정하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:375
+#: ../base-installer.templates:376
 msgid "Updating the list of available packages..."
 msgstr "사용 가능한 꾸러미의 목록을 업데이트하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:379
+#: ../base-installer.templates:380
 msgid "Installing extra packages..."
 msgstr "추가 꾸러미들을 설치하는 중입니다..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:384
+#: ../base-installer.templates:385
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "추가 꾸러미를 설치합니다 - ${SUBST0} 내려받고 설치하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:388
+#: ../base-installer.templates:389
 msgid "Creating device files..."
 msgstr "장치 파일을 만드는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:392
+#: ../base-installer.templates:393
 msgid "Selecting the kernel to install..."
 msgstr "설치할 커널을 선택하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:396
+#: ../base-installer.templates:397
 msgid "Installing the kernel..."
 msgstr "커널을 설치하는 중입니다..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:401
+#: ../base-installer.templates:402
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "커널을 설치합니다 - ${SUBST0} 내려받고 설치하는 중입니다..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:405
+#: ../base-installer.templates:406
 msgid "Installing the PCMCIA modules"
 msgstr "PCMCIA 모듈을 설치하는 중입니다"
 
@@ -700,6 +700,12 @@ msgstr "PCMCIA 모듈을 설치하는 중입니다"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:411
+#: ../base-installer.templates:412
 msgid "Install the base system"
 msgstr "베이스 시스템 설치"
+
+#~ msgid "${KERNELS}, none"
+#~ msgstr "${KERNELS}, 없음"
+
+#~ msgid "${KERNELS}"
+#~ msgstr "${KERNELS}"
