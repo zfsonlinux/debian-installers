@@ -547,7 +547,7 @@ addmodule_yaird () {
 	fi
 }
 
-install_kernel () {
+install_linux () {
 	if [ "$KERNEL" = none ]; then
 		info "Not installing any kernel"
 		return
@@ -737,7 +737,7 @@ EOF
 		info "Not installing $package."
 	fi
 
-	# Advance progress bar to 30% of allocated space for install_kernel
+	# Advance progress bar to 30% of allocated space for install_linux
 	update_progress 30 100
 
 	# Install the kernel
@@ -746,7 +746,7 @@ EOF
 	db_progress INFO base-installer/section/install_kernel_package
 	log-output -t base-installer apt-install "$KERNEL" || kernel_install_failed=$?
 
-	# Advance progress bar to 90% of allocated space for install_kernel
+	# Advance progress bar to 90% of allocated space for install_linux
 	update_progress 90 100
 
 	# /proc/filesystems will accomodate this past the second bootup.
@@ -868,7 +868,7 @@ waypoint 3	apt_update
 waypoint 2	create_devices
 waypoint 5	post_install_hooks
 waypoint 1	pick_kernel
-waypoint 20	install_kernel
+waypoint 20	install_linux
 case "$ARCH" in
 	i386*)
 		if [ -e /proc/bus/pccard/drivers ]; then
