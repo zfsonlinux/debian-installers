@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer_packages_po\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-05 22:30+0200\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2006-05-06 18:29-0600\n"
 "PO-Revision-Date: 2006-04-19 22:02+0300\n"
 "Last-Translator: Ossama M. Khayat <okhayat@yahoo.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
@@ -210,19 +210,20 @@ msgstr "حزمة النّواة: '${KERNEL}'."
 
 #. Type: select
 #. Choices
-#: ../base-installer.templates:99
+#. For base-installer, "none" is an additionnal choice to a kernel list
+#: ../base-installer.templates:100
 msgid "none"
 msgstr "بدون"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:100
+#: ../base-installer.templates:101
 msgid "Kernel to install:"
 msgstr "النّواة المطلوب تثبيتها:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:100
+#: ../base-installer.templates:101
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -232,19 +233,19 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:107
+#: ../base-installer.templates:108
 msgid "Continue without installing a kernel?"
 msgstr "متابعة تثبيت نواة؟"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:107
+#: ../base-installer.templates:108
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "لم يُعثر على أيّة نواة قابلة للتّثبيت في مصادر APT المعرّفة."
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:107
+#: ../base-installer.templates:108
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -255,25 +256,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:116
+#: ../base-installer.templates:117
 msgid "Cannot install kernel"
 msgstr "لا يمكن تثبيت النواة"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:116
+#: ../base-installer.templates:117
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr "لا يمكن لبرنامج التثبيت العثور على نواة ملائمة لتثبيتها."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:121
+#: ../base-installer.templates:122
 msgid "Unable to install ${PACKAGE}"
 msgstr "تعذر تثبيت ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:121
+#: ../base-installer.templates:122
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -281,41 +282,41 @@ msgstr "أُرجع خطأ خلال محاولة تثبيت الحزمة ${PACKAG
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:121
+#: ../base-installer.templates:122
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr "تفقّد /var/log/syslog أو انظر الطرفية الوهمية الرابعة للتفاصيل."
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release file name.
-#: ../base-installer.templates:130
+#: ../base-installer.templates:131
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "فشل تلقّي ملف الإصدار ${SUBST0}."
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release.gpg file name
-#: ../base-installer.templates:136
+#: ../base-installer.templates:137
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "فشل إحضار ملف توقيع الإصدارة ${SUBST0}."
 
 #. Type: error
 #. Description
 #. SUBST0 is a gpg key ID
-#: ../base-installer.templates:142
+#: ../base-installer.templates:143
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "ملف الإصدار مُوقّع بمفتاح مجهول (key id ${SUBST0})"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:147
+#: ../base-installer.templates:148
 msgid "Invalid Release file: no valid components."
 msgstr "ملف إصدار غير سليم: لا مكوّنات صالحة"
 
 #. Type: error
 #. Description
 #. SUBST0 is a filename
-#: ../base-installer.templates:153
+#: ../base-installer.templates:154
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "ملف إصدار غير سليم: لا مُدخل لـ${SUBST0}."
 
@@ -323,7 +324,7 @@ msgstr "ملف إصدار غير سليم: لا مُدخل لـ${SUBST0}."
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:160
+#: ../base-installer.templates:161
 msgid "Debootstrap Error"
 msgstr "خطأ Debootstrap"
 
@@ -331,7 +332,7 @@ msgstr "خطأ Debootstrap"
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:160
+#: ../base-installer.templates:161
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -343,7 +344,7 @@ msgstr ""
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:160
+#: ../base-installer.templates:161
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -352,68 +353,68 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:173
+#: ../base-installer.templates:174
 msgid "Preparing to install the base system..."
 msgstr "التحضير لتثبيت نظام ديبيان الأساسي..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:177
+#: ../base-installer.templates:178
 msgid "Running ${SCRIPT}..."
 msgstr "تشغيل ${SCRIPT}..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:182
+#: ../base-installer.templates:183
 msgid "Retrieving Release file"
 msgstr "جلب ملف الإصدار"
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:187
+#: ../base-installer.templates:188
 msgid "Retrieving Release file signature"
 msgstr "جلب توقيع ملف الإصدار"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:192
+#: ../base-installer.templates:193
 msgid "Finding package sizes"
 msgstr "التحقّق من أحجام الحزم"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:197
+#: ../base-installer.templates:198
 msgid "Retrieving Packages files"
 msgstr "جلب ملفّات الحزم"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:202
+#: ../base-installer.templates:203
 msgid "Retrieving Packages file"
 msgstr "جلب ملف الحزم"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:207
+#: ../base-installer.templates:208
 msgid "Retrieving packages"
 msgstr "جلب الحزم"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:212
+#: ../base-installer.templates:213
 msgid "Extracting packages"
 msgstr "استخراج الحزم"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:216
+#: ../base-installer.templates:217
 msgid "Installing the base system"
 msgstr "تثبيت النظام الأساسي"
 
@@ -423,7 +424,7 @@ msgstr "تثبيت النظام الأساسي"
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:224
+#: ../base-installer.templates:225
 msgid "Installing core packages"
 msgstr "تثبيت الحزم الأساسية"
 
@@ -433,13 +434,13 @@ msgstr "تثبيت الحزم الأساسية"
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:232
+#: ../base-installer.templates:233
 msgid "Unpacking required packages"
 msgstr "استخراج الحزم المطلوبة"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:236
+#: ../base-installer.templates:237
 msgid "Configuring required packages"
 msgstr "تهيئة الحزم المطلوبة"
 
@@ -447,7 +448,7 @@ msgstr "تهيئة الحزم المطلوبة"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:242
+#: ../base-installer.templates:243
 msgid "Unpacking the base system"
 msgstr "استخراج النظام الأساسي"
 
@@ -455,55 +456,55 @@ msgstr "استخراج النظام الأساسي"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:248
+#: ../base-installer.templates:249
 msgid "Configuring the base system"
 msgstr "تهيئة النظام الأساسي"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:252
+#: ../base-installer.templates:253
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:257
+#: ../base-installer.templates:258
 msgid "Validating ${SUBST0}..."
 msgstr "التّأكد من صحّة ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:262
+#: ../base-installer.templates:263
 msgid "Retrieving ${SUBST0}..."
 msgstr "جلب ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:267
+#: ../base-installer.templates:268
 msgid "Extracting ${SUBST0}..."
 msgstr "استخراج ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:272
+#: ../base-installer.templates:273
 msgid "Unpacking ${SUBST0}..."
 msgstr "استخراج ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:277
+#: ../base-installer.templates:278
 msgid "Configuring ${SUBST0}..."
 msgstr "تهيئة ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:282
+#: ../base-installer.templates:283
 msgid "Checking Release signature"
 msgstr "التحقق من توقيع الإصدارة"
 
@@ -511,41 +512,41 @@ msgstr "التحقق من توقيع الإصدارة"
 #. Description
 #. SUBST0 is a gpg key id
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:288
+#: ../base-installer.templates:289
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "ملف إصدار سليم (key id ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:292
+#: ../base-installer.templates:293
 msgid "Resolving dependencies of base packages..."
 msgstr "استيفاء معتمدات الحزم الأساسيّة..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:297
+#: ../base-installer.templates:298
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr "عثر على معتمدات أساسية إضافة: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:302
+#: ../base-installer.templates:303
 msgid "Found additional required dependencies: ${SUBST0}"
 msgstr "عثر على معتمدات مطلوبة إضافية: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:307
+#: ../base-installer.templates:308
 msgid "Found packages in base already in required: ${SUBST0}"
 msgstr ""
 "عثر على حزم من الحزم الأساسية موجودة مسبقاً في الحزم المطلوبة: ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:311
+#: ../base-installer.templates:312
 msgid "Resolving dependencies of required packages..."
 msgstr "استيفاء معتمدات الحزم المطلوبة..."
 
@@ -553,7 +554,7 @@ msgstr "استيفاء معتمدات الحزم المطلوبة..."
 #. Description
 #. SUBST0 is an archive component (main, etc)
 #. SUBST1 is a mirror
-#: ../base-installer.templates:317
+#: ../base-installer.templates:318
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "تفقّد المكوّن ${SUBST0} على ${SUBST1}..."
 
@@ -563,7 +564,7 @@ msgstr "تفقّد المكوّن ${SUBST0} على ${SUBST1}..."
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:325
+#: ../base-installer.templates:326
 msgid "Installing core packages..."
 msgstr "تثبيت الحزم الجوهرية..."
 
@@ -573,7 +574,7 @@ msgstr "تثبيت الحزم الجوهرية..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:333
+#: ../base-installer.templates:334
 msgid "Unpacking required packages..."
 msgstr "استخراج الحزم المطلوبة..."
 
@@ -583,108 +584,108 @@ msgstr "استخراج الحزم المطلوبة..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:341
+#: ../base-installer.templates:342
 msgid "Configuring required packages..."
 msgstr "تهيئة الحزم المطلوبة..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:345
+#: ../base-installer.templates:346
 msgid "Installing base packages..."
 msgstr "تثبيت الحزم الأساسيّة..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:349
+#: ../base-installer.templates:350
 msgid "Unpacking the base system..."
 msgstr "استخراج النظام الأساسي..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:353
+#: ../base-installer.templates:354
 msgid "Configuring the base system..."
 msgstr "تهيئة النظام الأساسي..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:357
+#: ../base-installer.templates:358
 msgid "Base system installed successfully."
 msgstr "تمّ تثبيت النظام الأساسي بنجاح."
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:362
+#: ../base-installer.templates:363
 msgid "Debootstrap warning"
 msgstr "تحذير Debootstrap"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:362
+#: ../base-installer.templates:363
 msgid "Warning: ${INFO}"
 msgstr "تحذير: ${INFO}"
 
 #. Type: text
 #. Description
 #. SUBST0 is an url
-#: ../base-installer.templates:368
+#: ../base-installer.templates:369
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "إعادة تجربة تنزيل ${SUBST0} الذي فشل مسبقاً"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:372
+#: ../base-installer.templates:373
 msgid "Configuring APT sources..."
 msgstr "تهيئة مصادر APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:376
+#: ../base-installer.templates:377
 msgid "Updating the list of available packages..."
 msgstr "تحديث قائمة الحزم المتوفّرة..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:380
+#: ../base-installer.templates:381
 msgid "Installing extra packages..."
 msgstr "تثبيت الحزم الإضافيّة..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:385
+#: ../base-installer.templates:386
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "تثبيت الحزم الإضافيّة - وجلب وتثبيت ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:389
+#: ../base-installer.templates:390
 msgid "Creating device files..."
 msgstr "إنشاء ملفّات الأجهزة..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:393
+#: ../base-installer.templates:394
 msgid "Selecting the kernel to install..."
 msgstr "اختيار النّواة المطلوب تثبيتها..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:397
+#: ../base-installer.templates:398
 msgid "Installing the kernel..."
 msgstr "تثبيت النّواة..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:402
+#: ../base-installer.templates:403
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "تثبيت النواة - جلب وتثبيت ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:406
+#: ../base-installer.templates:407
 msgid "Installing the PCMCIA modules"
 msgstr "تثبيت وحدات PCMCIA"
 
@@ -692,6 +693,6 @@ msgstr "تثبيت وحدات PCMCIA"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:412
+#: ../base-installer.templates:413
 msgid "Install the base system"
 msgstr "تثبيت النظام الأساسي"

@@ -10,8 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: fa\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-05 22:30+0200\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2006-05-06 18:29-0600\n"
 "PO-Revision-Date: 2005-07-31 18:31+0430\n"
 "Last-Translator: Arash Bijanzadeh\n"
 "Language-Team:  <fa@li.org>\n"
@@ -204,19 +204,20 @@ msgstr "بسته‌ی هسته '${KERNEL}'."
 
 #. Type: select
 #. Choices
-#: ../base-installer.templates:99
+#. For base-installer, "none" is an additionnal choice to a kernel list
+#: ../base-installer.templates:100
 msgid "none"
 msgstr "هیچکدام"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:100
+#: ../base-installer.templates:101
 msgid "Kernel to install:"
 msgstr "هسته‌ای که قرار است نصب شود:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:100
+#: ../base-installer.templates:101
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -226,20 +227,20 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:107
+#: ../base-installer.templates:108
 #, fuzzy
 msgid "Continue without installing a kernel?"
 msgstr "آیا میخواهید عملیات پارتیشن بندی را ادامه دهید؟"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:107
+#: ../base-installer.templates:108
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "هیچ هسته‌ی قابل نصبی بر روی منبع apt پیدا نشد."
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:107
+#: ../base-installer.templates:108
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -248,27 +249,27 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:116
+#: ../base-installer.templates:117
 #, fuzzy
 msgid "Cannot install kernel"
 msgstr "نصب پایه‌ی سیستم  شکست خورد."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:116
+#: ../base-installer.templates:117
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:121
+#: ../base-installer.templates:122
 #, fuzzy
 msgid "Unable to install ${PACKAGE}"
 msgstr "نمیتوان GRUB را بر روی ${BOOTDEV} نصب کرد."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:121
+#: ../base-installer.templates:122
 #, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
@@ -277,7 +278,7 @@ msgstr "نصب بسته‌ی initrd-tools با یک پیغام خطا خاتمه
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:121
+#: ../base-installer.templates:122
 #, fuzzy
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr "برای جزئیات بیشتر پرونده‌ی/var/log/bootstrap.log را ببینید."
@@ -285,34 +286,34 @@ msgstr "برای جزئیات بیشتر پرونده‌ی/var/log/bootstrap.log
 #. Type: error
 #. Description
 #. SUBST0 is a Release file name.
-#: ../base-installer.templates:130
+#: ../base-installer.templates:131
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "دریافت پرونده‌ی انتشار ${SUBST0} شکست خورد."
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release.gpg file name
-#: ../base-installer.templates:136
+#: ../base-installer.templates:137
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "دریافت پرونده‌ی امضای انتشار ${SUBST0} شکست خورد."
 
 #. Type: error
 #. Description
 #. SUBST0 is a gpg key ID
-#: ../base-installer.templates:142
+#: ../base-installer.templates:143
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "پرونده‌ی انتشار نامعتبر است. هیچ ورودی برای ${SUBST0} وجود ندارد."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:147
+#: ../base-installer.templates:148
 msgid "Invalid Release file: no valid components."
 msgstr "پرونده انتشار نامعتبر است. مولفه‌های معتبری در این پرونده وجود ندارد."
 
 #. Type: error
 #. Description
 #. SUBST0 is a filename
-#: ../base-installer.templates:153
+#: ../base-installer.templates:154
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "پرونده‌ی انتشار نامعتبر است. هیچ ورودی برای ${SUBST0} وجود ندارد."
 
@@ -320,7 +321,7 @@ msgstr "پرونده‌ی انتشار نامعتبر است. هیچ ورودی 
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:160
+#: ../base-installer.templates:161
 msgid "Debootstrap Error"
 msgstr "خطای Debootstrap"
 
@@ -328,7 +329,7 @@ msgstr "خطای Debootstrap"
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:160
+#: ../base-installer.templates:161
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -338,7 +339,7 @@ msgstr ""
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:160
+#: ../base-installer.templates:161
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -346,48 +347,48 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:173
+#: ../base-installer.templates:174
 msgid "Preparing to install the base system..."
 msgstr "درحال آماده‌سازی نصب پایه‌ی سیستم دبیان"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:177
+#: ../base-installer.templates:178
 msgid "Running ${SCRIPT}..."
 msgstr "در حال اجرای ${SCRIPT}..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:182
+#: ../base-installer.templates:183
 msgid "Retrieving Release file"
 msgstr "در حال دریافت فایل انتشار"
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:187
+#: ../base-installer.templates:188
 msgid "Retrieving Release file signature"
 msgstr "در حال دریافت فایل امضای انتشار"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:192
+#: ../base-installer.templates:193
 msgid "Finding package sizes"
 msgstr "در حال پیدا کردن اندازه‌ی بسته‌ها"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:197
+#: ../base-installer.templates:198
 msgid "Retrieving Packages files"
 msgstr "در حال دریافت پرونده‌ی بسته‌ها"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:202
+#: ../base-installer.templates:203
 #, fuzzy
 msgid "Retrieving Packages file"
 msgstr "در حال دریافت پرونده‌ی بسته‌ها"
@@ -395,20 +396,20 @@ msgstr "در حال دریافت پرونده‌ی بسته‌ها"
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:207
+#: ../base-installer.templates:208
 msgid "Retrieving packages"
 msgstr "در حال دریافت بسته‌ها"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:212
+#: ../base-installer.templates:213
 msgid "Extracting packages"
 msgstr "در حال بازکردن بسته‌ها"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:216
+#: ../base-installer.templates:217
 msgid "Installing the base system"
 msgstr "در حال نصب سیستم پایه"
 
@@ -418,7 +419,7 @@ msgstr "در حال نصب سیستم پایه"
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:224
+#: ../base-installer.templates:225
 #, fuzzy
 msgid "Installing core packages"
 msgstr "در حال نصب بسته‌های پایه..."
@@ -429,14 +430,14 @@ msgstr "در حال نصب بسته‌های پایه..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:232
+#: ../base-installer.templates:233
 #, fuzzy
 msgid "Unpacking required packages"
 msgstr "در حال بازکردن بسته‌های درخواستی..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:236
+#: ../base-installer.templates:237
 #, fuzzy
 msgid "Configuring required packages"
 msgstr "در حال پیکربندی بسته‌های درخواستی..."
@@ -445,7 +446,7 @@ msgstr "در حال پیکربندی بسته‌های درخواستی..."
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:242
+#: ../base-installer.templates:243
 #, fuzzy
 msgid "Unpacking the base system"
 msgstr "در حال نصب سیستم پایه"
@@ -454,42 +455,42 @@ msgstr "در حال نصب سیستم پایه"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:248
+#: ../base-installer.templates:249
 #, fuzzy
 msgid "Configuring the base system"
 msgstr "در حال نصب سیستم پایه"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:252
+#: ../base-installer.templates:253
 msgid "${SECTION}: ${INFO}..."
 msgstr ""
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:257
+#: ../base-installer.templates:258
 msgid "Validating ${SUBST0}..."
 msgstr "تایید اعتبار ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:262
+#: ../base-installer.templates:263
 msgid "Retrieving ${SUBST0}..."
 msgstr "دریافت ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:267
+#: ../base-installer.templates:268
 msgid "Extracting ${SUBST0}..."
 msgstr "بازکردن ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:272
+#: ../base-installer.templates:273
 #, fuzzy
 msgid "Unpacking ${SUBST0}..."
 msgstr "بازکردن ${SUBST0}..."
@@ -497,7 +498,7 @@ msgstr "بازکردن ${SUBST0}..."
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:277
+#: ../base-installer.templates:278
 #, fuzzy
 msgid "Configuring ${SUBST0}..."
 msgstr "تایید اعتبار ${SUBST0}..."
@@ -505,7 +506,7 @@ msgstr "تایید اعتبار ${SUBST0}..."
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:282
+#: ../base-installer.templates:283
 #, fuzzy
 msgid "Checking Release signature"
 msgstr "در حال دریافت فایل انتشار"
@@ -514,14 +515,14 @@ msgstr "در حال دریافت فایل انتشار"
 #. Description
 #. SUBST0 is a gpg key id
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:288
+#: ../base-installer.templates:289
 #, fuzzy
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "پرونده‌ی انتشار نامعتبر است. هیچ ورودی برای ${SUBST0} وجود ندارد."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:292
+#: ../base-installer.templates:293
 #, fuzzy
 msgid "Resolving dependencies of base packages..."
 msgstr "در حال نصب بسته‌های درخواستی..."
@@ -529,27 +530,27 @@ msgstr "در حال نصب بسته‌های درخواستی..."
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:297
+#: ../base-installer.templates:298
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr ""
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:302
+#: ../base-installer.templates:303
 msgid "Found additional required dependencies: ${SUBST0}"
 msgstr ""
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:307
+#: ../base-installer.templates:308
 msgid "Found packages in base already in required: ${SUBST0}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:311
+#: ../base-installer.templates:312
 #, fuzzy
 msgid "Resolving dependencies of required packages..."
 msgstr "در حال بازکردن بسته‌های درخواستی..."
@@ -558,7 +559,7 @@ msgstr "در حال بازکردن بسته‌های درخواستی..."
 #. Description
 #. SUBST0 is an archive component (main, etc)
 #. SUBST1 is a mirror
-#: ../base-installer.templates:317
+#: ../base-installer.templates:318
 #, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "آزمایش اندازه‌ی بسته :${SUBST0}..."
@@ -569,7 +570,7 @@ msgstr "آزمایش اندازه‌ی بسته :${SUBST0}..."
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:325
+#: ../base-installer.templates:326
 msgid "Installing core packages..."
 msgstr "در حال نصب بسته‌های پایه..."
 
@@ -579,7 +580,7 @@ msgstr "در حال نصب بسته‌های پایه..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:333
+#: ../base-installer.templates:334
 msgid "Unpacking required packages..."
 msgstr "در حال بازکردن بسته‌های درخواستی..."
 
@@ -589,40 +590,40 @@ msgstr "در حال بازکردن بسته‌های درخواستی..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:341
+#: ../base-installer.templates:342
 msgid "Configuring required packages..."
 msgstr "در حال پیکربندی بسته‌های درخواستی..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:345
+#: ../base-installer.templates:346
 msgid "Installing base packages..."
 msgstr "در حال نصب بسته‌های درخواستی..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:349
+#: ../base-installer.templates:350
 #, fuzzy
 msgid "Unpacking the base system..."
 msgstr "در حال نصب سیستم پایه"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:353
+#: ../base-installer.templates:354
 #, fuzzy
 msgid "Configuring the base system..."
 msgstr "در حال نصب سیستم پایه"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:357
+#: ../base-installer.templates:358
 msgid "Base system installed successfully."
 msgstr "نصب سیستم پایه با موفقیت به پایان رسید."
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:362
+#: ../base-installer.templates:363
 #, fuzzy
 msgid "Debootstrap warning"
 msgstr "خطای Debootstrap"
@@ -630,71 +631,71 @@ msgstr "خطای Debootstrap"
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:362
+#: ../base-installer.templates:363
 msgid "Warning: ${INFO}"
 msgstr ""
 
 #. Type: text
 #. Description
 #. SUBST0 is an url
-#: ../base-installer.templates:368
+#: ../base-installer.templates:369
 #, fuzzy
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "نمیتوان ${SUBST0} را بارگیری کرد."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:372
+#: ../base-installer.templates:373
 msgid "Configuring APT sources..."
 msgstr "پیکربندی منابع APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:376
+#: ../base-installer.templates:377
 msgid "Updating the list of available packages..."
 msgstr "بروزرسانی لیست بسته‌های موجود..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:380
+#: ../base-installer.templates:381
 msgid "Installing extra packages..."
 msgstr "در حال نصب بسته‌های اضافی..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:385
+#: ../base-installer.templates:386
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:389
+#: ../base-installer.templates:390
 msgid "Creating device files..."
 msgstr "در حال ایجاد پرونده دستگاه‌ها.."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:393
+#: ../base-installer.templates:394
 msgid "Selecting the kernel to install..."
 msgstr "در حال انتخاب هسته برای نصب..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:397
+#: ../base-installer.templates:398
 msgid "Installing the kernel..."
 msgstr "در حال نصب هسته..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:402
+#: ../base-installer.templates:403
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:406
+#: ../base-installer.templates:407
 msgid "Installing the PCMCIA modules"
 msgstr "در حال نصب ماژول PCMCIA"
 
@@ -702,6 +703,6 @@ msgstr "در حال نصب ماژول PCMCIA"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:412
+#: ../base-installer.templates:413
 msgid "Install the base system"
 msgstr "در حال نصب سیستم پایه "

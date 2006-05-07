@@ -16,8 +16,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-05 22:30+0200\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2006-05-06 18:29-0600\n"
 "PO-Revision-Date: 2006-05-02 17:33+0300\n"
 "Last-Translator: Recai Oktaş <roktas@omu.edu.tr>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -220,19 +220,20 @@ msgstr "Çekirdek paketi: '${KERNEL}'."
 
 #. Type: select
 #. Choices
-#: ../base-installer.templates:99
+#. For base-installer, "none" is an additionnal choice to a kernel list
+#: ../base-installer.templates:100
 msgid "none"
 msgstr "hiçbiri"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:100
+#: ../base-installer.templates:101
 msgid "Kernel to install:"
 msgstr "Kurulacak çekirdek:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:100
+#: ../base-installer.templates:101
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -242,20 +243,20 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:107
+#: ../base-installer.templates:108
 msgid "Continue without installing a kernel?"
 msgstr "Bir çekirdek kurmadan kuruluma devam edilsin mi?"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:107
+#: ../base-installer.templates:108
 msgid "No installable kernel was found in the defined APT sources."
 msgstr ""
 "Belirtilen APT kaynaklarında kurulabilir nitelikte bir çekirdek bulunamadı."
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:107
+#: ../base-installer.templates:108
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -268,25 +269,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:116
+#: ../base-installer.templates:117
 msgid "Cannot install kernel"
 msgstr "Çekirdek kurulamıyor"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:116
+#: ../base-installer.templates:117
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr "Kurulum programı uygun bir çekirdek paketi bulamadı"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:121
+#: ../base-installer.templates:122
 msgid "Unable to install ${PACKAGE}"
 msgstr "${PACKAGE} paketi kurulamıyor"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:121
+#: ../base-installer.templates:122
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -294,7 +295,7 @@ msgstr "Hedef sisteme ${PACKAGE} paketinin kurulumu denenirken hata oluştu."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:121
+#: ../base-installer.templates:122
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
 "Ayrıntılı bilgi için /var/log/syslog dosyasına veya dördüncü konsola bakın."
@@ -302,21 +303,21 @@ msgstr ""
 #. Type: error
 #. Description
 #. SUBST0 is a Release file name.
-#: ../base-installer.templates:130
+#: ../base-installer.templates:131
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "\"Release\" dosyası ${SUBST0} alınamadı."
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release.gpg file name
-#: ../base-installer.templates:136
+#: ../base-installer.templates:137
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "\"Release\" dosyasına ait imza dosyası ${SUBST0} alınamadı."
 
 #. Type: error
 #. Description
 #. SUBST0 is a gpg key ID
-#: ../base-installer.templates:142
+#: ../base-installer.templates:143
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr ""
 "\"Release\" dosyası bilinmeyen bir anahtarla imzalanmış (anahtar kimliği "
@@ -324,14 +325,14 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:147
+#: ../base-installer.templates:148
 msgid "Invalid Release file: no valid components."
 msgstr "Geçersiz \"Release\" dosyası: geçerli bileşenler yok."
 
 #. Type: error
 #. Description
 #. SUBST0 is a filename
-#: ../base-installer.templates:153
+#: ../base-installer.templates:154
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Geçersiz \"Release\" dosyası: ${SUBST0} için gerekli girdiler yok."
 
@@ -339,7 +340,7 @@ msgstr "Geçersiz \"Release\" dosyası: ${SUBST0} için gerekli girdiler yok."
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:160
+#: ../base-installer.templates:161
 msgid "Debootstrap Error"
 msgstr "Debootstrap Hatası"
 
@@ -347,7 +348,7 @@ msgstr "Debootstrap Hatası"
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:160
+#: ../base-installer.templates:161
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -359,7 +360,7 @@ msgstr ""
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:160
+#: ../base-installer.templates:161
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -369,68 +370,68 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:173
+#: ../base-installer.templates:174
 msgid "Preparing to install the base system..."
 msgstr "Temel sistem kurulumuna hazırlanılıyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:177
+#: ../base-installer.templates:178
 msgid "Running ${SCRIPT}..."
 msgstr "${SCRIPT} çalıştırılıyor..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:182
+#: ../base-installer.templates:183
 msgid "Retrieving Release file"
 msgstr "\"Release\" dosyası alınıyor"
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:187
+#: ../base-installer.templates:188
 msgid "Retrieving Release file signature"
 msgstr "\"Release\" dosyasına ait imza dosyası alınıyor"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:192
+#: ../base-installer.templates:193
 msgid "Finding package sizes"
 msgstr "Paket boyutları bulunuyor"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:197
+#: ../base-installer.templates:198
 msgid "Retrieving Packages files"
 msgstr "\"Packages\" dosyası alınıyor"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:202
+#: ../base-installer.templates:203
 msgid "Retrieving Packages file"
 msgstr "\"Packages\" dosyası alınıyor"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:207
+#: ../base-installer.templates:208
 msgid "Retrieving packages"
 msgstr "Paketler alınıyor"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:212
+#: ../base-installer.templates:213
 msgid "Extracting packages"
 msgstr "Paketler açılıyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:216
+#: ../base-installer.templates:217
 msgid "Installing the base system"
 msgstr "Temel sistem kuruluyor"
 
@@ -440,7 +441,7 @@ msgstr "Temel sistem kuruluyor"
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:224
+#: ../base-installer.templates:225
 msgid "Installing core packages"
 msgstr "Çekirdek paketler kuruluyor"
 
@@ -450,13 +451,13 @@ msgstr "Çekirdek paketler kuruluyor"
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:232
+#: ../base-installer.templates:233
 msgid "Unpacking required packages"
 msgstr "Gerekli paketler açılıyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:236
+#: ../base-installer.templates:237
 msgid "Configuring required packages"
 msgstr "Gerekli paketler yapılandırılıyor"
 
@@ -464,7 +465,7 @@ msgstr "Gerekli paketler yapılandırılıyor"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:242
+#: ../base-installer.templates:243
 msgid "Unpacking the base system"
 msgstr "Temel sistem paketleri açılıyor"
 
@@ -472,55 +473,55 @@ msgstr "Temel sistem paketleri açılıyor"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:248
+#: ../base-installer.templates:249
 msgid "Configuring the base system"
 msgstr "Temel sistem yapılandırılıyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:252
+#: ../base-installer.templates:253
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:257
+#: ../base-installer.templates:258
 msgid "Validating ${SUBST0}..."
 msgstr "${SUBST0} doğrulanıyor..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:262
+#: ../base-installer.templates:263
 msgid "Retrieving ${SUBST0}..."
 msgstr "${SUBST0} alınıyor..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:267
+#: ../base-installer.templates:268
 msgid "Extracting ${SUBST0}..."
 msgstr " ${SUBST0} açılıyor..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:272
+#: ../base-installer.templates:273
 msgid "Unpacking ${SUBST0}..."
 msgstr " ${SUBST0} açılıyor"
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:277
+#: ../base-installer.templates:278
 msgid "Configuring ${SUBST0}..."
 msgstr "${SUBST0} yapılandırılıyor..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:282
+#: ../base-installer.templates:283
 msgid "Checking Release signature"
 msgstr "\"Release\" dosyasına ait imza denetleniyor"
 
@@ -528,41 +529,41 @@ msgstr "\"Release\" dosyasına ait imza denetleniyor"
 #. Description
 #. SUBST0 is a gpg key id
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:288
+#: ../base-installer.templates:289
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Geçersiz \"Release\" imzası (anahtar kimliği: ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:292
+#: ../base-installer.templates:293
 msgid "Resolving dependencies of base packages..."
 msgstr "\"Temel\" paketlerin bağımlılıkları çözülüyor..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:297
+#: ../base-installer.templates:298
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr "İlâve \"temel\" paket bağımlılıkları bulundu: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:302
+#: ../base-installer.templates:303
 msgid "Found additional required dependencies: ${SUBST0}"
 msgstr "İlâve \"gerekli\" paket bağımlılıkları bulundu: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:307
+#: ../base-installer.templates:308
 msgid "Found packages in base already in required: ${SUBST0}"
 msgstr ""
 "Bulunan \"temel\" bağımlılıklar zaten \"gerekli\" listesinde: ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:311
+#: ../base-installer.templates:312
 msgid "Resolving dependencies of required packages..."
 msgstr "\"Gerekli\" paketlerin bağımlılıkları çözülüyor..."
 
@@ -570,7 +571,7 @@ msgstr "\"Gerekli\" paketlerin bağımlılıkları çözülüyor..."
 #. Description
 #. SUBST0 is an archive component (main, etc)
 #. SUBST1 is a mirror
-#: ../base-installer.templates:317
+#: ../base-installer.templates:318
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "${SUBST1} üzerindeki ${SUBST0} bileşeni denetleniyor..."
 
@@ -580,7 +581,7 @@ msgstr "${SUBST1} üzerindeki ${SUBST0} bileşeni denetleniyor..."
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:325
+#: ../base-installer.templates:326
 msgid "Installing core packages..."
 msgstr "Ana paketler kuruluyor..."
 
@@ -590,7 +591,7 @@ msgstr "Ana paketler kuruluyor..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:333
+#: ../base-installer.templates:334
 msgid "Unpacking required packages..."
 msgstr "Gerekli paketler açılıyor..."
 
@@ -600,108 +601,108 @@ msgstr "Gerekli paketler açılıyor..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:341
+#: ../base-installer.templates:342
 msgid "Configuring required packages..."
 msgstr "Gerekli paketler yapılandırılıyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:345
+#: ../base-installer.templates:346
 msgid "Installing base packages..."
 msgstr "Temel paketler kuruluyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:349
+#: ../base-installer.templates:350
 msgid "Unpacking the base system..."
 msgstr "Temel sistem paketleri açılıyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:353
+#: ../base-installer.templates:354
 msgid "Configuring the base system..."
 msgstr "Temel sistem yapılandırılıyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:357
+#: ../base-installer.templates:358
 msgid "Base system installed successfully."
 msgstr "Temel sistem başarıyla kuruldu."
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:362
+#: ../base-installer.templates:363
 msgid "Debootstrap warning"
 msgstr "Debootstrap uyarısı"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:362
+#: ../base-installer.templates:363
 msgid "Warning: ${INFO}"
 msgstr "Uyarı: ${INFO}"
 
 #. Type: text
 #. Description
 #. SUBST0 is an url
-#: ../base-installer.templates:368
+#: ../base-installer.templates:369
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Başarısız ${SUBST0} indirme girişimi tekrar ediliyor"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:372
+#: ../base-installer.templates:373
 msgid "Configuring APT sources..."
 msgstr "APT kaynakları yapılandırılıyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:376
+#: ../base-installer.templates:377
 msgid "Updating the list of available packages..."
 msgstr "Mevcut paketlere ilişkin liste güncelleniyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:380
+#: ../base-installer.templates:381
 msgid "Installing extra packages..."
 msgstr "Ekstra paketler kuruluyor..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:385
+#: ../base-installer.templates:386
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "Ekstra paketler kuruluyor - ${SUBST0} alınıyor ve kuruluyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:389
+#: ../base-installer.templates:390
 msgid "Creating device files..."
 msgstr "Aygıt dosyaları oluşturuluyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:393
+#: ../base-installer.templates:394
 msgid "Selecting the kernel to install..."
 msgstr "Kurulacak çekirdek seçiliyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:397
+#: ../base-installer.templates:398
 msgid "Installing the kernel..."
 msgstr "Çekirdek kuruluyor..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:402
+#: ../base-installer.templates:403
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Çekirdek kuruluyor - ${SUBST0} alınıyor ve kuruluyor..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:406
+#: ../base-installer.templates:407
 msgid "Installing the PCMCIA modules"
 msgstr "PCMCIA modülleri kuruluyor"
 
@@ -709,6 +710,6 @@ msgstr "PCMCIA modülleri kuruluyor"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:412
+#: ../base-installer.templates:413
 msgid "Install the base system"
 msgstr "Temel sistemi kur"
