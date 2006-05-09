@@ -7,23 +7,23 @@
 # Malagasy messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interst, Inc.
 # This file is distributed under the same licence as debian-installer.
-#
 # Jaonary Rabarisoa  <jaonary@ifrance.com>, 2004.
 # Jaonary Rabarisoa <mpandikateny@linuxmg.org>, 2005.
 # Jaonary Rabarisoa <jaonary@free.fr>, 2005, 2006.
+# 
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: mg\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2006-05-06 18:29-0600\n"
-"PO-Revision-Date: 2006-01-20 10:37+0100\n"
+"PO-Revision-Date: 2006-05-08 22:17+0200\n"
 "Last-Translator: Jaonary Rabarisoa <jaonary@free.fr>\n"
 "Language-Team: Malagasy <jaonary@free.fr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n>1;X-Generator: KBabel 1.10.2\n"
-"X-Generator: KBabel 1.11.1\n"
 
 #. Type: boolean
 #. Description
@@ -70,9 +70,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:19
-#, fuzzy
 msgid "Failed to determine the codename for the release."
-msgstr "Tsy nahomby ny fandraisana ny rakitra \"preconfiguration\""
+msgstr ""
 
 #. Type: error
 #. Description
@@ -161,7 +160,7 @@ msgstr "${ERROR}"
 #. Description
 #: ../base-installer.templates:68
 msgid "Tool to use to generate boot initrd:"
-msgstr ""
+msgstr "Fitaovana hamoronana ny sari-kapila initrd :"
 
 #. Type: select
 #. Description
@@ -171,12 +170,15 @@ msgid ""
 "should select the default. If your system fails to boot, you can retry the "
 "installation using the other options."
 msgstr ""
+"Jereo ao anaty lisitra ireo fitaovana azo ampiasaina. Raha tsy ainao izay "
+"fidinadia avelao amin'izao. Raha toa ka tsy azo velomina ny milinao dia "
+"andramoaverina miaraka amin'ny safidy hafa ny fametrahana."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:75
 msgid "No initrd generator"
-msgstr ""
+msgstr "Tsy misy fitaovana famoronana sari-kapila initrd"
 
 #. Type: error
 #. Description
@@ -191,7 +193,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:82
 msgid "Unsupported initrd generator"
-msgstr ""
+msgstr "Fitaovana famoronana sari-kapila initrd tsy fantatra"
 
 #. Type: error
 #. Description
@@ -200,6 +202,8 @@ msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
 msgstr ""
+"Ny fonosana ${GENERATOR} izay voafidy hamoronana ny sari-kapila initrd dia "
+"tsyfantatra."
 
 #. Type: error
 #. Description
@@ -249,9 +253,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:108
-#, fuzzy
 msgid "Continue without installing a kernel?"
-msgstr "Tohizana ve ny fametrahana?"
+msgstr "Tohizana tsy miaraka amin'ny kernel ve ?"
 
 #. Type: boolean
 #. Description
@@ -272,9 +275,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:117
-#, fuzzy
 msgid "Cannot install kernel"
-msgstr "Tsy afaka mametraka an'i Debian"
+msgstr "Tsy mety apetraka ny kernel"
 
 #. Type: error
 #. Description
@@ -285,28 +287,25 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../base-installer.templates:122
-#, fuzzy
 msgid "Unable to install ${PACKAGE}"
-msgstr "Tsy mavita mametraka an'i GRUB ao amin'ny ${BOOTDEV}"
+msgstr "Tsy mety apetraka ny fonosana ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:122
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
 msgstr ""
-"Nisy fahadisoana niverina nandritra ny andrana fametrahana ny package initrd-"
-"tools any amin'ny system tanjona."
+"Nisy fahadisoana nitraga nadritra ny fametrahana ny fonosana ${PACKAGE} "
+"aoamin'ny system tanjona."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:122
-#, fuzzy
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
-"Jereo ny /var/log/messages na ny konsoly virtoaly 3 raha mila fanazavana."
+"Jereo ny /var/log/syslog na ny konsoly virtoaly 4 raha mila fanazavana."
 
 #. Type: error
 #. Description
@@ -375,9 +374,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../base-installer.templates:174
-#, fuzzy
 msgid "Preparing to install the base system..."
-msgstr "Manomana ny fametrahana ny fototry ny system Debian..."
+msgstr "Manomana ny fametrahana ny sysem fototra ..."
 
 #. Type: text
 #. Description
@@ -418,9 +416,8 @@ msgstr "Fandraisana ny rakitra \"Packages\""
 #. Description
 #. Packages is a filename which should not be translated
 #: ../base-installer.templates:203
-#, fuzzy
 msgid "Retrieving Packages file"
-msgstr "Fandraisana ny rakitra \"Packages\""
+msgstr "Mandray ny rakitry ny fonosana "
 
 #. Type: text
 #. Description
@@ -589,9 +586,8 @@ msgstr "Mamaha ny pakajy ilaina..."
 #. SUBST0 is an archive component (main, etc)
 #. SUBST1 is a mirror
 #: ../base-installer.templates:318
-#, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
-msgstr "Mikajy ny haben'ny pakajy: ${SUBST0}..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -632,16 +628,14 @@ msgstr "Mametraka ny pakajy fototra..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:350
-#, fuzzy
 msgid "Unpacking the base system..."
-msgstr "Mametraka ny fototry ny system"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:354
-#, fuzzy
 msgid "Configuring the base system..."
-msgstr "Mametraka ny fototry ny system"
+msgstr "Manefy ny system fototra ..."
 
 #. Type: text
 #. Description
@@ -653,9 +647,8 @@ msgstr "Fototry ny system tafapetraka soa aman-tsara."
 #. Description
 #. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:363
-#, fuzzy
 msgid "Debootstrap warning"
-msgstr "Fahadisoan'i debootstrap."
+msgstr ""
 
 #. Type: error
 #. Description
