@@ -330,7 +330,18 @@ create_devices () {
 			major=$(grep "[0-9] misc$" /proc/devices | sed 's/[ ]\+misc//')
 			minor=$(grep "[0-9] device-mapper$" /proc/misc | sed 's/[ ]\+device-mapper//')
 			mknod /target/dev/mapper/control c $major $minor
+
+			# check if root is on a dm-crypt device
+			rootdev=$(mount | grep "on /target " | cut -d' ' -f1)
+			rootnode=${rootdev#/dev/mapper/}
+			if [ $rootdev != $rootnode ] && \
+			   [ $(dmsetup table $rootnode | cut -d' ' -f3) = crypt ]; then
+				major=$(dmsetup -c --noheadings info $rootnode | cut -d':' -f2)
+				minor=$(dmsetup -c --noheadings info $rootnode | cut -d':' -f3)
+				mknod /target/dev/mapper/$rootnode b $major $minor
+			fi
 		fi
+
 		if pvdisplay | grep -iq "physical volume ---"; then
 			apt-install lvm2
 			mount -t proc proc /target/proc
