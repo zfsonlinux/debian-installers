@@ -195,7 +195,6 @@ install_base_system () {
 	partsdir="/usr/lib/base-installer.d"
 	if [ -d "$partsdir" ]; then
 		tmpfile=/tmp/base-installer-hook.log
-		info "Execution hook before debootstrap"
 		for script in `ls "$partsdir"/*`; do
 			base=$(basename $script | sed 's/[0-9]*//')
 			if ! db_progress INFO base-installer/progress/$base; then
@@ -204,7 +203,6 @@ install_base_system () {
 		    	fi
 	
 		    	if [ -x "$script" ] ; then
-				info "Running $script"
 				# be careful to preserve exit code
 				if "$script" >"$tmpfile" 2>&1; then
 					:
@@ -494,7 +492,6 @@ get_resume_partition () {
 available_initramfs_generators () {
 	irf_list=""
 	db_get base-installer/kernel/linux/initramfs-generators || return 1
-	info "Possible initramfs generator(s): '$RET'"
 
 	for irf in $RET; do
 		if LANG=C chroot /target apt-cache policy $irf 2>&1 | \
@@ -659,7 +656,6 @@ EOF
 		package=initrd-tools
 		ramdiskconf=/target/etc/mkinitrd/mkinitrd.conf
 	fi
-	echo "Selected initrd generator '$package'."
 
 	# Sarge does not have any initramfs generators, though custom images may
 	if [ -z "$package" ] ; then
@@ -677,8 +673,6 @@ EOF
 	# TODO This should probably be restructured to better support
 	#      differences between initrd generators
 	if [ yes = "$do_initrd" ] ; then
-		info "Installing $package."
-
 		# Make sure the ramdisk creation tool is installed before we
 		# change its configuration
 		db_subst base-installer/section/install_kernel_package SUBST0 "$package"
@@ -752,7 +746,6 @@ EOF
 	update_progress 30 100
 
 	# Install the kernel
-	info "Installing kernel '$KERNEL'."
 	db_subst base-installer/section/install_kernel_package SUBST0 "$KERNEL"
 	db_progress INFO base-installer/section/install_kernel_package
 	log-output -t base-installer apt-install "$KERNEL" || kernel_install_failed=$?
@@ -799,7 +792,7 @@ apt_update () {
 }
 
 install_extra () {
-	info "Installing extra packages into /target/."
+	info "Installing queued packages into /target/."
 	
 	if [ -f /var/lib/apt-install/queue ] ; then
 		# We need to install these one by one in case one fails.
@@ -809,9 +802,7 @@ install_extra () {
 			db_subst base-installer/section/install_extra_package SUBST0 "$PKG"
 			db_progress INFO base-installer/section/install_extra_package
 
-			if log-output -t base-installer apt-install $PKG; then
-				info "Installed $PKG successfully into /target/"
-			else
+			if ! log-output -t base-installer apt-install $PKG; then
 				warning "Failed to install $PKG into /target/: $?"
 			fi
 
@@ -826,7 +817,6 @@ post_install_hooks () {
 	partsdir="/usr/lib/post-base-installer.d"
 	if [ -d "$partsdir" ]; then
 		tmpfile=/tmp/post-base-installer-hook.log
-		info "Running post-base-installation hooks"
 		scriptcount=`ls "$partsdir"/* | wc -l`
 		scriptcur=0
 		for script in "$partsdir"/*; do
@@ -838,7 +828,6 @@ post_install_hooks () {
 			fi
 
 			if [ -x "$script" ]; then
-				info "Running $script"
 				# be careful to preserve exit code
 				if "$script" >"$tmpfile" 2>&1; then
 					:
@@ -860,7 +849,6 @@ post_install_hooks () {
 }
 
 cleanup () {
-	info "Cleaning up"
 	rm -f $KERNEL_LIST
 }
 
