@@ -541,7 +541,12 @@ addmodule_initrd_tools () {
 }
 
 addmodule_initramfs_tools () {
-	CFILE='/target/etc/mkinitramfs/modules'
+	if [ -d /target/etc/initramfs-tools ]; then
+		CFILE='/target/etc/initramfs-tools/modules'
+	else
+		# old location
+		CFILE='/target/etc/mkinitramfs/modules'
+	fi
 	addmodule_easy "$1" "$2"
 }
 
@@ -637,24 +642,8 @@ EOF
 				package="$generators"
 			fi
 		fi
-		case "$package" in
-		    initramfs-tools)
-			ramdiskconf=/target/etc/mkinitramfs/initramfs.conf
-			;;
-		    yaird)
-			ramdiskconf=
-			;;
-		    "")
-		    	: # Allow to fall back to initrd-tools for Sarge installations
-			;;
-		    *)
-			db_subst base-installer/initramfs/unsupported GENERATOR "$package"
-			exit_error base-installer/initramfs/unsupported
-			;;
-		esac
 	else
 		package=initrd-tools
-		ramdiskconf=/target/etc/mkinitrd/mkinitrd.conf
 	fi
 
 	# Sarge does not have any initramfs generators, though custom images may
@@ -663,7 +652,6 @@ EOF
 			info "$package not available; falling back to initrd-tools."
 			do_initramfs=no
 			package=initrd-tools
-			ramdiskconf=/target/etc/mkinitrd/mkinitrd.conf
 		else
 			# We can only get here if $do_initramfs=yes
 			exit_error base-installer/initramfs/no-generator
@@ -681,6 +669,28 @@ EOF
 			db_subst base-installer/kernel/failed-package-install PACKAGE "$package"
 			exit_error base-installer/kernel/failed-package-install
 		fi
+		
+		# Figure out how to configure the ramdisk creation tool.
+		case "$package" in
+		    initramfs-tools)
+			ramdiskconf=/target/etc/mkinitramfs/initramfs.conf
+			;;
+		    yaird)
+			ramdiskconf=
+			;;
+		    initrd-tools)
+			if [ -d /target/etc/initramfs-tools ]; then
+				ramdiskconf=/target/etc/initramfs-tools/mkinitrd.conf
+			else
+				# old location
+				ramdiskconf=/target/etc/mkinitrd/mkinitrd.conf
+			fi
+			;;
+		    *)
+			db_subst base-installer/initramfs/unsupported GENERATOR "$package"
+			exit_error base-installer/initramfs/unsupported
+			;;
+		esac
 
 		# Add modules that have been queued for inclusion in the initrd
 		FIRSTMODULE=1
@@ -753,7 +763,7 @@ EOF
 	# Advance progress bar to 90% of allocated space for install_linux
 	update_progress 90 100
 
-	# /proc/filesystems will accomodate this past the second bootup.
+	# /proc/filesystems will accomodate this when the initrd is rebuilt.
 	if [ "$do_initrd" = yes ] && [ "$do_initramfs" = no ]; then
 		sed -e 's/^ROOT=.*/ROOT=probe/' $ramdiskconf > $ramdiskconf.new &&
 			mv $ramdiskconf.new $ramdiskconf
