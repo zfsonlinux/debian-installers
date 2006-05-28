@@ -191,7 +191,7 @@ bootfstype=$(findfstype /boot)
 if [ "$bootfstype" = "xfs" ]; then
 	# warn user that grub on xfs is not safe and let them back out to
 	# main menu.
-	db_input critical grub-installer/install_to_xfs
+	db_input critical grub-installer/install_to_xfs || [ $? -eq 30 ]
 	db_go || exit 10
 	db_get grub-installer/install_to_xfs
 	if [ "$RET" != true ]; then
