@@ -673,18 +673,18 @@ EOF
 		# Figure out how to configure the ramdisk creation tool.
 		case "$package" in
 		    initramfs-tools)
-			ramdiskconf=/target/etc/mkinitramfs/initramfs.conf
+			if [ -d /target/etc/initramfs-tools ]; then
+				ramdiskconf=/target/etc/initramfs-tools/mkinitrd.conf
+			else
+				# old location
+				ramdiskconf=/target/etc/mkinitramfs/initramfs.conf
+			fi
 			;;
 		    yaird)
 			ramdiskconf=
 			;;
 		    initrd-tools)
-			if [ -d /target/etc/initramfs-tools ]; then
-				ramdiskconf=/target/etc/initramfs-tools/mkinitrd.conf
-			else
-				# old location
-				ramdiskconf=/target/etc/mkinitrd/mkinitrd.conf
-			fi
+			ramdiskconf=/target/etc/mkinitrd/mkinitrd.conf
 			;;
 		    *)
 			db_subst base-installer/initramfs/unsupported GENERATOR "$package"
