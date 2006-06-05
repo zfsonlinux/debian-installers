@@ -832,6 +832,7 @@ post_install_hooks () {
 		for script in "$partsdir"/*; do
 			base="$(basename "$script" | sed 's/[0-9]*//')"
 			if ! db_progress INFO base-installer/progress/$base && \
+			   ! db_progress INFO finish-install/progress/$base && \
 			   ! db_progress INFO prebaseconfig/progress/$base; then
 				db_subst base-installer/progress/fallback SCRIPT "$base"
 				db_progress INFO base-installer/progress/fallback
