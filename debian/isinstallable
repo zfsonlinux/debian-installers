@@ -20,8 +20,10 @@ case $ARCH in
 		MANUFACTURER="$(dmidecode -s system-manufacturer)"
 		case $MANUFACTURER in
 			Apple*)
-				log "GRUB not usable on Intel-based Macs yet; use elilo"
-				exit 1
+				if [ -d /sys/firmware/efi ]; then
+					log "GRUB not usable on Intel-based Macs booted using EFI yet"
+					exit 1
+				fi
 				;;
 		esac
 		;;
