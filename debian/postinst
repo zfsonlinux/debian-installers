@@ -340,6 +340,12 @@ create_devices () {
 			fi
 		fi
 
+		# We can't check the root node directly as is done above because
+		# root could be on an LVM LV on top of an encrypted device
+		if dmsetup table | cut -d' ' -f4 | grep -q "crypt" 2>/dev/null; then
+			apt-install cryptsetup
+		fi
+
 		if pvdisplay | grep -iq "physical volume ---"; then
 			apt-install lvm2
 			mount -t proc proc /target/proc
