@@ -43,6 +43,8 @@ install: build test
 	dh_installdirs usr/lib/finish-install.d
 	install -m755 finish-install $(tmp)/usr/lib/finish-install.d/90base-installer
 
+binary-indep:
+
 binary-arch: install
 	dh_testdir
 	dh_testroot
