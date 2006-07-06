@@ -447,16 +447,20 @@ pick_kernel () {
 		WHICH_KERNEL_PRIO=medium
 	else
 		# No recommendations available; try to guess.
+		# For the generic defaults, sort the list ascending to be conservative.
+		# This avoids for example selecting an s390x kernel on an s390 machine.
+		kernels="$(echo "$kernels" | sed 's/,/\n/g' | sort)"
+
 		# Try to default to running kernel version.
 		KVERS=`uname -r | cut -d'-' -f 1`
-		KERNEL="$(echo "$kernels" | sed 's/,/\n/g' | grep -- "-$KVERS" | head -n 1)"
+		KERNEL="$(echo "$kernels" | grep -- "-$KVERS" | head -n 1)"
 		if [ -z "$KERNEL" ]; then
 			# If possible, find one with at least the same major number
 			# as the currently running kernel.
-			KERNEL="$(echo "$kernels" | sed 's/,/\n/g' | grep -- "-$KERNEL_MAJOR" | head -n 1)"
+			KERNEL="$(echo "$kernels" | grep -- "-$KERNEL_MAJOR" | head -n 1)"
 			if [ -z "$KERNEL" ]; then
 				# Take the first on the list.
-				KERNEL=$(echo "$kernels" | cut -d, -f1)
+				KERNEL=$(echo "$kernels" | head -n 1)
 			fi
 		fi
 	fi
