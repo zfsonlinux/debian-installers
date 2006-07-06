@@ -39,7 +39,6 @@ for KERNEL_MAJOR in $MAJORS; do
 	WANT_KERNEL_STEM="${WANT_KERNEL_STEM#linux-image-}"
 	export KERNEL_MAJOR
 	export KERNEL_VERSION="$(echo "$WANT_KERNEL_STEM" | cut -d - -f 1)"
-	export KERNEL_ABI="$(echo "$WANT_KERNEL_STEM" | cut -d - -f 1,2)"
 
 	# Is the correct kernel flavour selected?
 

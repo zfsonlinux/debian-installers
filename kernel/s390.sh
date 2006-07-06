@@ -15,6 +15,6 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	echo "linux-image-$KERNEL_ABI-$1"
+	echo "linux-image-$KERNEL_MAJOR-$1"
 }
 
