@@ -4,8 +4,11 @@ base-installer (1.63) UNRELEASED; urgency=low
   * Remove code for determining KERNEL_ABI from testsuite as it is now unused
     and as it is broken anyway if the first wanted kernel is a meta package.
   * Be more conservative when setting a generic default for kernel selection.
+  * Run vgscan in-target during create_devices as it needs /sys mounted; if
+    not, the kernel can get loads of ghost RAID devices in /sys/block.
+  * Avoid warnings from lvm2 tools about open file descriptors.
 
- -- Frans Pop <fjp@debian.org>  Thu,  6 Jul 2006 23:30:08 +0200
+ -- Frans Pop <fjp@debian.org>  Mon, 10 Jul 2006 23:18:55 +0200
 
 base-installer (1.62) unstable; urgency=low
 

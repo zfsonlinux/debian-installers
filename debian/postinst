@@ -24,9 +24,12 @@ CPUINFO=/proc/cpuinfo
 SPEAKUP=/proc/speakup
 KEYRING=/usr/share/keyrings/archive.gpg
 
-# Avoid debconf sending email during the base install process.
+# Avoid debconf sending email during the base install process
 DEBCONF_ADMIN_EMAIL=""
 export DEBCONF_ADMIN_EMAIL
+
+# Avoid warnings from lvm2 tools about open file descriptors
+export LVM_SUPPRESS_FD_WARNINGS=1
 
 # Variables used to set the progress bar
 export PB_POSITION=0
@@ -348,9 +351,7 @@ create_devices () {
 
 		if pvdisplay | grep -iq "physical volume ---"; then
 			apt-install lvm2
-			mount -t proc proc /target/proc
-			chroot /target vgscan --mknodes || true
-			umount /target/proc
+			in-target vgscan --mknodes || true
 		fi
 	fi
 	# UML: create ubd devices
