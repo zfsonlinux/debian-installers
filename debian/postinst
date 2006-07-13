@@ -683,17 +683,7 @@ EOF
 		
 		# Figure out how to configure the ramdisk creation tool.
 		case "$package" in
-		    initramfs-tools)
-			if [ -d /target/etc/initramfs-tools/conf.d ]; then
-				ramdiskconf=/target/etc/initramfs-tools/conf.d/resume
-			elif [ -d /target/etc/mkinitramfs/conf.d ]; then
-				ramdiskconf=/target/etc/mkinitramfs/conf.d/resume
-			else
-				# old location
-				ramdiskconf=/target/etc/mkinitramfs/initramfs.conf
-			fi
-			;;
-		    yaird)
+		    initramfs-tools|yaird)
 			ramdiskconf=
 			;;
 		    initrd-tools)
@@ -733,7 +723,7 @@ EOF
 			log-output -t base-installer apt-install "$package" || true
 		done
 
-		if [ "$do_initramfs" = no ]; then
+		if [ "$do_initramfs" = no ] && [ "$ramdiskconf" ]; then
 			# Temporarily hardcode the root partition for initrd-tools
 			rootpart_devfs=$(mount | grep "on /target " | cut -d' ' -f1)
 			rootpartfs=$(mount | grep "on /target " | cut -d' ' -f5)
@@ -747,18 +737,36 @@ EOF
 		fi
 
 		# Set up a default resume partition.
+		case $package in
+		    initramfs-tools)
+			if [ -d /target/etc/initramfs-tools/conf.d ]; then
+				resumeconf=/target/etc/initramfs-tools/conf.d/resume
+			elif [ -d /target/etc/mkinitramfs/conf.d ]; then
+				resumeconf=/target/etc/mkinitramfs/conf.d/resume
+			else
+				# old location
+				resumeconf=/target/etc/mkinitramfs/initramfs.conf
+			fi
+			;;
+		    initrd-tools)
+			resumeconf="$ramdiskconf"
+			;;
+		    *)
+			resumeconf=
+			;;
+		esac
 		resume_devfs="$(get_resume_partition)" || resume_devfs=
 		if [ "$resume_devfs" ] && [ -e "$resume_devfs" ]; then
 			resume="$(mapdevfs "$resume_devfs")" || resume=
 		else
 			resume=
 		fi
-		if [ -n "$ramdiskconf" -a "$resume" ]; then
-			if [ -f $ramdiskconf ] ; then
-				sed -e "s@^#* *RESUME=.*@RESUME=$resume@" < $ramdiskconf > $ramdiskconf.new &&
-					mv $ramdiskconf.new $ramdiskconf
+		if [ -n "$resumeconf" ] && [ "$resume" ]; then
+			if [ -f $resumeconf ] ; then
+				sed -e "s@^#* *RESUME=.*@RESUME=$resume@" < $resumeconf > $resumeconf.new &&
+					mv $resumeconf.new $resumeconf
 			else
-				echo "RESUME=$resume" >> $ramdiskconf
+				echo "RESUME=$resume" >> $resumeconf
 			fi
 		fi
 	else
@@ -777,7 +785,8 @@ EOF
 	update_progress 90 100
 
 	# /proc/filesystems will accomodate this when the initrd is rebuilt.
-	if [ "$do_initrd" = yes ] && [ "$do_initramfs" = no ]; then
+	if [ "$do_initrd" = yes ] && [ "$do_initramfs" = no ] && \
+	   [ "$ramdiskconf" ]; then
 		sed -e 's/^ROOT=.*/ROOT=probe/' $ramdiskconf > $ramdiskconf.new &&
 			mv $ramdiskconf.new $ramdiskconf
 	fi
