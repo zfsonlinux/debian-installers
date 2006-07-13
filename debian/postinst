@@ -644,25 +644,25 @@ do_initrd = $do_initrd
 link_in_boot = $link_in_boot
 EOF
 
-	package=""
+	rd_generator=""
 	if [ "$do_initramfs" = yes ]; then
 		if generators="$(available_initramfs_generators)"; then
 			if echo "$generators" | grep -q " "; then
-				package="$(select_initramfs_generator "$generators")"
+				rd_generator="$(select_initramfs_generator "$generators")"
 			else
-				package="$generators"
+				rd_generator="$generators"
 			fi
 		fi
 	else
-		package=initrd-tools
+		rd_generator=initrd-tools
 	fi
 
 	# Sarge does not have any initramfs generators, though custom images may
-	if [ -z "$package" ] ; then
+	if [ -z "$rd_generator" ] ; then
 		if [ "$DISTRIBUTION" = sarge ] ; then
-			info "$package not available; falling back to initrd-tools."
+			info "$rd_generator not available; falling back to initrd-tools."
 			do_initramfs=no
-			package=initrd-tools
+			rd_generator=initrd-tools
 		else
 			# We can only get here if $do_initramfs=yes
 			exit_error base-installer/initramfs/no-generator
@@ -674,23 +674,23 @@ EOF
 	if [ yes = "$do_initrd" ] ; then
 		# Make sure the ramdisk creation tool is installed before we
 		# change its configuration
-		db_subst base-installer/section/install_kernel_package SUBST0 "$package"
+		db_subst base-installer/section/install_kernel_package SUBST0 "$rd_generator"
 		db_progress INFO base-installer/section/install_kernel_package
-		if ! log-output -t base-installer apt-install "$package"; then
-			db_subst base-installer/kernel/failed-package-install PACKAGE "$package"
+		if ! log-output -t base-installer apt-install "$rd_generator"; then
+			db_subst base-installer/kernel/failed-package-install PACKAGE "$rd_generator"
 			exit_error base-installer/kernel/failed-package-install
 		fi
 		
 		# Figure out how to configure the ramdisk creation tool.
-		case "$package" in
+		case "$rd_generator" in
 		    initramfs-tools|yaird)
-			ramdiskconf=
+			rd_conf=
 			;;
 		    initrd-tools)
-			ramdiskconf=/target/etc/mkinitrd/mkinitrd.conf
+			rd_conf=/target/etc/mkinitrd/mkinitrd.conf
 			;;
 		    *)
-			db_subst base-installer/initramfs/unsupported GENERATOR "$package"
+			db_subst base-installer/initramfs/unsupported GENERATOR "$rd_generator"
 			exit_error base-installer/initramfs/unsupported
 			;;
 		esac
@@ -723,21 +723,21 @@ EOF
 			log-output -t base-installer apt-install "$package" || true
 		done
 
-		if [ "$do_initramfs" = no ] && [ "$ramdiskconf" ]; then
+		if [ "$do_initramfs" = no ] && [ "$rd_conf" ]; then
 			# Temporarily hardcode the root partition for initrd-tools
 			rootpart_devfs=$(mount | grep "on /target " | cut -d' ' -f1)
 			rootpartfs=$(mount | grep "on /target " | cut -d' ' -f5)
 			rootpart=$(mapdevfs $rootpart_devfs)
-			if [ -f $ramdiskconf ]; then
-				sed -e "s#^ROOT=.*#ROOT='$rootpart $rootpartfs'#" < $ramdiskconf > $ramdiskconf.new &&
-					mv $ramdiskconf.new $ramdiskconf
+			if [ -f $rd_conf ]; then
+				sed -e "s#^ROOT=.*#ROOT='$rootpart $rootpartfs'#" < $rd_conf > $rd_conf.new &&
+					mv $rd_conf.new $rd_conf
 			else
-				echo "ROOT='$rootpart $rootpartfs'" >> $ramdiskconf
+				echo "ROOT='$rootpart $rootpartfs'" >> $rd_conf
 			fi
 		fi
 
 		# Set up a default resume partition.
-		case $package in
+		case $rd_generator in
 		    initramfs-tools)
 			if [ -d /target/etc/initramfs-tools/conf.d ]; then
 				resumeconf=/target/etc/initramfs-tools/conf.d/resume
@@ -749,7 +749,7 @@ EOF
 			fi
 			;;
 		    initrd-tools)
-			resumeconf="$ramdiskconf"
+			resumeconf="$rd_conf"
 			;;
 		    *)
 			resumeconf=
@@ -786,9 +786,9 @@ EOF
 
 	# /proc/filesystems will accomodate this when the initrd is rebuilt.
 	if [ "$do_initrd" = yes ] && [ "$do_initramfs" = no ] && \
-	   [ "$ramdiskconf" ]; then
-		sed -e 's/^ROOT=.*/ROOT=probe/' $ramdiskconf > $ramdiskconf.new &&
-			mv $ramdiskconf.new $ramdiskconf
+	   [ "$rd_conf" ]; then
+		sed -e 's/^ROOT=.*/ROOT=probe/' $rd_conf > $rd_conf.new &&
+			mv $rd_conf.new $rd_conf
 	fi
 
 	if [ -f /target/etc/kernel-img.conf.$$ ]; then
