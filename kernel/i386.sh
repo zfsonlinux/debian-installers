@@ -4,9 +4,9 @@ arch_get_kernel_flavour () {
 	case "$VENDOR" in
 		" AuthenticAMD"*)
 			case "$FAMILY" in
-				" 6")	echo k7 ;;
-				" 5")	echo k6 ;;
-				*)	echo 386 ;;
+				" 6"|" 15")	echo k7 ;;
+				" 5")		echo k6 ;;
+				*)		echo 386 ;;
 			esac
 		;;
 		" GenuineIntel"|" GenuineTMx86"*)
