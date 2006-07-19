@@ -335,7 +335,7 @@ create_devices () {
 			# check if root is on a dm-crypt device
 			rootdev=$(mount | grep "on /target " | cut -d' ' -f1)
 			rootnode=${rootdev#/dev/mapper/}
-			if [ $rootdev != $rootnode ] && \
+			if [ $rootdev != $rootnode ] && type dmsetup >/dev/null 2>&1 \
 			   [ "$(dmsetup table $rootnode | cut -d' ' -f3)" = crypt ]; then
 				major="$(dmsetup -c --noheadings info $rootnode | cut -d':' -f2)"
 				minor="$(dmsetup -c --noheadings info $rootnode | cut -d':' -f3)"
