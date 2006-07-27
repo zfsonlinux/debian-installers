@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2006-05-06 18:29-0600\n"
-"PO-Revision-Date: 2006-01-23 17:48-0600\n"
+"PO-Revision-Date: 2006-07-28 00:11+0800\n"
 "Last-Translator: Tetralet <tetralet@pchome.com.tw>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
@@ -83,7 +83,7 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:30
 msgid "Not installing to unclean target"
-msgstr "拒絕安裝至未完全清空之檔案系統上"
+msgstr "不能安裝至未完全清空之檔案系統上"
 
 #. Type: error
 #. Description
@@ -143,7 +143,7 @@ msgstr "${ERROR}"
 #. Description
 #: ../base-installer.templates:68
 msgid "Tool to use to generate boot initrd:"
-msgstr "要用來建立開機 initr 的工具："
+msgstr "要用來建立開機 initrd 的工具："
 
 #. Type: select
 #. Description
@@ -154,7 +154,7 @@ msgid ""
 "installation using the other options."
 msgstr ""
 "列表中列出的是可用的工具。如果您不確定該如何抉擇，您應該使用預設值。如果您的"
-"系統無法開機，您可以再次執行安裝程式並使用其它的方式。"
+"系統無法開機，您可以再次執行安裝程式並換用其它的選項。"
 
 #. Type: error
 #. Description
@@ -170,8 +170,8 @@ msgid ""
 "However, no package to generate that initrd is available that supports your "
 "configuration. This would leave your system unable to boot."
 msgstr ""
-"為了能進行安裝而指定的 Kernel 需要 initrd 才能開機。可是，卻沒有任何的套件能"
-"夠依據您的設定來建立 initrd。這將會導致您的系統無法開機。"
+"被指定用來進行安裝的 Kernel 需要 initrd 才能開機。可是，卻沒有任何的套件能夠"
+"依據您的設定來建立 initrd。這將會導致您的系統無法開機。"
 
 #. Type: error
 #. Description
@@ -226,7 +226,7 @@ msgstr "要安裝的 Kernel："
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
-msgstr "在列表中的則為可用的 Kernel。請選擇其中之一來讓系統可以從硬碟開機。"
+msgstr "在列表中的是可用的 Kernel。請選擇其中之一來讓系統可以從硬碟開機。"
 
 #. Type: boolean
 #. Description
@@ -288,7 +288,7 @@ msgstr "請查看 /var/log/syslog 或是第四個虛擬主控台來獲得詳細�
 #. SUBST0 is a Release file name.
 #: ../base-installer.templates:131
 msgid "Failed getting Release file ${SUBST0}."
-msgstr "無法取得 Release 檔案 ${SUBST0}。"
+msgstr "無法取得 Release 檔 ${SUBST0}。"
 
 #. Type: error
 #. Description
@@ -302,20 +302,20 @@ msgstr "無法取得 Release 的簽名檔 ${SUBST0}。"
 #. SUBST0 is a gpg key ID
 #: ../base-installer.templates:143
 msgid "Release file signed by unknown key (key id ${SUBST0})"
-msgstr "Release 檔案的簽名所使用的金鑰不明 (鍵值 ${SUBST0})"
+msgstr "Release 檔的簽名所使用的金鑰不明 (鍵值 ${SUBST0})"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:148
 msgid "Invalid Release file: no valid components."
-msgstr "不正確的 Release 檔案：沒有可用的元件。"
+msgstr "不正確的 Release 檔：沒有可用的元件。"
 
 #. Type: error
 #. Description
 #. SUBST0 is a filename
 #: ../base-installer.templates:154
 msgid "Invalid Release file: no entry for ${SUBST0}."
-msgstr "不正確的 Release 檔案：沒有 ${SUBST0} 項目。"
+msgstr "不正確的 Release 檔：沒有 ${SUBST0} 項目。"
 
 #. Type: error
 #. Description
@@ -346,7 +346,7 @@ msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
 msgstr ""
-"如果您是使用 CD-R 或是 CD-RW 來進行安裝的，以較低倍速來燒錄該光碟也許有助於解"
+"如果您是藉由 CD-R 或是 CD-RW 來進行安裝的，以較低倍速來燒錄該光碟也許有助於解"
 "決這個問題。"
 
 #. Type: text
@@ -366,7 +366,7 @@ msgstr "正在執行 ${SCRIPT}..."
 #. Release is a filename which should not be translated
 #: ../base-installer.templates:183
 msgid "Retrieving Release file"
-msgstr "正在接收 Release 檔案"
+msgstr "正在接收 Release 檔"
 
 #. Type: text
 #. Description
@@ -504,7 +504,7 @@ msgstr "正在設定 ${SUBST0}..."
 #. Release is a filename which should not be translated
 #: ../base-installer.templates:283
 msgid "Checking Release signature"
-msgstr "正在確認 Release 簽名"
+msgstr "正在檢驗 Release 簽名"
 
 #. Type: text
 #. Description
@@ -512,7 +512,7 @@ msgstr "正在確認 Release 簽名"
 #. Release is a filename which should not be translated
 #: ../base-installer.templates:289
 msgid "Valid Release signature (key id ${SUBST0})"
-msgstr "不正確的 Release 簽名 (鍵值 ${SUBST0})"
+msgstr "有效的 Release 簽名 (鍵值 ${SUBST0})"
 
 #. Type: text
 #. Description
@@ -653,7 +653,7 @@ msgstr "正在安裝額外的套件..."
 #. SUBST0 is a package name
 #: ../base-installer.templates:386
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
-msgstr "正在安裝額外的套件 - 正在接收並安裝 ${SUBST0}..."
+msgstr "安裝額外的套件 - 正在接收並安裝 ${SUBST0}..."
 
 #. Type: text
 #. Description
@@ -678,7 +678,7 @@ msgstr "正在安裝 Kernel..."
 #. SUBST0 is a package name
 #: ../base-installer.templates:403
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
-msgstr "正在安裝 Kernel - 正在接收並安裝 ${SUBST0}..."
+msgstr "安裝 Kernel - 正在接收並安裝 ${SUBST0}..."
 
 #. Type: text
 #. Description
