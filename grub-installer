@@ -366,13 +366,38 @@ rm -f $ROOT/boot/grub/menu.lst
 update_grub
 
 # Set up a password if asked.
-db_input low grub-installer/password || true
-if ! db_go; then
-	# back up to menu
+while [ 1 ]; do
+    db_set grub-installer/password ""
+    db_set grub-installer/password-again ""
+    db_input low grub-installer/password || true
+    db_input low grub-installer/password-again || true
+    if ! db_go; then
+        # back up to menu
 	db_progress STOP
 	exit 10
-fi
-db_get grub-installer/password
+    fi
+    db_get grub-installer/password
+    if [ "$RET" ]; then
+	PW="$RET"
+	db_get grub-installer/password-again
+	if [ "$RET" ]; then
+	    if [ $RET != "$PW" ]; then
+		db_input critical grub-installer/password-mismatch || true
+		if ! db_go; then
+                    # back up to menu
+		    db_progress STOP
+		    exit 10
+		fi
+	    else 
+		RET="$PW"
+		break
+	    fi
+	fi
+    else
+	break
+    fi
+done
+
 if [ "$RET" ]; then
 	password="$RET"
 	# check if the password is crypted
