@@ -37,7 +37,7 @@ fi
 
 if ! log-output -t grub-installer chroot /target /sbin/grub-install --recheck $floppyparam "$bootdev"; then
 	db_subst grub-installer/grub-install-failed BOOTDEV "$bootdev"
-	db_input critical grub-installer/grub-install-failed BOOTDEV "$bootdev"
+	db_input critical grub-installer/grub-install-failed || true
 	db_go || true
 	db_progress STOP
 	exit 1
