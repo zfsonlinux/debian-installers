@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dz\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-11 18:34-0700\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2006-08-14 22:51+0000\n"
 "PO-Revision-Date: 2006-04-28 18:02+0530\n"
 "Last-Translator: \n"
 "Language-Team: Dzongkha <pgeyleg@dit.gov.bt>\n"
@@ -170,15 +170,43 @@ msgstr ""
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "ཁྱོད་ཀྱིས་GRUB ཆོག་ཡིག་གཞི་སྒྲིག་འབད་ནི་ལུ་རེ་འདོད་མེད་པ་ཅིན་ ས་སྒོ་འདི་སྟོངམ་བཞག།"
 
+#. Type: password
+#. Description
+#: ../grub-installer.templates:66
+msgid "Re-enter GRUB password to verify:"
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../grub-installer.templates:66
+msgid ""
+"Please enter the same GRUB password again to verify you have typed it "
+"correctly."
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../grub-installer.templates:72
+msgid "Password mismatch"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../grub-installer.templates:72
+msgid ""
+"The two passwords you entered were not the same. Please enter a password "
+"again."
+msgstr ""
+
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:73
+#: ../grub-installer.templates:85
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "GRUB གཞི་བཙུགས་འབད་ནི་ལུ་འཐུས་ཤོར་འབྱུང་ཡོདཔ། གང་རུང་སྦེ་འཕྲོ་མཐུད་འབད?"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:73
+#: ../grub-installer.templates:85
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -191,86 +219,86 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:80
+#: ../grub-installer.templates:92
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "${BOOTDEV} ནང་ GRUB གཞི་བཙུགས་ནི་ལུ་མི་ཚུགས་པ།"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:80
+#: ../grub-installer.templates:92
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "'grub-install ${BOOTDEV}'ལག་ལེན་འཐབ་ནི་ལུ་འཐུས་ཤོར་བྱུང་ཡོདཔ།"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:87
+#: ../grub-installer.templates:99
 msgid "Unable to configure GRUB"
 msgstr "GRUB གཞི་སྒྲིག་འབད་ནི་ལུ་མི་ཚུགས་པ།"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:87
+#: ../grub-installer.templates:99
 msgid "Executing 'update-grub' failed."
 msgstr "'update-grub'ལག་ལེན་འཐབ་ནི་ལུ་འཐུས་ཤོར་བྱུང་ཡོདཔ།"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:87
+#: ../grub-installer.templates:99
 msgid "This is a fatal error."
 msgstr "འདི་འཚུབ་ཆེན་འཛོལ་བ་ཨིན།"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:94
+#: ../grub-installer.templates:106
 msgid "Installing GRUB boot loader"
 msgstr "GRUB བུཊི་མངོན་གསལ་པ་གཞི་བཙུགས་འབད་དོ།"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:98
+#: ../grub-installer.templates:110
 msgid "Looking for other operating systems..."
 msgstr "གཞན་བཀལ་སྤྱོད་འབད་ནིའི་རིམ་ལུགས་ཚུ་གི་དོན་ལུ་བལྟ་དོ།"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:102
+#: ../grub-installer.templates:114
 msgid "Installing the 'grub' package..."
 msgstr "'grub'ཐུམ་སྒྲིལ་འདི་གཞི་བཙུགས་འབད་དོ།"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:118
 msgid "Determining GRUB boot device..."
 msgstr "GRUB བུཏི་ཐབས་འཕྲུལ་གཏན་འབེབས་བཟོ་དོ།"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:110
+#: ../grub-installer.templates:122
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "\"grub-install ${BOOTDEV}\"...གཡོག་བཀོལ་བའི་བསྒང་།"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:114
+#: ../grub-installer.templates:126
 msgid "Running \"update-grub\"..."
 msgstr "\"update-grub\"...གཡོག་བཀོལ་བའི་བསྒང་།"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:118
+#: ../grub-installer.templates:130
 msgid "Updating /etc/kernel-img.conf..."
 msgstr " /etc/kernel-img.conf...དུས་མཐུན་བཟོ་དོ།"
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:123
+#: ../grub-installer.templates:135
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "ཧརཌི་ཌིཀསི་འདི་ལུ་ GRUB་བུཊི་མངོན་གསལ་པ་འདི་གཞི་བཙུགས་འབད།"
 
 #. Type: text
 #. Description
 #. Rescue menu item
-#: ../grub-installer.templates:128
+#: ../grub-installer.templates:140
 msgid "Reinstall GRUB boot loader"
 msgstr "GRUB བུཊི་མངོན་གསལ་པ་ལོག་གཞི་བཙུགས་འབད།"

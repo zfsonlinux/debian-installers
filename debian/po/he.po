@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-11 18:34-0700\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2006-08-14 22:51+0000\n"
 "PO-Revision-Date: 2005-07-12 19:37+0300\n"
 "Last-Translator: Lior Kaplan <webmaster@guides.co.il>\n"
 "Language-Team: Debian l10n Hebrew <webmaster@guides.co.il>\n"
@@ -162,15 +162,43 @@ msgstr ""
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "אם אינך רוצה לקבוע סיסמת GRUB, השאר את הדה ריק."
 
+#. Type: password
+#. Description
+#: ../grub-installer.templates:66
+msgid "Re-enter GRUB password to verify:"
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../grub-installer.templates:66
+msgid ""
+"Please enter the same GRUB password again to verify you have typed it "
+"correctly."
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../grub-installer.templates:72
+msgid "Password mismatch"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../grub-installer.templates:72
+msgid ""
+"The two passwords you entered were not the same. Please enter a password "
+"again."
+msgstr ""
+
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:73
+#: ../grub-installer.templates:85
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "התקנת GRUB נכשלה. להמשיך בכל זאת?"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:73
+#: ../grub-installer.templates:85
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -181,87 +209,87 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:80
+#: ../grub-installer.templates:92
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "לא ניתן להתקין את GRUB ב-${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:80
+#: ../grub-installer.templates:92
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "הרצת 'grub-install ${BOOTDEV}' נכשלה"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:87
+#: ../grub-installer.templates:99
 msgid "Unable to configure GRUB"
 msgstr "לא מצליח להגדיר את GRUB"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:87
+#: ../grub-installer.templates:99
 msgid "Executing 'update-grub' failed."
 msgstr "הרצת 'update-grub' נכשלה."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:87
+#: ../grub-installer.templates:99
 msgid "This is a fatal error."
 msgstr "זאת שגיאה קטלנית"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:94
+#: ../grub-installer.templates:106
 msgid "Installing GRUB boot loader"
 msgstr "מתקין את מנהל האתחול GRUB"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:98
+#: ../grub-installer.templates:110
 msgid "Looking for other operating systems..."
 msgstr "מחפש מערכות הפעלה אחרות..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:102
+#: ../grub-installer.templates:114
 msgid "Installing the 'grub' package..."
 msgstr "מתקין את החבילה 'grub'..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:118
 msgid "Determining GRUB boot device..."
 msgstr "קובע את רכיב האתחול של GRUB..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:110
+#: ../grub-installer.templates:122
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "מריץ \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:114
+#: ../grub-installer.templates:126
 msgid "Running \"update-grub\"..."
 msgstr "מריץ \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:118
+#: ../grub-installer.templates:130
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "מעדכן את /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:123
+#: ../grub-installer.templates:135
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "התקנת מנהל האתחול GRUB על הדיסק הקשיח"
 
 #. Type: text
 #. Description
 #. Rescue menu item
-#: ../grub-installer.templates:128
+#: ../grub-installer.templates:140
 #, fuzzy
 msgid "Reinstall GRUB boot loader"
 msgstr "מתקין את מנהל האתחול GRUB"
