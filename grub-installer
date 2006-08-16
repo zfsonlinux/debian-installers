@@ -337,26 +337,30 @@ info "Installing grub on '$bootdev'"
 
 update_mtab
 
-if ! is_floppy "$bootdev"; then
-	if $chroot $ROOT /sbin/grub-install -h 2>&1 | grep -q no-floppy; then
-		info "grub-install supports --no-floppy"
-		floppyparam="--no-floppy"
-	else
-		info "grub-install does not support --no-floppy"
+# Install grub on each space separated disk in the list
+bootdevs="$bootdev"
+for bootdev in $bootdevs; do
+	if ! is_floppy "$bootdev"; then
+		if $chroot $ROOT /sbin/grub-install -h 2>&1 | grep -q no-floppy; then
+			info "grub-install supports --no-floppy"
+			floppyparam="--no-floppy"
+		else
+			info "grub-install does not support --no-floppy"
+		fi
 	fi
-fi
 
-info "Running $chroot $ROOT /sbin/grub-install --recheck $floppyparam \"$bootdev\""
-if log-output -t grub-installer $chroot $ROOT /sbin/grub-install --recheck $floppyparam "$bootdev"; then
-	info "grub-install ran successfully"
-else
-	error "Running 'grub-install --recheck $floppyparam \"$bootdev\"' failed."
-	db_subst grub-installer/grub-install-failed BOOTDEV "$bootdev"
-	db_input critical grub-installer/grub-install-failed || [ $? -eq 30 ]
-	db_go || true
-	db_progress STOP
-	exit 1
-fi
+	info "Running $chroot $ROOT /sbin/grub-install --recheck $floppyparam \"$bootdev\""
+	if log-output -t grub-installer $chroot $ROOT /sbin/grub-install --recheck $floppyparam "$bootdev"; then
+		info "grub-install ran successfully"
+	else
+		error "Running 'grub-install --recheck $floppyparam \"$bootdev\"' failed."
+		db_subst grub-installer/grub-install-failed BOOTDEV "$bootdev"
+		db_input critical grub-installer/grub-install-failed || [ $? -eq 30 ]
+		db_go || true
+		db_progress STOP
+		exit 1
+	fi
+done
 
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_config_loader
