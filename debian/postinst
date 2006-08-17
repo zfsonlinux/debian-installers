@@ -251,12 +251,19 @@ install_base_system () {
 }
 
 configure_apt () {
+	[ ! -d /target/etc/apt/apt.conf.d ] && mkdir -p /target/etc/apt/apt.conf.d
+	
+	# Make apt trust Debian CDs. This is not on by default (we think).
+	# This will be left in place on the installed system.
+	cat > /target/etc/apt/apt.conf.d/00trustcdrom <<EOT
+APT::Authentication::TrustCDROM "true";
+EOT
+
 	# Avoid clock skew causing gpg verification issues.
 	# This file will be left in place until the end of the install.
 	cat > /target/etc/apt/apt.conf.d/00IgnoreTimeConflict << EOT
 Acquire::gpgv::Options { "--ignore-time-conflict"; };
 EOT
-
 	# let apt inside the chroot see the cdrom
 	if [ "$PROTOCOL" = file ] ; then
 		if [ -n "$DIRECTORY" ]; then
@@ -287,12 +294,11 @@ EOT
 	COMPONENTS=`echo $COMPONENTS | tr , " "`
 	APTSOURCE="$PROTOCOL://$MIRROR$DIRECTORY"
 
-	[ ! -d /target/etc/apt ] && mkdir -p /target/etc/apt
 	# This assumes the file protocol is only used for CD (image) installs
 	if [ "$PROTOCOL" = file ] ; then
 		# Make apt-cdrom and apt not unmount/mount CD-ROMs;
 		# needed to support CD images (hd-media installs)
-		[ ! -d /target/etc/apt/apt.conf.d ] && mkdir -p /target/etc/apt/apt.conf.d
+		# This file will be left in place until the end of the install.
 		cat > /target/etc/apt/apt.conf.d/00NoMountCDROM << EOT
 APT::CDROM::NoMount "true";
 Acquire::cdrom {
@@ -310,12 +316,6 @@ EOT
 		fi
 	else
 		echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
-	fi
-
-	# Make apt trust Debian CDs. This is not on by default (we think).
-	if [ ! -e /target/etc/apt/apt.conf ] || \
-	   ! grep -iq 'APT::Authentication::TrustCDROM' /target/etc/apt/apt.conf; then
-		echo "APT::Authentication::TrustCDROM \"true\";" >> /target/etc/apt/apt.conf
 	fi
 }
 
