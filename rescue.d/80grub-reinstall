@@ -30,12 +30,12 @@ db_progress INFO grub-installer/progress/step_install_loader
 update_mtab
 
 if ! is_floppy "$bootdev"; then
-	if chroot /target /sbin/grub-install -h 2>&1 | grep -q no-floppy; then
+	if chroot /target grub-install -h 2>&1 | grep -q no-floppy; then
 		floppyparam="--no-floppy"
 	fi
 fi
 
-if ! log-output -t grub-installer chroot /target /sbin/grub-install --recheck $floppyparam "$bootdev"; then
+if ! log-output -t grub-installer chroot /target grub-install --recheck $floppyparam "$bootdev"; then
 	db_subst grub-installer/grub-install-failed BOOTDEV "$bootdev"
 	db_input critical grub-installer/grub-install-failed || true
 	db_go || true

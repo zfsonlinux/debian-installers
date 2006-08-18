@@ -173,7 +173,7 @@ hurd_convert () {
 
 # Run update-grub in $ROOT.
 update_grub () {
-	if ! log-output -t grub-installer $chroot $ROOT /sbin/update-grub -y ; then
+	if ! log-output -t grub-installer $chroot $ROOT update-grub -y ; then
 		error "Running 'update-grub -y' failed." 1>&2
 		db_input critical grub-installer/update-grub-failed || [ $? -eq 30 ]
 		db_go || true
@@ -341,7 +341,7 @@ update_mtab
 bootdevs="$bootdev"
 for bootdev in $bootdevs; do
 	if ! is_floppy "$bootdev"; then
-		if $chroot $ROOT /sbin/grub-install -h 2>&1 | grep -q no-floppy; then
+		if $chroot $ROOT grub-install -h 2>&1 | grep -q no-floppy; then
 			info "grub-install supports --no-floppy"
 			floppyparam="--no-floppy"
 		else
@@ -349,8 +349,8 @@ for bootdev in $bootdevs; do
 		fi
 	fi
 
-	info "Running $chroot $ROOT /sbin/grub-install --recheck $floppyparam \"$bootdev\""
-	if log-output -t grub-installer $chroot $ROOT /sbin/grub-install --recheck $floppyparam "$bootdev"; then
+	info "Running $chroot $ROOT grub-install --recheck $floppyparam \"$bootdev\""
+	if log-output -t grub-installer $chroot $ROOT grub-install --recheck $floppyparam "$bootdev"; then
 		info "grub-install ran successfully"
 	else
 		error "Running 'grub-install --recheck $floppyparam \"$bootdev\"' failed."
@@ -558,8 +558,8 @@ db_progress INFO grub-installer/progress/step_update_etc
 sed -e 's/do_bootloader = yes/do_bootloader = no/' < $ROOT/etc/kernel-img.conf > $ROOT/etc/kernel-img.conf.$$
 if [ -z "`grep update-grub $ROOT/etc/kernel-img.conf.$$`" ]; then
 	(
-		echo "postinst_hook = /sbin/update-grub"
-		echo "postrm_hook   = /sbin/update-grub"
+		echo "postinst_hook = update-grub"
+		echo "postrm_hook   = update-grub"
 	) >> $ROOT/etc/kernel-img.conf.$$
 fi
 mv $ROOT/etc/kernel-img.conf.$$ $ROOT/etc/kernel-img.conf
