@@ -11,6 +11,7 @@ arch_get_kernel_flavour () {
 arch_check_usable_kernel () {
 	# Generic kernels can be run on any machine.
 	if expr "$1" : '.*-amd64-generic.*' >/dev/null; then return 0; fi
+	if expr "$1" : '.*-amd64' >/dev/null; then return 0; fi
 
 	# K8 and P4 kernels require that machine.
 	case "$2" in
@@ -30,25 +31,14 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	if [ -n "$NUMCPUS" ] && [ "$NUMCPUS" -gt 1 ]; then
-		SMP=-smp
-	else
-		SMP=
-	fi
-
 	if [ "$1" = amd64-k8 ]; then
-		if [ "$SMP" ]; then
-			echo "linux-image-$KERNEL_MAJOR-amd64-k8$SMP"
-		fi
 		echo "linux-image-$KERNEL_MAJOR-amd64-k8"
 		set amd64-generic
 	fi
 	if [ "$1" = em64t-p4 ]; then
-		if [ "$SMP" ]; then
-			echo "linux-image-$KERNEL_MAJOR-em64t-p4$SMP"
-		fi
 		echo "linux-image-$KERNEL_MAJOR-em64t-p4"
 		set amd64-generic
 	fi
 	echo "linux-image-$KERNEL_MAJOR-amd64-generic"
+	echo "linux-image-$KERNEL_MAJOR-amd64"
 }

@@ -6,8 +6,14 @@ base-installer (1.66) UNRELEASED; urgency=low
 
   [ Frans Pop ]
   * Activate initramfs for IA64. Closes: #383557.
+  * Various changes in kernel selection for i386/amd64:
+    - no longer support SMP in defaults as this is no longer needed with
+      smp-alternatives enabled for 2.6.17 and this never worked anyway
+    - remove smp specific tests in kernel selection testsuite
+    - i386: speakup kernel was 2.4 only, so no longer supported
+    - amd64: add support for new generic -amd64 flavor
 
- -- Frans Pop <fjp@debian.org>  Fri, 18 Aug 2006 02:42:30 +0200
+ -- Frans Pop <fjp@debian.org>  Sun, 20 Aug 2006 00:48:25 +0200
 
 base-installer (1.65) unstable; urgency=low
 
