@@ -11,6 +11,8 @@ MIRROR=
 DIRECTORY=
 COMPONENTS=
 DISTRIBUTION=
+INCLUDES=
+EXCLUDES=
 KERNEL=
 KERNEL_LIST=/tmp/available_kernels.txt
 KERNEL_MAJOR="$(uname -r | cut -d . -f 1,2)"
@@ -122,13 +124,12 @@ get_mirror_info () {
 		else
 			COMPONENTS="*"
 		fi
-		# only take notice of the base_{in,ex}clude files if the values have not been preseeded
-		if ! { db_fget base_installer/base_includes seen && [ true = $RET ];} && [ -s /cdrom/.disk/base_include ]; then
-			db_set base_installer/base_includes $(grep -v '^#' /cdrom/.disk/base_include | tr '\n' , | sed 's/,$//')
+		if [ -s /cdrom/.disk/base_include ]; then
+			INCLUDES=`grep -v '^#' /cdrom/.disk/base_include | tr '\n' , | sed 's/,$//'`
 		fi
-
-		if ! { db_fget base_installer/base_excludes seen && [ true = $RET ];} && [ -s /cdrom/.disk/base_exclude ]; then
-			db_set base_installer/base_excludes $(grep -v '^#' /cdrom/.disk/base_exclude | tr '\n' , | sed 's/,$//')
+			
+		if [ -s /cdrom/.disk/base_exclude ]; then
+			EXCLUDES=`grep -v '^#' /cdrom/.disk/base_exclude | tr '\n' , | sed 's/,$//'`
 		fi
 
 		# Sanity check: an error reading /cdrom/.disk/base_components can cause
@@ -165,11 +166,11 @@ get_mirror_info () {
 install_base_system () {
 	db_progress INFO base-installer/progress/preparing
 
-	if db_get base_installer/base_includes && [ "$RET" ]; then
-		include="--include=$RET"
+	if [ "${INCLUDES}" ]; then
+		include="--include=${INCLUDES}"
 	fi
-	if db_get base_installer/base_excludes && [ "$RET" ]; then
-		exclude="--exclude=$RET"
+	if [ "${EXCLUDES}" ]; then
+		exclude="--exclude=${EXCLUDES}"
 	fi
 	if type gpgv >/dev/null && [ -f "$KEYRING" ]; then
 		keyring="--keyring=${KEYRING}"
