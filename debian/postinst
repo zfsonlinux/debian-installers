@@ -708,12 +708,12 @@ EOF
 		done
 
 		# Install any extra (kernel related) packages
+		EXTRAS=
 		if db_get "base-installer/kernel/linux/extra-packages-$target_kernel_major"; then
-			EXTRAS="$RET"
-		elif db_get base-installer/kernel/linux/extra-packages; then
-			EXTRAS="$RET"
-		else
-			EXTRAS=
+			EXTRAS="$EXTRAS $RET"
+		fi
+		if db_get base-installer/kernel/linux/extra-packages; then
+			EXTRAS="$EXTRAS $RET"
 		fi
 		for package in $EXTRAS; do
 			info "Installing $package."
