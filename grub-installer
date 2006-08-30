@@ -188,6 +188,22 @@ findfstype () {
 
 bootfstype=$(findfstype /boot)
 [ -n "$bootfstype" ] || bootfstype="$(findfstype /)"
+
+# GRUB Legacy defaults
+grub_version="grub"
+menu_file="menu.lst"
+
+# reiserfs is the only filesystem that d-i supports and grub2 doesn't yet
+if [ "$bootfstype" != "reiserfs" ]; then
+  db_input low grub-installer/grub2_instead_of_grub_legacy || [ $? -eq 30 ]
+  db_go || true
+  db_get grub-installer/grub2_instead_of_grub_legacy
+  if [ "$RET" = true ]; then
+    grub_version="grub2"
+    menu_file="grub.cfg"
+  fi
+fi
+
 if [ "$bootfstype" = "xfs" ]; then
 	# warn user that grub on xfs is not safe and let them back out to
 	# main menu.
@@ -203,8 +219,13 @@ db_progress START 0 6 grub-installer/progress/title
 
 db_progress INFO grub-installer/progress/step_install
 
-if ! apt-install grub ; then
-	info "Calling 'apt-install grub' failed"
+# apt-install passes --no-remove to apt, but grub{,2} conflict each other, so
+# we need to purge them first to support users who try grub2 and then switch
+# to grub legacy, or vice-versa.
+log-output -t grub-installer $chroot $ROOT dpkg -P grub grub2
+
+if ! apt-install ${grub_version} ; then
+	info "Calling 'apt-install ${grub_version}' failed"
 	# Hm, unable to install grub into $ROOT/, what should we do?
 	db_input critical grub-installer/apt-install-failed || [ $? -eq 30 ]
 	if ! db_go; then
@@ -366,7 +387,7 @@ db_progress STEP 1
 db_progress INFO grub-installer/progress/step_config_loader
 
 # Delete for idempotency.
-rm -f $ROOT/boot/grub/menu.lst
+rm -f $ROOT/boot/grub/${menu_file}
 update_grub
 
 # Set up a password if asked.
@@ -389,11 +410,11 @@ if [ "$RET" ]; then
 	# Add a line to menu.lst to use the given password
 	# The line is appended after the commented example
 	sed '/^# password/r /tmp/menu.lst.password' \
-		< $ROOT/boot/grub/menu.lst > $ROOT/boot/grub/menu.lst.new
-	mv $ROOT/boot/grub/menu.lst.new $ROOT/boot/grub/menu.lst
+		< $ROOT/boot/grub/${menu_file} > $ROOT/boot/grub/${menu_file}.new
+	mv $ROOT/boot/grub/${menu_file}.new $ROOT/boot/grub/${menu_file}
 	# By default, menu.lst is world-readable, which is not so good if it
 	# contains a password.
-	chmod o-r $ROOT/boot/grub/menu.lst
+	chmod o-r $ROOT/boot/grub/${menu_file}
 	rm -f /tmp/menu.lst.password
 fi 
 
@@ -401,8 +422,8 @@ user_params=$(echo $(user-params)) || true
 if [ -n "$user_params" ]; then
 	# Modify menu.lst to include user parameters.
 	sed "s!^\(# kopt=.*\)!\1 $user_params!" \
-		< $ROOT/boot/grub/menu.lst > $ROOT/boot/grub/menu.lst.new
-	mv $ROOT/boot/grub/menu.lst.new $ROOT/boot/grub/menu.lst
+		< $ROOT/boot/grub/${menu_file} > $ROOT/boot/grub/${menu_file}.new
+	mv $ROOT/boot/grub/${menu_file}.new $ROOT/boot/grub/${menu_file}
 	update_grub # again, to add new options to all the Debian kernel entries
 fi
 
@@ -424,37 +445,48 @@ for os in $(cat /tmp/os-probed); do
 
 # This entry automatically added by the Debian installer for a non-linux OS
 # on $partition
+EOF
+				if [ "${grub_version}" = "grub" ] ; then
+					cat >> $tmpfile <<EOF
 title		$title
 root		$grubdrive
 savedefault
 EOF
-				# Only set makeactive if grub is installed
-				# in the mbr.
-				if [ "$bootdev" = "(hd0)" ]; then
-					cat >> $tmpfile <<EOF
+					# Only set makeactive if grub is installed
+					# in the mbr.
+					if [ "$bootdev" = "(hd0)" ] ; then
+						cat >> $tmpfile <<EOF
 makeactive
 EOF
-				fi
-				# DOS/Windows can't deal with booting from a
-				# non-first hard drive.
-				case $shortname in
-					MS*|Win*)
-						grubdisk="$(echo "$grubdrive" | sed 's/^(//; s/)$//; s/,.*//')"
-						case $grubdisk in
-							hd0)	;;
-							hd*)
-								cat >> $tmpfile <<EOF
+					fi
+					# DOS/Windows can't deal with booting from a
+					# non-first hard drive.
+					case $shortname in
+						MS*|Win*)
+							grubdisk="$(echo "$grubdrive" | sed 's/^(//; s/)$//; s/,.*//')"
+							case $grubdisk in
+								hd0)	;;
+								hd*)
+									cat >> $tmpfile <<EOF
 map		(hd0) ($grubdisk)
 map		($grubdisk) (hd0)
 EOF
-								;;
-						esac
-						;;
-				esac
-				cat >> $tmpfile <<EOF
+									;;
+							esac
+							;;
+					esac
+					cat >> $tmpfile <<EOF
 chainloader	+1
 
 EOF
+				else # grub2
+					cat >> $tmpfile <<EOF
+menuentry "$title" {
+	set root=$grubdrive
+	chainloader +1
+}
+EOF
+				fi
 			fi
 		;;
 		linux)
@@ -488,20 +520,39 @@ EOF
 
 # This entry automatically added by the Debian installer for an existing
 # linux installation on $mappedpartition.
+EOF
+				if [ "${grub_version}" = "grub" ] ; then
+					cat >> $tmpfile <<EOF
 title		$label (on $mappedpartition)
 root		$grubdrive
 kernel		$kernel $params
 EOF
-				if [ -n "$initrd" ]; then
-					cat >> $tmpfile <<EOF
+					if [ -n "$initrd" ]; then
+						cat >> $tmpfile <<EOF
 initrd		$initrd
 EOF
-				fi
-				cat >> $tmpfile <<EOF
+					fi
+					cat >> $tmpfile <<EOF
 savedefault
 boot
 
 EOF
+				else # grub2
+					cat >> $tmpfile <<EOF
+menuentry "$label (on $mappedpartition)" {
+	set root=$grubdrive
+	linux $kernel $params
+EOF
+					if [ -n "$initrd" ]; then
+						cat >> $tmpfile <<EOF
+	initrd $initrd
+EOF
+					fi
+					cat >> $tmpfile <<EOF
+}
+
+EOF
+				fi
 				IFS="$newline"
 			done
 			IFS="$OLDIFS"
@@ -515,6 +566,9 @@ EOF
 
 # This entry automatically added by the Debian installer for an existing
 # hurd installation on $partition.
+EOF
+			if [ "${grub_version}" = "grub" ] ; then
+				cat >> $tmpfile <<EOF
 title		$title (on $partition)
 root		$grubdrive
 kernel		/boot/gnumach.gz root=device:$hurddrive
@@ -529,6 +583,22 @@ savedefault
 boot
 
 EOF
+			else
+				cat >> $tmpfile <<EOF
+menuentry "$title (on $partition)" {
+	set root=$grubdrive
+	multiboot /boot/gnumach.gz root=device:$hurddrive
+	module /hurd/ext2fs.static --readonly \\
+			--multiboot-command-line=\${kernel-command-line} \\
+			--host-priv-port=\${host-port} \\
+			--device-master-port=\${device-port} \\
+			--exec-server-task=\${exec-task} -T typed \${root} \\
+			\$(task-create) \$(task-resume)
+	module /lib/ld.so.1 /hurd/exec \$(exec-task=task-create)
+}
+
+EOF
+			fi
 		;;
 		*)
 			info "unhandled: $os"
@@ -539,8 +609,9 @@ done
 IFS="$OLDIFS"
 rm -f /tmp/os-probed
 
-if [ -s $tmpfile ]; then
-	cat >> $ROOT/boot/grub/menu.lst << EOF
+if [ -s $tmpfile ] ; then
+	if [ "${grub_version}" = "grub" ] ; then
+		cat >> $ROOT/boot/grub/${menu_file} << EOF
 
 # This is a divider, added to separate the menu items below from the Debian
 # ones.
@@ -548,7 +619,8 @@ title		Other operating systems:
 root
 
 EOF
-	cat $tmpfile >> $ROOT/boot/grub/menu.lst
+	fi
+	cat $tmpfile >> $ROOT/boot/grub/${menu_file}
 	rm -f $tmpfile
 fi
 
