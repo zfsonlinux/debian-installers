@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: Debian-installer 1st-stage master file HR\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2006-08-30 10:57+0000\n"
-"PO-Revision-Date: 2005-03-05 21:51+0100\n"
-"Last-Translator: Krunoslav Gernhard <kruno@linux.hr>\n"
+"PO-Revision-Date: 2006-09-25 23:55+0200\n"
+"Last-Translator: Josip Rodin <joy+ditrans@linux.hr>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,44 +29,40 @@ msgstr "Nastaviti instalaciju na nečisto odredište?"
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:4
-#, fuzzy
 msgid ""
 "The target file system contains files from a past installation. These files "
 "could cause problems with the installation process, and if you proceed, some "
 "of the existing files may be overwritten."
 msgstr ""
 "Odredišni datotečni sustav sadrži datoteke iz prošle instalacije. Te "
-"datoteke mogle bi prekinuti postupak instaliranja ili prouzročiti "
-"neispravnosti sustava nakon instalacije."
+"datoteke bi mogle prouzročiti probleme u postupku instaliranja, a ako "
+"nastavite, neke od postojećih datoteka bi mogle biti prebrisane."
 
 #. Type: error
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 #: ../base-installer.templates:13
-#, fuzzy
 msgid "Cannot install base system"
-msgstr "Instalacija osnovnog sustava neuspjela"
+msgstr "Instalacija osnovnog sustava nije uspjela"
 
 #. Type: error
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 #: ../base-installer.templates:13
-#, fuzzy
 msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
 msgstr ""
-"Program za instalaciju ne može instalirati Debian. Nema instalacijskog CD-"
-"ROM-a, a nije niti podešen valjani zrcalni poslužitelj."
+"Program za instalaciju ne može instalirati osnovni sustav. Nije pronađen "
+"instalacijski CD-ROM-a, a nije podešen ni valjani zrcalni poslužitelj."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:19
-#, fuzzy
 msgid "Failed to determine the codename for the release."
-msgstr "Neuspjelo dobavljanje prepostavljene datoteke"
+msgstr "Neuspjelo određivanje oznake (codenam) izdanja."
 
 #. Type: error
 #. Description
@@ -94,29 +90,26 @@ msgstr "Ne instaliram na nečisto odredište"
 #. Type: error
 #. Description
 #: ../base-installer.templates:30
-#, fuzzy
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
 "install."
 msgstr ""
-"Instalacija na odredišni datotečni sustav otkazana je, jer on sadrži "
-"datoteke iz prošle instalacije. Te datoteke mogle bi prekinuti postupak "
-"instaliranja ili prouzročiti neispravnosti sustava nakon instalacije. "
+"Instalacija na odredišni datotečni sustav je otkazana. Trebate se vratiti i "
 "Trebali biste se vratiti i obrisati ili formatirati odredišni datotečni "
-"sustav prije nastavka."
+"sustav prije nastavka instalacije."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:37
 msgid "Failed to install the base system"
-msgstr "Instalacija osnovnog sustava neuspjela"
+msgstr "Instalacija osnovnog sustava nije uspjela"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:37
 msgid "The base system installation into /target/ failed."
-msgstr "Instalacija osnovnog sustava na /target/ neuspjela."
+msgstr "Instalacija osnovnog sustava na /target/ nije uspjela."
 
 #. Type: error
 #. Description
@@ -143,13 +136,13 @@ msgstr "Program debootstrap prekinuo je rad nenormalno."
 #. Description
 #: ../base-installer.templates:59
 msgid "The following error occurred:"
-msgstr "Pojavila se slijedeća pogreška:"
+msgstr "Pojavila se sljedeća pogreška:"
 
 #. Type: select
 #. Description
 #: ../base-installer.templates:69
 msgid "Tool to use to generate boot initrd:"
-msgstr ""
+msgstr "Alat kojim će se generirati boot initrd:"
 
 #. Type: select
 #. Description
@@ -159,12 +152,15 @@ msgid ""
 "should select the default. If your system fails to boot, you can retry the "
 "installation using the other options."
 msgstr ""
+"Popis sadrži dostupne alate. Ako niste sigurni koji odabrati, odaberite onaj "
+"koji je već zadan. Ako se vaš sustav ne uspije podići, možete pokušati "
+"instalaciju ponovo, koristeći druge opcije."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:76
 msgid "No initrd generator"
-msgstr ""
+msgstr "Nema generatora initrda"
 
 #. Type: error
 #. Description
@@ -174,12 +170,15 @@ msgid ""
 "However, no package to generate that initrd is available that supports your "
 "configuration. This would leave your system unable to boot."
 msgstr ""
+"Kernel koji je odabran za instalaciju treba initrd za podizanje. No, nije "
+"dostupan nijedan paket koji generira initrd a da podržava vaše postavke. Ovo "
+"će ostaviti vaš sustav u stanju u kojem se ne može podići."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:83
 msgid "Unsupported initrd generator"
-msgstr ""
+msgstr "Nepodržani generator initrda"
 
 #. Type: error
 #. Description
@@ -188,6 +187,7 @@ msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
 msgstr ""
+"Paket ${GENERATOR} koji je odabran za generiranje initrda nije podržan."
 
 #. Type: error
 #. Description
@@ -231,14 +231,13 @@ msgid ""
 "make the system bootable from the hard drive."
 msgstr ""
 "Na popisu su dostupni kerneli. Molim izaberite jedan kako biste učinili "
-"sustav sposobnim da se podiže s čvrstog diska."
+"sustav sposobnim da se podiže s tvrdog diska."
 
 #. Type: boolean
 #. Description
 #: ../base-installer.templates:109
-#, fuzzy
 msgid "Continue without installing a kernel?"
-msgstr "Nastavi s instalacijom?"
+msgstr "Nastavi bez instaliranja kernela?"
 
 #. Type: boolean
 #. Description
@@ -254,44 +253,44 @@ msgid ""
 "kernel later. This is only recommended for experts, otherwise you will "
 "likely end up with a machine that doesn't boot."
 msgstr ""
+"Možete pokušati nastaviti bez kernela, i kasnije ručno instalirati svoj "
+"kernel. Ovo se preporuča jedino stručnjacima, inače ćete završiti sa strojem "
+"koji se ne može podići."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:118
-#, fuzzy
 msgid "Cannot install kernel"
-msgstr "Ne mogu instalirati Debian"
+msgstr "Ne mogu instalirati kernel"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:118
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr ""
+"Instalacijski program ne može naći prikladan kernel paket za instalaciju."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:123
-#, fuzzy
 msgid "Unable to install ${PACKAGE}"
-msgstr "Ne mogu instalirati GRUB na ${BOOTDEV}"
+msgstr "Ne mogu instalirati ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:123
-#, fuzzy
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
 msgstr ""
-"Pojavila se pogreška pri pokušaju instalacije paketa initrd-tools na "
-"odredišni sustav."
+"Pojavila se pogreška pri pokušaju instalacije paketa ${PACKAGE} na odredišni "
+"sustav."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:123
-#, fuzzy
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
-msgstr "Za pojedinosti provjerite /var/log/messages ili treću konzolu."
+msgstr "Za pojedinosti provjerite /var/log/syslog ili četvrtu konzolu."
 
 #. Type: error
 #. Description
@@ -304,23 +303,21 @@ msgstr "Neuspjelo skidanje 'Release' datoteke ${SUBST0}."
 #. Description
 #. SUBST0 is a Release.gpg file name
 #: ../base-installer.templates:138
-#, fuzzy
 msgid "Failed getting Release signature file ${SUBST0}."
-msgstr "Neuspjelo skidanje 'Release' datoteke ${SUBST0}."
+msgstr "Neuspjelo skidanje potpisa 'Release' datoteke ${SUBST0}."
 
 #. Type: error
 #. Description
 #. SUBST0 is a gpg key ID
 #: ../base-installer.templates:144
-#, fuzzy
 msgid "Release file signed by unknown key (key id ${SUBST0})"
-msgstr "Nevaljana 'Release' datoteka: nema unosa za ${SUBST0}."
+msgstr "'Release' datoteka potpisana nepoznatim ključem (oznaka ${SUBST0})."
 
 #. Type: error
 #. Description
 #: ../base-installer.templates:149
 msgid "Invalid Release file: no valid components."
-msgstr "Nevaljana 'Release' datoteka: nema valjanih dijelova."
+msgstr "Neispravna 'Release' datoteka: nema valjanih dijelova."
 
 #. Type: error
 #. Description
@@ -346,6 +343,8 @@ msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
 msgstr ""
+"Nemoguće dohvatiti ${SUBST0}. Ovo se može dogoditi zbog mrežnog problema ili "
+"zbog lošeg CD-a, ovisno o vašem načinu instalacije."
 
 #. Type: error
 #. Description
@@ -356,13 +355,14 @@ msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
 msgstr ""
+"Ako instalirate sa CD-R-a ili CD-RW-a, zapisivanje CD-a na manjoj brzini "
+"može biti od pomoći."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:175
-#, fuzzy
 msgid "Preparing to install the base system..."
-msgstr "Pripremam se instalirati Debianov osnovni sustav..."
+msgstr "Pripremam se instalirati osnovni sustav..."
 
 #. Type: text
 #. Description
@@ -381,9 +381,8 @@ msgstr "Skidam 'Release' datoteku"
 #. Description
 #. Release is a filename which should not be translated
 #: ../base-installer.templates:189
-#, fuzzy
 msgid "Retrieving Release file signature"
-msgstr "Skidam 'Release' datoteku"
+msgstr "Skidam potpis 'Release' datoteke"
 
 #. Type: text
 #. Description
@@ -403,9 +402,8 @@ msgstr "Dobavljam 'Packages' datoteke"
 #. Description
 #. Packages is a filename which should not be translated
 #: ../base-installer.templates:204
-#, fuzzy
 msgid "Retrieving Packages file"
-msgstr "Dobavljam 'Packages' datoteke"
+msgstr "Dobavljam 'Packages' datoteku"
 
 #. Type: text
 #. Description
@@ -434,9 +432,8 @@ msgstr "Instaliram osnovni sustav"
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
 #: ../base-installer.templates:226
-#, fuzzy
 msgid "Installing core packages"
-msgstr "Instaliram sržne pakete..."
+msgstr "Instaliram sržne pakete"
 
 #. Type: text
 #. Description
@@ -445,34 +442,30 @@ msgstr "Instaliram sržne pakete..."
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
 #: ../base-installer.templates:234
-#, fuzzy
 msgid "Unpacking required packages"
-msgstr "Raspakiravam zahtijevane pakete..."
+msgstr "Raspakiravam zahtijevane pakete"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:238
-#, fuzzy
 msgid "Configuring required packages"
-msgstr "Podešavam zahtijevane pakete..."
+msgstr "Podešavam zahtijevane pakete"
 
 #. Type: text
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 #: ../base-installer.templates:244
-#, fuzzy
 msgid "Unpacking the base system"
-msgstr "Instaliram osnovni sustav"
+msgstr "Raspakiravam osnovni sustav"
 
 #. Type: text
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 #: ../base-installer.templates:250
-#, fuzzy
 msgid "Configuring the base system"
-msgstr "Instaliram osnovni sustav"
+msgstr "Podešavam osnovni sustav"
 
 #. Type: text
 #. Description
@@ -505,78 +498,71 @@ msgstr "Vadim sadržaj ${SUBST0}..."
 #. Description
 #. SUBST0 is a package name
 #: ../base-installer.templates:274
-#, fuzzy
 msgid "Unpacking ${SUBST0}..."
-msgstr "Vadim sadržaj ${SUBST0}..."
+msgstr "Raspakiravam ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
 #: ../base-installer.templates:279
-#, fuzzy
 msgid "Configuring ${SUBST0}..."
-msgstr "Potvrđujem ${SUBST0}..."
+msgstr "Podešavam ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
 #: ../base-installer.templates:284
-#, fuzzy
 msgid "Checking Release signature"
-msgstr "Skidam 'Release' datoteku"
+msgstr "Provjeravam potpis 'Release' datoteka"
 
 #. Type: text
 #. Description
 #. SUBST0 is a gpg key id
 #. Release is a filename which should not be translated
 #: ../base-installer.templates:290
-#, fuzzy
 msgid "Valid Release signature (key id ${SUBST0})"
-msgstr "Nevaljana 'Release' datoteka: nema unosa za ${SUBST0}."
+msgstr "Ispravan potpis 'Release' datoteka (oznaka ${SUBST0})"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:294
-#, fuzzy
 msgid "Resolving dependencies of base packages..."
-msgstr "Instaliram osnovne pakete..."
+msgstr "Rješavam ovisnosti osnovnih paketa..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
 #: ../base-installer.templates:299
 msgid "Found additional base dependencies: ${SUBST0}"
-msgstr ""
+msgstr "Pronađene dodatne ovisnosti osnovnih paketa: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
 #: ../base-installer.templates:304
 msgid "Found additional required dependencies: ${SUBST0}"
-msgstr ""
+msgstr "Pronađene dodatne ovisnosti required paketa: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
 #: ../base-installer.templates:309
 msgid "Found packages in base already in required: ${SUBST0}"
-msgstr ""
+msgstr "Pronađeni paketi u base koji su već required: ${SUBST0}"
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:313
-#, fuzzy
 msgid "Resolving dependencies of required packages..."
-msgstr "Raspakiravam zahtijevane pakete..."
+msgstr "Rješavam ovisnosti required paketa..."
 
 #. Type: text
 #. Description
 #. SUBST0 is an archive component (main, etc)
 #. SUBST1 is a mirror
 #: ../base-installer.templates:319
-#, fuzzy
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
-msgstr "Provjeravam veličinu paketa: ${SUBST0}..."
+msgstr "Provjeravam komponentu ${SUBST0} na ${SUBST1}..."
 
 #. Type: text
 #. Description
@@ -617,16 +603,14 @@ msgstr "Instaliram osnovne pakete..."
 #. Type: text
 #. Description
 #: ../base-installer.templates:351
-#, fuzzy
 msgid "Unpacking the base system..."
-msgstr "Instaliram osnovni sustav"
+msgstr "Raspakiravam osnovni sustav..."
 
 #. Type: text
 #. Description
 #: ../base-installer.templates:355
-#, fuzzy
 msgid "Configuring the base system..."
-msgstr "Instaliram osnovni sustav"
+msgstr "Podešavam osnovni sustav..."
 
 #. Type: text
 #. Description
@@ -638,24 +622,22 @@ msgstr "Osnovni sustav uspješno instaliran"
 #. Description
 #. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:364
-#, fuzzy
 msgid "Debootstrap warning"
-msgstr "Debootstrap pogreška"
+msgstr "Debootstrap upozorenje"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:364
 msgid "Warning: ${INFO}"
-msgstr ""
+msgstr "Upozorenje: ${INFO}"
 
 #. Type: text
 #. Description
 #. SUBST0 is an url
 #: ../base-installer.templates:370
-#, fuzzy
 msgid "Retrying failed download of ${SUBST0}"
-msgstr "Ne mogu skinuti ${SUBST0}."
+msgstr "Ponovno pokušavam skinuti ${SUBST0}"
 
 #. Type: text
 #. Description
@@ -711,7 +693,7 @@ msgstr "Instaliram kernel - dobavljam i instaliram ${SUBST0}..."
 #. Description
 #: ../base-installer.templates:408
 msgid "Installing the PCMCIA modules"
-msgstr "Instaliram PCMCIA module..."
+msgstr "Instaliram PCMCIA module"
 
 #. Type: text
 #. Description
