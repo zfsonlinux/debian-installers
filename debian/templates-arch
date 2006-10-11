@@ -5,7 +5,8 @@ Default[hppa]: kernel-image-2.4.27-32
 Default[i386]: kernel-image-2.4.27-2-386
 Default[ia64]: kernel-image-2.4.27-2-itanium-smp
 Default[s390]: kernel-image-2.4.27-2-s390
-Description: default kernel image if nothing better is found
+Description: for internal use only (?)
+ Default kernel image if nothing better is found
 
 Template: base-installer/kernel/image-2.6
 Type: string
@@ -14,7 +15,8 @@ Default[hppa]: kernel-image-2.6.12-1-parisc
 Default[i386]: linux-image-2.6-386
 Default[ia64]: linux-image-2.6-itanium-smp
 Default[amd64]: linux-image-2.6-amd64-generic
-Description: default kernel image if nothing better is found (2.6)
+Description: for internal use only (?)
+ Default kernel image if nothing better is found (2.6)
 
 Template: base-installer/kernel/linux/initrd
 Type: boolean
@@ -26,7 +28,8 @@ Default[mipsel]: false
 Default[powerpc]: false
 Default[m68k]: false
 Default[sparc]: true
-Description: kernel needs an initrd (linux only)
+Description: for internal use only
+ Kernel needs an initrd (linux only)
 
 Template: base-installer/kernel/linux/initrd-2.6
 Type: boolean
@@ -36,7 +39,8 @@ Default[mips]: false
 Default[mipsel]: false
 Default[m68k]: false
 Default[sparc]: true
-Description: kernel needs an initrd (linux 2.6 only)
+Description: for internal use only
+ Kernel needs an initrd (linux 2.6 only)
 
 Template: base-installer/kernel/linux/initramfs-2.6
 Type: boolean
@@ -44,7 +48,8 @@ Default: true
 # This only indicates whether to use an initramfs or not (and will be
 # ignored unless the appropriate base-installer/kernel/linux/initrd*
 # is true).
-Description: use an initramfs (linux 2.6 only)
+Description: for internal use only
+ Use an initramfs (linux 2.6 only)
 
 Template: base-installer/kernel/linux/initramfs-generators
 Type: string
@@ -54,17 +59,20 @@ Default[s390]: initramfs-tools
 # than one for an architecture, the user will be asked to select one
 # (depending on priority). The generator listed first will be the default.
 # Note: if you add a new one, don't forget to support it in the postinst.
-Description: package to use to generate initramfs
+Description: for internal use; can be preseeded
+ Package to use to generate initramfs
 
 Template: base-installer/kernel/linux/extra-packages
 Type: string
 Default:
-Description: extra packages to install with init*-tools (linux only)
+Description: for internal use; can be preseeded
+ Extra packages to install with init*-tools (linux only)
 
 Template: base-installer/kernel/linux/extra-packages-2.6
 Type: string
 Default:
-Description: extra packages to install with init*-tools (linux 2.6 only)
+Description: for internal use; can be preseeded
+ Extra packages to install with init*-tools (linux 2.6 only)
 
 Template: base-installer/kernel/linux/link_in_boot
 Type: boolean
@@ -77,4 +85,5 @@ Default[mips]: false
 Default[mipsel]: false
 Default[m68k]: false
 Default[hppa]: true
-Description: kernel needs a link in /boot/ (linux only)
+Description: for internal use only
+ Kernel needs a link in /boot/ (linux only)
