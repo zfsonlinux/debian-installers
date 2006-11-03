@@ -97,8 +97,9 @@ _Description: Unable to install the selected kernel
 Template: base-installer/kernel/which-kernel
 Type: select
 #flag:translate!:1
-# For base-installer, "none" is an additional choice to a kernel list
-__Choices: ${KERNELS}, none
+# For base-installer, "none" is an additional choice to a list of kernels.
+# It means "no kernel"
+__Choices: ${KERNELS}, none[ Do not translate what's inside the brackets and just put the translation for the word "none" in your language without any brackets. This "none" means "no kernel" ]
 _Description: Kernel to install:
  The list shows the available kernels. Please choose one of them in order
  to make the system bootable from the hard drive.
