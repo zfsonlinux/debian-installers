@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sl\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2006-08-30 10:57+0000\n"
+"POT-Creation-Date: 2006-11-04 09:27+0100\n"
 "PO-Revision-Date: 2006-04-26 00:10+0100\n"
 "Last-Translator: Jure Čuhalev <gandalf@owca.info>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -221,20 +221,24 @@ msgstr "Paket z jedrom: ${KERNEL}'."
 
 #. Type: select
 #. Choices
-#. For base-installer, "none" is an additional choice to a kernel list
-#: ../base-installer.templates:101
-msgid "none"
-msgstr "brez"
+#. For base-installer, "none" is an additional choice to a list of kernels.
+#. It means "no kernel"
+#: ../base-installer.templates:102
+msgid ""
+"none[ Do not translate what's inside the brackets and just put the "
+"translation for the word \"none\" in your language without any brackets. "
+"This \"none\" means \"no kernel\" ]"
+msgstr ""
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:102
+#: ../base-installer.templates:103
 msgid "Kernel to install:"
 msgstr "Jedro za namestitev:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:102
+#: ../base-installer.templates:103
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -244,20 +248,20 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:109
+#: ../base-installer.templates:110
 msgid "Continue without installing a kernel?"
 msgstr "Nadaljujem brez namestitve jedra?"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:109
+#: ../base-installer.templates:110
 msgid "No installable kernel was found in the defined APT sources."
 msgstr ""
 "V navedenih APT virih ni mogoče najti jedra, ki bi ga bilo mogoče namestiti."
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:109
+#: ../base-installer.templates:110
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -269,26 +273,26 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:118
+#: ../base-installer.templates:119
 msgid "Cannot install kernel"
 msgstr "Ne morem namestiti jedra"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:118
+#: ../base-installer.templates:119
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr ""
 "Namestitveni program ne najde primernega paketa z jedrom za namestitev."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:123
+#: ../base-installer.templates:124
 msgid "Unable to install ${PACKAGE}"
 msgstr "Nisem uspel namestiti ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:123
+#: ../base-installer.templates:124
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -297,7 +301,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:123
+#: ../base-installer.templates:124
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
 "Preverite /var/log/messages ali poglejte navidezno konzolo 4 za podrobnosti."
@@ -305,35 +309,35 @@ msgstr ""
 #. Type: error
 #. Description
 #. SUBST0 is a Release file name.
-#: ../base-installer.templates:132
+#: ../base-installer.templates:133
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Pridobivanje datoteke Release ${SUBST0} ni uspelo."
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release.gpg file name
-#: ../base-installer.templates:138
+#: ../base-installer.templates:139
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Prenos podpisa za datoteko Release ${SUBST0} ni uspel."
 
 #. Type: error
 #. Description
 #. SUBST0 is a gpg key ID
-#: ../base-installer.templates:144
+#: ../base-installer.templates:145
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr ""
 "Datoteka Release je podpisana z neznanim ključem (id ključa: ${SUBST0})"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:149
+#: ../base-installer.templates:150
 msgid "Invalid Release file: no valid components."
 msgstr "Neveljavna datoteka Release: ni veljavnih komponent."
 
 #. Type: error
 #. Description
 #. SUBST0 is a filename
-#: ../base-installer.templates:155
+#: ../base-installer.templates:156
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Neveljavna datoteka Release: ni vnosa za ${SUBST0}."
 
@@ -341,7 +345,7 @@ msgstr "Neveljavna datoteka Release: ni vnosa za ${SUBST0}."
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:162
+#: ../base-installer.templates:163
 msgid "Debootstrap Error"
 msgstr "Napaka Debootstrap"
 
@@ -349,7 +353,7 @@ msgstr "Napaka Debootstrap"
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:162
+#: ../base-installer.templates:163
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -361,7 +365,7 @@ msgstr ""
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:162
+#: ../base-installer.templates:163
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -371,68 +375,68 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:175
+#: ../base-installer.templates:176
 msgid "Preparing to install the base system..."
 msgstr "Priprava na namestitev osnovnega sistema ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:179
+#: ../base-installer.templates:180
 msgid "Running ${SCRIPT}..."
 msgstr "Poganjam ${SCRIPT}..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:184
+#: ../base-installer.templates:185
 msgid "Retrieving Release file"
 msgstr "Prenašam Release datoteko"
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:189
+#: ../base-installer.templates:190
 msgid "Retrieving Release file signature"
 msgstr "Prenašam podpis Release datoteke"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:194
+#: ../base-installer.templates:195
 msgid "Finding package sizes"
 msgstr "Ugotavljam velikosti paketov"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:199
+#: ../base-installer.templates:200
 msgid "Retrieving Packages files"
 msgstr "Prenašam Packages datoteke"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:204
+#: ../base-installer.templates:205
 msgid "Retrieving Packages file"
 msgstr "Prenašam datoteko Packages"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:209
+#: ../base-installer.templates:210
 msgid "Retrieving packages"
 msgstr "Prenašam paketke"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:214
+#: ../base-installer.templates:215
 msgid "Extracting packages"
 msgstr "Razširjam pakete"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:218
+#: ../base-installer.templates:219
 msgid "Installing the base system"
 msgstr "Nameščam osnovni sistem"
 
@@ -442,7 +446,7 @@ msgstr "Nameščam osnovni sistem"
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:226
+#: ../base-installer.templates:227
 msgid "Installing core packages"
 msgstr "Nameščam osnovne pakete"
 
@@ -452,13 +456,13 @@ msgstr "Nameščam osnovne pakete"
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:234
+#: ../base-installer.templates:235
 msgid "Unpacking required packages"
 msgstr "Odpiram zahtevane stisnjene pakete"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:238
+#: ../base-installer.templates:239
 msgid "Configuring required packages"
 msgstr "Nastavljam zahtevane pakete"
 
@@ -466,7 +470,7 @@ msgstr "Nastavljam zahtevane pakete"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:244
+#: ../base-installer.templates:245
 msgid "Unpacking the base system"
 msgstr "Odpiram osnovni sistem"
 
@@ -474,55 +478,55 @@ msgstr "Odpiram osnovni sistem"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:250
+#: ../base-installer.templates:251
 msgid "Configuring the base system"
 msgstr "Nastavljam osnovni sistem"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:254
+#: ../base-installer.templates:255
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:259
+#: ../base-installer.templates:260
 msgid "Validating ${SUBST0}..."
 msgstr "Preverjam ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:264
+#: ../base-installer.templates:265
 msgid "Retrieving ${SUBST0}..."
 msgstr "Prenašam ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:269
+#: ../base-installer.templates:270
 msgid "Extracting ${SUBST0}..."
 msgstr "Razširjam ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:274
+#: ../base-installer.templates:275
 msgid "Unpacking ${SUBST0}..."
 msgstr "Razširjam ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:279
+#: ../base-installer.templates:280
 msgid "Configuring ${SUBST0}..."
 msgstr "Nastavljam ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:284
+#: ../base-installer.templates:285
 msgid "Checking Release signature"
 msgstr "Preverjam podpis Release datoteke"
 
@@ -530,40 +534,40 @@ msgstr "Preverjam podpis Release datoteke"
 #. Description
 #. SUBST0 is a gpg key id
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:290
+#: ../base-installer.templates:291
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Veljaven podpis za datoteko Release (id ključa: ${SUBST0})."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:294
+#: ../base-installer.templates:295
 msgid "Resolving dependencies of base packages..."
 msgstr "Razrešujem odvisnosti osnovnih paketov..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:299
+#: ../base-installer.templates:300
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr "Našel sem dodatne osnovne odvisnosti: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:304
+#: ../base-installer.templates:305
 msgid "Found additional required dependencies: ${SUBST0}"
 msgstr "Našel sem dodatne zahtevane odvisnosti: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:309
+#: ../base-installer.templates:310
 msgid "Found packages in base already in required: ${SUBST0}"
 msgstr "Našel sem paketke v osnovi, ki so že zahtevani: ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:313
+#: ../base-installer.templates:314
 msgid "Resolving dependencies of required packages..."
 msgstr "Razrešujem odvisnosti zahtevanih paketov..."
 
@@ -571,7 +575,7 @@ msgstr "Razrešujem odvisnosti zahtevanih paketov..."
 #. Description
 #. SUBST0 is an archive component (main, etc)
 #. SUBST1 is a mirror
-#: ../base-installer.templates:319
+#: ../base-installer.templates:320
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "Preverjam kompomento ${SUBST0} na ${SUBST1}..."
 
@@ -581,7 +585,7 @@ msgstr "Preverjam kompomento ${SUBST0} na ${SUBST1}..."
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:327
+#: ../base-installer.templates:328
 msgid "Installing core packages..."
 msgstr "Nameščam osnovne pakete..."
 
@@ -591,7 +595,7 @@ msgstr "Nameščam osnovne pakete..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:335
+#: ../base-installer.templates:336
 msgid "Unpacking required packages..."
 msgstr "Odpiram zahtevane stisnjene pakete..."
 
@@ -601,108 +605,108 @@ msgstr "Odpiram zahtevane stisnjene pakete..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:343
+#: ../base-installer.templates:344
 msgid "Configuring required packages..."
 msgstr "Nastavljam zahtevane pakete..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:347
+#: ../base-installer.templates:348
 msgid "Installing base packages..."
 msgstr "Nameščam osnovne pakete..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:351
+#: ../base-installer.templates:352
 msgid "Unpacking the base system..."
 msgstr "Razširjam osnovni sistem..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:355
+#: ../base-installer.templates:356
 msgid "Configuring the base system..."
 msgstr "Nastavljam osnovni sistem..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:359
+#: ../base-installer.templates:360
 msgid "Base system installed successfully."
 msgstr "Osnovni sistem uspešno nameščen."
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:364
+#: ../base-installer.templates:365
 msgid "Debootstrap warning"
 msgstr "Napaka Debootstrap"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:364
+#: ../base-installer.templates:365
 msgid "Warning: ${INFO}"
 msgstr "Opozorilo: ${INFO}"
 
 #. Type: text
 #. Description
 #. SUBST0 is an url
-#: ../base-installer.templates:370
+#: ../base-installer.templates:371
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Ponovno prenos ${SUBST0}ni uspel."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:374
+#: ../base-installer.templates:375
 msgid "Configuring APT sources..."
 msgstr "Nastavljam vire APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:378
+#: ../base-installer.templates:379
 msgid "Updating the list of available packages..."
 msgstr "Posodabljam seznam paketov, ki so na voljo..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:382
+#: ../base-installer.templates:383
 msgid "Installing extra packages..."
 msgstr "Nameščam dodatne pakete..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:387
+#: ../base-installer.templates:388
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "Nameščanje dodatnih paketov - prenašam in nameščam ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:391
+#: ../base-installer.templates:392
 msgid "Creating device files..."
 msgstr "Ustvarjanje datotek napra ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:395
+#: ../base-installer.templates:396
 msgid "Selecting the kernel to install..."
 msgstr "Izbiram jedro za namestitev..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:399
+#: ../base-installer.templates:400
 msgid "Installing the kernel..."
 msgstr "Nameščam jedro..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:404
+#: ../base-installer.templates:405
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Nameščam jedro - prenašam in nameščam ${SUBST0}..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:408
+#: ../base-installer.templates:409
 msgid "Installing the PCMCIA modules"
 msgstr "Nameščam PCMCIA module"
 
@@ -710,6 +714,9 @@ msgstr "Nameščam PCMCIA module"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:414
+#: ../base-installer.templates:415
 msgid "Install the base system"
 msgstr "Namesti osnovni sistem"
+
+#~ msgid "none"
+#~ msgstr "brez"
