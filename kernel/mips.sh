@@ -4,6 +4,10 @@ arch_get_kernel_flavour () {
 			echo "$SUBARCH"
 			return 0
 		;;
+		qemu-mips32)
+			echo "qemu"
+			return 0
+		;;
 		*)
 			warning "Unknown $ARCH subarchitecture '$SUBARCH'."
 			return 1

@@ -4,6 +4,10 @@ arch_get_kernel_flavour () {
 			echo "$SUBARCH"
 			return 0
 		;;
+		qemu-mips32)
+			echo "qemu"
+			return 0
+		;;
 		cobalt)
 			echo r5k-cobalt
 			return 0
