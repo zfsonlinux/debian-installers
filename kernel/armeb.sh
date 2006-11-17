@@ -1,6 +1,6 @@
 arch_get_kernel_flavour () {
 	case "$SUBARCH" in
-		nslu2)
+		ixp4xx)
 			echo "$SUBARCH"
 			return 0
 		;;
