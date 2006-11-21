@@ -197,7 +197,6 @@ install_base_system () {
 	# run the scripts found in hook directory before debootstrap
 	partsdir="/usr/lib/base-installer.d"
 	if [ -d "$partsdir" ]; then
-		tmpfile=/tmp/base-installer-hook.log
 		for script in `ls "$partsdir"/*`; do
 			base=$(basename $script | sed 's/[0-9]*//')
 			if ! db_progress INFO base-installer/progress/$base; then
@@ -207,17 +206,13 @@ install_base_system () {
 	
 		    	if [ -x "$script" ] ; then
 				# be careful to preserve exit code
-				if "$script" >"$tmpfile" 2>&1; then
+				if log-output -t base-installer "$script"; then
 					:
 				else
 			    		warning "$script returned error code $?"
 				fi
 		    	else
 				error "Unable to execute $script"
-		    	fi
-		    	if [ -s "$tmpfile" ] ; then
-				logger -t base-installer < "$tmpfile"
-				rm -f "$tmpfile"
 		    	fi
 		done
 	fi
@@ -849,7 +844,6 @@ install_extra () {
 post_install_hooks () {
 	partsdir="/usr/lib/post-base-installer.d"
 	if [ -d "$partsdir" ]; then
-		tmpfile=/tmp/post-base-installer-hook.log
 		scriptcount=`ls "$partsdir"/* | wc -l`
 		scriptcur=0
 		for script in "$partsdir"/*; do
@@ -863,17 +857,13 @@ post_install_hooks () {
 
 			if [ -x "$script" ]; then
 				# be careful to preserve exit code
-				if "$script" >"$tmpfile" 2>&1; then
+				if log-output -t base-installer "$script"; then
 					:
 				else
 					warning "$script returned error code $?"
 				fi
 			else
 				error "Unable to execute $script"
-			fi
-			if [ -s "$tmpfile" ]; then
-				logger -t base-installer < "$tmpfile"
-				rm -f "$tmpfile"
 			fi
 
 			scriptcur="$(($scriptcur + 1))"
