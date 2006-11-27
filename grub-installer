@@ -37,10 +37,28 @@ get_serial_console() {
 	if echo "${defconsole}" | grep -q console=ttyS; then
 		local PORT="$(echo "${defconsole}" | sed -e 's%^console=ttyS%%' -e 's%,.*%%')"
 		local SPEED="$(echo "${defconsole}" | sed -e 's%^console=ttyS[0-9]\+,%%' -e 's% .*%%')"
-		local SERIAL="${PORT},${SPEED}"
+		local SERIAL="ttyS${PORT},${SPEED}"
 		echo "console=$SERIAL"
 	fi
 }
+
+grub_serial_console() {
+	#$1=output of get_serial_console
+	local unit=$(echo $1 | sed -e 's%^console=ttyS%%' -e 's%,.*%%')
+	local speed=$(echo $1 | sed -e 's%^console=ttyS[0-9]\+,%%' -e 's%[^(0-9)].*%%')
+	local parity=$(echo $1 | sed -e 's%^console=ttyS[0-9]\+,[0-9]\+%%' -e 's%[78].*%%')
+	case "$parity" in 
+		"n") local parity="no" ;;
+		"e") local parity="even" ;;
+		"o") local parity="odd" ;;
+		*)   local parity="" ;;
+	esac
+	local word=$(echo $1 | sed -e 's%^console=ttyS[0-9]\+,[0-9]\+[oen]%%' -e 's%r%%')
+	local flow=$(echo $1 | sed -e 's%^console=ttyS[0-9]\+,[0-9]\+[oen][78]%%')
+
+	echo serial --unit=$unit --speed=$speed --word=$word --parity=$parity --stop=1
+	echo terminal serial	
+	}
 
 serial="$(get_serial_console)"
 
@@ -427,6 +445,12 @@ if [ -n "$user_params" ]; then
 	mv $ROOT/boot/grub/$menu_file.new $ROOT/boot/grub/$menu_file
 	update_grub # again, to add new options to all the Debian kernel entries
 fi
+
+if [ -n "$serial" ] ; then
+	# Modify menu.lst so _grub_ uses serial console.
+	grub_serial_console $serial | cat - $ROOT/boot/grub/$menu_file >$ROOT/boot/grub/$menu_file.new
+	mv $ROOT/boot/grub/$menu_file.new $ROOT/boot/grub/$menu_file
+fi 
 
 # Generate menu.lst additions for other OSes
 tmpfile=/tmp/menu.lst.extras
