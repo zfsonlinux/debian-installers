@@ -131,37 +131,37 @@ convert () {
 	    	echo "$tmp_drive" | sed "s%)$%,`expr $tmp_part - 1`)%" ;;
 		gnu*)
 	    	if echo $tmp_part | grep "^s" >/dev/null; then
-				tmp_pc_slice=`echo $tmp_part \
+			tmp_pc_slice=`echo $tmp_part \
 		    		| sed "s%s\([0-9]*\)[a-g]*$%\1%"`
-				tmp_drive=`echo "$tmp_drive" \
+			tmp_drive=`echo "$tmp_drive" \
 		    		| sed "s%)%,\`expr "$tmp_pc_slice" - 1\`)%"`
 	    	fi
 	    	if echo $tmp_part | grep "[a-g]$" >/dev/null; then
-				tmp_bsd_partition=`echo "$tmp_part" \
+			tmp_bsd_partition=`echo "$tmp_part" \
 		    		| sed "s%[^a-g]*\([a-g]\)$%\1%"`
-				tmp_drive=`echo "$tmp_drive" \
+			tmp_drive=`echo "$tmp_drive" \
 		    		| sed "s%)%,$tmp_bsd_partition)%"`
 	    	fi
 	    	echo "$tmp_drive" ;;
 		freebsd*)
 	    	if echo $tmp_part | grep "^s" >/dev/null; then
-				tmp_pc_slice=`echo $tmp_part \
+			tmp_pc_slice=`echo $tmp_part \
 		    		| sed "s%s\([0-9]*\)[a-h]*$%\1%"`
-				tmp_drive=`echo "$tmp_drive" \
+			tmp_drive=`echo "$tmp_drive" \
 		    		| sed "s%)%,\`expr "$tmp_pc_slice" - 1\`)%"`
 	    	fi
 	    	if echo $tmp_part | grep "[a-h]$" >/dev/null; then
-				tmp_bsd_partition=`echo "$tmp_part" \
+			tmp_bsd_partition=`echo "$tmp_part" \
 		    		| sed "s%s\{0,1\}[0-9]*\([a-h]\)$%\1%"`
-				tmp_drive=`echo "$tmp_drive" \
+			tmp_drive=`echo "$tmp_drive" \
 		    		| sed "s%)%,$tmp_bsd_partition)%"`
 	    	fi
 	    	echo "$tmp_drive" ;;
 		netbsd*)
 	    	if echo $tmp_part | grep "^[abe-p]$" >/dev/null; then
-				tmp_bsd_partition=`echo "$tmp_part" \
+			tmp_bsd_partition=`echo "$tmp_part" \
 		    		| sed "s%\([a-p]\)$%\1%"`
-				tmp_drive=`echo "$tmp_drive" \
+			tmp_drive=`echo "$tmp_drive" \
 		    		| sed "s%)%,$tmp_bsd_partition)%"`
 	    	fi
 	    	echo "$tmp_drive" ;;
@@ -428,9 +428,7 @@ if [ "$RET" ]; then
 		> /tmp/menu.lst.password
 	# Add a line to menu.lst to use the given password
 	# The line is appended after the commented example
-	sed '/^# password/r /tmp/menu.lst.password' \
-		< $ROOT/boot/grub/$menu_file > $ROOT/boot/grub/$menu_file.new
-	mv $ROOT/boot/grub/$menu_file.new $ROOT/boot/grub/$menu_file
+	sed -i '/^# password/r /tmp/menu.lst.password' $ROOT/boot/grub/$menu_file
 	# By default, menu.lst is world-readable, which is not so good if it
 	# contains a password.
 	chmod o-r $ROOT/boot/grub/$menu_file
@@ -438,17 +436,15 @@ if [ "$RET" ]; then
 fi 
 
 user_params=$(echo $(user-params)) || true
-if [ -n "$user_params" ]; then
+if [ "$user_params" ]; then
 	# Modify menu.lst to include user parameters.
-	sed "s!^\(# kopt=.*\)!\1 $user_params!" \
-		< $ROOT/boot/grub/$menu_file > $ROOT/boot/grub/$menu_file.new
-	mv $ROOT/boot/grub/$menu_file.new $ROOT/boot/grub/$menu_file
+	sed -i "s!^\(# kopt=.*\)!\1 $user_params!" $ROOT/boot/grub/$menu_file
 	update_grub # again, to add new options to all the Debian kernel entries
 fi
 
-if [ -n "$serial" ] ; then
+if [ "$serial" ] ; then
 	# Modify menu.lst so _grub_ uses serial console.
-	grub_serial_console $serial | cat - $ROOT/boot/grub/$menu_file >$ROOT/boot/grub/$menu_file.new
+	(grub_serial_console $serial; cat $ROOT/boot/grub/$menu_file) >$ROOT/boot/grub/$menu_file.new
 	mv $ROOT/boot/grub/$menu_file.new $ROOT/boot/grub/$menu_file
 fi 
 
@@ -538,14 +534,13 @@ fi
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_update_etc
 
-sed -e 's/do_bootloader = yes/do_bootloader = no/' < $ROOT/etc/kernel-img.conf > $ROOT/etc/kernel-img.conf.$$
-if [ -z "`grep update-grub $ROOT/etc/kernel-img.conf.$$`" ]; then
+sed -i 's/do_bootloader = yes/do_bootloader = no/' $ROOT/etc/kernel-img.conf
+if [ -z "$(grep update-grub $ROOT/etc/kernel-img.conf)" ]; then
 	(
 		echo "postinst_hook = update-grub"
 		echo "postrm_hook   = update-grub"
-	) >> $ROOT/etc/kernel-img.conf.$$
+	) >> $ROOT/etc/kernel-img.conf
 fi
-mv $ROOT/etc/kernel-img.conf.$$ $ROOT/etc/kernel-img.conf
 
 db_progress STEP 1
 db_progress STOP
