@@ -523,7 +523,7 @@ select_initramfs_generator () {
 	db_subst base-installer/initramfs/generator GENERATORS "$irf_choices"
 	db_set base-installer/initramfs/generator "$irf_default"
 
-	db_input medium base-installer/initramfs/generator || [ $? -eq 30 ]
+	db_input low base-installer/initramfs/generator || [ $? -eq 30 ]
 	if ! db_go; then
 		db_progress stop
 		exit 10
