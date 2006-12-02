@@ -9,7 +9,8 @@ arch_get_kernel_flavour () {
 			;;
 	esac
 	case "$SUBARCH" in
-		powermac*|prep|chrp*)	echo "$family" ;;
+		powermac*|chrp*)	echo "$family" ;;
+		prep)			echo prep ;;
 		amiga)			echo apus ;;
 		*)
 			warning "Unknown $ARCH subarchitecture '$SUBARCH'."
@@ -31,34 +32,26 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	# The APUS kernels are in a separate source package, so may
-	# sometimes have a different version number.
-	apusversion=2.4.27
-
 	CPUS="$(grep -ci ^processor "$CPUINFO")" || CPUS=1
-	if [ "$CPUS" ] && [ "$CPUS" -gt 1 ] && [ "$1" != "powerpc64" ]; then
+	if [ "$CPUS" ] && [ "$CPUS" -gt 1 ] && [ "$1" != "powerpc64" ] && [ "$1" != "prep" ] ; then
 		SMP=-smp
 	else
 		SMP=
 	fi
 
-	case "$1" in
-		apus)	echo "kernel-image-$apusversion-apus" ;;
+	case "$KERNEL_MAJOR" in
+		2.6)
+			if [ "$SMP" ]; then
+				echo "linux-image-$KERNEL_MAJOR-$1$SMP"
+			fi
+			echo "linux-image-$KERNEL_MAJOR-$1"
+			;;
 		*)
-			case "$KERNEL_MAJOR" in
-				2.6)
-					if [ "$SMP" ]; then
-						echo "linux-image-$KERNEL_MAJOR-$1$SMP"
-					fi
-					echo "linux-image-$KERNEL_MAJOR-$1"
-					;;
-				*)
-					if [ "$1" = powerpc ] && [ "$SMP" ]; then
-						# 2.4 only has powerpc-smp.
-						echo "kernel-image-$KERNEL_MAJOR-$1$SMP"
-					fi
-					echo "kernel-image-$KERNEL_MAJOR-$1"
-					;;
-			esac
+			if [ "$1" = powerpc ] && [ "$SMP" ]; then
+				# 2.4 only has powerpc-smp.
+				echo "kernel-image-$KERNEL_MAJOR-$1$SMP"
+			fi
+			echo "kernel-image-$KERNEL_MAJOR-$1"
+			;;
 	esac
 }
