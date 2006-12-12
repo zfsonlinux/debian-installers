@@ -49,7 +49,7 @@ while ( <STDIN> ) {
 			$template{$1} = $4;
 			push ( @{$template{Fields}}, $1 );
 		}
-	} else {
+	} elsif ( ! m/^#/ ) {
 		$template{'Description-Long'} .= $_ . "\n";
 	}
 }
