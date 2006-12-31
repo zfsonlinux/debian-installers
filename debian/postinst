@@ -632,6 +632,8 @@ install_linux () {
 	fi
 
 	cat > /target/etc/kernel-img.conf <<EOF
+# Kernel image management overrides
+# See kernel-img.conf(5) for details
 do_symlinks = yes
 relative_links = yes
 do_bootloader = no
