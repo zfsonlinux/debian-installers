@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: uk\n"
-"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2006-11-04 09:27+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-06 19:07+0100\n"
 "PO-Revision-Date: 2006-10-18 20:38+0200\n"
 "Last-Translator: Eugeniy Meshcheryakov <eugen@debian.org>\n"
 "Language-Team: Ukrainian\n"
@@ -52,8 +52,6 @@ msgstr "Неможливо встановити базову систему"
 
 #. Type: error
 #. Description
-#. The base system is the minimal Debian system
-#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 #: ../base-installer.templates:13
 msgid ""
 "The installer cannot figure out how to install the base system. No "
@@ -141,6 +139,12 @@ msgstr "Програма debootstrap завершилась ненормальн
 msgid "The following error occurred:"
 msgstr "Виникла наступна помилка:"
 
+#. Type: error
+#. Description
+#: ../base-installer.templates:59
+msgid "${ERROR}"
+msgstr ""
+
 #. Type: select
 #. Description
 #: ../base-installer.templates:69
@@ -214,8 +218,15 @@ msgstr "Пакунок з ядром: „${KERNEL}“."
 
 #. Type: select
 #. Choices
+#. flag:translate!:1
 #. For base-installer, "none" is an additional choice to a list of kernels.
 #. It means "no kernel"
+#: ../base-installer.templates:102
+msgid "${KERNELS}"
+msgstr ""
+
+#. Type: select
+#. Choices
 #: ../base-installer.templates:102
 msgid ""
 "none[ Do not translate what's inside the brackets and just put the "
@@ -302,21 +313,18 @@ msgstr "Подробиці дивіться в /var/log/syslog або на ві�
 
 #. Type: error
 #. Description
-#. SUBST0 is a Release file name.
 #: ../base-installer.templates:133
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Не вдалося отримати файл Release для ${SUBST0}."
 
 #. Type: error
 #. Description
-#. SUBST0 is a Release.gpg file name
 #: ../base-installer.templates:139
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Не вдалося отримати файл підпису для Release ${SUBST0}."
 
 #. Type: error
 #. Description
-#. SUBST0 is a gpg key ID
 #: ../base-installer.templates:145
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Файл Release підписано невідомим ключем (ID ${SUBST0})"
@@ -329,7 +337,6 @@ msgstr "Невірний файл Release: відсутні дозволені �
 
 #. Type: error
 #. Description
-#. SUBST0 is a filename
 #: ../base-installer.templates:156
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Невірний файл Release: відсутній запис для ${SUBST0}."
@@ -344,8 +351,6 @@ msgstr "Помилка при виконанні debootstrap"
 
 #. Type: error
 #. Description
-#. SUBST0 is a filename or package name
-#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:163
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
@@ -356,8 +361,6 @@ msgstr ""
 
 #. Type: error
 #. Description
-#. SUBST0 is a filename or package name
-#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:163
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
@@ -635,7 +638,6 @@ msgstr "Попередження debootstrap"
 
 #. Type: error
 #. Description
-#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:365
 msgid "Warning: ${INFO}"
 msgstr "Попередження: ${INFO}"

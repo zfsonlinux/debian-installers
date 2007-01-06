@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2006-11-04 09:27+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-06 19:07+0100\n"
 "PO-Revision-Date: 2006-10-17 21:41-0400\n"
 "Last-Translator: Sunjae park <darehanl@gmail.com>\n"
 "Language-Team:  Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -47,8 +47,6 @@ msgstr "베이스 시스템을 설치하는 데 실패했습니다"
 
 #. Type: error
 #. Description
-#. The base system is the minimal Debian system
-#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 #: ../base-installer.templates:13
 msgid ""
 "The installer cannot figure out how to install the base system. No "
@@ -136,6 +134,12 @@ msgstr "debootstrap 프로그램이 비정상적으로 끝났습니다."
 msgid "The following error occurred:"
 msgstr "다음 오류가 발생했습니다:"
 
+#. Type: error
+#. Description
+#: ../base-installer.templates:59
+msgid "${ERROR}"
+msgstr ""
+
 #. Type: select
 #. Description
 #: ../base-installer.templates:69
@@ -208,8 +212,15 @@ msgstr "커널 꾸러미: '${KERNEL}'."
 
 #. Type: select
 #. Choices
+#. flag:translate!:1
 #. For base-installer, "none" is an additional choice to a list of kernels.
 #. It means "no kernel"
+#: ../base-installer.templates:102
+msgid "${KERNELS}"
+msgstr ""
+
+#. Type: select
+#. Choices
 #: ../base-installer.templates:102
 msgid ""
 "none[ Do not translate what's inside the brackets and just put the "
@@ -292,21 +303,18 @@ msgstr ""
 
 #. Type: error
 #. Description
-#. SUBST0 is a Release file name.
 #: ../base-installer.templates:133
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "${SUBST0} Release 파일을 가져오는 데 실패했습니다."
 
 #. Type: error
 #. Description
-#. SUBST0 is a Release.gpg file name
 #: ../base-installer.templates:139
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "${SUBST0} Release 서명 파일을 가져오는 데 실패했습니다."
 
 #. Type: error
 #. Description
-#. SUBST0 is a gpg key ID
 #: ../base-installer.templates:145
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr ""
@@ -320,7 +328,6 @@ msgstr "Release 파일이 잘못되었습니다: 올바른 구성 요소가 없�
 
 #. Type: error
 #. Description
-#. SUBST0 is a filename
 #: ../base-installer.templates:156
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Release 파일이 잘못되었습니다: ${SUBST0}에 대한 항목이 없습니다."
@@ -335,8 +342,6 @@ msgstr "debootstrap 오류"
 
 #. Type: error
 #. Description
-#. SUBST0 is a filename or package name
-#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:163
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
@@ -347,8 +352,6 @@ msgstr ""
 
 #. Type: error
 #. Description
-#. SUBST0 is a filename or package name
-#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:163
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
@@ -627,7 +630,6 @@ msgstr "debootstrap 문제"
 
 #. Type: error
 #. Description
-#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:365
 msgid "Warning: ${INFO}"
 msgstr "경고: ${INFO}"

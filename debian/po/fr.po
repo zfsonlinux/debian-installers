@@ -17,8 +17,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
-"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2006-11-04 09:27+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-06 19:07+0100\n"
 "PO-Revision-Date: 2006-10-13 23:05+0200\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -58,8 +58,6 @@ msgstr "Impossible d'installer le système de base"
 
 #. Type: error
 #. Description
-#. The base system is the minimal Debian system
-#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 #: ../base-installer.templates:13
 msgid ""
 "The installer cannot figure out how to install the base system. No "
@@ -151,6 +149,12 @@ msgstr "Le programme debootstrap s'est terminé de façon anormale."
 msgid "The following error occurred:"
 msgstr "L'erreur suivante s'est produite :"
 
+#. Type: error
+#. Description
+#: ../base-installer.templates:59
+msgid "${ERROR}"
+msgstr ""
+
 #. Type: select
 #. Description
 #: ../base-installer.templates:69
@@ -229,8 +233,15 @@ msgstr "Paquet du noyau : « ${KERNEL} »."
 
 #. Type: select
 #. Choices
+#. flag:translate!:1
 #. For base-installer, "none" is an additional choice to a list of kernels.
 #. It means "no kernel"
+#: ../base-installer.templates:102
+msgid "${KERNELS}"
+msgstr ""
+
+#. Type: select
+#. Choices
 #: ../base-installer.templates:102
 msgid ""
 "none[ Do not translate what's inside the brackets and just put the "
@@ -316,21 +327,18 @@ msgstr ""
 
 #. Type: error
 #. Description
-#. SUBST0 is a Release file name.
 #: ../base-installer.templates:133
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Échec de la récupération du fichier « Release » ${SUBST0}."
 
 #. Type: error
 #. Description
-#. SUBST0 is a Release.gpg file name
 #: ../base-installer.templates:139
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Échec de la récupération du fichier « Release » ${SUBST0}."
 
 #. Type: error
 #. Description
-#. SUBST0 is a gpg key ID
 #: ../base-installer.templates:145
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Fichier « Release » signé par une clé inconnue (${SUBST0})"
@@ -343,7 +351,6 @@ msgstr "Fichier « Release » non valable : aucun composant n'est valable."
 
 #. Type: error
 #. Description
-#. SUBST0 is a filename
 #: ../base-installer.templates:156
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Fichier « Release » invalide : pas d'entrée pour ${SUBST0}."
@@ -358,8 +365,6 @@ msgstr "Erreur de debootstrap"
 
 #. Type: error
 #. Description
-#. SUBST0 is a filename or package name
-#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:163
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
@@ -370,8 +375,6 @@ msgstr ""
 
 #. Type: error
 #. Description
-#. SUBST0 is a filename or package name
-#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:163
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
@@ -650,7 +653,6 @@ msgstr "Avertissement de debootstrap"
 
 #. Type: error
 #. Description
-#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:365
 msgid "Warning: ${INFO}"
 msgstr "Avertissement : ${INFO}"

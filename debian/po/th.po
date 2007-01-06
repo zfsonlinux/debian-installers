@@ -10,8 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2006-11-04 09:27+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-06 19:07+0100\n"
 "PO-Revision-Date: 2006-10-15 12:29+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
@@ -46,8 +46,6 @@ msgstr "ไม่สามารถติดตั้งระบบพื้น
 
 #. Type: error
 #. Description
-#. The base system is the minimal Debian system
-#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 #: ../base-installer.templates:13
 msgid ""
 "The installer cannot figure out how to install the base system. No "
@@ -132,6 +130,12 @@ msgstr "โปรแกรม debootstrap จบการทำงานแบ�
 msgid "The following error occurred:"
 msgstr "เกิดข้อผิดพลาดดังนี้:"
 
+#. Type: error
+#. Description
+#: ../base-installer.templates:59
+msgid "${ERROR}"
+msgstr ""
+
 #. Type: select
 #. Description
 #: ../base-installer.templates:69
@@ -202,8 +206,15 @@ msgstr "แพกเกจเคอร์เนล: '${KERNEL}'"
 
 #. Type: select
 #. Choices
+#. flag:translate!:1
 #. For base-installer, "none" is an additional choice to a list of kernels.
 #. It means "no kernel"
+#: ../base-installer.templates:102
+msgid "${KERNELS}"
+msgstr ""
+
+#. Type: select
+#. Choices
 #: ../base-installer.templates:102
 msgid ""
 "none[ Do not translate what's inside the brackets and just put the "
@@ -283,21 +294,18 @@ msgstr "กรุณาตรวจสอบ /var/log/syslog หรือดู�
 
 #. Type: error
 #. Description
-#. SUBST0 is a Release file name.
 #: ../base-installer.templates:133
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "อ่านแฟ้ม Release ${SUBST0} ไม่สำเร็จ"
 
 #. Type: error
 #. Description
-#. SUBST0 is a Release.gpg file name
 #: ../base-installer.templates:139
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "อ่านแฟ้มลายเซ็นกำกับ Release ${SUBST0} ไม่สำเร็จ"
 
 #. Type: error
 #. Description
-#. SUBST0 is a gpg key ID
 #: ../base-installer.templates:145
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "แฟ้ม Release ถูกเซ็นกำกับโดยกุญแจที่ไม่รู้จัก (หมายเลขกุญแจ ${SUBST0})"
@@ -310,7 +318,6 @@ msgstr "แฟ้ม Release ไม่ถูกต้อง: ไม่มีอ�
 
 #. Type: error
 #. Description
-#. SUBST0 is a filename
 #: ../base-installer.templates:156
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "แฟ้ม Release ไม่ถูกต้อง: ไม่มีรายการสำหรับ ${SUBST0}"
@@ -325,8 +332,6 @@ msgstr "ข้อผิดพลาดของ debootstrap"
 
 #. Type: error
 #. Description
-#. SUBST0 is a filename or package name
-#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:163
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
@@ -336,8 +341,6 @@ msgstr ""
 
 #. Type: error
 #. Description
-#. SUBST0 is a filename or package name
-#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:163
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
@@ -613,7 +616,6 @@ msgstr "คำเตือนจาก debootstrap"
 
 #. Type: error
 #. Description
-#. Debootstrap is a program name: should not be translated
 #: ../base-installer.templates:365
 msgid "Warning: ${INFO}"
 msgstr "คำเตือน: ${INFO}"
