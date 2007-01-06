@@ -767,6 +767,28 @@ EOF
 				echo "RESUME=$resume" >> $resumeconf
 			fi
 		fi
+
+		# Set PReP root partition
+		if [ "$ARCH" = powerpc ] && [ "$SUBARCH" = prep ] && \
+		   [ "$rd_generator" = initramfs-tools ]; then
+			if [ -d /target/etc/initramfs-tools/conf.d ]; then
+				prepconf=/target/etc/initramfs-tools/conf.d/prep-root
+			elif [ -d /target/etc/mkinitramfs/conf.d ]; then
+				prepconf=/target/etc/mkinitramfs/conf.d/prep-root
+			else
+				# old location
+				prepconf=/target/etc/mkinitramfs/initramfs.conf
+			fi
+
+			rootpart_devfs=$(mount | grep "on /target " | cut -d' ' -f1)
+			rootpart=$(mapdevfs $rootpart_devfs)
+			if [ -f $prepconf ] && grep -q "^#* *ROOT=" $prepconf; then
+				sed -e "s@^#* *ROOT=.*@ROOT=$rootpart@" < $prepconf > $prepconf.new &&
+					mv $prepconf.new $prepconf
+			else
+				echo "ROOT=$rootpart" >> $prepconf
+			fi
+		fi
 	else
 		info "Not installing $package."
 	fi
