@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-01-06 19:45+0100\n"
+"POT-Creation-Date: 2007-01-06 22:47+0100\n"
 "PO-Revision-Date: 2006-10-13 16:26+0900\n"
 "Last-Translator:  Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
@@ -21,13 +21,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:1001
+#: ../base-installer.templates:4
 msgid "Proceed with installation to unclean target?"
 msgstr "消去されていないターゲットにインストール処理を行いますか?"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:1001
+#: ../base-installer.templates:4
 msgid ""
 "The target file system contains files from a past installation. These files "
 "could cause problems with the installation process, and if you proceed, some "
@@ -41,7 +41,7 @@ msgstr ""
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:2001
+#: ../base-installer.templates:13
 msgid "Cannot install base system"
 msgstr "ベースシステムをインストールできませんでした"
 
@@ -49,7 +49,7 @@ msgstr "ベースシステムをインストールできませんでした"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:2001
+#: ../base-installer.templates:13
 msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
@@ -60,48 +60,19 @@ msgstr ""
 
 #. Type: error
 #. Description
-#. Type: error
-#. Description
-#. Type: error
-#. Description
-#. SUBST0 is a Release file name.
-#. Type: error
-#. Description
-#. SUBST0 is a Release.gpg file name
-#. Type: error
-#. Description
-#. SUBST0 is a gpg key ID
-#. Type: error
-#. Description
-#. Type: error
-#. Description
-#. SUBST0 is a filename
-#. Type: error
-#. Description
-#. SUBST0 is a filename or package name
-#. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:3001 ../base-installer.templates:9001
-#: ../base-installer.templates:18001 ../base-installer.templates:19001
-#: ../base-installer.templates:20001 ../base-installer.templates:21001
-#: ../base-installer.templates:22001 ../base-installer.templates:23001
-msgid "Debootstrap Error"
-msgstr "Debootstrap エラー"
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:3001
+#: ../base-installer.templates:19
 msgid "Failed to determine the codename for the release."
 msgstr "リリースのコードネームの決定に失敗しました。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:4001
+#: ../base-installer.templates:24
 msgid "No file system mounted on /target"
 msgstr "/target にマウントされたファイルシステムがありません"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:4001
+#: ../base-installer.templates:24
 msgid ""
 "Before the installation can proceed, a root file system must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
@@ -111,13 +82,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:5001
+#: ../base-installer.templates:30
 msgid "Not installing to unclean target"
 msgstr "消去されていないターゲットにインストールできません"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:5001
+#: ../base-installer.templates:30
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
@@ -129,72 +100,50 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:6001
+#: ../base-installer.templates:37
 msgid "Failed to install the base system"
 msgstr "ベースシステムのインストールに失敗しました"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:6001
+#: ../base-installer.templates:37
 msgid "The base system installation into /target/ failed."
 msgstr "/target/ へのベースシステムのインストールに失敗しました。"
 
 #. Type: error
 #. Description
-#. Type: error
-#. Description
-#. Type: error
-#. Description
-#. Type: error
-#. Description
-#. Type: error
-#. Description
-#. Type: error
-#. Description
-#: ../base-installer.templates:6001 ../base-installer.templates:7001
-#: ../base-installer.templates:8001 ../base-installer.templates:9001
-#: ../base-installer.templates:13001 ../base-installer.templates:17001
-msgid "Check /var/log/syslog or see virtual console 4 for the details."
-msgstr ""
-"詳細については、/var/log/syslog を確認するか、仮想コンソール 4 を見てくださ"
-"い。"
-
-#. Type: error
-#. Description
-#. Type: error
-#. Description
-#: ../base-installer.templates:7001 ../base-installer.templates:8001
-msgid "Base system installation error"
-msgstr "ベースシステムインストールエラー"
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:7001
+#: ../base-installer.templates:44
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr "debootstrap プログラムはエラーで終了しました (戻り値 ${EXITCODE})。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:8001
+#: ../base-installer.templates:51
+msgid "Base system installation error"
+msgstr "ベースシステムインストールエラー"
+
+#. Type: error
+#. Description
+#: ../base-installer.templates:51
 msgid "The debootstrap program exited abnormally."
 msgstr "debootstrap プログラムは異常終了しました。"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:9001
+#: ../base-installer.templates:59
 msgid "The following error occurred:"
 msgstr "以下のエラーが発生しました:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:10001
+#: ../base-installer.templates:69
 msgid "Tool to use to generate boot initrd:"
 msgstr "ブート initrd を生成するのに使うツール:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:10001
+#: ../base-installer.templates:69
 msgid ""
 "The list shows the available tools. If you are unsure which to select, you "
 "should select the default. If your system fails to boot, you can retry the "
@@ -206,13 +155,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:11001
+#: ../base-installer.templates:76
 msgid "No initrd generator"
 msgstr "initrd 生成ツールがありません"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:11001
+#: ../base-installer.templates:76
 msgid ""
 "The kernel that has been selected for installation needs an initrd to boot. "
 "However, no package to generate that initrd is available that supports your "
@@ -224,13 +173,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:12001
+#: ../base-installer.templates:83
 msgid "Unsupported initrd generator"
 msgstr "サポートされていない initrd 生成ツールです"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:12001
+#: ../base-installer.templates:83
 msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
@@ -240,13 +189,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:13001
+#: ../base-installer.templates:89
 msgid "Unable to install the selected kernel"
 msgstr "選択されたカーネルはインストールできません"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:13001
+#: ../base-installer.templates:89
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -254,7 +203,7 @@ msgstr "カーネルを対象システムにインストール中にエラーが
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:13001
+#: ../base-installer.templates:89
 msgid "Kernel package: '${KERNEL}'."
 msgstr "カーネルパッケージ: '${KERNEL}'"
 
@@ -262,7 +211,7 @@ msgstr "カーネルパッケージ: '${KERNEL}'"
 #. Choices
 #. For base-installer, "none" is an additional choice to a list of kernels.
 #. It means "no kernel"
-#: ../base-installer.templates:14001
+#: ../base-installer.templates:102
 msgid ""
 "none[ Do not translate what's inside the brackets and just put the "
 "translation for the word \"none\" in your language without any brackets. "
@@ -271,13 +220,13 @@ msgstr "なし"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:14002
+#: ../base-installer.templates:103
 msgid "Kernel to install:"
 msgstr "インストールするカーネル:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:14002
+#: ../base-installer.templates:103
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -287,20 +236,20 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:15001
+#: ../base-installer.templates:110
 msgid "Continue without installing a kernel?"
 msgstr "カーネルをインストールせずに続けますか?"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:15001
+#: ../base-installer.templates:110
 msgid "No installable kernel was found in the defined APT sources."
 msgstr ""
 "定義された APT ソースにインストール可能なカーネルが見つかりませんでした。"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:15001
+#: ../base-installer.templates:110
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -312,13 +261,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:16001
+#: ../base-installer.templates:119
 msgid "Cannot install kernel"
 msgstr "カーネルをインストールできませんでした"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:16001
+#: ../base-installer.templates:119
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr ""
 "インストーラはインストールする適切なカーネルパッケージを見つけられませんでし"
@@ -326,13 +275,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:17001
+#: ../base-installer.templates:124
 msgid "Unable to install ${PACKAGE}"
 msgstr "${PACKAGE} をインストールできません"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:17001
+#: ../base-installer.templates:124
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -341,35 +290,43 @@ msgstr ""
 
 #. Type: error
 #. Description
+#: ../base-installer.templates:124
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr ""
+"詳細については、/var/log/syslog を確認するか、仮想コンソール 4 を見てくださ"
+"い。"
+
+#. Type: error
+#. Description
 #. SUBST0 is a Release file name.
-#: ../base-installer.templates:18001
+#: ../base-installer.templates:133
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Release ファイル ${SUBST0} の取得に失敗しました。"
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release.gpg file name
-#: ../base-installer.templates:19001
+#: ../base-installer.templates:139
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Release シグネチャファイル ${SUBST0} の取得に失敗しました。"
 
 #. Type: error
 #. Description
 #. SUBST0 is a gpg key ID
-#: ../base-installer.templates:20001
+#: ../base-installer.templates:145
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Release ファイルは未知のキー (キー ID ${SUBST0}) で署名されています"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:21001
+#: ../base-installer.templates:150
 msgid "Invalid Release file: no valid components."
 msgstr "無効な Release ファイルです: 有効なコンポーネントがありません。"
 
 #. Type: error
 #. Description
 #. SUBST0 is a filename
-#: ../base-installer.templates:22001
+#: ../base-installer.templates:156
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "無効な Release ファイルです: ${SUBST0} のエントリがありません。"
 
@@ -377,7 +334,15 @@ msgstr "無効な Release ファイルです: ${SUBST0} のエントリがあり
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:23001
+#: ../base-installer.templates:163
+msgid "Debootstrap Error"
+msgstr "Debootstrap エラー"
+
+#. Type: error
+#. Description
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
+#: ../base-installer.templates:163
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -389,7 +354,7 @@ msgstr ""
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:23001
+#: ../base-installer.templates:163
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -399,72 +364,70 @@ msgstr ""
 
 #. Type: text
 #. Description
-#. Type: text
-#. Description
-#: ../base-installer.templates:24001 ../base-installer.templates:34001
-msgid "Installing the base system"
-msgstr "ベースシステムをインストールしています"
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:25001
+#: ../base-installer.templates:176
 msgid "Preparing to install the base system..."
 msgstr "ベースシステムのインストールを準備しています..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:26001
+#: ../base-installer.templates:180
 msgid "Running ${SCRIPT}..."
 msgstr "${SCRIPT} を実行しています..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:27001
+#: ../base-installer.templates:185
 msgid "Retrieving Release file"
 msgstr "Release ファイルを取得しています"
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:28001
+#: ../base-installer.templates:190
 msgid "Retrieving Release file signature"
 msgstr "Release ファイルのシグネチャを取得しています"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:29001
+#: ../base-installer.templates:195
 msgid "Finding package sizes"
 msgstr "パッケージサイズを調べています"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:30001
+#: ../base-installer.templates:200
 msgid "Retrieving Packages files"
 msgstr "Packages ファイルを取得しています"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:31001
+#: ../base-installer.templates:205
 msgid "Retrieving Packages file"
 msgstr "Packages ファイルを取得しています"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:32001
+#: ../base-installer.templates:210
 msgid "Retrieving packages"
 msgstr "パッケージを取得しています"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:33001
+#: ../base-installer.templates:215
 msgid "Extracting packages"
 msgstr "パッケージを展開しています"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:219
+msgid "Installing the base system"
+msgstr "ベースシステムをインストールしています"
 
 #. Type: text
 #. Description
@@ -472,7 +435,7 @@ msgstr "パッケージを展開しています"
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:35001
+#: ../base-installer.templates:227
 msgid "Installing core packages"
 msgstr "コアパッケージをインストールしています"
 
@@ -482,13 +445,13 @@ msgstr "コアパッケージをインストールしています"
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:36001
+#: ../base-installer.templates:235
 msgid "Unpacking required packages"
 msgstr "必須パッケージを展開しています"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:37001
+#: ../base-installer.templates:239
 msgid "Configuring required packages"
 msgstr "必須パッケージを設定しています"
 
@@ -496,7 +459,7 @@ msgstr "必須パッケージを設定しています"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:38001
+#: ../base-installer.templates:245
 msgid "Unpacking the base system"
 msgstr "ベースシステムを展開しています"
 
@@ -504,55 +467,55 @@ msgstr "ベースシステムを展開しています"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:39001
+#: ../base-installer.templates:251
 msgid "Configuring the base system"
 msgstr "ベースシステムを設定しています"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:40001
+#: ../base-installer.templates:255
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:41001
+#: ../base-installer.templates:260
 msgid "Validating ${SUBST0}..."
 msgstr "${SUBST0} を検査しています..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:42001
+#: ../base-installer.templates:265
 msgid "Retrieving ${SUBST0}..."
 msgstr "${SUBST0} を取得しています..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:43001
+#: ../base-installer.templates:270
 msgid "Extracting ${SUBST0}..."
 msgstr "${SUBST0} を展開しています..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:44001
+#: ../base-installer.templates:275
 msgid "Unpacking ${SUBST0}..."
 msgstr "${SUBST0} を展開しています..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:45001
+#: ../base-installer.templates:280
 msgid "Configuring ${SUBST0}..."
 msgstr "${SUBST0} を設定しています..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:46001
+#: ../base-installer.templates:285
 msgid "Checking Release signature"
 msgstr "Release シグネチャをチェックしています"
 
@@ -560,40 +523,40 @@ msgstr "Release シグネチャをチェックしています"
 #. Description
 #. SUBST0 is a gpg key id
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:47001
+#: ../base-installer.templates:291
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "有効な Release シグネチャです (キーID ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:48001
+#: ../base-installer.templates:295
 msgid "Resolving dependencies of base packages..."
 msgstr "ベースパッケージの依存関係を解決しています..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:49001
+#: ../base-installer.templates:300
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr "追加の依存関係を発見しました: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:50001
+#: ../base-installer.templates:305
 msgid "Found additional required dependencies: ${SUBST0}"
 msgstr "追加の必須関係を発見しました: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:51001
+#: ../base-installer.templates:310
 msgid "Found packages in base already in required: ${SUBST0}"
 msgstr "ベースにあるパッケージはすでに必須としてあります: ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:52001
+#: ../base-installer.templates:314
 msgid "Resolving dependencies of required packages..."
 msgstr "必須パッケージの依存関係を解決しています..."
 
@@ -601,7 +564,7 @@ msgstr "必須パッケージの依存関係を解決しています..."
 #. Description
 #. SUBST0 is an archive component (main, etc)
 #. SUBST1 is a mirror
-#: ../base-installer.templates:53001
+#: ../base-installer.templates:320
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "${SUBST1} のコンポーネント ${SUBST0} をチェックしています..."
 
@@ -611,7 +574,7 @@ msgstr "${SUBST1} のコンポーネント ${SUBST0} をチェックしていま
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:54001
+#: ../base-installer.templates:328
 msgid "Installing core packages..."
 msgstr "コアパッケージをインストールしています..."
 
@@ -621,7 +584,7 @@ msgstr "コアパッケージをインストールしています..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:55001
+#: ../base-installer.templates:336
 msgid "Unpacking required packages..."
 msgstr "必須パッケージを展開しています..."
 
@@ -631,77 +594,77 @@ msgstr "必須パッケージを展開しています..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:56001
+#: ../base-installer.templates:344
 msgid "Configuring required packages..."
 msgstr "必須パッケージを設定しています..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:57001
+#: ../base-installer.templates:348
 msgid "Installing base packages..."
 msgstr "ベースパッケージをインストールしています..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:58001
+#: ../base-installer.templates:352
 msgid "Unpacking the base system..."
 msgstr "ベースシステムを展開しています..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:59001
+#: ../base-installer.templates:356
 msgid "Configuring the base system..."
 msgstr "ベースシステムを設定しています..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:60001
+#: ../base-installer.templates:360
 msgid "Base system installed successfully."
 msgstr "ベースシステムのインストールに成功しました。"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:61001
+#: ../base-installer.templates:365
 msgid "Debootstrap warning"
 msgstr "Debootstrap 警告"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:61001
+#: ../base-installer.templates:365
 msgid "Warning: ${INFO}"
 msgstr "警告: ${INFO}"
 
 #. Type: text
 #. Description
 #. SUBST0 is an url
-#: ../base-installer.templates:62001
+#: ../base-installer.templates:371
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "ダウンロードに失敗した ${SUBST0} を再試行しています"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:63001
+#: ../base-installer.templates:375
 msgid "Configuring APT sources..."
 msgstr "APT ソースを設定しています..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:64001
+#: ../base-installer.templates:379
 msgid "Updating the list of available packages..."
 msgstr "利用可能なパッケージのリストを更新しています..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:65001
+#: ../base-installer.templates:383
 msgid "Installing extra packages..."
 msgstr "特別パッケージをインストールしています..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:66001
+#: ../base-installer.templates:388
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr ""
 "特別パッケージをインストールしています - ${SUBST0} を取得・インストールしてい"
@@ -709,26 +672,26 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:67001
+#: ../base-installer.templates:392
 msgid "Creating device files..."
 msgstr "デバイスファイルを作成しています..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:68001
+#: ../base-installer.templates:396
 msgid "Selecting the kernel to install..."
 msgstr "インストールするカーネルを選択しています..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:69001
+#: ../base-installer.templates:400
 msgid "Installing the kernel..."
 msgstr "カーネルをインストールしています..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:70001
+#: ../base-installer.templates:405
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr ""
 "カーネルをインストールしています - ${SUBST0} を取得・インストールしていま"
@@ -736,7 +699,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:71001
+#: ../base-installer.templates:409
 msgid "Installing the PCMCIA modules"
 msgstr "PCMCIA モジュールをインストールしています"
 
@@ -744,6 +707,6 @@ msgstr "PCMCIA モジュールをインストールしています"
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../base-installer.templates:72001
+#: ../base-installer.templates:415
 msgid "Install the base system"
 msgstr "ベースシステムのインストール"
