@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer.2006071\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2006-08-30 22:58+0000\n"
+"POT-Creation-Date: 2007-01-06 19:45+0100\n"
 "PO-Revision-Date: 2006-10-26 11:58+0400\n"
 "Last-Translator: Aiet Kolkhi <aietkolkhi@gmail.com>\n"
 "Language-Team: Georgian <www.gia.ge>\n"
@@ -30,7 +30,15 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:4
+#. Type: boolean
+#. Description
+#: ../grub-installer.templates:1001 ../grub-installer.templates:2001
+msgid "Install the GRUB boot loader to the master boot record?"
+msgstr "დავაყენოთ სისტემური ჩამტვირთველი GRUB ჩატვირთვის მთავარ ჩანაწერში?"
+
+#. Type: boolean
+#. Description
+#: ../grub-installer.templates:1001
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
@@ -38,7 +46,7 @@ msgstr "თქვენს კომპიუტერზე დაყენე�
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:4
+#: ../grub-installer.templates:1001
 msgid ""
 "If all of your operating systems are listed above, then it should be safe to "
 "install the boot loader to the master boot record of your first hard drive. "
@@ -52,13 +60,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:16
-msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "დავაყენოთ სისტემური ჩამტვირთველი GRUB ჩატვირთვის მთავარ ჩანაწერში?"
-
-#. Type: boolean
-#. Description
-#: ../grub-installer.templates:16
+#: ../grub-installer.templates:2001
 msgid ""
 "It seems that this new installation is the only operating system on this "
 "computer. If so, it should be safe to install the GRUB boot loader to the "
@@ -70,7 +72,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:16
+#: ../grub-installer.templates:2001
 msgid ""
 "Warning: If the installer failed to detect another operating system that is "
 "present on your computer, modifying the master boot record will make that "
@@ -84,13 +86,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:29
+#: ../grub-installer.templates:3001
 msgid "Install the GRUB boot loader to XFS file system?"
 msgstr "დავაყენოთ GRUB-ჩამტვირთველი XFS ფაილურ სისტემაზე?"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:29
+#: ../grub-installer.templates:3001
 msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
@@ -104,13 +106,13 @@ msgstr ""
 #  templates.pot (PACKAGE VERSION)#-#-#-#-
 #. Type: string
 #. Description
-#: ../grub-installer.templates:35
+#: ../grub-installer.templates:4001
 msgid "Device for boot loader installation:"
 msgstr "მოწყობილობა სისტემური ჩამტვირთველის დასაყენებლად:"
 
 #. Type: string
 #. Description
-#: ../grub-installer.templates:35
+#: ../grub-installer.templates:4001
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -126,7 +128,7 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../grub-installer.templates:35
+#: ../grub-installer.templates:4001
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -150,13 +152,13 @@ msgstr ""
 
 #. Type: password
 #. Description
-#: ../grub-installer.templates:54
+#: ../grub-installer.templates:5001
 msgid "GRUB password:"
 msgstr "GRUB-ის პაროლი:"
 
 #. Type: password
 #. Description
-#: ../grub-installer.templates:54
+#: ../grub-installer.templates:5001
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -174,19 +176,19 @@ msgstr ""
 
 #. Type: password
 #. Description
-#: ../grub-installer.templates:54
+#: ../grub-installer.templates:5001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "დატოვეთ ველი ცარიელი, თუ არ გინდათ ჩამტვირთველს პაროლი დაადოთ."
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:73
+#: ../grub-installer.templates:7001
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "GRUB-ის ინსტალაცია შეფერხდა. მაინც გავაგრძელოთ?"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:73
+#: ../grub-installer.templates:7001
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -198,86 +200,88 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:80
+#: ../grub-installer.templates:8001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "ვერ ხერხდება GRUB-ის ინსტალირება ${BOOTDEV}-ში"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:80
+#: ../grub-installer.templates:8001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "ვერ შესრულდა 'grub-install ${BOOTDEV}'"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:87
+#. Type: error
+#. Description
+#: ../grub-installer.templates:8001 ../grub-installer.templates:9001
+msgid "This is a fatal error."
+msgstr "ეს გამოუსწორობელი შეცდომაა."
+
+#. Type: error
+#. Description
+#: ../grub-installer.templates:9001
 msgid "Unable to configure GRUB"
 msgstr "GRUB-ის კონფიგურაცია ვერ მოხერხდა."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:87
+#: ../grub-installer.templates:9001
 msgid "Executing 'update-grub' failed."
 msgstr "ვერ შესრულდა 'update-grub'."
 
-#. Type: error
-#. Description
-#: ../grub-installer.templates:87
-msgid "This is a fatal error."
-msgstr "ეს გამოუსწორობელი შეცდომაა."
-
 #. Type: text
 #. Description
-#: ../grub-installer.templates:105
+#: ../grub-installer.templates:11001
 msgid "Installing GRUB boot loader"
 msgstr "GRUB სისტემური ჩამტვირთველის ინსტალაცია"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:109
+#: ../grub-installer.templates:12001
 msgid "Looking for other operating systems..."
 msgstr "სხვა ოპერაციული სისტემების ძებნა..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:113
+#: ../grub-installer.templates:13001
 msgid "Installing the 'grub' package..."
 msgstr "მიმდინარეობს 'grub' პაკეტის დაყენება..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:117
+#: ../grub-installer.templates:14001
 msgid "Determining GRUB boot device..."
 msgstr "grub-ისათვის ჩატვირთვის მოწყობილობის განსაზღვრა..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:121
+#: ../grub-installer.templates:15001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "გაშვებულია \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:125
+#: ../grub-installer.templates:16001
 msgid "Running \"update-grub\"..."
 msgstr "გაშვებულია \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:129
+#: ../grub-installer.templates:17001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "/etc/kernel-img.conf განახლება..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:134
+#: ../grub-installer.templates:18001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "GRUB სისტემური ჩამტვირთველის დაყენება დისკზე"
 
 #. Type: text
 #. Description
 #. Rescue menu item
-#: ../grub-installer.templates:139
+#: ../grub-installer.templates:19001
 msgid "Reinstall GRUB boot loader"
 msgstr "GRUB სისტემური ჩამტვირთველის გადაყენება"

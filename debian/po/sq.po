@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2006-08-30 22:58+0000\n"
+"POT-Creation-Date: 2007-01-06 19:45+0100\n"
 "PO-Revision-Date: 2006-04-22 13:15+0200\n"
 "Last-Translator:  Elian Myftiu <elian.myftiu@gmail.com>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
@@ -23,7 +23,15 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:4
+#. Type: boolean
+#. Description
+#: ../grub-installer.templates:1001 ../grub-installer.templates:2001
+msgid "Install the GRUB boot loader to the master boot record?"
+msgstr "Ta instaloj ngarkuesin e nisjes GRUB në MBR (master boot record)?"
+
+#. Type: boolean
+#. Description
+#: ../grub-installer.templates:1001
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
@@ -31,7 +39,7 @@ msgstr "Sistemet e tjerë operativë që u gjetën në këtë kompjuter: ${OS_LI
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:4
+#: ../grub-installer.templates:1001
 msgid ""
 "If all of your operating systems are listed above, then it should be safe to "
 "install the boot loader to the master boot record of your first hard drive. "
@@ -45,13 +53,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:16
-msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "Ta instaloj ngarkuesin e nisjes GRUB në MBR (master boot record)?"
-
-#. Type: boolean
-#. Description
-#: ../grub-installer.templates:16
+#: ../grub-installer.templates:2001
 msgid ""
 "It seems that this new installation is the only operating system on this "
 "computer. If so, it should be safe to install the GRUB boot loader to the "
@@ -63,7 +65,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:16
+#: ../grub-installer.templates:2001
 msgid ""
 "Warning: If the installer failed to detect another operating system that is "
 "present on your computer, modifying the master boot record will make that "
@@ -77,13 +79,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:29
+#: ../grub-installer.templates:3001
 msgid "Install the GRUB boot loader to XFS file system?"
 msgstr "Ta instaloj ngarkuesin e nisjes GRUB në një filesistem XFS?"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:29
+#: ../grub-installer.templates:3001
 msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
@@ -93,13 +95,13 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../grub-installer.templates:35
+#: ../grub-installer.templates:4001
 msgid "Device for boot loader installation:"
 msgstr "Dispozitivi për instalimin e ngarkuesit të nisjes:"
 
 #. Type: string
 #. Description
-#: ../grub-installer.templates:35
+#: ../grub-installer.templates:4001
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -115,7 +117,7 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../grub-installer.templates:35
+#: ../grub-installer.templates:4001
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -142,13 +144,13 @@ msgstr ""
 
 #. Type: password
 #. Description
-#: ../grub-installer.templates:54
+#: ../grub-installer.templates:5001
 msgid "GRUB password:"
 msgstr "Fjalëkalimi i GRUB:"
 
 #. Type: password
 #. Description
-#: ../grub-installer.templates:54
+#: ../grub-installer.templates:5001
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -167,7 +169,7 @@ msgstr ""
 
 #. Type: password
 #. Description
-#: ../grub-installer.templates:54
+#: ../grub-installer.templates:5001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr ""
 "Nëse nuk di dëshiron të caktosh një fjalëkalim për GRUB, lëre bosh këtë "
@@ -175,13 +177,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:73
+#: ../grub-installer.templates:7001
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Instalimi i GRUB dështoi.  Të vazhdoj sidoqoftë?"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:73
+#: ../grub-installer.templates:7001
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -194,86 +196,88 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:80
+#: ../grub-installer.templates:8001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "GRUB nuk mund të instalohet në ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:80
+#: ../grub-installer.templates:8001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Ekzekutimi i 'grub-install' ${BOOTDEV}' dështoi."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:87
+#. Type: error
+#. Description
+#: ../grub-installer.templates:8001 ../grub-installer.templates:9001
+msgid "This is a fatal error."
+msgstr "Gabim fatal."
+
+#. Type: error
+#. Description
+#: ../grub-installer.templates:9001
 msgid "Unable to configure GRUB"
 msgstr "GRUB nuk mund të konfigurohet"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:87
+#: ../grub-installer.templates:9001
 msgid "Executing 'update-grub' failed."
 msgstr "Ekzekutimi i 'update-grub' dështoi."
 
-#. Type: error
-#. Description
-#: ../grub-installer.templates:87
-msgid "This is a fatal error."
-msgstr "Gabim fatal."
-
 #. Type: text
 #. Description
-#: ../grub-installer.templates:105
+#: ../grub-installer.templates:11001
 msgid "Installing GRUB boot loader"
 msgstr "Duke instaluar ngarkuesin e nisjes GRUB"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:109
+#: ../grub-installer.templates:12001
 msgid "Looking for other operating systems..."
 msgstr "Duke kërkuar për të tjerë sisteme operativë..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:113
+#: ../grub-installer.templates:13001
 msgid "Installing the 'grub' package..."
 msgstr "Duke instaluar paketën 'grub'..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:117
+#: ../grub-installer.templates:14001
 msgid "Determining GRUB boot device..."
 msgstr "Duke gjetur dispozitivin e nisjes GRUB..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:121
+#: ../grub-installer.templates:15001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Duke ekzekutuar \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:125
+#: ../grub-installer.templates:16001
 msgid "Running \"update-grub\"..."
 msgstr "Duke ekzekutuar \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:129
+#: ../grub-installer.templates:17001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Duke freskuar /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:134
+#: ../grub-installer.templates:18001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Instalo ngarkuesin e nisjes GRUB në një hard disk"
 
 #. Type: text
 #. Description
 #. Rescue menu item
-#: ../grub-installer.templates:139
+#: ../grub-installer.templates:19001
 msgid "Reinstall GRUB boot loader"
 msgstr "Duke reinstaluar ngarkuesin e nisjes GRUB"
