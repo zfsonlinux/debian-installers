@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-01-06 19:45+0100\n"
+"POT-Creation-Date: 2007-01-06 22:48+0100\n"
 "PO-Revision-Date: 2006-08-12 07:31-0500\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -30,15 +30,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#. Type: boolean
-#. Description
-#: ../grub-installer.templates:1001 ../grub-installer.templates:2001
-msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "Installer le programme de démarrage GRUB sur le secteur d'amorçage ?"
-
-#. Type: boolean
-#. Description
-#: ../grub-installer.templates:1001
+#: ../grub-installer.templates:4
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
@@ -48,7 +40,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:1001
+#: ../grub-installer.templates:4
 msgid ""
 "If all of your operating systems are listed above, then it should be safe to "
 "install the boot loader to the master boot record of your first hard drive. "
@@ -62,7 +54,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:2001
+#: ../grub-installer.templates:16
+msgid "Install the GRUB boot loader to the master boot record?"
+msgstr "Installer le programme de démarrage GRUB sur le secteur d'amorçage ?"
+
+#. Type: boolean
+#. Description
+#: ../grub-installer.templates:16
 msgid ""
 "It seems that this new installation is the only operating system on this "
 "computer. If so, it should be safe to install the GRUB boot loader to the "
@@ -75,7 +73,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:2001
+#: ../grub-installer.templates:16
 msgid ""
 "Warning: If the installer failed to detect another operating system that is "
 "present on your computer, modifying the master boot record will make that "
@@ -90,13 +88,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:3001
+#: ../grub-installer.templates:29
 msgid "Install the GRUB boot loader to XFS file system?"
 msgstr "Installer le programme de démarrage GRUB un système de fichiers XFS ?"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:3001
+#: ../grub-installer.templates:29
 msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
@@ -107,13 +105,13 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../grub-installer.templates:4001
+#: ../grub-installer.templates:35
 msgid "Device for boot loader installation:"
 msgstr "Périphérique où sera installé le programme de démarrage :"
 
 #. Type: string
 #. Description
-#: ../grub-installer.templates:4001
+#: ../grub-installer.templates:35
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -130,7 +128,7 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../grub-installer.templates:4001
+#: ../grub-installer.templates:35
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -155,13 +153,13 @@ msgstr ""
 
 #. Type: password
 #. Description
-#: ../grub-installer.templates:5001
+#: ../grub-installer.templates:54
 msgid "GRUB password:"
 msgstr "Mot de passe de GRUB :"
 
 #. Type: password
 #. Description
-#: ../grub-installer.templates:5001
+#: ../grub-installer.templates:54
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -180,7 +178,7 @@ msgstr ""
 
 #. Type: password
 #. Description
-#: ../grub-installer.templates:5001
+#: ../grub-installer.templates:54
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr ""
 "Si vous ne souhaitez pas établir de mot de passe pour GRUB, laissez ce champ "
@@ -188,13 +186,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:7001
+#: ../grub-installer.templates:73
 msgid "GRUB installation failed.  Continue anyway?"
 msgstr "Échec de l'installation de GRUB. Continuer malgré tout ?"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:7001
+#: ../grub-installer.templates:73
 msgid ""
 "The grub package failed to install into /target/.  Installing GRUB as a boot "
 "loader is a required step.  The install problem might however be unrelated "
@@ -207,88 +205,86 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:80
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Impossible d'installer GRUB dans ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:80
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "L'exécution de « grub-install ${BOOTDEV} » a échoué."
 
 #. Type: error
 #. Description
-#. Type: error
-#. Description
-#: ../grub-installer.templates:8001 ../grub-installer.templates:9001
-msgid "This is a fatal error."
-msgstr "Cette erreur est fatale."
-
-#. Type: error
-#. Description
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:87
 msgid "Unable to configure GRUB"
 msgstr "Impossible de configurer GRUB"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:87
 msgid "Executing 'update-grub' failed."
 msgstr "L'exécution de « update-grub » a échoué."
 
+#. Type: error
+#. Description
+#: ../grub-installer.templates:87
+msgid "This is a fatal error."
+msgstr "Cette erreur est fatale."
+
 #. Type: text
 #. Description
-#: ../grub-installer.templates:11001
+#: ../grub-installer.templates:105
 msgid "Installing GRUB boot loader"
 msgstr "Installation du programme de démarrage GRUB"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:109
 msgid "Looking for other operating systems..."
 msgstr "Recherche d'autres systèmes d'exploitation..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:113
 msgid "Installing the 'grub' package..."
 msgstr "Installation du paquet de GRUB..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:117
 msgid "Determining GRUB boot device..."
 msgstr "Recherche du périphérique d'amorce de GRUB..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:15001
+#: ../grub-installer.templates:121
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Exécution de « grub-install ${BOOTDEV} »..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:125
 msgid "Running \"update-grub\"..."
 msgstr "Exécution de « update-grub »..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:17001
+#: ../grub-installer.templates:129
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Mise à jour de « /etc/kernel-img.conf »..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:18001
+#: ../grub-installer.templates:134
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installer le programme de démarrage GRUB sur un disque dur"
 
 #. Type: text
 #. Description
 #. Rescue menu item
-#: ../grub-installer.templates:19001
+#: ../grub-installer.templates:139
 msgid "Reinstall GRUB boot loader"
 msgstr "Réinstallation du programme de démarrage GRUB"
