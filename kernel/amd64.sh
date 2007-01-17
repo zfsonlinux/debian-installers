@@ -1,5 +1,5 @@
 arch_get_kernel_flavour () {
-	VENDOR=`grep '^vendor_id' "$CPUINFO" | cut -d: -f2`
+	VENDOR=`grep '^vendor_id' "$CPUINFO" | cut -d: -f2 | head -n1`
 	case "$VENDOR" in
 		" AuthenticAMD"*)	echo amd64-k8 ;;
 		" GenuineIntel"*)	echo em64t-p4 ;;
