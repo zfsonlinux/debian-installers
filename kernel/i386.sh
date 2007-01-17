@@ -1,6 +1,6 @@
 arch_get_kernel_flavour () {
-	VENDOR=`grep '^vendor_id' "$CPUINFO" | cut -d: -f2 | head -n1`
-	FAMILY=`grep '^cpu family' "$CPUINFO" | cut -d: -f2 | head -n1`
+	VENDOR=`grep '^vendor_id' "$CPUINFO" | head -n1 | cut -d: -f2`
+	FAMILY=`grep '^cpu family' "$CPUINFO" | head -n1 | cut -d: -f2`
 	case "$VENDOR" in
 		" AuthenticAMD"*)
 			case "$FAMILY" in
