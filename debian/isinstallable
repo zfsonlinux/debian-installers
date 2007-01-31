@@ -20,6 +20,7 @@ case $ARCH in
 	MANUFACTURER="$(dmidecode -s system-manufacturer)"
 	case $MANUFACTURER in
 	    Apple*)
+		# Note: depends on partman-efi to load the efivars module!
 		if [ -d /sys/firmware/efi ]; then
 			log "GRUB not yet usable on Intel-based Macs booted using EFI"
 			exit 1
