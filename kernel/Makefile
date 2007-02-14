@@ -1,4 +1,4 @@
-ARCHES = alpha amd64 arm hppa i386 ia64 m68k mips mipsel powerpc ppc64 s390 sparc
+ARCHES = alpha amd64 arm armeb armel hppa i386 ia64 m68k mips mipsel powerpc ppc64 s390 sparc
 
 test:
 	@STATUS=0; \
