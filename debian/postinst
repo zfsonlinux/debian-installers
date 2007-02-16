@@ -173,7 +173,11 @@ install_base_system () {
 		exclude="--exclude=${EXCLUDES}"
 	fi
 	if type gpgv >/dev/null && [ -f "$KEYRING" ]; then
-		keyring="--keyring=${KEYRING}"
+		if ! db_get debian-installer/allow_unauthenticated || [ "$RET" != true ]; then
+			keyring="--keyring=${KEYRING}"
+		fi
+	else
+		warning "gpgv not found, not authenticating archive"
 	fi
 
 	test -d $ETCDIR || mkdir -p $ETCDIR
@@ -259,6 +263,14 @@ EOT
 	cat > /target/etc/apt/apt.conf.d/00IgnoreTimeConflict << EOT
 Acquire::gpgv::Options { "--ignore-time-conflict"; };
 EOT
+
+	if db_get debian-installer/allow_unauthenticated && [ "$RET" = true ]; then
+		# This file will be left in place until the end of the install.
+		cat > /target/etc/apt/apt.conf.d/00AllowUnauthenticated << EOT
+APT::Get::AllowUnauthenticated "true";
+EOT
+	fi
+
 	# let apt inside the chroot see the cdrom
 	if [ "$PROTOCOL" = file ] ; then
 		if [ -n "$DIRECTORY" ]; then

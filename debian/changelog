@@ -5,8 +5,13 @@ base-installer (1.73) UNRELEASED; urgency=low
 
   [ Joey Hess ]
   * Add support for armel.
+  * If debian-installer/allow_unauthenticated exists and is true, write a
+    /etc/apt/apt.conf.d/00AllowUnauthenticated file making apt allow
+    unauthenticated mirrors.
+  * Depend on gpgv-udeb, which has apparently never really been pulled in
+    before.
 
- -- Joey Hess <joeyh@debian.org>  Wed, 14 Feb 2007 16:28:10 -0500
+ -- Joey Hess <joeyh@debian.org>  Thu, 15 Feb 2007 13:58:34 -0500
 
 base-installer (1.72) unstable; urgency=low
 
