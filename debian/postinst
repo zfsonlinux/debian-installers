@@ -172,12 +172,14 @@ install_base_system () {
 	if [ "${EXCLUDES}" ]; then
 		exclude="--exclude=${EXCLUDES}"
 	fi
-	if type gpgv >/dev/null && [ -f "$KEYRING" ]; then
-		if ! db_get debian-installer/allow_unauthenticated || [ "$RET" != true ]; then
-			keyring="--keyring=${KEYRING}"
+	if [ "$PROTOCOL" = http ] || [ "$PROTOCOL" = ftp ]; then
+		if type gpgv >/dev/null && [ -f "$KEYRING" ]; then
+			if ! db_get debian-installer/allow_unauthenticated || [ "$RET" != true ]; then
+				keyring="--keyring=${KEYRING}"
+			fi
+		else
+			warning "gpgv not found, not authenticating archive"
 		fi
-	else
-		warning "gpgv not found, not authenticating archive"
 	fi
 
 	test -d $ETCDIR || mkdir -p $ETCDIR
