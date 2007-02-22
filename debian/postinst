@@ -270,6 +270,7 @@ EOT
 		# This file will be left in place until the end of the install.
 		cat > /target/etc/apt/apt.conf.d/00AllowUnauthenticated << EOT
 APT::Get::AllowUnauthenticated "true";
+Aptitude::CmdLine::Ignore-Trust-Violations "true";
 EOT
 	fi
 
