@@ -658,12 +658,6 @@ EOF
 		fi
 	fi
 
-	# Sarge does not have any initramfs generators, though custom images may
-	if [ -z "$rd_generator" ] ; then
-		# We can only get here if $do_initramfs=yes
-		exit_error base-installer/initramfs/no-generator
-	fi
-
 	# TODO This should probably be restructured to better support
 	#      differences between initrd generators
 	if [ yes = "$do_initrd" ] ; then
