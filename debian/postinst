@@ -557,11 +557,6 @@ addmodule_easy () {
 	fi
 }
 
-addmodule_initrd_tools () {
-	CFILE='/target/etc/mkinitrd/modules'
-	addmodule_easy "$1" "$2"
-}
-
 addmodule_initramfs_tools () {
 	CFILE='/target/etc/initramfs-tools/modules'
 	addmodule_easy "$1" "$2"
@@ -661,8 +656,6 @@ EOF
 				rd_generator="$generators"
 			fi
 		fi
-	else
-		rd_generator=initrd-tools
 	fi
 
 	# Sarge does not have any initramfs generators, though custom images may
@@ -684,13 +677,10 @@ EOF
 		fi
 		
 		# Figure out how to configure the ramdisk creation tool.
+		# FJP 20070306: Possibly this can go completely
 		case "$rd_generator" in
 		    initramfs-tools|yaird)
-			rd_conf=
-			;;
-		    initrd-tools)
-			rd_conf=/target/etc/mkinitrd/mkinitrd.conf
-			;;
+			: ;;
 		    *)
 			db_subst base-installer/initramfs/unsupported GENERATOR "$rd_generator"
 			exit_error base-installer/initramfs/unsupported
@@ -725,26 +715,10 @@ EOF
 			log-output -t base-installer apt-install "$package" || true
 		done
 
-		if [ "$do_initramfs" = no ] && [ "$rd_conf" ]; then
-			# Temporarily hardcode the root partition for initrd-tools
-			rootpart_devfs=$(mount | grep "on /target " | cut -d' ' -f1)
-			rootpartfs=$(mount | grep "on /target " | cut -d' ' -f5)
-			rootpart=$(mapdevfs $rootpart_devfs)
-			if [ -f $rd_conf ]; then
-				sed -e "s#^ROOT=.*#ROOT='$rootpart $rootpartfs'#" < $rd_conf > $rd_conf.new &&
-					mv $rd_conf.new $rd_conf
-			else
-				echo "ROOT='$rootpart $rootpartfs'" >> $rd_conf
-			fi
-		fi
-
 		# Set up a default resume partition.
 		case $rd_generator in
 		    initramfs-tools)
 			resumeconf=/target/etc/initramfs-tools/conf.d/resume
-			;;
-		    initrd-tools)
-			resumeconf="$rd_conf"
 			;;
 		    *)
 			resumeconf=
@@ -792,13 +766,6 @@ EOF
 
 	# Advance progress bar to 90% of allocated space for install_linux
 	update_progress 90 100
-
-	# /proc/filesystems will accomodate this when the initrd is rebuilt.
-	if [ "$do_initrd" = yes ] && [ "$do_initramfs" = no ] && \
-	   [ "$rd_conf" ]; then
-		sed -e 's/^ROOT=.*/ROOT=probe/' $rd_conf > $rd_conf.new &&
-			mv $rd_conf.new $rd_conf
-	fi
 
 	if [ -f /target/etc/kernel-img.conf.$$ ]; then
 		# Revert old kernel-img.conf
