@@ -19,7 +19,7 @@ arch_get_kernel_flavour () {
 }
 
 arch_check_usable_kernel () {
-	# Handle some packages renamed from 2.4 to 2.6
+	# Netwinder subarch uses footbridge kernel flavor.
 	if [ "$2" = "netwinder" ]; then
 		if expr "$1" : ".*-footbridge\$" >/dev/null; then return 0; fi
 	fi
@@ -30,10 +30,7 @@ arch_check_usable_kernel () {
 
 arch_get_kernel () {
 	case "$KERNEL_MAJOR" in
-		2.4)
-			echo "kernel-image-$KERNEL_VERSION-$1"
-			;;
-		*)
+		2.6)
 			case "$1" in
 				netwinder)
 					echo "linux-image-$KERNEL_MAJOR-footbridge"
@@ -45,5 +42,8 @@ arch_get_kernel () {
 					echo "linux-image-$KERNEL_MAJOR-$1"
 					;;
 			esac
+			;;
+		*)      warning "Unsupported kernel major '$KERNEL_MAJOR'."
+			;;
 		esac
 }

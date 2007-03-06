@@ -8,13 +8,8 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	if [ "$KERNEL_MAJOR" = 2.4 ]; then
-		imgbase=kernel-image
-		version=2.4.27-2
-	else
-		imgbase=linux-image
-		version=$KERNEL_MAJOR-alpha
-	fi
+	imgbase=linux-image
+	version=$KERNEL_MAJOR-alpha
 	
 	if [ -n "$NUMCPUS" ] && [ "$NUMCPUS" -gt 1 ]; then
 		echo "$imgbase-$version-smp"

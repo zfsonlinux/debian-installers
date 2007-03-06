@@ -33,7 +33,8 @@ arch_check_usable_kernel () {
 
 arch_get_kernel () {
 	CPUS="$(grep -ci ^processor "$CPUINFO")" || CPUS=1
-	if [ "$CPUS" ] && [ "$CPUS" -gt 1 ] && [ "$1" != "powerpc64" ] && [ "$1" != "prep" ] ; then
+	if [ "$CPUS" ] && [ "$CPUS" -gt 1 ] && \
+	   [ "$1" != "powerpc64" ] && [ "$1" != "prep" ] ; then
 		SMP=-smp
 	else
 		SMP=
@@ -46,12 +47,7 @@ arch_get_kernel () {
 			fi
 			echo "linux-image-$KERNEL_MAJOR-$1"
 			;;
-		*)
-			if [ "$1" = powerpc ] && [ "$SMP" ]; then
-				# 2.4 only has powerpc-smp.
-				echo "kernel-image-$KERNEL_MAJOR-$1$SMP"
-			fi
-			echo "kernel-image-$KERNEL_MAJOR-$1"
+		*)      warning "Unsupported kernel major '$KERNEL_MAJOR'."
 			;;
 	esac
 }

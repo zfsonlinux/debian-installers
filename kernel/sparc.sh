@@ -28,11 +28,8 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	if [ "$KERNEL_MAJOR" = 2.4 ]; then
-		imgbase=kernel-image
-	else
-		imgbase=linux-image
-	fi
+	imgbase=linux-image
+
 	CPUS=`grep 'ncpus probed' "$CPUINFO" | cut -d: -f2`
 	if [ "$CPUS" -ne 1 ]; then
 		if [ "$1" = sparc32 ] && [ "$KERNEL_MAJOR" = 2.6 ]; then

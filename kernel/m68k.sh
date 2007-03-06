@@ -19,15 +19,10 @@ arch_check_usable_kernel () {
 
 arch_get_kernel () {
 	case "$KERNEL_MAJOR" in
-		2.2)
-			echo "kernel-image-$KERNEL_VERSION-$1"
-			;;
-		2.4)
-			echo "kernel-image-$KERNEL_VERSION-$1"
-			;;
 		2.6)
 			echo "linux-image-$KERNEL_MAJOR-$1"
 			;;
-		*)	warning "Unknown kernel major '$KERNEL_MAJOR'." ;;
+		*)	warning "Unsupported kernel major '$KERNEL_MAJOR'."
+			;;
 	esac
 }
