@@ -563,12 +563,7 @@ addmodule_initrd_tools () {
 }
 
 addmodule_initramfs_tools () {
-	if [ -d /target/etc/initramfs-tools ]; then
-		CFILE='/target/etc/initramfs-tools/modules'
-	else
-		# old location
-		CFILE='/target/etc/mkinitramfs/modules'
-	fi
+	CFILE='/target/etc/initramfs-tools/modules'
 	addmodule_easy "$1" "$2"
 }
 
@@ -752,14 +747,7 @@ EOF
 		# Set up a default resume partition.
 		case $rd_generator in
 		    initramfs-tools)
-			if [ -d /target/etc/initramfs-tools/conf.d ]; then
-				resumeconf=/target/etc/initramfs-tools/conf.d/resume
-			elif [ -d /target/etc/mkinitramfs/conf.d ]; then
-				resumeconf=/target/etc/mkinitramfs/conf.d/resume
-			else
-				# old location
-				resumeconf=/target/etc/mkinitramfs/initramfs.conf
-			fi
+			resumeconf=/target/etc/initramfs-tools/conf.d/resume
 			;;
 		    initrd-tools)
 			resumeconf="$rd_conf"
@@ -786,15 +774,7 @@ EOF
 		# Set PReP root partition
 		if [ "$ARCH" = powerpc ] && [ "$SUBARCH" = prep ] && \
 		   [ "$rd_generator" = initramfs-tools ]; then
-			if [ -d /target/etc/initramfs-tools/conf.d ]; then
-				prepconf=/target/etc/initramfs-tools/conf.d/prep-root
-			elif [ -d /target/etc/mkinitramfs/conf.d ]; then
-				prepconf=/target/etc/mkinitramfs/conf.d/prep-root
-			else
-				# old location
-				prepconf=/target/etc/mkinitramfs/initramfs.conf
-			fi
-
+			prepconf=/target/etc/initramfs-tools/conf.d/prep-root
 			rootpart_devfs=$(mount | grep "on /target " | cut -d' ' -f1)
 			rootpart=$(mapdevfs $rootpart_devfs)
 			if [ -f $prepconf ] && grep -q "^#* *ROOT=" $prepconf; then
