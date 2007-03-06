@@ -698,23 +698,27 @@ EOF
 			rm $QUEUEFILE
 			FIRSTMODULE=0
 		done
+	else
+		info "Not installing an initrd generator."
+	fi
 
-		# Install any extra (kernel related) packages
-		EXTRAS=
-		if db_get "base-installer/kernel/linux/extra-packages-$target_kernel_major"; then
-			EXTRAS="$EXTRAS $RET"
-		fi
-		if db_get base-installer/kernel/linux/extra-packages; then
-			EXTRAS="$EXTRAS $RET"
-		fi
-		for package in $EXTRAS; do
-			info "Installing $package."
-			db_subst base-installer/section/install_kernel_package SUBST0 "$package"
-			db_progress INFO base-installer/section/install_kernel_package
-			# The package might not exist; don't worry about it.
-			log-output -t base-installer apt-install "$package" || true
-		done
+	# Install any extra (kernel related) packages
+	EXTRAS=
+	if db_get "base-installer/kernel/linux/extra-packages-$target_kernel_major"; then
+		EXTRAS="$EXTRAS $RET"
+	fi
+	if db_get base-installer/kernel/linux/extra-packages; then
+		EXTRAS="$EXTRAS $RET"
+	fi
+	for package in $EXTRAS; do
+		info "Installing $package."
+		db_subst base-installer/section/install_kernel_package SUBST0 "$package"
+		db_progress INFO base-installer/section/install_kernel_package
+		# The package might not exist; don't worry about it.
+		log-output -t base-installer apt-install "$package" || true
+	done
 
+	if [ yes = "$do_initrd" ] ; then
 		# Set up a default resume partition.
 		case $rd_generator in
 		    initramfs-tools)
@@ -752,8 +756,6 @@ EOF
 				echo "ROOT=$rootpart" >> $prepconf
 			fi
 		fi
-	else
-		info "Not installing $package."
 	fi
 
 	# Advance progress bar to 30% of allocated space for install_linux
