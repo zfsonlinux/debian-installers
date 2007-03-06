@@ -587,34 +587,20 @@ install_linux () {
 			target_kernel_major="$(uname -r | cut -d . -f 1,2)"
 			;;
 	esac
-	if db_get "base-installer/kernel/linux/initrd-$target_kernel_major" ; then
+
+	do_initrd=no
+	if db_get "base-installer/kernel/linux/initrd-$target_kernel_major"; then
 		if [ "$RET" = true ]; then
 			do_initrd=yes
-		else
-			do_initrd=no
 		fi
-	elif db_get base-installer/kernel/linux/initrd ; then
-		if [ "$RET" = "true" ]; then
+	# Note: this template currently does not exist
+	elif db_get base-installer/kernel/linux/initrd; then
+		if [ "$RET" = true ]; then
 			do_initrd=yes
-		else
-			do_initrd=no
 		fi
 	else
 		warning "Failed to get debconf answer 'base-installer/kernel/linux/initrd'."
 		do_initrd=yes
-	fi
-
-	do_initramfs=no
-	if [ "$do_initrd" = yes ]; then
-		if db_get "base-installer/kernel/linux/initramfs-$target_kernel_major"; then
-			if [ "$RET" = true ]; then
-				do_initramfs=yes
-			fi
-		elif db_get base-installer/kernel/linux/initramfs; then
-			if [ "$RET" = true ]; then
-				do_initramfs=yes
-			fi
-		fi
 	fi
 
 	if db_get base-installer/kernel/linux/link_in_boot ; then
@@ -628,14 +614,14 @@ install_linux () {
 		link_in_boot=no
 	fi
 
-	info "Setting do_initrd='$do_initrd'."
-	info "Setting link_in_boot='$link_in_boot'."
-
+	# Create configuration file for kernel-package
 	if [ -f /target/etc/kernel-img.conf ]; then
 		# Backup old kernel-img.conf
 		mv /target/etc/kernel-img.conf /target/etc/kernel-img.conf.$$
 	fi
 
+	info "Setting do_initrd='$do_initrd'."
+	info "Setting link_in_boot='$link_in_boot'."
 	cat > /target/etc/kernel-img.conf <<EOF
 # Kernel image management overrides
 # See kernel-img.conf(5) for details
@@ -647,8 +633,10 @@ do_initrd = $do_initrd
 link_in_boot = $link_in_boot
 EOF
 
+	# TODO This should probably be restructured to better support
+	#      differences between initrd generators
 	rd_generator=""
-	if [ "$do_initramfs" = yes ]; then
+	if [ "$do_initrd" = yes ]; then
 		if generators="$(available_initramfs_generators)"; then
 			if echo "$generators" | grep -q " "; then
 				rd_generator="$(select_initramfs_generator "$generators")"
@@ -656,11 +644,7 @@ EOF
 				rd_generator="$generators"
 			fi
 		fi
-	fi
 
-	# TODO This should probably be restructured to better support
-	#      differences between initrd generators
-	if [ yes = "$do_initrd" ] ; then
 		# Make sure the ramdisk creation tool is installed before we
 		# change its configuration
 		db_subst base-installer/section/install_kernel_package SUBST0 "$rd_generator"
@@ -670,7 +654,7 @@ EOF
 			exit_error base-installer/kernel/failed-package-install
 		fi
 		
-		# Figure out how to configure the ramdisk creation tool.
+		# Figure out how to configure the ramdisk creation tool
 		# FJP 20070306: Possibly this can go completely
 		case "$rd_generator" in
 		    initramfs-tools|yaird)
@@ -712,7 +696,7 @@ EOF
 		log-output -t base-installer apt-install "$package" || true
 	done
 
-	if [ yes = "$do_initrd" ] ; then
+	if [ "$do_initrd" = yes ]; then
 		# Set up a default resume partition.
 		case $rd_generator in
 		    initramfs-tools)
