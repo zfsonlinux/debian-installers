@@ -1,19 +1,31 @@
 arch_get_kernel_flavour () {
 	VENDOR=`grep '^vendor_id' "$CPUINFO" | head -n1 | cut -d: -f2`
 	FAMILY=`grep '^cpu family' "$CPUINFO" | head -n1 | cut -d: -f2`
+	MODEL=`grep '^model[[:space:]]*:' "$CPUINFO" | head -n1 | cut -d: -f2`
 	case "$VENDOR" in
 		" AuthenticAMD"*)
 			case "$FAMILY" in
 				" 6"|" 15")	echo k7 ;;
 				*)		echo 486 ;;
 			esac
-		;;
-		" GenuineIntel"|" GenuineTMx86"*|" CentaurHauls")
+			;;
+		" GenuineIntel"|" GenuineTMx86"*)
 			case "$FAMILY" in
 				" 6"|" 15")	echo 686 ;;
 				*)		echo 486 ;;
 			esac
-		;;
+			;;
+		" CentaurHauls")
+			case "$FAMILY" in
+				" 6")
+					case "$MODEL" in
+						" 9"|" 10")		echo 686 ;;
+						*)		echo 486 ;;
+					esac
+					;;
+				*)		echo 486 ;;
+			esac
+			;;
 		*) echo 486 ;;
 	esac
 	return 0
