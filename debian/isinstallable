@@ -16,17 +16,12 @@ findfstype () {
 ARCH="$(archdetect)"
 
 case $ARCH in
-    i386/*)
-	MANUFACTURER="$(dmidecode -s system-manufacturer)"
-	case $MANUFACTURER in
-	    Apple*)
-		# Note: depends on partman-efi to load the efivars module!
-		if [ -d /sys/firmware/efi ]; then
-			log "GRUB not yet usable on Intel-based Macs booted using EFI"
-			exit 1
-		fi
-	    ;;
-	esac
+    i386/mac|amd64/mac)
+	# Note: depends on partman-efi to load the efivars module!
+	if [ -d /sys/firmware/efi ]; then
+		log "GRUB not yet usable on Intel-based Macs booted using EFI"
+		exit 1
+	fi
     ;;
 esac
 
