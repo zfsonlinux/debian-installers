@@ -33,32 +33,42 @@ info() {
 }
 
 get_serial_console() {
-	local defconsole="$(sed -e 's/.*console=/console=/' /proc/cmdline)"
-	if echo "${defconsole}" | grep -q console=ttyS; then
-		local PORT="$(echo "${defconsole}" | sed -e 's%^console=ttyS%%' -e 's%,.*%%')"
-		local SPEED="$(echo "${defconsole}" | sed -e 's%^console=ttyS[0-9]\+,%%' -e 's% .*%%')"
-		local SERIAL="ttyS${PORT},${SPEED}"
-		echo "console=$SERIAL"
+	# Get the last 'console=' entry (if none, the whole string is returned)
+	local defconsole="$(sed -e 's/.*\(console=[^ ]*\).*/\1/' /proc/cmdline)"
+	if echo "$defconsole" | grep -q console=ttyS; then
+		echo "$defconsole"
 	fi
 }
 
 grub_serial_console() {
 	#$1=output of get_serial_console
-	local unit=$(echo $1 | sed -e 's%^console=ttyS%%' -e 's%,.*%%')
-	local speed=$(echo $1 | sed -e 's%^console=ttyS[0-9]\+,%%' -e 's%[^(0-9)].*%%')
-	local parity=$(echo $1 | sed -e 's%^console=ttyS[0-9]\+,[0-9]\+%%' -e 's%[78].*%%')
+	local serconsole=${1##console=}
+	local device=${serconsole%%,*}
+	local unit=${device##ttyS}
+	local options=""
+	if echo $serconsole | grep -q ","; then
+		options=${serconsole##*,}
+	fi
+	local speed=$(echo "$options" | sed -e 's/^\([0-9]\+\).*$/\1/')
+	options=${options##${speed}}
+	local parity=${options:0:1}
+	local word=${options:2:1}
+	if [ -z "$speed" ]; then
+		speed="9600"
+	fi
 	case "$parity" in 
-		"n") local parity="no" ;;
-		"e") local parity="even" ;;
-		"o") local parity="odd" ;;
-		*)   local parity="" ;;
+		n) parity="--parity=no" ;;
+		e) parity="--parity=even" ;;
+		o) parity="--parity=odd" ;;
+		*) parity="" ;;
 	esac
-	local word=$(echo $1 | sed -e 's%^console=ttyS[0-9]\+,[0-9]\+[oen]%%' -e 's%r%%')
-	local flow=$(echo $1 | sed -e 's%^console=ttyS[0-9]\+,[0-9]\+[oen][78]%%')
+	if [ "$word" ]; then
+		word="--word=$word"
+	fi
 
-	echo serial --unit=$unit --speed=$speed --word=$word --parity=$parity --stop=1
+	echo serial --unit=$unit --speed=$speed $word $parity --stop=1
 	echo terminal serial	
-	}
+}
 
 serial="$(get_serial_console)"
 
