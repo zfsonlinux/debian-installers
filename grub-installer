@@ -213,15 +213,15 @@ grub_version="grub"
 menu_file="menu.lst"
 
 # reiserfs is the only filesystem that d-i supports and grub2 doesn't yet
-##if [ "$bootfstype" != "reiserfs" ]; then
-##  db_input low grub-installer/grub2_instead_of_grub_legacy || [ $? -eq 30 ]
-##  db_go || true
-##  db_get grub-installer/grub2_instead_of_grub_legacy
-##  if [ "$RET" = true ]; then
-##    grub_version="grub2"
-##    menu_file="grub.cfg"
-##  fi
-##fi
+if [ "$bootfstype" != "reiserfs" ]; then
+	db_input low grub-installer/grub2_instead_of_grub_legacy || [ $? -eq 30 ]
+	db_go || true
+	db_get grub-installer/grub2_instead_of_grub_legacy
+	if [ "$RET" = true ]; then
+		grub_version="grub2"
+		menu_file="grub.cfg"
+	fi
+fi
 
 if [ "$bootfstype" = "xfs" ]; then
 	# Warn user that grub on xfs is not safe and let them back out to
@@ -241,7 +241,7 @@ db_progress INFO grub-installer/progress/step_install
 # apt-install passes --no-remove to apt, but grub{,2} conflict each other, so
 # we need to purge them first to support users who try grub2 and then switch
 # to grub legacy, or vice-versa
-##log-output -t grub-installer $chroot $ROOT dpkg -P grub grub2
+log-output -t grub-installer $chroot $ROOT dpkg -P grub grub2
 
 if ! apt-install $grub_version ; then
 	info "Calling 'apt-install $grub_version' failed"
