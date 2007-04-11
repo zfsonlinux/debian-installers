@@ -49,10 +49,11 @@ grub_serial_console() {
 	if echo $serconsole | grep -q ","; then
 		options=${serconsole##*,}
 	fi
-	local speed=$(echo "$options" | sed -e 's/^\([0-9]\+\).*$/\1/')
+	local speed=$(echo "$options" | sed -e 's/^\([0-9]*\).*$/\1/')
+	# Take optional 1st (parity) and 3rd (word) characters after speed
 	options=${options##${speed}}
-	local parity=${options:0:1}
-	local word=${options:2:1}
+	local parity=$(echo $options | sed 's/^\(.\?\).*$/\1/')
+	local word=$(echo $options | sed 's/^.\?.\?\(.\?\).*$/\1/')
 	if [ -z "$speed" ]; then
 		speed="9600"
 	fi
