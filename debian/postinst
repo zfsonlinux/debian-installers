@@ -670,7 +670,6 @@ EOF
 		for QUEUEFILE in /var/lib/register-module/*.initrd; do
 			[ ! -e $QUEUEFILE ] && break
 			MODULE=$(basename $QUEUEFILE ".initrd")
-			addmodule_initrd_tools "$MODULE" $FIRSTMODULE
 			addmodule_initramfs_tools "$MODULE" $FIRSTMODULE
 			addmodule_yaird "$MODULE" $FIRSTMODULE
 			rm $QUEUEFILE
