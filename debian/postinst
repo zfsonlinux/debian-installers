@@ -282,18 +282,7 @@ EOT
 				mkdir -p /target/$DIRECTORY
 			fi
 		fi
-		if [ "$KERNEL_MAJOR" = 2.2 ]; then
-			CDDEV=`grep -i /cdrom /proc/mounts | cut -d' ' -f 1 | grep loop || true`
-			if [ "" != "$CDDEV" ]  && \
-				db_get iso-scan/filename && [ "$RET" ] ; then
-				mount -r -o loop /hd-media/$RET /target/$DIRECTORY
-			elif db_get cdrom-detect/cdrom_device && [ -n "$RET" ]; then
-				umount $RET
-				mount -r -t iso9660 $RET /target/$DIRECTORY
-			else
-				warning "kernel 2.2.x failed to bind mount /target$DIRECTORY"
-			fi
-		elif ! mount -o bind $DIRECTORY /target$DIRECTORY; then
+		if ! mount -o bind $DIRECTORY /target$DIRECTORY; then
 			warning "failed to bind mount /target$DIRECTORY"
 		fi
 		# The bind mount is left mounted after this postinst exits,
