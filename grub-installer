@@ -252,7 +252,11 @@ db_progress INFO grub-installer/progress/step_install
 # apt-install passes --no-remove to apt, but grub{,2} conflict each other, so
 # we need to purge them first to support users who try grub2 and then switch
 # to grub legacy, or vice-versa
-log-output -t grub-installer $chroot $ROOT dpkg -P grub grub2
+if [ "$grub_version" = grub ]; then
+	log-output -t grub-installer $chroot $ROOT dpkg -P grub2
+else
+	log-output -t grub-installer $chroot $ROOT dpkg -P grub
+fi
 
 if ! apt-install $grub_version ; then
 	info "Calling 'apt-install $grub_version' failed"
