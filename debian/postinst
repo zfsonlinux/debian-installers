@@ -787,6 +787,10 @@ install_extra () {
 			update_progress $CURR_PKG $PKG_COUNT
 		done
 	fi
+
+	if [ -n "$(list-devices cd; list-devices maybe-usb-floppy)" ]; then
+		apt-install eject
+	fi
 }
 
 post_install_hooks () {
