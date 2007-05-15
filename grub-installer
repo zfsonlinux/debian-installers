@@ -88,7 +88,7 @@ convert () {
 #		exit 1
 #    fi
 
-    host_os=`uname -s | tr 'A-Z' 'a-z'`
+    host_os=$(uname -s | tr 'A-Z' 'a-z')
 
     # Break the device name into the disk part and the partition part
     case "$host_os" in
@@ -245,11 +245,11 @@ esac
 disc_offered=$(mapdevfs "$disc_offered_devfs")
 
 # Identify partition table of the disk containing our boot partition
-bootfslabel=`partmap $disc_offered`
+bootfslabel=$(partmap $disc_offered)
 
 info "Identified partition label for $bootfs: $bootfslabel"
 
-# GRUB Legacy defaults
+# Default to GRUB Legacy
 grub_version="grub"
 menu_file="menu.lst"
 
