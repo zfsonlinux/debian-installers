@@ -245,7 +245,7 @@ esac
 disc_offered=$(mapdevfs "$disc_offered_devfs")
 
 # Identify partition table of the disk containing our boot partition
-bootfslabel=$(partmap $disc_offered)
+bootfslabel=$(partmap $disc_offered || echo unknown)
 
 info "Identified partition label for $bootfs: $bootfslabel"
 
