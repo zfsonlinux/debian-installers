@@ -212,38 +212,77 @@ update_grub () {
 	fi
 }
 
+findfs () {
+	mount | grep "on /target${1%/} " | cut -d' ' -f1
+}
+
 findfstype () {
 	mount | grep "on $ROOT${1%/} " | cut -d' ' -f5
 }
 
+rootfs=$(findfs /)
+bootfs=$(findfs /boot)
+[ -n "$bootfs" ] || bootfs="$rootfs"
+
 bootfstype=$(findfstype /boot)
 [ -n "$bootfstype" ] || bootfstype="$(findfstype /)"
+
+# This code to set disc_offered was taken from lilo-installer
+rootfs_nodevfs=$(mapdevfs $rootfs)
+bootfs_nodevfs=$(mapdevfs $bootfs)
+prefix=$(echo "$bootfs" | sed 's/\(\/dev\/[a-z]\+\).*/\1/')
+case $prefix in
+	/dev/md)
+		disc_offered_devfs="$bootfs"
+	;;
+	/dev/[hs]d[a-z])
+		disc_offered_devfs="$prefix"
+	;;
+	*)
+		disc_offered_devfs=$(find $prefix -follow -name disc | head -n 1)
+	;;
+esac
+disc_offered=$(mapdevfs "$disc_offered_devfs")
+
+# Identify partition table of the disk containing our boot partition
+bootfslabel=`partmap $disc_offered`
+
+info "Identified partition label for $bootfs: $bootfslabel"
 
 # GRUB Legacy defaults
 grub_version="grub"
 menu_file="menu.lst"
 
-# reiserfs is the only filesystem that d-i supports and grub2 doesn't yet
-if [ "$bootfstype" != "reiserfs" ]; then
-	db_input low grub-installer/grub2_instead_of_grub_legacy || [ $? -eq 30 ]
-	db_go || true
-	db_get grub-installer/grub2_instead_of_grub_legacy
-	if [ "$RET" = true ]; then
+case "$bootfstype:$bootfslabel" in
+	reiserfs:gpt)
+		# GPT is only supported in version 2, which doesn't have a
+		# reiserfs implementation yet.
+		exit 10
+	;;
+	*:gpt)
 		grub_version="grub2"
 		menu_file="grub.cfg"
-	fi
-fi
-
-if [ "$bootfstype" = "xfs" ]; then
-	# Warn user that grub on xfs is not safe and let them back out to
-	# main menu
-	db_input critical grub-installer/install_to_xfs || [ $? -eq 30 ]
-	db_go || exit 10
-	db_get grub-installer/install_to_xfs
-	if [ "$RET" != true ]; then
-		exit 10
-	fi
-fi
+	;;
+	xfs:*)
+		# Warn user that grub on xfs is not safe and let them back out to
+		# main menu
+		db_input critical grub-installer/install_to_xfs || [ $? -eq 30 ]
+		db_go || exit 10
+		db_get grub-installer/install_to_xfs
+		if [ "$RET" != true ]; then
+			exit 10
+		fi
+	;;
+	*:*)
+		db_input low grub-installer/grub2_instead_of_grub_legacy || [ $? -eq 30 ]
+		db_go || true
+		db_get grub-installer/grub2_instead_of_grub_legacy
+		if [ "$RET" = true ]; then
+			grub_version="grub2"
+			menu_file="grub.cfg"
+		fi
+	;;
+esac
 
 db_progress START 0 6 grub-installer/progress/title
 
