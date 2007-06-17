@@ -230,12 +230,14 @@ bootfstype=$(findfstype /boot)
 # This code to set disc_offered was taken from lilo-installer
 rootfs_nodevfs=$(mapdevfs $rootfs)
 bootfs_nodevfs=$(mapdevfs $bootfs)
-prefix=$(echo "$bootfs" | sed 's/\(\/dev\/[a-z]\+\).*/\1/')
+prefix=$(echo "$bootfs" | \
+  sed 's/\(\/dev\/\(cciss\|ida\)\/c[0-9]d[0-9]\|\/dev\/[a-z]\+\).*/\1/')
+
 case $prefix in
 	/dev/md)
 		disc_offered_devfs="$bootfs"
 	;;
-	/dev/[hs]d[a-z])
+	/dev/[hs]d[a-z]|/dev/cciss/c[0-9]d[0-9]|/dev/ida/c[0-9]d[0-9])
 		disc_offered_devfs="$prefix"
 	;;
 	*)
