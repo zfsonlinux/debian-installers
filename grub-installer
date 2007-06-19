@@ -252,6 +252,19 @@ disc_offered=$(mapdevfs "$disc_offered_devfs")
 # Identify partition table of the disk containing our boot partition
 bootfslabel=$(partmap $disc_offered || echo unknown)
 
+# Check if the boot file system is on fake (ata) RAID
+frdev=""
+if type dmraid >/dev/null 2>&1; then
+	for frdisk in $(dmraid -s -c | grep -v "No RAID disks"); do
+		if echo "$disc_offered" | grep -q "/$frdisk[0-9]\+"; then
+			frdev=/dev/mapper/$frdisk
+			frbootpart=${disc_offered#$frdev}
+			frgrubroot=$(($frbootpart - 1))
+			break
+		fi
+	done
+fi
+
 info "Identified partition label for $bootfs: $bootfslabel"
 
 # Default to GRUB Legacy
@@ -259,6 +272,9 @@ grub_version="grub"
 menu_file="menu.lst"
 
 case "$bootfstype:$bootfslabel" in
+	*:loop)
+		# Fake (ata) RAID partition, currently only grub is supported
+		: ;;
 	reiserfs:gpt)
 		# GPT is only supported in version 2, which doesn't have a
 		# reiserfs implementation yet.
@@ -386,14 +402,16 @@ else
 	state=1
 fi
 
-nr_frdisks="$(dmraid -s -c | grep -v "No RAID disks" | wc -l)"
-if [ $nr_frdisks -eq 1 ]; then
-	q=grub-installer/fakeraid
-	frdisk=$(dmraid -s -c)
-elif [ $nr_frdisks -gt 1 ]; then
-	db_input critical grub-installer/fakeraid-unsupported || [ $? -eq 30 ]
-	db_go || true
-	exit 1
+if [ "$frdev" ]; then
+	if [ -e $ROOT$frdev ] && \
+	   [ $frgrubroot -gt 0 ] && [ -e $ROOT$frdev$frbootpart ]; then
+	   	db_subst grub-installer/fakeraid GRUBROOT $ROOT$frdev$frbootpart
+		q=grub-installer/fakeraid
+	else
+		db_input grub-installer/fakeraid-error
+		db_go || true
+		exit 1
+	fi
 fi
 
 db_progress STEP 1
@@ -496,10 +514,10 @@ else
 	# TODO: Check for errors during this process!
 	TERM=linux $chroot $ROOT \
         grub --device-map=/dev/null >/var/log/grub-dmraid.log 2>&1 </dev/null <<EOF
-device (hd0,0) /dev/mapper/${frdisk}1
-device (hd0) /dev/mapper/$frdisk
-root (hd0,0)
-setup (hd0,0)
+device (hd0,$frgrubroot) $disc_offered
+device (hd0) $frdev
+root (hd0,$frgrubroot)
+setup (hd0)
 quit
 EOF
 
@@ -511,6 +529,13 @@ db_progress INFO grub-installer/progress/step_config_loader
 # Delete for idempotency
 rm -f $ROOT/boot/grub/$menu_file
 update_grub
+
+# For fake RAID devices we may need to update the grub root
+# TODO: This should really be supported in update-grub
+if [ "$frdev" ] && [ $frgrubroot -gt 0 ]; then
+	sed -i "/^root/s/(hd0,0)/(hd0,$frgrubroot)/
+		/^# groot/s/(hd0,0)/(hd0,$frgrubroot)/" $ROOT/boot/grub/$menu_file
+fi
 
 # Set up a password if asked
 db_input low grub-installer/password || true

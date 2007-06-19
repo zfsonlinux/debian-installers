@@ -27,17 +27,19 @@ Template: grub-installer/fakeraid
 Type: boolean
 Default: true
 Description: Install the GRUB boot loader to the fake RAID disk?
- Installation of GRUB on a fake (ata) RAID disk is not really
- supported, but it is possible. The installation is currently experimental
- and will always be done on the MBR of the fake RAID disk.
+ Installation of GRUB on a fake (ata) RAID disk is not really supported,
+ but it is possible. The installation is currently experimental and is
+ always done to the MBR of the fake RAID disk.
+ .
+ The GRUB root device is: ${GRUBROOT}.
  .
  Choose <Go Back> to cancel this operation.
 
-Template: grub-installer/fakeraid
+Template: grub-installer/fakeraid-error
 Type: error
-Description: Configuration not supported
- The installer has detected the presence of multiple fake RAID disks, which
- is currently not supported.
+Description: Unable to configure GRUB
+ There was an error during the setup of GRUB for your fake RAID disk.
+ The installation of GRUB will be aborted.
 
 Template: grub-installer/install_to_xfs
 Type: boolean
