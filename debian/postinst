@@ -340,6 +340,18 @@ create_devices () {
 				minor="$(dmsetup -c --noheadings info $rootnode | cut -d':' -f3)"
 				mknod /target/dev/mapper/$rootnode b $major $minor
 			fi
+
+			# Create device nodes for fake (ata) RAID devices
+			if type dmraid >/dev/null 2>&1; then
+				for frdisk in $(dmraid -s -c | grep -v "No RAID disks"); do
+					for frdev in $(ls /dev/mapper/$frdisk* 2>/dev/null); do
+						frnode=$(basename $frdev)
+						major="$(dmsetup -c --noheadings info $frnode | cut -d':' -f2)"
+						minor="$(dmsetup -c --noheadings info $frnode | cut -d':' -f3)"
+						mknod /target/dev/mapper/$frnode b $major $minor
+					done
+				done
+			fi
 		fi
 
 		# We can't check the root node directly as is done above because
@@ -347,6 +359,12 @@ create_devices () {
 		if type dmsetup >/dev/null 2>&1 && \
 		   dmsetup table | cut -d' ' -f4 | grep -q "crypt" 2>/dev/null; then
 			apt-install cryptsetup
+		fi
+
+		if type dmraid >/dev/null 2>&1; then
+			if [ "$(dmraid -s -c | grep -v "No RAID disks")" ]; then
+				apt-install dmraid
+			fi
 		fi
 
 		if pvdisplay | grep -iq "physical volume ---"; then
