@@ -50,6 +50,7 @@ binary-arch: install
 	dh_testroot
 	dh_installdebconf -n
 	(echo ; cat debian/templates) >> debian/base-installer/DEBIAN/templates
+	cp debian/base-installer.isinstallable debian/base-installer/DEBIAN/isinstallable
 	dh_strip
 	dh_compress
 	dh_fixperms
