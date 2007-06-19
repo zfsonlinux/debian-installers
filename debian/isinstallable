@@ -13,6 +13,17 @@ findfstype () {
 	mount | grep "on /target${1%/} " | cut -d' ' -f5
 }
 
+is_fakeraid () {
+	if type dmraid >/dev/null 2>&1; then
+		for frdisk in $(dmraid -s -c | grep -v "No RAID disks"); do
+			if echo "$1" | grep "/$frdisk[0-9]\+"; then
+				return 0
+			fi
+		done
+	fi
+	return 1
+}
+
 ARCH="$(archdetect)"
 
 case $ARCH in
@@ -36,8 +47,10 @@ fi
 # Check for the control file to work around lvdisplay refusal to work with
 # certian lvm device names.
 if lvdisplay "$bootfs" | grep -q 'LV Name' 2>/dev/null || [ -e "$(dirname $bootfs)/control" ]; then
-	log "/boot is a lvm volume ($bootfs), cannot install grub"
-	exit 1
+	if ! is_fakeraid $bootfs; then
+		log "/boot is a lvm volume ($bootfs), cannot install grub"
+		exit 1
+	fi
 fi
 
 bootfstype=$(findfstype /boot)

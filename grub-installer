@@ -237,6 +237,9 @@ case $prefix in
 	/dev/md)
 		disc_offered_devfs="$bootfs"
 	;;
+	/dev/mapper)
+		disc_offered_devfs="$bootfs"
+	;;
 	/dev/[hs]d[a-z]|/dev/cciss/c[0-9]d[0-9]|/dev/ida/c[0-9]d[0-9])
 		disc_offered_devfs="$prefix"
 	;;
@@ -383,6 +386,16 @@ else
 	state=1
 fi
 
+nr_frdisks="$(dmraid -s -c | grep -v "No RAID disks" | wc -l)"
+if [ $nr_frdisks -eq 1 ]; then
+	q=grub-installer/fakeraid
+	frdisk=$(dmraid -s -c)
+elif [ $nr_frdisks -gt 1 ]; then
+	db_input critical grub-installer/fakeraid-unsupported || [ $? -eq 30 ]
+	db_go || true
+	exit 1
+fi
+
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_bootdev
 
@@ -433,30 +446,64 @@ info "Installing grub on '$bootdev'"
 
 update_mtab
 
-# Install grub on each space separated disk in the list
-bootdevs="$bootdev"
-for bootdev in $bootdevs; do
-	if ! is_floppy "$bootdev"; then
-		if $chroot $ROOT grub-install -h 2>&1 | grep -q no-floppy; then
-			info "grub-install supports --no-floppy"
-			floppyparam="--no-floppy"
-		else
-			info "grub-install does not support --no-floppy"
-		fi
-	fi
+if [ -z "$frdisk" ]; then
 
-	info "Running $chroot $ROOT grub-install --recheck $floppyparam \"$bootdev\""
-	if log-output -t grub-installer $chroot $ROOT grub-install --recheck $floppyparam "$bootdev"; then
-		info "grub-install ran successfully"
-	else
-		error "Running 'grub-install --recheck $floppyparam \"$bootdev\"' failed."
-		db_subst grub-installer/grub-install-failed BOOTDEV "$bootdev"
-		db_input critical grub-installer/grub-install-failed || [ $? -eq 30 ]
-		db_go || true
-		db_progress STOP
+	# Install grub on each space separated disk in the list
+	bootdevs="$bootdev"
+	for bootdev in $bootdevs; do
+		if ! is_floppy "$bootdev"; then
+			if $chroot $ROOT grub-install -h 2>&1 | grep -q no-floppy; then
+				info "grub-install supports --no-floppy"
+				floppyparam="--no-floppy"
+			else
+				info "grub-install does not support --no-floppy"
+			fi
+		fi
+	
+		info "Running $chroot $ROOT grub-install --recheck $floppyparam \"$bootdev\""
+		if log-output -t grub-installer $chroot $ROOT grub-install --recheck $floppyparam "$bootdev"; then
+			info "grub-install ran successfully"
+		else
+			error "Running 'grub-install --recheck $floppyparam \"$bootdev\"' failed."
+			db_subst grub-installer/grub-install-failed BOOTDEV "$bootdev"
+			db_input critical grub-installer/grub-install-failed || [ $? -eq 30 ]
+			db_go || true
+			db_progress STOP
+			exit 1
+		fi
+	done
+
+else
+
+	# Semi-manual grub setup for a fake (ata) RAID disk
+	case $(archdetect) in
+	    i386/*)
+		stagedir=i386-pc ;;
+	    amd64/*)
+		stagedir=x86_64-pc ;;
+	    *)
+	    	error "Unsupported architecture for fake RAID installation"
+		exit 1
+		;;
+	esac
+	if [ ! -d $ROOT/usr/lib/grub/$stagedir/ ]; then
+		error "Grub stage files not available"
 		exit 1
 	fi
-done
+	mkdir -p /target/boot/grub
+	cp $ROOT/usr/lib/grub/$stagedir/* $ROOT/boot/grub
+
+	# TODO: Check for errors during this process!
+	TERM=linux $chroot $ROOT \
+        grub --device-map=/dev/null >/var/log/grub-dmraid.log 2>&1 </dev/null <<EOF
+device (hd0,0) /dev/mapper/${frdisk}1
+device (hd0) /dev/mapper/$frdisk
+root (hd0,0)
+setup (hd0,0)
+quit
+EOF
+
+fi
 
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_config_loader

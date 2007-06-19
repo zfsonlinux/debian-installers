@@ -23,6 +23,22 @@ _Description: Install the GRUB boot loader to the master boot record?
  that operating system temporarily unbootable, though GRUB can be manually
  configured later to boot it.
 
+Template: grub-installer/fakeraid
+Type: boolean
+Default: true
+Description: Install the GRUB boot loader to the fake RAID disk?
+ Installation of GRUB on a fake (ata) RAID disk is not really
+ supported, but it is possible. The installation is currently experimental
+ and will always be done on the MBR of the fake RAID disk.
+ .
+ Choose <Go Back> to cancel this operation.
+
+Template: grub-installer/fakeraid
+Type: error
+Description: Configuration not supported
+ The installer has detected the presence of multiple fake RAID disks, which
+ is currently not supported.
+
 Template: grub-installer/install_to_xfs
 Type: boolean
 Default: false
