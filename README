@@ -1,5 +1,39 @@
-This udeb is responsible for calling debootstrap and installing the
-base system.
+The bootstrap-installer udeb is responsible for calling debootstrap to
+install the base system, as well as selecting and installing a kernel.
+
+The base-installer udeb provides a framework that can be used by
+alternative udebs that install the base system in other ways. A simple
+example of using this framework:
+
+	#!/bin/sh
+	. /usr/share/debconf/confmodule
+	. /usr/lib/base-installer/library.sh
+
+	install_base_system () {
+		# stuff to install base here
+		# cd /target && tar zxvf /tmp/base.tgz
+		log "base system installed!"
+	}
+
+	waypoint 	1	check_target
+	waypoint	1	pre_install_hooks
+	waypoint	100	install_base_system
+	waypoint	1	configure_apt_preferences
+	waypoint	2	create_devices
+	waypoint	5	post_install_hooks
+	waypoint	10	install_extra
+	
+	run_waypoints
+	exit 0
+
+
+The waypoints are positions on the progress bar, which will be
+automatically advanced to the next waypoint as each section of the base
+installation completes (you can also advance it manually within a step). In
+the example above all the sections except for install_base_system are
+provided by library.sh. As a section is running, the progress bar displays
+the text in the debconf template base-installer/debootstrap/section/<name>.
+
 
 On progress bars:
 

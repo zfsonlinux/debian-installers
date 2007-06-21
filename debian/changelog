@@ -4,10 +4,17 @@ base-installer (1.82) UNRELEASED; urgency=low
   * Load dmraid if needed; create device nodes in /target for fake (ata)
     RAID devices.
 
-  [ Otavio Salvador ]
-  * Avoid running if live-installer/enable is true.
+  [ Joey Hess ]
+  * Split off a bootstrap-base package that contains the bits needed to
+    [c]debootstrap a base installation.
+  * base-installer now provides the framework for installing base, including a
+    shell library in /usr/lib/base-installer/library.sh.
+  * bootstrap-base templates are not renamed, to avoid preseeding
+    issues and other complications.
+  * Dropped pcmcia modules package installation support (2.4 kernel stuff).
+  * Remove old support for using prebaseconfig templates for progress.
 
- -- Otavio Salvador <otavio@ossystems.com.br>  Tue, 19 Jun 2007 07:31:52 -0300
+ -- Joey Hess <joeyh@debian.org>  Tue, 19 Jun 2007 13:07:46 +0100
 
 base-installer (1.81) unstable; urgency=low
 
