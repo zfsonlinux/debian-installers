@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-03-22 22:49+0000\n"
+"POT-Creation-Date: 2007-06-21 22:47+0000\n"
 "PO-Revision-Date: 2007-02-05 09:48+0200\n"
 "Last-Translator: Kęstutis Biliūnas <kebil@kaunas.init.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
@@ -42,39 +42,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#. The base system is the minimal Debian system
-#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:13
-msgid "Cannot install base system"
-msgstr "Negaliu įdiegti bazinės sistemos dalies"
-
-#. Type: error
-#. Description
-#. The base system is the minimal Debian system
-#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:13
-msgid ""
-"The installer cannot figure out how to install the base system. No "
-"installable CD-ROM was found and no valid mirror was configured."
-msgstr ""
-"Įdiegiklis neįsivaizduoja kaip įdiegti bazinę sistemos dalį. Nerastas "
-"diegimui tinkamas CD-ROM'as ir nėra nurodytas teisingas \"veidrodis\"."
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:19
-msgid "Failed to determine the codename for the release."
-msgstr "Nepavyko nustatyti laidos kodinio pavadinimo."
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:24
+#: ../base-installer.templates:11
 msgid "No file system mounted on /target"
 msgstr "Prie taško /target nėra prijungtos failų sistemos"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:24
+#: ../base-installer.templates:11
 msgid ""
 "Before the installation can proceed, a root file system must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
@@ -84,13 +58,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:30
+#: ../base-installer.templates:17
 msgid "Not installing to unclean target"
 msgstr "Nediegsiu į netuščią failų sistemą"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:30
+#: ../base-installer.templates:17
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
@@ -99,21 +73,98 @@ msgstr ""
 "Įdiegiamas į nurodytą failų sistema nutrauktas. Prieš tęsdami įdiegimą, "
 "turite grįžti atgal ir ištrinti, arba suformatuoti įdiegiamąją failų sistemą."
 
+#. Type: text
+#. Description
+#: ../base-installer.templates:24
+msgid "Preparing to install the base system..."
+msgstr "Pasiruošiama diegti bazinę sistemos dalį..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:28 ../bootstrap-base.templates:185
+msgid "Installing the base system"
+msgstr "Bazinės sistemos dalies diegimas"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:32
+msgid "Running ${SCRIPT}..."
+msgstr "Vykdomas ${SCRIPT}..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:36
+msgid "Updating the list of available packages..."
+msgstr "Atnaujinamas prieinamų paketų sąrašas..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:40
+msgid "Installing extra packages..."
+msgstr "Papildomų (extra) paketų diegimas..."
+
+#. Type: text
+#. Description
+#. SUBST0 is a package name
+#: ../base-installer.templates:45
+msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
+msgstr "Papildomų (extra) paketų diegimas - paėmimas ir diegimas ${SUBST0}..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:49
+msgid "Creating device files..."
+msgstr "Kuriami įrenginių failai..."
+
+#. Type: text
+#. Description
+#. Item in the main menu to select this package
+#. TRANSLATORS: <65 columns
+#: ../bootstrap-base.templates:5
+msgid "Install the base system"
+msgstr "Diegiama bazinė sistema"
+
 #. Type: error
 #. Description
-#: ../base-installer.templates:37
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#: ../bootstrap-base.templates:11
+msgid "Cannot install base system"
+msgstr "Negaliu įdiegti bazinės sistemos dalies"
+
+#. Type: error
+#. Description
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#: ../bootstrap-base.templates:11
+msgid ""
+"The installer cannot figure out how to install the base system. No "
+"installable CD-ROM was found and no valid mirror was configured."
+msgstr ""
+"Įdiegiklis neįsivaizduoja kaip įdiegti bazinę sistemos dalį. Nerastas "
+"diegimui tinkamas CD-ROM'as ir nėra nurodytas teisingas \"veidrodis\"."
+
+#. Type: error
+#. Description
+#: ../bootstrap-base.templates:17
+msgid "Failed to determine the codename for the release."
+msgstr "Nepavyko nustatyti laidos kodinio pavadinimo."
+
+#. Type: error
+#. Description
+#: ../bootstrap-base.templates:22
 msgid "Failed to install the base system"
 msgstr "Nepavyko įdiegti bazinės sistemos dalies"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:37
+#: ../bootstrap-base.templates:22
 msgid "The base system installation into /target/ failed."
 msgstr "Bazinės sistemos dalies diegimas į /target/ nepavyko."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:44
+#: ../bootstrap-base.templates:29
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
@@ -121,31 +172,31 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:51
+#: ../bootstrap-base.templates:36
 msgid "Base system installation error"
 msgstr "Bazinės sistemos dalies diegimo klaida"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:51
+#: ../bootstrap-base.templates:36
 msgid "The debootstrap program exited abnormally."
 msgstr "Debootstrap'o programa liovėsi veikusi."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:59
+#: ../bootstrap-base.templates:44
 msgid "The following error occurred:"
 msgstr "Įvyko tokia klaida:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:69
+#: ../bootstrap-base.templates:54
 msgid "Tool to use to generate boot initrd:"
 msgstr "Įrankis įkelties initrd sukūrimui:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:69
+#: ../bootstrap-base.templates:54
 msgid ""
 "The list shows the available tools. If you are unsure which to select, you "
 "should select the default. If your system fails to boot, you can retry the "
@@ -157,13 +208,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:76
+#: ../bootstrap-base.templates:61
 msgid "Unsupported initrd generator"
 msgstr "Nepalaikoma programa initrd sukūrimui"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:76
+#: ../bootstrap-base.templates:61
 msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
@@ -171,13 +222,13 @@ msgstr "Paketas ${GENERATOR}, pasirinktas initrd sukūrimui, nepalaikomas."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:82
+#: ../bootstrap-base.templates:67
 msgid "Unable to install the selected kernel"
 msgstr "Negaliu įdiegti pasirinkto branduolio"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:82
+#: ../bootstrap-base.templates:67
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -185,7 +236,7 @@ msgstr "Bandant įdiegti branduolį grąžinta klaida."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:82
+#: ../bootstrap-base.templates:67
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Branduolio paketas: '${KERNEL}'."
 
@@ -193,7 +244,7 @@ msgstr "Branduolio paketas: '${KERNEL}'."
 #. Choices
 #. For base-installer, "none" is an additional choice to a list of kernels.
 #. It means "no kernel"
-#: ../base-installer.templates:95
+#: ../bootstrap-base.templates:80
 msgid ""
 "none[ Do not translate what's inside the brackets and just put the "
 "translation for the word \"none\" in your language without any brackets. "
@@ -202,13 +253,13 @@ msgstr "joks"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:96
+#: ../bootstrap-base.templates:81
 msgid "Kernel to install:"
 msgstr "Įdiegsimas branduolys:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:96
+#: ../bootstrap-base.templates:81
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -218,19 +269,19 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:103
+#: ../bootstrap-base.templates:88
 msgid "Continue without installing a kernel?"
 msgstr "Ar tęsti be branduolio įdiegimo?"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:103
+#: ../bootstrap-base.templates:88
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "Nurodytuose APT šaltiniuose diegimui tinkamo branduolio nerasta."
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:103
+#: ../bootstrap-base.templates:88
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -242,25 +293,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:112
+#: ../bootstrap-base.templates:97
 msgid "Cannot install kernel"
 msgstr "Negaliu įdiegti branduolio"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:112
+#: ../bootstrap-base.templates:97
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr "Įdiegiklis negali rasti tinkamo įdiegimui branduolio paketo."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:117
+#: ../bootstrap-base.templates:102
 msgid "Unable to install ${PACKAGE}"
 msgstr "Negaliu įdiegti ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:117
+#: ../bootstrap-base.templates:102
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -268,7 +319,7 @@ msgstr "Bandant įdiegti paketą ${PACKAGE} grąžinta klaida."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:117
+#: ../bootstrap-base.templates:102
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
 "Detaliau žiūrėkite į /var/log/syslog arba ketvirtojoje virtualioje konsolėje."
@@ -276,34 +327,34 @@ msgstr ""
 #. Type: error
 #. Description
 #. SUBST0 is a Release file name.
-#: ../base-installer.templates:126
+#: ../bootstrap-base.templates:111
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Nepavyko gauti ${SUBST0} Release failo."
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release.gpg file name
-#: ../base-installer.templates:132
+#: ../bootstrap-base.templates:117
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Nepavyko gauti Release signatūros failo ${SUBST0}."
 
 #. Type: error
 #. Description
 #. SUBST0 is a gpg key ID
-#: ../base-installer.templates:138
+#: ../bootstrap-base.templates:123
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Release failas pasirašytas nežinomu raktu (rakto id ${SUBST0})"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:143
+#: ../bootstrap-base.templates:128
 msgid "Invalid Release file: no valid components."
 msgstr "Neteisingas Release failas: nėra teisingų komponentų."
 
 #. Type: error
 #. Description
 #. SUBST0 is a filename
-#: ../base-installer.templates:149
+#: ../bootstrap-base.templates:134
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Neteisingas Release failas: nėra įrašo ${SUBST0}."
 
@@ -311,7 +362,7 @@ msgstr "Neteisingas Release failas: nėra įrašo ${SUBST0}."
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:156
+#: ../bootstrap-base.templates:141
 msgid "Debootstrap Error"
 msgstr "Klaida vykdant debootstrap"
 
@@ -319,7 +370,7 @@ msgstr "Klaida vykdant debootstrap"
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:156
+#: ../bootstrap-base.templates:141
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -331,7 +382,7 @@ msgstr ""
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:156
+#: ../bootstrap-base.templates:141
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -341,70 +392,52 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:169
-msgid "Preparing to install the base system..."
-msgstr "Pasiruošiama diegti bazinę sistemos dalį..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:173
-msgid "Running ${SCRIPT}..."
-msgstr "Vykdomas ${SCRIPT}..."
-
-#. Type: text
-#. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:178
+#: ../bootstrap-base.templates:151
 msgid "Retrieving Release file"
 msgstr "Paimamas failas Release"
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:183
+#: ../bootstrap-base.templates:156
 msgid "Retrieving Release file signature"
 msgstr "Paimamas Release failo signatūra"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:188
+#: ../bootstrap-base.templates:161
 msgid "Finding package sizes"
 msgstr "Paketo dydžių radimas"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:193
+#: ../bootstrap-base.templates:166
 msgid "Retrieving Packages files"
 msgstr "Paimamas failas Packages"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:198
+#: ../bootstrap-base.templates:171
 msgid "Retrieving Packages file"
 msgstr "Paimamas failas Packages"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:203
+#: ../bootstrap-base.templates:176
 msgid "Retrieving packages"
 msgstr "Paimami paketai"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:208
+#: ../bootstrap-base.templates:181
 msgid "Extracting packages"
 msgstr "Paketai išpakuojami"
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:212
-msgid "Installing the base system"
-msgstr "Bazinės sistemos dalies diegimas"
 
 #. Type: text
 #. Description
@@ -412,7 +445,7 @@ msgstr "Bazinės sistemos dalies diegimas"
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:220
+#: ../bootstrap-base.templates:193
 msgid "Installing core packages"
 msgstr "Diegiami esminiai (core) paketai"
 
@@ -422,13 +455,13 @@ msgstr "Diegiami esminiai (core) paketai"
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:228
+#: ../bootstrap-base.templates:201
 msgid "Unpacking required packages"
 msgstr "Reikiamų (required) paketų išpakavimas"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:232
+#: ../bootstrap-base.templates:205
 msgid "Configuring required packages"
 msgstr "Reikiamų (required) paketų konfigūravimas"
 
@@ -436,7 +469,7 @@ msgstr "Reikiamų (required) paketų konfigūravimas"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:238
+#: ../bootstrap-base.templates:211
 msgid "Unpacking the base system"
 msgstr "Bazinės sistemos dalies išpakavimas"
 
@@ -444,55 +477,55 @@ msgstr "Bazinės sistemos dalies išpakavimas"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:244
+#: ../bootstrap-base.templates:217
 msgid "Configuring the base system"
 msgstr "Bazinės sistemos dalies konfigūravimas"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:248
+#: ../bootstrap-base.templates:221
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:253
+#: ../bootstrap-base.templates:226
 msgid "Validating ${SUBST0}..."
 msgstr "Tikrinimas ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:258
+#: ../bootstrap-base.templates:231
 msgid "Retrieving ${SUBST0}..."
 msgstr "Paėmimas ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:263
+#: ../bootstrap-base.templates:236
 msgid "Extracting ${SUBST0}..."
 msgstr "Išpakavimas ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:268
+#: ../bootstrap-base.templates:241
 msgid "Unpacking ${SUBST0}..."
 msgstr "Išpakuojamas ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:273
+#: ../bootstrap-base.templates:246
 msgid "Configuring ${SUBST0}..."
 msgstr "Konfigūruojamas ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:278
+#: ../bootstrap-base.templates:251
 msgid "Checking Release signature"
 msgstr "Tikrinama Release failo signatūra"
 
@@ -500,34 +533,34 @@ msgstr "Tikrinama Release failo signatūra"
 #. Description
 #. SUBST0 is a gpg key id
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:284
+#: ../bootstrap-base.templates:257
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Release failo signatūra teisinga (rakto id ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../bootstrap-base.templates:261
 msgid "Resolving dependencies of base packages..."
 msgstr "Sprendžiamos bazinių paketų priklausomybės..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:293
+#: ../bootstrap-base.templates:266
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr "Rastos papildomos bazinių paketų priklausomybės: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:298
+#: ../bootstrap-base.templates:271
 msgid "Found additional required dependencies: ${SUBST0}"
 msgstr "Rastos papildomos reikiamų (required) paketų priklausomybės: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:303
+#: ../bootstrap-base.templates:276
 msgid "Found packages in base already in required: ${SUBST0}"
 msgstr ""
 "Tarp baziniu rasti paketai, jau esantys tarp reikiamų (required) paketų: "
@@ -535,7 +568,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:307
+#: ../bootstrap-base.templates:280
 msgid "Resolving dependencies of required packages..."
 msgstr "Sprendžiamos reikiamų (required) paketų priklausomybės..."
 
@@ -543,7 +576,7 @@ msgstr "Sprendžiamos reikiamų (required) paketų priklausomybės..."
 #. Description
 #. SUBST0 is an archive component (main, etc)
 #. SUBST1 is a mirror
-#: ../base-installer.templates:313
+#: ../bootstrap-base.templates:286
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "Tikrinamas komponentas ${SUBST0} esantis  ${SUBST1}..."
 
@@ -553,7 +586,7 @@ msgstr "Tikrinamas komponentas ${SUBST0} esantis  ${SUBST1}..."
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:321
+#: ../bootstrap-base.templates:294
 msgid "Installing core packages..."
 msgstr "Diegiami esminiai (core) paketai..."
 
@@ -563,7 +596,7 @@ msgstr "Diegiami esminiai (core) paketai..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:329
+#: ../bootstrap-base.templates:302
 msgid "Unpacking required packages..."
 msgstr "Reikiamų (required) paketų išpakavimas..."
 
@@ -573,115 +606,79 @@ msgstr "Reikiamų (required) paketų išpakavimas..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:337
+#: ../bootstrap-base.templates:310
 msgid "Configuring required packages..."
 msgstr "Reikiamų (required) paketų konfigūravimas..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:341
+#: ../bootstrap-base.templates:314
 msgid "Installing base packages..."
 msgstr "Bazinių paketų diegimas..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:345
+#: ../bootstrap-base.templates:318
 msgid "Unpacking the base system..."
 msgstr "Išpakuojama bazinė sistemos dalis..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:349
+#: ../bootstrap-base.templates:322
 msgid "Configuring the base system..."
 msgstr "Konfigūruojama bazinė sistemos dalis..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:353
+#: ../bootstrap-base.templates:326
 msgid "Base system installed successfully."
 msgstr "Bazinė sistemos dalis įdiegta sėkmingai."
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:358
+#: ../bootstrap-base.templates:331
 msgid "Debootstrap warning"
 msgstr "Debootstrap įspėjimas"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:358
+#: ../bootstrap-base.templates:331
 msgid "Warning: ${INFO}"
 msgstr "Įspėjimas: ${INFO}"
 
 #. Type: text
 #. Description
 #. SUBST0 is an url
-#: ../base-installer.templates:364
+#: ../bootstrap-base.templates:337
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Kartojant vėl nepavyko atsisiųsti ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:368
+#: ../bootstrap-base.templates:341
 msgid "Configuring APT sources..."
 msgstr "APT šaltinių konfigūravimas..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:372
-msgid "Updating the list of available packages..."
-msgstr "Atnaujinamas prieinamų paketų sąrašas..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:376
-msgid "Installing extra packages..."
-msgstr "Papildomų (extra) paketų diegimas..."
-
-#. Type: text
-#. Description
-#. SUBST0 is a package name
-#: ../base-installer.templates:381
-msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
-msgstr "Papildomų (extra) paketų diegimas - paėmimas ir diegimas ${SUBST0}..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:385
-msgid "Creating device files..."
-msgstr "Kuriami įrenginių failai..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:389
+#: ../bootstrap-base.templates:345
 msgid "Selecting the kernel to install..."
 msgstr "Pasirenkamas branduolys diegimui..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:393
+#: ../bootstrap-base.templates:349
 msgid "Installing the kernel..."
 msgstr "Įdiegiamas branduolys..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:398
+#: ../bootstrap-base.templates:354
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Įdiegiamas branduolys - imamas ir diegiamas ${SUBST0}..."
 
-#. Type: text
-#. Description
-#: ../base-installer.templates:402
-msgid "Installing the PCMCIA modules"
-msgstr "Diegiami PCMCIA moduliai"
-
-#. Type: text
-#. Description
-#. Item in the main menu to select this package
-#. TRANSLATORS: <65 columns
-#: ../base-installer.templates:408
-msgid "Install the base system"
-msgstr "Diegiama bazinė sistema"
+#~ msgid "Installing the PCMCIA modules"
+#~ msgstr "Diegiami PCMCIA moduliai"

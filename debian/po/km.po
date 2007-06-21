@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: km\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-03-22 22:49+0000\n"
+"POT-Creation-Date: 2007-06-21 22:47+0000\n"
 "PO-Revision-Date: 2007-02-21 09:33+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -44,39 +44,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#. The base system is the minimal Debian system
-#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:13
-msgid "Cannot install base system"
-msgstr "មិន​អាច​ដំឡើង​ប្រព័ន្ធ​គោល"
-
-#. Type: error
-#. Description
-#. The base system is the minimal Debian system
-#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:13
-msgid ""
-"The installer cannot figure out how to install the base system. No "
-"installable CD-ROM was found and no valid mirror was configured."
-msgstr ""
-"កម្មវិធី​ដំឡើង​មិន​អាច​ដោះស្រាយ​របៀប​ដំឡើង​ប្រព័ន្ធ​គោល​បាន​ឡើយ ។ នេះ​គឺ​ដោយ​សារ​តែ​រក​មិន​ឃើញ​ស៊ីឌីរ៉ូម​ដែល​អាច​"
-"ដំឡើង​បាន ហើយ​មិន​បាន​កំណត់​រចនាសម្ព័ន្ធ​កញ្ចក់​ត្រឹមត្រូវ ។"
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:19
-msgid "Failed to determine the codename for the release."
-msgstr "បរាជ័យ​ក្នុងការ​កំណត់​រហស្សនាម​របស់​ការ​ចេញផ្សាយ ។"
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:24
+#: ../base-installer.templates:11
 msgid "No file system mounted on /target"
 msgstr "មិន​បាន​ម៉ោន​ប្រព័ន្ធ​ឯកសារ​លើ /target ឡើយ"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:24
+#: ../base-installer.templates:11
 msgid ""
 "Before the installation can proceed, a root file system must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
@@ -86,13 +60,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:30
+#: ../base-installer.templates:17
 msgid "Not installing to unclean target"
 msgstr "មិន​ដំឡើង​ទៅ​គោលដៅ​មិន​ទាន់​សម្អាត"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:30
+#: ../base-installer.templates:17
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
@@ -101,52 +75,129 @@ msgstr ""
 "បាន​បោះបង់​ការ​ដំឡើង​ទៅប្រព័ន្ធឯកសារ​គោល​ដៅ​ហើយ ។ អ្នក​គួរ​ត្រឡប់​ក្រោយ ហើយលុប ឬ ធ្វើ​ទ្រង់ទ្រាយ​ប្រព័ន្ធ​"
 "ឯកសារ​គោលដៅ​សិន មុន​នឹង​បន្ត​ការ​ដំឡើង ។​"
 
+#. Type: text
+#. Description
+#: ../base-installer.templates:24
+msgid "Preparing to install the base system..."
+msgstr "កំពុង​ប្រុងប្រៀប​ដំឡើង​ប្រព័ន្ធ​គោល..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:28 ../bootstrap-base.templates:185
+msgid "Installing the base system"
+msgstr "កំពុង​ដំឡើង​ប្រព័ន្ធ​គោល"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:32
+msgid "Running ${SCRIPT}..."
+msgstr "កំពុង​រត់​ ${SCRIPT}..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:36
+msgid "Updating the list of available packages..."
+msgstr "កំពុង​ធ្វើ​ឲ្យ​បញ្ជី​កញ្ចប់​ដែល​អាច​ប្រើ​បាន​ទាន់​សម័យ​..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:40
+msgid "Installing extra packages..."
+msgstr "កំពុង​ដំឡើង​កញ្ចប់​បន្ថែម..."
+
+#. Type: text
+#. Description
+#. SUBST0 is a package name
+#: ../base-installer.templates:45
+msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
+msgstr "កំពុង​ដំឡើង​កញ្ចប់​បន្ថែម​ - កំពុង​ទៅ​យក និង ដំឡើង​ ${SUBST0}..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:49
+msgid "Creating device files..."
+msgstr "កំពុង​បង្កើត​ឯកសារ​ឧបករណ៍..."
+
+#. Type: text
+#. Description
+#. Item in the main menu to select this package
+#. TRANSLATORS: <65 columns
+#: ../bootstrap-base.templates:5
+msgid "Install the base system"
+msgstr "ដំឡើង​ប្រព័ន្ធ​គោល"
+
 #. Type: error
 #. Description
-#: ../base-installer.templates:37
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#: ../bootstrap-base.templates:11
+msgid "Cannot install base system"
+msgstr "មិន​អាច​ដំឡើង​ប្រព័ន្ធ​គោល"
+
+#. Type: error
+#. Description
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#: ../bootstrap-base.templates:11
+msgid ""
+"The installer cannot figure out how to install the base system. No "
+"installable CD-ROM was found and no valid mirror was configured."
+msgstr ""
+"កម្មវិធី​ដំឡើង​មិន​អាច​ដោះស្រាយ​របៀប​ដំឡើង​ប្រព័ន្ធ​គោល​បាន​ឡើយ ។ នេះ​គឺ​ដោយ​សារ​តែ​រក​មិន​ឃើញ​ស៊ីឌីរ៉ូម​ដែល​អាច​"
+"ដំឡើង​បាន ហើយ​មិន​បាន​កំណត់​រចនាសម្ព័ន្ធ​កញ្ចក់​ត្រឹមត្រូវ ។"
+
+#. Type: error
+#. Description
+#: ../bootstrap-base.templates:17
+msgid "Failed to determine the codename for the release."
+msgstr "បរាជ័យ​ក្នុងការ​កំណត់​រហស្សនាម​របស់​ការ​ចេញផ្សាយ ។"
+
+#. Type: error
+#. Description
+#: ../bootstrap-base.templates:22
 msgid "Failed to install the base system"
 msgstr "បរាជ័យ​ក្នុង​ការ​ដំឡើង​ប្រព័ន្ធ​គោល"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:37
+#: ../bootstrap-base.templates:22
 msgid "The base system installation into /target/ failed."
 msgstr "ការ​ដំឡើង​ប្រព័ន្ធ​គោល​ទៅ​ក្នុង /target/ បាន​បរាជ័យ​ហើយ ។"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:44
+#: ../bootstrap-base.templates:29
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr "កម្មវិធី​​ debootstrap បាន​ចេញ​ជាមួយ​នឹង​កំហុស​មួយ (តម្លៃ​ត្រឡប់​គឺ ${EXITCODE}) ។"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:51
+#: ../bootstrap-base.templates:36
 msgid "Base system installation error"
 msgstr "កំហុស​ក្នុង​ការ​ដំឡើង​ប្រព័ន្ធ​គោល"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:51
+#: ../bootstrap-base.templates:36
 msgid "The debootstrap program exited abnormally."
 msgstr "កម្មវិធី debootstrap បាន​ចេញ​ដោយ​មិន​ធម្មតា ។"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:59
+#: ../bootstrap-base.templates:44
 msgid "The following error occurred:"
 msgstr "កំហុស​ខាង​ក្រោម​បាន​កើត​ឡើង ៖"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:69
+#: ../bootstrap-base.templates:54
 msgid "Tool to use to generate boot initrd:"
 msgstr "ឧបករណ៍​ប្រើ​ដើម្បី​បង្កើត initrd ចាប់ផ្ដើម ៖"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:69
+#: ../bootstrap-base.templates:54
 msgid ""
 "The list shows the available tools. If you are unsure which to select, you "
 "should select the default. If your system fails to boot, you can retry the "
@@ -157,13 +208,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:76
+#: ../bootstrap-base.templates:61
 msgid "Unsupported initrd generator"
 msgstr "មិន​គាំទ្រ​កម្មវិធី​បង្កើត initrd"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:76
+#: ../bootstrap-base.templates:61
 msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
@@ -171,13 +222,13 @@ msgstr "កញ្ចប់ ${GENERATOR} ដែល​ត្រូវ​បាន�
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:82
+#: ../bootstrap-base.templates:67
 msgid "Unable to install the selected kernel"
 msgstr "មិន​អាច​ដំឡើង​ខឺណែល​ដែល​បាន​ជ្រើស​បាន​ឡើយ"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:82
+#: ../bootstrap-base.templates:67
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -185,7 +236,7 @@ msgstr "បាន​ត្រឡប់​កំហុស​មួយ ខណៈ�
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:82
+#: ../bootstrap-base.templates:67
 msgid "Kernel package: '${KERNEL}'."
 msgstr "កញ្ចប់​ខឺណែល ៖ '${KERNEL}' ។"
 
@@ -193,7 +244,7 @@ msgstr "កញ្ចប់​ខឺណែល ៖ '${KERNEL}' ។"
 #. Choices
 #. For base-installer, "none" is an additional choice to a list of kernels.
 #. It means "no kernel"
-#: ../base-installer.templates:95
+#: ../bootstrap-base.templates:80
 msgid ""
 "none[ Do not translate what's inside the brackets and just put the "
 "translation for the word \"none\" in your language without any brackets. "
@@ -202,13 +253,13 @@ msgstr "គ្មាន"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:96
+#: ../bootstrap-base.templates:81
 msgid "Kernel to install:"
 msgstr "ខឺណែល​ដែល​ត្រូវ​ដំឡើង ៖"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:96
+#: ../bootstrap-base.templates:81
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -218,19 +269,19 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:103
+#: ../bootstrap-base.templates:88
 msgid "Continue without installing a kernel?"
 msgstr "បន្ត​ដោយ​មិន​ដំឡើង​ខឺណែល ?"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:103
+#: ../bootstrap-base.templates:88
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "រក​មិន​ឃើញ​ខឺណែល​ដែល​អាច​ដំឡើង​បាន​ឡើយ នៅ​ក្នុង​ប្រភព APT ដែល​បានកំណត់ ។"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:103
+#: ../bootstrap-base.templates:88
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -242,25 +293,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:112
+#: ../bootstrap-base.templates:97
 msgid "Cannot install kernel"
 msgstr "មិន​អាច​ដំឡើង​ខឺណែល"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:112
+#: ../bootstrap-base.templates:97
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr "កម្មវិធី​ដំឡើង​មិន​អាច​រកឃើញ​កញ្ចប់​ខឺណែល​សមស្រប ដើម្បី​ដំឡើង​បាន​ឡើយ ។"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:117
+#: ../bootstrap-base.templates:102
 msgid "Unable to install ${PACKAGE}"
 msgstr "មិន​អាច​ដំឡើង ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:117
+#: ../bootstrap-base.templates:102
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -268,41 +319,41 @@ msgstr "បាន​ត្រឡប់​កំហុស​មួយ ខណៈ�
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:117
+#: ../bootstrap-base.templates:102
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr "សម្រាប់​ព័ត៌មាន​លម្អិត សូម​ពិនិត្យ​មើល /var/log/syslog ឬ មើលកុងសូល​និម្មិត​ទី ៤ ។"
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release file name.
-#: ../base-installer.templates:126
+#: ../bootstrap-base.templates:111
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​យក​ឯកសារ​ចេញ​ផ្សាយ​ ${SUBST0} ។"
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release.gpg file name
-#: ../base-installer.templates:132
+#: ../bootstrap-base.templates:117
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​យក​ហត្ថលេខា​ឯកសារ​ចេញ​ផ្សាយ ${SUBST0} ។"
 
 #. Type: error
 #. Description
 #. SUBST0 is a gpg key ID
-#: ../base-installer.templates:138
+#: ../bootstrap-base.templates:123
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "ឯកសារ​ចេញ​ផ្សាយ​ត្រូវ​បាន​ចុះ​ហត្ថលេខា​ដោយ​កូនសោ​មិន​ស្គាល់ (លេខ​សម្គាល់​កូនសោ​គឺ ${SUBST0})"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:143
+#: ../bootstrap-base.templates:128
 msgid "Invalid Release file: no valid components."
 msgstr "ឯកសារ​ចេញ​ផ្សាយ​មិន​ត្រឹមត្រូវ ៖ គ្មាន​សមាសភាគ​ត្រឹមត្រូវ ។"
 
 #. Type: error
 #. Description
 #. SUBST0 is a filename
-#: ../base-installer.templates:149
+#: ../bootstrap-base.templates:134
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "ឯកសារ​ចេញផ្សាយ​មិន​ត្រឹមត្រូវ ៖ គ្មាន​ធាតុ​សម្រាប់ ${SUBST0} ។"
 
@@ -310,7 +361,7 @@ msgstr "ឯកសារ​ចេញផ្សាយ​មិន​ត្រឹម
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:156
+#: ../bootstrap-base.templates:141
 msgid "Debootstrap Error"
 msgstr "កំហុស Debootstrap"
 
@@ -318,7 +369,7 @@ msgstr "កំហុស Debootstrap"
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:156
+#: ../bootstrap-base.templates:141
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -330,7 +381,7 @@ msgstr ""
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:156
+#: ../bootstrap-base.templates:141
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -338,70 +389,52 @@ msgstr "បើ​អ្នក​កំពុងដំឡើងពី​ស៊ី
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:169
-msgid "Preparing to install the base system..."
-msgstr "កំពុង​ប្រុងប្រៀប​ដំឡើង​ប្រព័ន្ធ​គោល..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:173
-msgid "Running ${SCRIPT}..."
-msgstr "កំពុង​រត់​ ${SCRIPT}..."
-
-#. Type: text
-#. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:178
+#: ../bootstrap-base.templates:151
 msgid "Retrieving Release file"
 msgstr "កំពុង​ទៅ​យក​ឯកសារ​ចេញ​ផ្សាយ"
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:183
+#: ../bootstrap-base.templates:156
 msgid "Retrieving Release file signature"
 msgstr "កំពុង​ទៅ​យកហត្ថលេខា​ឯកសារ​ចេញ​ផ្សាយ"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:188
+#: ../bootstrap-base.templates:161
 msgid "Finding package sizes"
 msgstr "កំពុង​ស្វែងរក​ទំហំ​កញ្ចប់"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:193
+#: ../bootstrap-base.templates:166
 msgid "Retrieving Packages files"
 msgstr "កំពុង​ទៅយក​ឯកសារ​កញ្ចប់"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:198
+#: ../bootstrap-base.templates:171
 msgid "Retrieving Packages file"
 msgstr "កំពុង​ទៅយក​ឯកសារ​កញ្ចប់"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:203
+#: ../bootstrap-base.templates:176
 msgid "Retrieving packages"
 msgstr "កំពុង​ទៅយក​កញ្ចប់"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:208
+#: ../bootstrap-base.templates:181
 msgid "Extracting packages"
 msgstr "កំពុង​ស្រង់​កញ្ចប់​ចេញ"
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:212
-msgid "Installing the base system"
-msgstr "កំពុង​ដំឡើង​ប្រព័ន្ធ​គោល"
 
 #. Type: text
 #. Description
@@ -409,7 +442,7 @@ msgstr "កំពុង​ដំឡើង​ប្រព័ន្ធ​គោល
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:220
+#: ../bootstrap-base.templates:193
 msgid "Installing core packages"
 msgstr "កំពុង​ដំឡើង​កញ្ចប់​ស្នូល"
 
@@ -419,13 +452,13 @@ msgstr "កំពុង​ដំឡើង​កញ្ចប់​ស្នូល
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:228
+#: ../bootstrap-base.templates:201
 msgid "Unpacking required packages"
 msgstr "កំពុង​​​ស្រាយ​​កញ្ចប់​ដែល​ត្រូវ​ការ"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:232
+#: ../bootstrap-base.templates:205
 msgid "Configuring required packages"
 msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​កញ្ចប់​ដែល​ត្រូវ​ការ"
 
@@ -433,7 +466,7 @@ msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:238
+#: ../bootstrap-base.templates:211
 msgid "Unpacking the base system"
 msgstr "កំពុង​ស្រាយ​ប្រព័ន្ធ​គោល"
 
@@ -441,55 +474,55 @@ msgstr "កំពុង​ស្រាយ​ប្រព័ន្ធ​គោល
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:244
+#: ../bootstrap-base.templates:217
 msgid "Configuring the base system"
 msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ប្រព័ន្ធ​គោល"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:248
+#: ../bootstrap-base.templates:221
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION} ៖ ${INFO}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:253
+#: ../bootstrap-base.templates:226
 msgid "Validating ${SUBST0}..."
 msgstr "កំពុង​ផ្ទៀងផ្ទាត់ ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:258
+#: ../bootstrap-base.templates:231
 msgid "Retrieving ${SUBST0}..."
 msgstr "កំពុង​ទៅយក​ ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:263
+#: ../bootstrap-base.templates:236
 msgid "Extracting ${SUBST0}..."
 msgstr "កំពុង​ស្រង់ ${SUBST0} ចេញ..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:268
+#: ../bootstrap-base.templates:241
 msgid "Unpacking ${SUBST0}..."
 msgstr "កំពុង​ស្រាយ ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:273
+#: ../bootstrap-base.templates:246
 msgid "Configuring ${SUBST0}..."
 msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:278
+#: ../bootstrap-base.templates:251
 msgid "Checking Release signature"
 msgstr "កំពុង​ពិនិត្យ​មើល​ហត្ថលេខា​ចេញផ្សាយ"
 
@@ -497,40 +530,40 @@ msgstr "កំពុង​ពិនិត្យ​មើល​ហត្ថលេ
 #. Description
 #. SUBST0 is a gpg key id
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:284
+#: ../bootstrap-base.templates:257
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "ហត្ថលេខា​ចេញផ្សាយ​ត្រឹមត្រូវ​ហើយ (លេខ​សម្គាល់​កូនសោ​គឺ ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../bootstrap-base.templates:261
 msgid "Resolving dependencies of base packages..."
 msgstr "កំពុង​ដោះស្រាយ​ភាព​អាស្រ័យ​របស់​​កញ្ចប់​គោល..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:293
+#: ../bootstrap-base.templates:266
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr "បាន​រក​ឃើញ​ភាព​អាស្រ័យ​គោលបន្ថែម​ទៀត​ ៖ ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:298
+#: ../bootstrap-base.templates:271
 msgid "Found additional required dependencies: ${SUBST0}"
 msgstr "បាន​រក​ឃើញ​ភាព​អាស្រ័យ​ដែល​ត្រូវការ​បន្ថែម​ទៀត ៖ ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:303
+#: ../bootstrap-base.templates:276
 msgid "Found packages in base already in required: ${SUBST0}"
 msgstr "បាន​រកឃើញ​កញ្ចប់​នៅ​ក្នុង​គោល​រួច​ហើយ ដែល​ទាមទារ ៖ ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:307
+#: ../bootstrap-base.templates:280
 msgid "Resolving dependencies of required packages..."
 msgstr "កំពុង​ដោះស្រាយ​ភាព​អាស្រ័យ​របស់​កញ្ចប់​ដែល​ត្រូវ​ការ..."
 
@@ -538,7 +571,7 @@ msgstr "កំពុង​ដោះស្រាយ​ភាព​អាស្រ
 #. Description
 #. SUBST0 is an archive component (main, etc)
 #. SUBST1 is a mirror
-#: ../base-installer.templates:313
+#: ../bootstrap-base.templates:286
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "កំពុង​ពិនិត្យ​មើល​សមាសភាគ​ ${SUBST0} លើ ${SUBST1}..."
 
@@ -548,7 +581,7 @@ msgstr "កំពុង​ពិនិត្យ​មើល​សមាសភា
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:321
+#: ../bootstrap-base.templates:294
 msgid "Installing core packages..."
 msgstr "កំពុង​ដំឡើង​កញ្ចប់​ស្នូល..."
 
@@ -558,7 +591,7 @@ msgstr "កំពុង​ដំឡើង​កញ្ចប់​ស្នូល
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:329
+#: ../bootstrap-base.templates:302
 msgid "Unpacking required packages..."
 msgstr "កំពុង​​ស្រាយ​​កញ្ចប់​ដែល​ត្រូវ​ការ..."
 
@@ -568,115 +601,79 @@ msgstr "កំពុង​​ស្រាយ​​កញ្ចប់​ដែល
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:337
+#: ../bootstrap-base.templates:310
 msgid "Configuring required packages..."
 msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​កញ្ចប់​ដែល​ត្រូវ​ការ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:341
+#: ../bootstrap-base.templates:314
 msgid "Installing base packages..."
 msgstr "​កំពុង​ដំឡើង​កញ្ចប់​គោល..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:345
+#: ../bootstrap-base.templates:318
 msgid "Unpacking the base system..."
 msgstr "កំពុង​ស្រាយ​ប្រព័ន្ធ​គោល..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:349
+#: ../bootstrap-base.templates:322
 msgid "Configuring the base system..."
 msgstr "កំពុង​កំណត់​រចនា​សម្ព័ន្ធ​ប្រព័ន្ធ​គោល..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:353
+#: ../bootstrap-base.templates:326
 msgid "Base system installed successfully."
 msgstr "បាន​ដំឡើង​ប្រព័ន្ធ​គោល​ដោយ​ជោគ​ជ័យ ។"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:358
+#: ../bootstrap-base.templates:331
 msgid "Debootstrap warning"
 msgstr "ព្រមាន​អំពី Debootstrap"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:358
+#: ../bootstrap-base.templates:331
 msgid "Warning: ${INFO}"
 msgstr "ព្រមាន ៖ ${INFO}"
 
 #. Type: text
 #. Description
 #. SUBST0 is an url
-#: ../base-installer.templates:364
+#: ../bootstrap-base.templates:337
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "ការ​ព្យាយាម​ទាញយក​ ${SUBST0} បាន​បរាជ័យ​ហើយ"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:368
+#: ../bootstrap-base.templates:341
 msgid "Configuring APT sources..."
 msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ​ប្រភព APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:372
-msgid "Updating the list of available packages..."
-msgstr "កំពុង​ធ្វើ​ឲ្យ​បញ្ជី​កញ្ចប់​ដែល​អាច​ប្រើ​បាន​ទាន់​សម័យ​..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:376
-msgid "Installing extra packages..."
-msgstr "កំពុង​ដំឡើង​កញ្ចប់​បន្ថែម..."
-
-#. Type: text
-#. Description
-#. SUBST0 is a package name
-#: ../base-installer.templates:381
-msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
-msgstr "កំពុង​ដំឡើង​កញ្ចប់​បន្ថែម​ - កំពុង​ទៅ​យក និង ដំឡើង​ ${SUBST0}..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:385
-msgid "Creating device files..."
-msgstr "កំពុង​បង្កើត​ឯកសារ​ឧបករណ៍..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:389
+#: ../bootstrap-base.templates:345
 msgid "Selecting the kernel to install..."
 msgstr "កំពុង​ជ្រើស​ខឺណែល​ដែល​ត្រូវ​ដំឡើង​..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:393
+#: ../bootstrap-base.templates:349
 msgid "Installing the kernel..."
 msgstr "កំពុង​ដំឡើងខឺណែល​..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:398
+#: ../bootstrap-base.templates:354
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "កំពុង​ដំឡើង​ខឺណែល​ - កំពុង​ទៅ​យក និង ដំឡើង​ ${SUBST0}..."
 
-#. Type: text
-#. Description
-#: ../base-installer.templates:402
-msgid "Installing the PCMCIA modules"
-msgstr "ដំឡើង​ម៉ូឌុល PCMCIA"
-
-#. Type: text
-#. Description
-#. Item in the main menu to select this package
-#. TRANSLATORS: <65 columns
-#: ../base-installer.templates:408
-msgid "Install the base system"
-msgstr "ដំឡើង​ប្រព័ន្ធ​គោល"
+#~ msgid "Installing the PCMCIA modules"
+#~ msgstr "ដំឡើង​ម៉ូឌុល PCMCIA"

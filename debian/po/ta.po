@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ta\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-03-22 22:49+0000\n"
+"POT-Creation-Date: 2007-06-21 22:47+0000\n"
 "PO-Revision-Date: 2007-04-04 17:36+0530\n"
 "Last-Translator: Dr.T.Vasudevan <agnihot3@gmail.com>\n"
 "Language-Team: TAMIL <ubuntu-l10n-tam@lists.ubuntu.com>\n"
@@ -43,39 +43,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#. The base system is the minimal Debian system
-#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:13
-msgid "Cannot install base system"
-msgstr "அடிப்படை அமைப்பை நிறுவ இயலாது."
-
-#. Type: error
-#. Description
-#. The base system is the minimal Debian system
-#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:13
-msgid ""
-"The installer cannot figure out how to install the base system. No "
-"installable CD-ROM was found and no valid mirror was configured."
-msgstr ""
-"அடிப்படை அமைப்பை நிறுவுவது எப்படி என தெரியவில்லை. நிறுவல் குறுந் தட்டு ஏதும் "
-"காணவில்லை. செல்லுபடியாகும் பிரதிபலிப்பான் ஏதும் அமைக்கப் படவில்லை."
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:19
-msgid "Failed to determine the codename for the release."
-msgstr "இந்த வெளியீட்டுக்கு சங்கேத சொல் எதையும் அறுதியிட இயலவில்லை."
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:24
+#: ../base-installer.templates:11
 msgid "No file system mounted on /target"
 msgstr "/target-ல் எந்த கோப்பு அமைப்பும் ஏற்றப்படவில்லை"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:24
+#: ../base-installer.templates:11
 msgid ""
 "Before the installation can proceed, a root file system must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
@@ -85,13 +59,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:30
+#: ../base-installer.templates:17
 msgid "Not installing to unclean target"
 msgstr "சுத்தமில்லாத இலக்கில் நிறுவலை தொடரவில்லை"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:30
+#: ../base-installer.templates:17
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
@@ -100,21 +74,98 @@ msgstr ""
 "இலக்கு கோப்பு அமைப்புக்கு நிறுவுதல் ரத்து செய்யப் பட்டது. நிறுவல் தொடர நீங்கள் பின் சென்று "
 "இலக்கு கோப்பு அமைப்பை அழிக்கவோ அல்லது ஒழுங்கு படுத்தவோ செய்ய வேண்டும்."
 
+#. Type: text
+#. Description
+#: ../base-installer.templates:24
+msgid "Preparing to install the base system..."
+msgstr "அடிப்படை அமைப்பை நிறுவ தயாராகிறது..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:28 ../bootstrap-base.templates:185
+msgid "Installing the base system"
+msgstr "அடிப்படை கணினி அமைப்பை நிறுவுகிறது."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:32
+msgid "Running ${SCRIPT}..."
+msgstr "${SCRIPT} இயக்கப்படுகிறது..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:36
+msgid "Updating the list of available packages..."
+msgstr "கிடைக்கக் கூடிய தொகுப்புகளின் பட்டியலை புதுப்பிக்கிறது...."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:40
+msgid "Installing extra packages..."
+msgstr "கூடுதல் தொகுப்புகளை நிறுவுகிறது.."
+
+#. Type: text
+#. Description
+#. SUBST0 is a package name
+#: ../base-installer.templates:45
+msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
+msgstr "கூடிதல் தொகுப்புகள் நிறுவப்படுகிறது-மீட்டு நிறுவுகிறது ${SUBST0}...."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:49
+msgid "Creating device files..."
+msgstr "சாதன கோப்புகளை உருவாக்குகிறது...."
+
+#. Type: text
+#. Description
+#. Item in the main menu to select this package
+#. TRANSLATORS: <65 columns
+#: ../bootstrap-base.templates:5
+msgid "Install the base system"
+msgstr "அடிப்படை அமைப்பு நிறுவவும்"
+
 #. Type: error
 #. Description
-#: ../base-installer.templates:37
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#: ../bootstrap-base.templates:11
+msgid "Cannot install base system"
+msgstr "அடிப்படை அமைப்பை நிறுவ இயலாது."
+
+#. Type: error
+#. Description
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#: ../bootstrap-base.templates:11
+msgid ""
+"The installer cannot figure out how to install the base system. No "
+"installable CD-ROM was found and no valid mirror was configured."
+msgstr ""
+"அடிப்படை அமைப்பை நிறுவுவது எப்படி என தெரியவில்லை. நிறுவல் குறுந் தட்டு ஏதும் "
+"காணவில்லை. செல்லுபடியாகும் பிரதிபலிப்பான் ஏதும் அமைக்கப் படவில்லை."
+
+#. Type: error
+#. Description
+#: ../bootstrap-base.templates:17
+msgid "Failed to determine the codename for the release."
+msgstr "இந்த வெளியீட்டுக்கு சங்கேத சொல் எதையும் அறுதியிட இயலவில்லை."
+
+#. Type: error
+#. Description
+#: ../bootstrap-base.templates:22
 msgid "Failed to install the base system"
 msgstr "அடிப்படை அமைப்பை நிறுவுதல் தோல்வியுற்றது"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:37
+#: ../bootstrap-base.templates:22
 msgid "The base system installation into /target/ failed."
 msgstr "/target/ இல் அடிப்படை அமைப்பை நிறுவ இயலவில்லை."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:44
+#: ../bootstrap-base.templates:29
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
@@ -122,31 +173,31 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:51
+#: ../bootstrap-base.templates:36
 msgid "Base system installation error"
 msgstr "அடிப்படை அமைப்பு நிறுவல் பிழை"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:51
+#: ../bootstrap-base.templates:36
 msgid "The debootstrap program exited abnormally."
 msgstr "டீபூட்ஸ்ட்ராப் (debootstrap) நிரல் அசாதாரணமாக வெளியேறியது"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:59
+#: ../bootstrap-base.templates:44
 msgid "The following error occurred:"
 msgstr "பின்வரும் பிழை நேர்ந்தது:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:69
+#: ../bootstrap-base.templates:54
 msgid "Tool to use to generate boot initrd:"
 msgstr "பூட் இனிட்ஆர்டி (boot initrd) உருவாக்க பயன் படுத்தும் கருவி:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:69
+#: ../bootstrap-base.templates:54
 msgid ""
 "The list shows the available tools. If you are unsure which to select, you "
 "should select the default. If your system fails to boot, you can retry the "
@@ -158,13 +209,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:76
+#: ../bootstrap-base.templates:61
 msgid "Unsupported initrd generator"
 msgstr "ஆதரவில்லாத இனிட்ஆர்டி (initrd) உருவாக்கும் கருவி."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:76
+#: ../bootstrap-base.templates:61
 msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
@@ -174,13 +225,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:82
+#: ../bootstrap-base.templates:67
 msgid "Unable to install the selected kernel"
 msgstr "தேர்வு செய்த உட் கருவை நிறுவ இயலவில்லை"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:82
+#: ../bootstrap-base.templates:67
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -188,7 +239,7 @@ msgstr "உட் கருவை இலக்கு கணினியில்
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:82
+#: ../bootstrap-base.templates:67
 msgid "Kernel package: '${KERNEL}'."
 msgstr "கரு தொகுப்பு: '${KERNEL}'."
 
@@ -196,7 +247,7 @@ msgstr "கரு தொகுப்பு: '${KERNEL}'."
 #. Choices
 #. For base-installer, "none" is an additional choice to a list of kernels.
 #. It means "no kernel"
-#: ../base-installer.templates:95
+#: ../bootstrap-base.templates:80
 msgid ""
 "none[ Do not translate what's inside the brackets and just put the "
 "translation for the word \"none\" in your language without any brackets. "
@@ -205,13 +256,13 @@ msgstr "ஏதுமில்லை"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:96
+#: ../bootstrap-base.templates:81
 msgid "Kernel to install:"
 msgstr "நிறுவ வேண்டிய கரு:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:96
+#: ../bootstrap-base.templates:81
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -221,19 +272,19 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:103
+#: ../bootstrap-base.templates:88
 msgid "Continue without installing a kernel?"
 msgstr "கருவை நிறுவாமல் தொடரவா?"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:103
+#: ../bootstrap-base.templates:88
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "அறுதியிட்ட ஏபிடி (APT) மூல வளத்தில் நிறுவக் கூடிய உட் கரு ஏதும் இல்லை."
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:103
+#: ../bootstrap-base.templates:88
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -244,25 +295,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:112
+#: ../bootstrap-base.templates:97
 msgid "Cannot install kernel"
 msgstr "கருவை நிறுவ இயலவில்லை"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:112
+#: ../bootstrap-base.templates:97
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr "நிறுவியால் சரியான கருவை நிறுவ இயலவில்லை"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:117
+#: ../bootstrap-base.templates:102
 msgid "Unable to install ${PACKAGE}"
 msgstr "${PACKAGE} - ஐ நிறுவ இயலவில்லை"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:117
+#: ../bootstrap-base.templates:102
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -271,7 +322,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:117
+#: ../bootstrap-base.templates:102
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
 "/var/log/syslog அல்லது மெய்நிகர் முனையம் 4 (virtual console 4) ஐ விளக்கங்களுக்கு "
@@ -280,34 +331,34 @@ msgstr ""
 #. Type: error
 #. Description
 #. SUBST0 is a Release file name.
-#: ../base-installer.templates:126
+#: ../bootstrap-base.templates:111
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "${SUBST0} வெளியீடு கோப்பை பெற இயலவில்லை."
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release.gpg file name
-#: ../base-installer.templates:132
+#: ../bootstrap-base.templates:117
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "${SUBST0} என்ற வெளியீட்டு கையெழுத்து கோப்பை பெறுவது தோல்வியுற்றது "
 
 #. Type: error
 #. Description
 #. SUBST0 is a gpg key ID
-#: ../base-installer.templates:138
+#: ../bootstrap-base.templates:123
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "வெளியீடு கோப்பு கையெழுத்து தெரியாத விசை (விசை அடையாளம்${SUBST0}) உடையது."
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:143
+#: ../bootstrap-base.templates:128
 msgid "Invalid Release file: no valid components."
 msgstr "செல்லுபடியாகாத வெளியீடு கோப்பு: செல்லுபடியாகும் உறுப்புகள் இல்லை."
 
 #. Type: error
 #. Description
 #. SUBST0 is a filename
-#: ../base-installer.templates:149
+#: ../bootstrap-base.templates:134
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "செல்லாது வெளியீடு கோப்பு ${SUBST0} க்கு நுழைவு இல்லை."
 
@@ -315,7 +366,7 @@ msgstr "செல்லாது வெளியீடு கோப்பு ${S
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:156
+#: ../bootstrap-base.templates:141
 msgid "Debootstrap Error"
 msgstr "டீபூட்ஸ்ட்ராப் பிழை"
 
@@ -323,7 +374,7 @@ msgstr "டீபூட்ஸ்ட்ராப் பிழை"
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:156
+#: ../bootstrap-base.templates:141
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -335,7 +386,7 @@ msgstr ""
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:156
+#: ../bootstrap-base.templates:141
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -345,70 +396,52 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:169
-msgid "Preparing to install the base system..."
-msgstr "அடிப்படை அமைப்பை நிறுவ தயாராகிறது..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:173
-msgid "Running ${SCRIPT}..."
-msgstr "${SCRIPT} இயக்கப்படுகிறது..."
-
-#. Type: text
-#. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:178
+#: ../bootstrap-base.templates:151
 msgid "Retrieving Release file"
 msgstr "வெளியீட்டு கோப்பை மீட்கிறது."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:183
+#: ../bootstrap-base.templates:156
 msgid "Retrieving Release file signature"
 msgstr "வெளியீட்டு கோப்பின் கையெழுத்தை மீட்கிறது."
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:188
+#: ../bootstrap-base.templates:161
 msgid "Finding package sizes"
 msgstr "தொகுப்புகளின் அளவை கண்டு பிடிக்கிறது."
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:193
+#: ../bootstrap-base.templates:166
 msgid "Retrieving Packages files"
 msgstr "தொகுப்பு கோப்புகளை மீட்கிறது."
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:198
+#: ../bootstrap-base.templates:171
 msgid "Retrieving Packages file"
 msgstr "தொகுப்பு கோப்பை மீட்கிறது."
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:203
+#: ../bootstrap-base.templates:176
 msgid "Retrieving packages"
 msgstr "தொகுப்புகளை மீட்கிறது."
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:208
+#: ../bootstrap-base.templates:181
 msgid "Extracting packages"
 msgstr "தொகுப்புகளை பிரித்தெடுக்கிறது."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:212
-msgid "Installing the base system"
-msgstr "அடிப்படை கணினி அமைப்பை நிறுவுகிறது."
 
 #. Type: text
 #. Description
@@ -416,7 +449,7 @@ msgstr "அடிப்படை கணினி அமைப்பை நிற
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:220
+#: ../bootstrap-base.templates:193
 msgid "Installing core packages"
 msgstr "மையப் தொகுப்புகளை நிறுவுகிறது."
 
@@ -426,13 +459,13 @@ msgstr "மையப் தொகுப்புகளை நிறுவுக�
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:228
+#: ../bootstrap-base.templates:201
 msgid "Unpacking required packages"
 msgstr "தேவையான தொகுப்புகளை பிரிக்கிறது."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:232
+#: ../bootstrap-base.templates:205
 msgid "Configuring required packages"
 msgstr "தேவையான தொகுப்புகளை வடிவமைக்கிறது"
 
@@ -440,7 +473,7 @@ msgstr "தேவையான தொகுப்புகளை வடிவம�
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:238
+#: ../bootstrap-base.templates:211
 msgid "Unpacking the base system"
 msgstr "அடிப்படை கணினி அமைப்பை பிரிக்கிறது."
 
@@ -448,55 +481,55 @@ msgstr "அடிப்படை கணினி அமைப்பை பிர
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:244
+#: ../bootstrap-base.templates:217
 msgid "Configuring the base system"
 msgstr "அடிப்படை கணினி அமைப்பை வடிவமைக்கிறது."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:248
+#: ../bootstrap-base.templates:221
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:253
+#: ../bootstrap-base.templates:226
 msgid "Validating ${SUBST0}..."
 msgstr "${SUBST0} ஏற்ப்பை சரிபார்க்கிறது..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:258
+#: ../bootstrap-base.templates:231
 msgid "Retrieving ${SUBST0}..."
 msgstr "${SUBST0} பெறப்படுகிறது..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:263
+#: ../bootstrap-base.templates:236
 msgid "Extracting ${SUBST0}..."
 msgstr "${SUBST0} ஐ பிரித்தெடுக்கிறது...."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:268
+#: ../bootstrap-base.templates:241
 msgid "Unpacking ${SUBST0}..."
 msgstr "${SUBST0} ஐ பிரிக்கிறது...."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:273
+#: ../bootstrap-base.templates:246
 msgid "Configuring ${SUBST0}..."
 msgstr "${SUBST0} ஐ வடிவமைக்கிறது...."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:278
+#: ../bootstrap-base.templates:251
 msgid "Checking Release signature"
 msgstr "வெளியீட்டு கோப்பின் கையெழுத்தை சரி பார்க்கிறது."
 
@@ -504,40 +537,40 @@ msgstr "வெளியீட்டு கோப்பின் கையெழ�
 #. Description
 #. SUBST0 is a gpg key id
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:284
+#: ../bootstrap-base.templates:257
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "முறையான வெளியீட்டு கையெழுத்து (விசை அடையாளம் ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../bootstrap-base.templates:261
 msgid "Resolving dependencies of base packages..."
 msgstr "அடிப்படை தொகுப்புகளின் சார்புகளை சீர் செய்கிறது."
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:293
+#: ../bootstrap-base.templates:266
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr "கூடுதல் அடிப்படை சார்புகள் கண்டு பிடிக்கப் பட்டன:${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:298
+#: ../bootstrap-base.templates:271
 msgid "Found additional required dependencies: ${SUBST0}"
 msgstr "கூடுதல் தேவையான சார்புகள் கண்டு பிடிக்கப் பட்டன:${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:303
+#: ../bootstrap-base.templates:276
 msgid "Found packages in base already in required: ${SUBST0}"
 msgstr "அடிப்படையில் தேவையான தொகுப்புகள் ${SUBST0} உள்ளே கண்டு பிடிக்கப் பட்டன"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:307
+#: ../bootstrap-base.templates:280
 msgid "Resolving dependencies of required packages..."
 msgstr "தேவையான தொகுப்புகளின் சார்புகள் சீராக்கப் படுகின்றன."
 
@@ -545,7 +578,7 @@ msgstr "தேவையான தொகுப்புகளின் சார�
 #. Description
 #. SUBST0 is an archive component (main, etc)
 #. SUBST1 is a mirror
-#: ../base-installer.templates:313
+#: ../bootstrap-base.templates:286
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "உறுப்பு ${SUBST0} ஐ ${SUBST1} மீது சோதிக்கிறது..."
 
@@ -555,7 +588,7 @@ msgstr "உறுப்பு ${SUBST0} ஐ ${SUBST1} மீது சோதி�
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:321
+#: ../bootstrap-base.templates:294
 msgid "Installing core packages..."
 msgstr "மையப் தொகுப்புகளை நிறுவுகிறது...."
 
@@ -565,7 +598,7 @@ msgstr "மையப் தொகுப்புகளை நிறுவுக�
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:329
+#: ../bootstrap-base.templates:302
 msgid "Unpacking required packages..."
 msgstr "தேவையான தொகுப்புகளை அவிழ்க்கிறது...."
 
@@ -575,115 +608,79 @@ msgstr "தேவையான தொகுப்புகளை அவிழ்�
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:337
+#: ../bootstrap-base.templates:310
 msgid "Configuring required packages..."
 msgstr "தேவையான தொகுப்புகளை வடிவமைக்கிறது...."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:341
+#: ../bootstrap-base.templates:314
 msgid "Installing base packages..."
 msgstr "அடிப்படை தொகுப்புகளை நிறுவுகிறது..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:345
+#: ../bootstrap-base.templates:318
 msgid "Unpacking the base system..."
 msgstr "அடிப்படை அமைப்பை அவிழ்க்கிறது"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:349
+#: ../bootstrap-base.templates:322
 msgid "Configuring the base system..."
 msgstr "அடிப்படை அமைப்பை வடிவமைக்கிறது...."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:353
+#: ../bootstrap-base.templates:326
 msgid "Base system installed successfully."
 msgstr "அடிப்படை அமைப்பு வெற்றிகரமாக நிறுவப் பட்டது."
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:358
+#: ../bootstrap-base.templates:331
 msgid "Debootstrap warning"
 msgstr "டீபூட்ஸ்ட்ராப் எச்சரிக்கை"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:358
+#: ../bootstrap-base.templates:331
 msgid "Warning: ${INFO}"
 msgstr "கவனம்: ${INFO}"
 
 #. Type: text
 #. Description
 #. SUBST0 is an url
-#: ../base-installer.templates:364
+#: ../bootstrap-base.templates:337
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "தோல்வியுற்ற ${SUBST0} இன் தரவிறக்கத்தை மீண்டும் முயற்சிக்கிறது."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:368
+#: ../bootstrap-base.templates:341
 msgid "Configuring APT sources..."
 msgstr "ஏபிடி மூல வளத்தை வடிவமைக்கிறது."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:372
-msgid "Updating the list of available packages..."
-msgstr "கிடைக்கக் கூடிய தொகுப்புகளின் பட்டியலை புதுப்பிக்கிறது...."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:376
-msgid "Installing extra packages..."
-msgstr "கூடுதல் தொகுப்புகளை நிறுவுகிறது.."
-
-#. Type: text
-#. Description
-#. SUBST0 is a package name
-#: ../base-installer.templates:381
-msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
-msgstr "கூடிதல் தொகுப்புகள் நிறுவப்படுகிறது-மீட்டு நிறுவுகிறது ${SUBST0}...."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:385
-msgid "Creating device files..."
-msgstr "சாதன கோப்புகளை உருவாக்குகிறது...."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:389
+#: ../bootstrap-base.templates:345
 msgid "Selecting the kernel to install..."
 msgstr "நிறுவ உட்கருவை தேர்ந்தெடுக்கிறது..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:393
+#: ../bootstrap-base.templates:349
 msgid "Installing the kernel..."
 msgstr "உட்கரு நிறுவப்படுகிறது..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:398
+#: ../bootstrap-base.templates:354
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "உட்கரு நிறுவப்படுகிறது - ${SUBST0} பெறப்பட்டு நிறுவப்படுகிறது..."
 
-#. Type: text
-#. Description
-#: ../base-installer.templates:402
-msgid "Installing the PCMCIA modules"
-msgstr "பிசிஎம்சிஐஏ (PCMCIA) பகுதிகள் நிறுவப் படுகின்றன"
-
-#. Type: text
-#. Description
-#. Item in the main menu to select this package
-#. TRANSLATORS: <65 columns
-#: ../base-installer.templates:408
-msgid "Install the base system"
-msgstr "அடிப்படை அமைப்பு நிறுவவும்"
+#~ msgid "Installing the PCMCIA modules"
+#~ msgstr "பிசிஎம்சிஐஏ (PCMCIA) பகுதிகள் நிறுவப் படுகின்றன"

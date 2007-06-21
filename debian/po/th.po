@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-03-22 22:49+0000\n"
+"POT-Creation-Date: 2007-06-21 22:47+0000\n"
 "PO-Revision-Date: 2007-02-04 19:37+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
@@ -38,39 +38,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#. The base system is the minimal Debian system
-#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:13
-msgid "Cannot install base system"
-msgstr "ไม่สามารถติดตั้งระบบพื้นฐาน"
-
-#. Type: error
-#. Description
-#. The base system is the minimal Debian system
-#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:13
-msgid ""
-"The installer cannot figure out how to install the base system. No "
-"installable CD-ROM was found and no valid mirror was configured."
-msgstr ""
-"โปรแกรมติดตั้งไม่สามารถหาวิธีติดตั้งระบบพื้นฐานได้ เนื่องจากไม่พบซีดีรอมติดตั้ง "
-"และไม่ได้กำหนดแหล่งสำเนาแพกเกจที่จะใช้"
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:19
-msgid "Failed to determine the codename for the release."
-msgstr "ไม่สามารถกำหนดชื่อรหัสของรุ่นได้"
-
-#. Type: error
-#. Description
-#: ../base-installer.templates:24
+#: ../base-installer.templates:11
 msgid "No file system mounted on /target"
 msgstr "ไม่ได้เมานท์ระบบแฟ้มไว้ที่ /target"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:24
+#: ../base-installer.templates:11
 msgid ""
 "Before the installation can proceed, a root file system must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
@@ -80,13 +54,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:30
+#: ../base-installer.templates:17
 msgid "Not installing to unclean target"
 msgstr "จะไม่ติดตั้งในพาร์ทิชันที่ไม่สะอาด"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:30
+#: ../base-installer.templates:17
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
@@ -95,52 +69,129 @@ msgstr ""
 "การติดตั้งในระบบแฟ้มเป้าหมายถูกยกเลิก คุณควรย้อนกลับไปลบหรือฟอร์แมตระบบแฟ้มดังกล่าว "
 "ก่อนที่จะดำเนินการติดตั้งต่อไป"
 
+#. Type: text
+#. Description
+#: ../base-installer.templates:24
+msgid "Preparing to install the base system..."
+msgstr "กำลังเตรียมติดตั้งระบบพื้นฐาน..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:28 ../bootstrap-base.templates:185
+msgid "Installing the base system"
+msgstr "กำลังติดตั้งระบบพื้นฐาน"
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:32
+msgid "Running ${SCRIPT}..."
+msgstr "กำลังดำเนินการ ${SCRIPT}..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:36
+msgid "Updating the list of available packages..."
+msgstr "กำลังปรับข้อมูลรายการแพกเกจที่มี..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:40
+msgid "Installing extra packages..."
+msgstr "กำลังติดตั้งแพกเกจเสริม..."
+
+#. Type: text
+#. Description
+#. SUBST0 is a package name
+#: ../base-installer.templates:45
+msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
+msgstr "กำลังติดตั้งแพกเกจเสริม - กำลังดึงและติดตั้ง ${SUBST0}..."
+
+#. Type: text
+#. Description
+#: ../base-installer.templates:49
+msgid "Creating device files..."
+msgstr "กำลังสร้างแฟ้มอุปกรณ์ต่างๆ..."
+
+#. Type: text
+#. Description
+#. Item in the main menu to select this package
+#. TRANSLATORS: <65 columns
+#: ../bootstrap-base.templates:5
+msgid "Install the base system"
+msgstr "ติดตั้งระบบพื้นฐาน"
+
 #. Type: error
 #. Description
-#: ../base-installer.templates:37
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#: ../bootstrap-base.templates:11
+msgid "Cannot install base system"
+msgstr "ไม่สามารถติดตั้งระบบพื้นฐาน"
+
+#. Type: error
+#. Description
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#: ../bootstrap-base.templates:11
+msgid ""
+"The installer cannot figure out how to install the base system. No "
+"installable CD-ROM was found and no valid mirror was configured."
+msgstr ""
+"โปรแกรมติดตั้งไม่สามารถหาวิธีติดตั้งระบบพื้นฐานได้ เนื่องจากไม่พบซีดีรอมติดตั้ง "
+"และไม่ได้กำหนดแหล่งสำเนาแพกเกจที่จะใช้"
+
+#. Type: error
+#. Description
+#: ../bootstrap-base.templates:17
+msgid "Failed to determine the codename for the release."
+msgstr "ไม่สามารถกำหนดชื่อรหัสของรุ่นได้"
+
+#. Type: error
+#. Description
+#: ../bootstrap-base.templates:22
 msgid "Failed to install the base system"
 msgstr "ติดตั้งระบบพื้นฐานไม่สำเร็จ"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:37
+#: ../bootstrap-base.templates:22
 msgid "The base system installation into /target/ failed."
 msgstr "ติดตั้งระบบพื้นฐานลงใน /target/ ไม่สำเร็จ"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:44
+#: ../bootstrap-base.templates:29
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr "โปรแกรม debootstrap จบการทำงานโดยมีข้อผิดพลาด (รหัสผิดพลาด ${EXITCODE})"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:51
+#: ../bootstrap-base.templates:36
 msgid "Base system installation error"
 msgstr "เกิดข้อผิดพลาดระหว่างติดตั้งระบบพื้นฐาน"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:51
+#: ../bootstrap-base.templates:36
 msgid "The debootstrap program exited abnormally."
 msgstr "โปรแกรม debootstrap จบการทำงานแบบผิดปกติ"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:59
+#: ../bootstrap-base.templates:44
 msgid "The following error occurred:"
 msgstr "เกิดข้อผิดพลาดดังนี้:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:69
+#: ../bootstrap-base.templates:54
 msgid "Tool to use to generate boot initrd:"
 msgstr "เครื่องมือที่จะใช้สร้าง initrd สำหรับบูต:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:69
+#: ../bootstrap-base.templates:54
 msgid ""
 "The list shows the available tools. If you are unsure which to select, you "
 "should select the default. If your system fails to boot, you can retry the "
@@ -151,13 +202,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:76
+#: ../bootstrap-base.templates:61
 msgid "Unsupported initrd generator"
 msgstr "ไม่สนับสนุนเครื่องมือสร้าง initrd"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:76
+#: ../bootstrap-base.templates:61
 msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
@@ -165,13 +216,13 @@ msgstr "ไม่สนับสนุนแพกเกจ ${GENERATOR} ที�
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:82
+#: ../bootstrap-base.templates:67
 msgid "Unable to install the selected kernel"
 msgstr "ไม่สามารถติดตั้งเคอร์เนลที่เลือก"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:82
+#: ../bootstrap-base.templates:67
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -179,7 +230,7 @@ msgstr "เกิดข้อผิดพลาดขณะพยายามต
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:82
+#: ../bootstrap-base.templates:67
 msgid "Kernel package: '${KERNEL}'."
 msgstr "แพกเกจเคอร์เนล: '${KERNEL}'"
 
@@ -187,7 +238,7 @@ msgstr "แพกเกจเคอร์เนล: '${KERNEL}'"
 #. Choices
 #. For base-installer, "none" is an additional choice to a list of kernels.
 #. It means "no kernel"
-#: ../base-installer.templates:95
+#: ../bootstrap-base.templates:80
 msgid ""
 "none[ Do not translate what's inside the brackets and just put the "
 "translation for the word \"none\" in your language without any brackets. "
@@ -196,13 +247,13 @@ msgstr "ไม่มี"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:96
+#: ../bootstrap-base.templates:81
 msgid "Kernel to install:"
 msgstr "เคอร์เนลที่จะติดตั้ง:"
 
 #. Type: select
 #. Description
-#: ../base-installer.templates:96
+#: ../bootstrap-base.templates:81
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -211,19 +262,19 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:103
+#: ../bootstrap-base.templates:88
 msgid "Continue without installing a kernel?"
 msgstr "จะดำเนินการต่อโดยไม่ติดตั้งเคอร์เนลหรือไม่?"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:103
+#: ../bootstrap-base.templates:88
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "ไม่พบเคอร์เนลที่ติดตั้งได้จากแหล่ง APT ที่กำหนด"
 
 #. Type: boolean
 #. Description
-#: ../base-installer.templates:103
+#: ../bootstrap-base.templates:88
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -234,25 +285,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:112
+#: ../bootstrap-base.templates:97
 msgid "Cannot install kernel"
 msgstr "ไม่สามารถติดตั้งเคอร์เนล"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:112
+#: ../bootstrap-base.templates:97
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr "โปรแกรมติดตั้งหาแพกเกจเคอร์เนลที่เหมาะสมเพื่อใช้ติดตั้งไม่พบ"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:117
+#: ../bootstrap-base.templates:102
 msgid "Unable to install ${PACKAGE}"
 msgstr "ไม่สามารถติดตั้ง ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:117
+#: ../bootstrap-base.templates:102
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -260,41 +311,41 @@ msgstr "เกิดข้อผิดพลาดขณะพยายามต
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:117
+#: ../bootstrap-base.templates:102
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr "กรุณาตรวจสอบ /var/log/syslog หรือดูที่คอนโซลเสมือนที่ 4 เพื่อดูรายละเอียด"
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release file name.
-#: ../base-installer.templates:126
+#: ../bootstrap-base.templates:111
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "อ่านแฟ้ม Release ${SUBST0} ไม่สำเร็จ"
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release.gpg file name
-#: ../base-installer.templates:132
+#: ../bootstrap-base.templates:117
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "อ่านแฟ้มลายเซ็นกำกับ Release ${SUBST0} ไม่สำเร็จ"
 
 #. Type: error
 #. Description
 #. SUBST0 is a gpg key ID
-#: ../base-installer.templates:138
+#: ../bootstrap-base.templates:123
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "แฟ้ม Release ถูกเซ็นกำกับโดยกุญแจที่ไม่รู้จัก (หมายเลขกุญแจ ${SUBST0})"
 
 #. Type: error
 #. Description
-#: ../base-installer.templates:143
+#: ../bootstrap-base.templates:128
 msgid "Invalid Release file: no valid components."
 msgstr "แฟ้ม Release ไม่ถูกต้อง: ไม่มีองค์ประกอบที่ใช้ได้"
 
 #. Type: error
 #. Description
 #. SUBST0 is a filename
-#: ../base-installer.templates:149
+#: ../bootstrap-base.templates:134
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "แฟ้ม Release ไม่ถูกต้อง: ไม่มีรายการสำหรับ ${SUBST0}"
 
@@ -302,7 +353,7 @@ msgstr "แฟ้ม Release ไม่ถูกต้อง: ไม่มีร�
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:156
+#: ../bootstrap-base.templates:141
 msgid "Debootstrap Error"
 msgstr "ข้อผิดพลาดของ debootstrap"
 
@@ -310,7 +361,7 @@ msgstr "ข้อผิดพลาดของ debootstrap"
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:156
+#: ../bootstrap-base.templates:141
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -321,7 +372,7 @@ msgstr ""
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:156
+#: ../bootstrap-base.templates:141
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -329,70 +380,52 @@ msgstr "ถ้าคุณกำลังติดตั้งจาก CD-R ห
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:169
-msgid "Preparing to install the base system..."
-msgstr "กำลังเตรียมติดตั้งระบบพื้นฐาน..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:173
-msgid "Running ${SCRIPT}..."
-msgstr "กำลังดำเนินการ ${SCRIPT}..."
-
-#. Type: text
-#. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:178
+#: ../bootstrap-base.templates:151
 msgid "Retrieving Release file"
 msgstr "กำลังดึงแฟ้ม Release"
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:183
+#: ../bootstrap-base.templates:156
 msgid "Retrieving Release file signature"
 msgstr "กำลังดึงลายเซ็นกำกับแฟ้ม Release"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:188
+#: ../bootstrap-base.templates:161
 msgid "Finding package sizes"
 msgstr "กำลังหาขนาดของแพกเกจ"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:193
+#: ../bootstrap-base.templates:166
 msgid "Retrieving Packages files"
 msgstr "กำลังดึงแฟ้ม Packages ต่างๆ"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../base-installer.templates:198
+#: ../bootstrap-base.templates:171
 msgid "Retrieving Packages file"
 msgstr "กำลังดึงแฟ้ม Packages"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:203
+#: ../bootstrap-base.templates:176
 msgid "Retrieving packages"
 msgstr "กำลังดึงแพกเกจต่างๆ"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../base-installer.templates:208
+#: ../bootstrap-base.templates:181
 msgid "Extracting packages"
 msgstr "กำลังแยกแพกเกจต่างๆ"
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:212
-msgid "Installing the base system"
-msgstr "กำลังติดตั้งระบบพื้นฐาน"
 
 #. Type: text
 #. Description
@@ -400,7 +433,7 @@ msgstr "กำลังติดตั้งระบบพื้นฐาน"
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:220
+#: ../bootstrap-base.templates:193
 msgid "Installing core packages"
 msgstr "กำลังติดตั้งแพกเกจแกนกลาง"
 
@@ -410,13 +443,13 @@ msgstr "กำลังติดตั้งแพกเกจแกนกลา
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:228
+#: ../bootstrap-base.templates:201
 msgid "Unpacking required packages"
 msgstr "กำลังแตกแพกเกจที่ต้องใช้ประกอบ"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:232
+#: ../bootstrap-base.templates:205
 msgid "Configuring required packages"
 msgstr "กำลังตั้งค่าแพกเกจที่ต้องใช้ประกอบ"
 
@@ -424,7 +457,7 @@ msgstr "กำลังตั้งค่าแพกเกจที่ต้อ
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:238
+#: ../bootstrap-base.templates:211
 msgid "Unpacking the base system"
 msgstr "กำลังแตกแพกเกจระบบพื้นฐาน"
 
@@ -432,55 +465,55 @@ msgstr "กำลังแตกแพกเกจระบบพื้นฐา
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../base-installer.templates:244
+#: ../bootstrap-base.templates:217
 msgid "Configuring the base system"
 msgstr "กำลังตั้งค่าระบบพื้นฐาน"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:248
+#: ../bootstrap-base.templates:221
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:253
+#: ../bootstrap-base.templates:226
 msgid "Validating ${SUBST0}..."
 msgstr "กำลังตรวจสอบความถูกต้องของ ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:258
+#: ../bootstrap-base.templates:231
 msgid "Retrieving ${SUBST0}..."
 msgstr "กำลังดึง ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:263
+#: ../bootstrap-base.templates:236
 msgid "Extracting ${SUBST0}..."
 msgstr "กำลังแยก ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:268
+#: ../bootstrap-base.templates:241
 msgid "Unpacking ${SUBST0}..."
 msgstr "กำลังแตก ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:273
+#: ../bootstrap-base.templates:246
 msgid "Configuring ${SUBST0}..."
 msgstr "กำลังตั้งค่า ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:278
+#: ../bootstrap-base.templates:251
 msgid "Checking Release signature"
 msgstr "กำลังตรวจสอบลายเซ็นกำกับ Release"
 
@@ -488,40 +521,40 @@ msgstr "กำลังตรวจสอบลายเซ็นกำกับ
 #. Description
 #. SUBST0 is a gpg key id
 #. Release is a filename which should not be translated
-#: ../base-installer.templates:284
+#: ../bootstrap-base.templates:257
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "ลายเซ็นกำกับ Release ถูกต้อง (หมายเลขกุญแจ ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:288
+#: ../bootstrap-base.templates:261
 msgid "Resolving dependencies of base packages..."
 msgstr "กำลังคำนวณแพกเกจที่ต้องใช้ประกอบสำหรับแพกเกจพื้นฐาน..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:293
+#: ../bootstrap-base.templates:266
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr "พบแพกเกจที่ต้องใช้ประกอบเพิ่มเติมสำหรับแพกเกจพื้นฐาน: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:298
+#: ../bootstrap-base.templates:271
 msgid "Found additional required dependencies: ${SUBST0}"
 msgstr "พบแพกเกจที่ต้องใช้ประกอบเพิ่มเติม: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../base-installer.templates:303
+#: ../bootstrap-base.templates:276
 msgid "Found packages in base already in required: ${SUBST0}"
 msgstr "พบแพกเกจพื้นฐานในรายการแพกเกจที่ต้องใช้ประกอบ: ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:307
+#: ../bootstrap-base.templates:280
 msgid "Resolving dependencies of required packages..."
 msgstr "กำลังคำนวณแพกเกจที่ต้องใช้ประกอบสำหรับแพกเกจประกอบ..."
 
@@ -529,7 +562,7 @@ msgstr "กำลังคำนวณแพกเกจที่ต้องใ
 #. Description
 #. SUBST0 is an archive component (main, etc)
 #. SUBST1 is a mirror
-#: ../base-installer.templates:313
+#: ../bootstrap-base.templates:286
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "กำลังตรวจสอบองค์ประกอบ ${SUBST0} ที่ ${SUBST1}..."
 
@@ -539,7 +572,7 @@ msgstr "กำลังตรวจสอบองค์ประกอบ ${SUB
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../base-installer.templates:321
+#: ../bootstrap-base.templates:294
 msgid "Installing core packages..."
 msgstr "กำลังติดตั้งแพกเกจแกนกลาง..."
 
@@ -549,7 +582,7 @@ msgstr "กำลังติดตั้งแพกเกจแกนกลา
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:329
+#: ../bootstrap-base.templates:302
 msgid "Unpacking required packages..."
 msgstr "กำลังแตกแพกเกจที่ต้องใช้ประกอบ..."
 
@@ -559,115 +592,79 @@ msgstr "กำลังแตกแพกเกจที่ต้องใช้
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../base-installer.templates:337
+#: ../bootstrap-base.templates:310
 msgid "Configuring required packages..."
 msgstr "กำลังตั้งค่าแพกเกจที่ต้องใช้ประกอบ..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:341
+#: ../bootstrap-base.templates:314
 msgid "Installing base packages..."
 msgstr "กำลังติดตั้งแพกเกจพื้นฐาน..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:345
+#: ../bootstrap-base.templates:318
 msgid "Unpacking the base system..."
 msgstr "กำลังแตกแพกเกจของระบบพื้นฐาน..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:349
+#: ../bootstrap-base.templates:322
 msgid "Configuring the base system..."
 msgstr "กำลังตั้งค่าระบบพื้นฐาน..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:353
+#: ../bootstrap-base.templates:326
 msgid "Base system installed successfully."
 msgstr "ติดตั้งระบบพื้นฐานสำเร็จแล้ว"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:358
+#: ../bootstrap-base.templates:331
 msgid "Debootstrap warning"
 msgstr "คำเตือนจาก debootstrap"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../base-installer.templates:358
+#: ../bootstrap-base.templates:331
 msgid "Warning: ${INFO}"
 msgstr "คำเตือน: ${INFO}"
 
 #. Type: text
 #. Description
 #. SUBST0 is an url
-#: ../base-installer.templates:364
+#: ../bootstrap-base.templates:337
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "กำลังพยายามดาวน์โหลดใหม่จาก ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:368
+#: ../bootstrap-base.templates:341
 msgid "Configuring APT sources..."
 msgstr "กำลังตั้งค่าแหล่ง APT..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:372
-msgid "Updating the list of available packages..."
-msgstr "กำลังปรับข้อมูลรายการแพกเกจที่มี..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:376
-msgid "Installing extra packages..."
-msgstr "กำลังติดตั้งแพกเกจเสริม..."
-
-#. Type: text
-#. Description
-#. SUBST0 is a package name
-#: ../base-installer.templates:381
-msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
-msgstr "กำลังติดตั้งแพกเกจเสริม - กำลังดึงและติดตั้ง ${SUBST0}..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:385
-msgid "Creating device files..."
-msgstr "กำลังสร้างแฟ้มอุปกรณ์ต่างๆ..."
-
-#. Type: text
-#. Description
-#: ../base-installer.templates:389
+#: ../bootstrap-base.templates:345
 msgid "Selecting the kernel to install..."
 msgstr "กำลังเลือกเคอร์เนลเพื่อติดตั้ง..."
 
 #. Type: text
 #. Description
-#: ../base-installer.templates:393
+#: ../bootstrap-base.templates:349
 msgid "Installing the kernel..."
 msgstr "กำลังติดตั้งเคอร์เนล..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../base-installer.templates:398
+#: ../bootstrap-base.templates:354
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "กำลังติดตั้งเคอร์เนล - กำลังดึงและติดตั้ง ${SUBST0}..."
 
-#. Type: text
-#. Description
-#: ../base-installer.templates:402
-msgid "Installing the PCMCIA modules"
-msgstr "กำลังติดตั้งมอดูล PCMCIA"
-
-#. Type: text
-#. Description
-#. Item in the main menu to select this package
-#. TRANSLATORS: <65 columns
-#: ../base-installer.templates:408
-msgid "Install the base system"
-msgstr "ติดตั้งระบบพื้นฐาน"
+#~ msgid "Installing the PCMCIA modules"
+#~ msgstr "กำลังติดตั้งมอดูล PCMCIA"
