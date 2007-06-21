@@ -1,0 +1,12 @@
+#! /bin/sh -e
+
+. /usr/share/debconf/confmodule
+
+if db_get mirror/codename && [ "$RET" ]; then
+	if [ "$RET" = sarge ]; then
+		exit 1
+	fi
+fi
+db_get live-installer/enable && [ "$RET" = true ] && exit 1
+
+exit 0

@@ -59,6 +59,7 @@ binary-arch: build test
 	
 	dh_installdebconf -a -n
 	(echo ; cat debian/templates.gen) >> debian/bootstrap-base/DEBIAN/templates
+	cp debian/bootstrap-base.isinstallable debian/bootstrap-base/DEBIAN/isinstallable
 	dh_strip -a
 	dh_compress -a
 	dh_fixperms -a
