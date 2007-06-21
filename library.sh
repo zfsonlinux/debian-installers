@@ -35,7 +35,7 @@ waypoint () {
 }
 
 run_waypoints () {
-	db_progress START 0 $NUM_STEPS base-installer/progress/installing-base
+	db_progress START 0 $NUM_STEPS $1
 	for item in $WAYPOINTS; do
 		PB_WAYPOINT_LENGTH=$(echo $item | cut -d: -f 1)
 		WAYPOINT=$(echo $item | cut -d: -f 2)
