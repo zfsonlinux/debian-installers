@@ -430,6 +430,8 @@ while : ; do
 			bootdev="(hd0)"
 			break
 		else
+			# Exit to menu if /boot is on fake RAID
+			if [ "$frdev" ]; then exit 10; done
 			state=2
 		fi
 	else
