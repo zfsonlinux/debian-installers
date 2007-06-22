@@ -500,6 +500,8 @@ if [ -z "$frdisk" ]; then
 else
 
 	# Semi-manual grub setup for a fake (ata) RAID disk
+	info "Boot partition is on a fake (ata) RAID device"
+	info "Installing GRUB to $frdev; grub root is $disc_offered"
 	case $(archdetect) in
 	    i386/*)
 		stagedir=i386-pc ;;
