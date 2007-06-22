@@ -430,8 +430,12 @@ while : ; do
 			bootdev="(hd0)"
 			break
 		else
-			# Exit to menu if /boot is on fake RAID
-			if [ "$frdev" ]; then exit 10; fi
+			# Exit to menu if /boot is on fake RAID; we don't
+			# support device selection in that case
+			if [ "$frdev" ]; then
+				db_progress STOP
+				exit 10
+			fi
 			state=2
 		fi
 	else
