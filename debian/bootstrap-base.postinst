@@ -8,22 +8,6 @@ db_capb backup
 
 ETCDIR=/target/etc
 ARCH=`udpkg --print-architecture`
-PROTOCOL=
-MIRROR=
-DIRECTORY=
-COMPONENTS=
-DISTRIBUTION=
-INCLUDES=
-EXCLUDES=
-KERNEL=
-KERNEL_LIST=/tmp/available_kernels.txt
-KERNEL_MAJOR="$(uname -r | cut -d . -f 1,2)"
-KERNEL_VERSION="$(uname -r | cut -d - -f 1)"
-KERNEL_ABI="$(uname -r | cut -d - -f 1,2)"
-MACHINE="$(uname -m)"
-NUMCPUS=$(cat /var/numcpus 2>/dev/null) || true
-CPUINFO=/proc/cpuinfo
-SPEAKUP=/proc/speakup
 KEYRING=/usr/share/keyrings/archive.gpg
 
 # Avoid debconf sending email during the base install process

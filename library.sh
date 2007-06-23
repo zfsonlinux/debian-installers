@@ -8,6 +8,24 @@ NUM_STEPS=0
 export PB_POSITION=0
 export PB_WAYPOINT_LENGTH=0
 
+# used by kernel installation code
+PROTOCOL=
+MIRROR=
+DIRECTORY=
+COMPONENTS=
+DISTRIBUTION=
+INCLUDES=
+EXCLUDES=
+KERNEL=
+KERNEL_LIST=/tmp/available_kernels.txt
+KERNEL_MAJOR="$(uname -r | cut -d . -f 1,2)"
+KERNEL_VERSION="$(uname -r | cut -d - -f 1)"
+KERNEL_ABI="$(uname -r | cut -d - -f 1,2)"
+MACHINE="$(uname -m)"
+NUMCPUS=$(cat /var/numcpus 2>/dev/null) || true
+CPUINFO=/proc/cpuinfo
+SPEAKUP=/proc/speakup
+
 log() {
 	logger -t base-installer "$@"
 }
