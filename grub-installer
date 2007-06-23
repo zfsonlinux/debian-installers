@@ -68,7 +68,6 @@ grub_serial_console() {
 	fi
 
 	echo serial --unit=$unit --speed=$speed $word $parity --stop=1
-	echo terminal serial	
 }
 
 serial="$(get_serial_console)"
@@ -580,8 +579,19 @@ fi
 
 if [ "$serial" ] ; then
 	# Modify menu.lst so _grub_ uses serial console.
-	(grub_serial_console $serial; cat $ROOT/boot/grub/$menu_file) >$ROOT/boot/grub/$menu_file.new
-	mv $ROOT/boot/grub/$menu_file.new $ROOT/boot/grub/$menu_file
+	case $grub_version in
+		grub)
+			(grub_serial_console $serial; echo "terminal serial"; cat $ROOT/boot/grub/$menu_file) >$ROOT/boot/grub/$menu_file.new
+			mv $ROOT/boot/grub/$menu_file.new $ROOT/boot/grub/$menu_file
+		;;
+		grub2)
+			sed \
+				-e "s/^\(GRUB_TERMINAL\)=.*/\1=serial/g" \
+				-e "s/^\(GRUB_SERIAL_COMMAND\)=.*/\1=\"`grub_serial_console`\"/g" \
+				-i $ROOT/etc/default/grub
+			update-grub # propagate to grub.cfg
+		;;
+	esac
 fi 
 
 # Generate menu.lst additions for other OSes
