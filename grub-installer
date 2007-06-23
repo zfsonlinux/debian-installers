@@ -585,10 +585,16 @@ if [ "$serial" ] ; then
 			mv $ROOT/boot/grub/$menu_file.new $ROOT/boot/grub/$menu_file
 		;;
 		grub2)
-			sed \
-				-e "s/^\(GRUB_TERMINAL\)=.*/\1=serial/g" \
-				-e "s/^\(GRUB_SERIAL_COMMAND\)=.*/\1=\"`grub_serial_console`\"/g" \
-				-i $ROOT/etc/default/grub
+			if grep -q "^GRUB_TERMINAL=" $ROOT/etc/default/grub; then
+				sed -i $ROOT/etc/default/grub -e "s/^\(GRUB_TERMINAL\)=.*/\1=serial/g"
+			else
+				echo "GRUB_TERMINAL=serial" >> $ROOT/etc/default/grub
+			fi
+			if grep -q "^GRUB_SERIAL_COMMAND=" $ROOT/etc/default/grub ; then
+				sed -i $ROOT/etc/default/grub -e "s/^\(GRUB_SERIAL_COMMAND\)=.*/\1=\"`grub_serial_console`\"/g"
+			else
+				echo "GRUB_SERIAL_COMMAND=\"`grub_serial_console`\"" >> $ROOT/etc/default/grub
+			fi
 			update-grub # propagate to grub.cfg
 		;;
 	esac
