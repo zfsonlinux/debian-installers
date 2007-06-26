@@ -136,7 +136,7 @@ convert () {
 		exit 1
 	fi
 
-	if [ "$tmp_part" ]; then
+	if [ -n "$tmp_part" ]; then
 		# If a partition is specified, we need to translate it into the
 		# GRUB's syntax
 		case "$host_os" in
@@ -333,7 +333,7 @@ if ! apt-install $grub_version ; then
 		exit 10 # back up to menu
 	fi
 	db_get grub-installer/apt-install-failed
-	if [ true != "$RET" ] ; then
+	if [ "$RET" != true ] ; then
 		db_progress STOP
 		exit 1
 	fi
