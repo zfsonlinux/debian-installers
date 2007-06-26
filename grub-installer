@@ -237,7 +237,7 @@ bootfstype=$(findfstype /boot)
 rootfs_nodevfs=$(mapdevfs $rootfs)
 bootfs_nodevfs=$(mapdevfs $bootfs)
 prefix=$(echo "$bootfs" | \
-  sed 's/\(\/dev\/\(cciss\|ida\)\/c[0-9]d[0-9]\|\/dev\/[a-z]\+\).*/\1/')
+  sed 's:\(/dev/\(cciss\|ida\)/c[0-9]d[0-9]\|/dev/[a-z]\+\).*:\1:')
 
 case $prefix in
     /dev/md)
