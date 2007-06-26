@@ -675,13 +675,12 @@ IFS="$OLDIFS"
 rm -f /tmp/os-probed
 
 if [ -s $tmpfile ] ; then
+	grub_write_divider
 	case $grub_version in
 	    grub)
-			grub_write_divider
 			cat $tmpfile >> $ROOT/boot/grub/$menu_file
 	    ;;
 	    grub2)
-			grub_write_divider
 			cat > $ROOT/etc/grub.d/30_otheros << EOF
 #!/bin/sh
 exec tail -n +3 \$0
