@@ -258,7 +258,7 @@ disc_offered=$(mapdevfs "$disc_offered_devfs")
 # Identify partition table of the disk containing our boot partition
 bootfslabel=$(partmap $disc_offered || echo unknown)
 
-# Check if the boot file system is on fake (ata) RAID
+# Check if the boot file system is on Serial ATA RAID
 frdev=""
 if type dmraid >/dev/null 2>&1; then
 	for frdisk in $(dmraid -s -c | grep -v "No RAID disks"); do
@@ -279,7 +279,7 @@ menu_file="menu.lst"
 
 case "$bootfstype:$bootfslabel" in
     *:loop)
-	# Fake (ata) RAID partition, currently only grub is supported
+	# Serial ATA RAID partition, currently only grub is supported
 	: ;;
     reiserfs:gpt)
 	# GPT is only supported in version 2, which doesn't have a
@@ -409,10 +409,10 @@ fi
 if [ "$frdev" ]; then
 	if [ -e $ROOT$frdev ] && \
 	   [ $frgrubroot -gt 0 ] && [ -e $ROOT$frdev$frbootpart ]; then
-	   	db_subst grub-installer/fakeraid GRUBROOT $ROOT$frdev$frbootpart
-		q=grub-installer/fakeraid
+	   	db_subst grub-installer/sataraid GRUBROOT $ROOT$frdev$frbootpart
+		q=grub-installer/sataraid
 	else
-		db_input grub-installer/fakeraid-error
+		db_input grub-installer/sataraid-error
 		db_go || true
 		exit 1
 	fi
@@ -434,7 +434,7 @@ while : ; do
 			bootdev="(hd0)"
 			break
 		else
-			# Exit to menu if /boot is on fake RAID; we don't
+			# Exit to menu if /boot is on SATA RAID; we don't
 			# support device selection in that case
 			if [ "$frdev" ]; then
 				db_progress STOP
@@ -503,8 +503,8 @@ if [ -z "$frdisk" ]; then
 
 else
 
-	# Semi-manual grub setup for a fake (ata) RAID disk
-	info "Boot partition is on a fake (ata) RAID device"
+	# Semi-manual grub setup for Serial ATA RAID
+	info "Boot partition is on a Serial ATA RAID disk"
 	info "Installing GRUB to $frdev; grub root is $disc_offered"
 	case $(archdetect) in
 	    i386/*)
@@ -512,7 +512,7 @@ else
 	    amd64/*)
 		stagedir=x86_64-pc ;;
 	    *)
-	    	error "Unsupported architecture for fake RAID installation"
+	    	error "Unsupported architecture for SATA RAID installation"
 		exit 1
 		;;
 	esac
@@ -542,7 +542,7 @@ db_progress INFO grub-installer/progress/step_config_loader
 rm -f $ROOT/boot/grub/$menu_file
 update_grub
 
-# For fake RAID devices we may need to update the grub root
+# For SATA RAID we may need to update the grub root
 # TODO: This should really be supported in update-grub
 if [ "$frdev" ] && [ $frgrubroot -gt 0 ]; then
 	sed -i "/^root/s/(hd0,0)/(hd0,$frgrubroot)/

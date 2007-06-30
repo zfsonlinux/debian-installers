@@ -23,22 +23,23 @@ _Description: Install the GRUB boot loader to the master boot record?
  that operating system temporarily unbootable, though GRUB can be manually
  configured later to boot it.
 
-Template: grub-installer/fakeraid
+Template: grub-installer/sataraid
 Type: boolean
 Default: true
-Description: Install the GRUB boot loader to the fake RAID disk?
- Installation of GRUB on a fake (ata) RAID disk is not really supported,
- but it is possible. The installation is currently experimental and is
- always done to the MBR of the fake RAID disk.
+Description: Install the GRUB boot loader to the SATA RAID disk?
+ Installation of GRUB on Serial ATA RAID is experimental.
+ .
+ GRUB is always installed to the master boot record (MBR) of the SATA RAID
+ disk. It is also assumed that that disk is listed as the first hard disk
+ in the boot order defined in the system's BIOS setup.
  .
  The GRUB root device is: ${GRUBROOT}.
- .
- Choose <Go Back> to cancel this operation.
 
-Template: grub-installer/fakeraid-error
+Template: grub-installer/sataraid-error
 Type: error
 Description: Unable to configure GRUB
- There was an error during the setup of GRUB for your fake RAID disk.
+ An error occurred during the setup of GRUB for your SATA RAID disk.
+ .
  The installation of GRUB will be aborted.
 
 Template: grub-installer/install_to_xfs
