@@ -1,8 +1,9 @@
 base-installer (1.82) unstable; urgency=low
 
   [ Frans Pop ]
-  * Load dmraid if needed; create device nodes in /target for fake (ata)
-    RAID devices.
+  * Add support for Serial ATA RAID (dmraid):
+    - install dmraid (if needed)
+    - create device nodes in /target for SATA RAID devmapper devices
 
   [ Joey Hess ]
   * Split off a bootstrap-base package that contains the bits needed to

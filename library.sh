@@ -122,7 +122,7 @@ create_devices () {
 				mknod /target/dev/mapper/$rootnode b $major $minor
 			fi
 
-			# Create device nodes for fake (ata) RAID devices
+			# Create device nodes for Serial ATA RAID devices
 			if type dmraid >/dev/null 2>&1; then
 				for frdisk in $(dmraid -s -c | grep -v "No RAID disks"); do
 					for frdev in $(ls /dev/mapper/$frdisk* 2>/dev/null); do
