@@ -31,7 +31,8 @@ arch_get_kernel () {
 	imgbase=linux-image
 
 	CPUS=`grep 'ncpus probed' "$CPUINFO" | cut -d: -f2`
-	if [ "$CPUS" -ne 1 ]; then
+	TYPE=`grep 'type' "$CPUINFO" | cut -d: -f2`
+	if [ "$CPUS" -ne 1 ] || [ "$TYPE" = "sun4v" ]; then
 		if [ "$1" = sparc32 ] && [ "$KERNEL_MAJOR" = 2.6 ]; then
 			# No working SMP yet
 			:
