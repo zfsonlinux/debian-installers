@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ta\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-06-30 12:27+0000\n"
+"POT-Creation-Date: 2007-07-18 22:48+0000\n"
 "PO-Revision-Date: 2007-07-07 13:56+0530\n"
 "Last-Translator: Dr.T.Vasudevan <agnihot3@gmail.com>\n"
 "Language-Team: TAMIL <ubuntu-l10n-tam@lists.ubuntu.com>\n"
@@ -210,105 +210,112 @@ msgstr ""
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "க்ரப் கடவுச் சொல் அமைக்க வேண்டாம் எனில் இதை வெற்றாக விடவும்."
 
-#. Type: boolean
+#. Type: error
 #. Description
-#: ../grub-installer.templates:92
-msgid "GRUB installation failed.  Continue anyway?"
+#: ../grub-installer.templates:91
+#, fuzzy
+msgid "GRUB installation failed."
 msgstr "க்ரப் நிறுவல் தோல்வியடைந்தது. எப்படியும் தொடரவா?"
-
-#. Type: boolean
-#. Description
-#: ../grub-installer.templates:92
-msgid ""
-"The grub package failed to install into /target/.  Installing GRUB as a boot "
-"loader is a required step.  The install problem might however be unrelated "
-"to GRUB, so continuing the installation may be possible."
-msgstr ""
-"/target/ இல் க்ரப் தொகுப்பு நிறுவப் படவில்லை. க்ரப் ஐ நிறுவுதல் அவசியமான படி. நிறுவல் "
-"பிரச்சினை க்ரப்புக்கு சம்பந்தம் இல்லாததாக இருக்கலாம். ஆகவே நிறுவலை தொடர்தல் கை கூடலாம்."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:99
+#: ../grub-installer.templates:91
+msgid ""
+"The ${grub} package failed to install into /target/. Without the GRUB "
+"bootloader, the installed system will not boot."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../grub-installer.templates:97
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "${BOOTDEV}-இல் GRUB-ஐ நிறுவ இயலவில்லை"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:99
+#: ../grub-installer.templates:97
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "'grub-install ${BOOTDEV}' கட்டளை தோல்வியுற்றது."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "Unable to configure GRUB"
 msgstr "க்ரப்பை உருவமைக்க இயலவில்லை."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "Executing 'update-grub' failed."
 msgstr "'update-grub' (க்ரப்பை இற்றைப்படுத்து) கட்டளை தோல்வியுற்றது."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "This is a fatal error."
 msgstr "உயிர் கொல்லி தவறு."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:124
+#: ../grub-installer.templates:122
 msgid "Installing GRUB boot loader"
 msgstr "க்ரப் துவக்கி நிறுவப் படுகிறது."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:128
+#: ../grub-installer.templates:126
 msgid "Looking for other operating systems..."
 msgstr "மற்ற இயங்கு தளங்களை தேடுகிறது...."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:132
+#: ../grub-installer.templates:130
 msgid "Installing the 'grub' package..."
 msgstr "க்ரப் தொகுப்பு நிறுவப் படுகிறது...."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:136
+#: ../grub-installer.templates:134
 msgid "Determining GRUB boot device..."
 msgstr "க்ரப் துவக்க சாதனம் நிர்ணயிக்கப் படுகிறது."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:140
+#: ../grub-installer.templates:138
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr " \"grub-install ${BOOTDEV}\" செயற்படுகிறது....."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:144
+#: ../grub-installer.templates:142
 msgid "Running \"update-grub\"..."
 msgstr "\"update-grub\" செயற்படுகிறது...."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:148
+#: ../grub-installer.templates:146
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "/etc/kernel-img.conf. ஐ இற்றைப் படுத்துகிறது."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:153
+#: ../grub-installer.templates:151
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "க்ரப் துவக்கியை ஒரு வன் தட்டில் நிறுவு"
 
 #. Type: text
 #. Description
 #. Rescue menu item
-#: ../grub-installer.templates:158
+#: ../grub-installer.templates:156
 msgid "Reinstall GRUB boot loader"
 msgstr "க்ரப் துவக்கியை மீண்டும் நிறுவு"
+
+#~ msgid ""
+#~ "The grub package failed to install into /target/.  Installing GRUB as a "
+#~ "boot loader is a required step.  The install problem might however be "
+#~ "unrelated to GRUB, so continuing the installation may be possible."
+#~ msgstr ""
+#~ "/target/ இல் க்ரப் தொகுப்பு நிறுவப் படவில்லை. க்ரப் ஐ நிறுவுதல் அவசியமான படி. "
+#~ "நிறுவல் பிரச்சினை க்ரப்புக்கு சம்பந்தம் இல்லாததாக இருக்கலாம். ஆகவே நிறுவலை தொடர்தல் கை "
+#~ "கூடலாம்."

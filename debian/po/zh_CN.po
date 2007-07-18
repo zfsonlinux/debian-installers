@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-06-30 12:27+0000\n"
+"POT-Creation-Date: 2007-07-18 22:48+0000\n"
 "PO-Revision-Date: 2007-07-09 13:51-0500\n"
 "Last-Translator: Ming Hua <minghua-guest@users.alioth.debian.org>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -202,105 +202,111 @@ msgstr ""
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "如果您不想设置 GRUB 密码，请将此处置空。"
 
-#. Type: boolean
+#. Type: error
 #. Description
-#: ../grub-installer.templates:92
-msgid "GRUB installation failed.  Continue anyway?"
+#: ../grub-installer.templates:91
+#, fuzzy
+msgid "GRUB installation failed."
 msgstr "GRUB 安装失败。仍然继续吗？"
-
-#. Type: boolean
-#. Description
-#: ../grub-installer.templates:92
-msgid ""
-"The grub package failed to install into /target/.  Installing GRUB as a boot "
-"loader is a required step.  The install problem might however be unrelated "
-"to GRUB, so continuing the installation may be possible."
-msgstr ""
-"无法将 grub 软件包安装到 /target/ 中。这是将 GRUB 安装为启动引导器的必要步"
-"骤。此安装问题可能跟 GRUB 本身并无关系，因此继续进行安装也是可行的。"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:99
+#: ../grub-installer.templates:91
+msgid ""
+"The ${grub} package failed to install into /target/. Without the GRUB "
+"bootloader, the installed system will not boot."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../grub-installer.templates:97
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "无法将 GRUB 装到 ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:99
+#: ../grub-installer.templates:97
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "执行 'grub-install ${BOOTDEV}' 失败。"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "Unable to configure GRUB"
 msgstr "无法配置 GRUB"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "Executing 'update-grub' failed."
 msgstr "执行 'update-grub' 失败。"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "This is a fatal error."
 msgstr "这是一个严重错误。"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:124
+#: ../grub-installer.templates:122
 msgid "Installing GRUB boot loader"
 msgstr "安装 GRUB 启动引导器"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:128
+#: ../grub-installer.templates:126
 msgid "Looking for other operating systems..."
 msgstr "正在查找其它操作系统..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:132
+#: ../grub-installer.templates:130
 msgid "Installing the 'grub' package..."
 msgstr "正在安装 'grub' 软件包..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:136
+#: ../grub-installer.templates:134
 msgid "Determining GRUB boot device..."
 msgstr "正在确定 GRUB 启动设备..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:140
+#: ../grub-installer.templates:138
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "运行 \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:144
+#: ../grub-installer.templates:142
 msgid "Running \"update-grub\"..."
 msgstr "正在运行 \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:148
+#: ../grub-installer.templates:146
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "正在更新 /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:153
+#: ../grub-installer.templates:151
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "将 GRUB 安装至硬盘"
 
 #. Type: text
 #. Description
 #. Rescue menu item
-#: ../grub-installer.templates:158
+#: ../grub-installer.templates:156
 msgid "Reinstall GRUB boot loader"
 msgstr "重新安装 GRUB 启动引导器"
+
+#~ msgid ""
+#~ "The grub package failed to install into /target/.  Installing GRUB as a "
+#~ "boot loader is a required step.  The install problem might however be "
+#~ "unrelated to GRUB, so continuing the installation may be possible."
+#~ msgstr ""
+#~ "无法将 grub 软件包安装到 /target/ 中。这是将 GRUB 安装为启动引导器的必要步"
+#~ "骤。此安装问题可能跟 GRUB 本身并无关系，因此继续进行安装也是可行的。"

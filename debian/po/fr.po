@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-06-30 12:27+0000\n"
+"POT-Creation-Date: 2007-07-18 22:48+0000\n"
 "PO-Revision-Date: 2007-06-30 20:44+0200\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -229,107 +229,113 @@ msgstr ""
 "Si vous ne souhaitez pas établir de mot de passe pour GRUB, laissez ce champ "
 "vide."
 
-#. Type: boolean
+#. Type: error
 #. Description
-#: ../grub-installer.templates:92
-msgid "GRUB installation failed.  Continue anyway?"
+#: ../grub-installer.templates:91
+#, fuzzy
+msgid "GRUB installation failed."
 msgstr "Échec de l'installation de GRUB. Continuer malgré tout ?"
-
-#. Type: boolean
-#. Description
-#: ../grub-installer.templates:92
-msgid ""
-"The grub package failed to install into /target/.  Installing GRUB as a boot "
-"loader is a required step.  The install problem might however be unrelated "
-"to GRUB, so continuing the installation may be possible."
-msgstr ""
-"Le paquet GRUB n'a pas pu être installé dans /target/. L'installation du "
-"programme de démarrage GRUB est une étape indispensable. Ce problème n'est "
-"peut-être pas lié à GRUB ; il est peut-être possible de continuer "
-"l'installation."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:99
+#: ../grub-installer.templates:91
+msgid ""
+"The ${grub} package failed to install into /target/. Without the GRUB "
+"bootloader, the installed system will not boot."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../grub-installer.templates:97
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Impossible d'installer GRUB dans ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:99
+#: ../grub-installer.templates:97
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "L'exécution de « grub-install ${BOOTDEV} » a échoué."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "Unable to configure GRUB"
 msgstr "Impossible de configurer GRUB"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "Executing 'update-grub' failed."
 msgstr "L'exécution de « update-grub » a échoué."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "This is a fatal error."
 msgstr "Cette erreur est fatale."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:124
+#: ../grub-installer.templates:122
 msgid "Installing GRUB boot loader"
 msgstr "Installation du programme de démarrage GRUB"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:128
+#: ../grub-installer.templates:126
 msgid "Looking for other operating systems..."
 msgstr "Recherche d'autres systèmes d'exploitation..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:132
+#: ../grub-installer.templates:130
 msgid "Installing the 'grub' package..."
 msgstr "Installation du paquet de GRUB..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:136
+#: ../grub-installer.templates:134
 msgid "Determining GRUB boot device..."
 msgstr "Recherche du périphérique d'amorce de GRUB..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:140
+#: ../grub-installer.templates:138
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Exécution de « grub-install ${BOOTDEV} »..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:144
+#: ../grub-installer.templates:142
 msgid "Running \"update-grub\"..."
 msgstr "Exécution de « update-grub »..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:148
+#: ../grub-installer.templates:146
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Mise à jour de « /etc/kernel-img.conf »..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:153
+#: ../grub-installer.templates:151
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Installer le programme de démarrage GRUB sur un disque dur"
 
 #. Type: text
 #. Description
 #. Rescue menu item
-#: ../grub-installer.templates:158
+#: ../grub-installer.templates:156
 msgid "Reinstall GRUB boot loader"
 msgstr "Réinstallation du programme de démarrage GRUB"
+
+#~ msgid ""
+#~ "The grub package failed to install into /target/.  Installing GRUB as a "
+#~ "boot loader is a required step.  The install problem might however be "
+#~ "unrelated to GRUB, so continuing the installation may be possible."
+#~ msgstr ""
+#~ "Le paquet GRUB n'a pas pu être installé dans /target/. L'installation du "
+#~ "programme de démarrage GRUB est une étape indispensable. Ce problème "
+#~ "n'est peut-être pas lié à GRUB ; il est peut-être possible de continuer "
+#~ "l'installation."

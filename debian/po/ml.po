@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Debian Installer Level 1\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-06-30 12:27+0000\n"
+"POT-Creation-Date: 2007-07-18 22:48+0000\n"
 "PO-Revision-Date: 2007-02-21 23:22+0530\n"
 "Last-Translator: Praveen A <pravi.a@gmail.com>\n"
 "Language-Team: Swathanthra Malayalam Computing <smc-discuss@googlegroups."
@@ -216,106 +216,112 @@ msgstr ""
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "നിങ്ങള്‍ക്ക് ഗ്രബ് അടയാള വാക്ക് സെറ്റ് ചെയ്യാനാഗ്രഹമില്ലെങ്കില്‍ ഈ കളം വെറുതെ ഇടാം."
 
-#. Type: boolean
+#. Type: error
 #. Description
-#: ../grub-installer.templates:92
-msgid "GRUB installation failed.  Continue anyway?"
+#: ../grub-installer.templates:91
+#, fuzzy
+msgid "GRUB installation failed."
 msgstr "ഗ്രബ് ഇന്‍സ്റ്റളേഷന്‍ പരാജയപ്പെട്ടു. എന്നാലും തുടരണമോ?"
-
-#. Type: boolean
-#. Description
-#: ../grub-installer.templates:92
-msgid ""
-"The grub package failed to install into /target/.  Installing GRUB as a boot "
-"loader is a required step.  The install problem might however be unrelated "
-"to GRUB, so continuing the installation may be possible."
-msgstr ""
-"ഗ്രബ് പാക്കേജ് /target/ ല്‍ ഇന്‍സ്റ്റാള്‍ ചെയ്യുന്നത് പരാജയപ്പെട്ടു. ഗ്രബ് ഒരു  ബൂട്ട് ലോഡറായി "
-"ഇന്‍സ്റ്റാള്‍ ചെയ്യുന്നത്  ഒരു അവശ്യ നടപടിക്രമമാണ്. എന്നിരുന്നാലും ഇന്‍സ്റ്റാള്‍ പ്രശ്നം ഗ്രബുമായി "
-"ബന്ധമൊന്നുമില്ലാത്തതാകാം, അത് കൊണ്ടു തന്നെ ഇന്‍സ്റ്റളേഷന്‍ തുടരുന്നതിന് സാധിച്ചേക്കാം."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:99
+#: ../grub-installer.templates:91
+msgid ""
+"The ${grub} package failed to install into /target/. Without the GRUB "
+"bootloader, the installed system will not boot."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../grub-installer.templates:97
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "${BOOTDEV} ല്‍ ഗ്രബ് ഇന്‍സ്റ്റാള്‍ ചെയ്യാന്‍ സാധിച്ചില്ല"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:99
+#: ../grub-installer.templates:97
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "'grub-install ${BOOTDEV}' പ്രവര്‍ത്തിപ്പിക്കുന്നതില്‍ പരാജയപ്പെട്ടു."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "Unable to configure GRUB"
 msgstr "ഗ്രബ് ക്രമീകരിക്കാന്‍ സാധിച്ചില്ല"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "Executing 'update-grub' failed."
 msgstr "'update-grub' പ്രവര്‍ത്തിപ്പിക്കുന്നതില്‍ പരാജയപ്പെട്ടു."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "This is a fatal error."
 msgstr "ഇതൊരു അതീവ ഗുരുതരമായ പിഴവാണ്."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:124
+#: ../grub-installer.templates:122
 msgid "Installing GRUB boot loader"
 msgstr "ഗ്രബ് ബൂട്ട് ലോഡര്‍ ഇന്‍സ്റ്റാള്‍ ചെയ്തുകൊണ്ടിരിക്കുന്നു"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:128
+#: ../grub-installer.templates:126
 msgid "Looking for other operating systems..."
 msgstr "മറ്റ് ഓപറേറ്റിങ്ങ് സിസ്റ്റങ്ങള്‍ക്ക് വേണ്ടി നോക്കി കൊണ്ടിരിക്കുന്നു..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:132
+#: ../grub-installer.templates:130
 msgid "Installing the 'grub' package..."
 msgstr "'grub' പാക്കേജ് ഇന്‍സ്റ്റാള്‍ ചെയ്തു കൊണ്ടിരിക്കുന്നു..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:136
+#: ../grub-installer.templates:134
 msgid "Determining GRUB boot device..."
 msgstr "ഗ്രബ് ബൂട്ട് ഉപകരണം  നിശ്ചയിച്ചു കൊണ്ടിരിക്കുന്നു..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:140
+#: ../grub-installer.templates:138
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "\"grub-install ${BOOTDEV}\" പ്രവര്‍ത്തിപ്പിച്ചു കൊണ്ടിരിക്കുന്നു..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:144
+#: ../grub-installer.templates:142
 msgid "Running \"update-grub\"..."
 msgstr "\"update-grub\" പ്രവര്‍ത്തിപ്പിച്ചു കൊണ്ടിരിക്കുന്നു..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:148
+#: ../grub-installer.templates:146
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "/etc/kernel-img.conf പുതുക്കിക്കൊണ്ടിരിക്കുന്നു..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:153
+#: ../grub-installer.templates:151
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "ഗ്രബ് ബൂട്ട് ലോഡര്‍ ഒരു ഹാര്‍ഡ് ഡിസ്കില്‍ ഇന്‍സ്റ്റാള്‍ ചെയ്യുക"
 
 #. Type: text
 #. Description
 #. Rescue menu item
-#: ../grub-installer.templates:158
+#: ../grub-installer.templates:156
 msgid "Reinstall GRUB boot loader"
 msgstr "ഗ്രബ് ബൂട്ട് ലോഡര്‍ വീണ്ടും ഇന്‍സ്റ്റാള്‍ ചെയ്യുക"
+
+#~ msgid ""
+#~ "The grub package failed to install into /target/.  Installing GRUB as a "
+#~ "boot loader is a required step.  The install problem might however be "
+#~ "unrelated to GRUB, so continuing the installation may be possible."
+#~ msgstr ""
+#~ "ഗ്രബ് പാക്കേജ് /target/ ല്‍ ഇന്‍സ്റ്റാള്‍ ചെയ്യുന്നത് പരാജയപ്പെട്ടു. ഗ്രബ് ഒരു  ബൂട്ട് ലോഡറായി "
+#~ "ഇന്‍സ്റ്റാള്‍ ചെയ്യുന്നത്  ഒരു അവശ്യ നടപടിക്രമമാണ്. എന്നിരുന്നാലും ഇന്‍സ്റ്റാള്‍ പ്രശ്നം ഗ്രബുമായി "
+#~ "ബന്ധമൊന്നുമില്ലാത്തതാകാം, അത് കൊണ്ടു തന്നെ ഇന്‍സ്റ്റളേഷന്‍ തുടരുന്നതിന് സാധിച്ചേക്കാം."

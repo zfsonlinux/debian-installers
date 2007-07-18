@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-06-30 12:27+0000\n"
+"POT-Creation-Date: 2007-07-18 22:48+0000\n"
 "PO-Revision-Date: 2007-04-18 16:39+0800\n"
 "Last-Translator: Eric Pareja <xenos@upm.edu.ph>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
@@ -226,106 +226,112 @@ msgstr ""
 "Kung nais niyong hindi magbigay ng GRUB kontrasenyas, iwanan ang puwang na "
 "blanko."
 
-#. Type: boolean
+#. Type: error
 #. Description
-#: ../grub-installer.templates:92
-msgid "GRUB installation failed.  Continue anyway?"
+#: ../grub-installer.templates:91
+#, fuzzy
+msgid "GRUB installation failed."
 msgstr "Bigo ang pagluklok ng GRUB.  Magpatuloy pa rin?"
-
-#. Type: boolean
-#. Description
-#: ../grub-installer.templates:92
-msgid ""
-"The grub package failed to install into /target/.  Installing GRUB as a boot "
-"loader is a required step.  The install problem might however be unrelated "
-"to GRUB, so continuing the installation may be possible."
-msgstr ""
-"Bigo ang pagluklok ng grub pakete sa /target/.  Kinakailangan na mag-install "
-"ng GRUB bilang boot loader.  Ang problema sa pagluklok ay maaaring walang "
-"kinalaman sa GRUB, kaya maaaring magpatuloy ng pagluklok."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:99
+#: ../grub-installer.templates:91
+msgid ""
+"The ${grub} package failed to install into /target/. Without the GRUB "
+"bootloader, the installed system will not boot."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../grub-installer.templates:97
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Hindi na-install ang GRUB sa ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:99
+#: ../grub-installer.templates:97
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Bigo ang pagpapatakbo ng 'grub-install ${BOOTDEV}'."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "Unable to configure GRUB"
 msgstr "Hindi maisaayos ang GRUB"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "Executing 'update-grub' failed."
 msgstr "Bigo ang pagpapatakbo ng 'update-grub'."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "This is a fatal error."
 msgstr "Ito ay error na walang ligtas."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:124
+#: ../grub-installer.templates:122
 msgid "Installing GRUB boot loader"
 msgstr "Nagluluklok ng GRUB boot loader"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:128
+#: ../grub-installer.templates:126
 msgid "Looking for other operating systems..."
 msgstr "Naghahanap ng ibang mga operating system..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:132
+#: ../grub-installer.templates:130
 msgid "Installing the 'grub' package..."
 msgstr "Nagluluklok ng pakete na 'grub'..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:136
+#: ../grub-installer.templates:134
 msgid "Determining GRUB boot device..."
 msgstr "Hinahanap ang GRUB boot device..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:140
+#: ../grub-installer.templates:138
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Pinapatakbo ang \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:144
+#: ../grub-installer.templates:142
 msgid "Running \"update-grub\"..."
 msgstr "Pinapatakbo ang \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:148
+#: ../grub-installer.templates:146
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Sinasariwa ang /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:153
+#: ../grub-installer.templates:151
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Mag-install ng GRUB boot loader sa hard disk"
 
 #. Type: text
 #. Description
 #. Rescue menu item
-#: ../grub-installer.templates:158
+#: ../grub-installer.templates:156
 msgid "Reinstall GRUB boot loader"
 msgstr "Iluklok muli ang GRUB boot loader"
+
+#~ msgid ""
+#~ "The grub package failed to install into /target/.  Installing GRUB as a "
+#~ "boot loader is a required step.  The install problem might however be "
+#~ "unrelated to GRUB, so continuing the installation may be possible."
+#~ msgstr ""
+#~ "Bigo ang pagluklok ng grub pakete sa /target/.  Kinakailangan na mag-"
+#~ "install ng GRUB bilang boot loader.  Ang problema sa pagluklok ay "
+#~ "maaaring walang kinalaman sa GRUB, kaya maaaring magpatuloy ng pagluklok."

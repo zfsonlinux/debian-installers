@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pa\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-06-30 12:27+0000\n"
+"POT-Creation-Date: 2007-07-18 22:48+0000\n"
 "PO-Revision-Date: 2007-07-01 12:10+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Punjabi <punjabi-l10n@lists.sf.net>\n"
@@ -212,105 +212,112 @@ msgstr ""
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "ਜੇਕਰ ਤੁਸੀਂ GRUB ਗੁਪਤ-ਕੋਡ ਨਹੀਂ ਦੇਣਾ, ਇਹ ਖਾਨਾ ਖਾਲੀ ਛੱਡੋ।"
 
-#. Type: boolean
+#. Type: error
 #. Description
-#: ../grub-installer.templates:92
-msgid "GRUB installation failed.  Continue anyway?"
+#: ../grub-installer.templates:91
+#, fuzzy
+msgid "GRUB installation failed."
 msgstr "GRUB ਇੰਸਟਾਲੇਸ਼ਨ ਅਸਫਲ ਹੋਈ। ਕਿਸੇ ਵੀ ਤਰਾਂ ਜਾਰੀ ਰਹੋ?"
-
-#. Type: boolean
-#. Description
-#: ../grub-installer.templates:92
-msgid ""
-"The grub package failed to install into /target/.  Installing GRUB as a boot "
-"loader is a required step.  The install problem might however be unrelated "
-"to GRUB, so continuing the installation may be possible."
-msgstr ""
-"grub ਪੈਕੇਜ /traget/ ਤੇ ਇੰਸਟਾਲ ਹੋਣ ਵਿੱਚ ਅਸਫਲ। GRUB ਨੂੰ ਬੂਟ ਲੋਡਰ ਤੌਰ ਤੇ ਇੰਸਟਾਲ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। "
-"ਇੰਸਟਾਲ ਸਮੱਸਿਆ ਦਾ ਭਾਵੇਂ GRUB ਨਾਲ ਕੋਈ ਸੰਬੰਧ ਨਹੀਂ ਹੋਣਾ, ਇਸ ਲਈ ਇੰਸਟਾਲੇਸ਼ਨ ਜਾਰੀ ਕਰਨਾ ਸੰਭਵ ਹੈ।"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:99
+#: ../grub-installer.templates:91
+msgid ""
+"The ${grub} package failed to install into /target/. Without the GRUB "
+"bootloader, the installed system will not boot."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../grub-installer.templates:97
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "${BOOTDEV} ਵਿੱਚ GRUB ਇੰਸਟਾਲ ਕਰਨ ਲਈ ਅਸਮਰੱਥ"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:99
+#: ../grub-installer.templates:97
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "'grub-install ${BOOTDEV}' ਚਲਾਉਣ ਵਿੱਚ ਅਸਫਲ।"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "Unable to configure GRUB"
 msgstr "GRUB ਸੰਰਚਿਤ ਕਰਨ ਵਿੱਚ ਅਸਮਰਥ"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "Executing 'update-grub' failed."
 msgstr "'update-grub' ਚਲਾਉਣ ਵਿੱਚ ਅਸਫਲ।"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:106
+#: ../grub-installer.templates:104
 msgid "This is a fatal error."
 msgstr "ਇਹ ਘਾਤਕ ਗਲਤੀ ਹੈ।"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:124
+#: ../grub-installer.templates:122
 msgid "Installing GRUB boot loader"
 msgstr "GRUB ਬੂਟ ਲੋਡਰ ਇੰਸਟਾਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:128
+#: ../grub-installer.templates:126
 msgid "Looking for other operating systems..."
 msgstr "ਹੋਰ ਓਪਰੇਟਿੰਗ ਸਿਸਟਮ ਦੀ ਖੋਜ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:132
+#: ../grub-installer.templates:130
 msgid "Installing the 'grub' package..."
 msgstr "'grub' package ਇੰਸਟਾਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:136
+#: ../grub-installer.templates:134
 msgid "Determining GRUB boot device..."
 msgstr "GRUB ਬੂਟ ਜੰਤਰ ਦਾ ਪਤਾ ਲਗਾਇਆ ਜਾ ਰਿਹਾ ਹੈ..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:140
+#: ../grub-installer.templates:138
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "\"grub-install ${BOOTDEV}\" ਚਲਾ ਰਿਹਾ ਹੈ..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:144
+#: ../grub-installer.templates:142
 msgid "Running \"update-grub\"..."
 msgstr "\"update-grub\" ਚਲਾਇਆ ਜਾ ਰਿਹਾ ਹੈ..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:148
+#: ../grub-installer.templates:146
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "/etc/kernel-img.conf ਦਾ ਨਵੀਨੀਕਰਨ ਕਰ ਰਿਹਾ ਹੈ..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:153
+#: ../grub-installer.templates:151
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "ਹਾਰਡ ਡਿਸਕ ਤੇ GRUB ਬੂਟ ਲੋਡਰ ਇੰਸਟਾਲ ਕਰੋ"
 
 #. Type: text
 #. Description
 #. Rescue menu item
-#: ../grub-installer.templates:158
+#: ../grub-installer.templates:156
 msgid "Reinstall GRUB boot loader"
 msgstr "GRUB ਬੂਟ ਲੋਡਰ ਮੁੜ-ਇੰਸਟਾਲ ਹੋ ਰਿਹਾ ਹੈ"
+
+#~ msgid ""
+#~ "The grub package failed to install into /target/.  Installing GRUB as a "
+#~ "boot loader is a required step.  The install problem might however be "
+#~ "unrelated to GRUB, so continuing the installation may be possible."
+#~ msgstr ""
+#~ "grub ਪੈਕੇਜ /traget/ ਤੇ ਇੰਸਟਾਲ ਹੋਣ ਵਿੱਚ ਅਸਫਲ। GRUB ਨੂੰ ਬੂਟ ਲੋਡਰ ਤੌਰ ਤੇ ਇੰਸਟਾਲ ਕਰਨ ਦੀ ਲੋੜ "
+#~ "ਹੈ। ਇੰਸਟਾਲ ਸਮੱਸਿਆ ਦਾ ਭਾਵੇਂ GRUB ਨਾਲ ਕੋਈ ਸੰਬੰਧ ਨਹੀਂ ਹੋਣਾ, ਇਸ ਲਈ ਇੰਸਟਾਲੇਸ਼ਨ ਜਾਰੀ ਕਰਨਾ "
+#~ "ਸੰਭਵ ਹੈ।"
