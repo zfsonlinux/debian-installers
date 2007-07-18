@@ -87,12 +87,10 @@ Description: for internal use; can be preseeded
  Has the value of grub-installer/password already been encrypted?
 
 Template: grub-installer/apt-install-failed
-Type: boolean
-Default: true
-_Description: GRUB installation failed.  Continue anyway?
- The grub package failed to install into /target/.  Installing GRUB
- as a boot loader is a required step.  The install problem might however be
- unrelated to GRUB, so continuing the installation may be possible.
+Type: error
+_Description: GRUB installation failed.
+ The ${grub} package failed to install into /target/. Without the GRUB
+ bootloader, the installed system will not boot.
 
 Template: grub-installer/grub-install-failed
 Type: error

@@ -325,18 +325,14 @@ else
 fi
 
 if ! apt-install $grub_version ; then
+	db_progress STOP
 	info "Calling 'apt-install $grub_version' failed"
-	# Hm, unable to install grub into $ROOT/, what should we do?
-	db_input critical grub-installer/apt-install-failed || [ $? -eq 30 ]
+	db_subst grub-installer/apt-install-failed grub "$grub_version"
+	db_input critical grub-installer/apt-install-failed || true
 	if ! db_go; then
-		db_progress STOP
 		exit 10 # back up to menu
 	fi
-	db_get grub-installer/apt-install-failed
-	if [ "$RET" != true ] ; then
-		db_progress STOP
-		exit 1
-	fi
+	exit 1
 fi
 
 db_progress STEP 1
