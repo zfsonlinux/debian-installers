@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2007-07-19 03:54+0000\n"
-"PO-Revision-Date: 2007-05-12 15:16+0200\n"
+"PO-Revision-Date: 2007-07-20 00:06+0200\n"
 "Last-Translator: Jens Seidel <jensseidel@users.sf.net>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -90,15 +90,14 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
-#, fuzzy
 msgid "Install the GRUB boot loader to the SATA RAID disk?"
-msgstr "GRUB-Bootloader auf einer Festplatte installieren"
+msgstr "Den GRUB-Bootloader auf eine SATA RAID-Platte installieren?"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Installation of GRUB on Serial ATA RAID is experimental."
-msgstr ""
+msgstr "Die Installation von GRUB auf Serial ATA RAID ist experimentell."
 
 #. Type: boolean
 #. Description
@@ -108,28 +107,29 @@ msgid ""
 "disk. It is also assumed that that disk is listed as the first hard disk in "
 "the boot order defined in the system's BIOS setup."
 msgstr ""
+"GRUB wird immer in den Master Boot Record (MBR) der SATA RAID-Platte "
+"installiert. Es wird auch angenommen, dass diese Platte als erste Festplatte "
+"in der Bootreihenfolge im BIOS aufgeführt wird."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "The GRUB root device is: ${GRUBROOT}."
-msgstr ""
+msgstr "Das GRUB-Root-Gerät ist: ${GRUBROOT}."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:40
-#, fuzzy
 msgid "An error occurred while setting up GRUB for your SATA RAID disk."
 msgstr ""
-"Es trat ein Fehler auf, als die verschlüsselten Datenträger eingerichtet "
-"wurden."
+"Es trat ein Fehler auf, als GRUB für Ihre SATA RAID-Platte eingerichtet "
+"wurde."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:40
-#, fuzzy
 msgid "The GRUB installation has been aborted."
-msgstr "Die Konfiguration wurde abgebrochen."
+msgstr "Die GRUB-Konfiguration wurde abgebrochen."
 
 #. Type: boolean
 #. Description
@@ -228,9 +228,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../grub-installer.templates:91
-#, fuzzy
 msgid "GRUB installation failed"
-msgstr "Installation von LILO schlug fehl"
+msgstr "Die Installation von GRUB schlug fehl"
 
 #. Type: error
 #. Description
@@ -239,6 +238,8 @@ msgid ""
 "The ${grub} package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
 msgstr ""
+"Das Paket ${grub} konnte nicht in /target/ installiert werden. Ohne den GRUB-"
+"Bootloader wird das installierte System nicht booten."
 
 #. Type: error
 #. Description
