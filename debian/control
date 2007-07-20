@@ -9,13 +9,13 @@ XS-Vcs-Svn: svn://svn.debian.org/d-i/trunk/packages/base-installer
 Package: base-installer
 XC-Package-Type: udeb
 Architecture: all
-Depends: ${shlibs:Depends}, mounted-partitions, created-fstab, archdetect, di-utils-mapdevfs, di-utils (>= 1.48), rootskel (>= 1.19)
+Depends: ${shlibs:Depends}, di-utils-mapdevfs, di-utils (>= 1.48), rootskel (>= 1.19)
 Description: base system installation framework
 
 Package: bootstrap-base
 XC-Package-Type: udeb
 Architecture: any
-Depends: ${shlibs:Depends}, base-installer, debootstrap-udeb (>= 0.3.1), gpgv-udeb, debian-archive-keyring-udeb
+Depends: ${shlibs:Depends}, mounted-partitions, created-fstab, base-installer, debootstrap-udeb (>= 0.3.1), gpgv-udeb, debian-archive-keyring-udeb, archdetect
 Provides: kernel-installer, installed-base
 XB-Installer-Menu-Item: 6500
 Description: Install the base system
