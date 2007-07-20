@@ -1,5 +1,3 @@
-#! /bin/sh
-
 # waypoint vars
 WAYPOINTS=""
 NUM_STEPS=0
