@@ -348,14 +348,11 @@ kernel_present () {
 pick_kernel () {
 	kernel_update_list
 
-	# Using 'sort -r' to get the newest kernel version at the start of the
-	# list (ie 2.4.20 above 2.2.20).  This is in conflict with getting the
-	# most generic architecture first (386 above 686).
 	# For now, only present kernels we believe to be usable. We may have
 	# to rethink this later, but if there are no usable kernels it
 	# should be accompanied by an error message. The default must still
 	# be usable if possible.
-	kernels=$(sort -r "$KERNEL_LIST" | tr '\n' ',' | sed -e 's/,$//')
+	kernels=$(sort "$KERNEL_LIST" | tr '\n' ',' | sed -e 's/,$//')
 
 	info "Found kernels '$kernels'"
 
@@ -411,9 +408,7 @@ pick_kernel () {
 		KERNEL_PRIO=medium
 	else
 		# No recommendations available; try to guess.
-		# For the generic defaults, sort the list ascending to be conservative.
-		# This avoids for example selecting an s390x kernel on an s390 machine.
-		kernels="$(echo "$kernels" | sed 's/,/\n/g' | sort)"
+		kernels="$(echo "$kernels" | sed 's/,/\n/g')"
 
 		# Try to default to running kernel version.
 		KVERS=$(uname -r | cut -d'-' -f 1)
