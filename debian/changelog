@@ -1,5 +1,5 @@
 base-installer (1.83) UNRELEASED; urgency=low
-  
+
   [ Fabio M. Di Nitto ]
   * Install smp kernel by default on sun4v (Niagara based sparc).
     With the new LDOM support on the way, adding/removing CPU's
@@ -7,7 +7,14 @@ base-installer (1.83) UNRELEASED; urgency=low
     of water. With this change we will guarantee that the user
     will always get the best setup.
 
- -- Fabio M. Di Nitto <fabbione@fabbione.net>  Tue, 03 Jul 2007 09:58:53 +0200
+  [ Frans Pop ]
+  * Drop preprogrammed kernel defaults as that mechanism is no longer used.
+  * Restructure kernel selection to allow for preseeding. Preseeding "none"
+    to skip installing a kernel is supported.
+  * If we could not determine any reasonable default kernel, ask the question
+    at critical priority.
+
+ -- Frans Pop <fjp@debian.org>  Fri, 20 Jul 2007 07:42:05 +0200
 
 base-installer (1.82) unstable; urgency=low
 

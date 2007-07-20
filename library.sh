@@ -322,7 +322,7 @@ get_mirror_info () {
 }
 
 kernel_update_list () {
-	# Using 'uniq' to avoid listing the same kernel more then once.
+	# Use 'uniq' to avoid listing the same kernel more then once
 	chroot /target apt-cache search '^(kernel|linux)-image' | \
 	cut -d" " -f1 | uniq > "$KERNEL_LIST.unfiltered"
 	kernels=`sort -r "$KERNEL_LIST.unfiltered" | tr '\n' ' ' | sed -e 's/ $//'`
@@ -341,17 +341,11 @@ kernel_update_list () {
 }
 
 kernel_present () {
+	[ "$1" ] || return 1
 	grep -q "^$1\$" $KERNEL_LIST
 }
 
 pick_kernel () {
-	# Fetch the current default
-	if db_get base-installer/kernel/image-$KERNEL_MAJOR && [ "$RET" ]; then
-		KERNEL="$RET"
-	elif db_get base-installer/kernel/image && [ "$RET" ]; then
-		KERNEL="$RET"
-	fi
-
 	kernel_update_list
 
 	# Using 'sort -r' to get the newest kernel version at the start of the
@@ -361,12 +355,12 @@ pick_kernel () {
 	# to rethink this later, but if there are no usable kernels it
 	# should be accompanied by an error message. The default must still
 	# be usable if possible.
-	kernels=`sort -r "$KERNEL_LIST" | tr '\n' ',' | sed -e 's/,$//'`
+	kernels=$(sort -r "$KERNEL_LIST" | tr '\n' ',' | sed -e 's/,$//')
 
 	info "Found kernels '$kernels'"
 
-	if [ "$kernels" ] ; then
-		db_subst base-installer/kernel/which-kernel KERNELS "$kernels"
+	if [ "$kernels" ]; then
+		db_subst base-installer/kernel/image KERNELS "$kernels"
 	else
 		db_input high base-installer/kernel/skip-install || true
 		db_go || true
@@ -380,32 +374,41 @@ pick_kernel () {
 		fi
 	fi
 
-	if [ -n "$FLAVOUR" ]; then
-		arch_kernel=$(arch_get_kernel "$FLAVOUR")
+	# Allow for preseeding first, try to determine a default next.
+	db_get base-installer/kernel/image
+	if kernel_present "$RET" || [ "$RET" = none ]; then
+		KERNEL="$RET"
+		info "preseeded/current kernel: $KERNEL"
 	else
-		arch_kernel=""
+		# Unset seen flag in case we had an incorrect preseeded value.
+		db_fset base-installer/kernel/image seen false || true
+
+		if [ -n "$FLAVOUR" ]; then
+			arch_kernel=$(arch_get_kernel "$FLAVOUR")
+		else
+			arch_kernel=""
+		fi
+	
+		got_arch_kernel=
+		if [ "$arch_kernel" ]; then
+			info "arch_kernel candidates: $arch_kernel"
+			# Walk through recommended list for this architecture in order.
+			for candidate in $arch_kernel; do
+				if kernel_present "$candidate"; then
+					info "arch_kernel: $candidate (present)"
+					KERNEL="$candidate"
+					break
+				else
+					info "arch_kernel: $candidate (absent)"
+				fi
+			done
+		fi
 	fi
 
-	got_arch_kernel=
-	if [ "$arch_kernel" ]; then
-		info "arch_kernel candidates: $arch_kernel"
-		# Walk through recommended list for this architecture in order.
-		for candidate in $arch_kernel; do
-			if kernel_present "$candidate"; then
-				# Recommended kernel for this architecture exists; use that.
-				info "arch_kernel: $candidate (present)"
-				KERNEL="$candidate"
-				break
-			else
-				info "arch_kernel: $candidate (absent)"
-			fi
-		done
-	fi
-
-	WHICH_KERNEL_PRIO=high
-	if kernel_present "$KERNEL"; then
+	KERNEL_PRIO=high
+	if kernel_present "$KERNEL" || [ "$KERNEL" = none ]; then
 		# Current selection is available
-		WHICH_KERNEL_PRIO=medium
+		KERNEL_PRIO=medium
 	else
 		# No recommendations available; try to guess.
 		# For the generic defaults, sort the list ascending to be conservative.
@@ -413,7 +416,7 @@ pick_kernel () {
 		kernels="$(echo "$kernels" | sed 's/,/\n/g' | sort)"
 
 		# Try to default to running kernel version.
-		KVERS=`uname -r | cut -d'-' -f 1`
+		KVERS=$(uname -r | cut -d'-' -f 1)
 		KERNEL="$(echo "$kernels" | grep -- "-$KVERS" | head -n 1)"
 		if [ -z "$KERNEL" ]; then
 			# If possible, find one with at least the same major number
@@ -426,23 +429,22 @@ pick_kernel () {
 		fi
 	fi
 
-	if [ "$KERNEL" ] ; then
-		db_set base-installer/kernel/which-kernel "$KERNEL"
+	if [ "$KERNEL" ]; then
+		db_set base-installer/kernel/image "$KERNEL"
+	else
+		# We have no reasonable default at all.
+		KERNEL_PRIO=critical
 	fi
 
-	db_input $WHICH_KERNEL_PRIO base-installer/kernel/which-kernel || [ $? -eq 30 ]
+	db_input $KERNEL_PRIO base-installer/kernel/image || [ $? -eq 30 ]
 	if ! db_go; then
 		db_progress stop
 		exit 10
 	fi
 
-	db_get base-installer/kernel/which-kernel
+	db_get base-installer/kernel/image
 	KERNEL=$RET
-
 	info "Using kernel '$KERNEL'"
-
-	# Pass the kernel name on
-	db_set base-installer/kernel/image "$KERNEL"
 }
 
 install_linux () {
