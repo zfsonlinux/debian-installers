@@ -368,7 +368,6 @@ pick_kernel () {
 	if [ "$kernels" ] ; then
 		db_subst base-installer/kernel/which-kernel KERNELS "$kernels"
 	else
-		db_set base-installer/kernel/image "none"
 		db_input high base-installer/kernel/skip-install || true
 		db_go || true
 		db_get base-installer/kernel/skip-install
