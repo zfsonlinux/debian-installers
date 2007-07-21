@@ -313,6 +313,7 @@ esac
 
 db_progress START 0 6 grub-installer/progress/title
 
+db_subst grub-installer/progress/step_install GRUB "$grub_version"
 db_progress INFO grub-installer/progress/step_install
 
 # apt-install passes --no-remove to apt, but grub{,2} conflict each other, so
@@ -327,7 +328,7 @@ fi
 if ! apt-install $grub_version ; then
 	db_progress STOP
 	info "Calling 'apt-install $grub_version' failed"
-	db_subst grub-installer/apt-install-failed grub "$grub_version"
+	db_subst grub-installer/apt-install-failed GRUB "$grub_version"
 	db_input critical grub-installer/apt-install-failed || true
 	if ! db_go; then
 		exit 10 # back up to menu
