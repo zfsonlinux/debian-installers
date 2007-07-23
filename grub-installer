@@ -250,7 +250,7 @@ case $prefix in
 	disc_offered_devfs="$prefix"
 	;;
     *)
-	disc_offered_devfs=$(find $prefix -follow -name disc | head -n 1)
+	disc_offered_devfs=$(echo "$bootfs_devfs" | sed "s:\(.*\)/.*:\1/disc:")
 	;;
 esac
 disc_offered=$(mapdevfs "$disc_offered_devfs")
