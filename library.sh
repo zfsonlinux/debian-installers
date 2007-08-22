@@ -749,5 +749,5 @@ EOT
 }
 
 cleanup () {
-	rm -f $KERNEL_LIST
+	rm -f "$KERNEL_LIST" "$KERNEL_LIST.unfiltered"
 }
