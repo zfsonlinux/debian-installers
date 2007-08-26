@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2007-07-21 22:47+0000\n"
-"PO-Revision-Date: 2007-02-05 09:48+0200\n"
+"PO-Revision-Date: 2007-08-23 23:47+0300\n"
 "Last-Translator: Kęstutis Biliūnas <kebil@kaunas.init.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
@@ -80,15 +80,14 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
-#, fuzzy
 msgid "Install the GRUB boot loader to the SATA RAID disk?"
-msgstr "Pradinio įkėliklio GRUB diegimas į kietąjį diską"
+msgstr "Ar diegti pradinį įkėliklį GRUB į SATA RAID diską?"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Installation of GRUB on Serial ATA RAID is experimental."
-msgstr ""
+msgstr "GRUB diegimas į Nuoseklų ATA RAID yra eksperimentinis."
 
 #. Type: boolean
 #. Description
@@ -98,12 +97,15 @@ msgid ""
 "disk. It is also assumed that that disk is listed as the first hard disk in "
 "the boot order defined in the system's BIOS setup."
 msgstr ""
+"GRUB visuomet įdiegiamas į SATA RAID disko pagrindinį įkelties įrašą (MBR). "
+"Taip pat skaitoma, kad šis diskas yra nustatytas kaip pirmasis kietas diskas "
+"BIOS įkelties diskų eilės tvarkos sąraše."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "The GRUB root device is: ${GRUBROOT}."
-msgstr ""
+msgstr "GRUB'o šakninis įrenginys: ${GRUBROOT}."
 
 #. Type: error
 #. Description
@@ -115,9 +117,8 @@ msgstr "Klaida įvyko atliekant šifruotų tomų nustatymus."
 #. Type: error
 #. Description
 #: ../grub-installer.templates:40
-#, fuzzy
 msgid "The GRUB installation has been aborted."
-msgstr "Konfigūravimas buvo nutrauktas."
+msgstr "GRUB įdiegimas nutrauktas."
 
 #. Type: boolean
 #. Description
@@ -215,9 +216,8 @@ msgstr "Jei nenorite nurodyti GRUB slaptažodžio, palikite šį lauką tušči�
 #. Type: error
 #. Description
 #: ../grub-installer.templates:91
-#, fuzzy
 msgid "GRUB installation failed"
-msgstr "LILO įdiegimas nepavyko"
+msgstr "GRUB įdiegimas nepavyko"
 
 #. Type: error
 #. Description
@@ -226,6 +226,8 @@ msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
 msgstr ""
+"Nepavyko įdiegti '${GRUB}' paketo į /target/. Be pradinio įkėliklio GRUB, "
+"įdiegta sistema neįsikels (nepasileis)."
 
 #. Type: error
 #. Description
@@ -272,9 +274,8 @@ msgstr "Ieškoma kitų operacinių sistemų..."
 #. Type: text
 #. Description
 #: ../grub-installer.templates:130
-#, fuzzy
 msgid "Installing the '${GRUB}' package..."
-msgstr "Diegiamas paketas 'grub'..."
+msgstr "Diegiamas paketas '${GRUB}'..."
 
 #. Type: text
 #. Description
