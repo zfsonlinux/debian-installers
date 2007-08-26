@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-07-21 22:47+0000\n"
+"POT-Creation-Date: 2007-08-26 15:33+0000\n"
 "PO-Revision-Date: 2007-07-26 02:36-0300\n"
 "Last-Translator: Felipe Augusto van de Wiel (faw) <faw@debian.org>\n"
 "Language-Team: l10n portuguese <debian-l10n-portuguese@lists.debian.org>\n"
@@ -82,7 +82,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
-msgid "Install the GRUB boot loader to the SATA RAID disk?"
+#, fuzzy
+msgid "Install the GRUB boot loader to the Serial ATA RAID disk?"
 msgstr "Instalar o carregador de inicialização GRUB no disco SATA RAID?"
 
 #. Type: boolean
@@ -94,10 +95,11 @@ msgstr "A instalação do GRUB em Serial ATA RAID é experimental."
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
+#, fuzzy
 msgid ""
-"GRUB is always installed to the master boot record (MBR) of the SATA RAID "
-"disk. It is also assumed that that disk is listed as the first hard disk in "
-"the boot order defined in the system's BIOS setup."
+"GRUB is always installed to the master boot record (MBR) of the Serial ATA "
+"RAID disk. It is also assumed that that disk is listed as the first hard "
+"disk in the boot order defined in the system's BIOS setup."
 msgstr ""
 "O GRUB sempre é instalado no registro mestre de inicialização (MBR) do disco "
 "SATA RAID. Também assume-se que o disco é listado como o primeiro disco "
@@ -111,27 +113,28 @@ msgstr "O dispositivo raiz do GRUB é: ${GRUBROOT}."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:40
-msgid "An error occurred while setting up GRUB for your SATA RAID disk."
+#: ../grub-installer.templates:41
+#, fuzzy
+msgid "An error occurred while setting up GRUB for your Serial ATA RAID disk."
 msgstr ""
 "Um erro ocorreu durante a configuração do GRUB para o seu disco SATA RAID."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:40
+#: ../grub-installer.templates:41
 msgid "The GRUB installation has been aborted."
 msgstr "A instalação do GRUB foi abortada."
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:48
+#: ../grub-installer.templates:49
 msgid "Install the GRUB boot loader to XFS file system?"
 msgstr ""
 "Instalar o gerenciador de inicialização GRUB em um sistema de arquivos XFS?"
 
 #. Type: boolean
 #. Description
-#: ../grub-installer.templates:48
+#: ../grub-installer.templates:49
 msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
@@ -142,13 +145,13 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../grub-installer.templates:54
+#: ../grub-installer.templates:55
 msgid "Device for boot loader installation:"
 msgstr "Dispositivo onde instalar o carregador de inicialização:"
 
 #. Type: string
 #. Description
-#: ../grub-installer.templates:54
+#: ../grub-installer.templates:55
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -165,7 +168,7 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../grub-installer.templates:54
+#: ../grub-installer.templates:55
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -190,13 +193,13 @@ msgstr ""
 
 #. Type: password
 #. Description
-#: ../grub-installer.templates:73
+#: ../grub-installer.templates:74
 msgid "GRUB password:"
 msgstr "Senha do GRUB:"
 
 #. Type: password
 #. Description
-#: ../grub-installer.templates:73
+#: ../grub-installer.templates:74
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -215,19 +218,19 @@ msgstr ""
 
 #. Type: password
 #. Description
-#: ../grub-installer.templates:73
+#: ../grub-installer.templates:74
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "Caso você não deseja definir uma senha para o GRUB, deixe em branco."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:91
+#: ../grub-installer.templates:92
 msgid "GRUB installation failed"
 msgstr "A instalação do GRUB falhou"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:91
+#: ../grub-installer.templates:92
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -237,86 +240,86 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:97
+#: ../grub-installer.templates:98
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Impossível instalar o GRUB em ${BOOTDEV}"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:97
+#: ../grub-installer.templates:98
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "A execução de 'grub-install ${BOOTDEV}' falhou."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:104
+#: ../grub-installer.templates:105
 msgid "Unable to configure GRUB"
 msgstr "Impossível configurar o GRUB"
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:104
+#: ../grub-installer.templates:105
 msgid "Executing 'update-grub' failed."
 msgstr "A execução de 'update-grub' falhou."
 
 #. Type: error
 #. Description
-#: ../grub-installer.templates:104
+#: ../grub-installer.templates:105
 msgid "This is a fatal error."
 msgstr "Esse é um erro fatal."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:122
+#: ../grub-installer.templates:123
 msgid "Installing GRUB boot loader"
 msgstr "Instalando o carregador de inicialização GRUB"
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:126
+#: ../grub-installer.templates:127
 msgid "Looking for other operating systems..."
 msgstr "Procurando por outros sistemas operacionais..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:130
+#: ../grub-installer.templates:131
 msgid "Installing the '${GRUB}' package..."
 msgstr "Instalando o pacote '${GRUB}'..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:134
+#: ../grub-installer.templates:135
 msgid "Determining GRUB boot device..."
 msgstr "Determinando o dispositivo de inicialização do GRUB..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:138
+#: ../grub-installer.templates:139
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Executando \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:142
+#: ../grub-installer.templates:143
 msgid "Running \"update-grub\"..."
 msgstr "Executando \"update-grub\"..."
 
 #. Type: text
 #. Description
-#: ../grub-installer.templates:146
+#: ../grub-installer.templates:147
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Atualizando /etc/kernel-img.conf..."
 
 #. Type: text
 #. Description
 #. Main menu item
-#: ../grub-installer.templates:151
+#: ../grub-installer.templates:152
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Instalar o GRUB em um disco rígido"
 
 #. Type: text
 #. Description
 #. Rescue menu item
-#: ../grub-installer.templates:156
+#: ../grub-installer.templates:157
 msgid "Reinstall GRUB boot loader"
 msgstr "Reinstalar o carregador de inicialização GRUB"
