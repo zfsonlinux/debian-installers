@@ -26,19 +26,20 @@ _Description: Install the GRUB boot loader to the master boot record?
 Template: grub-installer/sataraid
 Type: boolean
 Default: true
-_Description: Install the GRUB boot loader to the SATA RAID disk?
+_Description: Install the GRUB boot loader to the Serial ATA RAID disk?
  Installation of GRUB on Serial ATA RAID is experimental.
  .
- GRUB is always installed to the master boot record (MBR) of the SATA RAID
- disk. It is also assumed that that disk is listed as the first hard disk
- in the boot order defined in the system's BIOS setup.
+ GRUB is always installed to the master boot record (MBR) of the
+ Serial ATA RAID disk. It is also assumed that that disk is listed as
+ the first hard disk in the boot order defined in the system's BIOS
+ setup.
  .
  The GRUB root device is: ${GRUBROOT}.
 
 Template: grub-installer/sataraid-error
 Type: error
 _Description: Unable to configure GRUB
- An error occurred while setting up GRUB for your SATA RAID disk.
+ An error occurred while setting up GRUB for your Serial ATA RAID disk.
  .
  The GRUB installation has been aborted.
 
