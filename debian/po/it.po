@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2007-08-26 15:33+0000\n"
-"PO-Revision-Date: 2007-01-27 14:39+0100\n"
+"PO-Revision-Date: 2007-08-27 17:49+0200\n"
 "Last-Translator: Stefano Canepa <sc@linux.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -93,15 +93,14 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
-#, fuzzy
 msgid "Install the GRUB boot loader to the Serial ATA RAID disk?"
-msgstr "Installare il boot loader GRUB su un disco rigido"
+msgstr "Installare il boot loader GRUB su un disco RAID Serial ATA?"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Installation of GRUB on Serial ATA RAID is experimental."
-msgstr ""
+msgstr "L'installazione di GRUB su un RAID Serial ATA è sperimentale."
 
 #. Type: boolean
 #. Description
@@ -111,26 +110,27 @@ msgid ""
 "RAID disk. It is also assumed that that disk is listed as the first hard "
 "disk in the boot order defined in the system's BIOS setup."
 msgstr ""
+"GRUB viene sempre installato nel master boot record (MBR) del dischi RAID "
+"SATA.  Si assume che il disco sia elencato come primo disco rigido "
+"nell'ordine di avvio definito nelle impostazione del BIOS del sistema."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "The GRUB root device is: ${GRUBROOT}."
-msgstr ""
+msgstr "Il dispositivo di root di GRUB è: ${GRUBROOT}."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:41
-#, fuzzy
 msgid "An error occurred while setting up GRUB for your Serial ATA RAID disk."
-msgstr "Errore nella configurazione dei volumi cifrati."
+msgstr "Errore nella configurazione di GRUB su disco RAID Serial ATA."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:41
-#, fuzzy
 msgid "The GRUB installation has been aborted."
-msgstr "La configurazione è stata interrotta."
+msgstr "La configurazione di GRUB è stata interrotta."
 
 #. Type: boolean
 #. Description
@@ -231,9 +231,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../grub-installer.templates:92
-#, fuzzy
 msgid "GRUB installation failed"
-msgstr "Installazione di LILO fallita"
+msgstr "Installazione di GRUB fallita"
 
 #. Type: error
 #. Description
@@ -242,6 +241,8 @@ msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
 msgstr ""
+"Il pacchetto '${GRUB} ha fallito l'installazione su /target/. Senza il "
+"gestore di avvio GRUB, il sistema installato non avvierà."
 
 #. Type: error
 #. Description
@@ -283,38 +284,37 @@ msgstr "Installazione del boot loader GRUB"
 #. Description
 #: ../grub-installer.templates:127
 msgid "Looking for other operating systems..."
-msgstr "Ricerca di altri sistemi operativi in corso."
+msgstr "Ricerca di altri sistemi operativi in corso"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:131
-#, fuzzy
 msgid "Installing the '${GRUB}' package..."
-msgstr "Installazione del pacchetto 'grub' in corso."
+msgstr "Installazione del pacchetto '${GRUB}' in corso"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:135
 msgid "Determining GRUB boot device..."
-msgstr "Determinazione del dispositivo di avvio di GRUB in corso."
+msgstr "Determinazione del dispositivo di avvio di GRUB in corso"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:139
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "Esecuzione di «grub-install ${BOOTDEV}» in corso."
+msgstr "Esecuzione di «grub-install ${BOOTDEV}» in corso"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:143
 msgid "Running \"update-grub\"..."
-msgstr "Esecuzione di «update-grub» in corso."
+msgstr "Esecuzione di «update-grub» in corso"
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:147
 msgid "Updating /etc/kernel-img.conf..."
-msgstr "Aggiornamento di /etc/kernel-img.conf in corso."
+msgstr "Aggiornamento di /etc/kernel-img.conf in corso"
 
 #. Type: text
 #. Description
