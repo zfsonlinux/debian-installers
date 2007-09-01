@@ -32,6 +32,9 @@ info() {
 	log "info: $@"
 }
 
+ARCH="$(archdetect)"
+info "architecture: $ARCH"
+
 get_serial_console() {
 	# Get the last 'console=' entry (if none, the whole string is returned)
 	local defconsole="$(sed -e 's/.*\(console=[^ ]*\).*/\1/' /proc/cmdline)"
@@ -273,24 +276,39 @@ fi
 
 info "Identified partition label for $bootfs: $bootfslabel"
 
-# Default to GRUB Legacy
-grub_version="grub"
-menu_file="menu.lst"
+case $ARCH in
+    i386/mac|amd64/mac)
+	# Note: depends on partman-efi to load the efivars module!
+	if [ -d /sys/firmware/efi ]; then
+		# This point can't be reached (yet).  See debian/isinstallable.
+		grub_package="grub-efi"
+	else
+		# On PC/BIOS, default to GRUB Legacy
+		grub_package="grub"
+	fi
+    ;;
+    i386/*|amd64/*)
+	# On PC/BIOS, default to GRUB Legacy
+	grub_package="grub"
+    ;;
+    powerpc/*)
+	grub_package="grub-of"
+    ;;
+esac
 
-case "$bootfstype:$bootfslabel" in
-    *:loop)
+case "$bootfstype:$bootfslabel:$grub_package" in
+    *:loop:*)
 	# Serial ATA RAID partition, currently only grub is supported
 	: ;;
-    reiserfs:gpt)
+    reiserfs:gpt:*)
 	# GPT is only supported in version 2, which doesn't have a
 	# reiserfs implementation yet.
 	exit 10
 	;;
-    *:gpt)
-	grub_version="grub2"
-	menu_file="grub.cfg"
+    *:gpt:grub)
+	grub_package="grub-pc"
 	;;
-    xfs:*)
+    xfs:*:*)
 	# Warn user that grub on xfs is not safe and let them back out to
 	# main menu
 	db_input critical grub-installer/install_to_xfs || [ $? -eq 30 ]
@@ -300,14 +318,33 @@ case "$bootfstype:$bootfslabel" in
 		exit 10
 	fi
 	;;
-    *:*)
+    *:*:grub)
 	db_input low grub-installer/grub2_instead_of_grub_legacy || [ $? -eq 30 ]
 	db_go || true
 	db_get grub-installer/grub2_instead_of_grub_legacy
 	if [ "$RET" = true ]; then
+		grub_package="grub-pc"
+	fi
+	;;
+    *:*:*)
+	db_subst grub-installer/grub_not_mature_on_this_platform ARCH $ARCH
+	db_input low grub-installer/grub_not_mature_on_this_platform || [ $? -eq 30 ]
+	db_go || true
+	db_get grub-installer/grub_not_mature_on_this_platform
+	if [ "$RET" != true ]; then
+		exit 10
+	fi
+	;;
+esac
+
+case $grub_package in
+    grub)
+		grub_version="grub"
+		menu_file="menu.lst"
+	;;
+    *)
 		grub_version="grub2"
 		menu_file="grub.cfg"
-	fi
 	;;
 esac
 
@@ -319,16 +356,19 @@ db_progress INFO grub-installer/progress/step_install
 # apt-install passes --no-remove to apt, but grub{,2} conflict each other, so
 # we need to purge them first to support users who try grub2 and then switch
 # to grub legacy, or vice-versa
-if [ "$grub_version" = grub ]; then
-	log-output -t grub-installer $chroot $ROOT dpkg -P grub2
-else
+case "$grub_package" in
+    grub)
+	log-output -t grub-installer $chroot $ROOT dpkg -P grub-pc
+    ;;
+    grub-pc)
 	log-output -t grub-installer $chroot $ROOT dpkg -P grub
-fi
+    ;;
+esac
 
-if ! apt-install $grub_version ; then
+if ! apt-install $grub_package ; then
 	db_progress STOP
-	info "Calling 'apt-install $grub_version' failed"
-	db_subst grub-installer/apt-install-failed GRUB "$grub_version"
+	info "Calling 'apt-install $grub_package' failed"
+	db_subst grub-installer/apt-install-failed GRUB "$grub_package"
 	db_input critical grub-installer/apt-install-failed || true
 	if ! db_go; then
 		exit 10 # back up to menu
@@ -476,20 +516,25 @@ if [ -z "$frdisk" ]; then
 	# Install grub on each space separated disk in the list
 	bootdevs="$bootdev"
 	for bootdev in $bootdevs; do
+		grub_install_params=
 		if ! is_floppy "$bootdev"; then
 			if $chroot $ROOT grub-install -h 2>&1 | grep -q no-floppy; then
 				info "grub-install supports --no-floppy"
-				floppyparam="--no-floppy"
+				grub_install_params="$grub_install_params --no-floppy"
 			else
 				info "grub-install does not support --no-floppy"
 			fi
 		fi
-	
-		info "Running $chroot $ROOT grub-install --recheck $floppyparam \"$bootdev\""
-		if log-output -t grub-installer $chroot $ROOT grub-install --recheck $floppyparam "$bootdev"; then
+
+		if [ "$grub_version" = "grub" ] ; then
+			grub_install_params="$grub_install_params --recheck"
+		fi
+
+		info "Running $chroot $ROOT grub-install $grub_install_params \"$bootdev\""
+		if log-output -t grub-installer $chroot $ROOT grub-install $grub_install_params "$bootdev"; then
 			info "grub-install ran successfully"
 		else
-			error "Running 'grub-install --recheck $floppyparam \"$bootdev\"' failed."
+			error "Running 'grub-install $grub_install_params \"$bootdev\"' failed."
 			db_subst grub-installer/grub-install-failed BOOTDEV "$bootdev"
 			db_input critical grub-installer/grub-install-failed || [ $? -eq 30 ]
 			db_go || true
@@ -547,6 +592,7 @@ if [ "$frdev" ] && [ $frgrubroot -gt 0 ]; then
 fi
 
 # Set up a password if asked
+if [ "$grub_version" = "grub" ] ; then
 db_input low grub-installer/password || true
 if ! db_go; then
 	# back up to menu
@@ -571,6 +617,7 @@ if [ "$RET" ]; then
 	chmod o-r $ROOT/boot/grub/$menu_file
 	rm -f /tmp/menu.lst.password
 fi 
+fi
 
 user_params=$(echo $(user-params)) || true
 if [ "$user_params" ]; then
@@ -581,7 +628,7 @@ fi
 
 if [ "$serial" ] ; then
 	# Modify menu.lst so _grub_ uses serial console.
-	case $grub_version in
+	case $grub_package in
 	    grub)
 		(
 			grub_serial_console $serial
@@ -590,7 +637,7 @@ if [ "$serial" ] ; then
 		) >$ROOT/boot/grub/$menu_file.new
 		mv $ROOT/boot/grub/$menu_file.new $ROOT/boot/grub/$menu_file
 		;;
-	    grub2)
+	    grub-pc)
 		if grep -q "^GRUB_TERMINAL=" $ROOT/etc/default/grub; then
 			sed -i $ROOT/etc/default/grub -e "s/^\(GRUB_TERMINAL\)=.*/\1=serial/g"
 		else
@@ -620,9 +667,10 @@ for os in $(cat /tmp/os-probed); do
 		partition=$(mapdevfs $(echo "$os" | cut -d: -f1))
 		grubdrive=$(convert "$partition") || true
 		if [ -n "$grubdrive" ]; then
-			case $grub_version in
+			case $grub_package in
 			    grub)	grub_write_chain ;;
-			    grub2)	grub2_write_chain ;;
+			    grub-pc | grub-efi)
+					grub2_write_chain ;;
 			esac
 		fi
 		;;
