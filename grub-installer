@@ -236,6 +236,13 @@ bootfs=$(findfs /boot)
 bootfstype=$(findfstype /boot)
 [ -n "$bootfstype" ] || bootfstype="$(findfstype /)"
 
+case $ARCH in
+    powerpc/*)
+      offs=$(findfs /boot/grub)
+      [ -n "$offs" ] || error "GRUB requires that the OF partition is mounted in /boot/grub" 1>&2
+    ;;
+esac
+
 # This code to set disc_offered was taken from lilo-installer
 rootfs_nodevfs=$(mapdevfs $rootfs)
 bootfs_nodevfs=$(mapdevfs $bootfs)
@@ -305,8 +312,10 @@ case "$bootfstype:$bootfslabel:$grub_package" in
 	# reiserfs implementation yet.
 	exit 10
 	;;
-    *:gpt:grub)
-	grub_package="grub-pc"
+    *:gpt:*)
+	if [ "$grub_package" = "grub" ] ; then
+		grub_package="grub-pc"
+	fi
 	;;
     xfs:*:*)
 	# Warn user that grub on xfs is not safe and let them back out to
@@ -524,6 +533,11 @@ if [ -z "$frdisk" ]; then
 			else
 				info "grub-install does not support --no-floppy"
 			fi
+		fi
+
+		if [ "$ARCH" = "powerpc/chrp_pegasos" ] ; then
+			# nvram is broken here
+			grub_install_params="$grub_install_params --no-nvram"
 		fi
 
 		if [ "$grub_version" = "grub" ] ; then
