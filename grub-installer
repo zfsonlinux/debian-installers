@@ -620,7 +620,7 @@ if [ "$grub_version" = "grub" ] ; then
 		db_get grub-installer/password-crypted
 		if [ "$RET" = false ]; then
 			password=$(echo -e "md5crypt\n$password" | \
-				   grub --batch >/dev/null 2>&1 | \
+				   grub --batch --device-map=/dev/null 2>&1 | \
 				   grep "^Encrypted:" | cut -d' ' -f2)
 		fi
 		echo "password --md5 $password" >/tmp/menu.lst.password
