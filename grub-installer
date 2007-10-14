@@ -619,10 +619,11 @@ if [ "$RET" ]; then
 	# check if the password is crypted
 	db_get grub-installer/password-crypted
 	if [ "$RET" = false ]; then
-		password=`echo -e "md5crypt\n${password}" | grub --batch 2>&1 /dev/null | grep -E "Encrypted:" | cut -d ' ' -f 2`
+		password=$(echo -e "md5crypt\n$password" | \
+			   grub --batch >/dev/null 2>&1 | \
+			   grep "^Encrypted:" | cut -d' ' -f2)
 	fi
-	echo "password --md5 ${password}" \
-		> /tmp/menu.lst.password
+	echo "password --md5 $password" >/tmp/menu.lst.password
 	# Add a line to menu.lst to use the given password
 	# The line is appended after the commented example
 	sed -i '/^# password/r /tmp/menu.lst.password' $ROOT/boot/grub/$menu_file
