@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2007-09-01 22:48+0000\n"
-"PO-Revision-Date: 2007-04-03 20:54-0400\n"
+"PO-Revision-Date: 2007-10-21 00:37-0400\n"
 "Last-Translator: Sunjae Park <darehanl@gmail.com>\n"
 "Language-Team:  Korean <debian-l10n-korean@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -78,15 +78,14 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
-#, fuzzy
 msgid "Install the GRUB boot loader to the Serial ATA RAID disk?"
-msgstr "GRUB 부트로더를 하드 디스크에 설치"
+msgstr "GRUB 부트로더를 직렬 ATA RAID 디스크에 설치하시겠습니까?"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Installation of GRUB on Serial ATA RAID is experimental."
-msgstr ""
+msgstr "GRUB을 직렬 ATA RAID에 설치하는 것은 아직 실험단계에 있습니다."
 
 #. Type: boolean
 #. Description
@@ -96,26 +95,27 @@ msgid ""
 "RAID disk. It is also assumed that that disk is listed as the first hard "
 "disk in the boot order defined in the system's BIOS setup."
 msgstr ""
+"GRUB는 항상 직렬 ATA RAID 디스크의 마스터 부트 레코드(MBR)에 설치됩니다. 또"
+"한 시스템의 바이오스 설정에서 그 디스크가 항상 첫번째 부팅 하드디스크로 설정"
+"되어 있다고 가정합니다."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "The GRUB root device is: ${GRUBROOT}."
-msgstr ""
+msgstr "GRUB 루트 장치는 ${GRUBROOT}입니다."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:41
-#, fuzzy
 msgid "An error occurred while setting up GRUB for your Serial ATA RAID disk."
-msgstr "암호화된 볼륨을 설정하는 도중 오류가 발생했습니다."
+msgstr "직렬 ATA RAID 디스크에 GRUB을 설정하는 도중 오류가 발생했습니다."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:41
-#, fuzzy
 msgid "The GRUB installation has been aborted."
-msgstr "암호화 설정이 중단되었습니다."
+msgstr "GRUB 설치가 중단되었습니다."
 
 #. Type: boolean
 #. Description
@@ -212,9 +212,8 @@ msgstr "GRUB 열쇠글을 설정하지 않으려면, 이 필드를 비워 두십
 #. Type: error
 #. Description
 #: ../grub-installer.templates:92
-#, fuzzy
 msgid "GRUB installation failed"
-msgstr "LILO 설치가 실패했습니다"
+msgstr "GRUB 설치가 실패했습니다"
 
 #. Type: error
 #. Description
@@ -223,6 +222,8 @@ msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
 msgstr ""
+"'${GRUB}' 꾸러미를 /target/에 설치하는데 실패했습니다. GRUB 부트로더 없이는 "
+"시스템이 부팅하질 않습니다."
 
 #. Type: error
 #. Description
@@ -269,9 +270,8 @@ msgstr "다른 운영 체제가 있는지 검사하는 중입니다..."
 #. Type: text
 #. Description
 #: ../grub-installer.templates:144
-#, fuzzy
 msgid "Installing the '${GRUB}' package..."
-msgstr "'grub' 꾸러미를 설치하는 중입니다..."
+msgstr "'${GRUB}' 꾸러미를 설치하는 중입니다..."
 
 #. Type: text
 #. Description
