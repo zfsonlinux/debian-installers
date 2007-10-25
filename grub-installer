@@ -293,14 +293,14 @@ case $ARCH in
 		# On PC/BIOS, default to GRUB Legacy
 		grub_package="grub"
 	fi
-    ;;
+	;;
     i386/*|amd64/*)
 	# On PC/BIOS, default to GRUB Legacy
 	grub_package="grub"
-    ;;
+	;;
     powerpc/*)
 	grub_package="grub-of"
-    ;;
+	;;
 esac
 
 case "$bootfstype:$bootfslabel:$grub_package" in
@@ -348,12 +348,12 @@ esac
 
 case $grub_package in
     grub)
-		grub_version="grub"
-		menu_file="menu.lst"
+	grub_version="grub"
+	menu_file="menu.lst"
 	;;
     *)
-		grub_version="grub2"
-		menu_file="grub.cfg"
+	grub_version="grub2"
+	menu_file="grub.cfg"
 	;;
 esac
 
@@ -368,10 +368,10 @@ db_progress INFO grub-installer/progress/step_install
 case "$grub_package" in
     grub)
 	log-output -t grub-installer $chroot $ROOT dpkg -P grub-pc
-    ;;
+	;;
     grub-pc)
 	log-output -t grub-installer $chroot $ROOT dpkg -P grub
-    ;;
+	;;
 esac
 
 if ! apt-install $grub_package ; then
