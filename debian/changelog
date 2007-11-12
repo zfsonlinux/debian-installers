@@ -1,3 +1,14 @@
+base-installer (1.85) UNRELEASED; urgency=low
+
+  * Bind mount /dev to /target/dev instead of creating device nodes for
+    devicemapper etc.
+  * Ensure static devices created during installation are preserved by first
+    bind mounting /target/dev on /dev/.static/dev/. MAKEDEV will then detect
+    udev is used (provided proc is mounted in /target).
+    Note: any devices created in /target/dev/ itself will get lost.
+
+ -- Frans Pop <fjp@debian.org>  Mon, 12 Nov 2007 00:16:56 +0100
+
 base-installer (1.84) unstable; urgency=low
 
   [ Frans Pop ]

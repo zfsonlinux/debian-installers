@@ -75,7 +75,7 @@ check_target () {
 	# Make sure something is mounted on the target.
 	# Partconf causes the latter format.
 	if ! grep -q '/target ' /proc/mounts && \
-			! grep -q '/target/ ' /proc/mounts; then
+	   ! grep -q '/target/ ' /proc/mounts; then
 		exit_error base-installer/no_target_mounted
 	fi
 	
@@ -92,9 +92,28 @@ check_target () {
 		fi
 		db_reset base-installer/use_unclean_target
 	fi
+
+	# Undo dev bind mounts for idempotency.
+	if grep -qE '^[^ ]+ /target/dev' /proc/mounts; then
+		umount /target/dev
+	fi
+	# Unmount /dev/.static/dev if mounted on same device as /target
+	mp_stdev=$(grep -E '^[^ ]+ /dev/\.static/dev' /proc/mounts | \
+		   cut -d" " -f1)
+	if [ "$mp_stdev" ] && grep -q "^$mp_stdev /target " /proc/mounts; then
+		umount /dev/.static/dev
+	fi
 }
 
-create_devices () {
+setup_dev () {
+	# Ensure static device nodes created during install are preserved
+	# Tests in MAKEDEV require this is done in the D-I environment
+	mkdir -p /dev/.static/dev
+	chmod 700 /dev/.static/
+	mount --bind /target/dev /dev/.static/dev
+	# Mirror device nodes in D-I environment to target
+	mount --bind /dev /target/dev/
+
 	# RAID
 	if [ -e /proc/mdstat ] && grep -q ^md /proc/mdstat ; then
 		apt-install mdadm
@@ -103,35 +122,6 @@ create_devices () {
 	if grep -q " device-mapper$" /proc/misc; then
 		# Avoid warnings from lvm2 tools about open file descriptors
 		export LVM_SUPPRESS_FD_WARNINGS=1
-
-		mkdir -p /target/dev/mapper
-		if [ ! -e /target/dev/mapper/control ] ; then
-			major=$(grep "[0-9] misc$" /proc/devices | sed 's/[ ]\+misc//')
-			minor=$(grep "[0-9] device-mapper$" /proc/misc | sed 's/[ ]\+device-mapper//')
-			mknod /target/dev/mapper/control c $major $minor
-
-			# check if root is on a dm-crypt device
-			rootdev=$(mount | grep "on /target " | cut -d' ' -f1)
-			rootnode=${rootdev#/dev/mapper/}
-			if [ $rootdev != $rootnode ] && type dmsetup >/dev/null 2>&1 && \
-			   [ "$(dmsetup table $rootnode | cut -d' ' -f3)" = crypt ]; then
-				major="$(dmsetup -c --noheadings info $rootnode | cut -d':' -f2)"
-				minor="$(dmsetup -c --noheadings info $rootnode | cut -d':' -f3)"
-				mknod /target/dev/mapper/$rootnode b $major $minor
-			fi
-
-			# Create device nodes for Serial ATA RAID devices
-			if type dmraid >/dev/null 2>&1; then
-				for frdisk in $(dmraid -s -c | grep -v "No RAID disks"); do
-					for frdev in $(ls /dev/mapper/$frdisk* 2>/dev/null); do
-						frnode=$(basename $frdev)
-						major="$(dmsetup -c --noheadings info $frnode | cut -d':' -f2)"
-						minor="$(dmsetup -c --noheadings info $frnode | cut -d':' -f3)"
-						mknod /target/dev/mapper/$frnode b $major $minor
-					done
-				done
-			fi
-		fi
 
 		# We can't check the root node directly as is done above because
 		# root could be on an LVM LV on top of an encrypted device
@@ -148,12 +138,7 @@ create_devices () {
 
 		if pvdisplay | grep -iq "physical volume ---"; then
 			apt-install lvm2
-			in-target vgscan --mknodes || true
 		fi
-	fi
-	# UML: create ubd devices
-	if grep -q "model.*UML" /proc/cpuinfo; then
-		chroot /target /bin/sh -c '(cd /dev; ./MAKEDEV ubd)'
 	fi
 }
 
