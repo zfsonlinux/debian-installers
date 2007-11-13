@@ -80,6 +80,7 @@ install_base_system () {
 		cdebootstrap || debootstrap_failed=$?
 	else
 		log-output -t debootstrap run-debootstrap \
+			--arch $ARCH \
 			--components="${COMPONENTS}" \
 			--debian-installer \
 			--resolve-deps \

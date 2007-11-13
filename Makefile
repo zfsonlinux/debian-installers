@@ -1,4 +1,7 @@
-BIN = run-debootstrap
+ifndef TARGETS
+TARGETS=pkgdetails run-debootstrap
+endif
+
 CFLAGS = -Wall -g -D_GNU_SOURCE
 
 ifdef DEBUG
@@ -7,13 +10,18 @@ else
 CFLAGS:=$(CFLAGS) -Os -fomit-frame-pointer
 endif
 
-$(BIN): run-debootstrap.c
+all: $(TARGETS)
+
+pkgdetails: pkgdetails.c
+	$(CC) $(CFLAGS) -o $@ $^
+
+run-debootstrap: run-debootstrap.c
 	$(CC) $(CFLAGS) -o $@ $^ -ldebconfclient -ldebian-installer
 
 small: CFLAGS:=-Os $(CFLAGS)
-small: clean $(BIN)
-	strip --remove-section=.comment --remove-section=.note $(BIN)
-	ls -l $(BIN)
+small: $(TARGETS)
+	strip --remove-section=.comment --remove-section=.note $^
+	ls -l $^
 
 clean:
-	-rm -f $(BIN)
+	-rm -f $(TARGETS)

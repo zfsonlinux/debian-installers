@@ -6,8 +6,13 @@ base-installer (1.85) UNRELEASED; urgency=low
     bind mounting /target/dev on /dev/.static/dev/. MAKEDEV will then detect
     udev is used (provided proc is mounted in /target).
     Note: any devices created in /target/dev/ itself will get lost.
+  * Call debootstrap with --arch parameter instead of relying on presence of
+    /usr/lib/debootstrap/arch.
+  * Utility pkgdetails moved from debootstrap-udeb to bootstrap-base so that
+    debootstrap-udeb can become 'Architecture: all'.
+  * Requires debootstrap-udeb (1.0.7).
 
- -- Frans Pop <fjp@debian.org>  Mon, 12 Nov 2007 00:16:56 +0100
+ -- Frans Pop <fjp@debian.org>  Tue, 13 Nov 2007 02:34:17 +0100
 
 base-installer (1.84) unstable; urgency=low
 
