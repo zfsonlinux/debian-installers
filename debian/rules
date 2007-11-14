@@ -51,7 +51,7 @@ binary-arch: build test
 	dh_testroot
 	
 	dh_install -p bootstrap-base run-debootstrap usr/sbin
-	dh_install -p bootstrap-base pkgdetails usr/share/debootstrap
+	dh_install -p bootstrap-base pkgdetails usr/lib/debootstrap
 	if [ -e "kernel/$(ARCH).sh" ]; then \
 		dh_installdirs -p bootstrap-base usr/lib/base-installer; \
 		install -m644 "kernel/$(ARCH).sh" \
