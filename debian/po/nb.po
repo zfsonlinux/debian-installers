@@ -10,20 +10,20 @@
 # Knut Yrvin <knuty@skolelinux.no>, 2004.
 # Klaus Ade Johnstad <klaus@skolelinux.no>, 2004.
 # Axel Bojer <axelb@skolelinux.no>, 2004.
-# Hans Fredrik Nordhaug <hans@nordhaug.priv.no>, 2005.
+# Hans Fredrik Nordhaug <hans@nordhaug.priv.no>, 2005, 2007.
 # Bjørn Steensrud <bjornst@powertech.no>, 2004,2005, 2006, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2007-09-01 22:48+0000\n"
-"PO-Revision-Date: 2007-04-18 18:15+0200\n"
-"Last-Translator: Bjørn Steensrud <bjornst@powertech.no>\n"
+"PO-Revision-Date: 2007-11-14 16:31+0100\n"
+"Last-Translator: Hans Fredrik Nordhaug <hans@nordhaug.priv.no>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Emacs po-mode\n"
 
 #. Type: boolean
 #. Description
@@ -84,15 +84,14 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
-#, fuzzy
 msgid "Install the GRUB boot loader to the Serial ATA RAID disk?"
-msgstr "Installer oppstartssystemet GRUB på en harddisk"
+msgstr "Installer oppstartssystemet GRUB på den serielle ATA RAID-disken?"
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "Installation of GRUB on Serial ATA RAID is experimental."
-msgstr ""
+msgstr "Installasjon av GRUB på seriell ATA RAID er eksperimentelt."
 
 #. Type: boolean
 #. Description
@@ -102,26 +101,28 @@ msgid ""
 "RAID disk. It is also assumed that that disk is listed as the first hard "
 "disk in the boot order defined in the system's BIOS setup."
 msgstr ""
+"GRUB installeres alltid i hovedoppstartssektoren (MBR) på den serielle ATA "
+"RAID-disken. Det er også antatt at den disken er listet som første "
+"harddisken i oppstartsrekkefølge definert i systemets BIOS-oppsett."
 
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
 msgid "The GRUB root device is: ${GRUBROOT}."
-msgstr ""
+msgstr "Rotenheten for GRUB er: ${GRUBROOT}."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:41
-#, fuzzy
 msgid "An error occurred while setting up GRUB for your Serial ATA RAID disk."
-msgstr "Det oppsto en feil mens krypterte dataområder ble satt opp."
+msgstr ""
+"Det oppsto en feil mens GRUB ble satt opp for din serielle ATA RAID disk."
 
 #. Type: error
 #. Description
 #: ../grub-installer.templates:41
-#, fuzzy
 msgid "The GRUB installation has been aborted."
-msgstr "Oppsettet er blitt avbrutt."
+msgstr "Installasjonen av GRUB ble avbrutt."
 
 #. Type: boolean
 #. Description
@@ -220,9 +221,8 @@ msgstr "Hvis du ikke vil innføre et GRUB-passord, så la feltet stå tomt."
 #. Type: error
 #. Description
 #: ../grub-installer.templates:92
-#, fuzzy
 msgid "GRUB installation failed"
-msgstr "Klarte ikke å installere Lilo"
+msgstr "Klarte ikke installere GRUB"
 
 #. Type: error
 #. Description
@@ -231,6 +231,8 @@ msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
 msgstr ""
+"Installasjon av pakken «${GRUB}» i /target/ mislyktes. Uten "
+"oppstartsbehandleren GRUB så vil ikke det installert systemet starte opp."
 
 #. Type: error
 #. Description
@@ -277,7 +279,6 @@ msgstr "Leter etter andre operativsystemer ..."
 #. Type: text
 #. Description
 #: ../grub-installer.templates:144
-#, fuzzy
 msgid "Installing the '${GRUB}' package..."
 msgstr "Installerer «grub»-pakka ..."
 

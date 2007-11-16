@@ -6,15 +6,18 @@
 # Slovak messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-#
+# 
+# Peter Mann
+# Ivan Masár <helix84@centrum.sk>, 2007.
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2007-09-01 22:48+0000\n"
-"PO-Revision-Date: 2007-08-25 21:48+0200\n"
-"Last-Translator: Peter Mann <Peter.Mann@tuke.sk>\n"
-"Language-Team:  Slovak <sk-i18n@lists.linux.sk>\n"
+"PO-Revision-Date: 2007-11-15 16:03+0100\n"
+"Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
+"Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -77,9 +80,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
-#, fuzzy
 msgid "Install the GRUB boot loader to the Serial ATA RAID disk?"
-msgstr "Nainštalovať zavádzač GRUB na SATA RAID disk?"
+msgstr "Nainštalovať zavádzač GRUB na Serial ATA RAID disk?"
 
 #. Type: boolean
 #. Description
@@ -90,15 +92,14 @@ msgstr "Inštalácia zavádzača GRUB na Serial ATA RAID je experimentálna."
 #. Type: boolean
 #. Description
 #: ../grub-installer.templates:29
-#, fuzzy
 msgid ""
 "GRUB is always installed to the master boot record (MBR) of the Serial ATA "
 "RAID disk. It is also assumed that that disk is listed as the first hard "
 "disk in the boot order defined in the system's BIOS setup."
 msgstr ""
-"GRUB sa stále inštaluje na hlavný štartovací záznam (MBR) SATA RAID disku. "
-"Takisto sa predpokladá, že tento disk je uvedený ako prvý v poradí pevných "
-"diskov, ktoré sú v nastavení BIOS-u uvedené ako štartovacie. "
+"GRUB je vždy nainštalovaný na hlavný štartovací záznam (MBR) Serial ATA RAID "
+"disku. Takisto sa predpokladá, že tento disk je uvedený ako prvý v poradí "
+"pevných diskov, ktoré sú v nastavení BIOS-u uvedené ako štartovacie. "
 
 #. Type: boolean
 #. Description
@@ -109,9 +110,9 @@ msgstr "Koreňové zariadenie GRUB-u je: ${GRUBROOT}."
 #. Type: error
 #. Description
 #: ../grub-installer.templates:41
-#, fuzzy
 msgid "An error occurred while setting up GRUB for your Serial ATA RAID disk."
-msgstr "Pri nastavovaní zavádzača GRUB pre váš SATA RAID disk došlo k chybe."
+msgstr ""
+"Došlo k chybe pri nastavovaní zavádzača GRUB pre váš Serial ATA RAID disk."
 
 #. Type: error
 #. Description
@@ -171,17 +172,15 @@ msgid ""
 "   your third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Zariadenie môže byť určené použitím GRUB označenia \"(hdn)\" alebo použitím "
+"Zariadenie môže byť určené použitím GRUB označenia „(hdn)“ alebo použitím "
 "zariadenia v /dev. Nasleduje niekoľko príkladov:\n"
-" - \"(hd0)\" alebo \"/dev/hda\" nainštaluje GRUB na hlavný štartovací záznam "
+" - „(hd0)“ alebo „/dev/hda“ nainštaluje GRUB na hlavný štartovací záznam "
 "(MBR)\n"
 "   vášho prvého pevného disku (IDE);\n"
-" - \"(hd0,1) alebo \"/dev/hda2\" použije druhú oblasť vášho prvého IDE "
-"disku;\n"
-" - \"(hd2,4) alebo \"/dev/sdc5\" použije prvú rozšírenú oblasť vášho "
-"tretieho\n"
+" - „(hd0,1)“ alebo „/dev/hda2“ použije druhú oblasť vášho prvého IDE disku;\n"
+" - „(hd2,4)“ alebo „/dev/sdc5“ použije prvú rozšírenú oblasť vášho tretieho\n"
 "   disku (v tomto prípade SCSI alebo SATA disku);\n"
-" - \"(fd0)\" alebo \"/dev/fd0\" nainštaluje GRUB na disketu."
+" - „(fd0)“ alebo „/dev/fd0“ nainštaluje GRUB na disketu."
 
 #. Type: password
 #. Description
@@ -204,7 +203,7 @@ msgstr ""
 "dajú zneužiť na kompromitáciu vášho systému, ak ku nemu majú prístup "
 "neautorizovaní používatelia počas štartovania. Na ochranu tohto prístupu si "
 "môžete zvoliť heslo, ktoré sa bude požadovať pred úpravou položiek menu "
-"alebo pred vstupom do rozhrania príkazového riadku. Štandartne môže "
+"alebo pred vstupom do rozhrania príkazového riadka. Štandardne môže "
 "ľubovoľný používateľ spustiť ľubovoľnú položku menu bez zadávania hesla."
 
 #. Type: password
@@ -226,7 +225,7 @@ msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
 msgstr ""
-"Inštalácia balíka '${GRUB}' do /target/ zlyhala. Bez zavádzača GRUB sa "
+"Inštalácia balíka „${GRUB}“ do /target/ zlyhala. Bez zavádzača GRUB sa "
 "nainštalovaný systém nespustí."
 
 #. Type: error
@@ -239,7 +238,7 @@ msgstr "GRUB sa nedá nainštalovať na ${BOOTDEV}"
 #. Description
 #: ../grub-installer.templates:98
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "Zlyhalo vykonanie 'grub-install ${BOOTDEV}'."
+msgstr "Zlyhalo vykonanie „grub-install ${BOOTDEV}“."
 
 #. Type: error
 #. Description
@@ -251,7 +250,7 @@ msgstr "GRUB sa nedá nastaviť"
 #. Description
 #: ../grub-installer.templates:105
 msgid "Executing 'update-grub' failed."
-msgstr "Zlyhalo vykonanie 'update-grub'."
+msgstr "Zlyhalo vykonanie „update-grub“."
 
 #. Type: error
 #. Description
@@ -275,7 +274,7 @@ msgstr "Hľadajú sa iné operačné systémy..."
 #. Description
 #: ../grub-installer.templates:144
 msgid "Installing the '${GRUB}' package..."
-msgstr "Inštaluje sa balík '${GRUB}'..."
+msgstr "Inštaluje sa balík „${GRUB}“..."
 
 #. Type: text
 #. Description
@@ -287,13 +286,13 @@ msgstr "Zisťujú sa štartovacie zariadenie pre GRUB..."
 #. Description
 #: ../grub-installer.templates:152
 msgid "Running \"grub-install ${BOOTDEV}\"..."
-msgstr "Spúšťa sa \"grub-install ${BOOTDEV}\"..."
+msgstr "Spúšťa sa „grub-install ${BOOTDEV}“..."
 
 #. Type: text
 #. Description
 #: ../grub-installer.templates:156
 msgid "Running \"update-grub\"..."
-msgstr "Spúšťa sa \"update-grub\"..."
+msgstr "Spúšťa sa „update-grub“..."
 
 #. Type: text
 #. Description
