@@ -222,7 +222,7 @@ update_grub () {
 }
 
 findfs () {
-	mount | grep "on /target${1%/} " | cut -d' ' -f1
+	mount | grep "on $ROOT${1%/} " | cut -d' ' -f1
 }
 
 findfstype () {
@@ -576,7 +576,7 @@ else
 		error "Grub stage files not available"
 		exit 1
 	fi
-	mkdir -p /target/boot/grub
+	mkdir -p $ROOT/boot/grub
 	cp $ROOT/usr/lib/grub/$stagedir/* $ROOT/boot/grub
 
 	# TODO: Check for errors during this process!
