@@ -1,6 +1,7 @@
 Template: grub-installer/with_other_os
 Type: boolean
 Default: true
+# :sl1:
 _Description: Install the GRUB boot loader to the master boot record?
  The following other operating systems have been detected on this
  computer: ${OS_LIST}
@@ -13,6 +14,7 @@ _Description: Install the GRUB boot loader to the master boot record?
 Template: grub-installer/only_debian
 Type: boolean
 Default: true
+# :sl1:
 _Description: Install the GRUB boot loader to the master boot record?
  It seems that this new installation is the only operating system
  on this computer. If so, it should be safe to install the GRUB boot loader
@@ -26,6 +28,7 @@ _Description: Install the GRUB boot loader to the master boot record?
 Template: grub-installer/sataraid
 Type: boolean
 Default: true
+# :sl3:
 _Description: Install the GRUB boot loader to the Serial ATA RAID disk?
  Installation of GRUB on Serial ATA RAID is experimental.
  .
@@ -38,6 +41,7 @@ _Description: Install the GRUB boot loader to the Serial ATA RAID disk?
 
 Template: grub-installer/sataraid-error
 Type: error
+# :sl2:
 _Description: Unable to configure GRUB
  An error occurred while setting up GRUB for your Serial ATA RAID disk.
  .
@@ -46,12 +50,14 @@ _Description: Unable to configure GRUB
 Template: grub-installer/install_to_xfs
 Type: boolean
 Default: false
+# :sl3:
 _Description: Install the GRUB boot loader to XFS file system?
  The GRUB boot loader installation often fails or hangs when /boot is on a
  XFS file system. Using LILO in this situation is recommended.
 
 Template: grub-installer/bootdev
 Type: string
+# :sl2:
 _Description: Device for boot loader installation:
  You need to make the newly installed system bootable, by installing
  the GRUB boot loader on a bootable device. The usual way to do this is to
@@ -71,6 +77,7 @@ _Description: Device for boot loader installation:
 
 Template: grub-installer/password
 Type: password
+# :sl2:
 _Description: GRUB password:
  The GRUB boot loader offers many powerful interactive features, which could
  be used to compromise your system if unauthorized users have access to the
@@ -89,12 +96,14 @@ Description: for internal use; can be preseeded
 
 Template: grub-installer/apt-install-failed
 Type: error
+# :sl2:
 _Description: GRUB installation failed
  The '${GRUB}' package failed to install into /target/. Without the GRUB
  boot loader, the installed system will not boot.
 
 Template: grub-installer/grub-install-failed
 Type: error
+# :sl2:
 _Description: Unable to install GRUB in ${BOOTDEV}
  Executing 'grub-install ${BOOTDEV}' failed.
  .
@@ -102,6 +111,7 @@ _Description: Unable to install GRUB in ${BOOTDEV}
 
 Template: grub-installer/update-grub-failed
 Type: error
+# :sl2:
 _Description: Unable to configure GRUB
  Executing 'update-grub' failed.
  .
@@ -133,40 +143,49 @@ Description: Install GRUB?
 
 Template: grub-installer/progress/title
 Type: text
+# :sl1:
 _Description: Installing GRUB boot loader
 
 Template: grub-installer/progress/step_os-probe
 Type: text
+# :sl1:
 _Description: Looking for other operating systems...
 
 Template: grub-installer/progress/step_install
 Type: text
+# :sl1:
 _Description: Installing the '${GRUB}' package...
 
 Template: grub-installer/progress/step_bootdev
 Type: text
+# :sl1:
 _Description: Determining GRUB boot device...
 
 Template: grub-installer/progress/step_install_loader
 Type: text
+# :sl1:
 _Description: Running "grub-install ${BOOTDEV}"...
 
 Template: grub-installer/progress/step_config_loader
 Type: text
+# :sl1:
 _Description: Running "update-grub"...
 
 Template: grub-installer/progress/step_update_etc
 Type: text
+# :sl1:
 _Description: Updating /etc/kernel-img.conf...
 
 Template: debian-installer/grub-installer/title
 Type: text
 #  Main menu item
+# :sl1:
 _Description: Install the GRUB boot loader on a hard disk
 
 Template: rescue/menu/grub-reinstall
 Type: text
 # Rescue menu item
+# :sl2:
 _Description: Reinstall GRUB boot loader
 
 Template: grub-installer/skip
