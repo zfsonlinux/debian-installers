@@ -1,6 +1,6 @@
 arch_get_kernel_flavour () {
 	case "$SUBARCH" in
-		r3k-kn02|r4k-kn04|sb1-bcm91250a|sb1a-bcm91480b)
+		4kc-malta|5kc-malta|r3k-kn02|r4k-kn04|sb1-bcm91250a|sb1a-bcm91480b)
 			echo "$SUBARCH"
 			return 0
 		;;
@@ -22,6 +22,11 @@ arch_get_kernel_flavour () {
 arch_check_usable_kernel () {
 	# Subarchitecture must match exactly.
 	if expr "$1" : ".*-$2.*" >/dev/null; then return 0; fi
+	# The 4kc-malta kernel will do for 5kc-malta as well.
+	if expr "$1" : ".*-4kc-malta.*" >/dev/null && \
+	   [ "$2" = 5kc-malta ]; then
+		return 0
+	fi
 	return 1
 }
 

@@ -1,6 +1,6 @@
 arch_get_kernel_flavour () {
 	case "$SUBARCH" in
-		r4k-ip22|r5k-ip22|r5k-ip32|sb1-bcm91250a|sb1a-bcm91480b)
+		4kc-malta|5kc-malta|r4k-ip22|r5k-ip22|r5k-ip32|sb1-bcm91250a|sb1a-bcm91480b)
 			echo "$SUBARCH"
 			return 0
 		;;
@@ -21,6 +21,11 @@ arch_check_usable_kernel () {
 	# For 2.6, the r4k-ip22 kernel will do for r5k-ip22 as well.
 	if expr "$1" : ".*-2\.6.*-r4k-ip22.*" >/dev/null && \
 	   [ "$2" = r5k-ip22 ]; then
+		return 0
+	fi
+	# The 4kc-malta kernel will do for 5kc-malta as well.
+	if expr "$1" : ".*-4kc-malta.*" >/dev/null && \
+	   [ "$2" = 5kc-malta ]; then
 		return 0
 	fi
 	return 1
