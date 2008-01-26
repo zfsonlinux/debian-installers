@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-12-23 22:48+0000\n"
+"POT-Creation-Date: 2008-01-26 07:32+0000\n"
 "PO-Revision-Date: 2007-12-21 00:59+0100\n"
 "Last-Translator: tegegne tefera <tefera@mekuria.com>\n"
 "Language-Team: Amharic\n"
@@ -27,7 +27,17 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:5
+#. Type: boolean
+#. Description
+#. :sl1:
+#: ../grub-installer.templates:1001 ../grub-installer.templates:2001
+msgid "Install the GRUB boot loader to the master boot record?"
+msgstr "ግሩብ ቡት ማስነሻው ዋና ቡት መዝገብ ላይ ይተከል?"
+
+#. Type: boolean
+#. Description
+#. :sl1:
+#: ../grub-installer.templates:1001
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
@@ -36,7 +46,7 @@ msgstr "የሚቀጥሉት ገዢ ስልቶች በዚህ አስሊ ላይ ተገ
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:5
+#: ../grub-installer.templates:1001
 msgid ""
 "If all of your operating systems are listed above, then it should be safe to "
 "install the boot loader to the master boot record of your first hard drive. "
@@ -49,14 +59,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18
-msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "ግሩብ ቡት ማስነሻው ዋና ቡት መዝገብ ላይ ይተከል?"
-
-#. Type: boolean
-#. Description
-#. :sl1:
-#: ../grub-installer.templates:18
+#: ../grub-installer.templates:2001
 msgid ""
 "It seems that this new installation is the only operating system on this "
 "computer. If so, it should be safe to install the GRUB boot loader to the "
@@ -68,7 +71,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18
+#: ../grub-installer.templates:2001
 msgid ""
 "Warning: If the installer failed to detect another operating system that is "
 "present on your computer, modifying the master boot record will make that "
@@ -81,21 +84,21 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:32
+#: ../grub-installer.templates:3001
 msgid "Install the GRUB boot loader to the Serial ATA RAID disk?"
 msgstr "የግሩብ ስርዓት አስነሺ ፕሮግራምን በSerial ATA RAID ዲስክ ላይ ይተከል?"
 
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:32
+#: ../grub-installer.templates:3001
 msgid "Installation of GRUB on Serial ATA RAID is experimental."
 msgstr "የግሩብ በSerial ATA RAID ላይ ተከላ ገና በሙከራ ላይ ያለ ነው።"
 
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:32
+#: ../grub-installer.templates:3001
 msgid ""
 "GRUB is always installed to the master boot record (MBR) of the Serial ATA "
 "RAID disk. It is also assumed that that disk is listed as the first hard "
@@ -107,35 +110,45 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:32
+#: ../grub-installer.templates:3001
 msgid "The GRUB root device is: ${GRUBROOT}."
 msgstr "የግሩብ ስር አካል ${GRUBROOT} ነው."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:45
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:4001 ../grub-installer.templates:11001
+msgid "Unable to configure GRUB"
+msgstr "ግሩብን ማስተካከል አልተቻለም"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:4001
 msgid "An error occurred while setting up GRUB for your Serial ATA RAID disk."
 msgstr "ግሩብን ለSerial ATA RAID disk በመሰየም ላይ እያለ ስህተት ተፈጥሯል፡፡"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:45
+#: ../grub-installer.templates:4001
 msgid "The GRUB installation has been aborted."
 msgstr "ግሩብን የመትከል ሂደት ተሰናክሏል።"
 
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:54
+#: ../grub-installer.templates:5001
 msgid "Install the GRUB boot loader to XFS file system?"
 msgstr "የግሩብ አስነሺ ስልትን በXFS ፋይል ስርዓት ውስጥ ይተከል?"
 
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:54
+#: ../grub-installer.templates:5001
 msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
@@ -144,14 +157,14 @@ msgstr "/boot በ XFS የፋይል ስርዓት ላይ ሲቀመጥ ብዙ ጊ�
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:61
+#: ../grub-installer.templates:6001
 msgid "Device for boot loader installation:"
 msgstr "የማስነሻ ጫኚ ፕሮግራም መትከያ አካል፦"
 
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:61
+#: ../grub-installer.templates:6001
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -166,7 +179,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:61
+#: ../grub-installer.templates:6001
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -191,14 +204,14 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:81
+#: ../grub-installer.templates:7001
 msgid "GRUB password:"
 msgstr "የግሩብ የሚስጢር ቃል"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:81
+#: ../grub-installer.templates:7001
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -214,21 +227,21 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:81
+#: ../grub-installer.templates:7001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "የግሩብን ማለፊያ ቃል መሰየም ካልፈለጉ ይህንን መደብ ባዶ ይተዉት"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:100
+#: ../grub-installer.templates:9001
 msgid "GRUB installation failed"
 msgstr "የግሩብ ተከላ አልተሳካም"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:100
+#: ../grub-installer.templates:9001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -238,84 +251,80 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:107
+#: ../grub-installer.templates:10001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "ግሩብን በ ${BOOTDEV} ውስጥ መትከል አልተቻለም"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:107
+#: ../grub-installer.templates:10001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr " 'grub-install ${BOOTDEV}' ማስኬድ አልተሳካ።"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:115
-msgid "Unable to configure GRUB"
-msgstr "ግሩብን ማስተካከል አልተቻለም"
-
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:115
-msgid "Executing 'update-grub' failed."
-msgstr "'update-grub' ማስኬድ አልተሳካም።"
-
-#. Type: error
-#. Description
-#. :sl2:
-#: ../grub-installer.templates:115
+#: ../grub-installer.templates:10001 ../grub-installer.templates:11001
 msgid "This is a fatal error."
 msgstr "ይህ አደገኛ ስህተት ነው።"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:11001
+msgid "Executing 'update-grub' failed."
+msgstr "'update-grub' ማስኬድ አልተሳካም።"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:147
+#: ../grub-installer.templates:14001
 msgid "Installing GRUB boot loader"
 msgstr "ግሩብ የገዢ ስልት ማስነሻን በመትከል ላይ"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:152
+#: ../grub-installer.templates:15001
 msgid "Looking for other operating systems..."
 msgstr "ለሎች ገዢ ስርዓቶችን በመፈለግ ላይ..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:157
+#: ../grub-installer.templates:16001
 msgid "Installing the '${GRUB}' package..."
 msgstr "የ'${GRUB}' ጥቅልን በመትከል ላይ..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:162
+#: ../grub-installer.templates:17001
 msgid "Determining GRUB boot device..."
 msgstr "የግሩብ የገዢ ስልት ማስነሻን አካል በማረጋገጥ ላይ..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:167
+#: ../grub-installer.templates:18001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "\"grub-install ${BOOTDEV}\"... በማስኬድ ላይ"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:172
+#: ../grub-installer.templates:19001
 msgid "Running \"update-grub\"..."
 msgstr "\"update-grub\" በማስኬድ ላይ..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:177
+#: ../grub-installer.templates:20001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "/etc/kernel-img.conf በማሻሻል ላይ..."
 
@@ -323,7 +332,7 @@ msgstr "/etc/kernel-img.conf በማሻሻል ላይ..."
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:183
+#: ../grub-installer.templates:21001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "የግሩብ ስርዓት አስነሺ ፕሮግራምን ዲስኩ ላይ ይትከሉ፡፡"
 
@@ -331,6 +340,6 @@ msgstr "የግሩብ ስርዓት አስነሺ ፕሮግራምን ዲስኩ ላ�
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:189
+#: ../grub-installer.templates:22001
 msgid "Reinstall GRUB boot loader"
 msgstr "ግሩብ የገዢ ስልት ማስነሻ እንደገና ይተከል"

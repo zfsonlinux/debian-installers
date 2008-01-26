@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-12-23 22:48+0000\n"
+"POT-Creation-Date: 2008-01-26 07:32+0000\n"
 "PO-Revision-Date: 2007-03-10 13:18+0800\n"
 "Last-Translator: Tetralet <tetralet@gmail.com>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
@@ -23,7 +23,17 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:5
+#. Type: boolean
+#. Description
+#. :sl1:
+#: ../grub-installer.templates:1001 ../grub-installer.templates:2001
+msgid "Install the GRUB boot loader to the master boot record?"
+msgstr "是否將 GRUB 開機程式安裝至主要開機記錄 (MBR) 上？"
+
+#. Type: boolean
+#. Description
+#. :sl1:
+#: ../grub-installer.templates:1001
 msgid ""
 "The following other operating systems have been detected on this computer: "
 "${OS_LIST}"
@@ -32,7 +42,7 @@ msgstr "以下列出的是在這台電腦上所偵測到的其它作業系統：
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:5
+#: ../grub-installer.templates:1001
 msgid ""
 "If all of your operating systems are listed above, then it should be safe to "
 "install the boot loader to the master boot record of your first hard drive. "
@@ -46,14 +56,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18
-msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "是否將 GRUB 開機程式安裝至主要開機記錄 (MBR) 上？"
-
-#. Type: boolean
-#. Description
-#. :sl1:
-#: ../grub-installer.templates:18
+#: ../grub-installer.templates:2001
 msgid ""
 "It seems that this new installation is the only operating system on this "
 "computer. If so, it should be safe to install the GRUB boot loader to the "
@@ -65,7 +68,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18
+#: ../grub-installer.templates:2001
 msgid ""
 "Warning: If the installer failed to detect another operating system that is "
 "present on your computer, modifying the master boot record will make that "
@@ -79,21 +82,21 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:32
+#: ../grub-installer.templates:3001
 msgid "Install the GRUB boot loader to the Serial ATA RAID disk?"
 msgstr "是否將 GRUB 開機程式安裝至 Serial ATA RAID 硬碟上？"
 
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:32
+#: ../grub-installer.templates:3001
 msgid "Installation of GRUB on Serial ATA RAID is experimental."
 msgstr "在 Serial ATA RAID 上安裝 GRUB 是實驗性的。"
 
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:32
+#: ../grub-installer.templates:3001
 msgid ""
 "GRUB is always installed to the master boot record (MBR) of the Serial ATA "
 "RAID disk. It is also assumed that that disk is listed as the first hard "
@@ -105,35 +108,45 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:32
+#: ../grub-installer.templates:3001
 msgid "The GRUB root device is: ${GRUBROOT}."
 msgstr "GRUB 的 root 裝置是：${GRUBROOT}。"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:45
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:4001 ../grub-installer.templates:11001
+msgid "Unable to configure GRUB"
+msgstr "無法設定 GRUB"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:4001
 msgid "An error occurred while setting up GRUB for your Serial ATA RAID disk."
 msgstr "在替 Serial ATA RAID 磁碟設定 GRUB 時發生錯誤。"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:45
+#: ../grub-installer.templates:4001
 msgid "The GRUB installation has been aborted."
 msgstr "GBUB 的安裝作業已被中止。"
 
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:54
+#: ../grub-installer.templates:5001
 msgid "Install the GRUB boot loader to XFS file system?"
 msgstr "是否將 GRUB 開機程式安裝至 XFS 檔案系統上？"
 
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:54
+#: ../grub-installer.templates:5001
 msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
@@ -144,14 +157,14 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:61
+#: ../grub-installer.templates:6001
 msgid "Device for boot loader installation:"
 msgstr "用來安裝開機程式的裝置："
 
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:61
+#: ../grub-installer.templates:6001
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -167,7 +180,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:61
+#: ../grub-installer.templates:6001
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -190,14 +203,14 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:81
+#: ../grub-installer.templates:7001
 msgid "GRUB password:"
 msgstr "GRUB 的密碼："
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:81
+#: ../grub-installer.templates:7001
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -214,21 +227,21 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:81
+#: ../grub-installer.templates:7001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "如果您不想設定 GRUB 的密碼，請直接留白。"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:100
+#: ../grub-installer.templates:9001
 msgid "GRUB installation failed"
 msgstr "GRUB 的安裝作業失敗了"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:100
+#: ../grub-installer.templates:9001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -239,84 +252,80 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:107
+#: ../grub-installer.templates:10001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "無法將 GRUB 安裝至 ${BOOTDEV}"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:107
+#: ../grub-installer.templates:10001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "在執行 grub-install ${BOOTDEV} 時失敗了。"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:115
-msgid "Unable to configure GRUB"
-msgstr "無法設定 GRUB"
-
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:115
-msgid "Executing 'update-grub' failed."
-msgstr "在執行 update-grub 時失敗了。"
-
-#. Type: error
-#. Description
-#. :sl2:
-#: ../grub-installer.templates:115
+#: ../grub-installer.templates:10001 ../grub-installer.templates:11001
 msgid "This is a fatal error."
 msgstr "這是一個嚴重錯誤。"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:11001
+msgid "Executing 'update-grub' failed."
+msgstr "在執行 update-grub 時失敗了。"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:147
+#: ../grub-installer.templates:14001
 msgid "Installing GRUB boot loader"
 msgstr "正在安裝 GRUB 開機程式"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:152
+#: ../grub-installer.templates:15001
 msgid "Looking for other operating systems..."
 msgstr "正在尋找其它的作業系統..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:157
+#: ../grub-installer.templates:16001
 msgid "Installing the '${GRUB}' package..."
 msgstr "正在安裝 '${GRUB}' 套件..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:162
+#: ../grub-installer.templates:17001
 msgid "Determining GRUB boot device..."
 msgstr "正在決定 GRUB 的開機裝置..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:167
+#: ../grub-installer.templates:18001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "正在執行 \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:172
+#: ../grub-installer.templates:19001
 msgid "Running \"update-grub\"..."
 msgstr "正在執行 \"update-grub\"..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:177
+#: ../grub-installer.templates:20001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "正在更新 /etc/kernel-img.conf..."
 
@@ -324,7 +333,7 @@ msgstr "正在更新 /etc/kernel-img.conf..."
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:183
+#: ../grub-installer.templates:21001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "將 GRUB 開機程式安裝至硬碟上"
 
@@ -332,6 +341,6 @@ msgstr "將 GRUB 開機程式安裝至硬碟上"
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:189
+#: ../grub-installer.templates:22001
 msgid "Reinstall GRUB boot loader"
 msgstr "正在重新安裝 GRUB 開機程式"
