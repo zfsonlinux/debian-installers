@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-12-21 22:47+0000\n"
+"POT-Creation-Date: 2008-01-26 07:32+0000\n"
 "PO-Revision-Date: 2007-05-01 00:48+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Euskara <Librezale@librezale.org>\n"
@@ -28,14 +28,14 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl2:
-#: ../base-installer.templates:5
+#: ../base-installer.templates:1001
 msgid "Proceed with installation to unclean target?"
 msgstr "Bertsio zaharraren gainean jarraitu nahi duzu instalazioarekin?"
 
 #. Type: boolean
 #. Description
 #. :sl2:
-#: ../base-installer.templates:5
+#: ../base-installer.templates:1001
 msgid ""
 "The target file system contains files from a past installation. These files "
 "could cause problems with the installation process, and if you proceed, some "
@@ -48,14 +48,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../base-installer.templates:13
+#: ../base-installer.templates:2001
 msgid "No file system mounted on /target"
 msgstr "Ez dago fitxategi sistemarik /target-en muntatuta"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../base-installer.templates:13
+#: ../base-installer.templates:2001
 msgid ""
 "Before the installation can proceed, a root file system must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
@@ -67,14 +67,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../base-installer.templates:20
+#: ../base-installer.templates:3001
 msgid "Not installing to unclean target"
 msgstr "Ez da bertsio zaharraren gainean instalatzen ari"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../base-installer.templates:20
+#: ../base-installer.templates:3001
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
@@ -87,7 +87,7 @@ msgstr ""
 #. Type: text
 #. Description
 #. :sl1:
-#: ../base-installer.templates:28
+#: ../base-installer.templates:4001
 msgid "Preparing to install the base system..."
 msgstr "Debian oinarri sistema instalatzeko prestatzen..."
 
@@ -96,28 +96,28 @@ msgstr "Debian oinarri sistema instalatzeko prestatzen..."
 #. :sl1:
 #. Type: text
 #. Description
-#: ../base-installer.templates:33 ../bootstrap-base.templates:185
+#: ../base-installer.templates:5001 ../bootstrap-base.templates:28001
 msgid "Installing the base system"
 msgstr "Oinarri sistema instalatzen"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../base-installer.templates:38
+#: ../base-installer.templates:6001
 msgid "Running ${SCRIPT}..."
 msgstr "${SCRIPT} exekutatzen..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../base-installer.templates:43
+#: ../base-installer.templates:7001
 msgid "Updating the list of available packages..."
 msgstr "Pakete erabilgarrien zerrenda eguneratzen..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../base-installer.templates:48
+#: ../base-installer.templates:8001
 msgid "Installing extra packages..."
 msgstr "Pakete gehigarriak instalatzen..."
 
@@ -125,7 +125,7 @@ msgstr "Pakete gehigarriak instalatzen..."
 #. Description
 #. SUBST0 is a package name
 #. :sl1:
-#: ../base-installer.templates:54
+#: ../base-installer.templates:9001
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr ""
 "Pakete gehigarriak instalatzen - ${SUBST0} eskuratzen eta instalatzen..."
@@ -133,7 +133,7 @@ msgstr ""
 #. Type: text
 #. Description
 #. :sl1:
-#: ../base-installer.templates:59
+#: ../base-installer.templates:10001
 msgid "Creating device files..."
 msgstr "Gailu fitxategiak sortzen..."
 
@@ -141,7 +141,7 @@ msgstr "Gailu fitxategiak sortzen..."
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../bootstrap-base.templates:5
+#: ../bootstrap-base.templates:1001
 msgid "Install the base system"
 msgstr "Oinarri sistema instalatu"
 
@@ -149,7 +149,7 @@ msgstr "Oinarri sistema instalatu"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../bootstrap-base.templates:11
+#: ../bootstrap-base.templates:2001
 msgid "Cannot install base system"
 msgstr "Ezin izan da oinarri sistema instalatu"
 
@@ -157,7 +157,7 @@ msgstr "Ezin izan da oinarri sistema instalatu"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../bootstrap-base.templates:11
+#: ../bootstrap-base.templates:2001
 msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
@@ -167,25 +167,80 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:17
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. SUBST0 is a Release file name.
+#. Type: error
+#. Description
+#. SUBST0 is a Release.gpg file name
+#. Type: error
+#. Description
+#. SUBST0 is a gpg key ID
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. SUBST0 is a filename
+#. Type: error
+#. Description
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
+#: ../bootstrap-base.templates:3001 ../bootstrap-base.templates:7001
+#: ../bootstrap-base.templates:15001 ../bootstrap-base.templates:16001
+#: ../bootstrap-base.templates:17001 ../bootstrap-base.templates:18001
+#: ../bootstrap-base.templates:19001 ../bootstrap-base.templates:20001
+msgid "Debootstrap Error"
+msgstr "Debootstrap errorea"
+
+#. Type: error
+#. Description
+#: ../bootstrap-base.templates:3001
 msgid "Failed to determine the codename for the release."
 msgstr "Ezin izan da argitaratze kode izena erabaki."
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:22
+#: ../bootstrap-base.templates:4001
 msgid "Failed to install the base system"
 msgstr "Ezin izan da oinarri sistema instalatu"
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:22
+#: ../bootstrap-base.templates:4001
 msgid "The base system installation into /target/ failed."
 msgstr "Ezin izan da oinarri sistema instalatu /target/ direktorioan."
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:29
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../bootstrap-base.templates:4001 ../bootstrap-base.templates:5001
+#: ../bootstrap-base.templates:6001 ../bootstrap-base.templates:7001
+#: ../bootstrap-base.templates:10001 ../bootstrap-base.templates:14001
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr "Egiaztatu /var/log/messages edo ikusi 4. kontsola xehetasunetarako."
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../bootstrap-base.templates:5001 ../bootstrap-base.templates:6001
+msgid "Base system installation error"
+msgstr "Oinarri sistemaren instalazio errorea"
+
+#. Type: error
+#. Description
+#: ../bootstrap-base.templates:5001
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
@@ -194,31 +249,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:36
-msgid "Base system installation error"
-msgstr "Oinarri sistemaren instalazio errorea"
-
-#. Type: error
-#. Description
-#: ../bootstrap-base.templates:36
+#: ../bootstrap-base.templates:6001
 msgid "The debootstrap program exited abnormally."
 msgstr "debootstrap programa ez da behar bezala irten."
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:44
+#: ../bootstrap-base.templates:7001
 msgid "The following error occurred:"
 msgstr "Honako errorea gertatu da:"
 
 #. Type: select
 #. Description
-#: ../bootstrap-base.templates:54
+#: ../bootstrap-base.templates:8001
 msgid "Tool to use to generate boot initrd:"
 msgstr "Abio initrd-a sortzeko erabiliko den lanabesa:"
 
 #. Type: select
 #. Description
-#: ../bootstrap-base.templates:54
+#: ../bootstrap-base.templates:8001
 msgid ""
 "The list shows the available tools. If you are unsure which to select, you "
 "should select the default. If your system fails to boot, you can retry the "
@@ -231,13 +280,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:61
+#: ../bootstrap-base.templates:9001
 msgid "Unsupported initrd generator"
 msgstr "initrd sortzaile erabilezina"
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:61
+#: ../bootstrap-base.templates:9001
 msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
@@ -245,13 +294,13 @@ msgstr "initrd sortzeko aukeratutako ${GENERATOR} paketea ez da onartzen."
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:67
+#: ../bootstrap-base.templates:10001
 msgid "Unable to install the selected kernel"
 msgstr "Ezin izan da hautatutako nukleoa instalatu"
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:67
+#: ../bootstrap-base.templates:10001
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -259,7 +308,7 @@ msgstr "Errorea itzuli da nukleoa helburuko sisteman instalatzen saiatzean."
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:67
+#: ../bootstrap-base.templates:10001
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Kernel paketea: '${KERNEL}'."
 
@@ -267,7 +316,7 @@ msgstr "Kernel paketea: '${KERNEL}'."
 #. Choices
 #. For base-installer, "none" is an additional choice to a list of kernels.
 #. It means "no kernel"
-#: ../bootstrap-base.templates:80
+#: ../bootstrap-base.templates:11001
 msgid ""
 "none[ Do not translate what's inside the brackets and just put the "
 "translation for the word \"none\" in your language without any brackets. "
@@ -276,13 +325,13 @@ msgstr "bat ere ez"
 
 #. Type: select
 #. Description
-#: ../bootstrap-base.templates:81
+#: ../bootstrap-base.templates:11002
 msgid "Kernel to install:"
 msgstr "Instalatu beharreko nukleoa:"
 
 #. Type: select
 #. Description
-#: ../bootstrap-base.templates:81
+#: ../bootstrap-base.templates:11002
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -292,19 +341,19 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../bootstrap-base.templates:88
+#: ../bootstrap-base.templates:12001
 msgid "Continue without installing a kernel?"
 msgstr "Kernela instalatu gabe jarraitu?"
 
 #. Type: boolean
 #. Description
-#: ../bootstrap-base.templates:88
+#: ../bootstrap-base.templates:12001
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "Ez da nukleo instalagarririk aurkitu definitutako APT iturburuetan."
 
 #. Type: boolean
 #. Description
-#: ../bootstrap-base.templates:88
+#: ../bootstrap-base.templates:12001
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -316,25 +365,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:97
+#: ../bootstrap-base.templates:13001
 msgid "Cannot install kernel"
 msgstr "Ezin da kernela instalatu"
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:97
+#: ../bootstrap-base.templates:13001
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr "Ezin da nukleo pakete egokirik aurkitu instalatzeko."
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:102
+#: ../bootstrap-base.templates:14001
 msgid "Unable to install ${PACKAGE}"
 msgstr "Ezin da ${PACKAGE} instalatu"
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:102
+#: ../bootstrap-base.templates:14001
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -342,41 +391,35 @@ msgstr "Errorea gertatu da helburuko sisteman ${PACKAGE} paketea instalatzean."
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:102
-msgid "Check /var/log/syslog or see virtual console 4 for the details."
-msgstr "Egiaztatu /var/log/messages edo ikusi 4. kontsola xehetasunetarako."
-
-#. Type: error
-#. Description
 #. SUBST0 is a Release file name.
-#: ../bootstrap-base.templates:111
+#: ../bootstrap-base.templates:15001
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Ezin izan da Release fitxategia lortu ${SUBST0}."
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release.gpg file name
-#: ../bootstrap-base.templates:117
+#: ../bootstrap-base.templates:16001
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Ezin izan da Release sinadura fitxategia lortu ${SUBST0}."
 
 #. Type: error
 #. Description
 #. SUBST0 is a gpg key ID
-#: ../bootstrap-base.templates:123
+#: ../bootstrap-base.templates:17001
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "Release fitxategia gako ezezagun batek sinaturik (gako id ${SUBST0})"
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:128
+#: ../bootstrap-base.templates:18001
 msgid "Invalid Release file: no valid components."
 msgstr "Release fitxategi baliogabea: osagaiak ez dira baliozkoak."
 
 #. Type: error
 #. Description
 #. SUBST0 is a filename
-#: ../bootstrap-base.templates:134
+#: ../bootstrap-base.templates:19001
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Release fitxategi baliogabea: sarrerarik ez dago ${SUBST0}(r)entzat."
 
@@ -384,15 +427,7 @@ msgstr "Release fitxategi baliogabea: sarrerarik ez dago ${SUBST0}(r)entzat."
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../bootstrap-base.templates:141
-msgid "Debootstrap Error"
-msgstr "Debootstrap errorea"
-
-#. Type: error
-#. Description
-#. SUBST0 is a filename or package name
-#. Debootstrap is a program name: should not be translated
-#: ../bootstrap-base.templates:141
+#: ../bootstrap-base.templates:20001
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -404,7 +439,7 @@ msgstr ""
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../bootstrap-base.templates:141
+#: ../bootstrap-base.templates:20001
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -415,49 +450,49 @@ msgstr ""
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../bootstrap-base.templates:151
+#: ../bootstrap-base.templates:21001
 msgid "Retrieving Release file"
 msgstr "Release fitxategia berreskuratzen"
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../bootstrap-base.templates:156
+#: ../bootstrap-base.templates:22001
 msgid "Retrieving Release file signature"
 msgstr "Release fitxategi sinadura eskuratzen"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../bootstrap-base.templates:161
+#: ../bootstrap-base.templates:23001
 msgid "Finding package sizes"
 msgstr "Pakete tamainak bilatzen"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../bootstrap-base.templates:166
+#: ../bootstrap-base.templates:24001
 msgid "Retrieving Packages files"
 msgstr "Pakete fitxategiak eskuratzen"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../bootstrap-base.templates:171
+#: ../bootstrap-base.templates:25001
 msgid "Retrieving Packages file"
 msgstr "Pakete fitxategiak eskuratzen"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../bootstrap-base.templates:176
+#: ../bootstrap-base.templates:26001
 msgid "Retrieving packages"
 msgstr "Paketeak eskuratzen"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../bootstrap-base.templates:181
+#: ../bootstrap-base.templates:27001
 msgid "Extracting packages"
 msgstr "Paketeak ateratzen"
 
@@ -467,7 +502,7 @@ msgstr "Paketeak ateratzen"
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../bootstrap-base.templates:193
+#: ../bootstrap-base.templates:29001
 msgid "Installing core packages"
 msgstr "Oinarrizko paketeak instalatzen"
 
@@ -477,13 +512,13 @@ msgstr "Oinarrizko paketeak instalatzen"
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../bootstrap-base.templates:201
+#: ../bootstrap-base.templates:30001
 msgid "Unpacking required packages"
 msgstr "Behar diren paketeak deskonprimitzen"
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:205
+#: ../bootstrap-base.templates:31001
 msgid "Configuring required packages"
 msgstr "Behar diren paketeak konfiguratzen"
 
@@ -491,7 +526,7 @@ msgstr "Behar diren paketeak konfiguratzen"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../bootstrap-base.templates:211
+#: ../bootstrap-base.templates:32001
 msgid "Unpacking the base system"
 msgstr "Oinarri sistema deskonprimitzen"
 
@@ -499,55 +534,55 @@ msgstr "Oinarri sistema deskonprimitzen"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../bootstrap-base.templates:217
+#: ../bootstrap-base.templates:33001
 msgid "Configuring the base system"
 msgstr "Oinarri sistema konfiguratzen"
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:221
+#: ../bootstrap-base.templates:34001
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../bootstrap-base.templates:226
+#: ../bootstrap-base.templates:35001
 msgid "Validating ${SUBST0}..."
 msgstr "${SUBST0} egiaztatzen..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../bootstrap-base.templates:231
+#: ../bootstrap-base.templates:36001
 msgid "Retrieving ${SUBST0}..."
 msgstr "${SUBST0} eskuratzen..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../bootstrap-base.templates:236
+#: ../bootstrap-base.templates:37001
 msgid "Extracting ${SUBST0}..."
 msgstr "${SUBST0} ateratzen..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../bootstrap-base.templates:241
+#: ../bootstrap-base.templates:38001
 msgid "Unpacking ${SUBST0}..."
 msgstr "${SUBST0} ateratzen..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../bootstrap-base.templates:246
+#: ../bootstrap-base.templates:39001
 msgid "Configuring ${SUBST0}..."
 msgstr "${SUBST0} konfiguratzen..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../bootstrap-base.templates:251
+#: ../bootstrap-base.templates:40001
 msgid "Checking Release signature"
 msgstr "Release sinadura egiaztatzen"
 
@@ -555,40 +590,40 @@ msgstr "Release sinadura egiaztatzen"
 #. Description
 #. SUBST0 is a gpg key id
 #. Release is a filename which should not be translated
-#: ../bootstrap-base.templates:257
+#: ../bootstrap-base.templates:41001
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Baliozko Release sinadura (gako id ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:261
+#: ../bootstrap-base.templates:42001
 msgid "Resolving dependencies of base packages..."
 msgstr "Oinarri paketeen beharrak ebazten..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../bootstrap-base.templates:266
+#: ../bootstrap-base.templates:43001
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr "Oinarrizko dependetzi gehigarria aurkitu da: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../bootstrap-base.templates:271
+#: ../bootstrap-base.templates:44001
 msgid "Found additional required dependencies: ${SUBST0}"
 msgstr "Oinarrizko dependetzi gehigarriak aurkitu da: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../bootstrap-base.templates:276
+#: ../bootstrap-base.templates:45001
 msgid "Found packages in base already in required: ${SUBST0}"
 msgstr "Oinarrian dagoeneko beharrezko paketeak aurkitu dira: ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:280
+#: ../bootstrap-base.templates:46001
 msgid "Resolving dependencies of required packages..."
 msgstr "Beharreko paketeen beharrak ebazten..."
 
@@ -596,7 +631,7 @@ msgstr "Beharreko paketeen beharrak ebazten..."
 #. Description
 #. SUBST0 is an archive component (main, etc)
 #. SUBST1 is a mirror
-#: ../bootstrap-base.templates:286
+#: ../bootstrap-base.templates:47001
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "Osagaia egiaztatzen ${SUBST0} ${SUBST1}-en..."
 
@@ -606,7 +641,7 @@ msgstr "Osagaia egiaztatzen ${SUBST0} ${SUBST1}-en..."
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../bootstrap-base.templates:294
+#: ../bootstrap-base.templates:48001
 msgid "Installing core packages..."
 msgstr "Nukleo paketeak instalatzen..."
 
@@ -616,7 +651,7 @@ msgstr "Nukleo paketeak instalatzen..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../bootstrap-base.templates:302
+#: ../bootstrap-base.templates:49001
 msgid "Unpacking required packages..."
 msgstr "Behar diren paketeak deskonprimitzen..."
 
@@ -626,76 +661,76 @@ msgstr "Behar diren paketeak deskonprimitzen..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../bootstrap-base.templates:310
+#: ../bootstrap-base.templates:50001
 msgid "Configuring required packages..."
 msgstr "Behar diren paketeak konfiguratzen..."
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:314
+#: ../bootstrap-base.templates:51001
 msgid "Installing base packages..."
 msgstr "Oinarri paketeak instalatzen..."
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:318
+#: ../bootstrap-base.templates:52001
 msgid "Unpacking the base system..."
 msgstr "Oinarri sistema despaketatzen..."
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:322
+#: ../bootstrap-base.templates:53001
 msgid "Configuring the base system..."
 msgstr "Oinarri sistema konfiguratzen..."
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:326
+#: ../bootstrap-base.templates:54001
 msgid "Base system installed successfully."
 msgstr "Oinarri sistema ondo instalatu da."
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../bootstrap-base.templates:331
+#: ../bootstrap-base.templates:55001
 msgid "Debootstrap warning"
 msgstr "Debootstrap abisua"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../bootstrap-base.templates:331
+#: ../bootstrap-base.templates:55001
 msgid "Warning: ${INFO}"
 msgstr "Abisua: ${INFO}"
 
 #. Type: text
 #. Description
 #. SUBST0 is an url
-#: ../bootstrap-base.templates:337
+#: ../bootstrap-base.templates:56001
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Huts egindako ${SUBST0} deskarga berriz saiatzen"
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:341
+#: ../bootstrap-base.templates:57001
 msgid "Configuring APT sources..."
 msgstr "APT iturburuak konfiguratzen..."
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:345
+#: ../bootstrap-base.templates:58001
 msgid "Selecting the kernel to install..."
 msgstr "Instalatzeko nukleoa hautatzen..."
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:349
+#: ../bootstrap-base.templates:59001
 msgid "Installing the kernel..."
 msgstr "Kernela instalatzen..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../bootstrap-base.templates:354
+#: ../bootstrap-base.templates:60001
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Kernela instalatzen - ${SUBST0} eskuratzen eta instalatzen..."

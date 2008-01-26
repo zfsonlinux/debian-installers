@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Debian-installer 1st-stage master file HR\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2007-12-21 22:47+0000\n"
+"POT-Creation-Date: 2008-01-26 07:32+0000\n"
 "PO-Revision-Date: 2006-09-25 23:55+0200\n"
 "Last-Translator: Josip Rodin <joy+ditrans@linux.hr>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -23,14 +23,14 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl2:
-#: ../base-installer.templates:5
+#: ../base-installer.templates:1001
 msgid "Proceed with installation to unclean target?"
 msgstr "Nastaviti instalaciju na nečisto odredište?"
 
 #. Type: boolean
 #. Description
 #. :sl2:
-#: ../base-installer.templates:5
+#: ../base-installer.templates:1001
 msgid ""
 "The target file system contains files from a past installation. These files "
 "could cause problems with the installation process, and if you proceed, some "
@@ -43,14 +43,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../base-installer.templates:13
+#: ../base-installer.templates:2001
 msgid "No file system mounted on /target"
 msgstr "Nema datotečnog sustava montiranog na /target"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../base-installer.templates:13
+#: ../base-installer.templates:2001
 msgid ""
 "Before the installation can proceed, a root file system must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
@@ -62,14 +62,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../base-installer.templates:20
+#: ../base-installer.templates:3001
 msgid "Not installing to unclean target"
 msgstr "Ne instaliram na nečisto odredište"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../base-installer.templates:20
+#: ../base-installer.templates:3001
 msgid ""
 "The installation to the target file system has been canceled. You should go "
 "back and erase or format the target file system before proceeding with the "
@@ -82,7 +82,7 @@ msgstr ""
 #. Type: text
 #. Description
 #. :sl1:
-#: ../base-installer.templates:28
+#: ../base-installer.templates:4001
 msgid "Preparing to install the base system..."
 msgstr "Pripremam se instalirati osnovni sustav..."
 
@@ -91,28 +91,28 @@ msgstr "Pripremam se instalirati osnovni sustav..."
 #. :sl1:
 #. Type: text
 #. Description
-#: ../base-installer.templates:33 ../bootstrap-base.templates:185
+#: ../base-installer.templates:5001 ../bootstrap-base.templates:28001
 msgid "Installing the base system"
 msgstr "Instaliram osnovni sustav"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../base-installer.templates:38
+#: ../base-installer.templates:6001
 msgid "Running ${SCRIPT}..."
 msgstr "Izvršavam ${SCRIPT}..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../base-installer.templates:43
+#: ../base-installer.templates:7001
 msgid "Updating the list of available packages..."
 msgstr "Osvježavam popis dostupnih paketa..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../base-installer.templates:48
+#: ../base-installer.templates:8001
 msgid "Installing extra packages..."
 msgstr "Instaliram dodatne pakete..."
 
@@ -120,14 +120,14 @@ msgstr "Instaliram dodatne pakete..."
 #. Description
 #. SUBST0 is a package name
 #. :sl1:
-#: ../base-installer.templates:54
+#: ../base-installer.templates:9001
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr "Instaliram dodatne pakete - dobavljam i instaliram ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../base-installer.templates:59
+#: ../base-installer.templates:10001
 msgid "Creating device files..."
 msgstr "Stvaram datoteke uređaja..."
 
@@ -135,7 +135,7 @@ msgstr "Stvaram datoteke uređaja..."
 #. Description
 #. Item in the main menu to select this package
 #. TRANSLATORS: <65 columns
-#: ../bootstrap-base.templates:5
+#: ../bootstrap-base.templates:1001
 msgid "Install the base system"
 msgstr "Instaliraj osnovni sustav"
 
@@ -143,7 +143,7 @@ msgstr "Instaliraj osnovni sustav"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../bootstrap-base.templates:11
+#: ../bootstrap-base.templates:2001
 msgid "Cannot install base system"
 msgstr "Instalacija osnovnog sustava nije uspjela"
 
@@ -151,7 +151,7 @@ msgstr "Instalacija osnovnog sustava nije uspjela"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../bootstrap-base.templates:11
+#: ../bootstrap-base.templates:2001
 msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
@@ -161,25 +161,80 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:17
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. SUBST0 is a Release file name.
+#. Type: error
+#. Description
+#. SUBST0 is a Release.gpg file name
+#. Type: error
+#. Description
+#. SUBST0 is a gpg key ID
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. SUBST0 is a filename
+#. Type: error
+#. Description
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
+#: ../bootstrap-base.templates:3001 ../bootstrap-base.templates:7001
+#: ../bootstrap-base.templates:15001 ../bootstrap-base.templates:16001
+#: ../bootstrap-base.templates:17001 ../bootstrap-base.templates:18001
+#: ../bootstrap-base.templates:19001 ../bootstrap-base.templates:20001
+msgid "Debootstrap Error"
+msgstr "Debootstrap pogreška"
+
+#. Type: error
+#. Description
+#: ../bootstrap-base.templates:3001
 msgid "Failed to determine the codename for the release."
 msgstr "Neuspjelo određivanje oznake (codenam) izdanja."
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:22
+#: ../bootstrap-base.templates:4001
 msgid "Failed to install the base system"
 msgstr "Instalacija osnovnog sustava nije uspjela"
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:22
+#: ../bootstrap-base.templates:4001
 msgid "The base system installation into /target/ failed."
 msgstr "Instalacija osnovnog sustava na /target/ nije uspjela."
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:29
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../bootstrap-base.templates:4001 ../bootstrap-base.templates:5001
+#: ../bootstrap-base.templates:6001 ../bootstrap-base.templates:7001
+#: ../bootstrap-base.templates:10001 ../bootstrap-base.templates:14001
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr "Za pojedinosti provjerite /var/log/syslog ili četvrtu konzolu."
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../bootstrap-base.templates:5001 ../bootstrap-base.templates:6001
+msgid "Base system installation error"
+msgstr "Pogreška pri instalaciji osnovnog sustava"
+
+#. Type: error
+#. Description
+#: ../bootstrap-base.templates:5001
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
@@ -188,31 +243,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:36
-msgid "Base system installation error"
-msgstr "Pogreška pri instalaciji osnovnog sustava"
-
-#. Type: error
-#. Description
-#: ../bootstrap-base.templates:36
+#: ../bootstrap-base.templates:6001
 msgid "The debootstrap program exited abnormally."
 msgstr "Program debootstrap prekinuo je rad nenormalno."
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:44
+#: ../bootstrap-base.templates:7001
 msgid "The following error occurred:"
 msgstr "Pojavila se sljedeća pogreška:"
 
 #. Type: select
 #. Description
-#: ../bootstrap-base.templates:54
+#: ../bootstrap-base.templates:8001
 msgid "Tool to use to generate boot initrd:"
 msgstr "Alat kojim će se generirati boot initrd:"
 
 #. Type: select
 #. Description
-#: ../bootstrap-base.templates:54
+#: ../bootstrap-base.templates:8001
 msgid ""
 "The list shows the available tools. If you are unsure which to select, you "
 "should select the default. If your system fails to boot, you can retry the "
@@ -224,13 +273,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:61
+#: ../bootstrap-base.templates:9001
 msgid "Unsupported initrd generator"
 msgstr "Nepodržani generator initrda"
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:61
+#: ../bootstrap-base.templates:9001
 msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
@@ -239,13 +288,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:67
+#: ../bootstrap-base.templates:10001
 msgid "Unable to install the selected kernel"
 msgstr "Ne mogu instalirati izabrani kernel."
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:67
+#: ../bootstrap-base.templates:10001
 msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
@@ -254,7 +303,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:67
+#: ../bootstrap-base.templates:10001
 msgid "Kernel package: '${KERNEL}'."
 msgstr "Paket kernela: '${KERNEL}'."
 
@@ -262,7 +311,7 @@ msgstr "Paket kernela: '${KERNEL}'."
 #. Choices
 #. For base-installer, "none" is an additional choice to a list of kernels.
 #. It means "no kernel"
-#: ../bootstrap-base.templates:80
+#: ../bootstrap-base.templates:11001
 msgid ""
 "none[ Do not translate what's inside the brackets and just put the "
 "translation for the word \"none\" in your language without any brackets. "
@@ -271,13 +320,13 @@ msgstr "nijedan"
 
 #. Type: select
 #. Description
-#: ../bootstrap-base.templates:81
+#: ../bootstrap-base.templates:11002
 msgid "Kernel to install:"
 msgstr "Instalirati kernel:"
 
 #. Type: select
 #. Description
-#: ../bootstrap-base.templates:81
+#: ../bootstrap-base.templates:11002
 msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
@@ -287,19 +336,19 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../bootstrap-base.templates:88
+#: ../bootstrap-base.templates:12001
 msgid "Continue without installing a kernel?"
 msgstr "Nastavi bez instaliranja kernela?"
 
 #. Type: boolean
 #. Description
-#: ../bootstrap-base.templates:88
+#: ../bootstrap-base.templates:12001
 msgid "No installable kernel was found in the defined APT sources."
 msgstr "Nema kernela za instalaciju na dostupnim apt-ovim izvorima."
 
 #. Type: boolean
 #. Description
-#: ../bootstrap-base.templates:88
+#: ../bootstrap-base.templates:12001
 msgid ""
 "You may try to continue without a kernel, and manually install your own "
 "kernel later. This is only recommended for experts, otherwise you will "
@@ -311,26 +360,26 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:97
+#: ../bootstrap-base.templates:13001
 msgid "Cannot install kernel"
 msgstr "Ne mogu instalirati kernel"
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:97
+#: ../bootstrap-base.templates:13001
 msgid "The installer cannot find a suitable kernel package to install."
 msgstr ""
 "Instalacijski program ne može naći prikladan kernel paket za instalaciju."
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:102
+#: ../bootstrap-base.templates:14001
 msgid "Unable to install ${PACKAGE}"
 msgstr "Ne mogu instalirati ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:102
+#: ../bootstrap-base.templates:14001
 msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
@@ -340,41 +389,35 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:102
-msgid "Check /var/log/syslog or see virtual console 4 for the details."
-msgstr "Za pojedinosti provjerite /var/log/syslog ili četvrtu konzolu."
-
-#. Type: error
-#. Description
 #. SUBST0 is a Release file name.
-#: ../bootstrap-base.templates:111
+#: ../bootstrap-base.templates:15001
 msgid "Failed getting Release file ${SUBST0}."
 msgstr "Neuspjelo skidanje 'Release' datoteke ${SUBST0}."
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release.gpg file name
-#: ../bootstrap-base.templates:117
+#: ../bootstrap-base.templates:16001
 msgid "Failed getting Release signature file ${SUBST0}."
 msgstr "Neuspjelo skidanje potpisa 'Release' datoteke ${SUBST0}."
 
 #. Type: error
 #. Description
 #. SUBST0 is a gpg key ID
-#: ../bootstrap-base.templates:123
+#: ../bootstrap-base.templates:17001
 msgid "Release file signed by unknown key (key id ${SUBST0})"
 msgstr "'Release' datoteka potpisana nepoznatim ključem (oznaka ${SUBST0})."
 
 #. Type: error
 #. Description
-#: ../bootstrap-base.templates:128
+#: ../bootstrap-base.templates:18001
 msgid "Invalid Release file: no valid components."
 msgstr "Neispravna 'Release' datoteka: nema valjanih dijelova."
 
 #. Type: error
 #. Description
 #. SUBST0 is a filename
-#: ../bootstrap-base.templates:134
+#: ../bootstrap-base.templates:19001
 msgid "Invalid Release file: no entry for ${SUBST0}."
 msgstr "Nevaljana 'Release' datoteka: nema unosa za ${SUBST0}."
 
@@ -382,15 +425,7 @@ msgstr "Nevaljana 'Release' datoteka: nema unosa za ${SUBST0}."
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../bootstrap-base.templates:141
-msgid "Debootstrap Error"
-msgstr "Debootstrap pogreška"
-
-#. Type: error
-#. Description
-#. SUBST0 is a filename or package name
-#. Debootstrap is a program name: should not be translated
-#: ../bootstrap-base.templates:141
+#: ../bootstrap-base.templates:20001
 msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
@@ -402,7 +437,7 @@ msgstr ""
 #. Description
 #. SUBST0 is a filename or package name
 #. Debootstrap is a program name: should not be translated
-#: ../bootstrap-base.templates:141
+#: ../bootstrap-base.templates:20001
 msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
@@ -413,49 +448,49 @@ msgstr ""
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../bootstrap-base.templates:151
+#: ../bootstrap-base.templates:21001
 msgid "Retrieving Release file"
 msgstr "Skidam 'Release' datoteku"
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../bootstrap-base.templates:156
+#: ../bootstrap-base.templates:22001
 msgid "Retrieving Release file signature"
 msgstr "Skidam potpis 'Release' datoteke"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../bootstrap-base.templates:161
+#: ../bootstrap-base.templates:23001
 msgid "Finding package sizes"
 msgstr "Nalazim veličine paketa"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../bootstrap-base.templates:166
+#: ../bootstrap-base.templates:24001
 msgid "Retrieving Packages files"
 msgstr "Dobavljam 'Packages' datoteke"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
-#: ../bootstrap-base.templates:171
+#: ../bootstrap-base.templates:25001
 msgid "Retrieving Packages file"
 msgstr "Dobavljam 'Packages' datoteku"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../bootstrap-base.templates:176
+#: ../bootstrap-base.templates:26001
 msgid "Retrieving packages"
 msgstr "Dobavljam pakete"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
-#: ../bootstrap-base.templates:181
+#: ../bootstrap-base.templates:27001
 msgid "Extracting packages"
 msgstr "Vadim sadržaj paketa"
 
@@ -465,7 +500,7 @@ msgstr "Vadim sadržaj paketa"
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../bootstrap-base.templates:193
+#: ../bootstrap-base.templates:29001
 msgid "Installing core packages"
 msgstr "Instaliram sržne pakete"
 
@@ -475,13 +510,13 @@ msgstr "Instaliram sržne pakete"
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../bootstrap-base.templates:201
+#: ../bootstrap-base.templates:30001
 msgid "Unpacking required packages"
 msgstr "Raspakiravam zahtijevane pakete"
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:205
+#: ../bootstrap-base.templates:31001
 msgid "Configuring required packages"
 msgstr "Podešavam zahtijevane pakete"
 
@@ -489,7 +524,7 @@ msgstr "Podešavam zahtijevane pakete"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../bootstrap-base.templates:211
+#: ../bootstrap-base.templates:32001
 msgid "Unpacking the base system"
 msgstr "Raspakiravam osnovni sustav"
 
@@ -497,55 +532,55 @@ msgstr "Raspakiravam osnovni sustav"
 #. Description
 #. The base system is the minimal Debian system
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
-#: ../bootstrap-base.templates:217
+#: ../bootstrap-base.templates:33001
 msgid "Configuring the base system"
 msgstr "Podešavam osnovni sustav"
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:221
+#: ../bootstrap-base.templates:34001
 msgid "${SECTION}: ${INFO}..."
 msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../bootstrap-base.templates:226
+#: ../bootstrap-base.templates:35001
 msgid "Validating ${SUBST0}..."
 msgstr "Potvrđujem ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../bootstrap-base.templates:231
+#: ../bootstrap-base.templates:36001
 msgid "Retrieving ${SUBST0}..."
 msgstr "Dobavljam ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../bootstrap-base.templates:236
+#: ../bootstrap-base.templates:37001
 msgid "Extracting ${SUBST0}..."
 msgstr "Vadim sadržaj ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../bootstrap-base.templates:241
+#: ../bootstrap-base.templates:38001
 msgid "Unpacking ${SUBST0}..."
 msgstr "Raspakiravam ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../bootstrap-base.templates:246
+#: ../bootstrap-base.templates:39001
 msgid "Configuring ${SUBST0}..."
 msgstr "Podešavam ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
-#: ../bootstrap-base.templates:251
+#: ../bootstrap-base.templates:40001
 msgid "Checking Release signature"
 msgstr "Provjeravam potpis 'Release' datoteka"
 
@@ -553,40 +588,40 @@ msgstr "Provjeravam potpis 'Release' datoteka"
 #. Description
 #. SUBST0 is a gpg key id
 #. Release is a filename which should not be translated
-#: ../bootstrap-base.templates:257
+#: ../bootstrap-base.templates:41001
 msgid "Valid Release signature (key id ${SUBST0})"
 msgstr "Ispravan potpis 'Release' datoteka (oznaka ${SUBST0})"
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:261
+#: ../bootstrap-base.templates:42001
 msgid "Resolving dependencies of base packages..."
 msgstr "Rješavam ovisnosti osnovnih paketa..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../bootstrap-base.templates:266
+#: ../bootstrap-base.templates:43001
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr "Pronađene dodatne ovisnosti osnovnih paketa: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../bootstrap-base.templates:271
+#: ../bootstrap-base.templates:44001
 msgid "Found additional required dependencies: ${SUBST0}"
 msgstr "Pronađene dodatne ovisnosti required paketa: ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
-#: ../bootstrap-base.templates:276
+#: ../bootstrap-base.templates:45001
 msgid "Found packages in base already in required: ${SUBST0}"
 msgstr "Pronađeni paketi u base koji su već required: ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:280
+#: ../bootstrap-base.templates:46001
 msgid "Resolving dependencies of required packages..."
 msgstr "Rješavam ovisnosti required paketa..."
 
@@ -594,7 +629,7 @@ msgstr "Rješavam ovisnosti required paketa..."
 #. Description
 #. SUBST0 is an archive component (main, etc)
 #. SUBST1 is a mirror
-#: ../bootstrap-base.templates:286
+#: ../bootstrap-base.templates:47001
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
 msgstr "Provjeravam komponentu ${SUBST0} na ${SUBST1}..."
 
@@ -604,7 +639,7 @@ msgstr "Provjeravam komponentu ${SUBST0} na ${SUBST1}..."
 #. The "core" packages are indeed packages that are specifically
 #. recorded as part of the base system. Other packages may
 #. be installed on the base system because of dependency resolution
-#: ../bootstrap-base.templates:294
+#: ../bootstrap-base.templates:48001
 msgid "Installing core packages..."
 msgstr "Instaliram sržne pakete..."
 
@@ -614,7 +649,7 @@ msgstr "Instaliram sržne pakete..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../bootstrap-base.templates:302
+#: ../bootstrap-base.templates:49001
 msgid "Unpacking required packages..."
 msgstr "Raspakiravam zahtijevane pakete..."
 
@@ -624,76 +659,76 @@ msgstr "Raspakiravam zahtijevane pakete..."
 #. by the dependency chain of core packages
 #. In short, they are "required" because at least one of the
 #. packages from the core packages depends on them
-#: ../bootstrap-base.templates:310
+#: ../bootstrap-base.templates:50001
 msgid "Configuring required packages..."
 msgstr "Podešavam zahtijevane pakete..."
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:314
+#: ../bootstrap-base.templates:51001
 msgid "Installing base packages..."
 msgstr "Instaliram osnovne pakete..."
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:318
+#: ../bootstrap-base.templates:52001
 msgid "Unpacking the base system..."
 msgstr "Raspakiravam osnovni sustav..."
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:322
+#: ../bootstrap-base.templates:53001
 msgid "Configuring the base system..."
 msgstr "Podešavam osnovni sustav..."
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:326
+#: ../bootstrap-base.templates:54001
 msgid "Base system installed successfully."
 msgstr "Osnovni sustav uspješno instaliran"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../bootstrap-base.templates:331
+#: ../bootstrap-base.templates:55001
 msgid "Debootstrap warning"
 msgstr "Debootstrap upozorenje"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
-#: ../bootstrap-base.templates:331
+#: ../bootstrap-base.templates:55001
 msgid "Warning: ${INFO}"
 msgstr "Upozorenje: ${INFO}"
 
 #. Type: text
 #. Description
 #. SUBST0 is an url
-#: ../bootstrap-base.templates:337
+#: ../bootstrap-base.templates:56001
 msgid "Retrying failed download of ${SUBST0}"
 msgstr "Ponovno pokušavam skinuti ${SUBST0}"
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:341
+#: ../bootstrap-base.templates:57001
 msgid "Configuring APT sources..."
 msgstr "Podešavam apt-ove izvore..."
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:345
+#: ../bootstrap-base.templates:58001
 msgid "Selecting the kernel to install..."
 msgstr "Izabirem kernel za instalaciju..."
 
 #. Type: text
 #. Description
-#: ../bootstrap-base.templates:349
+#: ../bootstrap-base.templates:59001
 msgid "Installing the kernel..."
 msgstr "Instaliram kernel..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
-#: ../bootstrap-base.templates:354
+#: ../bootstrap-base.templates:60001
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
 msgstr "Instaliram kernel - dobavljam i instaliram ${SUBST0}..."
