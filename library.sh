@@ -200,7 +200,7 @@ install_extra () {
 pre_install_hooks () {
 	partsdir="/usr/lib/base-installer.d"
 	if [ -d "$partsdir" ]; then
-		for script in `ls "$partsdir"/*`; do
+		for script in `ls "$partsdir"/* 2>/dev/null`; do
 			base=$(basename $script | sed 's/[0-9]*//')
 			if ! db_progress INFO base-installer/progress/$base; then
 				db_subst base-installer/progress/fallback SCRIPT "$base"
@@ -224,7 +224,7 @@ pre_install_hooks () {
 post_install_hooks () {
 	partsdir="/usr/lib/post-base-installer.d"
 	if [ -d "$partsdir" ]; then
-		scriptcount=`ls "$partsdir"/* | wc -l`
+		scriptcount=`ls "$partsdir"/* 2>/dev/null | wc -l`
 		scriptcur=0
 		for script in "$partsdir"/*; do
 			base="$(basename "$script" | sed 's/[0-9]*//')"
