@@ -663,7 +663,7 @@ if [ "$serial" ] ; then
 		else
 			echo "GRUB_SERIAL_COMMAND=\"`grub_serial_console`\"" >> $ROOT/etc/default/grub
 		fi
-		update-grub # propagate to grub.cfg
+		update_grub # propagate to grub.cfg
 		;;
 	esac
 fi 
@@ -756,7 +756,7 @@ exec tail -n +3 \$0
 EOF
 		cat $tmpfile >> $ROOT/etc/grub.d/30_otheros
 		chmod +x $ROOT/etc/grub.d/30_otheros
-		update-grub # propagate 30_otheros to grub.cfg
+		update_grub # propagate 30_otheros to grub.cfg
 		;;
 	esac
 	rm -f $tmpfile
