@@ -307,11 +307,6 @@ case "$bootfstype:$bootfslabel:$grub_package" in
     *:loop:*)
 	# Serial ATA RAID partition, currently only grub is supported
 	: ;;
-    reiserfs:gpt:*)
-	# GPT is only supported in version 2, which doesn't have a
-	# reiserfs implementation yet.
-	exit 10
-	;;
     *:gpt:*)
 	if [ "$grub_package" = "grub" ] ; then
 		grub_package="grub-pc"
