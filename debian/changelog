@@ -21,8 +21,11 @@ base-installer (1.87) UNRELEASED; urgency=low
 
   [ Frans Pop ]
   * Whitespace cleanup: reduce indentation in kernel selection scripts.
+  * Don't match on i386 kernel flavors using wildcards for consistency with
+    other architectures. Recognized flavors are: 486, 686, 686-bigmem, k7
+    (the last was dropped in 2.6.23-1). Kernel tests updated accordingly.
 
- -- Frans Pop <fjp@debian.org>  Sun, 03 Feb 2008 13:02:07 +0100
+ -- Frans Pop <fjp@debian.org>  Sun, 03 Feb 2008 14:15:15 +0100
 
 base-installer (1.86) unstable; urgency=low
 
