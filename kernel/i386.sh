@@ -36,13 +36,12 @@ arch_get_kernel_flavour () {
 # Note: the -k7 flavor has been dropped with linux-2.6 (2.6.23-1)
 
 arch_check_usable_kernel () {
-	if expr "$1" : '.*-486' >/dev/null; then return 0; fi
+	if expr "$1" : '.*-486.*' >/dev/null; then return 0; fi
 	if [ "$2" = 486 ]; then return 1; fi
-	if expr "$1" : '.*-686' >/dev/null; then return 0; fi
-	if expr "$1" : '.*-686-bigmem' >/dev/null; then return 0; fi
+	if expr "$1" : '.*-686.*' >/dev/null; then return 0; fi
 	if [ "$2" = 686 ]; then return 1; fi
 	if [ "$2" = k7 ]; then
-		if expr "$1" : '.*-k7' >/dev/null; then return 0; fi
+		if expr "$1" : '.*-k7.*' >/dev/null; then return 0; fi
 		return 1
 	fi
 
