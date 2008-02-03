@@ -1,12 +1,12 @@
 arch_get_kernel_flavour () {
 	case "$SUBARCH" in
-		amiga|atari|mac|bvme6000|mvme147|mvme16x|q40|sun3|sun3x)
-			echo "$SUBARCH"
-			return 0
+	    amiga|atari|mac|bvme6000|mvme147|mvme16x|q40|sun3|sun3x)
+		echo "$SUBARCH"
+		return 0
 		;;
-		*)
-			warning "Unknown $ARCH subarchitecture '$SUBARCH'."
-			return 1
+	    *)
+		warning "Unknown $ARCH subarchitecture '$SUBARCH'."
+		return 1
 		;;
 	esac
 }
@@ -19,10 +19,11 @@ arch_check_usable_kernel () {
 
 arch_get_kernel () {
 	case "$KERNEL_MAJOR" in
-		2.6)
-			echo "linux-image-$KERNEL_MAJOR-$1"
-			;;
-		*)	warning "Unsupported kernel major '$KERNEL_MAJOR'."
-			;;
+	    2.6)
+		echo "linux-image-$KERNEL_MAJOR-$1"
+		;;
+	    *)
+		warning "Unsupported kernel major '$KERNEL_MAJOR'."
+		;;
 	esac
 }
