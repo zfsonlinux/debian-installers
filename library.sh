@@ -66,7 +66,7 @@ run_waypoints () {
 
 update_progress () {
 	# Updates the progress bar to a new position within the space allocated
-	# for the current waypoint. 
+	# for the current waypoint.
 	NW_POS=$(($PB_POSITION + $PB_WAYPOINT_LENGTH * $1 / $2))
 	db_progress SET $NW_POS
 }
@@ -78,7 +78,7 @@ check_target () {
 	   ! grep -q '/target/ ' /proc/mounts; then
 		exit_error base-installer/no_target_mounted
 	fi
-	
+
 	# Warn about installation over an existing unix.
 	if [ -e /target/bin/sh -o -L /target/bin/sh ]; then
 		db_capb ""
@@ -144,7 +144,7 @@ setup_dev () {
 
 configure_apt_preferences () {
 	[ ! -d /target/etc/apt/apt.conf.d ] && mkdir -p /target/etc/apt/apt.conf.d
-	
+
 	# Make apt trust Debian CDs. This is not on by default (we think).
 	# This will be left in place on the installed system.
 	cat > /target/etc/apt/apt.conf.d/00trustcdrom <<EOT
@@ -169,7 +169,7 @@ EOT
 apt_update () {
 	log-output -t base-installer chroot /target apt-get update \
 		|| apt_update_failed=$?
-	
+
 	if [ "$apt_update_failed" ]; then
 		warning "apt update failed: $apt_update_failed"
 	fi
@@ -177,7 +177,7 @@ apt_update () {
 
 install_extra () {
 	info "Installing queued packages into /target/."
-	
+
 	if [ -f /var/lib/apt-install/queue ] ; then
 		# We need to install these one by one in case one fails.
 		PKG_COUNT=`cat /var/lib/apt-install/queue | wc -w`
@@ -206,7 +206,7 @@ pre_install_hooks () {
 				db_subst base-installer/progress/fallback SCRIPT "$base"
 				db_progress INFO base-installer/progress/fallback
 		    	fi
-	
+
 		    	if [ -x "$script" ] ; then
 				# be careful to preserve exit code
 				if log-output -t base-installer "$script"; then
@@ -270,7 +270,7 @@ get_mirror_info () {
 		if [ -s /cdrom/.disk/base_include ]; then
 			INCLUDES=`grep -v '^#' /cdrom/.disk/base_include | tr '\n' , | sed 's/,$//'`
 		fi
-			
+
 		if [ -s /cdrom/.disk/base_exclude ]; then
 			EXCLUDES=`grep -v '^#' /cdrom/.disk/base_exclude | tr '\n' , | sed 's/,$//'`
 		fi
@@ -288,7 +288,7 @@ get_mirror_info () {
 		fi
 
 		mirror_error=""
-		
+
 		db_get mirror/protocol || mirror_error=1
 		PROTOCOL="$RET"
 
@@ -370,7 +370,7 @@ pick_kernel () {
 		else
 			arch_kernel=""
 		fi
-	
+
 		got_arch_kernel=
 		if [ "$arch_kernel" ]; then
 			info "arch_kernel candidates: $arch_kernel"
@@ -432,7 +432,7 @@ install_linux () {
 		info "Not installing any kernel"
 		return
 	fi
-	
+
 	target_kernel_major="$(echo "$KERNEL" | sed 's/^kernel-image-//; s/^linux-image-//; s/-.*//' | cut -d . -f 1,2)"
 	case $target_kernel_major in
 		2.?)	;;
@@ -517,7 +517,7 @@ EOF
 			db_subst base-installer/kernel/failed-package-install PACKAGE "$rd_generator"
 			exit_error base-installer/kernel/failed-package-install
 		fi
-		
+
 		# Figure out how to configure the ramdisk creation tool
 		# FJP 20070306: Possibly this can go completely
 		case "$rd_generator" in
