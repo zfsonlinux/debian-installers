@@ -33,7 +33,13 @@ case $ARCH in
 		log "GRUB not yet usable on Intel-based Macs booted using EFI"
 		exit 1
 	fi
-    ;;
+	;;
+    powerpc/chrp_pegasos)
+	;;
+    powerpc/*)
+	log "GRUB not yet usable on PowerPC systems other than Pegasos/Efika"
+	exit 1
+	;;
 esac
 
 bootfs=$(findfs /boot)

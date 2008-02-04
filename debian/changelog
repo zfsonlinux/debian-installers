@@ -6,6 +6,11 @@ grub-installer (1.28) UNRELEASED; urgency=low
   [ Robert Millan ]
   * Replace update-grub with update_grub in a pair of places.
   * Stop aborting on reiserfs/gpt (supported now).
+  * Change menu item from 7300 to 7400 so that for PowerPC grub is offered
+    after the yaboot bootloader; for x86 it will still be the default as
+    lilo and elilo already have higher numbers. Closes: #463765.
+  * Set grub-installer as uninstallable for PowerPC subarchitectures other
+    than chrp_pegasos.
 
  -- Robert Millan <rmh@aybabtu.com>  Thu, 31 Jan 2008 12:40:33 +0100
 
