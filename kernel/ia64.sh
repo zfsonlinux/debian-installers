@@ -8,9 +8,9 @@ arch_get_kernel_flavour () {
 }
 
 arch_check_usable_kernel () {
-	if expr "$1" : '.*-itanium.*' >/dev/null; then return 0; fi
+	if echo "$1" | grep -Eq -- "-itanium(-.*)?$"; then return 0; fi
 	if [ "$2" = itanium ]; then return 1; fi
-	if expr "$1" : '.*-mckinley.*' >/dev/null; then return 0; fi
+	if echo "$1" | grep -Eq -- "-mckinley(-.*)?$"; then return 0; fi
 
 	# default to usable in case of strangeness
 	warning "Unknown kernel usability: $1 / $2"

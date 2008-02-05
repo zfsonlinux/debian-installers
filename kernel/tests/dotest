@@ -65,6 +65,16 @@ for KERNEL_MAJOR in $MAJORS; do
 		fi
 	done
 
+	# By default any postfix should be allowed
+	for kernel in $USABLE; do
+		testname="arch_check_usable_kernel $KERNEL_MAJOR ${kernel}-<postfix> should be usable"
+		if arch_check_usable_kernel "${kernel}-postfix" "$GOT_FLAVOUR"; then
+			ok
+		else
+			notok
+		fi
+	done
+
 	for kernel in $UNUSABLE; do
 		testname="arch_check_usable_kernel $KERNEL_MAJOR $kernel should be unusable"
 		if arch_check_usable_kernel "$kernel" "$GOT_FLAVOUR"; then

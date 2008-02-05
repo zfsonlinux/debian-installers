@@ -17,10 +17,10 @@ arch_get_kernel_flavour () {
 arch_check_usable_kernel () {
 	# Netwinder subarch uses footbridge kernel flavor
 	if [ "$2" = "netwinder" ]; then
-		if expr "$1" : ".*-footbridge\$" >/dev/null; then return 0; fi
+		if echo "$1" | grep -Eq -- "-footbridge(-.*)?$"; then return 0; fi
 	fi
 	# Subarchitecture must match exactly
-	if expr "$1" : ".*-$2\$" >/dev/null; then return 0; fi
+	if echo "$1" | grep -Eq -- "-$2(-.*)?$"; then return 0; fi
 	return 1
 }
 

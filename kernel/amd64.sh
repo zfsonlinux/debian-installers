@@ -12,8 +12,7 @@ arch_get_kernel_flavour () {
 }
 
 arch_check_usable_kernel () {
-	# Generic kernels can be run on any machine
-	if expr "$1" : '.*-amd64' >/dev/null; then return 0; fi
+	if echo "$1" | grep -Eq -- "-amd64(-.*)?$"; then return 0; fi
 
 	return 1
 }

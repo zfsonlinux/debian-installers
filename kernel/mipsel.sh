@@ -17,10 +17,10 @@ arch_get_kernel_flavour () {
 
 arch_check_usable_kernel () {
 	# Subarchitecture must match exactly
-	if expr "$1" : ".*-$2.*" >/dev/null; then return 0; fi
+	if echo "$1" | grep -Eq -- "-$2(-.*)?$"; then return 0; fi
 	# The 4kc-malta kernel will do for 5kc-malta as well
-	if expr "$1" : ".*-4kc-malta.*" >/dev/null && \
-	   [ "$2" = 5kc-malta ]; then
+	if [ "$2" = 5kc-malta ] && \
+	   echo "$1" | grep -Eq -- "-4kc-malta(-.*)?$"; then
 		return 0
 	fi
 	return 1

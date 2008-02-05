@@ -11,7 +11,7 @@ arch_get_kernel_flavour () {
 
 arch_check_usable_kernel () {
 	# Subarchitecture must match exactly
-	if expr "$1" : ".*-$2\$" >/dev/null; then return 0; fi
+	if echo "$1" | grep -Eq -- "-$2(-.*)?$"; then return 0; fi
 	return 1
 }
 

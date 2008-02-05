@@ -14,15 +14,15 @@ arch_get_kernel_flavour () {
 
 arch_check_usable_kernel () {
 	# Subarchitecture must match exactly
-	if expr "$1" : ".*-$2.*" >/dev/null; then return 0; fi
-	# For 2.6, the r4k-ip22 kernel will do for r5k-ip22 as well
-	if expr "$1" : ".*-2\.6.*-r4k-ip22.*" >/dev/null && \
-	   [ "$2" = r5k-ip22 ]; then
+	if echo "$1" | grep -Eq -- "-$2(-.*)?$"; then return 0; fi
+	# The r4k-ip22 kernel will do for r5k-ip22 as well
+	if [ "$2" = r5k-ip22 ] && \
+	   echo "$1" | grep -Eq -- "-r4k-ip22(-.*)?$"; then
 		return 0
 	fi
 	# The 4kc-malta kernel will do for 5kc-malta as well
-	if expr "$1" : ".*-4kc-malta.*" >/dev/null && \
-	   [ "$2" = 5kc-malta ]; then
+	if [ "$2" = 5kc-malta ] && \
+	   echo "$1" | grep -Eq -- "-4kc-malta(-.*)?$"; then
 		return 0
 	fi
 	return 1
