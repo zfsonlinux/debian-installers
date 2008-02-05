@@ -366,7 +366,15 @@ pick_kernel () {
 		db_fset base-installer/kernel/image seen false || true
 
 		if [ -n "$FLAVOUR" ]; then
-			arch_kernel=$(arch_get_kernel "$FLAVOUR")
+			arch_kernel="$(arch_get_kernel "$FLAVOUR")"
+
+			# Hack to support selection of meta packages with a postfix
+			# added to the normal name (for updated kernels in stable).
+			if db_get base-installer/kernel/altmeta && [ "$RET" ]; then
+				arch_kernel="$(echo "$arch_kernel" | \
+					sed "s/$/-$RET/"; \
+					echo "$arch_kernel")"
+			fi
 		else
 			arch_kernel=""
 		fi
