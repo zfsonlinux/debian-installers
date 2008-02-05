@@ -30,8 +30,13 @@ arch_get_kernel () {
 	# use the more generic package versioning for 2.6 ff
 	case "$KERNEL_MAJOR" in
 	    2.6)
-		version="$KERNEL_MAJOR"
-		echo "linux-image-$version-$1"
+		case $1 in
+		    5kc-malta)
+			echo "linux-image-$KERNEL_MAJOR-$1"
+			set 4kc-malta
+			;;
+		esac
+		echo "linux-image-$KERNEL_MAJOR-$1"
 		;;
 	    *)
 		warning "Unsupported kernel major '$KERNEL_MAJOR'."

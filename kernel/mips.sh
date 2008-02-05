@@ -36,6 +36,10 @@ arch_get_kernel () {
 		    r5k-ip22)
 			set r4k-ip22
 			;;
+		    5kc-malta)
+			echo "linux-image-$KERNEL_MAJOR-$1"
+			set 4kc-malta
+			;;
 		esac
 		echo "linux-image-$KERNEL_MAJOR-$1"
 		;;
