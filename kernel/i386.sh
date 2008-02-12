@@ -9,7 +9,7 @@ arch_get_kernel_flavour () {
 		    *)		echo 486 ;;
 		esac
 		;;
-	    " GenuineIntel"|" GenuineTMx86"*)
+	    " GenuineIntel")
 		case "$FAMILY" in
 		    " 6"|" 15")	echo 686 ;;
 		    *)		echo 486 ;;
