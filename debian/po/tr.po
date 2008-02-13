@@ -7,7 +7,7 @@
 # Copyright (C) 2003, 2004 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
-# Recai Oktaş <roktas@omu.edu.tr>, 2004, 2005.
+# Recai Oktaş <roktas@omu.edu.tr>, 2004, 2005, 2008.
 # Osman Yüksel <yuxel@sonsuzdongu.com>, 2004.
 # Özgür Murat Homurlu <ozgurmurat@gmx.net>, 2004.
 # Halil Demirezen <halild@bilmuh.ege.edu.tr>, 2004.
@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2008-01-26 07:32+0000\n"
-"PO-Revision-Date: 2008-02-12 14:53+0200\n"
+"PO-Revision-Date: 2008-02-13 15:33+0200\n"
 "Last-Translator: Recai Oktaş <roktas@omu.edu.tr>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgid ""
 msgstr ""
 "Lullandığınız bütün işletim sistemleri yukarıda listelenmişse önyükleyiciyi "
 "birincil sabit diskin ana önyükleme kaydına (MBR) kurmanızda herhangi bir "
-"sakınca yok.  Bilgisayarınız yeniden açıldığında bu işletim sistemlerinden "
+"sakınca yok. Bilgisayarınız yeniden açıldığında bu işletim sistemlerinden "
 "birini veya yeni sisteminizi seçebileceksiniz."
 
 #. Type: boolean
@@ -70,7 +70,7 @@ msgid ""
 "computer. If so, it should be safe to install the GRUB boot loader to the "
 "master boot record of your first hard drive."
 msgstr ""
-"Görünen o ki bu yeni kurulum bu bilgisayardaki tek işletim sistemi olacak.  "
+"Görünen o ki bu yeni kurulum bu bilgisayardaki tek işletim sistemi olacak. "
 "Eğer öyleyse önyükleyiciyi birincil sabit diskin ana önyükleme kaydına (MBR) "
 "kurmanız uygun olacaktır."
 
@@ -87,16 +87,15 @@ msgstr ""
 "Uyarı: Kurulum programı, bilgisayarınızda bulunan diğer bir işletim "
 "sistemini algılamakta başarısızlığa uğrarsa, ana önyükleme kaydının "
 "değiştirilmesi bu işletim sisteminin geçici olarak açılmamasına yol "
-"açacaktır.  Bununla birlikte sisteminizin bu işletim sisteminden açılması "
+"açacaktır. Bununla birlikte sisteminizin bu işletim sisteminden açılması "
 "için GRUB'ı daha sonra elle yapılandırabilirsiniz."
 
 #. Type: boolean
 #. Description
 #. :sl3:
 #: ../grub-installer.templates:3001
-#, fuzzy
 msgid "Install the GRUB boot loader to the Serial ATA RAID disk?"
-msgstr "GRUB önyükleyiciyi bir sabit diske kur"
+msgstr "GRUB önyükleyici Seri ATA RAID diskine kurulsun mu?"
 
 #. Type: boolean
 #. Description
@@ -139,17 +138,15 @@ msgstr "GRUB yapılandırması başarısız"
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:4001
-#, fuzzy
 msgid "An error occurred while setting up GRUB for your Serial ATA RAID disk."
-msgstr "Şifrelenmiş cilt ayarları kaydedilirken bir hata oluştu."
+msgstr "Seri ATA RAID diskiniz için GRUB ayarlanırken bir hata oluştu."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:4001
-#, fuzzy
 msgid "The GRUB installation has been aborted."
-msgstr "Yapılandırma iptal edildi."
+msgstr "GRUB kurulumu sonlandırıldı."
 
 #. Type: boolean
 #. Description
@@ -167,8 +164,8 @@ msgid ""
 "XFS file system. Using LILO in this situation is recommended."
 msgstr ""
 "GRUB önyükleyici kurulumu, /boot dizini bir XFS dosya sistemi üzerinde "
-"olduğunda sıklıkla başarısızlığa uğrar veya takılır.  Bu tür bir durumda "
-"LILO kullanılması önerilmektedir."
+"olduğunda sıklıkla başarısızlığa uğrar veya takılır. Bu tür bir durumda LILO "
+"kullanılması önerilmektedir."
 
 #. Type: string
 #. Description
@@ -189,8 +186,8 @@ msgid ""
 "floppy."
 msgstr ""
 "Şimdi, önyükleme yapılabilecek bir aygıta GRUB önyükleyici kurularak yeni "
-"kurulan sistem açılabilir hale getirilecek.  Bunu yapmanın alışılmış yolu, "
-"GRUB'ı birincil sabit diskinizin ana önyükleme kaydına (MBR) kurmaktır.  "
+"kurulan sistem açılabilir hale getirilecek. Bunu yapmanın alışılmış yolu, "
+"GRUB'ı birincil sabit diskinizin ana önyükleme kaydına (MBR) kurmaktır. "
 "İsterseniz, GRUB'ı diskte başka bir yere, başka bir diske, hatta bir diskete "
 "de kurabilirsiniz."
 
@@ -210,7 +207,7 @@ msgid ""
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
 "Aygıtı, \"(hdn,m)\" şeklindeki GRUB biçemiyle veya /dev dizininde bir aygıt "
-"olarak belirtebilirsiniz.  Aşağıda bazı örnekler verilmiştir:\n"
+"olarak belirtebilirsiniz. Aşağıda bazı örnekler verilmiştir:\n"
 " - \"(hd0)\" veya \"/dev/hda\", GRUB'ı ilk sabit diskin (IDE) ana önyükleme\n"
 "   kaydına (MBR) kuracaktır;\n"
 " - \"(hd0,1)\" veya \"/dev/hda2\", birinci IDE sürücünün ikinci bölümünü\n"
@@ -240,9 +237,9 @@ msgid ""
 msgstr ""
 "GRUB önyükleyici, yetkilendirilmemiş kullanıcıların açılış sırasında "
 "makinenize erişmesini sağlayabilecek çok sayıda etkileşimli özellik "
-"sunmaktadır.  Bu tip teşebbüsleri engellemek için, menü seçeneklerini "
+"sunmaktadır. Bu tip teşebbüsleri engellemek için, menü seçeneklerini "
 "düzenlemeden veya GRUB komut satırına geçmeden önce girilmesi gereken bir "
-"parola seçebilirsiniz.  Ön tanımlı olarak, herhangi bir kullanıcı herhangi "
+"parola seçebilirsiniz. Ön tanımlı olarak, herhangi bir kullanıcı herhangi "
 "bir menü girişini parola girmeksizin etkinleştirebilir."
 
 #. Type: password
@@ -256,9 +253,8 @@ msgstr "Bir GRUB parolası girmek istemiyorsanız bu alanı boş bırakın."
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:9001
-#, fuzzy
 msgid "GRUB installation failed"
-msgstr "LILO kurulumu başarısız"
+msgstr "GRUB kurulumu başarısız"
 
 #. Type: error
 #. Description
@@ -320,9 +316,8 @@ msgstr "Sisteminizde kurulu diğer işletim sistemleri araştırılıyor..."
 #. Description
 #. :sl1:
 #: ../grub-installer.templates:16001
-#, fuzzy
 msgid "Installing the '${GRUB}' package..."
-msgstr "'grub' paketi kuruluyor..."
+msgstr "'${GRUB}' paketi kuruluyor..."
 
 #. Type: text
 #. Description
