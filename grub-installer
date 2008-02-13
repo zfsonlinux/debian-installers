@@ -453,7 +453,7 @@ if [ "$frdev" ]; then
 	   	db_subst grub-installer/sataraid GRUBROOT $ROOT$frdev$frbootpart
 		q=grub-installer/sataraid
 	else
-		db_input grub-installer/sataraid-error
+		db_input critical grub-installer/sataraid-error
 		db_go || true
 		exit 1
 	fi
