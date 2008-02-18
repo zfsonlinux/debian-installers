@@ -4,7 +4,13 @@ base-installer (1.89) UNRELEASED; urgency=low
   * Add a cpuinfo file from QNAP TS-109 (orion) to the test suite.
   * Mark the orion flavour as unusable on non-Orion systems.
 
- -- Martin Michlmayr <tbm@cyrius.com>  Sat, 16 Feb 2008 10:54:15 +0100
+  [ Frans Pop ]
+  * hppa: change test for SMP support to use /var/numcpus which is created
+    by rootskel (from version 1.59); the current test does not work as it
+    requires the D-I kernel to have SMP support, which it hasn't.
+    Thanks to Grant Grundler for his suggestions.
+
+ -- Frans Pop <fjp@debian.org>  Mon, 18 Feb 2008 16:21:34 +0100
 
 base-installer (1.88) unstable; urgency=low
 
