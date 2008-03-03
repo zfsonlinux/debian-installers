@@ -448,8 +448,8 @@ else
 fi
 
 if [ "$frdev" ]; then
-	if [ -e $ROOT$frdev ] && \
-	   [ $frgrubroot -gt 0 ] && [ -e $ROOT$frdev$frbootpart ]; then
+	if [ -e $ROOT$frdev ] && [ -e $ROOT$frdev$frbootpart ] && \
+	   [ $frgrubroot -ge 0 ]; then
 		db_subst grub-installer/sataraid GRUBROOT $ROOT$frdev$frbootpart
 		q=grub-installer/sataraid
 	else
