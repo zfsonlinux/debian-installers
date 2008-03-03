@@ -114,14 +114,14 @@ convert () {
 		tmp_disk=$(echo "$1" | sed 's%r\{0,1\}\([saw]d[0-9]*\).*$%r\1%' | \
 			sed 's%r\{0,1\}\(da[0-9]*\).*$%r\1%')
 		tmp_part=$(echo "$1" | \
-	    		sed "s%.*/r\{0,1\}[saw]d[0-9]\(s[0-9]*[a-h]\)%\1%" | \
-       	    		sed "s%.*/r\{0,1\}da[0-9]\(s[0-9]*[a-h]\)%\1%")
+			sed "s%.*/r\{0,1\}[saw]d[0-9]\(s[0-9]*[a-h]\)%\1%" | \
+			sed "s%.*/r\{0,1\}da[0-9]\(s[0-9]*[a-h]\)%\1%")
 		;;
 	    netbsd*)
 		tmp_disk=$(echo "$1" | sed 's%r\{0,1\}\([sw]d[0-9]*\).*$%r\1d%' | \
-	    		sed 's%r\{0,1\}\(fd[0-9]*\).*$%r\1a%')
+			sed 's%r\{0,1\}\(fd[0-9]*\).*$%r\1a%')
 		tmp_part=$(echo "$1" | \
-	    		sed "s%.*/r\{0,1\}[sw]d[0-9]\([abe-p]\)%\1%")
+			sed "s%.*/r\{0,1\}[sw]d[0-9]\([abe-p]\)%\1%")
 		;;
 	    *)
 		echo "update-grub does not support your OS yet." 1>&2
@@ -144,46 +144,46 @@ convert () {
 		# GRUB's syntax
 		case "$host_os" in
 		    linux*)
-		    	echo "$tmp_drive" | sed "s%)$%,`expr $tmp_part - 1`)%"
+			echo "$tmp_drive" | sed "s%)$%,`expr $tmp_part - 1`)%"
 			;;
 		    gnu*)
-		    	if echo $tmp_part | grep "^s" >/dev/null; then
+			if echo $tmp_part | grep "^s" >/dev/null; then
 				tmp_pc_slice=$(echo $tmp_part | \
-			    		sed "s%s\([0-9]*\)[a-g]*$%\1%")
+					sed "s%s\([0-9]*\)[a-g]*$%\1%")
 				tmp_drive=$(echo "$tmp_drive" | \
-			    		sed "s%)%,\`expr "$tmp_pc_slice" - 1\`)%")
-			    	fi
-		    	if echo $tmp_part | grep "[a-g]$" >/dev/null; then
+					sed "s%)%,\`expr "$tmp_pc_slice" - 1\`)%")
+				fi
+			if echo $tmp_part | grep "[a-g]$" >/dev/null; then
 				tmp_bsd_partition=$(echo "$tmp_part" | \
-				    	sed "s%[^a-g]*\([a-g]\)$%\1%")
+					sed "s%[^a-g]*\([a-g]\)$%\1%")
 				tmp_drive=$(echo "$tmp_drive" | \
-			    		sed "s%)%,$tmp_bsd_partition)%")
-		    	fi
-		    	echo "$tmp_drive"
+					sed "s%)%,$tmp_bsd_partition)%")
+			fi
+			echo "$tmp_drive"
 			;;
 		    freebsd*)
-		    	if echo $tmp_part | grep "^s" >/dev/null; then
+			if echo $tmp_part | grep "^s" >/dev/null; then
 				tmp_pc_slice=$(echo $tmp_part | \
-			    		sed "s%s\([0-9]*\)[a-h]*$%\1%")
+					sed "s%s\([0-9]*\)[a-h]*$%\1%")
 				tmp_drive=$(echo "$tmp_drive" | \
-			    		sed "s%)%,\`expr "$tmp_pc_slice" - 1\`)%")
-		    	fi
-		    	if echo $tmp_part | grep "[a-h]$" >/dev/null; then
+					sed "s%)%,\`expr "$tmp_pc_slice" - 1\`)%")
+			fi
+			if echo $tmp_part | grep "[a-h]$" >/dev/null; then
 				tmp_bsd_partition=$(echo "$tmp_part" | \
-				    	sed "s%s\{0,1\}[0-9]*\([a-h]\)$%\1%")
+					sed "s%s\{0,1\}[0-9]*\([a-h]\)$%\1%")
 				tmp_drive=$(echo "$tmp_drive" | \
-			    		sed "s%)%,$tmp_bsd_partition)%")
-		    	fi
-		    	echo "$tmp_drive"
+					sed "s%)%,$tmp_bsd_partition)%")
+			fi
+			echo "$tmp_drive"
 			;;
 		    netbsd*)
-		    	if echo $tmp_part | grep "^[abe-p]$" >/dev/null; then
+			if echo $tmp_part | grep "^[abe-p]$" >/dev/null; then
 				tmp_bsd_partition=$(echo "$tmp_part" | \
-			    		sed "s%\([a-p]\)$%\1%")
+					sed "s%\([a-p]\)$%\1%")
 				tmp_drive=$(echo "$tmp_drive" | \
-			    		sed "s%)%,$tmp_bsd_partition)%")
-    			fi
-		    	echo "$tmp_drive"
+					sed "s%)%,$tmp_bsd_partition)%")
+			fi
+			echo "$tmp_drive"
 			;;
 		esac
 	else
@@ -450,7 +450,7 @@ fi
 if [ "$frdev" ]; then
 	if [ -e $ROOT$frdev ] && \
 	   [ $frgrubroot -gt 0 ] && [ -e $ROOT$frdev$frbootpart ]; then
-	   	db_subst grub-installer/sataraid GRUBROOT $ROOT$frdev$frbootpart
+		db_subst grub-installer/sataraid GRUBROOT $ROOT$frdev$frbootpart
 		q=grub-installer/sataraid
 	else
 		db_input critical grub-installer/sataraid-error
@@ -563,7 +563,7 @@ else
 	    amd64/*)
 		stagedir=x86_64-pc ;;
 	    *)
-	    	error "Unsupported architecture for SATA RAID installation"
+		error "Unsupported architecture for SATA RAID installation"
 		exit 1
 		;;
 	esac
@@ -703,7 +703,7 @@ for os in $(cat /tmp/os-probed); do
 			initrd=$(echo "$entry" | cut -d : -f5)
 			if echo "$kernel" | grep -q '^/boot/' && \
 			   [ "$mappedbootpart" != "$mappedpartition" ]; then
-			   	# separate /boot partition
+				# separate /boot partition
 				kernel=$(echo "$kernel" | sed 's!^/boot!!')
 				initrd=$(echo "$initrd" | sed 's!^/boot!!')
 				grubdrive=$(convert "$mappedbootpart") || true
