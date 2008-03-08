@@ -10,6 +10,14 @@ ETCDIR=/target/etc
 ARCH=`udpkg --print-architecture`
 KEYRING=/usr/share/keyrings/archive.gpg
 
+# Set initial value to includes and excludes
+db_get base-installer/includes
+INCLUDES="$(printf '%s' "$RET" | sed 's/ /,/g')" || true
+
+db_get base-installer/excludes
+EXCLUDES="$(printf '%s' "$RET" | sed 's/ /,/g')" || true
+
+
 # Avoid debconf sending email during the base install process
 DEBCONF_ADMIN_EMAIL=""
 export DEBCONF_ADMIN_EMAIL
@@ -37,6 +45,14 @@ fi
 FLAVOUR="$(arch_get_kernel_flavour || true)"
 
 install_base_system () {
+	if [ -s /cdrom/.disk/base_include ]; then
+		INCLUDES="$INCLUDES,`grep -v '^#' /cdrom/.disk/base_include | tr '\n' , | sed 's/^,//g;s/,$//'`"
+	fi
+
+	if [ -s /cdrom/.disk/base_exclude ]; then
+		EXCLUDES="$EXCLUDES,`grep -v '^#' /cdrom/.disk/base_exclude | tr '\n' , | sed 's/^,//g;s/,$//'`"
+	fi
+
 	db_progress INFO base-installer/progress/preparing
 
 	if [ "${INCLUDES}" ]; then

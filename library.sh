@@ -12,8 +12,6 @@ MIRROR=
 DIRECTORY=
 COMPONENTS=
 DISTRIBUTION=
-INCLUDES=
-EXCLUDES=
 KERNEL=
 KERNEL_LIST=/tmp/available_kernels.txt
 KERNEL_MAJOR="$(uname -r | cut -d . -f 1,2)"
@@ -266,13 +264,6 @@ get_mirror_info () {
 			COMPONENTS=`grep -v '^#' /cdrom/.disk/base_components | tr '\n' , | sed 's/,$//'`
 		else
 			COMPONENTS="*"
-		fi
-		if [ -s /cdrom/.disk/base_include ]; then
-			INCLUDES=`grep -v '^#' /cdrom/.disk/base_include | tr '\n' , | sed 's/,$//'`
-		fi
-
-		if [ -s /cdrom/.disk/base_exclude ]; then
-			EXCLUDES=`grep -v '^#' /cdrom/.disk/base_exclude | tr '\n' , | sed 's/,$//'`
 		fi
 
 		# Sanity check: an error reading /cdrom/.disk/base_components can cause
