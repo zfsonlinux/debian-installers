@@ -17,6 +17,12 @@ INCLUDES="$(printf '%s' "$RET" | sed 's/ /,/g')" || true
 db_get base-installer/excludes
 EXCLUDES="$(printf '%s' "$RET" | sed 's/ /,/g')" || true
 
+# Check if a specific script should be used
+db_get base-installer/debootstrap_script
+DEBOOTSTRAP_SCRIPT="$RET"
+if [ ! -e /usr/share/debootstrap/scripts/"$DEBOOTSTRAP_SCRIPT" ]; then
+	error "debootstrap script '$DEBOOTSTRAP_SCRIPT' doesn't exist"
+fi
 
 # Avoid debconf sending email during the base install process
 DEBCONF_ADMIN_EMAIL=""
@@ -102,6 +108,7 @@ install_base_system () {
 			${include} ${exclude} \
 			${keyring} \
 			${DISTRIBUTION} /target \
+			${DEBOOTSTRAP_SCRIPT} \
 			"$PROTOCOL://$MIRROR$DIRECTORY" \
 			|| debootstrap_failed=$?
 	fi
