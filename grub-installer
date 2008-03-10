@@ -99,12 +99,14 @@ convert () {
 		tmp_disk=$(echo "$1" | sed -e 's%\([sh]d[a-z]\)[0-9]*$%\1%' \
 				  -e 's%\(fd[0-9]*\)$%\1%' \
 				  -e 's%/part[0-9]*$%/disc%' \
-				  -e 's%\(c[0-7]d[0-9]*\).*$%\1%')
+				  -e 's%\(c[0-7]d[0-9]*\).*$%\1%' \
+				  -e 's%\(/mapper/mpath[0-9]\+\)-part[0-9]\+$%\1%')
 		tmp_part=$(echo "$1" | sed -e 's%.*/[sh]d[a-z]\([0-9]*\)$%\1%' \
 				  -e 's%.*/fd[0-9]*$%%' \
 				  -e 's%.*/floppy/[0-9]*$%%' \
 				  -e 's%.*/\(disc\|part\([0-9]*\)\)$%\2%' \
-				  -e 's%.*c[0-7]d[0-9]*p*%%')
+				  -e 's%.*c[0-7]d[0-9]*p*%%' \
+				  -e 's%.*/mapper/mpath[0-9]\+-part\([0-9]\+\)%\1%')
 		;;
 	    gnu*)
 		tmp_disk=$(echo "$1" | sed 's%\([sh]d[0-9]*\).*%\1%')
@@ -276,9 +278,29 @@ if type dmraid >/dev/null 2>&1; then
 			frdev=/dev/mapper/$frdisk
 			frbootpart=${disc_offered#$frdev}
 			frgrubroot=$(($frbootpart - 1))
+			frtype=sataraid
 			break
 		fi
 	done
+# Check if the boot file system is on multipath
+elif type multipath >/dev/null 2>&1; then
+	for frdisk in $(multipath -l 2>/dev/null | \
+			grep '^mpath[0-9]\+ ' | cut -d ' ' -f 1); do
+		if echo "$disc_offered" | 	   \
+			grep -q "^/dev/mapper/${frdisk}-part[0-9]\+"; then
+			frdev=/dev/mapper/$frdisk
+			frbootpart=${disc_offered#$frdev}
+			frgrubroot=$((${frbootpart#-part} - 1))
+			frtype=multipath
+			break
+		fi
+	done
+	if [ "$frdisk" ]; then
+		# Create the device nodes for grub:
+		apt-install dmsetup
+		$chroot $ROOT mount /proc
+		$chroot $ROOT dmsetup mknodes
+	fi
 fi
 
 info "Identified partition label for $bootfs: $bootfslabel"
@@ -380,6 +402,10 @@ if ! apt-install $grub_package ; then
 	exit 1
 fi
 
+if [ "$frtype" = multipath ]; then
+	$chroot $ROOT umount /proc
+fi
+
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_os-probe
 os-prober > /tmp/os-probed || true
@@ -450,10 +476,10 @@ fi
 if [ "$frdev" ]; then
 	if [ -e $ROOT$frdev ] && [ -e $ROOT$frdev$frbootpart ] && \
 	   [ $frgrubroot -ge 0 ]; then
-		db_subst grub-installer/sataraid GRUBROOT $ROOT$frdev$frbootpart
-		q=grub-installer/sataraid
+		db_subst grub-installer/$frtype GRUBROOT $ROOT$frdev$frbootpart
+		q=grub-installer/$frtype
 	else
-		db_input critical grub-installer/sataraid-error
+		db_input critical grub-installer/${frtype}-error
 		db_go || true
 		exit 1
 	fi
@@ -475,8 +501,8 @@ while : ; do
 			bootdev="(hd0)"
 			break
 		else
-			# Exit to menu if /boot is on SATA RAID; we don't
-			# support device selection in that case
+			# Exit to menu if /boot is on SATA RAID/multipath; we
+			# don't support device selection in that case
 			if [ "$frdev" ]; then
 				db_progress STOP
 				exit 10
@@ -554,8 +580,8 @@ if [ -z "$frdisk" ]; then
 
 else
 
-	# Semi-manual grub setup for Serial ATA RAID
-	info "Boot partition is on a Serial ATA RAID disk"
+	# Semi-manual grub setup for Serial ATA RAID/multipath
+	info "Boot partition is on a Serial ATA RAID disk or multipath device"
 	info "Installing GRUB to $frdev; grub root is $disc_offered"
 	case $(archdetect) in
 	    i386/*)
@@ -563,7 +589,7 @@ else
 	    amd64/*)
 		stagedir=x86_64-pc ;;
 	    *)
-		error "Unsupported architecture for SATA RAID installation"
+		error "Unsupported architecture for SATA RAID/multipath installation"
 		exit 1
 		;;
 	esac
@@ -576,7 +602,7 @@ else
 
 	# TODO: Check for errors during this process!
 	TERM=linux $chroot $ROOT \
-        grub --device-map=/dev/null >/var/log/grub-dmraid.log 2>&1 </dev/null <<EOF
+        grub --device-map=/dev/null >/var/log/grub-${frtype}.log 2>&1 </dev/null <<EOF
 device (hd0,$frgrubroot) $disc_offered
 device (hd0) $frdev
 root (hd0,$frgrubroot)
@@ -593,7 +619,7 @@ db_progress INFO grub-installer/progress/step_config_loader
 rm -f $ROOT/boot/grub/$menu_file
 update_grub
 
-# For SATA RAID we may need to update the grub root
+# For SATA RAID/multipath we may need to update the grub root
 # TODO: This should really be supported in update-grub
 if [ "$frdev" ] && [ $frgrubroot -gt 0 ]; then
 	sed -i "/^root/s/(hd0,0)/(hd0,$frgrubroot)/
