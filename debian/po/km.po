@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: km\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2008-01-26 07:32+0000\n"
+"POT-Creation-Date: 2008-03-10 22:50+0000\n"
 "PO-Revision-Date: 2008-02-11 10:16+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -116,7 +116,10 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:3001
+#. Type: boolean
+#. Description
+#. :sl3:
+#: ../grub-installer.templates:3001 ../grub-installer.templates:5001
 msgid "The GRUB root device is: ${GRUBROOT}."
 msgstr "ឧបករណ៍ root របស់ GRUB គឺ ៖ ${GRUBROOT} ។"
 
@@ -126,7 +129,11 @@ msgstr "ឧបករណ៍ root របស់ GRUB គឺ ៖ ${GRUBROOT} ។"
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:4001 ../grub-installer.templates:11001
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:4001 ../grub-installer.templates:6001
+#: ../grub-installer.templates:13001
 msgid "Unable to configure GRUB"
 msgstr "មិន​អាច​កំណត់​រចនា​សម្ព័ន្ធ GRUB បាន​ឡើយ"
 
@@ -140,7 +147,10 @@ msgstr "មាន​កំហុស​មួយ​បាន​កើតឡើង
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:4001
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:4001 ../grub-installer.templates:6001
 msgid "The GRUB installation has been aborted."
 msgstr "ការ​ដំឡើង GRUB ត្រូវ​បាន​បោះបង់ ។"
 
@@ -148,13 +158,51 @@ msgstr "ការ​ដំឡើង GRUB ត្រូវ​បាន​បោះ
 #. Description
 #. :sl3:
 #: ../grub-installer.templates:5001
+#, fuzzy
+msgid "Install the GRUB boot loader to the multipath device?"
+msgstr "ដំឡើង​កម្មវិធី​ចាប់ផ្ដើម​ប្រព័ន្ធ GRUB ទៅ master boot record ?"
+
+#. Type: boolean
+#. Description
+#. :sl3:
+#: ../grub-installer.templates:5001
+#, fuzzy
+msgid "Installation of GRUB on multipath is experimental."
+msgstr "ការ​ដំឡើង GRUB នៅ​លើថាសរឹង ATA RAID ស៊េរី​គឺ​ជា​ការ​​ពិសោធន៍ ។"
+
+#. Type: boolean
+#. Description
+#. :sl3:
+#: ../grub-installer.templates:5001
+#, fuzzy
+msgid ""
+"GRUB is always installed to the master boot record (MBR) of the multipath "
+"device. It is also assumed that the WWID of this device is selected as boot "
+"device in the system's FibreChannel adapter BIOS."
+msgstr ""
+"GRUB តែងតែ​ត្រូវ​បាន​ដំឡើង​ទៅ​ master boot record (MBR) របស់ថាសរឹង ATA RAID ស៊េរី ។ វា​ក៏​"
+"ត្រូវ​បាន​សន្មត់​ថា​ថាសរឹង​នោះ​ត្រូវ​បាន​រាយ​ជា​ថាសរឹង​ដំបូង​នៅ​ក្នុង​លំដាប់​ចាប់ផ្ដើម​ដែល​បាន​កំណត់​នៅ​ក្នុង​ការ​រៀបចំ "
+"BIOS របស់​ប្រព័ន្ធ ។"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:6001
+#, fuzzy
+msgid "An error occurred while setting up GRUB for the multipath device."
+msgstr "មាន​កំហុស​មួយ​បាន​កើតឡើង​ខណៈពេល​រៀបចំ GRUB សម្រាប់​ថាស​រឹង ATA RAID ស៊េរី​របស់​អ្នក ។"
+
+#. Type: boolean
+#. Description
+#. :sl3:
+#: ../grub-installer.templates:7001
 msgid "Install the GRUB boot loader to XFS file system?"
 msgstr "ដំឡើង​កម្មវិធី​ចាប់ផ្ដើម​ប្រព័ន្ធ GRUB ទៅ​ប្រព័ន្ធ​ឯកសារ XFS ?"
 
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:5001
+#: ../grub-installer.templates:7001
 msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
@@ -165,14 +213,14 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:6001
+#: ../grub-installer.templates:8001
 msgid "Device for boot loader installation:"
 msgstr "ឧបករណ៍​សម្រាប់​ដំឡើង​កម្មវិធី​ចាប់ផ្ដើម​ប្រព័ន្ធ ៖"
 
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:6001
+#: ../grub-installer.templates:8001
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -188,7 +236,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:6001
+#: ../grub-installer.templates:8001
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -213,14 +261,14 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#: ../grub-installer.templates:9001
 msgid "GRUB password:"
 msgstr "ពាក្យសម្ងាត់​ GRUB ៖"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#: ../grub-installer.templates:9001
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -238,21 +286,21 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#: ../grub-installer.templates:9001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "បើ​អ្នក​មិន​ចង់​កំណត់ពាក្យ​សម្ងាត់ GRUB ទេ សូម​ទុក​វាល​នេះ​នៅ​ទទេ ។"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:11001
 msgid "GRUB installation failed"
 msgstr "បាន​បរាជ័យ​​ក្នុង​ការ​ដំឡើង GRUB"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:11001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -263,14 +311,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:12001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "មិន​អាច​ដំឡើង​ GRUB ក្នុង​ ${BOOTDEV} បាន​ឡើយ"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:12001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "ការ​ប្រតិបត្តិ 'grub-install ${BOOTDEV}' បាន​បរាជ័យ​ហើយ ។"
 
@@ -280,63 +328,63 @@ msgstr "ការ​ប្រតិបត្តិ 'grub-install ${BOOTDEV}' ប
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001 ../grub-installer.templates:11001
+#: ../grub-installer.templates:12001 ../grub-installer.templates:13001
 msgid "This is a fatal error."
 msgstr "នេះ​ជា​កំហុស​ធ្ងន់ធ្ងរ​បំផុត ។"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:11001
+#: ../grub-installer.templates:13001
 msgid "Executing 'update-grub' failed."
 msgstr "ការ​ប្រតិបត្តិ 'update-grub' បាន​បរាជ័យ​ហើយ ។"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:16001
 msgid "Installing GRUB boot loader"
 msgstr "កំពុង​ដំឡើង​កម្មវិធី​ចាប់ផ្ដើម​ប្រព័ន្ធ GRUB"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:15001
+#: ../grub-installer.templates:17001
 msgid "Looking for other operating systems..."
 msgstr "កំពុងរក​មើល​ប្រព័ន្ធ​ប្រតិបត្តិការ​ផ្សេង​ទៀត..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:18001
 msgid "Installing the '${GRUB}' package..."
 msgstr "កំពុង​ដំឡើង​កញ្ចប់ '${GRUB}'​..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:17001
+#: ../grub-installer.templates:19001
 msgid "Determining GRUB boot device..."
 msgstr "កំពុង​កំណត់​ឧបករណ៍​ចាប់ផ្ដើម GRUB..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18001
+#: ../grub-installer.templates:20001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "កំពុង​រត់​ \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:19001
+#: ../grub-installer.templates:21001
 msgid "Running \"update-grub\"..."
 msgstr "កំពុង​រត់​ \"update-grub\"..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:20001
+#: ../grub-installer.templates:22001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "កំពុង​ធ្វើ​ឲ្យ /etc/kernel-img.conf ទាន់សម័យ..."
 
@@ -344,7 +392,7 @@ msgstr "កំពុង​ធ្វើ​ឲ្យ /etc/kernel-img.conf ទា�
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:21001
+#: ../grub-installer.templates:23001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "ដំឡើង​កម្មវិធី​ចាប់ផ្ដើម​ប្រព័ន្ធ GRUB លើ​ថាស​រឹង"
 
@@ -352,6 +400,6 @@ msgstr "ដំឡើង​កម្មវិធី​ចាប់ផ្ដើម
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:22001
+#: ../grub-installer.templates:24001
 msgid "Reinstall GRUB boot loader"
 msgstr "ដំឡើង​កម្មវិធី​ចាប់ផ្ដើម​ប្រព័ន្ធ GRUB ឡើង​វិញ"

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer Level 1\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2008-01-26 07:32+0000\n"
+"POT-Creation-Date: 2008-03-10 22:50+0000\n"
 "PO-Revision-Date: 2007-08-27 17:25+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -119,7 +119,10 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:3001
+#. Type: boolean
+#. Description
+#. :sl3:
+#: ../grub-installer.templates:3001 ../grub-installer.templates:5001
 msgid "The GRUB root device is: ${GRUBROOT}."
 msgstr "Thiết bị gốc GRUB: ${GRUBROOT}."
 
@@ -129,7 +132,11 @@ msgstr "Thiết bị gốc GRUB: ${GRUBROOT}."
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:4001 ../grub-installer.templates:11001
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:4001 ../grub-installer.templates:6001
+#: ../grub-installer.templates:13001
 msgid "Unable to configure GRUB"
 msgstr "Không thể cấu hình GRUB"
 
@@ -143,7 +150,10 @@ msgstr "Gặp lỗi khi thiết lập GRUB cho đĩa RAID ATA nối tiếp."
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:4001
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:4001 ../grub-installer.templates:6001
 msgid "The GRUB installation has been aborted."
 msgstr "Tiến trình cài đặt GRUB bị hủy bỏ."
 
@@ -151,13 +161,52 @@ msgstr "Tiến trình cài đặt GRUB bị hủy bỏ."
 #. Description
 #. :sl3:
 #: ../grub-installer.templates:5001
+#, fuzzy
+msgid "Install the GRUB boot loader to the multipath device?"
+msgstr "Cài đặt bộ nạp khởi động GRUB vào mục ghi khởi động chủ không?"
+
+#. Type: boolean
+#. Description
+#. :sl3:
+#: ../grub-installer.templates:5001
+#, fuzzy
+msgid "Installation of GRUB on multipath is experimental."
+msgstr ""
+"Khả năng cài đặt GRUB vào RAID ATA nối tiếp chỉ là tính năng thực nghiệm."
+
+#. Type: boolean
+#. Description
+#. :sl3:
+#: ../grub-installer.templates:5001
+#, fuzzy
+msgid ""
+"GRUB is always installed to the master boot record (MBR) of the multipath "
+"device. It is also assumed that the WWID of this device is selected as boot "
+"device in the system's FibreChannel adapter BIOS."
+msgstr ""
+"GRUB luôn luôn được cài đặt vào mục ghi khởi động chủ (MBR) của đĩa RAID ATA "
+"nối tiếp. Cũng giả sử rằng đĩa này được liệt kê làm đĩa cứng đầu trong thứ "
+"tự khởi động được xác định trong thiết lập BIOS của hệ thống."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:6001
+#, fuzzy
+msgid "An error occurred while setting up GRUB for the multipath device."
+msgstr "Gặp lỗi khi thiết lập GRUB cho đĩa RAID ATA nối tiếp."
+
+#. Type: boolean
+#. Description
+#. :sl3:
+#: ../grub-installer.templates:7001
 msgid "Install the GRUB boot loader to XFS file system?"
 msgstr "Cài đặt bộ nạp khởi động GRUB vào hệ thông tập tin XFS không?"
 
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:5001
+#: ../grub-installer.templates:7001
 msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
@@ -168,14 +217,14 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:6001
+#: ../grub-installer.templates:8001
 msgid "Device for boot loader installation:"
 msgstr "Thiết bị nơi cần cài đặt bộ nạp khởi động:"
 
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:6001
+#: ../grub-installer.templates:8001
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -192,7 +241,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:6001
+#: ../grub-installer.templates:8001
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -217,14 +266,14 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#: ../grub-installer.templates:9001
 msgid "GRUB password:"
 msgstr "Mật khẫu GRUB:"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#: ../grub-installer.templates:9001
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -244,21 +293,21 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#: ../grub-installer.templates:9001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "Nếu bạn không muốn đặt mật khẩu GRUB, hãy bỏ rỗng trường này."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:11001
 msgid "GRUB installation failed"
 msgstr "Việc cài đặt GRUB bị lỗi"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:11001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -269,14 +318,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:12001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Không thể cài đặt GRUB vào ${BOOTDEV}"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:12001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Việc thực thi lệnh « grub-install ${BOOTDEV} » (cài đặt GRUB) bị lỗi."
 
@@ -286,63 +335,63 @@ msgstr "Việc thực thi lệnh « grub-install ${BOOTDEV} » (cài đặt GRUB
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001 ../grub-installer.templates:11001
+#: ../grub-installer.templates:12001 ../grub-installer.templates:13001
 msgid "This is a fatal error."
 msgstr "Đây là lỗi trầm trọng."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:11001
+#: ../grub-installer.templates:13001
 msgid "Executing 'update-grub' failed."
 msgstr "Việc thực hiện lệnh « update grub » (cập nhật GRUB) bị lỗi."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:16001
 msgid "Installing GRUB boot loader"
 msgstr "Đang cài đặt bộ nạp khởi động GRUB"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:15001
+#: ../grub-installer.templates:17001
 msgid "Looking for other operating systems..."
 msgstr "Đang tìm hệ điều hành khác..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:18001
 msgid "Installing the '${GRUB}' package..."
 msgstr "Đang cài đặt gói « ${GRUB} »..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:17001
+#: ../grub-installer.templates:19001
 msgid "Determining GRUB boot device..."
 msgstr "Đang quyết định thiết bị khởi động GRUB..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18001
+#: ../grub-installer.templates:20001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Đang chạy lệnh « grub-install ${BOOTDEV} » (grub-cài đặt)..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:19001
+#: ../grub-installer.templates:21001
 msgid "Running \"update-grub\"..."
 msgstr "Đang chạy lệnh « update-grub » (cập nhật grub)..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:20001
+#: ../grub-installer.templates:22001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr ""
 "Đang cập nhật « /etc/kernel-img.conf » (tập tin cấu hình ảnh hạt nhân)..."
@@ -351,7 +400,7 @@ msgstr ""
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:21001
+#: ../grub-installer.templates:23001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Cài đặt bộ nạp khởi động GRUB vào đĩa cứng"
 
@@ -359,6 +408,6 @@ msgstr "Cài đặt bộ nạp khởi động GRUB vào đĩa cứng"
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:22001
+#: ../grub-installer.templates:24001
 msgid "Reinstall GRUB boot loader"
 msgstr "Cài đặt lại bộ nạp khởi động GRUB"

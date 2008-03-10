@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer.2006071\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2008-01-26 07:32+0000\n"
+"POT-Creation-Date: 2008-03-10 22:50+0000\n"
 "PO-Revision-Date: 2007-01-15 11:41+0400\n"
 "Last-Translator: Aiet Kolkhi <aietkolkhi@gmail.com>\n"
 "Language-Team: Georgian <www.gia.ge>\n"
@@ -118,7 +118,10 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:3001
+#. Type: boolean
+#. Description
+#. :sl3:
+#: ../grub-installer.templates:3001 ../grub-installer.templates:5001
 msgid "The GRUB root device is: ${GRUBROOT}."
 msgstr ""
 
@@ -128,7 +131,11 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:4001 ../grub-installer.templates:11001
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:4001 ../grub-installer.templates:6001
+#: ../grub-installer.templates:13001
 msgid "Unable to configure GRUB"
 msgstr "GRUB-ის კონფიგურაცია ვერ მოხერხდა."
 
@@ -143,7 +150,10 @@ msgstr "შეცდომა დაშიფრული დისკწამ�
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:4001
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:4001 ../grub-installer.templates:6001
 #, fuzzy
 msgid "The GRUB installation has been aborted."
 msgstr "კონფიგურაცია შეწყვეტილია."
@@ -152,13 +162,46 @@ msgstr "კონფიგურაცია შეწყვეტილია."
 #. Description
 #. :sl3:
 #: ../grub-installer.templates:5001
+#, fuzzy
+msgid "Install the GRUB boot loader to the multipath device?"
+msgstr "დავაყენოთ სისტემური ჩამტვირთველი GRUB ჩატვირთვის მთავარ ჩანაწერში?"
+
+#. Type: boolean
+#. Description
+#. :sl3:
+#: ../grub-installer.templates:5001
+msgid "Installation of GRUB on multipath is experimental."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#. :sl3:
+#: ../grub-installer.templates:5001
+msgid ""
+"GRUB is always installed to the master boot record (MBR) of the multipath "
+"device. It is also assumed that the WWID of this device is selected as boot "
+"device in the system's FibreChannel adapter BIOS."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:6001
+#, fuzzy
+msgid "An error occurred while setting up GRUB for the multipath device."
+msgstr "შეცდომა დაშიფრული დისკწამყვანების დაყენებისას."
+
+#. Type: boolean
+#. Description
+#. :sl3:
+#: ../grub-installer.templates:7001
 msgid "Install the GRUB boot loader to XFS file system?"
 msgstr "დავაყენოთ GRUB-ჩამტვირთველი XFS ფაილურ სისტემაზე?"
 
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../grub-installer.templates:5001
+#: ../grub-installer.templates:7001
 msgid ""
 "The GRUB boot loader installation often fails or hangs when /boot is on a "
 "XFS file system. Using LILO in this situation is recommended."
@@ -173,14 +216,14 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:6001
+#: ../grub-installer.templates:8001
 msgid "Device for boot loader installation:"
 msgstr "მოწყობილობა სისტემური ჩამტვირთველის დასაყენებლად:"
 
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:6001
+#: ../grub-installer.templates:8001
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -197,7 +240,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:6001
+#: ../grub-installer.templates:8001
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -222,14 +265,14 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#: ../grub-installer.templates:9001
 msgid "GRUB password:"
 msgstr "GRUB-ის პაროლი:"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#: ../grub-installer.templates:9001
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -248,14 +291,14 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#: ../grub-installer.templates:9001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "დატოვეთ ველი ცარიელი, თუ არ გინდათ ჩამტვირთველს პაროლი დაადოთ."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:11001
 #, fuzzy
 msgid "GRUB installation failed"
 msgstr "LILO-ს ინსტალაცია წარუმატებლად დასრულდა"
@@ -263,7 +306,7 @@ msgstr "LILO-ს ინსტალაცია წარუმატებლ�
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:11001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -272,14 +315,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:12001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "ვერ ხერხდება GRUB-ის ინსტალირება ${BOOTDEV}-ში"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:12001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "ვერ შესრულდა 'grub-install ${BOOTDEV}'"
 
@@ -289,35 +332,35 @@ msgstr "ვერ შესრულდა 'grub-install ${BOOTDEV}'"
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001 ../grub-installer.templates:11001
+#: ../grub-installer.templates:12001 ../grub-installer.templates:13001
 msgid "This is a fatal error."
 msgstr "ეს გამოუსწორობელი შეცდომაა."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:11001
+#: ../grub-installer.templates:13001
 msgid "Executing 'update-grub' failed."
 msgstr "ვერ შესრულდა 'update-grub'."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:16001
 msgid "Installing GRUB boot loader"
 msgstr "GRUB სისტემური ჩამტვირთველის ინსტალაცია"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:15001
+#: ../grub-installer.templates:17001
 msgid "Looking for other operating systems..."
 msgstr "სხვა ოპერაციული სისტემების ძებნა..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:18001
 #, fuzzy
 msgid "Installing the '${GRUB}' package..."
 msgstr "მიმდინარეობს 'grub' პაკეტის დაყენება..."
@@ -325,28 +368,28 @@ msgstr "მიმდინარეობს 'grub' პაკეტის და
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:17001
+#: ../grub-installer.templates:19001
 msgid "Determining GRUB boot device..."
 msgstr "grub-ისათვის ჩატვირთვის მოწყობილობის განსაზღვრა..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18001
+#: ../grub-installer.templates:20001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "გაშვებულია \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:19001
+#: ../grub-installer.templates:21001
 msgid "Running \"update-grub\"..."
 msgstr "გაშვებულია \"update-grub\"..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:20001
+#: ../grub-installer.templates:22001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "/etc/kernel-img.conf განახლება..."
 
@@ -354,7 +397,7 @@ msgstr "/etc/kernel-img.conf განახლება..."
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:21001
+#: ../grub-installer.templates:23001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "GRUB სისტემური ჩამტვირთველის დაყენება დისკზე"
 
@@ -362,6 +405,6 @@ msgstr "GRUB სისტემური ჩამტვირთველის
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:22001
+#: ../grub-installer.templates:24001
 msgid "Reinstall GRUB boot loader"
 msgstr "GRUB სისტემური ჩამტვირთველის გადაყენება"
