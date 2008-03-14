@@ -655,11 +655,28 @@ if [ "$grub_version" = "grub" ] ; then
 	fi 
 fi
 
-user_params=$(echo $(user-params)) || true
+# Add user parameters to menu.list; some options are only added to the
+# default entry for a kernel instead of all entries
+user_params=$(user-params) || true
+defopt_params=""
+kopt_params=""
+for u_param in $user_params; do
+	case "$u_param" in
+	    quiet)
+		defopt_params=${defopt_params:+$defopt_params }$u_param ;;
+	    *)
+		kopt_params=${kopt_params:+$kopt_params }$u_param ;;
+	esac
+done
+if [ "$defopt_params" ]; then
+	sed -i "s!^\(# defoptions=.*\)!\1 $defopt_params!" $ROOT/boot/grub/$menu_file
+fi
+if [ "$kopt_params" ]; then
+	sed -i "s!^\(# kopt=.*\)!\1 $kopt_params!" $ROOT/boot/grub/$menu_file
+fi
+# In either case, update the Debian kernel entries
 if [ "$user_params" ]; then
-	# Modify menu.lst to include user parameters.
-	sed -i "s!^\(# kopt=.*\)!\1 $user_params!" $ROOT/boot/grub/$menu_file
-	update_grub # again, to add new options to all the Debian kernel entries
+	update_grub
 fi
 
 if [ "$serial" ] ; then

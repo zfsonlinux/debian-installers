@@ -2,6 +2,9 @@ grub-installer (1.30) UNRELEASED; urgency=low
 
   [ Frans Pop ]
   * Correct off-by-one error in SATA RAID sanity checks. Thanks Guido Günther.
+  * Add the "quiet" boot parameter only to 'defoptions' and not to 'kopt' so
+    that it is not included for "single user" mode. The same could be done for
+    other parameters.
 
   [ Guido Guenther ]
   * Add multipath support modelled after dmraid. Closes: #468832.
