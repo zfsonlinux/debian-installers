@@ -266,8 +266,8 @@ get_mirror_info () {
 			COMPONENTS="*"
 		fi
 
-		# Sanity check: an error reading /cdrom/.disk/base_components can cause
-		# ugly errors in debootstrap because $COMPONENTS will be empty.
+		# Sanity check: an error reading /cdrom/.disk/base_components can
+		# cause ugly errors in debootstrap because $COMPONENTS will be empty
 		if [ -z "$COMPONENTS" ]; then
 			exit_error base-installer/cannot_install
 		fi
@@ -696,8 +696,9 @@ addmodule_yaird () {
 	fi
 }
 
+# Assumes the file protocol is only used for CD (image) installs
 configure_apt () {
-	# let apt inside the chroot see the cdrom
+	# Let apt inside the chroot see the cdrom
 	if [ "$PROTOCOL" = file ] ; then
 		if [ -n "$DIRECTORY" ]; then
 			umount /target$DIRECTORY 2>/dev/null || true
@@ -705,23 +706,16 @@ configure_apt () {
 				mkdir -p /target/$DIRECTORY
 			fi
 		fi
-		if ! mount -o bind $DIRECTORY /target$DIRECTORY; then
-			warning "failed to bind mount /target$DIRECTORY"
-		fi
-		# The bind mount is left mounted, for future apt-install
-		# calls to use.
-	fi
 
-	# sources.list uses space to separate the components, not comma
-	COMPONENTS=`echo $COMPONENTS | tr , " "`
-	APTSOURCE="$PROTOCOL://$MIRROR$DIRECTORY"
-
-	# This assumes the file protocol is only used for CD (image) installs
-	if [ "$PROTOCOL" = file ] ; then
-		# Make apt-cdrom and apt not unmount/mount CD-ROMs;
-		# needed to support CD images (hd-media installs)
-		# This file will be left in place until the end of the install.
-		cat > /target/etc/apt/apt.conf.d/00NoMountCDROM << EOT
+		# For hd-media installs bind mount the CD for the duration
+		# of the installation
+		if [ -d /hd-media ]; then
+			if ! mount -o bind $DIRECTORY /target$DIRECTORY; then
+				warning "failed to bind mount /target$DIRECTORY"
+			fi
+			# Make sure apt-cdrom and apt don't unmount/mount the CD;
+			# the file is left in place until the end of the install
+			cat > /target/etc/apt/apt.conf.d/00NoMountCDROM << EOT
 APT::CDROM::NoMount "true";
 Acquire::cdrom {
   mount "/cdrom";
@@ -731,12 +725,18 @@ Acquire::cdrom {
   };
 }
 EOT
+		fi
+
 		# Scan CD-ROM or CD image; start with clean sources.list
 		: > /target/etc/apt/sources.list
 		if ! log-output -t base-installer chroot /target apt-cdrom add ; then
 			error "error while running apt-cdrom"
 		fi
 	else
+		# sources.list uses space to separate the components, not comma
+		COMPONENTS=$(echo $COMPONENTS | tr , " ")
+		APTSOURCE="$PROTOCOL://$MIRROR$DIRECTORY"
+
 		echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
 	fi
 }
