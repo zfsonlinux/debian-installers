@@ -13,8 +13,11 @@ base-installer (1.89) UNRELEASED; urgency=low
     powerpc64 (closes: #469030).
   * Add support for PA Semi's evaluation systems (#464429). Thanks to
     Olof Johansson for the patch.
-  * Now that changing CDs is supported, stop bind mounting /cdrom in /target
+  * Now that changing CDs is supported, stop bind-mounting /cdrom in /target
     except for hd-media installs.
+  * This requires that /dev is bind-mounted in /target earlier; the
+    installation of packages required to mount file systems is left as a
+    separate step.
 
   [ Otavio Salvador ]
   * Add facility to include and exclude packages from the base system by
@@ -28,7 +31,7 @@ base-installer (1.89) UNRELEASED; urgency=low
   * Rename orion to orion5x to allow for support of other Orion
     platforms in the future.
 
- -- Frans Pop <fjp@debian.org>  Mon, 17 Mar 2008 00:07:26 +0100
+ -- Frans Pop <fjp@debian.org>  Wed, 19 Mar 2008 17:24:50 +0100
 
 base-installer (1.88) unstable; urgency=low
 

@@ -111,7 +111,11 @@ setup_dev () {
 	mount --bind /target/dev /dev/.static/dev
 	# Mirror device nodes in D-I environment to target
 	mount --bind /dev /target/dev/
+}
 
+# TODO: as we no longer have to create devices here, the apt-install calls
+# could possibly better be done as post-base-installer hooks from partman
+install_filesystems () {
 	# RAID
 	if [ -e /proc/mdstat ] && grep -q ^md /proc/mdstat ; then
 		apt-install mdadm
