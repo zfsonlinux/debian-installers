@@ -728,8 +728,10 @@ EOT
 		fi
 
 		# Scan CD-ROM or CD image; start with clean sources.list
+		# Prevent apt-cdrom from prompting
 		: > /target/etc/apt/sources.list
-		if ! log-output -t base-installer chroot /target apt-cdrom add ; then
+		if ! log-output -t base-installer \
+		     chroot /target apt-cdrom add </dev/null; then
 			error "error while running apt-cdrom"
 		fi
 	else
