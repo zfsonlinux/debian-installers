@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2008-03-17 22:51+0000\n"
+"POT-Creation-Date: 2008-04-28 22:53+0000\n"
 "PO-Revision-Date: 2008-03-13 15:12+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team:  Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -130,7 +130,7 @@ msgstr "GRUB 루트 장치는 ${GRUBROOT}입니다."
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:4001 ../grub-installer.templates:6001
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:15001
 msgid "Unable to configure GRUB"
 msgstr "GRUB을 설정할 수 없습니다"
 
@@ -285,17 +285,47 @@ msgstr ""
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "GRUB 암호를 설정하지 않으려면, 이 필드를 비워 두십시오."
 
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:10001
+msgid "Re-enter password to verify:"
+msgstr ""
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:10001
+msgid ""
+"Please enter the same GRUB password again to verify that you have typed it "
+"correctly."
+msgstr ""
+
 #. Type: error
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:11001
+msgid "Password input error"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:11001
+msgid "The two passwords you entered were not the same. Please try again."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:13001
 msgid "GRUB installation failed"
 msgstr "GRUB 설치가 실패했습니다"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:11001
+#: ../grub-installer.templates:13001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -306,14 +336,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:14001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "GRUB을 ${BOOTDEV}에 설치할 수 없습니다"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:14001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "'grub-install ${BOOTDEV}' 실행이 실패했습니다."
 
@@ -323,63 +353,63 @@ msgstr "'grub-install ${BOOTDEV}' 실행이 실패했습니다."
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001 ../grub-installer.templates:13001
+#: ../grub-installer.templates:14001 ../grub-installer.templates:15001
 msgid "This is a fatal error."
 msgstr "치명적인 오류입니다."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:15001
 msgid "Executing 'update-grub' failed."
 msgstr "'update-grub' 실행이 실패했습니다."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:18001
 msgid "Installing GRUB boot loader"
 msgstr "GRUB 부트로더 설치"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:17001
+#: ../grub-installer.templates:19001
 msgid "Looking for other operating systems..."
 msgstr "다른 운영 체제가 있는지 검사하는 중입니다..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18001
+#: ../grub-installer.templates:20001
 msgid "Installing the '${GRUB}' package..."
 msgstr "'${GRUB}' 패키지를 설치하는 중입니다..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:19001
+#: ../grub-installer.templates:21001
 msgid "Determining GRUB boot device..."
 msgstr "GRUB 부팅 장치를 결정하는 중입니다..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:20001
+#: ../grub-installer.templates:22001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "\"grub-install ${BOOTDEV}\" 실행하는 중입니다..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:21001
+#: ../grub-installer.templates:23001
 msgid "Running \"update-grub\"..."
 msgstr "\"update-grub\" 실행하는 중입니다..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:22001
+#: ../grub-installer.templates:24001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "/etc/kernel-img.conf 업데이트 중입니다..."
 
@@ -387,7 +417,7 @@ msgstr "/etc/kernel-img.conf 업데이트 중입니다..."
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:23001
+#: ../grub-installer.templates:25001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "하드 디스크에 GRUB 부트로더 설치"
 
@@ -395,6 +425,6 @@ msgstr "하드 디스크에 GRUB 부트로더 설치"
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:24001
+#: ../grub-installer.templates:26001
 msgid "Reinstall GRUB boot loader"
 msgstr "GRUB 부트로더 다시 설치"

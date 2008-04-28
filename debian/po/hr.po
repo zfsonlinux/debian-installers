@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Debian-installer 1st-stage master file HR\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2008-03-17 22:51+0000\n"
+"POT-Creation-Date: 2008-04-28 22:53+0000\n"
 "PO-Revision-Date: 2006-09-25 23:55+0200\n"
 "Last-Translator: Josip Rodin <joy+ditrans@linux.hr>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -126,7 +126,7 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:4001 ../grub-installer.templates:6001
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:15001
 msgid "Unable to configure GRUB"
 msgstr "Ne mogu podesiti GRUB"
 
@@ -283,10 +283,40 @@ msgstr ""
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "Ako ne želite postaviti GRUB lozinku, ostavite prazno."
 
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:10001
+msgid "Re-enter password to verify:"
+msgstr ""
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:10001
+msgid ""
+"Please enter the same GRUB password again to verify that you have typed it "
+"correctly."
+msgstr ""
+
 #. Type: error
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:11001
+msgid "Password input error"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:11001
+msgid "The two passwords you entered were not the same. Please try again."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:13001
 #, fuzzy
 msgid "GRUB installation failed"
 msgstr "Instalacija LILO-a nije uspjela."
@@ -294,7 +324,7 @@ msgstr "Instalacija LILO-a nije uspjela."
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:11001
+#: ../grub-installer.templates:13001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -303,14 +333,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:14001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Ne mogu instalirati GRUB na ${BOOTDEV}"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:14001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Izvršenje 'grub-install ${BOOTDEV}' nije uspjelo."
 
@@ -320,35 +350,35 @@ msgstr "Izvršenje 'grub-install ${BOOTDEV}' nije uspjelo."
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001 ../grub-installer.templates:13001
+#: ../grub-installer.templates:14001 ../grub-installer.templates:15001
 msgid "This is a fatal error."
 msgstr "Ovo je kobna pogreška."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:15001
 msgid "Executing 'update-grub' failed."
 msgstr "Izvršenje 'update-grub' nije uspjelo."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:18001
 msgid "Installing GRUB boot loader"
 msgstr "Instaliram GRUB boot učitavač"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:17001
+#: ../grub-installer.templates:19001
 msgid "Looking for other operating systems..."
 msgstr "Tražim druge operacijske sustave..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18001
+#: ../grub-installer.templates:20001
 #, fuzzy
 msgid "Installing the '${GRUB}' package..."
 msgstr "Instaliram GRUB paket..."
@@ -356,28 +386,28 @@ msgstr "Instaliram GRUB paket..."
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:19001
+#: ../grub-installer.templates:21001
 msgid "Determining GRUB boot device..."
 msgstr "Određujem GRUB-ov boot uređaj..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:20001
+#: ../grub-installer.templates:22001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Pokrećem \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:21001
+#: ../grub-installer.templates:23001
 msgid "Running \"update-grub\"..."
 msgstr "Pokrećem \"update-grub\"..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:22001
+#: ../grub-installer.templates:24001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Osvježavam /etc/kernel-img.conf..."
 
@@ -385,7 +415,7 @@ msgstr "Osvježavam /etc/kernel-img.conf..."
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:23001
+#: ../grub-installer.templates:25001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Instaliraj GRUB boot učitavač na tvrdi disk"
 
@@ -393,6 +423,6 @@ msgstr "Instaliraj GRUB boot učitavač na tvrdi disk"
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:24001
+#: ../grub-installer.templates:26001
 msgid "Reinstall GRUB boot loader"
 msgstr "Ponovo instalirati GRUB boot učitavač"

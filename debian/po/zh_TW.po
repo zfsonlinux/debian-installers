@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2008-03-17 22:51+0000\n"
+"POT-Creation-Date: 2008-04-28 22:53+0000\n"
 "PO-Revision-Date: 2008-04-19 22:05+0800\n"
 "Last-Translator: Tetralet <tetralet@gmail.com>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
@@ -125,7 +125,7 @@ msgstr "GRUB 的 root 裝置是：${GRUBROOT}。"
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:4001 ../grub-installer.templates:6001
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:15001
 msgid "Unable to configure GRUB"
 msgstr "無法設定 GRUB"
 
@@ -274,17 +274,47 @@ msgstr ""
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "如果您不想設定 GRUB 的密碼，請直接留白。"
 
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:10001
+msgid "Re-enter password to verify:"
+msgstr ""
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:10001
+msgid ""
+"Please enter the same GRUB password again to verify that you have typed it "
+"correctly."
+msgstr ""
+
 #. Type: error
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:11001
+msgid "Password input error"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:11001
+msgid "The two passwords you entered were not the same. Please try again."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:13001
 msgid "GRUB installation failed"
 msgstr "GRUB 的安裝失敗了"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:11001
+#: ../grub-installer.templates:13001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -295,14 +325,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:14001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "無法將 GRUB 安裝至 ${BOOTDEV}"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:14001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "在執行 grub-install ${BOOTDEV} 時失敗了。"
 
@@ -312,63 +342,63 @@ msgstr "在執行 grub-install ${BOOTDEV} 時失敗了。"
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001 ../grub-installer.templates:13001
+#: ../grub-installer.templates:14001 ../grub-installer.templates:15001
 msgid "This is a fatal error."
 msgstr "這是一個嚴重錯誤。"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:15001
 msgid "Executing 'update-grub' failed."
 msgstr "在執行 update-grub 時失敗了。"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:18001
 msgid "Installing GRUB boot loader"
 msgstr "正在安裝 GRUB 開機程式"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:17001
+#: ../grub-installer.templates:19001
 msgid "Looking for other operating systems..."
 msgstr "正在尋找其它的作業系統..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18001
+#: ../grub-installer.templates:20001
 msgid "Installing the '${GRUB}' package..."
 msgstr "正在安裝 '${GRUB}' 套件..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:19001
+#: ../grub-installer.templates:21001
 msgid "Determining GRUB boot device..."
 msgstr "正在決定 GRUB 的開機裝置..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:20001
+#: ../grub-installer.templates:22001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "正在執行 \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:21001
+#: ../grub-installer.templates:23001
 msgid "Running \"update-grub\"..."
 msgstr "正在執行 \"update-grub\"..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:22001
+#: ../grub-installer.templates:24001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "正在更新 /etc/kernel-img.conf..."
 
@@ -376,7 +406,7 @@ msgstr "正在更新 /etc/kernel-img.conf..."
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:23001
+#: ../grub-installer.templates:25001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "將 GRUB 開機程式安裝至硬碟上"
 
@@ -384,6 +414,6 @@ msgstr "將 GRUB 開機程式安裝至硬碟上"
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:24001
+#: ../grub-installer.templates:26001
 msgid "Reinstall GRUB boot loader"
 msgstr "正在重新安裝 GRUB 開機程式"

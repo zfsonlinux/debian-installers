@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2008-03-17 22:51+0000\n"
+"POT-Creation-Date: 2008-04-28 22:53+0000\n"
 "PO-Revision-Date: 2008-02-14 21:20+0200\n"
 "Last-Translator: Recai Oktaş <roktas@omu.edu.tr>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -137,7 +137,7 @@ msgstr "GRUB kök aygıtı: ${GRUBROOT}"
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:4001 ../grub-installer.templates:6001
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:15001
 msgid "Unable to configure GRUB"
 msgstr "GRUB yapılandırması başarısız"
 
@@ -297,17 +297,47 @@ msgstr ""
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "Bir GRUB parolası girmek istemiyorsanız bu alanı boş bırakın."
 
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:10001
+msgid "Re-enter password to verify:"
+msgstr ""
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:10001
+msgid ""
+"Please enter the same GRUB password again to verify that you have typed it "
+"correctly."
+msgstr ""
+
 #. Type: error
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:11001
+msgid "Password input error"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:11001
+msgid "The two passwords you entered were not the same. Please try again."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:13001
 msgid "GRUB installation failed"
 msgstr "GRUB kurulumu başarısız"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:11001
+#: ../grub-installer.templates:13001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -318,14 +348,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:14001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "GRUB ${BOOTDEV} aygıtına kurulamadı"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:14001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "'grub-install ${BOOTDEV}' komutu başarısız."
 
@@ -335,63 +365,63 @@ msgstr "'grub-install ${BOOTDEV}' komutu başarısız."
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001 ../grub-installer.templates:13001
+#: ../grub-installer.templates:14001 ../grub-installer.templates:15001
 msgid "This is a fatal error."
 msgstr "Bu ölümcül bir hata."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:15001
 msgid "Executing 'update-grub' failed."
 msgstr "'update-grub' komutu başarısız."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:18001
 msgid "Installing GRUB boot loader"
 msgstr "GRUB önyükleyici kuruluyor"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:17001
+#: ../grub-installer.templates:19001
 msgid "Looking for other operating systems..."
 msgstr "Sisteminizde kurulu diğer işletim sistemleri araştırılıyor..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18001
+#: ../grub-installer.templates:20001
 msgid "Installing the '${GRUB}' package..."
 msgstr "'${GRUB}' paketi kuruluyor..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:19001
+#: ../grub-installer.templates:21001
 msgid "Determining GRUB boot device..."
 msgstr "GRUB önyükleme aygıtı belirleniyor..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:20001
+#: ../grub-installer.templates:22001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "\"grub-install ${BOOTDEV}\" çalıştırılıyor..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:21001
+#: ../grub-installer.templates:23001
 msgid "Running \"update-grub\"..."
 msgstr "\"update-grub\" çalıştırılıyor..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:22001
+#: ../grub-installer.templates:24001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "/etc/kernel-img.conf güncelleniyor..."
 
@@ -399,7 +429,7 @@ msgstr "/etc/kernel-img.conf güncelleniyor..."
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:23001
+#: ../grub-installer.templates:25001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "GRUB önyükleyiciyi bir sabit diske kur"
 
@@ -407,6 +437,6 @@ msgstr "GRUB önyükleyiciyi bir sabit diske kur"
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:24001
+#: ../grub-installer.templates:26001
 msgid "Reinstall GRUB boot loader"
 msgstr "GRUB önyükleyiciyi tekrar kur"

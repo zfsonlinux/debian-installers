@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2008-03-17 22:51+0000\n"
+"POT-Creation-Date: 2008-04-28 22:53+0000\n"
 "PO-Revision-Date: 2007-07-22 23:44+0600\n"
 "Last-Translator: Jamil Ahmed <jamil@bengalinux.org>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
@@ -140,7 +140,7 @@ msgstr "গ্রাব root ডিভাইসটি হলো: ${GRUBROOT}।"
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:4001 ../grub-installer.templates:6001
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:15001
 msgid "Unable to configure GRUB"
 msgstr "গ্রাব কনফিগার করতে পারছি না"
 
@@ -299,17 +299,47 @@ msgstr ""
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "আপনি যদি কোন গ্রাব পাসওয়ার্ড ব্যবহার করতে না চান, তবে এই ঘরটি ফাঁকা রাখুন।"
 
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:10001
+msgid "Re-enter password to verify:"
+msgstr ""
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:10001
+msgid ""
+"Please enter the same GRUB password again to verify that you have typed it "
+"correctly."
+msgstr ""
+
 #. Type: error
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:11001
+msgid "Password input error"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:11001
+msgid "The two passwords you entered were not the same. Please try again."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:13001
 msgid "GRUB installation failed"
 msgstr "গ্রাব ইনস্টলেশন ব্যর্থ হয়েছে"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:11001
+#: ../grub-installer.templates:13001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -320,14 +350,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:14001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "গ্রাবকে ${BOOTDEV}-এ ইনস্টল করা যাচ্ছে না"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:14001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "'grub-install ${BOOTDEV}' কমান্ডটি চালানোর চেষ্টা ব্যর্থ হয়েছে।"
 
@@ -337,63 +367,63 @@ msgstr "'grub-install ${BOOTDEV}' কমান্ডটি চালানোর
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001 ../grub-installer.templates:13001
+#: ../grub-installer.templates:14001 ../grub-installer.templates:15001
 msgid "This is a fatal error."
 msgstr "এটি একটি মারাত্মক ত্রুটি।"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:15001
 msgid "Executing 'update-grub' failed."
 msgstr "'update-grub' চালানোর চেষ্টা ব্যর্থ হয়েছে।"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:18001
 msgid "Installing GRUB boot loader"
 msgstr "গ্রাব বুট লোডার ইনস্টল করছি"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:17001
+#: ../grub-installer.templates:19001
 msgid "Looking for other operating systems..."
 msgstr "অন্যান্য অপারেটিং সিস্টেম খোঁজা হচ্ছে..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18001
+#: ../grub-installer.templates:20001
 msgid "Installing the '${GRUB}' package..."
 msgstr "'${GRUB}' প্যাকেজ ইনস্টল করা হচ্ছে..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:19001
+#: ../grub-installer.templates:21001
 msgid "Determining GRUB boot device..."
 msgstr "গ্রাব বুট ডিভাইস নির্ধারণ করা হচ্ছে..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:20001
+#: ../grub-installer.templates:22001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "\"grub-install ${BOOTDEV}\" চালাচ্ছি..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:21001
+#: ../grub-installer.templates:23001
 msgid "Running \"update-grub\"..."
 msgstr "\"update-grub\" চালাচ্ছি..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:22001
+#: ../grub-installer.templates:24001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "/etc/kernel-img.conf ফাইলটি আপডেট করছি..."
 
@@ -401,7 +431,7 @@ msgstr "/etc/kernel-img.conf ফাইলটি আপডেট করছি..."
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:23001
+#: ../grub-installer.templates:25001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "কোন একটি হার্ড ডিস্কে গ্রাব বুট লোডার ইনস্টল করো"
 
@@ -409,6 +439,6 @@ msgstr "কোন একটি হার্ড ডিস্কে গ্রা�
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:24001
+#: ../grub-installer.templates:26001
 msgid "Reinstall GRUB boot loader"
 msgstr "পুনরায় গ্রাব বুট লোডার ইনস্টলকরণ"
