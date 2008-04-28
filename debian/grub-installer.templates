@@ -108,11 +108,24 @@ _Description: GRUB password:
  .
  If you do not wish to set a GRUB password, leave this field blank.
 
+Template: grub-installer/password-again
+Type: password
+# :sl2:
+_Description: Re-enter password to verify:
+ Please enter the same GRUB password again to verify that you have typed it
+ correctly.
+
+Template: grub-installer/password-mismatch
+Type: error
+# :sl2:
+_Description: Password input error
+ The two passwords you entered were not the same. Please try again.
+
+# Allow preseeding the GRUB password with an encrypted password
+# rather than cleartext
 Template: grub-installer/password-crypted
-Type: boolean
-Default: false
+Type: password
 Description: for internal use; can be preseeded
- Has the value of grub-installer/password already been encrypted?
 
 Template: grub-installer/apt-install-failed
 Type: error

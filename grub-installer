@@ -626,25 +626,67 @@ if [ "$frdev" ] && [ $frgrubroot -gt 0 ]; then
 		/^# groot/s/(hd0,0)/(hd0,$frgrubroot)/" $ROOT/boot/grub/$menu_file
 fi
 
-# Set up a password if asked
+# Set a password if asked
 if [ "$grub_version" = "grub" ] ; then
-	db_input low grub-installer/password || true
-	if ! db_go; then
-		# back up to menu
-		db_progress STOP
-		exit 10
-	fi
-	db_get grub-installer/password
-	if [ "$RET" ]; then
+	# Set up a password if asked or preseeded.
+	password=
+	db_get grub-installer/password-crypted
+	if [ "$RET" = false ] || [ "$RET" = true ]; then
+		# password-crypted used to be a boolean template
+		error "Preseeding of encrypted passwords changed! Check installation guide."
+		exit 1
+	elif [ "$RET" ]; then
 		password="$RET"
-		# check if the password is crypted
-		db_get grub-installer/password-crypted
-		if [ "$RET" = false ]; then
+	else
+		PW_PRIO=low
+		while :; do
+			password=""
+			db_input $PW_PRIO grub-installer/password || true
+			if ! db_go; then
+				# back up to menu
+				db_progress STOP
+				exit 10
+			fi
+
+			db_get grub-installer/password
+			if [ "$RET" ]; then
+				password="$RET"
+				db_input $PW_PRIO grub-installer/password-again || true
+				if ! db_go; then
+					db_progress STOP
+					exit 10
+				fi
+				
+				db_get grub-installer/password-again
+				if [ "$password" = "$RET" ]; then
+					break
+				else
+					db_input critical grub-installer/password-mismatch || true
+					if ! db_go; then
+						db_progress STOP
+						exit 10
+					fi
+				fi
+			else
+				# The user doesn't want a password
+				break
+			fi
+			# We only get here if passwords don't match
+			PW_PRIO=critical
+			db_set grub-installer/password ""
+			db_set grub-installer/password-again ""
+			db_fset grub-installer/password seen false
+			db_fset grub-installer/password-again seen false
+		done
+		if [ "$password" ]; then
 			password=$(echo -e "md5crypt\n$password" | \
 				   $chroot $ROOT \
 				   grub --batch --device-map=/dev/null 2>&1 | \
 				   grep "^Encrypted:" | cut -d' ' -f2)
 		fi
+	fi
+
+	if [ "$password" ]; then
 		echo "password --md5 $password" >/tmp/menu.lst.password
 		# Add a line to menu.lst to use the given password
 		# The line is appended after the commented example
