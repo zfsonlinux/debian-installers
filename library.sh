@@ -702,8 +702,10 @@ addmodule_yaird () {
 
 # Assumes the file protocol is only used for CD (image) installs
 configure_apt () {
-	# Let apt inside the chroot see the cdrom
-	if [ "$PROTOCOL" = file ] ; then
+	if [ "$PROTOCOL" = file ]; then
+		rm -f /var/lib/install-cd.id
+
+		# Let apt inside the chroot see the cdrom
 		if [ -n "$DIRECTORY" ]; then
 			umount /target$DIRECTORY 2>/dev/null || true
 			if [ ! -e /target/$DIRECTORY ]; then
@@ -711,15 +713,18 @@ configure_apt () {
 			fi
 		fi
 
-		# For hd-media installs bind mount the CD for the duration
-		# of the installation
-		if [ -d /hd-media ]; then
-			if ! mount -o bind $DIRECTORY /target$DIRECTORY; then
-				warning "failed to bind mount /target$DIRECTORY"
-			fi
-			# Make sure apt-cdrom and apt don't unmount/mount the CD;
-			# the file is left in place until the end of the install
-			cat > /target/etc/apt/apt.conf.d/00NoMountCDROM << EOT
+		# The bind mount is left mounted, for future apt-install
+		# calls to use.
+		if ! mount -o bind $DIRECTORY /target$DIRECTORY; then
+			warning "failed to bind mount /target$DIRECTORY"
+		fi
+
+		# Make apt-cdrom and apt not unmount/mount CD-ROMs;
+		# needed to support CD images (hd-media installs).
+		# This file will be left in place until the end of the
+		# install for hd-media installs, but is removed again
+		# during apt-setup for installs using real CD/DVDs.
+		cat > /target/etc/apt/apt.conf.d/00NoMountCDROM << EOT
 APT::CDROM::NoMount "true";
 Acquire::cdrom {
   mount "/cdrom";
@@ -729,7 +734,6 @@ Acquire::cdrom {
   };
 }
 EOT
-		fi
 
 		# Scan CD-ROM or CD image; start with clean sources.list
 		# Prevent apt-cdrom from prompting
