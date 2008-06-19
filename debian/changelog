@@ -1,3 +1,12 @@
+base-installer (1.92) UNRELEASED; urgency=low
+
+  * Call base-installer.d hooks after running debootstrap, for consistency
+    with live-installer. (So, pre_install_hooks is run after bootstrap, but
+    before anything is installed with apt. So the name still makes a kind
+    of sense, if you squint..)
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 18 Jun 2008 21:20:28 -0400
+
 base-installer (1.91) unstable; urgency=low
 
   [ Updated translations ]
