@@ -4,6 +4,9 @@ base-installer (1.92) UNRELEASED; urgency=low
     with live-installer. (So, pre_install_hooks is run after bootstrap, but
     before anything is installed with apt. So the name still makes a kind
     of sense, if you squint..)
+  * Remove sources.list before running base-installer.d hooks. Otherwise,
+    apt-install will try to run apt, rather than queuing, and apt is not
+    configured yet.
 
  -- Joey Hess <joeyh@debian.org>  Wed, 18 Jun 2008 21:20:28 -0400
 

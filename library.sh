@@ -200,6 +200,9 @@ install_extra () {
 }
 
 pre_install_hooks () {
+	# avoid apt-install installing things; apt is not configured yet
+	rm -f /target/etc/apt/sources.list
+
 	partsdir="/usr/lib/base-installer.d"
 	if [ -d "$partsdir" ]; then
 		for script in `ls "$partsdir"/* 2>/dev/null`; do
