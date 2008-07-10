@@ -56,11 +56,11 @@ arch_get_kernel () {
 	if [ "$1" = k7 ]; then
 		echo "$imgbase-$KERNEL_MAJOR-k7"
 		set 486
-	fi
-
-	if [ "$1" = 686 ]; then
+	elif [ "$1" = 686 ]; then
 		echo "$imgbase-$KERNEL_MAJOR-686"
 		set 486
+	else
+		set 486
 	fi
-	echo "$imgbase-$KERNEL_MAJOR-486"
+	echo "$imgbase-$KERNEL_MAJOR-$1"
 }
