@@ -53,13 +53,13 @@ arch_check_usable_kernel () {
 arch_get_kernel () {
 	imgbase=linux-image
 
+	set 486
 	if [ "$1" = k7 ]; then
 		echo "$imgbase-$KERNEL_MAJOR-k7"
 		set 486
-	elif [ "$1" = 686 ]; then
+	fi
+	if [ "$1" = 686 ]; then
 		echo "$imgbase-$KERNEL_MAJOR-686"
-		set 486
-	else
 		set 486
 	fi
 	echo "$imgbase-$KERNEL_MAJOR-$1"
