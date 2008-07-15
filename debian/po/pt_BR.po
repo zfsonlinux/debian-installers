@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2008-03-19 19:10+0000\n"
-"PO-Revision-Date: 2008-03-21 19:22-0300\n"
+"PO-Revision-Date: 2008-07-14 18:13-0300\n"
 "Last-Translator: Felipe Augusto van de Wiel (faw) <faw@debian.org>\n"
 "Language-Team: l10n portuguese <debian-l10n-portuguese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -198,7 +198,7 @@ msgstr "Erro do debootstrap"
 #. Description
 #: ../bootstrap-base.templates:3001
 msgid "Failed to determine the codename for the release."
-msgstr "Falha ao determinar o codinome para o release."
+msgstr "Falha ao determinar o codinome para a versão."
 
 #. Type: error
 #. Description
@@ -274,16 +274,16 @@ msgid ""
 "should select the default. If your system fails to boot, you can retry the "
 "installation using the other options."
 msgstr ""
-"A lista exibe as ferramentas disponíveis. Caso você não esteja certo sobre "
-"qual selecionar, você deverá selecionar a ferramenta padrão. Caso seu "
-"sistema falhe ao iniciar, você pode tentar a instalação novamente utilizando "
-"as outras opções."
+"A lista exibe as ferramentas disponíveis. Se você não tem certeza sobre qual "
+"selecionar, você deverá selecionar a ferramenta padrão. Se seu sistema "
+"falhar ao iniciar, você pode tentar a instalação novamente utilizando as "
+"outras opções."
 
 #. Type: error
 #. Description
 #: ../bootstrap-base.templates:9001
 msgid "Unsupported initrd generator"
-msgstr "Gerador de initrd não suportado"
+msgstr "Não há suporte para o gerador initrd"
 
 #. Type: error
 #. Description
@@ -292,8 +292,8 @@ msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
 msgstr ""
-"O pacote ${GENERATOR} que foi selecionado para gerar o initrd não é "
-"suportado."
+"O pacote ${GENERATOR} que foi selecionado para gerar o initrd não tem "
+"suporte."
 
 #. Type: error
 #. Description
@@ -353,7 +353,7 @@ msgstr "Continuar sem instalar um kernel?"
 #. Description
 #: ../bootstrap-base.templates:13001
 msgid "No installable kernel was found in the defined APT sources."
-msgstr "Nenhum kernel instalável foi encontrado nos fontes APT definidos."
+msgstr "Nenhum kernel instalável foi encontrado nas fontes APT definidas."
 
 #. Type: boolean
 #. Description
@@ -364,8 +364,8 @@ msgid ""
 "likely end up with a machine that doesn't boot."
 msgstr ""
 "Você pode tentar continuar sem um kernel e instalar manualmente seu próprio "
-"kernel posteriormente. Isso é recomendado somente para especialistas, já que "
-"você pode terminar com uma máquina que não inicia."
+"kernel posteriormente. Isto é recomendado somente para especialistas, já que "
+"você pode terminar com uma máquina que não inicializa."
 
 #. Type: error
 #. Description
@@ -401,34 +401,35 @@ msgstr ""
 #. SUBST0 is a Release file name.
 #: ../bootstrap-base.templates:16001
 msgid "Failed getting Release file ${SUBST0}."
-msgstr "Falha ao obter arquivo Release ${SUBST0}."
+msgstr "Falha ao obter arquivo 'Release' ${SUBST0}."
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release.gpg file name
 #: ../bootstrap-base.templates:17001
 msgid "Failed getting Release signature file ${SUBST0}."
-msgstr "Falha ao obter arquivo de assinatura Release ${SUBST0}."
+msgstr "Falha ao obter assinatura do arquivo 'Release' ${SUBST0}."
 
 #. Type: error
 #. Description
 #. SUBST0 is a gpg key ID
 #: ../bootstrap-base.templates:18001
 msgid "Release file signed by unknown key (key id ${SUBST0})"
-msgstr "Release assinado por chave desconhecida (id da chave ${SUBST0})"
+msgstr ""
+"Arquivo 'Release' assinado por chave desconhecida (id da chave ${SUBST0})"
 
 #. Type: error
 #. Description
 #: ../bootstrap-base.templates:19001
 msgid "Invalid Release file: no valid components."
-msgstr "Arquivo Release inválido: nenhum componente válido."
+msgstr "Arquivo 'Release' inválido: nenhum componente válido."
 
 #. Type: error
 #. Description
 #. SUBST0 is a filename
 #: ../bootstrap-base.templates:20001
 msgid "Invalid Release file: no entry for ${SUBST0}."
-msgstr "Arquivo Release inválido: nenhuma entrada para ${SUBST0}."
+msgstr "Arquivo 'Release' inválido: nenhuma entrada para ${SUBST0}."
 
 #. Type: error
 #. Description
@@ -439,7 +440,7 @@ msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
 msgstr ""
-"Não foi possível obter ${SUBST0}. Isso pode ser devido a um problema de rede "
+"Não foi possível obter ${SUBST0}. Isto pode ser devido a um problema de rede "
 "ou um CD ruim, dependendo do seu tipo de instalação."
 
 #. Type: error
@@ -451,43 +452,43 @@ msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
 msgstr ""
-"Se você está instalando de um CD-R ou CD-RW, gravar o CD em velocidade mais "
-"baixa pode ajudar."
+"Se você está instalando a partir de um CD-R ou CD-RW, gravar o CD em "
+"velocidade mais baixa pode ajudar."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
 #: ../bootstrap-base.templates:22001
 msgid "Retrieving Release file"
-msgstr "Obtendo arquivo Release"
+msgstr "Obtendo arquivo 'Release'"
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
 #: ../bootstrap-base.templates:23001
 msgid "Retrieving Release file signature"
-msgstr "Obtendo assinatura do arquivo Release"
+msgstr "Obtendo assinatura do arquivo 'Release'"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
 #: ../bootstrap-base.templates:24001
 msgid "Finding package sizes"
-msgstr "Buscando tamanho dos pacotes..."
+msgstr "Localizando tamanho dos pacotes..."
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
 #: ../bootstrap-base.templates:25001
 msgid "Retrieving Packages files"
-msgstr "Obtendo arquivo Packages"
+msgstr "Obtendo arquivos 'Packages'"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
 #: ../bootstrap-base.templates:26001
 msgid "Retrieving Packages file"
-msgstr "Obtendo arquivo Packages"
+msgstr "Obtendo arquivo 'Packages'"
 
 #. Type: text
 #. Description
@@ -591,7 +592,7 @@ msgstr "Configurando ${SUBST0}..."
 #. Release is a filename which should not be translated
 #: ../bootstrap-base.templates:41001
 msgid "Checking Release signature"
-msgstr "Conferindo assinatura do Release"
+msgstr "Conferindo assinatura do 'Release'"
 
 #. Type: text
 #. Description
@@ -599,7 +600,7 @@ msgstr "Conferindo assinatura do Release"
 #. Release is a filename which should not be translated
 #: ../bootstrap-base.templates:42001
 msgid "Valid Release signature (key id ${SUBST0})"
-msgstr "Assinatura do Release válida (id da chave ${SUBST0})"
+msgstr "Assinatura do 'Release' válida (id da chave ${SUBST0})"
 
 #. Type: text
 #. Description
@@ -626,7 +627,7 @@ msgstr "Dependências requeridas adicionais encontradas: ${SUBST0}"
 #. SUBST0 is a list of packages
 #: ../bootstrap-base.templates:46001
 msgid "Found packages in base already in required: ${SUBST0}"
-msgstr "Pacotes em básico já em requeridos encontrados: ${SUBST0}"
+msgstr "Encontrado pacotes básicos que já estão em requeridos: ${SUBST0}"
 
 #. Type: text
 #. Description
@@ -715,7 +716,7 @@ msgstr "Aviso: ${INFO}"
 #. SUBST0 is an url
 #: ../bootstrap-base.templates:57001
 msgid "Retrying failed download of ${SUBST0}"
-msgstr "Nova tentativa de download de ${SUBST0} falhou"
+msgstr "Tentando novamente baixar ${SUBST0}, pois o download anterior falhou"
 
 #. Type: text
 #. Description
