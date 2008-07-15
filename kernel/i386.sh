@@ -5,7 +5,15 @@ arch_get_kernel_flavour () {
 	case "$VENDOR" in
 	    " AuthenticAMD"*)
 		case "$FAMILY" in
-		    " 6"|" 15")	echo k7 ;;
+		    " 15")	echo 686 ;;	# k8
+		    " 6")			# k7
+			case "$MODEL" in
+			    " 0"|" 1"|" 2"|" 3"|" 4"|" 5")
+				# May not have SSE support
+				echo 486 ;;
+			    *)	echo 686 ;;
+			esac
+			;;
 		    *)		echo 486 ;;
 		esac
 		;;
@@ -40,10 +48,6 @@ arch_check_usable_kernel () {
 	if [ "$2" = 486 ]; then return 1; fi
 	if echo "$1" | grep -Eq -- "-686(-.*)?$"; then return 0; fi
 	if [ "$2" = 686 ]; then return 1; fi
-	if [ "$2" = k7 ]; then
-		if echo "$1" | grep -Eq -- "-k7(-.*)?$"; then return 0; fi
-		return 1
-	fi
 
 	# default to usable in case of strangeness
 	warning "Unknown kernel usability: $1 / $2"
@@ -55,9 +59,7 @@ arch_get_kernel () {
 
 	# See older versions of script for more flexible code structure
 	# that allows multiple levels of fallbacks
-	if [ "$1" = k7 ]; then
-		echo "$imgbase-$KERNEL_MAJOR-k7"
-	elif [ "$1" = 686 ]; then
+	if [ "$1" = 686 ]; then
 		echo "$imgbase-$KERNEL_MAJOR-686"
 	fi
 	echo "$imgbase-$KERNEL_MAJOR-486"

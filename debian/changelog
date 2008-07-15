@@ -1,3 +1,12 @@
+base-installer (1.93) UNRELEASED; urgency=low
+
+  * Improve kernel selection for AMD64. All k8 and most k7 systems support the
+    686 kernel flavor. Only older k7 systems without SSE support need 486.
+    Based on documentation the divider seems to be at family 6, model 6.
+    Closes: #490542.
+
+ -- Frans Pop <fjp@debian.org>  Tue, 15 Jul 2008 12:11:01 +0200
+
 base-installer (1.92) unstable; urgency=low
 
   * Call base-installer.d hooks after running debootstrap, for consistency
