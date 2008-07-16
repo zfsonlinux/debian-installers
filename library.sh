@@ -17,6 +17,7 @@ KERNEL_LIST=/tmp/available_kernels.txt
 KERNEL_MAJOR="$(uname -r | cut -d . -f 1,2)"
 KERNEL_VERSION="$(uname -r | cut -d - -f 1)"
 KERNEL_ABI="$(uname -r | cut -d - -f 1,2)"
+KERNEL_FLAVOUR=$(uname -r | cut -d - -f 3-)
 MACHINE="$(uname -m)"
 NUMCPUS=$(cat /var/numcpus 2>/dev/null) || true
 CPUINFO=/proc/cpuinfo
