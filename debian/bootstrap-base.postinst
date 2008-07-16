@@ -31,6 +31,10 @@ export DEBCONF_ADMIN_EMAIL
 SUBARCH="$(archdetect)"
 SUBARCH="${SUBARCH#*/}"
 
+# Avoid locale related errors during package installations
+export IT_LANG_OVERRIDE=C
+
+
 # See kernel/README for the architecture-specific functions expected here.
 if [ -f /usr/lib/base-installer/kernel.sh ]; then
 	. /usr/lib/base-installer/kernel.sh

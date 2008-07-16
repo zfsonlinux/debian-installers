@@ -5,13 +5,15 @@ base-installer (1.93) UNRELEASED; urgency=low
     686 kernel flavor. Only older k7 systems without SSE support need 486.
     Based on documentation the divider seems to be at family 6, model 6.
     Closes: #490542.
+  * Avoid locale related errors up to the point where locales gets installed
+    by setting IT_LANG_OVERRIDE=C for apt-install.
 
   [ Ian Campbell ]
   * i386: If the installer is running a -bigmem kernel and the processors
     support PAE then select a -bigmem kernel for installation. For
     compatibility with running under Xen. Closes: #480054.
 
- -- Frans Pop <fjp@debian.org>  Tue, 15 Jul 2008 12:11:01 +0200
+ -- Frans Pop <fjp@debian.org>  Wed, 16 Jul 2008 15:52:56 +0200
 
 base-installer (1.92) unstable; urgency=low
 

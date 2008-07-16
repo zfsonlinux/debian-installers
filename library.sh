@@ -228,6 +228,9 @@ pre_install_hooks () {
 }
 
 post_install_hooks () {
+	# locales will now be installed, so unset
+	unset IT_LANG_OVERRIDE
+
 	partsdir="/usr/lib/post-base-installer.d"
 	if [ -d "$partsdir" ]; then
 		scriptcount=`ls "$partsdir"/* 2>/dev/null | wc -l`
