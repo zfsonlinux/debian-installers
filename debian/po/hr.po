@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Debian-installer 1st-stage master file HR\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2008-04-28 22:53+0000\n"
-"PO-Revision-Date: 2006-09-25 23:55+0200\n"
+"PO-Revision-Date: 2008-07-28 01:00+0200\n"
 "Last-Translator: Josip Rodin <joy+ditrans@linux.hr>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "MIME-Version: 1.0\n"
@@ -85,16 +85,15 @@ msgstr ""
 #. Description
 #. :sl3:
 #: ../grub-installer.templates:3001
-#, fuzzy
 msgid "Install the GRUB boot loader to the Serial ATA RAID disk?"
-msgstr "Instaliraj GRUB boot učitavač na tvrdi disk"
+msgstr "Instaliraj GRUB boot učitavač na Serial ATA RAID disk?"
 
 #. Type: boolean
 #. Description
 #. :sl3:
 #: ../grub-installer.templates:3001
 msgid "Installation of GRUB on Serial ATA RAID is experimental."
-msgstr ""
+msgstr "Instalacija GRUB-a na Serial ATA RAID je eksperimentalna."
 
 #. Type: boolean
 #. Description
@@ -105,6 +104,9 @@ msgid ""
 "RAID disk. It is also assumed that disk is listed as the first hard disk in "
 "the boot order defined in the system's BIOS setup."
 msgstr ""
+"GRUB se uvijek instalira na osnovni boot zapis (MBR) Serial ATA RAID diska. "
+"Također se podrazumijeva da je disk odabran kao prvi tvrdi disk u poretku "
+"dizanja koji se podešava u BIOS-u sustava."
 
 #. Type: boolean
 #. Description
@@ -114,7 +116,7 @@ msgstr ""
 #. :sl3:
 #: ../grub-installer.templates:3001 ../grub-installer.templates:5001
 msgid "The GRUB root device is: ${GRUBROOT}."
-msgstr ""
+msgstr "Osnovni (root) uređaj u GRUB-u je: ${GRUBROOT}."
 
 #. Type: error
 #. Description
@@ -134,9 +136,9 @@ msgstr "Ne mogu podesiti GRUB"
 #. Description
 #. :sl3:
 #: ../grub-installer.templates:4001
-#, fuzzy
 msgid "An error occurred while setting up GRUB for your Serial ATA RAID disk."
-msgstr "Pojavila se pogreška pri podešavanju enkriptiranih prostora."
+msgstr ""
+"Pojavila se pogreška pri podešavanju GRUB-a za vaš Serial ATA RAID disk."
 
 #. Type: error
 #. Description
@@ -145,24 +147,22 @@ msgstr "Pojavila se pogreška pri podešavanju enkriptiranih prostora."
 #. Description
 #. :sl3:
 #: ../grub-installer.templates:4001 ../grub-installer.templates:6001
-#, fuzzy
 msgid "The GRUB installation has been aborted."
-msgstr "Podešavanje je prekinuto."
+msgstr "Instalacija GRUB-a je prekinuta."
 
 #. Type: boolean
 #. Description
 #. :sl3:
 #: ../grub-installer.templates:5001
-#, fuzzy
 msgid "Install the GRUB boot loader to the multipath device?"
-msgstr "Instalirati GRUB boot učitavač u osnovni boot zapis?"
+msgstr "Instalirati GRUB boot učitavač na multipath uređaj?"
 
 #. Type: boolean
 #. Description
 #. :sl3:
 #: ../grub-installer.templates:5001
 msgid "Installation of GRUB on multipath is experimental."
-msgstr ""
+msgstr "Instalacija GRUB-a na multipath je eksperimentalna."
 
 #. Type: boolean
 #. Description
@@ -173,14 +173,16 @@ msgid ""
 "device. It is also assumed that the WWID of this device is selected as boot "
 "device in the system's FibreChannel adapter BIOS."
 msgstr ""
+"GRUB se uvijek instalira na osnovni boot zapis (MBR) multipath uređaja. "
+"Također se podrazumijeva da je WWID ovog uređaja odabran kao uređaj za "
+"dizanje sustava u BIOS-u FibreChannel adaptera."
 
 #. Type: error
 #. Description
 #. :sl3:
 #: ../grub-installer.templates:6001
-#, fuzzy
 msgid "An error occurred while setting up GRUB for the multipath device."
-msgstr "Pojavila se pogreška pri podešavanju enkriptiranih prostora."
+msgstr "Pojavila se pogreška pri podešavanju GRUB-a za multipath uređaj."
 
 #. Type: boolean
 #. Description
@@ -294,13 +296,11 @@ msgstr "Iznova unesite lozinku za potvrdu:"
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:10001
-#, fuzzy
 msgid ""
 "Please enter the same GRUB password again to verify that you have typed it "
 "correctly."
 msgstr ""
-"Molim unesite istu korijensku lozinku kao potvrdu da ste je ispravno "
-"utipkali."
+"Molim unesite istu GRUB lozinku kao potvrdu da ste je ispravno utipkali."
 
 #. Type: error
 #. Description
@@ -320,9 +320,8 @@ msgstr "Lozinke koje ste unijeli nisu jednake. Molim pokušajte iznova."
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:13001
-#, fuzzy
 msgid "GRUB installation failed"
-msgstr "Instalacija LILO-a nije uspjela."
+msgstr "Instalacija GRUB-a nije uspjela"
 
 #. Type: error
 #. Description
@@ -332,6 +331,8 @@ msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
 msgstr ""
+"Paket '${GRUB}' se nije uspio instalirati na /target/. Bez GRUB boot "
+"učitavača, instalirani sustav se neće moći podići."
 
 #. Type: error
 #. Description
@@ -382,9 +383,8 @@ msgstr "Tražim druge operacijske sustave..."
 #. Description
 #. :sl1:
 #: ../grub-installer.templates:20001
-#, fuzzy
 msgid "Installing the '${GRUB}' package..."
-msgstr "Instaliram GRUB paket..."
+msgstr "Instaliram '${GRUB}' paket..."
 
 #. Type: text
 #. Description
