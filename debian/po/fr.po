@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2008-03-19 19:10+0000\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2008-08-05 09:12+0200\n"
+"Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,6 +32,7 @@ msgstr ""
 #: ../base-installer.templates:1001
 msgid "Proceed with installation to unclean target?"
 msgstr ""
+"Faut-il installer le système de base par-dessus l'ancienne installation ?"
 
 #. Type: boolean
 #. Description
@@ -42,14 +43,17 @@ msgid ""
 "could cause problems with the installation process, and if you proceed, some "
 "of the existing files may be overwritten."
 msgstr ""
+"Le système de fichiers de destination contient des fichiers provenant d'une "
+"installation précédente. Ces fichiers pourraient perturber la procédure "
+"d'installation. Si vous continuez malgré tout, certains des fichiers "
+"existants pourraient être écrasés."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../base-installer.templates:2001
-#, fuzzy
 msgid "No file system mounted on /target"
-msgstr "Aucun interpréteur de commandes (« shell ») dans /target"
+msgstr "Aucun système de fichiers monté sur /target"
 
 #. Type: error
 #. Description
@@ -59,14 +63,16 @@ msgid ""
 "Before the installation can proceed, a root file system must be mounted on /"
 "target. The partitioner and formatter should have done this for you."
 msgstr ""
+"Avant l'installation proprement dite, un système de fichiers racine doit "
+"être monté sur /target. L'outil de partitionnement et de formatage devrait "
+"avoir effectué cette opération."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../base-installer.templates:3001
-#, fuzzy
 msgid "Not installing to unclean target"
-msgstr "Emplacement d'installation de lilo :"
+msgstr "Pas d'installation sur une destination non vierge"
 
 #. Type: error
 #. Description
@@ -77,13 +83,16 @@ msgid ""
 "back and erase or format the target file system before proceeding with the "
 "install."
 msgstr ""
+"L'installation sur le système de fichiers destinataire a été annulée. Vous "
+"devriez revenir en arrière puis effacer ou reformater le système de fichiers "
+"de destination avant d'effectuer l'installation."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../base-installer.templates:4001
 msgid "Preparing to install the base system..."
-msgstr ""
+msgstr "Préparation de l'installation du système de base..."
 
 #. Type: text
 #. Description
@@ -92,21 +101,21 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:5001 ../bootstrap-base.templates:29001
 msgid "Installing the base system"
-msgstr ""
+msgstr "Installation du système de base"
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../base-installer.templates:6001
 msgid "Running ${SCRIPT}..."
-msgstr ""
+msgstr "Exécution du script ${SCRIPT}..."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../base-installer.templates:7001
 msgid "Setting up the base system..."
-msgstr ""
+msgstr "Configuration du système de base..."
 
 #. Type: text
 #. Description
@@ -115,21 +124,21 @@ msgstr ""
 #. Description
 #: ../base-installer.templates:8001 ../bootstrap-base.templates:58001
 msgid "Configuring APT sources..."
-msgstr ""
+msgstr "Configuration des sources d'APT..."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../base-installer.templates:9001
 msgid "Updating the list of available packages..."
-msgstr ""
+msgstr "Mise à jour de la liste des paquets disponibles..."
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../base-installer.templates:10001
 msgid "Installing extra packages..."
-msgstr ""
+msgstr "Installation des paquets supplémentaires..."
 
 #. Type: text
 #. Description
@@ -138,6 +147,8 @@ msgstr ""
 #: ../base-installer.templates:11001
 msgid "Installing extra packages - retrieving and installing ${SUBST0}..."
 msgstr ""
+"Installation de paquets supplémentaires : récupération et installation de "
+"${SUBST0}..."
 
 #. Type: text
 #. Description
@@ -145,7 +156,7 @@ msgstr ""
 #. TRANSLATORS: <65 columns
 #: ../bootstrap-base.templates:1001
 msgid "Install the base system"
-msgstr ""
+msgstr "Installer le système de base"
 
 #. Type: error
 #. Description
@@ -153,7 +164,7 @@ msgstr ""
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 #: ../bootstrap-base.templates:2001
 msgid "Cannot install base system"
-msgstr ""
+msgstr "Impossible d'installer le système de base"
 
 #. Type: error
 #. Description
@@ -164,6 +175,9 @@ msgid ""
 "The installer cannot figure out how to install the base system. No "
 "installable CD-ROM was found and no valid mirror was configured."
 msgstr ""
+"L'outil d'installation n'a pas trouvé de méthode pour installer le système "
+"de base. Aucun CD d'installation n'a été trouvé et aucun miroir valable n'a "
+"été configuré."
 
 #. Type: error
 #. Description
@@ -192,25 +206,27 @@ msgstr ""
 #: ../bootstrap-base.templates:18001 ../bootstrap-base.templates:19001
 #: ../bootstrap-base.templates:20001 ../bootstrap-base.templates:21001
 msgid "Debootstrap Error"
-msgstr ""
+msgstr "Erreur de debootstrap"
 
 #. Type: error
 #. Description
 #: ../bootstrap-base.templates:3001
 msgid "Failed to determine the codename for the release."
 msgstr ""
+"Il n'a pas été possible de déterminer le nom de code de cette version de la "
+"distribution."
 
 #. Type: error
 #. Description
 #: ../bootstrap-base.templates:4001
 msgid "Failed to install the base system"
-msgstr ""
+msgstr "Impossible d'installer le système de base"
 
 #. Type: error
 #. Description
 #: ../bootstrap-base.templates:4001
 msgid "The base system installation into /target/ failed."
-msgstr ""
+msgstr "Le système de base n'a pas pu être installé dans /target/."
 
 #. Type: error
 #. Description
@@ -229,6 +245,8 @@ msgstr ""
 #: ../bootstrap-base.templates:10001 ../bootstrap-base.templates:15001
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
+"Veuillez consulter le fichier /var/log/syslog ou la quatrième console "
+"virtuelle pour obtenir des précisions."
 
 #. Type: error
 #. Description
@@ -236,7 +254,7 @@ msgstr ""
 #. Description
 #: ../bootstrap-base.templates:5001 ../bootstrap-base.templates:6001
 msgid "Base system installation error"
-msgstr ""
+msgstr "Erreur dans l'installation du système de base"
 
 #. Type: error
 #. Description
@@ -244,24 +262,26 @@ msgstr ""
 msgid ""
 "The debootstrap program exited with an error (return value ${EXITCODE})."
 msgstr ""
+"Le programme debootstrap s'est terminé avec une erreur (valeur de retour "
+"${EXITCODE})."
 
 #. Type: error
 #. Description
 #: ../bootstrap-base.templates:6001
 msgid "The debootstrap program exited abnormally."
-msgstr ""
+msgstr "Le programme debootstrap s'est terminé de façon anormale."
 
 #. Type: error
 #. Description
 #: ../bootstrap-base.templates:7001
 msgid "The following error occurred:"
-msgstr ""
+msgstr "L'erreur suivante s'est produite :"
 
 #. Type: select
 #. Description
 #: ../bootstrap-base.templates:8001
 msgid "Tool to use to generate boot initrd:"
-msgstr ""
+msgstr "Outil de création de l'image disque de démarrage (« initrd ») :"
 
 #. Type: select
 #. Description
@@ -271,12 +291,16 @@ msgid ""
 "should select the default. If your system fails to boot, you can retry the "
 "installation using the other options."
 msgstr ""
+"La liste vous donne tous les outils disponibles. Si vous ne savez pas lequel "
+"choisir, laissez la valeur par défaut. Si le système ne démarre pas "
+"correctement, vous pourrez retenter l'installation avec une des autres "
+"options."
 
 #. Type: error
 #. Description
 #: ../bootstrap-base.templates:9001
 msgid "Unsupported initrd generator"
-msgstr ""
+msgstr "Outil de création d'image disque non géré"
 
 #. Type: error
 #. Description
@@ -285,12 +309,14 @@ msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
 msgstr ""
+"Le paquet ${GENERATOR} que vous avez choisi pour créer l'image disque n'est "
+"pas géré."
 
 #. Type: error
 #. Description
 #: ../bootstrap-base.templates:10001
 msgid "Unable to install the selected kernel"
-msgstr ""
+msgstr "Impossible d'installer le noyau choisi"
 
 #. Type: error
 #. Description
@@ -299,12 +325,14 @@ msgid ""
 "An error was returned while trying to install the kernel into the target "
 "system."
 msgstr ""
+"Une erreur s'est produite lors de la tentative d'installation du noyau vers "
+"le système cible."
 
 #. Type: error
 #. Description
 #: ../bootstrap-base.templates:10001
 msgid "Kernel package: '${KERNEL}'."
-msgstr ""
+msgstr "Paquet du noyau : « ${KERNEL} »."
 
 #. Type: select
 #. Choices
@@ -315,13 +343,13 @@ msgid ""
 "none[ Do not translate what's inside the brackets and just put the "
 "translation for the word \"none\" in your language without any brackets. "
 "This \"none\" means \"no kernel\" ]"
-msgstr ""
+msgstr "aucun"
 
 #. Type: select
 #. Description
 #: ../bootstrap-base.templates:11002
 msgid "Kernel to install:"
-msgstr ""
+msgstr "Noyau à installer :"
 
 #. Type: select
 #. Description
@@ -330,18 +358,20 @@ msgid ""
 "The list shows the available kernels. Please choose one of them in order to "
 "make the system bootable from the hard drive."
 msgstr ""
+"La liste montre les noyaux disponibles. Veuillez choisir l'un d'entre eux "
+"afin que le système puisse démarrer à partir du disque dur."
 
 #. Type: boolean
 #. Description
 #: ../bootstrap-base.templates:13001
 msgid "Continue without installing a kernel?"
-msgstr ""
+msgstr "Voulez-vous poursuivre sans installer un noyau ?"
 
 #. Type: boolean
 #. Description
 #: ../bootstrap-base.templates:13001
 msgid "No installable kernel was found in the defined APT sources."
-msgstr ""
+msgstr "Aucun noyau installable n'a été trouvé parmi les sources APT définies."
 
 #. Type: boolean
 #. Description
@@ -351,24 +381,27 @@ msgid ""
 "kernel later. This is only recommended for experts, otherwise you will "
 "likely end up with a machine that doesn't boot."
 msgstr ""
+"Vous pouvez continuer sans installer de noyau et en installer un vous-même "
+"plus tard. Cela n'est recommandé qu'aux utilisateurs expérimentés car il est "
+"très probable que votre machine devienne incapable de démarrer."
 
 #. Type: error
 #. Description
 #: ../bootstrap-base.templates:14001
 msgid "Cannot install kernel"
-msgstr ""
+msgstr "Impossible d'installer le noyau"
 
 #. Type: error
 #. Description
 #: ../bootstrap-base.templates:14001
 msgid "The installer cannot find a suitable kernel package to install."
-msgstr ""
+msgstr "L'installateur ne peut pas trouver de noyau adapté à installer."
 
 #. Type: error
 #. Description
 #: ../bootstrap-base.templates:15001
 msgid "Unable to install ${PACKAGE}"
-msgstr ""
+msgstr "Impossible d'installer ${PACKAGE}"
 
 #. Type: error
 #. Description
@@ -377,40 +410,42 @@ msgid ""
 "An error was returned while trying to install the ${PACKAGE} package onto "
 "the target system."
 msgstr ""
+"Une erreur s'est produite lors de la tentative d'installation du paquet "
+"${PACKAGE} vers le système cible."
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release file name.
 #: ../bootstrap-base.templates:16001
 msgid "Failed getting Release file ${SUBST0}."
-msgstr ""
+msgstr "Échec de la récupération du fichier « Release » ${SUBST0}."
 
 #. Type: error
 #. Description
 #. SUBST0 is a Release.gpg file name
 #: ../bootstrap-base.templates:17001
 msgid "Failed getting Release signature file ${SUBST0}."
-msgstr ""
+msgstr "Échec de la récupération du fichier « Release » ${SUBST0}."
 
 #. Type: error
 #. Description
 #. SUBST0 is a gpg key ID
 #: ../bootstrap-base.templates:18001
 msgid "Release file signed by unknown key (key id ${SUBST0})"
-msgstr ""
+msgstr "Fichier « Release » signé par une clé inconnue (${SUBST0})"
 
 #. Type: error
 #. Description
 #: ../bootstrap-base.templates:19001
 msgid "Invalid Release file: no valid components."
-msgstr ""
+msgstr "Fichier « Release » non valable : aucun composant n'est valable."
 
 #. Type: error
 #. Description
 #. SUBST0 is a filename
 #: ../bootstrap-base.templates:20001
 msgid "Invalid Release file: no entry for ${SUBST0}."
-msgstr ""
+msgstr "Fichier « Release » invalide : pas d'entrée pour ${SUBST0}."
 
 #. Type: error
 #. Description
@@ -421,6 +456,8 @@ msgid ""
 "Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
 "CD, depending on your installation method."
 msgstr ""
+"Impossible de récupérer ${SUBST0}. Ceci peut être dû à un problème de réseau "
+"ou un CD défectueux, selon votre méthode d'installation."
 
 #. Type: error
 #. Description
@@ -431,55 +468,57 @@ msgid ""
 "If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
 "may help."
 msgstr ""
+"Si vous installez à partir d'un CD-R ou CD-RW, enregistrer le CD à une "
+"vitesse plus faible peut aider."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
 #: ../bootstrap-base.templates:22001
 msgid "Retrieving Release file"
-msgstr ""
+msgstr "Réception du fichier « Release »"
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
 #: ../bootstrap-base.templates:23001
 msgid "Retrieving Release file signature"
-msgstr ""
+msgstr "Réception de la signature du fichier « Release »"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
 #: ../bootstrap-base.templates:24001
 msgid "Finding package sizes"
-msgstr ""
+msgstr "Calcul de la taille des paquets"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
 #: ../bootstrap-base.templates:25001
 msgid "Retrieving Packages files"
-msgstr ""
+msgstr "Réception des fichiers « Packages »"
 
 #. Type: text
 #. Description
 #. Packages is a filename which should not be translated
 #: ../bootstrap-base.templates:26001
 msgid "Retrieving Packages file"
-msgstr ""
+msgstr "Réception du fichier « Packages »"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
 #: ../bootstrap-base.templates:27001
 msgid "Retrieving packages"
-msgstr ""
+msgstr "Réception des paquets"
 
 #. Type: text
 #. Description
 #. "packages" here can be translated
 #: ../bootstrap-base.templates:28001
 msgid "Extracting packages"
-msgstr ""
+msgstr "Extraction des paquets"
 
 #. Type: text
 #. Description
@@ -489,7 +528,7 @@ msgstr ""
 #. be installed on the base system because of dependency resolution
 #: ../bootstrap-base.templates:30001
 msgid "Installing core packages"
-msgstr ""
+msgstr "Installation des paquets de base"
 
 #. Type: text
 #. Description
@@ -499,13 +538,13 @@ msgstr ""
 #. packages from the core packages depends on them
 #: ../bootstrap-base.templates:31001
 msgid "Unpacking required packages"
-msgstr ""
+msgstr "Décompression des paquets nécessaires"
 
 #. Type: text
 #. Description
 #: ../bootstrap-base.templates:32001
 msgid "Configuring required packages"
-msgstr ""
+msgstr "Configuration des paquets nécessaires"
 
 #. Type: text
 #. Description
@@ -513,7 +552,7 @@ msgstr ""
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 #: ../bootstrap-base.templates:33001
 msgid "Unpacking the base system"
-msgstr ""
+msgstr "Décompression du système de base"
 
 #. Type: text
 #. Description
@@ -521,55 +560,55 @@ msgstr ""
 #. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
 #: ../bootstrap-base.templates:34001
 msgid "Configuring the base system"
-msgstr ""
+msgstr "Configuration du système de base"
 
 #. Type: text
 #. Description
 #: ../bootstrap-base.templates:35001
 msgid "${SECTION}: ${INFO}..."
-msgstr ""
+msgstr "${SECTION}: ${INFO}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
 #: ../bootstrap-base.templates:36001
 msgid "Validating ${SUBST0}..."
-msgstr ""
+msgstr "Validation de ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
 #: ../bootstrap-base.templates:37001
 msgid "Retrieving ${SUBST0}..."
-msgstr ""
+msgstr "Réception de ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
 #: ../bootstrap-base.templates:38001
 msgid "Extracting ${SUBST0}..."
-msgstr ""
+msgstr "Extraction de ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
 #: ../bootstrap-base.templates:39001
 msgid "Unpacking ${SUBST0}..."
-msgstr ""
+msgstr "Décompression de ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
 #: ../bootstrap-base.templates:40001
 msgid "Configuring ${SUBST0}..."
-msgstr ""
+msgstr "Configuration de ${SUBST0}..."
 
 #. Type: text
 #. Description
 #. Release is a filename which should not be translated
 #: ../bootstrap-base.templates:41001
 msgid "Checking Release signature"
-msgstr ""
+msgstr "Contrôle de la signature du fichier « Release »"
 
 #. Type: text
 #. Description
@@ -577,13 +616,13 @@ msgstr ""
 #. Release is a filename which should not be translated
 #: ../bootstrap-base.templates:42001
 msgid "Valid Release signature (key id ${SUBST0})"
-msgstr ""
+msgstr "Signature valable pour le fichier « Release » (clé ${SUBST0})"
 
 #. Type: text
 #. Description
 #: ../bootstrap-base.templates:43001
 msgid "Resolving dependencies of base packages..."
-msgstr ""
+msgstr "Résolution des dépendances des paquets de base..."
 
 #. Type: text
 #. Description
@@ -591,26 +630,27 @@ msgstr ""
 #: ../bootstrap-base.templates:44001
 msgid "Found additional base dependencies: ${SUBST0}"
 msgstr ""
+"Dépendances supplémentaires trouvées pour le système de base : ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
 #: ../bootstrap-base.templates:45001
 msgid "Found additional required dependencies: ${SUBST0}"
-msgstr ""
+msgstr "Dépendances obligatoires supplémentaires trouvées : ${SUBST0}"
 
 #. Type: text
 #. Description
 #. SUBST0 is a list of packages
 #: ../bootstrap-base.templates:46001
 msgid "Found packages in base already in required: ${SUBST0}"
-msgstr ""
+msgstr "Paquets nécessaires du système de base trouvés : ${SUBST0}"
 
 #. Type: text
 #. Description
 #: ../bootstrap-base.templates:47001
 msgid "Resolving dependencies of required packages..."
-msgstr ""
+msgstr "Résolution des dépendances des paquets nécessaires..."
 
 #. Type: text
 #. Description
@@ -618,7 +658,7 @@ msgstr ""
 #. SUBST1 is a mirror
 #: ../bootstrap-base.templates:48001
 msgid "Checking component ${SUBST0} on ${SUBST1}..."
-msgstr ""
+msgstr "Vérification du composant ${SUBST0} de ${SUBST1}..."
 
 #. Type: text
 #. Description
@@ -628,7 +668,7 @@ msgstr ""
 #. be installed on the base system because of dependency resolution
 #: ../bootstrap-base.templates:49001
 msgid "Installing core packages..."
-msgstr ""
+msgstr "Installation des paquets essentiels..."
 
 #. Type: text
 #. Description
@@ -638,7 +678,7 @@ msgstr ""
 #. packages from the core packages depends on them
 #: ../bootstrap-base.templates:50001
 msgid "Unpacking required packages..."
-msgstr ""
+msgstr "Décompression des paquets nécessaires..."
 
 #. Type: text
 #. Description
@@ -648,68 +688,68 @@ msgstr ""
 #. packages from the core packages depends on them
 #: ../bootstrap-base.templates:51001
 msgid "Configuring required packages..."
-msgstr ""
+msgstr "Configuration des paquets nécessaires..."
 
 #. Type: text
 #. Description
 #: ../bootstrap-base.templates:52001
 msgid "Installing base packages..."
-msgstr ""
+msgstr "Installation des paquets de base..."
 
 #. Type: text
 #. Description
 #: ../bootstrap-base.templates:53001
 msgid "Unpacking the base system..."
-msgstr ""
+msgstr "Décompression du système de base..."
 
 #. Type: text
 #. Description
 #: ../bootstrap-base.templates:54001
 msgid "Configuring the base system..."
-msgstr ""
+msgstr "Configuration du système de base..."
 
 #. Type: text
 #. Description
 #: ../bootstrap-base.templates:55001
 msgid "Base system installed successfully."
-msgstr ""
+msgstr "Le système de base a été correctement installé."
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
 #: ../bootstrap-base.templates:56001
 msgid "Debootstrap warning"
-msgstr ""
+msgstr "Avertissement de debootstrap"
 
 #. Type: error
 #. Description
 #. Debootstrap is a program name: should not be translated
 #: ../bootstrap-base.templates:56001
 msgid "Warning: ${INFO}"
-msgstr ""
+msgstr "Avertissement : ${INFO}"
 
 #. Type: text
 #. Description
 #. SUBST0 is an url
 #: ../bootstrap-base.templates:57001
 msgid "Retrying failed download of ${SUBST0}"
-msgstr ""
+msgstr "Tentative de reprise du téléchargement de ${SUBST0}"
 
 #. Type: text
 #. Description
 #: ../bootstrap-base.templates:59001
 msgid "Selecting the kernel to install..."
-msgstr ""
+msgstr "Choix du noyau à installer dans /target/..."
 
 #. Type: text
 #. Description
 #: ../bootstrap-base.templates:60001
 msgid "Installing the kernel..."
-msgstr ""
+msgstr "Installation du noyau..."
 
 #. Type: text
 #. Description
 #. SUBST0 is a package name
 #: ../bootstrap-base.templates:61001
 msgid "Installing the kernel - retrieving and installing ${SUBST0}..."
-msgstr ""
+msgstr "Installation du noyau : récupération et installation de ${SUBST0}..."
