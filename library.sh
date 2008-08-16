@@ -512,7 +512,7 @@ EOF
 
 		# initramfs-tools needs busybox pre-installed (and only
 		# recommends it)
-		if [ "$rd_generator" = "initramfs-tools" ]; then
+		if [ "$rd_generator" = initramfs-tools ]; then
 			if ! log-output -t base-installer apt-install busybox; then
 				db_subst base-installer/kernel/failed-package-install PACKAGE busybox
 				exit_error base-installer/kernel/failed-package-install
@@ -549,6 +549,29 @@ EOF
 			rm $QUEUEFILE
 			FIRSTMODULE=0
 		done
+
+		# Select and set driver inclusion policy for initramfs-tools
+		if [ "$rd_generator" = initramfs-tools ]; then
+			if db_get base-installer/initramfs-tools/driver-policy && \
+			   [ "$RET" = "" ]; then
+				# Get default for architecture
+				db_get base-installer/kernel/linux/initramfs-tools/driver-policy
+				db_set base-installer/initramfs-tools/driver-policy "$RET"
+			fi
+			db_input medium base-installer/initramfs-tools/driver-policy || true
+			if ! db_go; then
+				db_progress stop
+				exit 10
+			fi
+
+			db_get base-installer/initramfs-tools/driver-policy
+			cat > /target/etc/initramfs-tools/conf.d/driver-policy <<EOF
+# Driver inclusion policy selected during installation
+# Note: this setting overrides the value set in the file
+# /etc/initramfs-tools/initramfs.conf
+MODULES=$RET
+EOF
+		fi
 	else
 		info "Not installing an initrd generator."
 	fi

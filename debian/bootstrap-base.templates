@@ -62,6 +62,23 @@ _Description: Unsupported initrd generator
  The package ${GENERATOR} that was selected to generate the
  initrd is not supported.
 
+Template: base-installer/initramfs-tools/driver-policy
+Type: select
+Choices-C: most, dep
+#:sl3:
+__Choices: generic: include all available drivers, targeted: only include drivers needed for this system
+#:sl3:
+_Description: Drivers to include in the initrd:
+ The primary function of an initrd is to allow the kernel to mount the
+ root file system. It therefore needs to contain all drivers and supporting
+ programs required to do that.
+ .
+ A generic initrd is much larger than a targeted one and may even be so
+ large that some bootloaders are unable to load it but has the advantage that
+ it can be used to boot the target system on almost any hardware. With the
+ smaller targeted initrd there is a very small chance that not all needed
+ drivers are included.
+
 Template: base-installer/kernel/failed-install
 Type: error
 _Description: Unable to install the selected kernel

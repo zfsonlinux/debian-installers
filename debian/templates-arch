@@ -18,6 +18,14 @@ Default[s390]: initramfs-tools
 Description: for internal use; can be preseeded
  Package to use to generate initramfs
 
+Template: base-installer/kernel/linux/initramfs-tools/driver-policy
+Type: string
+Default: most
+Default[amd64]: dep
+Default[i386]: dep
+Description: for internal use
+ Default driver inclusion policy for initramfs-tools
+
 Template: base-installer/kernel/linux/extra-packages
 Type: string
 Default:
