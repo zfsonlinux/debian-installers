@@ -4,6 +4,11 @@ base-installer (1.94) UNRELEASED; urgency=low
   * Allow to select driver inclusion policy for initramfs-tools
     Closes: #494466
 
+  [ Jérémy Bobbio ]
+  * i386: Use -486 flavour for all CentaurHauls processors.  As they lack long
+    NOP instructions, -686 kernels since 2.6.22+ fail to boot on these
+    processors even if they claim 686 compatibility.  Closes: #492751
+
  -- Christian Perrier <bubulle@debian.org>  Sat, 16 Aug 2008 19:50:35 -0300
 
 base-installer (1.93) unstable; urgency=low
