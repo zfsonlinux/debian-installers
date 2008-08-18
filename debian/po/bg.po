@@ -11,17 +11,19 @@
 # Ognyan Kulev <ogi@fmi.uni-sofia.bg>, 2004, 2005, 2006.
 # Nikola Antonov <nikola@linux-bg.org>, 2004.
 # Damyan Ivanov <dam@modsoftsys.com>, 2006, 2007, 2008.
+# Damyan Ivanov <dmn@debian.org>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: bg\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2008-08-16 23:36+0000\n"
-"PO-Revision-Date: 2008-03-20 10:18+0200\n"
-"Last-Translator: Damyan Ivanov <dam@modsoftsys.com>\n"
+"PO-Revision-Date: 2008-08-18 16:41+0300\n"
+"Last-Translator: Damyan Ivanov <dmn@debian.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Type: boolean
 #. Description
@@ -320,28 +322,28 @@ msgid ""
 "The package ${GENERATOR} that was selected to generate the initrd is not "
 "supported."
 msgstr ""
-"Пакетът ${GENERATOR}, който е избран за генериране на initrd, не се поддържа."
+"Пакетът ${GENERATOR}, който е избран за създаване на initrd, не се поддържа."
 
 #. Type: select
 #. Choices
 #. :sl3:
 #: ../bootstrap-base.templates:10001
 msgid "generic: include all available drivers"
-msgstr ""
+msgstr "generic: включване на всички налични драйвери"
 
 #. Type: select
 #. Choices
 #. :sl3:
 #: ../bootstrap-base.templates:10001
 msgid "targeted: only include drivers needed for this system"
-msgstr ""
+msgstr "targeted: включване само на нужните драйвери"
 
 #. Type: select
 #. Description
 #. :sl3:
 #: ../bootstrap-base.templates:10002
 msgid "Drivers to include in the initrd:"
-msgstr ""
+msgstr "Драйвери, които да се включат в initrd:"
 
 #. Type: select
 #. Description
@@ -352,6 +354,8 @@ msgid ""
 "file system. It therefore needs to contain all drivers and supporting "
 "programs required to do that."
 msgstr ""
+"Основната цел на initrd е да осигури на ядрото всичко нужно (драйвери и "
+"помощни програми) за монтиране на основната файлова система."
 
 #. Type: select
 #. Description
@@ -364,6 +368,12 @@ msgid ""
 "smaller targeted initrd there is a very small chance that not all needed "
 "drivers are included."
 msgstr ""
+"Универсалният (generic) initrd е много по-голям от адаптирания (targeted) и "
+"може да достигне такива размери, че някои програми за начално зареждане да "
+"не могат да го използват. Предимството на универсалния initrd е, че "
+"операционната система може да бъде заредена на почти всякакъв хардуер. При "
+"по-малкия, адаптиран initrd има малка вероятност да не са включени всички "
+"нужни драйвери."
 
 #. Type: error
 #. Description

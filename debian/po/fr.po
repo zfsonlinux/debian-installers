@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2008-08-16 23:36+0000\n"
-"PO-Revision-Date: 2008-08-05 09:12+0200\n"
+"PO-Revision-Date: 2008-08-16 22:26-0300\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -340,21 +340,21 @@ msgstr ""
 #. :sl3:
 #: ../bootstrap-base.templates:10001
 msgid "generic: include all available drivers"
-msgstr ""
+msgstr "image générique : comporte tous les pilotes disponibles"
 
 #. Type: select
 #. Choices
 #. :sl3:
 #: ../bootstrap-base.templates:10001
 msgid "targeted: only include drivers needed for this system"
-msgstr ""
+msgstr "image ciblée : seulement les pilotes nécessaires pour ce système"
 
 #. Type: select
 #. Description
 #. :sl3:
 #: ../bootstrap-base.templates:10002
 msgid "Drivers to include in the initrd:"
-msgstr ""
+msgstr "Pilotes à inclure sur l'image disque en mémoire (« initrd ») :"
 
 #. Type: select
 #. Description
@@ -365,6 +365,9 @@ msgid ""
 "file system. It therefore needs to contain all drivers and supporting "
 "programs required to do that."
 msgstr ""
+"L'objectif premier d'une image disque en mémoire est de permettre au noyau "
+"de monter le système de fichiers racine. Cette image a donc besoin de tous "
+"les pilotes et des programmes de gestion indispensables pour cette action."
 
 #. Type: select
 #. Description
@@ -377,6 +380,12 @@ msgid ""
 "smaller targeted initrd there is a very small chance that not all needed "
 "drivers are included."
 msgstr ""
+"Une image disque en mémoire a une taille bien plus importante qu'une image "
+"ciblée. Cette taille peut être tellement importante que certaines "
+"gestionnaires d'amorçage ne peuvent pas la lancer. Ce type d'image est par "
+"contre bien adapté pour démarrer sur n'importe quel matériel. Avec l'image "
+"ciblée, il existe une faible possibilité que tous les pilotes ne soient pas "
+"inclus."
 
 #. Type: error
 #. Description
