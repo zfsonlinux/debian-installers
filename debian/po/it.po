@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2008-08-16 23:36+0000\n"
-"PO-Revision-Date: 2008-07-05 18:33+0200\n"
+"PO-Revision-Date: 2008-08-22 11:36+0200\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -335,26 +335,28 @@ msgstr ""
 "Il pacchetto ${GENERATOR} che è stato selezionato per generare l'initrd non "
 "è supportato."
 
+# (ndt) riferito a initrd
 #. Type: select
 #. Choices
 #. :sl3:
 #: ../bootstrap-base.templates:10001
 msgid "generic: include all available drivers"
-msgstr ""
+msgstr "generico: include tutti i driver disponibili"
 
+# (ndt) riferito a initrd
 #. Type: select
 #. Choices
 #. :sl3:
 #: ../bootstrap-base.templates:10001
 msgid "targeted: only include drivers needed for this system"
-msgstr ""
+msgstr "mirato: solo i driver necessari a questo sistema"
 
 #. Type: select
 #. Description
 #. :sl3:
 #: ../bootstrap-base.templates:10002
 msgid "Drivers to include in the initrd:"
-msgstr ""
+msgstr "Driver da includere nell'initrd:"
 
 #. Type: select
 #. Description
@@ -365,6 +367,9 @@ msgid ""
 "file system. It therefore needs to contain all drivers and supporting "
 "programs required to do that."
 msgstr ""
+"La funzione primaria di un initrd è quella di consentire al kernel di "
+"montare il file system di root. Necessita quindi di avere tutti i driver e i "
+"programmi di supporto richiesti per farlo."
 
 #. Type: select
 #. Description
@@ -377,6 +382,11 @@ msgid ""
 "smaller targeted initrd there is a very small chance that not all needed "
 "drivers are included."
 msgstr ""
+"Un initrd «generico» è molto più grande di uno mirato e potrebbe essere così "
+"grande che alcuni boot loader non sono in grado di caricarlo, ma può essere "
+"usato per avviare il sistema su qualsiasi configurazione hardware. Con "
+"l'initrd più piccolo, quello «mirato», c'è una bassa probabilità che non "
+"tutti i driver necessari siano inclusi."
 
 #. Type: error
 #. Description
