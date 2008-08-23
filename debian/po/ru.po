@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2008-08-16 23:36+0000\n"
-"PO-Revision-Date: 2008-03-27 21:11+0300\n"
+"PO-Revision-Date: 2008-08-23 09:56+0400\n"
 "Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -329,7 +329,7 @@ msgstr "Пакет ${GENERATOR} для создания initrd не поддер
 #. :sl3:
 #: ../bootstrap-base.templates:10001
 msgid "generic: include all available drivers"
-msgstr ""
+msgstr "общий: включить все доступные драйверы"
 
 #. Type: select
 #. Choices
@@ -337,13 +337,14 @@ msgstr ""
 #: ../bootstrap-base.templates:10001
 msgid "targeted: only include drivers needed for this system"
 msgstr ""
+"специализированный: включить только необходимые для этой системы драйверы"
 
 #. Type: select
 #. Description
 #. :sl3:
 #: ../bootstrap-base.templates:10002
 msgid "Drivers to include in the initrd:"
-msgstr ""
+msgstr "Драйверы для включения в initrd:"
 
 #. Type: select
 #. Description
@@ -354,6 +355,9 @@ msgid ""
 "file system. It therefore needs to contain all drivers and supporting "
 "programs required to do that."
 msgstr ""
+"Основная функция initrd -- позволить ядру смонтировать корневую файловую "
+"систему. Поэтому образ initrd должен содержать все драйверы и программы для "
+"этой операции."
 
 #. Type: select
 #. Description
@@ -366,6 +370,12 @@ msgid ""
 "smaller targeted initrd there is a very small chance that not all needed "
 "drivers are included."
 msgstr ""
+"Общий initrd намного больше чем специализированный, и может быть даже "
+"настолько большим, что некоторые системные загрузчики не смогут его "
+"загрузить, но его преимущество в том, что с ним можно запустить компьютер с "
+"почти любым набором аппаратного обеспечения. При использовании "
+"специализированного initrd есть небольшая вероятность, что в него попадут не "
+"все необходимые драйверы."
 
 #. Type: error
 #. Description
