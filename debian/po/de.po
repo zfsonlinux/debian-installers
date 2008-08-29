@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2008-08-16 23:36+0000\n"
-"PO-Revision-Date: 2008-04-01 11:27+0200\n"
+"PO-Revision-Date: 2008-08-30 00:33+0200\n"
 "Last-Translator: Jens Seidel <jensseidel@users.sf.net>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -338,21 +338,21 @@ msgstr ""
 #. :sl3:
 #: ../bootstrap-base.templates:10001
 msgid "generic: include all available drivers"
-msgstr ""
+msgstr "generisch: alle verfügbaren Treiber einbinden"
 
 #. Type: select
 #. Choices
 #. :sl3:
 #: ../bootstrap-base.templates:10001
 msgid "targeted: only include drivers needed for this system"
-msgstr ""
+msgstr "angepasst: nur für das System benötigte Treiber einbinden"
 
 #. Type: select
 #. Description
 #. :sl3:
 #: ../bootstrap-base.templates:10002
 msgid "Drivers to include in the initrd:"
-msgstr ""
+msgstr "In die initrd aufzunehmende Treiber:"
 
 #. Type: select
 #. Description
@@ -363,6 +363,9 @@ msgid ""
 "file system. It therefore needs to contain all drivers and supporting "
 "programs required to do that."
 msgstr ""
+"Die primäre Funktion einer initrd ist es, dem Kernel zu erlauben, das Root-"
+"Dateisystem einzubinden. Sie muss deswegen alle Treiber und unterstützenden "
+"Programme enthalten, die dafür nötig sind."
 
 #. Type: select
 #. Description
@@ -375,6 +378,12 @@ msgid ""
 "smaller targeted initrd there is a very small chance that not all needed "
 "drivers are included."
 msgstr ""
+"Eine generische initrd ist viel größer als eine angepasste und könnte sogar "
+"so groß sein, dass einige Bootlader nicht in der Lage sind, sie zu laden, "
+"hat aber den Vorteil, dass sie benutzt werden kann, das Zielsystem auf "
+"nahezu jeder Hardware zu booten. Mit der kleineren angepassten initrd gibt "
+"es die geringe Möglichkeit, dass nicht alle benötigten Treiber enthalten "
+"sind."
 
 #. Type: error
 #. Description
