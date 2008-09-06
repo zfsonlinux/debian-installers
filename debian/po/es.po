@@ -49,7 +49,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2008-08-16 23:36+0000\n"
-"PO-Revision-Date: 2008-03-31 00:02+0200\n"
+"PO-Revision-Date: 2008-09-06 22:55+0200\n"
 "Last-Translator: Javier Fernández-Sanguino Peña <jfs@debian.org>\n"
 "Language-Team:  Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -364,21 +364,21 @@ msgstr ""
 #. :sl3:
 #: ../bootstrap-base.templates:10001
 msgid "generic: include all available drivers"
-msgstr ""
+msgstr "genérico: incluir todos los controladores disponibles"
 
 #. Type: select
 #. Choices
 #. :sl3:
 #: ../bootstrap-base.templates:10001
 msgid "targeted: only include drivers needed for this system"
-msgstr ""
+msgstr "dirigido: sólo incluir los controladores necesarios para este sistema"
 
 #. Type: select
 #. Description
 #. :sl3:
 #: ../bootstrap-base.templates:10002
 msgid "Drivers to include in the initrd:"
-msgstr ""
+msgstr "Controladores a incluir en el initrd:"
 
 #. Type: select
 #. Description
@@ -389,6 +389,9 @@ msgid ""
 "file system. It therefore needs to contain all drivers and supporting "
 "programs required to do that."
 msgstr ""
+"La función principal del initrd es permitir al núcleo el montaje del sistema "
+"de ficheros raíz. Por tanto, necesita contener todos los dispositivos y "
+"programas de soporte necesarios para hacerlo."
 
 #. Type: select
 #. Description
@@ -401,6 +404,11 @@ msgid ""
 "smaller targeted initrd there is a very small chance that not all needed "
 "drivers are included."
 msgstr ""
+"Un initrd genérico es más grande que uno dirigido y puede incluso ser tan "
+"grande que algunos cargadores de arranque no pueden cargarlo, sin embargo "
+"tiene la ventaja que no puede utilizarse para arrancar el sistema objetivo "
+"en casi cualquier hardware. Hay una posibilidad muy pequeña de que un initrd "
+"dirigido más pequeño no tenga todos los controladores necesarios."
 
 #. Type: error
 #. Description
