@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: debian-installer (level1)\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2008-08-16 23:36+0000\n"
-"PO-Revision-Date: 2008-05-07 17:35+0700\n"
+"PO-Revision-Date: 2008-09-08 15:14+0700\n"
 "Last-Translator: Arief S Fitrianto <arief@gurame.fisika.ui.ac.id>\n"
 "Language-Team: Bahasa Indonesia <debian-l10n-id@gurame.fisika.ui.ac.id>\n"
 "MIME-Version: 1.0\n"
@@ -295,7 +295,7 @@ msgstr "Kesalahan berikut ini terjadi:"
 #. Description
 #: ../bootstrap-base.templates:8001
 msgid "Tool to use to generate boot initrd:"
-msgstr "Alat yang ingin dipakai untuk membuat initrd:"
+msgstr "Program yang ingin dipakai untuk membuat initrd:"
 
 #. Type: select
 #. Description
@@ -305,8 +305,9 @@ msgid ""
 "should select the default. If your system fails to boot, you can retry the "
 "installation using the other options."
 msgstr ""
-"Daftar menampilkan alat-alat yang tersedia. Jika anda tak yakin, pilih alat "
-"bawaan. Jika sistem anda gagal reboot, coba lagi dengan pilihan yang lain."
+"Daftar berikut menampilkan program-program yang tersedia. Jika Anda tak "
+"yakin, pilih program standar. Jika sistem Anda gagal reboot, coba lagi "
+"dengan pilihan yang lain."
 
 #. Type: error
 #. Description
@@ -329,21 +330,21 @@ msgstr "Paket ${GENERATOR} yang dipilih untuk membuat initrd tak didukung."
 #. :sl3:
 #: ../bootstrap-base.templates:10001
 msgid "generic: include all available drivers"
-msgstr ""
+msgstr "generik: gunakan semua driver yang ada"
 
 #. Type: select
 #. Choices
 #. :sl3:
 #: ../bootstrap-base.templates:10001
 msgid "targeted: only include drivers needed for this system"
-msgstr ""
+msgstr "target: hanya driver yang dibutuhkan saja"
 
 #. Type: select
 #. Description
 #. :sl3:
 #: ../bootstrap-base.templates:10002
 msgid "Drivers to include in the initrd:"
-msgstr ""
+msgstr "Driver yang akan dimasukkan ke initrd:"
 
 #. Type: select
 #. Description
@@ -354,6 +355,9 @@ msgid ""
 "file system. It therefore needs to contain all drivers and supporting "
 "programs required to do that."
 msgstr ""
+"Fungsi utama dari initrd adalah membuat kernel dapat mengaitkan sistem "
+"berkas root. Oleh karena itu, kernel membutuhkan semua driver dan program "
+"pendukung untuk melakukannya."
 
 #. Type: select
 #. Description
@@ -366,6 +370,11 @@ msgid ""
 "smaller targeted initrd there is a very small chance that not all needed "
 "drivers are included."
 msgstr ""
+"Initrd generik lebih besar dibandingkan yang initrd-target dan bahkan bisa "
+"sangat besar sehingga bootloader tidak dapat memuatnya. Tetapi, initrd ini "
+"dapat digunakan untuk booting sistem target pada hampir semua komputer. "
+"Dengan initrd-target, ada kemungkinan tidak semua driver yang dibutuhkan "
+"tersedia."
 
 #. Type: error
 #. Description
