@@ -9,15 +9,15 @@
 # This file is distributed under the same license as debian-installer.
 #
 # Translated by Yijun Yuan (2004), Carlos Z.F. Liu (2004,2005,2006),
-# Ming Hua (2005,2006,2007,2008) and Xiyue Deng (2008).
+# Ming Hua (2005,2006,2007,2008), Xiyue Deng (2008), Kov Chai (2008).
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2008-08-16 23:36+0000\n"
-"PO-Revision-Date: 2008-03-29 22:40-0500\n"
-"Last-Translator: Ming Hua <minghua-guest@users.alioth.debian.org>\n"
+"PO-Revision-Date: 2008-09-09 23:25+0800\n"
+"Last-Translator: Deng Xiyue <manphiz@gmail.com>\n"
 "Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -319,21 +319,21 @@ msgstr "选择用来生成 initrd 的工具软件包 ${GENERATOR} 不被支持�
 #. :sl3:
 #: ../bootstrap-base.templates:10001
 msgid "generic: include all available drivers"
-msgstr ""
+msgstr "通用：包含所有可用驱动程序"
 
 #. Type: select
 #. Choices
 #. :sl3:
 #: ../bootstrap-base.templates:10001
 msgid "targeted: only include drivers needed for this system"
-msgstr ""
+msgstr "目标：只包含此系统需要的驱动程序"
 
 #. Type: select
 #. Description
 #. :sl3:
 #: ../bootstrap-base.templates:10002
 msgid "Drivers to include in the initrd:"
-msgstr ""
+msgstr "将包含在 initrd 里的驱动程序："
 
 #. Type: select
 #. Description
@@ -344,6 +344,8 @@ msgid ""
 "file system. It therefore needs to contain all drivers and supporting "
 "programs required to do that."
 msgstr ""
+"Initrd 的主要功能是用来允许内核挂载根文件系统。它因此需要包含用来完成该功能的"
+"所有的驱动程序和支持程序。"
 
 #. Type: select
 #. Description
@@ -356,6 +358,9 @@ msgid ""
 "smaller targeted initrd there is a very small chance that not all needed "
 "drivers are included."
 msgstr ""
+"一个通用的 initrd 会比目标版本大的多而且启动加载程序可能会因为它过大而无法加"
+"载，但它的优势在于可以用来启动几乎任何硬件的目标系统。使用较小的目标 initrd "
+"可能会有很小的可能性导致它没有包含所有必须的驱动。"
 
 #. Type: error
 #. Description
