@@ -23,7 +23,6 @@ KERNEL_FLAVOUR=$(uname -r | cut -d - -f 3-)
 MACHINE="$(uname -m)"
 NUMCPUS=$(cat /var/numcpus 2>/dev/null) || true
 CPUINFO=/proc/cpuinfo
-SPEAKUP=/proc/speakup
 
 # files and directories
 APT_SOURCES=/target/etc/apt/sources.list
