@@ -6,12 +6,14 @@ NUM_STEPS=0
 export PB_POSITION=0
 export PB_WAYPOINT_LENGTH=0
 
-# used by kernel installation code
+# used for setting up apt
 PROTOCOL=
 MIRROR=
 DIRECTORY=
 COMPONENTS=
 DISTRIBUTION=
+
+# used by kernel installation code
 KERNEL=
 KERNEL_LIST=/tmp/available_kernels.txt
 KERNEL_MAJOR="$(uname -r | cut -d . -f 1,2)"
@@ -22,6 +24,11 @@ MACHINE="$(uname -m)"
 NUMCPUS=$(cat /var/numcpus 2>/dev/null) || true
 CPUINFO=/proc/cpuinfo
 SPEAKUP=/proc/speakup
+
+# files and directories
+APT_SOURCES=/target/etc/apt/sources.list
+APT_CONFDIR=/target/etc/apt/apt.conf.d
+IT_CONFDIR=/target/etc/initramfs-tools/conf.d
 
 log() {
 	logger -t base-installer "$@"
@@ -146,23 +153,23 @@ install_filesystems () {
 }
 
 configure_apt_preferences () {
-	[ ! -d /target/etc/apt/apt.conf.d ] && mkdir -p /target/etc/apt/apt.conf.d
+	[ ! -d "$APT_CONFDIR" ] && mkdir -p "$APT_CONFDIR"
 
 	# Make apt trust Debian CDs. This is not on by default (we think).
 	# This will be left in place on the installed system.
-	cat > /target/etc/apt/apt.conf.d/00trustcdrom <<EOT
+	cat > $APT_CONFDIR/00trustcdrom <<EOT
 APT::Authentication::TrustCDROM "true";
 EOT
 
 	# Avoid clock skew causing gpg verification issues.
 	# This file will be left in place until the end of the install.
-	cat > /target/etc/apt/apt.conf.d/00IgnoreTimeConflict << EOT
+	cat > $APT_CONFDIR/00IgnoreTimeConflict << EOT
 Acquire::gpgv::Options { "--ignore-time-conflict"; };
 EOT
 
 	if db_get debian-installer/allow_unauthenticated && [ "$RET" = true ]; then
 		# This file will be left in place until the end of the install.
-		cat > /target/etc/apt/apt.conf.d/00AllowUnauthenticated << EOT
+		cat > $APT_CONFDIR/00AllowUnauthenticated << EOT
 APT::Get::AllowUnauthenticated "true";
 Aptitude::CmdLine::Ignore-Trust-Violations "true";
 EOT
@@ -202,7 +209,7 @@ install_extra () {
 
 pre_install_hooks () {
 	# avoid apt-install installing things; apt is not configured yet
-	rm -f /target/etc/apt/sources.list
+	rm -f $APT_SOURCES
 
 	partsdir="/usr/lib/base-installer.d"
 	if [ -d "$partsdir" ]; then
@@ -565,12 +572,14 @@ EOF
 			fi
 
 			db_get base-installer/initramfs-tools/driver-policy
-			cat > /target/etc/initramfs-tools/conf.d/driver-policy <<EOF
+			if [ "$RET" != most ]; then
+				cat > $IT_CONFDIR/driver-policy <<EOF
 # Driver inclusion policy selected during installation
 # Note: this setting overrides the value set in the file
 # /etc/initramfs-tools/initramfs.conf
 MODULES=$RET
 EOF
+			fi
 		fi
 	else
 		info "Not installing an initrd generator."
@@ -596,7 +605,7 @@ EOF
 		# Set up a default resume partition.
 		case $rd_generator in
 		    initramfs-tools)
-			resumeconf=/target/etc/initramfs-tools/conf.d/resume
+			resumeconf=$IT_CONFDIR/resume
 			;;
 		    *)
 			resumeconf=
@@ -620,7 +629,7 @@ EOF
 		# Set PReP root partition
 		if [ "$ARCH" = powerpc ] && [ "$SUBARCH" = prep ] && \
 		   [ "$rd_generator" = initramfs-tools ]; then
-			prepconf=/target/etc/initramfs-tools/conf.d/prep-root
+			prepconf=$IT_CONFDIR/prep-root
 			rootpart_devfs=$(mount | grep "on /target " | cut -d' ' -f1)
 			rootpart=$(mapdevfs $rootpart_devfs)
 			if [ -f $prepconf ] && grep -q "^#* *ROOT=" $prepconf; then
@@ -754,7 +763,7 @@ configure_apt () {
 		# This file will be left in place until the end of the
 		# install for hd-media installs, but is removed again
 		# during apt-setup for installs using real CD/DVDs.
-		cat > /target/etc/apt/apt.conf.d/00NoMountCDROM << EOT
+		cat > $APT_CONFDIR/00NoMountCDROM << EOT
 APT::CDROM::NoMount "true";
 Acquire::cdrom {
   mount "/cdrom";
@@ -767,7 +776,7 @@ EOT
 
 		# Scan CD-ROM or CD image; start with clean sources.list
 		# Prevent apt-cdrom from prompting
-		: > /target/etc/apt/sources.list
+		: > $APT_SOURCES
 		if ! log-output -t base-installer \
 		     chroot /target apt-cdrom add </dev/null; then
 			error "error while running apt-cdrom"
@@ -777,7 +786,7 @@ EOT
 		COMPONENTS=$(echo $COMPONENTS | tr , " ")
 		APTSOURCE="$PROTOCOL://$MIRROR$DIRECTORY"
 
-		echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > /target/etc/apt/sources.list
+		echo "deb $APTSOURCE $DISTRIBUTION $COMPONENTS" > $APT_SOURCES
 	fi
 }
 
