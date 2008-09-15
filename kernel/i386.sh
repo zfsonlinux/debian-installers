@@ -15,7 +15,9 @@ arch_get_kernel_flavour () {
 	case "$VENDOR" in
 	    " AuthenticAMD"*)
 		case "$FAMILY" in
-		    " 15")	echo 686$BIGMEM ;;	# k8
+		    " 15"|" 16"|" 17")			# k8
+			echo 686$BIGMEM
+			;;
 		    " 6")				# k7
 			case "$MODEL" in
 			    " 0"|" 1"|" 2"|" 3"|" 4"|" 5")
