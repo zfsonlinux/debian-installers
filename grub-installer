@@ -619,11 +619,15 @@ db_progress INFO grub-installer/progress/step_config_loader
 rm -f $ROOT/boot/grub/$menu_file
 update_grub
 
-# For SATA RAID/multipath we may need to update the grub root
-# TODO: This should really be supported in update-grub
-if [ "$frdev" ] && [ $frgrubroot -gt 0 ]; then
-	sed -i "/^root/s/(hd0,0)/(hd0,$frgrubroot)/
-		/^# groot/s/(hd0,0)/(hd0,$frgrubroot)/" $ROOT/boot/grub/$menu_file
+# For SATA RAID/multipath the grub root may need fixing up
+# For dmraid we can end up with e.g. '(sil_aiahbgbgaaaj1)', or we can end up
+# with '(hd0,0)' when it should be a higher partition
+# TODO: This should really be better supported in update-grub
+if [ "$frdev" ] && \
+   ! grep -q "^# groot=(hd0,$frgrubroot)" $ROOT/boot/grub/$menu_file; then
+	info "Fixing up the grub root to '(hd0,$frgrubroot)'"
+	sed -i "/^# groot/s/(.*)/(hd0,$frgrubroot)/" $ROOT/boot/grub/$menu_file
+	update_grub
 fi
 
 # Set a password if asked
