@@ -36,10 +36,17 @@ arch_get_kernel_flavour () {
 		esac
 		;;
 	    " CentaurHauls")
-		# x86 VIA Nehemiah CentaurHauls does not boot with -686
-		# since 2.6.22+ since they lack long NOP instructions.
-		# See: http://lkml.org/lkml/2008/7/22/263
-		echo 486 ;;
+		case "$FAMILY" in
+		    " 6")
+			case "$MODEL" in
+			    " 9"|" 10")	echo 686$BIGMEM ;;
+			    *)		echo 486 ;;
+			esac
+			;;
+		    *)
+			echo 486 ;;
+		esac
+		;;
 	    *)
 		echo 486 ;;
 	esac
