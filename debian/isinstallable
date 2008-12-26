@@ -15,7 +15,7 @@ findfstype () {
 
 is_sataraid () {
 	if type dmraid >/dev/null 2>&1; then
-		for frdisk in $(dmraid -s -c | grep -v "No RAID disks"); do
+		for frdisk in $(dmraid -s -c | grep -iv "No RAID disks"); do
 			if echo "$1" | grep -q "/$frdisk[0-9]\+"; then
 				return 0
 			fi
