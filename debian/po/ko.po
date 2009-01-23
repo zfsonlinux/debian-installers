@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2008-04-28 22:53+0000\n"
+"POT-Creation-Date: 2009-01-23 07:29+0000\n"
 "PO-Revision-Date: 2008-07-13 03:26+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team:  Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -130,7 +130,7 @@ msgstr "GRUB 루트 장치는 ${GRUBROOT}입니다."
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:4001 ../grub-installer.templates:6001
-#: ../grub-installer.templates:15001
+#: ../grub-installer.templates:14001
 msgid "Unable to configure GRUB"
 msgstr "GRUB을 설정할 수 없습니다"
 
@@ -185,35 +185,17 @@ msgstr ""
 msgid "An error occurred while setting up GRUB for the multipath device."
 msgstr "멀티패스 장치에 GRUB을 설정하는 중 오류가 발생했습니다."
 
-#. Type: boolean
-#. Description
-#. :sl3:
-#: ../grub-installer.templates:7001
-msgid "Install the GRUB boot loader to XFS file system?"
-msgstr "GRUB 부트로더를 XFS 파일 시스템에 설치하시겠습니까?"
-
-#. Type: boolean
-#. Description
-#. :sl3:
-#: ../grub-installer.templates:7001
-msgid ""
-"The GRUB boot loader installation often fails or hangs when /boot is on a "
-"XFS file system. Using LILO in this situation is recommended."
-msgstr ""
-"/boot가 XFS 파일 시스템에 들어 있는 경우 GRUB 부트로더 설치가 실패하거나 설치"
-"하다가 죽어 버립니다. 이 경우에는 LILO를 사용하시길 추천합니다."
-
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:7001
 msgid "Device for boot loader installation:"
 msgstr "부트로더를 설치할 장치:"
 
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:7001
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -229,7 +211,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:7001
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -256,14 +238,14 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:8001
 msgid "GRUB password:"
 msgstr "GRUB 암호:"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:8001
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -281,21 +263,21 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:8001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "GRUB 암호를 설정하지 않으려면, 이 필드를 비워 두십시오."
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:9001
 msgid "Re-enter password to verify:"
 msgstr "확인을 위해 암호를 다시 입력하십시오:"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:9001
 msgid ""
 "Please enter the same GRUB password again to verify that you have typed it "
 "correctly."
@@ -304,28 +286,28 @@ msgstr "제대로 입력했는지 확인하기 위해 같은 GRUB 암호를 한�
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:11001
+#: ../grub-installer.templates:10001
 msgid "Password input error"
 msgstr "암호 입력 오류"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:11001
+#: ../grub-installer.templates:10001
 msgid "The two passwords you entered were not the same. Please try again."
 msgstr "입력한 두 암호가 같지 않습니다. 다시 입력하십시오."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:12001
 msgid "GRUB installation failed"
 msgstr "GRUB 설치가 실패했습니다"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:12001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -336,14 +318,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:13001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "GRUB을 ${BOOTDEV}에 설치할 수 없습니다"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:13001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "'grub-install ${BOOTDEV}' 실행이 실패했습니다."
 
@@ -353,63 +335,63 @@ msgstr "'grub-install ${BOOTDEV}' 실행이 실패했습니다."
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:14001 ../grub-installer.templates:15001
+#: ../grub-installer.templates:13001 ../grub-installer.templates:14001
 msgid "This is a fatal error."
 msgstr "치명적인 오류입니다."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:15001
+#: ../grub-installer.templates:14001
 msgid "Executing 'update-grub' failed."
 msgstr "'update-grub' 실행이 실패했습니다."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18001
+#: ../grub-installer.templates:17001
 msgid "Installing GRUB boot loader"
 msgstr "GRUB 부트로더 설치"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:19001
+#: ../grub-installer.templates:18001
 msgid "Looking for other operating systems..."
 msgstr "다른 운영 체제가 있는지 검사하는 중입니다..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:20001
+#: ../grub-installer.templates:19001
 msgid "Installing the '${GRUB}' package..."
 msgstr "'${GRUB}' 패키지를 설치하는 중입니다..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:21001
+#: ../grub-installer.templates:20001
 msgid "Determining GRUB boot device..."
 msgstr "GRUB 부팅 장치를 결정하는 중입니다..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:22001
+#: ../grub-installer.templates:21001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "\"grub-install ${BOOTDEV}\" 실행하는 중입니다..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:23001
+#: ../grub-installer.templates:22001
 msgid "Running \"update-grub\"..."
 msgstr "\"update-grub\" 실행하는 중입니다..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:24001
+#: ../grub-installer.templates:23001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "/etc/kernel-img.conf 업데이트 중입니다..."
 
@@ -417,7 +399,7 @@ msgstr "/etc/kernel-img.conf 업데이트 중입니다..."
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:25001
+#: ../grub-installer.templates:24001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "하드 디스크에 GRUB 부트로더 설치"
 
@@ -425,6 +407,16 @@ msgstr "하드 디스크에 GRUB 부트로더 설치"
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:26001
+#: ../grub-installer.templates:25001
 msgid "Reinstall GRUB boot loader"
 msgstr "GRUB 부트로더 다시 설치"
+
+#~ msgid "Install the GRUB boot loader to XFS file system?"
+#~ msgstr "GRUB 부트로더를 XFS 파일 시스템에 설치하시겠습니까?"
+
+#~ msgid ""
+#~ "The GRUB boot loader installation often fails or hangs when /boot is on a "
+#~ "XFS file system. Using LILO in this situation is recommended."
+#~ msgstr ""
+#~ "/boot가 XFS 파일 시스템에 들어 있는 경우 GRUB 부트로더 설치가 실패하거나 "
+#~ "설치하다가 죽어 버립니다. 이 경우에는 LILO를 사용하시길 추천합니다."

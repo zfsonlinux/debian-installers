@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2008-04-28 22:53+0000\n"
+"POT-Creation-Date: 2009-01-23 07:29+0000\n"
 "PO-Revision-Date: 2008-09-09 23:25+0800\n"
 "Last-Translator: Deng Xiyue <manphiz@gmail.com>\n"
 "Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
@@ -127,7 +127,7 @@ msgstr "GRUB 的根设备为：${GRUBROOT}。"
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:4001 ../grub-installer.templates:6001
-#: ../grub-installer.templates:15001
+#: ../grub-installer.templates:14001
 msgid "Unable to configure GRUB"
 msgstr "无法配置 GRUB"
 
@@ -182,35 +182,17 @@ msgstr ""
 msgid "An error occurred while setting up GRUB for the multipath device."
 msgstr "在您的多重路径(multipath)设备上设置 GRUB 时出现一个错误。"
 
-#. Type: boolean
-#. Description
-#. :sl3:
-#: ../grub-installer.templates:7001
-msgid "Install the GRUB boot loader to XFS file system?"
-msgstr "在 XFS 文件系统上安装 GRUB 启动引导程序吗？"
-
-#. Type: boolean
-#. Description
-#. :sl3:
-#: ../grub-installer.templates:7001
-msgid ""
-"The GRUB boot loader installation often fails or hangs when /boot is on a "
-"XFS file system. Using LILO in this situation is recommended."
-msgstr ""
-"当 /boot 位于 XFS 文件系统时，安装 GRUB 启动引导器通常都会失败。在这种情况下"
-"我们推荐您使用 LILO。"
-
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:7001
 msgid "Device for boot loader installation:"
 msgstr "安装启动引导器的设备："
 
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:7001
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -226,7 +208,7 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:7001
 msgid ""
 "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
 "device in /dev. Below are some examples:\n"
@@ -250,14 +232,14 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:8001
 msgid "GRUB password:"
 msgstr "GRUB 密码："
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:8001
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -274,21 +256,21 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:8001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "如果您不想设置 GRUB 密码，请将此处置空。"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:9001
 msgid "Re-enter password to verify:"
 msgstr "请再次输入密码以验证其正确性："
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:9001
 msgid ""
 "Please enter the same GRUB password again to verify that you have typed it "
 "correctly."
@@ -297,28 +279,28 @@ msgstr "请再次输入相同的 GRUB 密码以保证您的密码输入无误。
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:11001
+#: ../grub-installer.templates:10001
 msgid "Password input error"
 msgstr "密码输入错误"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:11001
+#: ../grub-installer.templates:10001
 msgid "The two passwords you entered were not the same. Please try again."
 msgstr "您所输入的两个密码并不相同。请重新输入。"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:12001
 msgid "GRUB installation failed"
 msgstr "GRUB 安装失败"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:12001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -329,14 +311,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:13001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "无法将 GRUB 安装到 ${BOOTDEV}"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:13001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "执行 'grub-install ${BOOTDEV}' 失败。"
 
@@ -346,63 +328,63 @@ msgstr "执行 'grub-install ${BOOTDEV}' 失败。"
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:14001 ../grub-installer.templates:15001
+#: ../grub-installer.templates:13001 ../grub-installer.templates:14001
 msgid "This is a fatal error."
 msgstr "这是一个致命错误。"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:15001
+#: ../grub-installer.templates:14001
 msgid "Executing 'update-grub' failed."
 msgstr "执行 'update-grub' 失败。"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18001
+#: ../grub-installer.templates:17001
 msgid "Installing GRUB boot loader"
 msgstr "安装 GRUB 启动引导器"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:19001
+#: ../grub-installer.templates:18001
 msgid "Looking for other operating systems..."
 msgstr "正在查找其它操作系统..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:20001
+#: ../grub-installer.templates:19001
 msgid "Installing the '${GRUB}' package..."
 msgstr "正在安装 '${GRUB}' 软件包..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:21001
+#: ../grub-installer.templates:20001
 msgid "Determining GRUB boot device..."
 msgstr "正在确定 GRUB 启动设备..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:22001
+#: ../grub-installer.templates:21001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "运行 \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:23001
+#: ../grub-installer.templates:22001
 msgid "Running \"update-grub\"..."
 msgstr "正在运行 \"update-grub\"..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:24001
+#: ../grub-installer.templates:23001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "正在更新 /etc/kernel-img.conf..."
 
@@ -410,7 +392,7 @@ msgstr "正在更新 /etc/kernel-img.conf..."
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:25001
+#: ../grub-installer.templates:24001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "将 GRUB 安装至硬盘"
 
@@ -418,6 +400,16 @@ msgstr "将 GRUB 安装至硬盘"
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:26001
+#: ../grub-installer.templates:25001
 msgid "Reinstall GRUB boot loader"
 msgstr "重新安装 GRUB 启动引导器"
+
+#~ msgid "Install the GRUB boot loader to XFS file system?"
+#~ msgstr "在 XFS 文件系统上安装 GRUB 启动引导程序吗？"
+
+#~ msgid ""
+#~ "The GRUB boot loader installation often fails or hangs when /boot is on a "
+#~ "XFS file system. Using LILO in this situation is recommended."
+#~ msgstr ""
+#~ "当 /boot 位于 XFS 文件系统时，安装 GRUB 启动引导器通常都会失败。在这种情况"
+#~ "下我们推荐您使用 LILO。"
