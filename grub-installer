@@ -336,16 +336,6 @@ case "$bootfstype:$bootfslabel:$grub_package" in
 		grub_package="grub-pc"
 	fi
 	;;
-    xfs:*:*)
-	# Warn user that grub on xfs is not safe and let them back out to
-	# main menu
-	db_input critical grub-installer/install_to_xfs || [ $? -eq 30 ]
-	db_go || exit 10
-	db_get grub-installer/install_to_xfs
-	if [ "$RET" != true ]; then
-		exit 10
-	fi
-	;;
     *:*:grub)
 	db_input low grub-installer/grub2_instead_of_grub_legacy || [ $? -eq 30 ]
 	db_go || true

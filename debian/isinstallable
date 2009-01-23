@@ -73,22 +73,6 @@ fi
 bootfstype=$(findfstype /boot)
 [ -n "$bootfstype" ] || bootfstype="$(findfstype /)"
 
-if [ "$bootfstype" = "xfs" ]; then
-	log "/boot on xfs, unsafe to install grub"
-	# Check this first to allow for preseeding forcing grub to xfs.
-	db_get grub-installer/install_to_xfs
-	if [ "$RET" != true ]; then
-		# grub behaves erratically on xfs. If priority is such that the
-		# main menu is not being displayed, remove grub from the menu.
-		# If main menu is displayed, grub will be left on it so expert
-		# users can choose to use it.
-		db_get debconf/priority
-		if [ "$RET" != low ] && [ "$RET" != medium ]; then
-			exit 1
-		fi
-	fi
-fi
-
 db_get grub-installer/skip
 if [ "$RET" = true ]; then
 	exit 1
