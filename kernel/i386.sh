@@ -3,7 +3,7 @@ arch_get_kernel_flavour () {
 	FAMILY=`grep '^cpu family' "$CPUINFO" | head -n1 | cut -d: -f2`
 	MODEL=`grep '^model[[:space:]]*:' "$CPUINFO" | head -n1 | cut -d: -f2`
 
-	# Only offer bigmem is the system supports pae and the
+	# Only offer bigmem if the system supports PAE and the
 	# installer itself is already using a bigmem kernel.
 	if grep '^flags' "$CPUINFO" | grep -q pae ; then
 	    case "$KERNEL_FLAVOUR" in
