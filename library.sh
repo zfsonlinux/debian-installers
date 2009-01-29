@@ -670,6 +670,9 @@ get_resume_partition () {
 		if [ "$type" != partition ]; then
 			continue
 		fi
+		if [ "${filename#/dev/ramzswap}" != "$filename" ]; then
+			continue
+		fi
 		if [ "$size" -gt "$biggest_size" ]; then
 			biggest_size="$size"
 			biggest_partition="$filename"
