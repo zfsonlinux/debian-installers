@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2009-01-23 07:29+0000\n"
-"PO-Revision-Date: 2009-01-17 22:47+0100\n"
+"PO-Revision-Date: 2009-01-31 19:10+0100\n"
 "Last-Translator: Marce Villarino <mvillarino@users.sourceforge.net>\n"
 "Language-Team: galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -135,7 +135,7 @@ msgstr "O dispositivo raíz de GRUB é: ${GRUBROOT}."
 #: ../grub-installer.templates:4001 ../grub-installer.templates:6001
 #: ../grub-installer.templates:14001
 msgid "Unable to configure GRUB"
-msgstr "Non se puido configurar GRUB"
+msgstr "Non foi posíbel configurar GRUB"
 
 #. Type: error
 #. Description
@@ -193,7 +193,7 @@ msgstr "Houbo un erro ao configurar GRUB para o dispositivo multipath."
 #. :sl2:
 #: ../grub-installer.templates:7001
 msgid "Device for boot loader installation:"
-msgstr "Dispositivo para a instalación do cargador de inicio:"
+msgstr "Dispositivo para a instalación do cargador de arranque:"
 
 #. Type: string
 #. Description
@@ -207,10 +207,10 @@ msgid ""
 "floppy."
 msgstr ""
 "Ten que facer que o novo sistema se poida iniciar, instalando o cargador de "
-"inicio GRUB nun dispositivo de inicio. O xeito máis habitual de o facer é "
-"instalando GRUB no rexistro mestre de inicio do seu primeiro disco duro. Se "
-"o prefire, pode instalar GRUB noutra parte do disco, ou noutro disco, ou "
-"incluso nun disquete."
+"arranque GRUB nun dispositivo de inicio. O xeito máis habitual de o facer é "
+"instalando GRUB no sector mestre de arranque do primeiro disco duro. Se o "
+"prefire, pode instalar GRUB noutra parte do disco, ou noutro disco, ou mesmo "
+"nun disquete."
 
 #. Type: string
 #. Description
@@ -227,17 +227,15 @@ msgid ""
 "   your third drive (SCSI here);\n"
 " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Pódese especificar o dispositivo empregando a notación \"(hdn,m)\" de GRUB, "
-"ou coma un dispositivo de /dev. Embaixo aparecen algúns exemplos:\n"
-" - \"(hd0)\" ou \"/dev/hda\" han instalar GRUB no rexistro mestre de inicio "
-"do\n"
-"   seu primeiro disco duro (IDE);\n"
-" - \"(hd0,1)\" ou \"/dev/hda2\" han empregar a segunda partición do seu\n"
+"Pódese especificar o dispositivo empregando a notación «(hdn,m)» de GRUB, ou "
+"como un dispositivo de /dev. En baixo aparecen algúns exemplos:\n"
+" - «(hd0)» ou «/dev/hda» han instalar GRUB no sector mestre de arranque do\n"
+"   primeiro disco duro (IDE);\n"
+" - «(hd0,1)» ou «/dev/hda2» han empregar a segunda partición do\n"
 "   primeiro disco IDE;\n"
-" - \"(hd2,4)\" ou \"/dev/sdc5\" han empregar a primeira partición extendida "
-"do\n"
-"   seu terceiro disco (que aquí é SCSI);\n"
-" - \"(fd0)\" ou \"/dev/fd0\" han instalar GRUB nun disquete."
+" - «(hd2,4)» ou «/dev/sdc5» han empregar a primeira partición extendida do\n"
+"   terceiro disco (que aquí é SCSI);\n"
+" - «(fd0)» ou «/dev/fd0» han instalar GRUB nun disquete."
 
 #. Type: password
 #. Description
@@ -258,12 +256,12 @@ msgid ""
 "GRUB command-line interface. By default, any user will still be able to "
 "start any menu entry without entering the password."
 msgstr ""
-"O cargador de inicio GRUB ofrece varias potentes características "
+"O cargador de arranque GRUB ofrece varias potentes características "
 "interactivas que, se usuarios non autorizados teñen acceso á máquina durante "
-"o seu inicio, poden empregar para comprometer o sistema. Para se defender "
+"o arranque, poden empregar para comprometer o sistema. Para se defender "
 "contra isto, pode escoller un contrasinal que se solicitará antes de editar "
 "as entradas do menú ou antes de entrar na liña de ordes de GRUB. Por "
-"defecto, calquera usuario pode escoller calquera entrada no menú sen "
+"omisión, calquera usuario pode escoller calquera entrada no menú sen "
 "introducir un contrasinal."
 
 #. Type: password
@@ -272,7 +270,7 @@ msgstr ""
 #: ../grub-installer.templates:8001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr ""
-"Se non quere establecer un contrasinal de GRUB, deixe este campo en branco."
+"Se non quere estabelecer un contrasinal de GRUB, deixe este campo en branco."
 
 #. Type: password
 #. Description
@@ -321,22 +319,22 @@ msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
 msgstr ""
-"Non se puido instalar o paquete \"${GRUB}\" en /target/. Sen o cargador de "
-"inicio GRUB, o sistema instalado non se ha iniciar."
+"Non foi posíbel instalar o paquete «${GRUB}» en /target/. Sen o cargador de "
+"arranque GRUB, o sistema instalado non se ha iniciar."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:13001
 msgid "Unable to install GRUB in ${BOOTDEV}"
-msgstr "Non se puido instalar GRUB en ${BOOTDEV}"
+msgstr "Non foi posíbel instalar GRUB en ${BOOTDEV}"
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:13001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "Non se puido executar 'grub-install ${BOOTDEV}'."
+msgstr "Fallou a execución de «grub-install ${BOOTDEV}»."
 
 #. Type: error
 #. Description
@@ -353,7 +351,7 @@ msgstr "Este é un erro moi grave."
 #. :sl2:
 #: ../grub-installer.templates:14001
 msgid "Executing 'update-grub' failed."
-msgstr "Non se puido executar 'update-grub'."
+msgstr "Fallou a execución de «update-grub»."
 
 #. Type: text
 #. Description
@@ -418,4 +416,4 @@ msgstr "Instalar o cargador de arranque GRUB nun disco duro"
 #. :sl2:
 #: ../grub-installer.templates:25001
 msgid "Reinstall GRUB boot loader"
-msgstr "Reinstalar o cargador de inicio GRUB"
+msgstr "Reinstalar o cargador de arranque GRUB"
