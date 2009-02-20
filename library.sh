@@ -141,7 +141,7 @@ install_filesystems () {
 		fi
 
 		if type dmraid >/dev/null 2>&1; then
-			if [ "$(dmraid -s -c | grep -iv "No RAID disks")" ]; then
+			if dmraid -s -c >/dev/null 2>&1; then
 				apt-install dmraid
 			fi
 		fi
