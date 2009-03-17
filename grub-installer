@@ -251,7 +251,7 @@ esac
 rootfs_nodevfs=$(mapdevfs $rootfs)
 bootfs_nodevfs=$(mapdevfs $bootfs)
 prefix=$(echo "$bootfs" | \
-  sed 's:\(/dev/\(cciss\|ida\)/c[0-9]d[0-9]\|/dev/mmcblk[0-9]\|/dev/[a-z]\+\).*:\1:')
+  sed 's:\(/dev/\(cciss\|ida\)/c[0-9]d[0-9][0-9]*\|/dev/mmcblk[0-9]\|/dev/[a-z]\+\).*:\1:')
 
 case $prefix in
     /dev/md)
@@ -260,7 +260,7 @@ case $prefix in
     /dev/mapper)
 	disc_offered_devfs="$bootfs"
 	;;
-    /dev/[hsv]d[a-z]|/dev/xvd[a-z]|/dev/cciss/c[0-9]d[0-9]|/dev/ida/c[0-9]d[0-9]|/dev/mmcblk[0-9])
+    /dev/[hsv]d[a-z]|/dev/xvd[a-z]|/dev/cciss/c[0-9]d[0-9]*|/dev/ida/c[0-9]d[0-9]*|/dev/mmcblk[0-9])
 	disc_offered_devfs="$prefix"
 	;;
     *)
