@@ -274,7 +274,8 @@ bootfslabel=$(partmap $disc_offered || echo unknown)
 
 # Check if the boot file system is on Serial ATA RAID
 frdev=""
-if type dmraid >/dev/null 2>&1 && dmraid -s -c >/dev/null 2>&1; then
+if type dmraid >/dev/null 2>&1 && dmraid -s -c >/dev/null 2>&1 && \
+   db_get disk-detect/activate_dmraid && [ "$RET" = true ]; then
 	for frdisk in $(dmraid -s -c); do
 		if echo "$disc_offered" | grep -q "/$frdisk[0-9]\+"; then
 			frdev=/dev/mapper/$frdisk
