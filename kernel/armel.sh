@@ -4,7 +4,7 @@ arch_get_kernel_flavour () {
 		echo "$SUBARCH"
 		return 0 ;;
 	    ads)
-		# NOTE: this kernel is not in Debian (sarge), but makes it
+		# NOTE: this kernel is not in Debian, but makes it
 		# easier to offer unofficial support from a private apt-archive
 		echo "ads"
 		return 0 ;;
