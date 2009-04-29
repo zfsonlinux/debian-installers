@@ -216,8 +216,8 @@ hurd_convert () {
 
 # Run update-grub in $ROOT
 update_grub () {
-	if ! log-output -t grub-installer $chroot $ROOT update-grub -y ; then
-		error "Running 'update-grub -y' failed." 1>&2
+	if ! log-output -t grub-installer $chroot $ROOT $update_grub; then
+		error "Running '$update_grub' failed." 1>&2
 		db_input critical grub-installer/update-grub-failed || [ $? -eq 30 ]
 		db_go || true
 		db_progress STOP
@@ -360,10 +360,12 @@ case $grub_package in
     grub)
 	grub_version="grub"
 	menu_file="menu.lst"
+	update_grub="update-grub -y"
 	;;
     *)
 	grub_version="grub2"
 	menu_file="grub.cfg"
+	update_grub="update-grub"
 	;;
 esac
 
