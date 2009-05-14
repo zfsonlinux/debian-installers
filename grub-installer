@@ -226,11 +226,11 @@ update_grub () {
 }
 
 findfs () {
-	mount | grep "on $ROOT${1%/} " | cut -d' ' -f1
+	mount | grep "on $ROOT${1%/} " | tail -n1 | cut -d' ' -f1
 }
 
 findfstype () {
-	mount | grep "on $ROOT${1%/} " | cut -d' ' -f5
+	mount | grep "on $ROOT${1%/} " | tail -n1 | cut -d' ' -f5
 }
 
 rootfs=$(findfs /)

@@ -6,11 +6,11 @@ log() {
 }
 
 findfs () {
-	mount | grep "on /target${1%/} " | cut -d' ' -f1
+	mount | grep "on /target${1%/} " | tail -n1 | cut -d' ' -f1
 }
 
 findfstype () {
-	mount | grep "on /target${1%/} " | cut -d' ' -f5
+	mount | grep "on /target${1%/} " | tail -n1 | cut -d' ' -f5
 }
 
 is_sataraid () {
