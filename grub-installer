@@ -337,6 +337,10 @@ case "$bootfstype:$bootfslabel:$grub_package" in
 		grub_package="grub-pc"
 	fi
 	;;
+    ext4:*:grub)
+	# We boot from ext4, requires grub2
+	grub_package="grub-pc"
+	;;
     *:*:grub)
 	db_input low grub-installer/grub2_instead_of_grub_legacy || [ $? -eq 30 ]
 	db_go || true
