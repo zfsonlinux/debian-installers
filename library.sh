@@ -617,6 +617,12 @@ EOF
 		else
 			resume=
 		fi
+		if [ "$resume" ]; then
+			resume_uuid="$(block-attr --uuid "$resume" || true)"
+			if [ "$resume_uuid" ]; then
+				resume="UUID=$resume_uuid"
+			fi
+		fi
 		if [ -n "$resumeconf" ] && [ "$resume" ]; then
 			if [ -f $resumeconf ] ; then
 				sed -e "s@^#* *RESUME=.*@RESUME=$resume@" < $resumeconf > $resumeconf.new &&
