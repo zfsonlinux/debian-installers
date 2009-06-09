@@ -112,8 +112,8 @@ install_base_system () {
 			${include} ${exclude} \
 			${keyring} \
 			${DISTRIBUTION} /target \
-			${DEBOOTSTRAP_SCRIPT} \
 			"$PROTOCOL://$MIRROR$DIRECTORY" \
+			${DEBOOTSTRAP_SCRIPT} \
 			|| debootstrap_failed=$?
 	fi
 
