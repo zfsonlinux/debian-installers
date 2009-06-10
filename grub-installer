@@ -401,6 +401,8 @@ if ! apt-install $grub_package ; then
 	exit 1
 fi
 
+grub_debian_version="$($chroot $ROOT dpkg-query -W -f '${Version}' $grub_package)"
+
 if [ "$frtype" = multipath ]; then
 	$chroot $ROOT umount /proc
 fi
@@ -756,6 +758,12 @@ fi
 tmpfile=/tmp/menu.lst.extras
 OLDIFS="$IFS"
 IFS="$newline"
+
+no_floppy=""
+if $chroot $ROOT dpkg --compare-versions $grub_debian_version ge 1.96+20090609-1 ; then
+	no_floppy="--no-floppy"
+fi
+
 for os in $(cat /tmp/os-probed); do
 	IFS="$OLDIFS"
 	title=$(echo "$os" | cut -d: -f2)
