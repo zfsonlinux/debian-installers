@@ -48,6 +48,16 @@ EOF
 	search $no_floppy --fs_uuid --set $uuid
 EOF
 	fi
+	# DOS/Windows can't deal with booting from a non-first hard drive
+	case $shortname in
+	    MS*|Win*)
+		if $chroot $ROOT dpkg --compare-versions $grub_debian_version gt 1.96+20090609-1 ; then
+			    cat >> $tmpfile <<EOF
+	drivemap -s (hd0) \$root
+EOF
+		fi
+		;;
+	    esac
 	cat >> $tmpfile <<EOF
 	chainloader +1
 }
