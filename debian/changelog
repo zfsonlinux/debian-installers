@@ -1,3 +1,13 @@
+grub-installer (1.39) UNRELEASED; urgency=low
+
+  * Merge from Ubuntu:
+    - Use rootnoverify rather than root when chain-loading Microsoft
+      operating systems using GRUB Legacy, since we may not be able to mount
+      the partition and may not be able to (LP: #10661). From my reading of
+      its code, this doesn't seem to be necessary with GRUB 2.
+
+ -- Colin Watson <cjwatson@debian.org>  Tue, 16 Jun 2009 01:57:01 +0100
+
 grub-installer (1.38) unstable; urgency=low
 
   [ Colin Watson ]

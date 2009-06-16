@@ -4,7 +4,22 @@ grub_write_chain() {
 # This entry automatically added by the Debian installer for a non-linux OS
 # on $partition
 title		$title
+EOF
+	# DOS/Windows often needs rootnoverify so that GRUB doesn't rely on
+	# mounting the filesystem
+	case $shortname in
+	    MS*|Win*)
+		cat >> $tmpfile <<EOF
+rootnoverify	$grubdrive
+EOF
+	    ;;
+	    *)
+		cat >> $tmpfile <<EOF
 root		$grubdrive
+EOF
+	    ;;
+	esac
+	cat >> $tmpfile <<EOF
 savedefault
 EOF
 	# Only set makeactive if grub is installed in the mbr
