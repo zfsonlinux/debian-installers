@@ -304,6 +304,12 @@ elif type multipath >/dev/null 2>&1; then
 		$chroot $ROOT mount /proc
 		$chroot $ROOT dmsetup mknodes
 	fi
+elif type lvdisplay >/dev/null 2>&1 && \
+     (lvdisplay "$disc_offered" | grep -q 'LV Name' 2>/dev/null || \
+      [ -e "$(dirname "$disc_offered")/control" ]); then
+	# Don't set frdev/frdisk here, otherwise you'll end up in different
+	# code paths below ...
+	frtype=lvm
 fi
 
 info "Identified partition label for $bootfs: $bootfslabel"
@@ -328,20 +334,24 @@ case $ARCH in
 	;;
 esac
 
-case "$bootfstype:$bootfslabel:$grub_package" in
-    *:loop:*)
+case "$frtype:$bootfstype:$bootfslabel:$grub_package" in
+    sataraid:*:*:*)
 	# Serial ATA RAID partition, currently only grub is supported
 	: ;;
-    *:gpt:*)
+    lvm:*:*:*)
+	# Booting from LVM requires grub2
+	grub_package="grub-pc"
+	;;
+    *:*:gpt:*)
 	if [ "$grub_package" = "grub" ] ; then
 		grub_package="grub-pc"
 	fi
 	;;
-    ext4:*:grub)
+    *:ext4:*:grub)
 	# We boot from ext4, requires grub2
 	grub_package="grub-pc"
 	;;
-    *:*:grub)
+    *:*:*:grub)
 	db_input low grub-installer/grub2_instead_of_grub_legacy || [ $? -eq 30 ]
 	db_go || true
 	db_get grub-installer/grub2_instead_of_grub_legacy
@@ -349,7 +359,7 @@ case "$bootfstype:$bootfslabel:$grub_package" in
 		grub_package="grub-pc"
 	fi
 	;;
-    *:*:*)
+    *:*:*:*)
 	db_subst grub-installer/grub_not_mature_on_this_platform ARCH $ARCH
 	db_input low grub-installer/grub_not_mature_on_this_platform || [ $? -eq 30 ]
 	db_go || true
