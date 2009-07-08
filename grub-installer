@@ -77,6 +77,7 @@ serial="$(get_serial_console)"
 
 ## This is copied from update-grub; we've requested that it be moved
 ## to a utility or shell library
+## TODO: replace this with grub-probe
 device_map=$ROOT/boot/grub/device.map
 
 # Usage: convert os_device
@@ -148,14 +149,14 @@ convert () {
 		# GRUB's syntax
 		case "$host_os" in
 		    linux*)
-			echo "$tmp_drive" | sed "s%)$%,`expr $tmp_part - 1`)%"
+			echo "$tmp_drive" | sed "s%)$%,`expr $tmp_part - $partition_offset`)%"
 			;;
 		    gnu*)
 			if echo $tmp_part | grep "^s" >/dev/null; then
 				tmp_pc_slice=$(echo $tmp_part | \
 					sed "s%s\([0-9]*\)[a-g]*$%\1%")
 				tmp_drive=$(echo "$tmp_drive" | \
-					sed "s%)%,\`expr "$tmp_pc_slice" - 1\`)%")
+					sed "s%)%,\`expr "$tmp_pc_slice" - $partition_offset\`)%")
 				fi
 			if echo $tmp_part | grep "[a-g]$" >/dev/null; then
 				tmp_bsd_partition=$(echo "$tmp_part" | \
@@ -170,7 +171,7 @@ convert () {
 				tmp_pc_slice=$(echo $tmp_part | \
 					sed "s%s\([0-9]*\)[a-h]*$%\1%")
 				tmp_drive=$(echo "$tmp_drive" | \
-					sed "s%)%,\`expr "$tmp_pc_slice" - 1\`)%")
+					sed "s%)%,\`expr "$tmp_pc_slice" - $partition_offset\`)%")
 			fi
 			if echo $tmp_part | grep "[a-h]$" >/dev/null; then
 				tmp_bsd_partition=$(echo "$tmp_part" | \
@@ -280,7 +281,7 @@ if type dmraid >/dev/null 2>&1 && dmraid -s -c >/dev/null 2>&1 && \
 		if echo "$disc_offered" | grep -q "/$frdisk[0-9]\+"; then
 			frdev=/dev/mapper/$frdisk
 			frbootpart=${disc_offered#$frdev}
-			frgrubroot=$(($frbootpart - 1))
+			frgrubroot=$frbootpart
 			frtype=sataraid
 			break
 		fi
@@ -293,7 +294,7 @@ elif type multipath >/dev/null 2>&1; then
 			grep -q "^/dev/mapper/${frdisk}-part[0-9]\+"; then
 			frdev=/dev/mapper/$frdisk
 			frbootpart=${disc_offered#$frdev}
-			frgrubroot=$((${frbootpart#-part} - 1))
+			frgrubroot=${frbootpart#-part}
 			frtype=multipath
 			break
 		fi
@@ -375,11 +376,14 @@ case $grub_package in
 	grub_version="grub"
 	menu_file="menu.lst"
 	update_grub="update-grub"
+	partition_offset=1
+	frgrubroot=$(($frgrubroot - 1))
 	;;
     *)
 	grub_version="grub2"
 	menu_file="grub.cfg"
 	update_grub="update-grub"
+	partition_offset=0
 	;;
 esac
 
@@ -486,7 +490,7 @@ fi
 
 if [ "$frdev" ]; then
 	if [ -e $ROOT$frdev ] && [ -e $ROOT$frdev$frbootpart ] && \
-	   [ $frgrubroot -ge 0 ]; then
+	   [ $frgrubroot -ge $((1 - $partition_offset)) ]; then
 		db_subst grub-installer/$frtype GRUBROOT $ROOT$frdev$frbootpart
 		q=grub-installer/$frtype
 	else
