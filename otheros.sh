@@ -60,7 +60,7 @@ menuentry "$title" {
 EOF
 	if [ -n "$uuid" ] ; then
 		cat >> $tmpfile <<EOF
-	search $no_floppy --fs_uuid --set $uuid
+	search $no_floppy --fs-uuid --set $uuid
 EOF
 	fi
 	# DOS/Windows can't deal with booting from a non-first hard drive
@@ -112,7 +112,7 @@ EOF
 	uuid="$($chroot $ROOT grub-probe --target fs_uuid --device $partition)"
 	if [ -n "$uuid" ] ; then
 		cat >> $tmpfile <<EOF
-	search $no_floppy --fs_uuid --set $uuid
+	search $no_floppy --fs-uuid --set $uuid
 EOF
 	fi
 	cat >> $tmpfile <<EOF
@@ -161,7 +161,7 @@ EOF
 	uuid="$($chroot $ROOT grub-probe --target fs_uuid --device $partition)"
 	if [ -n "$uuid" ] ; then
 		cat >> $tmpfile <<EOF
-	search $no_floppy --fs_uuid --set $uuid
+	search $no_floppy --fs-uuid --set $uuid
 EOF
 	fi
 	cat >> $tmpfile <<EOF
