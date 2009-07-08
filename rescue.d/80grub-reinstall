@@ -36,7 +36,7 @@ if ! is_floppy "$bootdev"; then
 	fi
 fi
 
-if grub-install --version | grep -q 'GNU GRUB 0'; then
+if chroot /target grub-install --version | grep -q 'GNU GRUB 0'; then
 	grub_install_params="$grub_install_params --recheck"
 fi
 
