@@ -35,10 +35,12 @@ EOF
 		case $grubdisk in
 		    hd0)	;;
 		    hd*)
-			cat >> $tmpfile <<EOF
+			if [ "$title" != "Windows Vista (loader)" ]; then
+				cat >> $tmpfile <<EOF
 map		(hd0) ($grubdisk)
 map		($grubdisk) (hd0)
 EOF
+			fi
 			;;
 		esac
 		;;
@@ -66,7 +68,8 @@ EOF
 	# DOS/Windows can't deal with booting from a non-first hard drive
 	case $shortname in
 	    MS*|Win*)
-		if $chroot $ROOT dpkg --compare-versions $grub_debian_version gt 1.96+20090609-1 ; then
+		if $chroot $ROOT dpkg --compare-versions $grub_debian_version gt 1.96+20090609-1 && \
+		  [ "$title" != "Windows Vista (loader)" ]; then
 			    cat >> $tmpfile <<EOF
 	drivemap -s (hd0) \$root
 EOF
