@@ -2,11 +2,15 @@ base-installer (1.102) UNRELEASED; urgency=low
 
   [ Frans Pop ]
   * s390: also exclude -s390x-tape kernels during kernel selection.
+  * Temporarily replace the /etc/fstab in target by a real dummy file to
+    closer match what debootstrap does internally. It avoids a problem
+    installing Lenny when the fstab contains UUIDs instead of device names.
+    Closes: #539744.
 
   [ Colin Watson ]
   * Add STANZAS subcommand to pkgdetails, to be used by debootstrap 1.0.16.
 
- -- Frans Pop <fjp@debian.org>  Sat, 25 Jul 2009 03:44:45 +0200
+ -- Frans Pop <fjp@debian.org>  Tue, 04 Aug 2009 12:04:30 +0200
 
 base-installer (1.101) unstable; urgency=low
 
