@@ -363,6 +363,10 @@ case "$frtype:$bootfstype:$bootfslabel:$grub_package" in
 		grub_package="grub-pc"
 	fi
 	;;
+    *:ufs:*:*)
+	# Booting from UFS requires grub2
+	grub_package="grub-pc"
+	;;
     *:*:*:*)
 	db_subst grub-installer/grub_not_mature_on_this_platform ARCH $ARCH
 	db_input low grub-installer/grub_not_mature_on_this_platform || [ $? -eq 30 ]
