@@ -155,6 +155,13 @@ install_filesystems () {
 configure_apt_preferences () {
 	[ ! -d "$APT_CONFDIR" ] && mkdir -p "$APT_CONFDIR"
 
+	# Install Recommends?
+	if db_get base-installer/install-recommends && [ "$RET" = false ]; then
+		cat >$APT_CONFDIR/00InstallRecommends <<EOT
+APT::Install-Recommends "false";
+EOT
+	fi
+
 	# Make apt trust Debian CDs. This is not on by default (we think).
 	# This will be left in place on the installed system.
 	cat > $APT_CONFDIR/00trustcdrom <<EOT

@@ -4,7 +4,17 @@ base-installer (1.103) UNRELEASED; urgency=low
   * Add scripts to select GNU/kFreeBSD kernels.
   * Add kfreebsd-amd64 and kfreebsd-i386 to the testsuite.
 
- -- Aurelien Jarno <aurel32@debian.org>  Tue, 18 Aug 2009 14:39:41 +0200
+  [ Frans Pop ]
+  * Allow to configure APT in the target system to not install Recommends by
+    default using the base-installer/install-recommends template. The option
+    is only intended for experienced users and is therefore not offered in a
+    dialog. It can be either preseeded or set at the boot prompt.
+    Together with changes in other components, this also makes what's set
+    using this option the global default for all package installs during the
+    installation process (with the exception of debootstrap).
+    Closes: #543256.
+
+ -- Frans Pop <fjp@debian.org>  Thu, 27 Aug 2009 21:38:13 +0200
 
 base-installer (1.102) unstable; urgency=low
 
