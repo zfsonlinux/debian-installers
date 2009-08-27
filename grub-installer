@@ -878,7 +878,9 @@ fi
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_update_etc
 
-sed -i 's/do_bootloader = yes/do_bootloader = no/' $ROOT/etc/kernel-img.conf
+if [ -e $ROOT/etc/kernel-img.conf ] ; then
+	sed -i 's/do_bootloader = yes/do_bootloader = no/' $ROOT/etc/kernel-img.conf
+fi
 if [ -z "$(grep update-grub $ROOT/etc/kernel-img.conf)" ]; then
 	(
 		echo "postinst_hook = update-grub"
