@@ -795,9 +795,9 @@ for os in $(cat /tmp/os-probed); do
 		partition=$(mapdevfs $(echo "$os" | cut -d: -f1))
 		grubdrive=$(convert "$partition") || true
 		if [ -n "$grubdrive" ]; then
-			case $grub_version in
+			case $grub_package in
 			    grub)	grub_write_chain ;;
-			    grub2)
+			    grub-pc | grub-efi)
 					grub2_write_chain ;;
 			esac
 		fi
