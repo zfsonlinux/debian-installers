@@ -1,6 +1,11 @@
 grub-installer (1.42) UNRELEASED; urgency=low
 
+  [ Felix Zielcke ]
   * Check that /etc/kernel-img.conf exists before running sed over it.
+
+  [ Colin Watson ]
+  * Don't create /etc/grub.d/30_otheros if os-prober is already installed
+    for grub2 to use (LP: #419044).
 
  -- Felix Zielcke <fzielcke@z-51.de>  Thu, 27 Aug 2009 10:39:35 +0200
 
