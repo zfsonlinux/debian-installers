@@ -35,12 +35,16 @@ EOF
 		case $grubdisk in
 		    hd0)	;;
 		    hd*)
-			if [ "$title" != "Windows Vista (loader)" ]; then
+			case $title in
+			    Windows\ Vista*|Windows\ 7*)
+				;;
+			    *)
 				cat >> $tmpfile <<EOF
 map		(hd0) ($grubdisk)
 map		($grubdisk) (hd0)
 EOF
-			fi
+				;;
+			esac
 			;;
 		esac
 		;;
