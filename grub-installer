@@ -439,7 +439,19 @@ case "$grub_package" in
 	;;
 esac
 
-if ! apt-install $grub_package ; then
+exit_code=0
+case "$grub_package" in
+    grub)
+	if ! apt-install grub-legacy ; then
+	  apt-install $grub_package || exit_code=$? 
+	fi
+	;;
+   *)
+	apt-install $grub_package || exit_code=$? 
+	;;
+esac
+
+if [ $exit_code -ne 0 ] ; then
 	db_progress STOP
 	info "Calling 'apt-install $grub_package' failed"
 	db_subst grub-installer/apt-install-failed GRUB "$grub_package"
