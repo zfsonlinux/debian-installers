@@ -443,7 +443,7 @@ exit_code=0
 case "$grub_package" in
     grub)
 	if ! apt-install grub-legacy ; then
-	  apt-install $grub_package || exit_code=$? 
+		apt-install $grub_package || exit_code=$? 
 	fi
 	;;
    *)
