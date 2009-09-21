@@ -416,7 +416,7 @@ if [ "$grub_version" = grub2 ]; then
 		defopt_params="quiet${defopt_params:+ $defopt_params}"
 	fi
 	# (quoting to deconfuse vim)
-	chroot /target 'debconf-set-selections' <<EOF
+	$chroot $ROOT 'debconf-set-selections' <<EOF
 $grub_package grub2/linux_cmdline string $kopt_params
 $grub_package grub2/linux_cmdline_default string $defopt_params
 EOF
@@ -896,7 +896,7 @@ if [ -s $tmpfile ] ; then
 		cat $tmpfile >> $ROOT/boot/grub/$menu_file
 		;;
 	    grub2)
-		if ! chroot /target which os-prober >/dev/null 2>&1; then
+		if ! $chroot $ROOT which os-prober >/dev/null 2>&1; then
 			cat > $ROOT/etc/grub.d/30_otheros << EOF
 #!/bin/sh
 exec tail -n +3 \$0
