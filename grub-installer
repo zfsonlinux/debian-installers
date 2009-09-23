@@ -436,6 +436,10 @@ case "$grub_package" in
 	;;
     grub-pc)
 	log-output -t grub-installer $chroot $ROOT dpkg -P grub grub-legacy
+	# os-prober is only a Recommends so isn't installed by apt-install,
+	# but we make sure it's installed since it does a better
+	# job than the otheros script.
+	apt-install os-prober || true
 	;;
 esac
 
