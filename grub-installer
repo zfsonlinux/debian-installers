@@ -890,9 +890,9 @@ IFS="$OLDIFS"
 rm -f /tmp/os-probed
 
 if [ -s $tmpfile ] ; then
-	grub_write_divider
 	case $grub_version in
 	    grub)
+		grub_write_divider
 		cat $tmpfile >> $ROOT/boot/grub/$menu_file
 		;;
 	    grub2)
