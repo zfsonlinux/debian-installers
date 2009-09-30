@@ -629,6 +629,9 @@ if [ -z "$frdisk" ]; then
 
 		if [ "$grub_version" = "grub" ] ; then
 			grub_install_params="$grub_install_params --recheck"
+		else
+			# install even if it requires blocklists
+			grub_install_params="$grub_install_params --force"
 		fi
 
 		info "Running $chroot $ROOT grub-install $grub_install_params \"$bootdev\""
