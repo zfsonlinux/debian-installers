@@ -265,7 +265,7 @@ case $prefix in
 	disc_offered_devfs="$prefix"
 	;;
     *)
-	disc_offered_devfs=$(echo "$bootfs_devfs" | sed "s:\(.*\)/.*:\1/disc:")
+	disc_offered_devfs=$(echo "$bootfs_nodevfs" | sed "s:\(.*\)/.*:\1/disc:")
 	;;
 esac
 disc_offered=$(mapdevfs "$disc_offered_devfs")
