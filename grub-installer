@@ -357,7 +357,7 @@ case "$frtype:$bootfstype:$bootfslabel:$grub_package" in
 	;;
     *:*:*:grub)
 	db_input low grub-installer/grub2_instead_of_grub_legacy || [ $? -eq 30 ]
-	db_go || true
+	db_go || exit 10
 	db_get grub-installer/grub2_instead_of_grub_legacy
 	if [ "$RET" = true ]; then
 		grub_package="grub-pc"
@@ -370,7 +370,7 @@ case "$frtype:$bootfstype:$bootfslabel:$grub_package" in
     *:*:*:*)
 	db_subst grub-installer/grub_not_mature_on_this_platform ARCH $ARCH
 	db_input low grub-installer/grub_not_mature_on_this_platform || [ $? -eq 30 ]
-	db_go || true
+	db_go || exit 10
 	db_get grub-installer/grub_not_mature_on_this_platform
 	if [ "$RET" != true ]; then
 		exit 10
