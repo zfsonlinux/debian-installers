@@ -342,6 +342,9 @@ case "$frtype:$bootfstype:$bootfslabel:$grub_package" in
     sataraid:*:*:*)
 	# Serial ATA RAID partition, currently only grub is supported
 	: ;;
+    multipath:*:*:*)
+	# Multipath requires GRUB Legacy for now
+	: ;;
     lvm:*:*:*)
 	# Booting from LVM requires grub2
 	grub_package="grub-pc"
