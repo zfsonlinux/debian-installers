@@ -505,9 +505,7 @@ install_linux () {
 # Kernel image management overrides
 # See kernel-img.conf(5) for details
 do_symlinks = yes
-relative_links = yes
 do_bootloader = no
-do_bootfloppy = no
 do_initrd = $do_initrd
 link_in_boot = $link_in_boot
 EOF
