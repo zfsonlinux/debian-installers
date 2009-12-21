@@ -29,6 +29,10 @@ APT_SOURCES=/target/etc/apt/sources.list
 APT_CONFDIR=/target/etc/apt/apt.conf.d
 IT_CONFDIR=/target/etc/initramfs-tools/conf.d
 
+IFS_ORIG="$IFS"
+NL="
+"
+
 log() {
 	logger -t base-installer "$@"
 }
@@ -193,17 +197,22 @@ apt_update () {
 }
 
 install_extra () {
+	local IFS
 	info "Installing queued packages into /target/."
 
 	if [ -f /var/lib/apt-install/queue ] ; then
 		# We need to install these one by one in case one fails.
-		PKG_COUNT=`cat /var/lib/apt-install/queue | wc -w`
+		PKG_COUNT=$(cat /var/lib/apt-install/queue | wc -w)
 		CURR_PKG=0
-		for PKG in `cat /var/lib/apt-install/queue`; do
+		IFS="$NL"
+		for LINE in $(cat /var/lib/apt-install/queue); do
+			IFS="$IFS_ORIG"
+			PKG=${LINE%% *}
+			OPTS=$(echo "$LINE" | sed "s/$PKG *//")
 			db_subst base-installer/section/install_extra_package SUBST0 "$PKG"
 			db_progress INFO base-installer/section/install_extra_package
 
-			if ! log-output -t base-installer apt-install $PKG; then
+			if ! log-output -t base-installer apt-install $OPTS $PKG; then
 				warning "Failed to install $PKG into /target/: $?"
 			fi
 
