@@ -449,9 +449,12 @@ case "$grub_package" in
 esac
 
 exit_code=0
+inst_package=$grub_package
 case "$grub_package" in
     grub)
-	if ! apt-install --no-recommends grub-legacy ; then
+	if apt-install --no-recommends grub-legacy ; then
+		inst_package=grub-legacy
+	else
 		apt-install $grub_package || exit_code=$? 
 	fi
 	;;
@@ -463,8 +466,8 @@ esac
 
 if [ $exit_code -ne 0 ] ; then
 	db_progress STOP
-	info "Calling 'apt-install $grub_package' failed"
-	db_subst grub-installer/apt-install-failed GRUB "$grub_package"
+	info "Calling 'apt-install $inst_package' failed"
+	db_subst grub-installer/apt-install-failed GRUB "$inst_package"
 	db_input critical grub-installer/apt-install-failed || true
 	if ! db_go; then
 		exit 10 # back up to menu
@@ -472,7 +475,7 @@ if [ $exit_code -ne 0 ] ; then
 	exit 1
 fi
 
-grub_debian_version="$($chroot $ROOT dpkg-query -W -f '${Version}' $grub_package)"
+grub_debian_version="$($chroot $ROOT dpkg-query -W -f '${Version}' $inst_package)"
 
 if [ "$frtype" = multipath ]; then
 	$chroot $ROOT umount /proc
