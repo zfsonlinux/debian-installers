@@ -426,7 +426,7 @@ EOF
 fi
 if [ "$grub_package" = grub-pc ]; then
 	# Empty this for now to stop it being asked. We'll fix this up later.
-	chroot /target 'debconf-set-selections' <<EOF
+	$chroot $ROOT 'debconf-set-selections' <<EOF
 $grub_package grub-pc/install_devices multiselect
 EOF
 fi
