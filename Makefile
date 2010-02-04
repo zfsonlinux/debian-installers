@@ -25,3 +25,6 @@ small: $(TARGETS)
 
 clean:
 	-rm -f $(TARGETS)
+
+test:
+	$(MAKE) -C kernel test
