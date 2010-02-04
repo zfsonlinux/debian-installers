@@ -1,6 +1,9 @@
 base-installer (1.105) UNRELEASED; urgency=low
 
   * Upgrade to debhelper v7.
+  * Ensure that Acquire::cdrom::AutoDetect is disabled when running
+    apt-cdrom.  We bind-mount /target/cdrom, so apt's new libudev-based
+    autodetection isn't needed during installation.
 
  -- Colin Watson <cjwatson@debian.org>  Thu, 04 Feb 2010 12:09:51 -0800
 
