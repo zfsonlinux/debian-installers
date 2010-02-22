@@ -159,12 +159,10 @@ install_filesystems () {
 configure_apt_preferences () {
 	[ ! -d "$APT_CONFDIR" ] && mkdir -p "$APT_CONFDIR"
 
-	# Install Recommends?
-	if db_get base-installer/install-recommends && [ "$RET" = false ]; then
-		cat >$APT_CONFDIR/00InstallRecommends <<EOT
+	# Don't install Recommends during base-installer
+	cat >$APT_CONFDIR/00InstallRecommends <<EOT
 APT::Install-Recommends "false";
 EOT
-	fi
 
 	# Make apt trust Debian CDs. This is not on by default (we think).
 	# This will be left in place on the installed system.
@@ -187,6 +185,14 @@ EOT
 	fi
 }
 
+final_apt_preferences () {
+	# From here on install Recommends as configured
+	db_get base-installer/install-recommends
+	if [ "$RET" = true ]; then
+		rm -f $APT_CONFDIR/00InstallRecommends
+	fi
+}
+
 apt_update () {
 	log-output -t base-installer chroot /target apt-get update \
 		|| apt_update_failed=$?
@@ -200,7 +206,7 @@ install_extra () {
 	local IFS
 	info "Installing queued packages into /target/."
 
-	if [ -f /var/lib/apt-install/queue ] ; then
+	if [ -f /var/lib/apt-install/queue ]; then
 		# We need to install these one by one in case one fails.
 		PKG_COUNT=$(cat /var/lib/apt-install/queue | wc -w)
 		CURR_PKG=0

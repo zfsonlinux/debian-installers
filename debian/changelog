@@ -8,6 +8,11 @@ base-installer (1.105) UNRELEASED; urgency=low
 
   [ Frans Pop ]
   * powerpc: add kernel selection support for PlayStation 3 systems.
+  * Don't install Recommends during base system installation as it leads to
+    inconsistencies and requires too many exceptions. Instead delay enabling
+    installation of Recommends to the very end of base system installation.
+    Any package installations after base-installer will follow the debconf
+    setting install-recommends, unless overridden in a call to 'apt-install'.
 
  -- Frans Pop <fjp@debian.org>  Thu, 18 Feb 2010 16:07:31 +0100
 
