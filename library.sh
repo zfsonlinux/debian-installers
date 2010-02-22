@@ -125,37 +125,6 @@ setup_dev () {
 	mount --bind /dev /target/dev/
 }
 
-# TODO: as we no longer have to create devices here, the apt-install calls
-# could possibly better be done as post-base-installer hooks from partman
-install_filesystems () {
-	# RAID
-	if [ -e /proc/mdstat ] && grep -q ^md /proc/mdstat ; then
-		apt-install mdadm
-	fi
-	# device-mapper
-	if grep -q " device-mapper$" /proc/misc; then
-		# Avoid warnings from lvm2 tools about open file descriptors
-		export LVM_SUPPRESS_FD_WARNINGS=1
-
-		# We can't check the root node directly as is done above because
-		# root could be on an LVM LV on top of an encrypted device
-		if type dmsetup >/dev/null 2>&1 && \
-		   dmsetup table | cut -d' ' -f4 | grep -q "crypt" 2>/dev/null; then
-			apt-install cryptsetup
-		fi
-
-		if type dmraid >/dev/null 2>&1; then
-			if dmraid -s -c >/dev/null 2>&1; then
-				apt-install dmraid
-			fi
-		fi
-
-		if pvdisplay | grep -iq "physical volume ---"; then
-			apt-install lvm2
-		fi
-	fi
-}
-
 configure_apt_preferences () {
 	[ ! -d "$APT_CONFDIR" ] && mkdir -p "$APT_CONFDIR"
 
