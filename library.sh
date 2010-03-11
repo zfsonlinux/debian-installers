@@ -746,19 +746,23 @@ configure_apt () {
 		rm -f /var/lib/install-cd.id
 
 		# Let apt inside the chroot see the cdrom
-		if [ -n "$DIRECTORY" ]; then
-			umount /target$DIRECTORY 2>/dev/null || true
-			if [ ! -e /target/$DIRECTORY ]; then
-				mkdir -p /target/$DIRECTORY
-			fi
+		umount /target/media$DIRECTORY 2>/dev/null || true
+		if [ ! -e /target/media$DIRECTORY ]; then
+			mkdir -p /target/media$DIRECTORY
 		fi
 
 		# The bind mount is left mounted, for future apt-install
 		# calls to use.
-		if ! mount -o bind $DIRECTORY /target$DIRECTORY; then
-			warning "failed to bind mount /target$DIRECTORY"
+		if ! mount -o bind $DIRECTORY /target/media$DIRECTORY; then
+			warning "failed to bind mount /target/media$DIRECTORY"
 		fi
 
+		# Define the mount point for apt-cdrom
+		cat > $APT_CONFDIR/00CDMountPoint << EOT
+Acquire::cdrom {
+  mount "/media/cdrom";
+}
+EOT
 		# Make apt-cdrom and apt not unmount/mount CD-ROMs;
 		# needed to support CD images (hd-media installs).
 		# This file will be left in place until the end of the
@@ -767,8 +771,7 @@ configure_apt () {
 		cat > $APT_CONFDIR/00NoMountCDROM << EOT
 APT::CDROM::NoMount "true";
 Acquire::cdrom {
-  mount "/cdrom";
-  "/cdrom/" {
+  "/media/cdrom/" {
     Mount  "true";
     UMount "true";
   };
