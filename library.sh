@@ -743,18 +743,19 @@ addmodule_yaird () {
 # Assumes the file protocol is only used for CD (image) installs
 configure_apt () {
 	if [ "$PROTOCOL" = file ]; then
+		local tdir=/target/media$DIRECTORY
 		rm -f /var/lib/install-cd.id
 
 		# Let apt inside the chroot see the cdrom
-		umount /target/media$DIRECTORY 2>/dev/null || true
-		if [ ! -e /target/media$DIRECTORY ]; then
-			mkdir -p /target/media$DIRECTORY
+		umount $tdir 2>/dev/null || true
+		if [ ! -e $tdir ]; then
+			mkdir -p $tdir
 		fi
 
 		# The bind mount is left mounted, for future apt-install
 		# calls to use.
-		if ! mount -o bind $DIRECTORY /target/media$DIRECTORY; then
-			warning "failed to bind mount /target/media$DIRECTORY"
+		if ! mount -o bind $DIRECTORY $tdir; then
+			warning "failed to bind mount $tdir"
 		fi
 
 		# Define the mount point for apt-cdrom
