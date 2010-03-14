@@ -187,9 +187,8 @@ install_extra () {
 			db_subst base-installer/section/install_extra_package SUBST0 "$PKG"
 			db_progress INFO base-installer/section/install_extra_package
 
-			if ! log-output -t base-installer apt-install $OPTS $PKG; then
+			log-output -t base-installer apt-install $OPTS $PKG || \
 				warning "Failed to install $PKG into /target/: $?"
-			fi
 
 			# Advance progress bar within space allocated for install_extra
 			CURR_PKG=$(($CURR_PKG + 1))
