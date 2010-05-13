@@ -16,7 +16,10 @@ DISTRIBUTION=
 # used by kernel installation code
 KERNEL=
 KERNEL_LIST=/tmp/available_kernels.txt
-KERNEL_MAJOR="$(uname -r | cut -d . -f 1,2)"
+case `udpkg --print-os` in
+	linux)		KERNEL_MAJOR="$(uname -r | cut -d . -f 1,2)" ;;
+	kfreebsd)	KERNEL_MAJOR="$(uname -r | cut -d . -f 1)" ;;
+esac
 KERNEL_VERSION="$(uname -r | cut -d - -f 1)"
 KERNEL_ABI="$(uname -r | cut -d - -f 1,2)"
 KERNEL_FLAVOUR=$(uname -r | cut -d - -f 3-)
@@ -115,7 +118,7 @@ check_target () {
 	fi
 }
 
-setup_dev () {
+setup_dev_linux () {
 	# Ensure static device nodes created during install are preserved
 	# Tests in MAKEDEV require this is done in the D-I environment
 	mkdir -p /dev/.static/dev
@@ -123,6 +126,18 @@ setup_dev () {
 	mount --bind /target/dev /dev/.static/dev
 	# Mirror device nodes in D-I environment to target
 	mount --bind /dev /target/dev/
+}
+
+setup_dev_kfreebsd() {
+	mount -t devfs devfs /target/dev
+}
+
+setup_dev() {
+	case "$OS" in
+		linux) setup_dev_linux ;;
+		kfreebsd) setup_dev_kfreebsd ;;
+		*) ;;
+	esac	
 }
 
 configure_apt_preferences () {
@@ -307,7 +322,7 @@ get_mirror_info () {
 
 kernel_update_list () {
 	# Use 'uniq' to avoid listing the same kernel more then once
-	chroot /target apt-cache search '^(kernel|linux)-image' | \
+	chroot /target apt-cache search '^(kernel|linux|kfreebsd)-image' | \
 	cut -d" " -f1 | uniq > "$KERNEL_LIST.unfiltered"
 	kernels=`sort -r "$KERNEL_LIST.unfiltered" | tr '\n' ' ' | sed -e 's/ $//'`
 	for candidate in $kernels; do
@@ -434,7 +449,7 @@ pick_kernel () {
 	info "Using kernel '$KERNEL'"
 }
 
-install_linux () {
+install_kernel_linux () {
 	if [ "$KERNEL" = none ]; then
 		info "Not installing any kernel"
 		return
@@ -635,7 +650,7 @@ EOF
 		fi
 	fi
 
-	# Advance progress bar to 30% of allocated space for install_linux
+	# Advance progress bar to 30% of allocated space for install_kernel_linux
 	update_progress 30 100
 
 	# Install the kernel
@@ -643,7 +658,7 @@ EOF
 	db_progress INFO base-installer/section/install_kernel_package
 	log-output -t base-installer apt-install "$KERNEL" || kernel_install_failed=$?
 
-	# Advance progress bar to 90% of allocated space for install_linux
+	# Advance progress bar to 90% of allocated space for install_kernel_linux
 	update_progress 90 100
 
 	if [ -f /target/etc/kernel-img.conf.$$ ]; then
@@ -738,6 +753,54 @@ addmodule_yaird () {
 		sed -i "/END GOALS/s/^/\t\tMODULE $1\n/" $CFILE
 	fi
 }
+
+install_kernel_kfreebsd() {
+	if [ "$KERNEL" = none ]; then
+		info "Not installing any kernel"
+		return
+	fi
+
+	# Create configuration file for kernel-package
+	if [ -f /target/etc/kernel-img.conf ]; then
+		# Backup old kernel-img.conf
+		mv /target/etc/kernel-img.conf /target/etc/kernel-img.conf.$$
+	fi
+
+	cat > /target/etc/kernel-img.conf <<EOF
+# Kernel image management overrides
+# See kernel-img.conf(5) for details
+do_symlinks = no
+EOF
+	# Advance progress bar to 10% of allocated space for install_kfreebsd
+	update_progress 10 100
+
+	# Install the kernel
+	db_subst base-installer/section/install_kernel_package SUBST0 "$KERNEL"
+	db_progress INFO base-installer/section/install_kernel_package
+	log-output -t base-installer apt-install "$KERNEL" || kernel_install_failed=$?
+
+	# Advance progress bar to 90% of allocated space for install_kfreebsd
+	update_progress 90 100
+
+	if [ -f /target/etc/kernel-img.conf.$$ ]; then
+		# Revert old kernel-img.conf
+		mv /target/etc/kernel-img.conf.$$ /target/etc/kernel-img.conf
+	fi
+
+	if [ "$kernel_install_failed" ]; then
+		db_subst base-installer/kernel/failed-install KERNEL "$KERNEL"
+		exit_error base-installer/kernel/failed-install
+	fi
+}
+
+install_kernel() {
+	case "$OS" in
+		linux) install_kernel_linux ;;
+		kfreebsd) install_kernel_kfreebsd ;;
+		*) ;;
+	esac	
+}
+
 
 # Assumes the file protocol is only used for CD (image) installs
 configure_apt () {
