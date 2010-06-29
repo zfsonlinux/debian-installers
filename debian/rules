@@ -7,7 +7,7 @@ else
 endif
 
 override_dh_auto_build:
-	scons -C src debug=1 optim=$(OPTIM)
+	scons --no-cache -C src debug=1 optim=$(OPTIM)
 	xsltproc --nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl debian/zfs-fuse.man.xml
 
 override_dh_auto_clean:
