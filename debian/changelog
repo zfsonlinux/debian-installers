@@ -1,8 +1,66 @@
-zfs-fuse (0.6.9-1) UNRELEASED; urgency=low
+zfs-fuse (0.6.9-1) unstable; urgency=low
 
   * New upstream release.
 
- -- Mike Hommey <glandium@debian.org>  Fri, 11 Jun 2010 13:37:13 +0200
+  [ Mike Hommey ]
+  * debian/control:
+    - Build depend on libssl-dev and libattr1-dev, now required to build.
+    - Build depend on docbook-xml to avoid xsltproc I/O error loading
+      docbook DTD.
+    - Add suggestions for a NFS server and kpartx.
+  * debian/man/*, debian/copyright, debian/rules: Remove manual pages, they
+    are now shipped upstream.
+  * debian/copyright: Change download link.
+  * src/SConstruct:
+    - Add an optim option to the build system.
+    - Add support for DESTDIR.
+    - Force debug=1 to mean optim, no strip, no debug.
+    - Use -ffunction-sections, -fdata-sections, and --gc-sections flags to
+      reduce the binary sizes.
+  * src/lib/libumem/SConscript: Cleanup src/lib/libumem when cleaning up
+    build directory.
+  * src/cmd/*/SConscript: Don't link zfs, zpool and zdb against libssl.
+  * src/lib/libumem/SConscript: Only build static libumem.
+  * src/lib/libumem/sol_compat.h:
+    - Add atomic cas support for sparc.
+    - Use atomic functions from libsolcompat in libumem on unsupported
+      platforms.
+  * debian/rules:
+    - Set optimization level in build system according to DEB_BUILD_OPTIONS.
+    - Build with debug=1 to have unstripped binaries ; dh_strip will do the
+      right thing.
+    - Don't depend on the local location of the docbook XSLT stylesheets.
+      Use the catalogged url in place of the full path.
+    - Don't clean src/.sconsign.dblite and src/path.pyc.
+    - Set all destination directories when installing with scons.
+    - Install bash completion and zfsrc files.
+    - Don't use scons cache when building.
+  * debian/prerm: Remove /var/lib/zfs/zpool.cache in prerm.
+  * debian/dirs: Create /etc/bash_completion.d.
+  * debian/watch: Fix watch file.
+  * debian/rules, debian/control, debian/compat: Switch to dh.
+  * debian/README.Debian: Update README.Debian.
+  * debian/zfs-fuse.man.xml: Update zfs-fuse manual page.
+  * debian/zfs-fuse.init: Start sharing datasets marked as such at daemon
+    startup.
+  * debian/rules, debian/control: Use config.guess and config.sub from
+    autotools-dev.
+
+  [ Seth Heeren ]
+  * debian/zfs-fuse.man.xml:
+    Added notes on the precedence, zfsrc, commandline, initscript vs.
+    /etc/default/zfs-fuse on some systems.
+  * debian/zfs-fuse.init, debian/zfs-fuse.default: Deprecating DAEMON_OPTS.
+  * debian/zfs-fuse.init:
+    - Removing import -a -f.
+    - Removing the now unnecessary 'sleep 2'.
+    - Extended shutdown wait to allow for zfs-fuse daemon's own shutdown
+      timeouts.
+    - Re-ordered dubious PATH setting.
+  * debian/zfs-fuse.init: Move existing zpool.cache to new location if
+    possible.
+
+ -- Mike Hommey <glandium@debian.org>  Wed, 30 Jun 2010 18:03:52 +0200
 
 zfs-fuse (0.6.0+critical20100301-5) unstable; urgency=low
 
