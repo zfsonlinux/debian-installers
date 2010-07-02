@@ -4,6 +4,9 @@ grub-installer (1.51) UNRELEASED; urgency=low
     - Use grub-probe to convert device names rather than relying on
       device.map.
     - Use an appropriate OS device name rather than (hd0) if possible.
+    - Convert device names to by-id form before preseeding
+      grub-pc/install_devices.  This is important now that grub-pc migrates
+      to this on upgrades to 1.98+20100702-1, but not after that.
 
  -- Colin Watson <cjwatson@debian.org>  Mon, 08 Mar 2010 17:40:05 +0000
 

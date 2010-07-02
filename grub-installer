@@ -125,6 +125,59 @@ findfstype () {
 	mount | grep "on $ROOT${1%/} " | tail -n1 | cut -d' ' -f5
 }
 
+# by-id mapping copied from grub-pc.postinst.
+
+cached_available_ids=
+available_ids()
+{
+	local id path
+
+	if [ "$cached_available_ids" ]; then
+		echo "$cached_available_ids"
+		return
+	fi
+
+	[ -d /dev/disk/by-id ] || return
+	cached_available_ids="$(
+		for path in /dev/disk/by-id/*; do
+			[ -e "$path" ] || continue
+			printf '%s %s\n' "$path" "$(readlink -f "$path")"
+		done | sort -k2 -s -u | cut -d' ' -f1
+	)"
+	echo "$cached_available_ids"
+}
+
+# Returns non-zero and no output if no mapping can be found.
+device_to_id()
+{
+	local id
+	for id in $(available_ids); do
+		if [ "$(readlink -f "$id")" = "$(readlink -f "$1")" ]; then
+			echo "$id"
+			return 0
+		fi
+	done
+	# Fall back to the plain device name if there's no by-id link for it.
+	if [ -e "$1" ]; then
+		echo "$1"
+		return 0
+	fi
+	return 1
+}
+
+devices_to_ids()
+{
+	local device id ids
+	ids=
+	for device; do
+		id="$(device_to_id "$device" || true)"
+		if [ "$id" ]; then
+			ids="${ids:+$ids, }$id"
+		fi
+	done
+	echo "$ids"
+}
+
 rootfs=$(findfs /)
 bootfs=$(findfs /boot)
 [ -n "$bootfs" ] || bootfs="$rootfs"
@@ -592,7 +645,7 @@ fi
 if [ "$grub_package" = "grub-pc" ]; then
 	# Do the same thing on upgrades.
 	$chroot $ROOT 'debconf-set-selections' <<EOF
-$grub_package grub-pc/install_devices multiselect $bootdevs
+$grub_package grub-pc/install_devices multiselect $(devices_to_ids $bootdevs)
 EOF
 fi
 
