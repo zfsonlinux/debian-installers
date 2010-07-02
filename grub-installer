@@ -372,6 +372,7 @@ if [ "$grub_package" = grub-pc ]; then
 	# Empty this for now to stop it being asked. We'll fix this up later.
 	$chroot $ROOT 'debconf-set-selections' <<EOF
 $grub_package grub-pc/install_devices multiselect
+$grub_package grub-pc/install_devices_empty boolean true
 EOF
 fi
 
@@ -646,6 +647,8 @@ if [ "$grub_package" = "grub-pc" ]; then
 	# Do the same thing on upgrades.
 	$chroot $ROOT 'debconf-set-selections' <<EOF
 $grub_package grub-pc/install_devices multiselect $(devices_to_ids $bootdevs)
+$grub_package grub-pc/install_devices_empty boolean false
+$grub_package grub-pc/install_devices_empty seen false
 EOF
 fi
 
