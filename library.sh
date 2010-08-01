@@ -86,7 +86,8 @@ update_progress () {
 check_target () {
 	# Make sure something is mounted on the target.
 	# Partconf causes the latter format.
-	if ! grep -q '/target ' /proc/mounts && \
+	if [ -e /proc/mounts ] && \
+	   ! grep -q '/target ' /proc/mounts && \
 	   ! grep -q '/target/ ' /proc/mounts; then
 		exit_error base-installer/no_target_mounted
 	fi
