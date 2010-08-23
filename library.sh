@@ -817,9 +817,23 @@ configure_apt () {
 
 		# The bind mount is left mounted, for future apt-install
 		# calls to use.
-		if ! mount -o bind $DIRECTORY $tdir; then
-			warning "failed to bind mount $tdir"
-		fi
+		case "$OS" in
+			linux)
+			if ! mount -o bind $DIRECTORY $tdir; then
+				warning "failed to bind mount $tdir"
+			fi
+			;;
+			kfreebsd)
+			if ! mount -t nullfs $DIRECTORY $tdir ; then
+				warning "failed to bind mount $tdir"
+			fi
+			;;
+			hurd)
+			if ! mount -t firmlink $DIRECTORY $tdir ; then
+				warning "failed to bind mount $tdir"
+			fi
+			;;
+		esac
 
 		# Define the mount point for apt-cdrom
 		cat > $APT_CONFDIR/00CDMountPoint << EOT
