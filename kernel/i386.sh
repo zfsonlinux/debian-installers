@@ -1,45 +1,94 @@
 arch_get_kernel_flavour () {
-	VENDOR=`grep '^vendor_id' "$CPUINFO" | head -n1 | cut -d: -f2`
-	FAMILY=`grep '^cpu family' "$CPUINFO" | head -n1 | cut -d: -f2`
-	MODEL=`grep '^model[[:space:]]*:' "$CPUINFO" | head -n1 | cut -d: -f2`
-
-	# Only offer bigmem if the system supports PAE and the
-	# installer itself is already using a bigmem kernel.
-	if grep '^flags' "$CPUINFO" | grep -q pae ; then
-	    case "$KERNEL_FLAVOUR" in
-		686-bigmem*) BIGMEM="-bigmem" ;;
-		*) ;;
-	    esac
+	# Should we offer an amd64 kernel?
+	local HAVE_LM
+	if grep -q '^flags.*\blm\b' "$CPUINFO"; then
+		HAVE_LM=y
+	else
+		HAVE_LM=n
 	fi
 
+	# Should we offer a bigmem kernel?
+	local HAVE_PAE
+	if grep -q '^flags.*\bpae\b' "$CPUINFO"; then
+		HAVE_PAE=y
+	else
+		HAVE_PAE=n
+	fi
+
+	# Should we prefer a bigmem/amd64 kernel - is there RAM above 4GB?
+	local WANT_PAE
+	if [ -z "$RAM_END" ]; then
+		local MAP MAP_END
+		RAM_END=0
+		for MAP in /sys/firmware/memmap/* ; do
+			if [ "$(cat $MAP/type)" = "System RAM" ]; then
+				MAP_END="$(cat $MAP/end)"
+				if [ $(($MAP_END > $RAM_END)) = 1 ]; then
+					RAM_END=$MAP_END
+				fi
+			fi
+		done
+	fi
+	if [ $(($RAM_END > 0x100000000)) = 1 ]; then
+		WANT_PAE=y
+	else
+		WANT_PAE=n
+	fi
+	# or is the installer running a 686-bigmem kernel?
+	case "$KERNEL_FLAVOUR" in
+	    686-bigmem*)
+		WANT_PAE=y
+		;;
+	esac
+
+	case "$HAVE_LM$HAVE_PAE$WANT_PAE" in
+	    yyy)
+		echo 686-bigmem amd64 686 486
+		return 0
+		;;
+	    yyn)
+		echo 686 686-bigmem amd64 486
+		return 0
+		;;
+	    yn?)
+		warning "Processor with LM but no PAE???"
+		;;
+	    nyy)
+		echo 686-bigmem 686 486
+		return 0
+		;;
+	    nyn)
+		echo 686 686-bigmem 486
+		return 0
+		;;
+	    nn?)
+		# Need to check whether 686 is suitable
+		;;
+	esac
+
+	local VENDOR FAMILY MODEL
+	VENDOR=$(sed -n 's/^vendor_id\s*: //; T; p; q' "$CPUINFO")
+	FAMILY=$(sed -n 's/^cpu family\s*: //; T; p; q' "$CPUINFO")
+	MODEL=$(sed -n 's/^model\s*: //; T; p; q' "$CPUINFO")
+
 	case "$VENDOR" in
-	    " AuthenticAMD"*)
+	    AuthenticAMD*)
 		case "$FAMILY" in
-		    " 15"|" 16"|" 17")			# k8
-			echo 686$BIGMEM
-			;;
-		    " 6")				# k7
-			case "$MODEL" in
-			    " 0"|" 1"|" 2"|" 3"|" 4"|" 5")
-				# May not have SSE support
-				echo 486 ;;
-			    *)	echo 686$BIGMEM ;;
-			esac
-			;;
+		    6|15|16|17)	echo 686 486 ;;
 		    *)		echo 486 ;;
 		esac
 		;;
-	    " GenuineIntel")
+	    GenuineIntel)
 		case "$FAMILY" in
-		    " 6"|" 15")	echo 686$BIGMEM ;;
+		    6|15)	echo 686 486 ;;
 		    *)		echo 486 ;;
 		esac
 		;;
-	    " CentaurHauls")
+	    CentaurHauls)
 		case "$FAMILY" in
-		    " 6")
+		    6)
 			case "$MODEL" in
-			    " 9"|" 10")	echo 686$BIGMEM ;;
+			    9|10)	echo 686 486 ;;
 			    *)		echo 486 ;;
 			esac
 			;;
@@ -53,30 +102,34 @@ arch_get_kernel_flavour () {
 	return 0
 }
 
-# Note: the -k7 flavor has been dropped with linux-2.6 (2.6.23-1)
-
 arch_check_usable_kernel () {
-	if echo "$1" | grep -Eq -- "-486(-.*)?$"; then return 0; fi
-	if [ "$2" = 486 ]; then return 1; fi
-	if echo "$1" | grep -Eq -- "-686(-.*)?$"; then return 0; fi
-	if [ "$2" = 686 ] || [ "$2" = 686-bigmem ]; then return 1; fi
+	local NAME="$1"
 
-	# default to usable in case of strangeness
-	warning "Unknown kernel usability: $1 / $2"
-	return 0
+	set -- $2
+	while [ $# -ge 1 ]; do
+		case "$NAME" in
+		    *-"$1")
+			return 0;
+			;;
+		    *-"$1"-bigmem*)
+			# Don't allow -bigmem suffix
+			;;
+		    *-"$1"-*)
+			# Do allow any other hyphenated suffix
+			return 0
+			;;
+		esac
+		shift
+	done
+	return 1
 }
 
 arch_get_kernel () {
-	imgbase=linux-image
+	imgbase="linux-image-$KERNEL_MAJOR"
 
-	# See older versions of script for more flexible code structure
-	# that allows multiple levels of fallbacks
-	if [ "$1" = 686-bigmem ]; then
-		echo "$imgbase-$KERNEL_MAJOR-686-bigmem"
-		set 686
-	fi
-	if [ "$1" = 686 ]; then
-		echo "$imgbase-$KERNEL_MAJOR-686"
-	fi
-	echo "$imgbase-$KERNEL_MAJOR-486"
+	set -- $1
+	while [ $# -ge 1 ]; do
+		echo "$imgbase-$1"
+		shift
+	done
 }
