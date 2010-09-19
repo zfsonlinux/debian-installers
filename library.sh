@@ -840,6 +840,7 @@ configure_apt () {
 Acquire::cdrom {
   mount "/media/cdrom";
 }
+Dir::Media::MountPath "/media/cdrom";
 EOT
 		# Make apt-cdrom and apt not unmount/mount CD-ROMs;
 		# needed to support CD images (hd-media installs).
