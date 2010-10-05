@@ -88,7 +88,7 @@ arch_get_kernel_flavour () {
 		case "$FAMILY" in
 		    6)
 			case "$MODEL" in
-			    9|10)	echo 686 486 ;;
+			    9|10|13)	echo 686 486 ;;
 			    *)		echo 486 ;;
 			esac
 			;;
