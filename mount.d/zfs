@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -- $1
+
+fs=$1
+mp=$2
+type=$3
+options=$4
+dump=$5
+pass=$6
+
+case $type in
+    zfs)
+	zpool import -f $fs || exit 1
+	zfs set mountpoint=/target${mp%/} $fs || exit 1
+	echo "zpool export $fs"
+	exit 0
+	;;
+esac
+
+exit 1
