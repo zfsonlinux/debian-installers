@@ -11,8 +11,8 @@ pass=$6
 
 case $type in
     zfs)
-	zpool import -f $fs || exit 1
-	zfs set mountpoint=/target${mp%/} $fs || exit 1
+	zpool import -f -o altroot=/target $fs || exit 1
+	zfs set mountpoint=/${mp#/} $fs || exit 1
 	echo "zpool export $fs"
 	exit 0
 	;;
