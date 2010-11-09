@@ -108,7 +108,13 @@ hurd_convert () {
 
 # Run update-grub in $ROOT
 update_grub () {
-	if ! log-output -t grub-installer $chroot $ROOT $update_grub; then
+	local in_target
+	if [ "$ROOT" = /target ]; then
+		in_target='in-target'
+	else
+		in_target="log-output -t grub-installer $chroot $ROOT"
+	fi
+	if ! $in_target $update_grub; then
 		error "Running '$update_grub' failed." 1>&2
 		db_input critical grub-installer/update-grub-failed || [ $? -eq 30 ]
 		db_go || true

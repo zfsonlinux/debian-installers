@@ -1,7 +1,12 @@
 grub-installer (1.56) UNRELEASED; urgency=low
 
+  [ Otavio Salvador ]
   * Use '$grub_version' instead of '$grub_package' to choose the chain
     writting code.
+
+  [ Colin Watson ]
+  * Run update-grub within in-target so that /target/proc and /target/sys
+    are mounted, fixing OS detection (closes: #560027, #567980, #593460).
 
  -- Otavio Salvador <otavio@ossystems.com.br>  Tue, 19 Oct 2010 13:25:19 -0200
 
