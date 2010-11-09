@@ -621,7 +621,7 @@ EOF
 		else
 			resume=
 		fi
-		if [ "$resume" ]; then
+		if [ "$resume" ] && ! echo "$resume" | grep -q "^/dev/mapper/"; then
 			resume_uuid="$(block-attr --uuid "$resume" || true)"
 			if [ "$resume_uuid" ]; then
 				resume="UUID=$resume_uuid"
