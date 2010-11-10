@@ -75,10 +75,18 @@ grub_serial_console() {
 
 serial="$(get_serial_console)"
 
+grub_probe () {
+	if [ "$is_grub_common_installed" != true ]; then
+		apt-install grub-common
+		is_grub_common_installed=true
+	fi
+	$chroot $ROOT grub-probe $@
+}
+
 # Usage: convert os_device
 # Convert an OS device to the corresponding GRUB drive
 convert () {
-	tmp_drive="$($chroot $ROOT grub-probe -d -t drive "$1")" || exit $?
+	tmp_drive="$(grub_probe -d -t drive "$1")" || exit $?
 	if [ "$partition_offset" != 0 ]; then
 		tmp_part="$(echo "$tmp_drive" | sed 's%.*,\([0-9]*\)).*%\1%')"
 		if [ "$tmp_part" ] && [ "$tmp_part" != "$tmp_drive" ]; then
@@ -124,7 +132,9 @@ update_grub () {
 }
 
 findfs () {
-	mount | grep "on $ROOT${1%/} " | tail -n1 | cut -d' ' -f1
+	if ! grub_probe -t device $1; then
+		mount | grep "on $ROOT${1%/} " | tail -n1 | cut -d' ' -f1
+	fi
 }
 
 findfstype () {
@@ -318,6 +328,10 @@ case "$frtype:$bootfstype:$bootfslabel:$grub_package" in
 	;;
     *:ufs:*:*)
 	# Booting from UFS requires grub2
+	grub_package="grub-pc"
+	;;
+    *:zfs:*:*)
+	# Booting from ZFS requires grub2
 	grub_package="grub-pc"
 	;;
     *:ext2fs:*:grub-pc | *:xfs:*:grub-pc)
@@ -663,6 +677,11 @@ fi
 
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_config_loader
+
+if [ "$bootfstype" = "zfs" ]; then
+  # Required by update-grub on ZFS
+  cp /boot/zfs/zpool.cache $ROOT/boot/zfs/
+fi
 
 # Delete for idempotency
 rm -f $ROOT/boot/grub/$menu_file
