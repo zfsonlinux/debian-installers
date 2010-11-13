@@ -137,7 +137,7 @@ setup_dev() {
 	case "$OS" in
 		linux) setup_dev_linux ;;
 		kfreebsd) setup_dev_kfreebsd ;;
-		*) ;;
+		*) warning "setup_dev called for an unknown OS ($OS)." ;;
 	esac	
 }
 
@@ -798,7 +798,7 @@ install_kernel() {
 	case "$OS" in
 		linux) install_kernel_linux ;;
 		kfreebsd) install_kernel_kfreebsd ;;
-		*) ;;
+		*) warning "install_kernel called for an unknown OS ($OS)." ;;
 	esac	
 }
 
@@ -832,6 +832,9 @@ configure_apt () {
 			if ! mount -t firmlink $DIRECTORY $tdir ; then
 				warning "failed to bind mount $tdir"
 			fi
+			;;
+			*)
+			warning "configure_apt called with unknown OS ($OS)."
 			;;
 		esac
 
