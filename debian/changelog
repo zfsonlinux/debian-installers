@@ -1,3 +1,16 @@
+grub-installer (1.57) UNRELEASED; urgency=low
+
+  * Merge changes from Ubuntu by Evan Dandrea and myself:
+    - Set a sensible default boot device, so that we aren't installing GRUB
+      to installation media which may be removed later.  The disk containing
+      /cdrom is very unlikely to be a sensible default.  If we had to fall
+      back to (hd0), then we can't tell exactly which disk that is, but if
+      /cdrom seems to be a USB stick then (hd0) may not be safe.  If we hit
+      either of those checks, then try the disk containing /boot instead
+      (closes: #568529).
+
+ -- Colin Watson <cjwatson@debian.org>  Thu, 18 Nov 2010 15:08:00 +0000
+
 grub-installer (1.56) unstable; urgency=low
 
   [ Otavio Salvador ]
