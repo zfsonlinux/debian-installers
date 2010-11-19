@@ -556,7 +556,8 @@ if db_get cdrom-detect/hybrid; then
 fi
 if [ "$cdsrc" = "$default_bootdev" ] || \
    ([ "$default_bootdev" = '(hd0)' ] && \
-    ([ -n "$cdfs" ] && [ "$cdfs" != "iso9660" ]) || [ "$hybrid" = true ]); then
+    (([ -n "$cdfs" ] && [ "$cdfs" != "iso9660" ]) || \
+     [ "$hybrid" = true ])); then
 	db_fget grub-installer/bootdev seen
 	if [ "$RET" != true ]; then
 		bootfs=$(findfs /boot)
