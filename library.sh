@@ -347,6 +347,8 @@ kernel_present () {
 
 pick_kernel () {
 	kernel_update_list
+	
+	db_settitle base-installer/section/pick_kernel
 
 	# For now, only present kernels we believe to be usable. We may have
 	# to rethink this later, but if there are no usable kernels it
