@@ -348,7 +348,7 @@ kernel_present () {
 pick_kernel () {
 	kernel_update_list
 	
-	db_settitle base-installer/section/pick_kernel
+	db_settitle debian-installer/bootstrap-base/title
 
 	# For now, only present kernels we believe to be usable. We may have
 	# to rethink this later, but if there are no usable kernels it
@@ -571,6 +571,7 @@ EOF
 				db_get base-installer/kernel/linux/initramfs-tools/driver-policy
 				db_set base-installer/initramfs-tools/driver-policy "$RET"
 			fi
+			db_settitle debian-installer/bootstrap-base/title
 			db_input medium base-installer/initramfs-tools/driver-policy || true
 			if ! db_go; then
 				db_progress stop
