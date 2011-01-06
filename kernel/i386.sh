@@ -74,8 +74,8 @@ arch_get_kernel_flavour () {
 	case "$VENDOR" in
 	    AuthenticAMD*)
 		case "$FAMILY" in
-		    6|15|16|17)	echo 686 486 ;;
-		    *)		echo 486 ;;
+		    6|15|16|17|20)	echo 686 486 ;;
+		    *)			echo 486 ;;
 		esac
 		;;
 	    GenuineIntel)
