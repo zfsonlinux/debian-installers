@@ -32,6 +32,7 @@ CPUINFO=/proc/cpuinfo
 APT_SOURCES=/target/etc/apt/sources.list
 APT_CONFDIR=/target/etc/apt/apt.conf.d
 IT_CONFDIR=/target/etc/initramfs-tools/conf.d
+DPKG_CONFDIR=/target/etc/dpkg/dpkg.cfg.d
 
 IFS_ORIG="$IFS"
 NL="
@@ -170,6 +171,13 @@ APT::Get::AllowUnauthenticated "true";
 Aptitude::CmdLine::Ignore-Trust-Violations "true";
 EOT
 	fi
+
+	# Disable all syncing; it's unnecessary in an installation context,
+	# and can slow things down quite a bit.
+	# This file will be left in place until the end of the install.
+	cat > $DPKG_CONFDIR/force-unsafe-io <<EOT
+force-unsafe-io
+EOT
 }
 
 final_apt_preferences () {
