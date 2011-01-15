@@ -548,13 +548,16 @@ fi
 # (hd0), then we can't tell exactly which disk that is, but if /cdrom seems
 # to be a USB stick then (hd0) may not be safe.  If we hit either of those
 # checks, then try the disk containing /boot instead.
+# The same goes for /hd-media, so avoid installing there as well.
 cdsrc=$(mount | grep "on /cdrom " | cut -d' ' -f1)
 cdfs=$(mount | grep "on /cdrom " | cut -d' ' -f5)
+hdsrc=$(mount | grep "on /hd-media " | cut -d' ' -f1)
 hybrid=false
 if db_get cdrom-detect/hybrid; then
 	hybrid="$RET"
 fi
-if [ "$cdsrc" = "$default_bootdev" ] || \
+if [ "$(device_to_disk "$cdsrc")" = "$default_bootdev" ] || \
+   ([ -n "$hdsrc" ] && [ "$(device_to_disk "$hdsrc")" = "$default_bootdev" ]) || \
    ([ "$default_bootdev" = '(hd0)' ] && \
     (([ -n "$cdfs" ] && [ "$cdfs" != "iso9660" ]) || \
      [ "$hybrid" = true ])); then

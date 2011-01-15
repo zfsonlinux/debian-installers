@@ -1,3 +1,13 @@
+grub-installer (1.59) UNRELEASED; urgency=low
+
+  * Amend changes from 1.57: call device_to_disk on the device mounted as
+    cdrom.  Booting from a disk or usb device, that may end up being
+    /dev/sda1 instead of /dev/sda, defeating the "we shouldn't install GRUB to
+    the installation media" test.  In addition, avoid installing GRUB to the
+    device mounted on /hd-media.  Closes: #605562.
+
+ -- Julien Cristau <jcristau@debian.org>  Tue, 11 Jan 2011 17:41:21 +0100
+
 grub-installer (1.58) unstable; urgency=low
 
   [ Christian Perrier ]
