@@ -117,7 +117,7 @@ hurd_convert () {
 # This should probably be rewritten using udevadm or similar.
 device_to_disk () {
 	echo "$1" | \
-		sed 's:\(/dev/\(cciss\|ida\|rs\)/c[0-9]d[0-9][0-9]*\|/dev/mmcblk[0-9]\|/dev/\(ad\|da\)[0-9]\+\|/dev/[a-z]\+\).*:\1:'
+		sed 's:\(/dev/\(cciss\|ida\|rs\)/c[0-9]d[0-9][0-9]*\|/dev/mmcblk[0-9]\|/dev/\(ad\|da\)[0-9]\+\|/dev/[hs]d[0-9]\+\|/dev/[a-z]\+\).*:\1:'
 }
 
 # Run update-grub in $ROOT
@@ -144,7 +144,12 @@ findfs () {
 }
 
 findfstype () {
-	mount | grep "on $ROOT${1%/} " | tail -n1 | cut -d' ' -f5
+	case "$(udpkg --print-os)" in
+	    hurd)
+		fsysopts "$ROOT$1" | sed 's:^/hurd/\([^ ]*\)fs .*:\1:' ;;
+	    *)
+		mount | grep "on $ROOT${1%/} " | tail -n1 | cut -d' ' -f5 ;;
+	esac
 }
 
 # by-id mapping copied from grub-pc.postinst.
@@ -226,7 +231,7 @@ case $prefix in
     /dev/mapper)
 	disc_offered_devfs="$bootfs"
 	;;
-    /dev/[hsv]d[a-z]|/dev/xvd[a-z]|/dev/cciss/c[0-9]d[0-9]*|/dev/ida/c[0-9]d[0-9]*|/dev/rs/c[0-9]d[0-9]*|/dev/mmcblk[0-9]|/dev/ad[0-9]*|/dev/da[0-9]*)
+    /dev/[hsv]d[a-z0-9]|/dev/xvd[a-z]|/dev/cciss/c[0-9]d[0-9]*|/dev/ida/c[0-9]d[0-9]*|/dev/rs/c[0-9]d[0-9]*|/dev/mmcblk[0-9]|/dev/ad[0-9]*|/dev/da[0-9]*)
 	disc_offered_devfs="$prefix"
 	;;
     *)
@@ -298,9 +303,15 @@ case $ARCH in
     kfreebsd-i386/*|kfreebsd-amd64/*)
 	grub_package="grub-pc"
 	;;
+    hurd-i386/*)
+	grub_package="grub-pc"
+	;;
     powerpc/*)
 	grub_package="grub-ieee1275"
 	;;
+    *)
+	info "Unkown architecture $ARCH, defaulting to grub-legacy"
+	grub_package="grub"
 esac
 
 case "$frtype:$bootfstype:$bootfslabel:$grub_package" in
