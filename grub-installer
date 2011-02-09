@@ -562,7 +562,10 @@ if [ "$(device_to_disk "$cdsrc")" = "$default_bootdev" ] || \
    ([ -n "$hdsrc" ] && [ "$(device_to_disk "$hdsrc")" = "$default_bootdev" ]) || \
    ([ "$default_bootdev" = '(hd0)' ] && \
     (([ -n "$cdfs" ] && [ "$cdfs" != "iso9660" ]) || \
-     [ "$hybrid" = true ])); then
+     [ "$hybrid" = true ])) || \
+   ([ "$default_bootdev" != '(hd0)' ] && \
+    ! partmap "$default_bootdev" >/dev/null && \
+    ! grub_probe -t fs -d "$default_bootdev" >/dev/null); then
 	db_fget grub-installer/bootdev seen
 	if [ "$RET" != true ]; then
 		bootfs=$(findfs /boot)
