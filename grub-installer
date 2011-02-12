@@ -460,6 +460,8 @@ db_progress STEP 1
 db_progress INFO grub-installer/progress/step_os-probe
 os-prober > /tmp/os-probed || true
 
+db_settitle debian-installer/grub-installer/title
+
 # Work out what probed OSes can be booted from grub
 tmpfile=/tmp/menu.lst.extras
 if [ -s /tmp/os-probed ]; then
