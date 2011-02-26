@@ -38,16 +38,16 @@ info "architecture: $ARCH"
 get_serial_console() {
 	# Get the last 'console=' entry (if none, the whole string is returned)
 	local defconsole="$(sed -e 's/.*\(console=[^ ]*\).*/\1/' /proc/cmdline)"
-	if echo "$defconsole" | grep -q console=ttyS; then
+	if echo "$defconsole" | grep -qe 'console=\(ttyS\|com\)'; then
 		echo "$defconsole"
 	fi
 }
 
 grub_serial_console() {
 	#$1=output of get_serial_console
-	local serconsole=${1##console=}
-	local device=${serconsole%%,*}
-	local unit=${device##ttyS}
+	local serconsole=${1##console=ttyS}
+	serconsole=${serconsole##console=com}
+	local unit=${serconsole%%,*}
 	local options=""
 	if echo $serconsole | grep -q ","; then
 		options=${serconsole##*,}
