@@ -19,6 +19,7 @@ KERNEL_LIST=/tmp/available_kernels.txt
 case `udpkg --print-os` in
 	linux)		KERNEL_MAJOR="$(uname -r | cut -d . -f 1,2)" ;;
 	kfreebsd)	KERNEL_MAJOR="$(uname -r | cut -d . -f 1)" ;;
+	hurd)		KERNEL_MAJOR="$(uname -v | cut -d ' ' -f 2 | cut -d . -f 1)" ;;
 esac
 KERNEL_VERSION="$(uname -r | cut -d - -f 1)"
 KERNEL_ABI="$(uname -r | cut -d - -f 1,2)"
@@ -137,6 +138,7 @@ setup_dev() {
 	case "$OS" in
 		linux) setup_dev_linux ;;
 		kfreebsd) setup_dev_kfreebsd ;;
+		hurd) : ;;
 		*) warning "setup_dev called for an unknown OS ($OS)." ;;
 	esac	
 }
@@ -323,7 +325,7 @@ get_mirror_info () {
 
 kernel_update_list () {
 	# Use 'uniq' to avoid listing the same kernel more then once
-	chroot /target apt-cache search '^(kernel|linux|kfreebsd)-image' | \
+	chroot /target apt-cache search '^(kernel|linux|kfreebsd|gnumach)-image' | \
 	cut -d" " -f1 | uniq > "$KERNEL_LIST.unfiltered"
 	kernels=`sort -r "$KERNEL_LIST.unfiltered" | tr '\n' ' ' | sed -e 's/ $//'`
 	for candidate in $kernels; do
@@ -797,10 +799,50 @@ EOF
 	fi
 }
 
+install_kernel_hurd() {
+	if [ "$KERNEL" = none ]; then
+		info "Not installing any kernel"
+		return
+	fi
+
+	# Create configuration file for kernel-package
+	if [ -f /target/etc/kernel-img.conf ]; then
+		# Backup old kernel-img.conf
+		mv /target/etc/kernel-img.conf /target/etc/kernel-img.conf.$$
+	fi
+
+	cat > /target/etc/kernel-img.conf <<EOF
+# Kernel image management overrides
+# See kernel-img.conf(5) for details
+do_symlinks = no
+EOF
+	# Advance progress bar to 10% of allocated space for install_kfreebsd
+	update_progress 10 100
+
+	# Install the kernel
+	db_subst base-installer/section/install_kernel_package SUBST0 "$KERNEL"
+	db_progress INFO base-installer/section/install_kernel_package
+	log-output -t base-installer apt-install "$KERNEL" || kernel_install_failed=$?
+
+	# Advance progress bar to 90% of allocated space for install_kernel_hurd
+	update_progress 90 100
+
+	if [ -f /target/etc/kernel-img.conf.$$ ]; then
+		# Revert old kernel-img.conf
+		mv /target/etc/kernel-img.conf.$$ /target/etc/kernel-img.conf
+	fi
+
+	if [ "$kernel_install_failed" ]; then
+		db_subst base-installer/kernel/failed-install KERNEL "$KERNEL"
+		exit_error base-installer/kernel/failed-install
+	fi
+}
+
 install_kernel() {
 	case "$OS" in
 		linux) install_kernel_linux ;;
 		kfreebsd) install_kernel_kfreebsd ;;
+		hurd) install_kernel_hurd ;;
 		*) warning "install_kernel called for an unknown OS ($OS)." ;;
 	esac	
 }
