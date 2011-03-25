@@ -6,7 +6,12 @@ base-installer (1.117) UNRELEASED; urgency=low
   [ Joey Hess ]
   * If archive.gpg is missing for some reason, still pass the keyring
     parameter to debootstrap. If you absolutely must run the installer
-    w/o a keyring, you can preseed debian-installer/allow_unauthenticated.
+    w/o a keyring and bootstrap from the network, you can preseed
+    debian-installer/allow_unauthenticated.
+  * Pass --no-check-gpg to debootstrap when not using http/ftp,
+    or when allow_unauthenticated is set, since debootstrap has
+    changed to validating the keyring when present by default.
+  * Needs debootstrap 1.0.30
 
  -- Samuel Thibault <sthibault@debian.org>  Sat, 26 Feb 2011 22:17:36 +0100
 
