@@ -75,7 +75,7 @@ install_base_system () {
 		exclude="--exclude=${EXCLUDES}"
 	fi
 	if [ "$PROTOCOL" = http ] || [ "$PROTOCOL" = ftp ]; then
-		if type gpgv >/dev/null && [ -f "$KEYRING" ]; then
+		if type gpgv >/dev/null; then
 			if ! db_get debian-installer/allow_unauthenticated || [ "$RET" != true ]; then
 				keyring="--keyring=${KEYRING}"
 			fi
