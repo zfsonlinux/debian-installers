@@ -7,7 +7,7 @@ arch_get_kernel_flavour () {
 		HAVE_LM=n
 	fi
 
-	# Should we offer a bigmem kernel?
+	# Should we offer a PAE kernel?
 	local HAVE_PAE
 	if grep -q '^flags.*\bpae\b' "$CPUINFO"; then
 		HAVE_PAE=y
@@ -15,7 +15,7 @@ arch_get_kernel_flavour () {
 		HAVE_PAE=n
 	fi
 
-	# Should we prefer a bigmem/amd64 kernel - is there RAM above 4GB?
+	# Should we prefer a PAE/amd64 kernel - is there RAM above 4GB?
 	local WANT_PAE
 	if [ -z "$RAM_END" ]; then
 		local MAP MAP_END
@@ -34,31 +34,31 @@ arch_get_kernel_flavour () {
 	else
 		WANT_PAE=n
 	fi
-	# or is the installer running a 686-bigmem kernel?
+	# or is the installer running a PAE kernel?
 	case "$KERNEL_FLAVOUR" in
-	    686-bigmem*)
+	    686-bigmem* | 686-pae*)
 		WANT_PAE=y
 		;;
 	esac
 
 	case "$HAVE_LM$HAVE_PAE$WANT_PAE" in
 	    yyy)
-		echo 686-bigmem amd64 686 486
+		echo 686-pae 686-bigmem amd64 686 486
 		return 0
 		;;
 	    yyn)
-		echo 686 686-bigmem amd64 486
+		echo 686 686-pae 686-bigmem amd64 486
 		return 0
 		;;
 	    yn?)
 		warning "Processor with LM but no PAE???"
 		;;
 	    nyy)
-		echo 686-bigmem 686 486
+		echo 686-pae 686-bigmem 686 486
 		return 0
 		;;
 	    nyn)
-		echo 686 686-bigmem 486
+		echo 686 686-pae 686-bigmem 486
 		return 0
 		;;
 	    nn?)
