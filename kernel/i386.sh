@@ -111,8 +111,9 @@ arch_check_usable_kernel () {
 		    *-"$1")
 			return 0;
 			;;
-		    *-"$1"-bigmem*)
-			# Don't allow -bigmem suffix
+		    *-"$1"-bigmem* | *-"$1"-pae*)
+			# Don't allow -bigmem or -pae suffix, as these
+			# require extra CPU features
 			;;
 		    *-"$1"-*)
 			# Do allow any other hyphenated suffix
