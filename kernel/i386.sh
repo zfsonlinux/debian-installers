@@ -66,40 +66,12 @@ arch_get_kernel_flavour () {
 		;;
 	esac
 
-	local VENDOR FAMILY MODEL
-	VENDOR=$(sed -n 's/^vendor_id\s*: //; T; p; q' "$CPUINFO")
-	FAMILY=$(sed -n 's/^cpu family\s*: //; T; p; q' "$CPUINFO")
-	MODEL=$(sed -n 's/^model\s*: //; T; p; q' "$CPUINFO")
-
-	case "$VENDOR" in
-	    AuthenticAMD*)
-		case "$FAMILY" in
-		    6|15|16|17|18|20)	echo 686 486 ;;
-		    *)			echo 486 ;;
-		esac
-		;;
-	    GenuineIntel)
-		case "$FAMILY" in
-		    6|15)	echo 686 486 ;;
-		    *)		echo 486 ;;
-		esac
-		;;
-	    CentaurHauls)
-		case "$FAMILY" in
-		    6)
-			case "$MODEL" in
-			    9|10|13)	echo 686 486 ;;
-			    *)		echo 486 ;;
-			esac
-			;;
-		    *)
-			echo 486 ;;
-		esac
-		;;
-	    *)
-		echo 486 ;;
-	esac
-	return 0
+	# Should we offer a 686 kernel?
+	if grep -q '^flags.*\bfpu\b.*\btsc\b.*\bcx8\b.*\bcmov\b' "$CPUINFO"; then
+		echo 686 486
+	else
+		echo 486
+	fi
 }
 
 arch_check_usable_kernel () {
