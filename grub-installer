@@ -309,6 +309,9 @@ case $ARCH in
     powerpc/*)
 	grub_package="grub-ieee1275"
 	;;
+    mipsel/loongson-2f)
+	grub_package="grub-yeeloong"
+	;;
     *)
 	info "Unknown architecture $ARCH, defaulting to grub-legacy"
 	grub_package="grub"
@@ -344,6 +347,9 @@ case "$frtype:$bootfstype:$bootfslabel:$grub_package" in
     *:ext2fs:*:grub-pc | *:xfs:*:grub-pc)
     	# Booting ext2fs or xfs using grub2 works
         ;;
+    *:*:*:grub-yeeloong)
+	# No reasonable alternative to GRUB here
+	;;
     *:*:*:*)
 	db_subst grub-installer/grub_not_mature_on_this_platform ARCH $ARCH
 	db_input low grub-installer/grub_not_mature_on_this_platform || [ $? -eq 30 ]
@@ -560,23 +566,32 @@ hybrid=false
 if db_get cdrom-detect/hybrid; then
 	hybrid="$RET"
 fi
-if [ "$(device_to_disk "$cdsrc")" = "$default_bootdev" ] || \
-   ([ -n "$hdsrc" ] && [ "$(device_to_disk "$hdsrc")" = "$default_bootdev" ]) || \
-   ([ "$default_bootdev" = '(hd0)' ] && \
-    (([ -n "$cdfs" ] && [ "$cdfs" != "iso9660" ]) || \
-     [ "$hybrid" = true ])) || \
-   ([ "$default_bootdev" != '(hd0)' ] && \
-    ! partmap "$default_bootdev" >/dev/null && \
-    ! grub_probe -t fs -d "$default_bootdev" >/dev/null); then
-	db_fget grub-installer/bootdev seen
-	if [ "$RET" != true ]; then
-		bootfs=$(findfs /boot)
-		[ "$bootfs" ] || bootfs="$(findfs /)"
-		disk=$(device_to_disk "$bootfs")
-		db_set grub-installer/bootdev "$disk"
-		state=2
+case $ARCH:$grub_package in
+    *:grub|*:grub-pc|sparc:grub-ieee1275)
+	if [ "$(device_to_disk "$cdsrc")" = "$default_bootdev" ] || \
+	   ([ -n "$hdsrc" ] && [ "$(device_to_disk "$hdsrc")" = "$default_bootdev" ]) || \
+	   ([ "$default_bootdev" = '(hd0)' ] && \
+	    (([ -n "$cdfs" ] && [ "$cdfs" != "iso9660" ]) || \
+	     [ "$hybrid" = true ])) || \
+	   ([ "$default_bootdev" != '(hd0)' ] && \
+	    ! partmap "$default_bootdev" >/dev/null && \
+	    ! grub_probe -t fs -d "$default_bootdev" >/dev/null); then
+		db_fget grub-installer/bootdev seen
+		if [ "$RET" != true ]; then
+			bootfs=$(findfs /boot)
+			[ "$bootfs" ] || bootfs="$(findfs /)"
+			disk=$(device_to_disk "$bootfs")
+			db_set grub-installer/bootdev "$disk"
+			state=2
+		fi
 	fi
-fi
+	;;
+    *)
+	# No need for install device selection on other platforms.
+	bootdev=dummy
+	state=3
+	;;
+esac
 
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_bootdev
@@ -602,7 +617,7 @@ while : ; do
 			fi
 			state=2
 		fi
-	else
+	elif [ "$state" = 2 ]; then
 		db_input critical grub-installer/bootdev || true
 		if ! db_go; then
 			if [ "$q" ]; then
@@ -623,6 +638,8 @@ while : ; do
 			fi
 			break
 		fi
+	else
+		break
 	fi
 done
 
@@ -661,11 +678,28 @@ if [ -z "$frdisk" ]; then
 			grub_install_params="$grub_install_params --force"
 		fi
 
-		info "Running $chroot $ROOT grub-install $grub_install_params \"$bootdev\""
-		if log-output -t grub-installer $chroot $ROOT grub-install $grub_install_params "$bootdev"; then
+		CODE=0
+		case $ARCH:$grub_package in
+		    *:grub|*:grub-pc|sparc:grub-ieee1275)
+			info "Running $chroot $ROOT grub-install $grub_install_params \"$bootdev\""
+			log-output -t grub-installer $chroot $ROOT grub-install $grub_install_params "$bootdev" || CODE=$?
+			;;
+		    *)
+			info "Running $chroot $ROOT grub-install $grub_install_params"
+			log-output -t grub-installer $chroot $ROOT grub-install $grub_install_params || CODE=$?
+			;;
+		esac
+		if [ "$CODE" = 0 ]; then
 			info "grub-install ran successfully"
 		else
-			error "Running 'grub-install $grub_install_params \"$bootdev\"' failed."
+			case $ARCH:$grub_package in
+			    *:grub|*:grub-pc|sparc:grub-ieee1275)
+				error "Running 'grub-install $grub_install_params \"$bootdev\"' failed."
+				;;
+			    *)
+				error "Running 'grub-install $grub_install_params failed."
+				;;
+			esac
 			db_subst grub-installer/grub-install-failed BOOTDEV "$bootdev"
 			db_input critical grub-installer/grub-install-failed || [ $? -eq 30 ]
 			db_go || true
@@ -957,6 +991,28 @@ EOF
 	esac
 	rm -f $tmpfile
 fi
+
+case $ARCH in
+    mipsel/loongson-2f)
+	# Configure PMON to load GRUB by default.
+	if [ ! -e $ROOT/boot.cfg ] && [ ! -e $ROOT/boot/boot.cfg ]; then
+		if [ "$rootfs" = "$bootfs" ]; then
+			pmon_grub_path='(wd0,0)/boot/grub.elf'
+		else
+			pmon_grub_path='(wd0,0)/grub.elf'
+		fi
+		cat > $ROOT/boot.cfg <<EOF
+default 0
+timeout 0
+showmenu 0
+
+title Boot with GRUB
+	kernel $pmon_grub_path
+	args nil
+EOF
+	fi
+	;;
+esac
 
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_update_etc
