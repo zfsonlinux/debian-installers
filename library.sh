@@ -507,7 +507,7 @@ install_kernel_linux () {
 	cat > /target/etc/kernel-img.conf <<EOF
 # Kernel image management overrides
 # See kernel-img.conf(5) for details
-do_symlinks = yes
+do_symlinks = no
 do_bootloader = no
 do_initrd = $do_initrd
 link_in_boot = $link_in_boot
