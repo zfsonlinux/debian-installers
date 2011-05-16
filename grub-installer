@@ -722,6 +722,7 @@ db_progress INFO grub-installer/progress/step_config_loader
 
 if [ "$bootfstype" = "zfs" ]; then
   # Required by update-grub on ZFS
+  mkdir -p $ROOT/boot/zfs
   cp /boot/zfs/zpool.cache $ROOT/boot/zfs/
 fi
 
