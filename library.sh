@@ -874,7 +874,7 @@ configure_apt () {
 			fi
 			;;
 			hurd)
-			if ! mount -t firmlink $DIRECTORY $tdir ; then
+			if ! mount -t firmlink $DIRECTORY $tdir > /dev/null 2>&1 ; then
 				warning "failed to bind mount $tdir"
 			fi
 			;;
