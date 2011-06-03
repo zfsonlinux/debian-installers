@@ -996,10 +996,17 @@ case $ARCH in
     mipsel/loongson-2f)
 	# Configure PMON to load GRUB by default.
 	if [ ! -e $ROOT/boot.cfg ] && [ ! -e $ROOT/boot/boot.cfg ]; then
-		if [ "$rootfs" = "$bootfs" ]; then
-			pmon_grub_path='(wd0,0)/boot/grub.elf'
+		pmon_partition="$(grub_probe -d -t drive "$bootfs" | \
+				  sed 's/.*,//; s/[^0-9]//g')"
+		if [ "$pmon_partition" ]; then
+			pmon_partition=$(($pmon_partition - 1))
 		else
-			pmon_grub_path='(wd0,0)/grub.elf'
+			pmon_partition=0 # fallback guess
+		fi
+		if [ "$rootfs" = "$bootfs" ]; then
+			pmon_grub_path=/boot/grub.elf
+		else
+			pmon_grub_path=/grub.elf
 		fi
 		cat > $ROOT/boot.cfg <<EOF
 default 0
@@ -1007,7 +1014,7 @@ timeout 0
 showmenu 0
 
 title Boot with GRUB
-	kernel $pmon_grub_path
+	kernel (wd0,$pmon_partition)$pmon_grub_path
 	args nil
 EOF
 	fi
