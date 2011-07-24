@@ -471,6 +471,11 @@ install_kernel_linux () {
 	target_kernel_major="$(echo "$KERNEL" | sed 's/^kernel-image-//; s/^linux-image-//; s/-.*//' | cut -d . -f 1,2)"
 	case $target_kernel_major in
 		2.?)	;;
+		[3-9].*)
+			# As far as our debconf templates are concerned,
+			# this is essentially 2.6.
+			target_kernel_major=2.6
+			;;
 		*)
 			# something went wrong; use major version of
 			# installation kernel
