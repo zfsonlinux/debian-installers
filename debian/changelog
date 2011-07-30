@@ -1,5 +1,6 @@
 grub-installer (1.66) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Update grub-installer/bootdev text to avoid GRUB device naming that
     changed between GRUB Legacy and GRUB 2, and to use libata-style device
     naming since that is more accurate for most people (closes: #576309).
@@ -7,6 +8,9 @@ grub-installer (1.66) UNRELEASED; urgency=low
     partition to which GRUB is being installed as bootable, or failing that
     the first available primary partition on the disk to which GRUB is being
     installed (closes: #635968).
+
+  [ Otavio Salvador ]
+  * debian/control: build-depends on libparted-dev
 
  -- Colin Watson <cjwatson@debian.org>  Sat, 30 Jul 2011 10:06:22 +0100
 
