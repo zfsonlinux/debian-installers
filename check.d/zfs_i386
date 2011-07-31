@@ -9,24 +9,11 @@ case "$(udpkg --print-architecture)" in
 	;;
 esac
 
-. /lib/partman/lib/base.sh
-
-for dev in $DEVICES/*; do
-	[ -d "$dev" ] || continue
-	cd $dev
-	open_dialog PARTITIONS
-	while { read_line num id size type fs path name; [ "$id" ]; }; do
-		[ "$fs" != free ] || continue
-		[ -f $id/method ] || continue
-		[ -f $id/acting_filesystem ] || continue
-		[ -f $id/mountpoint ] || continue
-		filesystem=$(cat $id/acting_filesystem)
-		if [ "$filesystem" = zfs ]; then
-			found_zfs=true
-		fi
-	done
-	close_dialog
-done
+if test -e /dev/zfs; then
+	if [ $(zpool list -H | wc -l) -gt 0 ]; then
+		found_zfs=true
+	fi
+fi
 
 # Warn if ZFS is to be used.
 if [ "$found_zfs" = true ]; then

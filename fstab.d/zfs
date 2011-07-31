@@ -24,7 +24,7 @@ for dev in $DEVICES/*; do
 			if [ "$options" = defaults ]; then
 				options="rw"
 			fi
-			echo "$(hostname)-$(basename $path)" "$mountpoint" zfs $options 0 0
+			echo "${path#/dev/zvol/}" "$mountpoint" zfs $options 0 0
 			;;
 		esac
 	done

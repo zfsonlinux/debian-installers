@@ -1,0 +1,47 @@
+#!/bin/sh
+
+# This script removes the zfs flag for partitions whose method is not
+# zfs and sets it for partition whose method is zfs
+
+. /lib/partman/lib/base.sh
+
+dev=$1
+num=$2
+id=$3
+size=$4
+type=$5
+fs=$6
+path=$7
+
+cd $dev
+
+if [ $fs = free ]; then
+	exit 0
+fi
+
+method=
+if [ -f $id/method ]; then
+	method=$(cat $id/method)
+fi
+
+# Don't fiddle with label on devices where there is no "real" partitioning
+open_dialog GET_LABEL_TYPE
+read_line label
+close_dialog
+if [ "$label" = loop ]; then
+	exit 0
+fi
+
+has_zfs=no
+open_dialog GET_FILE_SYSTEM $id
+read_line fs
+close_dialog
+if [ "$fs" = zfs ]; then
+	has_zfs=yes
+fi
+
+if [ -z "$method" ] && [ "$has_zfs" = yes ]; then
+	echo zfs >$dev/$id/method
+	rm -f $dev/$id/use_filesystem
+	rm -f $dev/$id/format
+fi

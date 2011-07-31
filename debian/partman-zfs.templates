@@ -29,3 +29,326 @@ _Description: Go back to the menu and correct this problem?
  installer (if your hardware supports this), or go back to the
  partitioning menu and configure the partitions to use another
  file system.
+
+Template: partman-zfs/text/configure_zfs
+# :sl4:
+Type: text
+Description: Configure ZFS
+
+Template: partman-zfs/text/in_use
+Type: text
+# :sl4:
+# What is "in use" is a partition
+Description: In use by ZFS pool ${VG}
+
+Template: partman-zfs/menu/display
+Type: text
+# :sl4:
+# Menu entry
+# Use infinitive form
+Description: Display configuration details
+
+Template: partman-zfs/menu/createvg
+Type: text
+# :sl4:
+# Menu entry
+# Use infinitive form
+Description: Create ZFS pool
+
+Template: partman-zfs/menu/deletevg
+Type: text
+# :sl4:
+# Menu entry
+# Use infinitive form
+Description: Delete ZFS pool
+
+Template: partman-zfs/menu/createlv
+Type: text
+# :sl4:
+# Menu entry
+# Use infinitive form
+Description: Create logical volume
+
+Template: partman-zfs/menu/deletelv
+Type: text
+# :sl4:
+# Menu entry
+# Use infinitive form
+Description: Delete logical volume
+
+Template: partman-zfs/menu/finish
+Type: text
+# :sl4:
+# Menu entry
+# Use infinitive form
+Description: Finish
+
+Template: partman-zfs/confirm
+Type: boolean
+Default: false
+# :sl4:
+#flag:translate!:4
+Description: Write the changes to disks and configure ZFS?
+ Before ZFS can be configured, the current
+ partitioning scheme has to be written to disk.  These changes cannot
+ be undone.
+ .
+ After ZFS is configured, no additional changes
+ to the partitioning scheme of disks containing physical volumes are
+ allowed during the installation. Please decide if you are satisfied
+ with the current partitioning scheme before continuing.
+ .
+ ${ITEMS}
+
+Template: partman-zfs/commit_failed
+Type: error
+# :sl4:
+Description: ZFS configuration failure
+ An error occurred while writing the changes to the disks.
+ .
+ ZFS configuration has been aborted.
+
+Template: partman/method_long/zfs
+Type: text
+# :sl4:
+Description: physical volume for ZFS
+
+Template: partman/method_short/zfs
+Type: text
+# :sl4:
+# keep it short (ideally a 3-letter acronym)
+Description: zfs
+
+Template: partman-zfs/mainmenu
+Type: select
+Choices-C: ${CHOICES}
+Choices: ${CHOICES_L10N}
+# :sl4:
+Description: ZFS configuration action:
+ Summary of current ZFS configuration:
+ .
+  Free Physical Volumes:  ${FREE_PVS}
+  Used Physical Volumes:  ${USED_PVS}
+  ZFS Pools:              ${VGS}
+  ZFS Logical Volumes:    ${LVS}
+Help: partman-zfs/help
+
+Template: partman-zfs/displayall
+Type: note
+# :sl4:
+#flag:translate!:2
+Description: Current ZFS configuration:
+ ${CURRENT_CONFIG}
+
+Template: partman-zfs/vgcreate_parts
+Type: multiselect
+Choices: ${PARTITIONS}
+# :sl4:
+Description: Devices for the new ZFS pool:
+ Please select the devices for the new ZFS pool.
+ .
+ You can select one or more devices.
+
+Template: partman-zfs/vgcreate_name
+Type: string
+# :sl4:
+Description: ZFS pool name:
+ Please enter the name you would like to use for the new ZFS pool.
+
+Template: partman-zfs/vgcreate_nosel
+Type: error
+# :sl4:
+Description: No physical volumes selected
+ No physical volumes were selected. The creation of a new
+ ZFS pool has been aborted.
+
+Template: partman-zfs/vgcreate_nonamegiven
+Type: error
+# :sl4:
+Description: No ZFS pool name entered
+ No name for the ZFS pool has been entered. Please enter a name.
+
+Template: partman-zfs/vgcreate_nameused
+Type: error
+# :sl4:
+Description: ZFS pool name already in use
+ The selected ZFS pool name is already in use. Please choose
+ a different name.
+
+Template: partman-zfs/vgcreate_error
+Type: error
+# :sl4:
+Description: Error while creating ZFS pool
+ The ZFS pool ${VG} could not be created.
+ .
+ Check /var/log/syslog or see virtual console 4 for the details.
+
+Template: partman-zfs/vgdelete_names
+Type: select
+Choices: ${GROUPS}
+# :sl4:
+Description: ZFS pool to delete:
+ Please select the ZFS pool you wish to delete.
+
+Template: partman-zfs/vgdelete_novg
+Type: error
+# :sl4:
+Description: No ZFS pool found
+ No ZFS pool has been found.
+ .
+ The ZFS pool may have already been deleted.
+
+Template: partman-zfs/vgdelete_confirm
+Type: boolean
+Default: true
+# :sl4:
+Description: Really delete the ZFS pool?
+ Please confirm the ${VG} ZFS pool removal.
+
+Template: partman-zfs/vgdelete_error
+Type: error
+# :sl4:
+Description: Error while deleting ZFS pool
+ The selected ZFS pool could not be deleted. One or more logical
+ volumes may currently be in use.
+
+Template: partman-zfs/lvcreate_nofreevg
+Type: error
+# :sl4:
+Description: No ZFS pool found
+ No free ZFS pools were found for creating a new logical volume.
+ Please create another ZFS pool, or liberate space in an
+ existing ZFS pool.
+
+Template: partman-zfs/lvcreate_name
+Type: string
+# :sl4:
+Description: Logical volume name:
+ Please enter the name you would like to use for the new logical volume.
+
+Template: partman-zfs/lvcreate_vgnames
+Type: select
+Choices: ${GROUPS}
+# :sl4:
+Description: ZFS pool:
+ Please select the ZFS pool where the new logical volume
+ should be created.
+
+Template: partman-zfs/lvcreate_nonamegiven
+Type: error
+# :sl4:
+Description: No logical volume name entered
+ No name for the logical volume has been entered.  Please enter a
+ name.
+
+Template: partman-zfs/lvcreate_exists
+Type: error
+# :sl4:
+Description: Error while creating a new logical volume
+ The name ${LV} is already in use by another logical volume on the
+ same ZFS pool (${VG}).
+
+Template: partman-zfs/lvcreate_size
+Type: string
+# :sl4:
+Description: Logical volume size:
+ Please enter the size of the new logical volume. The size may be
+ entered in the following formats: 10K (Kilobytes), 10M (Megabytes),
+ 10G (Gigabytes), 10T (Terabytes). The default unit is Megabytes.
+
+Template: partman-zfs/lvcreate_error
+Type: error
+# :sl4:
+Description: Error while creating a new logical volume
+ Unable to create a new logical volume (${LV}) on ${VG} with the new
+ size ${SIZE}.
+ .
+ Check /var/log/syslog or see virtual console 4 for the details.
+
+Template: partman-zfs/lvdelete_nolv
+Type: error
+# :sl4:
+Description: No logical volume found
+ No logical volume has been found.  Please create a logical volume first.
+
+Template: partman-zfs/lvdelete_lvnames
+Type: select
+Choices: ${LVS}
+# :sl4:
+Description: Logical volume:
+ Please select the logical volume to delete.
+
+Template: partman-zfs/text/lvdelete_invg
+Type: text
+# :sl4:
+Description: in VG ${VG}
+
+Template: partman-zfs/lvdelete_error
+Type: error
+# :sl4:
+Description: Error while deleting the logical volume
+ The logical volume (${LV}) on ${VG} could not be deleted.
+ .
+ Check /var/log/syslog or see virtual console 4 for the details.
+
+Template: partman-zfs/nopartitions
+Type: error
+# :sl4:
+Description: No usable physical volumes found
+ No physical volumes (i.e. partitions) were found in your system. All
+ physical volumes may already be in use. You may also need to load
+ some required kernel modules or re-partition the hard drives.
+
+Template: partman-zfs/nozfs
+Type: error
+# :sl4:
+Description: ZFS not available
+ The current kernel doesn't support ZFS. You may
+ need to load the zfs module.
+
+Template: partman-zfs/badnamegiven
+Type: error
+# :sl4:
+Description: Invalid logical volume or ZFS pool name
+ Logical volume or ZFS pool names may only contain alphanumeric
+ characters, hyphen, plus, period and underscore. They must be 128
+ characters or less and may not begin with a hyphen. The names "." and
+ ".." are not allowed. In addition, logical volume names may not begin
+ with "snapshot".
+ .
+ Please choose a different name.
+
+Template: partman-zfs/device_remove_zfs
+Type: boolean
+Default: false
+# :sl4:
+Description: Remove existing logical volume data?
+ The selected device already contains the following ZFS logical volumes
+ and ZFS pools which are about to be removed:
+ .
+ Logical volume(s) to be removed: ${LVTARGETS}
+ .
+ ZFS pool(s) to be removed: ${VGTARGETS}
+ .
+ Note that this will also permanently erase any data currently on the
+ logical volumes.
+
+Template: partman-zfs/help
+Type: note
+# :sl4:
+Description: ZFS
+ A common situation for system administrators is to find that some disk
+ partition (usually the most important one) is short on space, while some
+ other partition is underused. ZFS can help with this.
+ .
+ ZFS allows combining disk or partition devices ("physical volumes") to form
+ a virtual disk ("ZFS pool"), which can then be divided into virtual
+ partitions ("logical volumes"). ZFS pools and logical volumes may span
+ several physical disks. New physical volumes may be added to a ZFS pool
+ at any time, and logical volumes have no size limit other than the total
+ size of the ZFS pool.
+ .
+ The items on the ZFS configuration menu can be used to edit ZFS pools
+ and logical volumes. After you return to the main partition manager screen,
+ logical volumes will be displayed in the same way as ordinary partitions,
+ and should be treated as such.

@@ -1,0 +1,388 @@
+#!/bin/sh
+
+. /lib/partman/lib/zfs-base.sh
+. /lib/partman/lib/commit.sh
+
+#####################################
+#
+# Functions
+#
+#####################################
+
+do_initial_setup() {
+	# Commit the changes
+	confirm_changes partman-zfs || exit 0
+	commit_changes partman-zfs/commit_failed || exit $?
+}
+
+do_display() {
+	zfs_get_config
+	db_subst partman-zfs/displayall CURRENT_CONFIG "$RET"
+	db_input critical partman-zfs/displayall
+	db_capb align
+	db_go || true
+	db_capb backup align
+	db_get partman-zfs/displayall
+}
+
+do_vg_create() {
+	local pvs line pv output vg pathmap
+	pvs=""
+	pathmap=""
+
+	# Look for free PVs
+	IFS="$NL"
+	for line in $(pv_list_allowed_free); do
+		restore_ifs
+		local dev="${line%%$TAB*}"
+		line="${line#*$TAB}"
+		local id="${line%%$TAB*}"
+		line="${line#*$TAB}"
+		local size="${line%%$TAB*}"
+		local path="${line#*$TAB}"
+		cd $dev
+		if [ -e "$path" ] && pv_get_info "$path"; then
+			output=$(printf "%-30s (%sMB)" "$path" "$SIZE")
+		elif [ ! -s "$id/visual_filesystem" ]; then
+			output=$(printf "%-30s (%sMB)" "$path" "$(convert_to_megabytes $size)")
+		else
+			local visual="$(cat "$id/visual_filesystem")"
+			output=$(printf "%-30s (%sMB; %s)" "$path" "$(convert_to_megabytes $size)" "$visual")
+		fi
+		pvs="${pvs:+$pvs, }$output"
+		pathmap="${pathmap:+$pathmap$NL}$path$TAB$dev//$id"
+		IFS="$NL"
+	done
+	restore_ifs
+	if [ -z "$pvs" ]; then
+		db_input critical partman-zfs/nopartitions
+		db_go || true
+		return
+	fi
+
+	# Prompt for VG name
+	db_set partman-zfs/vgcreate_name ""
+	db_input critical partman-zfs/vgcreate_name
+	db_go || return
+	db_get partman-zfs/vgcreate_name
+	vg="$RET"
+
+	# Check VG name
+	if [ -z "$vg" ]; then
+		db_input critical partman-zfs/vgcreate_nonamegiven
+		db_go || true
+		return
+	fi
+
+	if ! vg_name_ok "$vg"; then
+		db_input critical partman-zfs/badnamegiven
+		db_go || true
+		return
+	fi
+
+	# Check whether the VG name is already in use
+	if zpool status "$vg" > /dev/null 2>&1; then
+		db_input critical partman-zfs/vgcreate_nameused
+		db_go || true
+		return
+	fi
+
+	# Choose the PVs to use
+	db_subst partman-zfs/vgcreate_parts PARTITIONS "$pvs"
+	db_reset partman-zfs/vgcreate_parts
+	db_input critical partman-zfs/vgcreate_parts
+	db_go || return
+	db_get partman-zfs/vgcreate_parts
+	if [ -z "$RET" ]; then
+		db_input critical partman-zfs/vgcreate_nosel
+		db_go || true
+		return
+	fi
+	pvs=$(echo "$RET" | sed -e "s/ *([^)]*) *//g; s/ *, */\\$NL/g")
+
+	local newpvs=
+	local need_commit=
+	IFS="$NL"
+	for pv in $pvs; do
+		for line in $pathmap; do
+			restore_ifs
+			if [ "${line%%$TAB*}" = "$pv" ]; then
+				local devid="${line#*$TAB}"
+				local path
+				if path="$(pv_prepare "${devid%//*}" "${devid#*//}")"; then
+					need_commit=true
+				fi
+				newpvs="${newpvs:+$newpvs }$path"
+				break
+			fi
+			IFS="$NL"
+		done
+		IFS="$NL"
+	done
+	restore_ifs
+	pvs="$newpvs"
+
+	if [ "$need_commit" ]; then
+		do_initial_setup
+	fi
+
+	if ! vg_create "$vg" $pvs; then
+		db_subst partman-zfs/vgcreate_error VG "$vg"
+		db_input critical partman-zfs/vgcreate_error
+		db_go || true
+	else
+		vg_lock_pvs "$vg" $pvs
+	fi
+}
+
+do_vg_delete() {
+	local vgs vg output pvs
+	vgs=""
+
+	# Look for VGs with no LVs
+	for vg in $(vg_list); do
+		vg_get_info "$vg"
+		[ "$LVS" -eq 0 ] || continue
+		output=$(printf "%-30s (%sMB)" "$vg" "$SIZE")
+		vgs="${vgs:+$vgs, }$output"
+	done
+	if [ -z "$vgs" ]; then
+		db_input critical partman-zfs/vgdelete_novg
+		db_go || true
+		return
+	fi
+
+	# Prompt for VG to delete
+	db_subst partman-zfs/vgdelete_names GROUPS "$vgs"
+	db_reset partman-zfs/vgdelete_names
+	db_input critical partman-zfs/vgdelete_names
+	db_go || return
+	db_get partman-zfs/vgdelete_names
+	vg=$(echo "$RET" | sed -e 's/[[:space:]]*(.*//')
+
+	# Confirm
+	db_subst partman-zfs/vgdelete_confirm VG $vg
+	db_set partman-zfs/vgdelete_confirm false
+	db_input critical partman-zfs/vgdelete_confirm
+	db_go || true
+	db_get partman-zfs/vgdelete_confirm
+	[ "$RET" = true ] || return
+
+	pvs=$(vg_list_pvs "$vg")
+	if ! vg_delete "$vg"; then
+		db_input critical partman-zfs/vgdelete_error
+		db_go || true
+	else
+		for pv in $pvs; do
+			partman_unlock_unit "$pv"
+		done
+	fi
+}
+
+do_lv_create() {
+	local vgs vg output lv extents size max_size
+
+	# Find eligible VGs
+	vgs=""
+	for vg in $(vg_list_free); do
+		vg_get_info "$vg"
+		output=$(printf "%-30s (%sMB)" "$vg" "$FREE")
+		vgs="${vgs:+$vgs, }$output"
+	done
+	if [ -z "$vgs" ]; then
+		db_input critical partman-zfs/lvcreate_nofreevg
+		db_go || true
+		return
+	fi
+
+	# Prompt for VG to use
+	db_subst partman-zfs/lvcreate_vgnames GROUPS "$vgs"
+	db_reset partman-zfs/lvcreate_vgnames
+	db_input critical partman-zfs/lvcreate_vgnames
+	db_go || return
+	db_get partman-zfs/lvcreate_vgnames
+	vg=$(echo "$RET" | sed -e 's/[[:space:]]*(.*//')
+
+	# Prompt for name to give the new lv
+	db_set partman-zfs/lvcreate_name ""
+	db_input critical partman-zfs/lvcreate_name
+	db_go || return
+	db_get partman-zfs/lvcreate_name
+	lv="$RET"
+
+	# Check LV name
+	if [ -z "$lv" ]; then
+		db_input critical partman-zfs/lvcreate_nonamegiven
+		db_go || true
+		return
+	fi
+
+	if ! lv_name_ok "$lv"; then
+		db_input critical partman-zfs/badnamegiven
+		db_go || true
+		return
+	fi
+
+	# Make sure the name isn't already in use
+	if lvs "/dev/$vg/$lv" > /dev/null 2>&1; then
+		db_subst partman-zfs/lvcreate_exists LV $lv
+		db_subst partman-zfs/lvcreate_exists VG $vg
+		db_input critical partman-zfs/lvcreate_exists
+		db_go || true
+		return
+	fi
+
+	# Prompt for lv size
+	vg_get_info "$vg"
+	max_size="${FREE}M"
+	db_set partman-zfs/lvcreate_size "${max_size}B"
+	db_fset partman-zfs/lvcreate_size seen false
+	db_input critical partman-zfs/lvcreate_size
+	db_go || return
+	db_get partman-zfs/lvcreate_size
+	[ -n "$RET" ] || return
+	size="$RET"
+
+	if ! lv_create "$vg" "$lv" "$size"; then
+		db_subst partman-zfs/lvcreate_error VG $vg
+		db_subst partman-zfs/lvcreate_error LV $lv
+		db_subst partman-zfs/lvcreate_error SIZE $size
+		db_input critical partman-zfs/lvcreate_error
+		db_go || true
+		return
+	fi
+}
+
+do_lv_delete() {
+	local lvs line output lv vg
+
+	lvs=""
+	for line in $(lv_list); do
+		lv=$(echo "$line" | cut -d':' -f1)
+		vg=$(echo "$line" | cut -d':' -f2)
+		db_subst partman-zfs/text/lvdelete_invg VG "$vg"
+		db_metaget partman-zfs/text/lvdelete_invg description
+		lv_get_info "$vg" "$lv"
+		output=$(printf "%-30s (%sMB - %s)" "$lv" "$SIZE" "$RET")
+		lvs="${lvs:+$lvs, }$output"
+	done
+
+	if [ -z "$lvs" ]; then
+		db_input critical partman-zfs/lvdelete_nolv
+		db_go || true
+		return
+	fi
+
+	db_subst partman-zfs/lvdelete_lvnames LVS "$lvs"
+	db_reset partman-zfs/lvdelete_lvnames
+	db_input critical partman-zfs/lvdelete_lvnames
+	db_go || return
+	db_get partman-zfs/lvdelete_lvnames
+	vglv=$(echo "$RET" | cut -d' ' -f1)
+	lv=$(echo "$vglv" | cut -d'/' -f2)
+	vg=$(echo "$vglv" | cut -d'/' -f1)
+
+	if ! lv_delete "$vg" "$lv"; then
+		db_subst partman-zfs/lvdelete_error VG $vg
+		db_subst partman-zfs/lvdelete_error LV $lv
+		db_input critical partman-zfs/lvdelete_error
+		db_go || true
+		return
+	fi
+}
+
+zfs_menu_add () {
+	local choice=$1
+	db_metaget partman-zfs/menu/$choice description
+	if [ "$choices" ]; then
+		choices="$choices, $choice"
+		choices_l10n="$choices_l10n, $RET"
+	else
+		choices="$choice"
+		choices_l10n="$RET"
+	fi
+}
+
+#####################################
+#
+# Main stuff
+#
+#####################################
+
+do_initial_setup
+
+while [ 1 ]; do
+	# Get some statistics
+	allowed_pvs=$(pv_list_allowed_free | wc -l)
+	free_pvs=$(pv_list_free | wc -l)
+	used_pvs=$(zpool list -H -o name | while read i ; do zpool status $i | grep "\sONLINE\s" | tail -n +2 ; done | wc -l)  # Used PVs
+	vgs=$(vg_list | wc -l)
+	lvs=$(lv_list | wc -l)
+
+	# Build menu options
+	choices=""
+	choices_l10n=""
+	zfs_menu_add display
+	if [ $allowed_pvs -gt 0 ]; then
+		zfs_menu_add createvg
+	fi
+	# Other options only if there is at least one VG
+	if [ $vgs -gt 0 ]; then
+		# First check, then add so the order is constant
+		do_deletevg=""
+		do_createlv=""
+		# Check all VGs
+		for vg in $(vg_list); do
+			vg_get_info "$vg"
+			if [ $LVS -eq 0 ]; then
+				do_deletevg="1"
+			fi
+			if [ $FREE -gt 0 ]; then
+				do_createlv="1"
+			fi
+		done
+
+		if [ "$do_createlv" ]; then
+			zfs_menu_add createlv
+		fi
+		if [ "$do_deletevg" ]; then
+			zfs_menu_add deletevg
+		fi
+		if [ $lvs -gt 0 ]; then
+			zfs_menu_add deletelv
+		fi
+	fi
+	# Add Finish option
+	zfs_menu_add finish
+
+	# Setup main menu template
+	db_subst partman-zfs/mainmenu CHOICES "$choices"
+	db_subst partman-zfs/mainmenu CHOICES_L10N "$choices_l10n"
+	db_subst partman-zfs/mainmenu FREE_PVS "$free_pvs"
+	db_subst partman-zfs/mainmenu USED_PVS "$used_pvs"
+	db_subst partman-zfs/mainmenu VGS "$vgs"
+	db_subst partman-zfs/mainmenu LVS "$lvs"
+	db_reset partman-zfs/mainmenu
+	db_input critical partman-zfs/mainmenu
+	db_go || break
+
+	db_get partman-zfs/mainmenu
+	option="$RET"
+	case "$option" in
+	    display)	do_display ;;
+	    createvg)	do_vg_create ;;
+	    deletevg)	do_vg_delete ;;
+	    createlv)	do_lv_create ;;
+	    deletelv)	do_lv_delete ;;
+	    finish)	break ;;
+	    *)
+		logger -t partman-zfs "Unknown selection '$option'"
+		break ;;
+	esac
+done
+
+stop_parted_server
+
+restart_partman
+
+exit 0

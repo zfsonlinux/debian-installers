@@ -1,8 +1,0 @@
-#!/bin/sh
-
-mkdir -p /var/lib/partman
-
-if kldstat -q -m zfs 2>/dev/null || \
-   kldload zfs >/dev/null 2>/dev/null ; then
-	>/var/lib/partman/zfs
-fi

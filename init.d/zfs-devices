@@ -1,0 +1,23 @@
+#!/bin/sh
+
+. /usr/share/debconf/confmodule
+
+db_register partman-zfs/confirm partman-zfs/confirm_nooverwrite
+
+# Load modules and scan volume groups if it was not done before
+if [ ! -f /var/lib/partman/zfs ] && [ "$(udpkg --print-os)" = kfreebsd ] ; then
+	# load required kernel modules
+	kldload zfs >/dev/null 2>&1
+
+	# make sure that zfs is available
+	if ! test -e /dev/zfs ; then
+		db_input critical partman-zfs/nozfs
+		db_go
+		exit 0
+	fi
+
+	# scan for zfs pools
+	log-output -t partman zpool import -a -f -o altroot=/target
+
+	touch /var/lib/partman/zfs
+fi

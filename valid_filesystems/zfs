@@ -6,6 +6,12 @@ property=$3
 
 [ -f /var/lib/partman/zfs ] || exit 0
 
+# ZFS filesystems may only be created within a ZFS pool
+case $(cat $dev/device) in
+	/dev/zvol/*) ;;
+	*) exit 0 ;;
+esac
+
 case $property in
     formatable)
 	echo zfs

@@ -1,0 +1,40 @@
+#!/bin/sh
+
+. /lib/partman/lib/base.sh
+
+mkdir -p /var/lib/partman/autoused_swap_zvol
+
+for dev in /var/lib/partman/devices/*; do
+	[ -d "$dev" ] || continue
+	cd $dev
+
+	# Only run the first time each device is encountered
+	devbase="$(basename "$dev")"
+	[ ! -f "/var/lib/partman/autoused_swap_zvol/$devbase" ] || continue
+	>"/var/lib/partman/autoused_swap_zvol/$devbase"
+
+	device=$(cat $dev/device)
+	case $device in /dev/zvol/*) ;; *) continue ;; esac
+
+	# Check for org.freebsd:swap property
+	if [ "$(zfs list -H -o  org.freebsd:swap ${device#/dev/zvol/})" != "on" ] ; then
+		continue
+	fi
+
+	# ZFS volumes always use the loop label -> first partition
+	open_dialog PARTITIONS
+	read_line num id size type fs path name
+	close_dialog
+
+	[ -d $dev/$id ] || continue
+	if [ -f $dev/$id/method ]; then
+		method="$(cat $dev/$id/method)"
+		if [ "$method" ] && [ "$method" != swap ]; then
+			# Already used for something else, e.g. RAID
+			continue
+		fi
+	fi
+	echo swap >$dev/$id/method
+	> $dev/$id/format
+	update_partition $dev $id
+done

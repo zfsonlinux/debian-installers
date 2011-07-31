@@ -63,13 +63,11 @@ for dev in $DEVICES/*; do
 			fi
 
 			code=0
+			local fs=${device##/dev/zvol/}
 			log-output -t partman --pass-stdout \
-				zpool create -f -m none "$(hostname)-$(basename $device)" \
-					 $device >/dev/null || code=$?
-			# will import in mount.d/zfs
+				zfs destroy "${fs}" >/dev/null || code=$?
 			log-output -t partman --pass-stdout \
-				zpool export "$(hostname)-$(basename $device)" \
-					 >/dev/null || code=$?
+				zfs create -o mountpoint=none "${fs}" >/dev/null || code=$?
 			sync
 			db_progress STOP
 

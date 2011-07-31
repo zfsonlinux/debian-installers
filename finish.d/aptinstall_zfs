@@ -1,26 +1,12 @@
 #!/bin/sh
 
-. /lib/partman/lib/base.sh
-
 zfs=no
 
-for dev in $DEVICES/*; do
-	[ -d "$dev" ] || continue
-	cd $dev
-	partitions=
-	open_dialog PARTITIONS
-	while { read_line num id size type fs path name; [ "$id" ]; }; do
-		[ "$fs" != free ] || continue
-		[ -f $id/method -a -f $id/acting_filesystem ] || continue
-		filesystem=$(cat $id/acting_filesystem)
-		case $filesystem in
-		    zfs)
-			zfs=yes
-			;;
-		esac
-	done
-	close_dialog
-done
+if test -e /dev/zfs; then
+	if [ $(zpool list -H | wc -l) -gt 0 ]; then
+		zfs=yes
+	fi
+fi
 
 if [ "$zfs" = yes ]; then
 	apt-install zfsutils || true
