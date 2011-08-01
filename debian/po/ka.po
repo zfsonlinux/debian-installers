@@ -15,11 +15,16 @@
 # Alexander Didebulidze <didebuli@in.tum.de>, Vladimer Sichinava <vlsichinava@gmail.com>
 # Taya Kharitonashvili <taya13@gmail.com>, Gia Shervashidze - www.gia.ge
 #
+#
+# Translations from iso-codes:
+#   Alastair McKinstry <mckinstry@debian.org>, 2004.
+#   Aiet Kolkhi <aietkolkhi@gmail.com>, 2008.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer.2006071\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-10 22:47+0000\n"
+"POT-Creation-Date: 2011-08-01 22:50+0000\n"
 "PO-Revision-Date: 2011-03-01 12:49+0400\n"
 "Last-Translator: Aiet Kolkhi <aietkolkhi@gmail.com>\n"
 "Language-Team: Georgian\n"
@@ -37,7 +42,12 @@ msgstr ""
 #. Description
 #. :sl4:
 #. Short file system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. keep it short (ideally a 3-letter acronym)
 #: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
+#: ../partman-zfs.templates:16001
 msgid "zfs"
 msgstr "zfs"
 
@@ -83,3 +93,722 @@ msgstr ""
 "გირჩევთ გამოიყენოთ ინსტალაციის პროგრამის 64-ბიტიანი (amd64) ვერსია (თუ თქვენ "
 "აპარატურას ამის მხარდაჭერა გააჩნია), ან დაბრუნდეთ პარტიციონირების მენიუში და "
 "დანაყოფებზე სხვა ფაილური სისტემა დააყენოთ."
+
+#. Type: text
+#. Description
+#: ../partman-zfs.templates:5001
+#, fuzzy
+msgid "Configure ZFS"
+msgstr "ლოკალების კონფიგურაცია"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. What is "in use" is a partition
+#: ../partman-zfs.templates:6001
+#, fuzzy
+msgid "In use by ZFS pool ${VG}"
+msgstr "დაკავებულია LVM-ის ტომთა ჯგუფის ${VG} მიერ"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:7001
+msgid "Display configuration details"
+msgstr "კონფიგურაციის დეტალები"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:8001
+msgid "Create ZFS pool"
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:9001
+msgid "Delete ZFS pool"
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:10001
+msgid "Create logical volume"
+msgstr "ლოგიკური დისკწამყვანის გახსნა"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:11001
+msgid "Delete logical volume"
+msgstr "ლოგიკური დისკწამყვანის წაშლა"
+
+#  templates.pot (PACKAGE VERSION)#-#-#-#-
+#  templates.pot (PACKAGE VERSION)#-#-#-#-
+#  templates.pot (PACKAGE VERSION)#-#-#-#-
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:12001
+msgid "Finish"
+msgstr "დასრულება"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:13001
+#, fuzzy
+msgid "Write the changes to disk and configure ZFS?"
+msgstr "შევინახოთ ცვლილებები და დავიწყოთ LVM-ის კონფიგურაცია?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:13001
+#, fuzzy
+msgid ""
+"Before ZFS can be configured, the current partitioning scheme has to be "
+"written to disk. These changes cannot be undone."
+msgstr ""
+"დაშიფრული დისკწამყვანების კონფიგურაციამდე,  მიმდინარე პრტიციათა სქემა დისკზე "
+"უნდა ჩაიწეროს. შემდგომში ამ ცვლილებების გაუქმება შეუძლებელი იქნება."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:13001
+#, fuzzy
+msgid ""
+"After ZFS is configured, no additional changes to the partitioning scheme of "
+"disks containing physical volumes are allowed during the installation. "
+"Please decide if you are satisfied with the current partitioning scheme "
+"before continuing."
+msgstr ""
+"LVM-ის კონფიგურირების შემდეგ ფიზიკური ტომების შემცველი დისკების დაყოფის "
+"სქემებში ინსტალაციის განმავლობში რაიმე ცვლილების შეტანა შეუძლებელია. სანამ "
+"გააგრძელებდეთ, დარწმუნდით მიმდინარე სქემის სისწორეში."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:14001
+#, fuzzy
+msgid "ZFS configuration failure"
+msgstr "შეცდომა LVM-ის მოწყობისას"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:14001
+msgid "An error occurred while writing the changes to the disks."
+msgstr "შეცდომა ცვლილებების დისკზე შენახვისას."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:14001
+#, fuzzy
+msgid "ZFS configuration has been aborted."
+msgstr "კონფიგურაცია შეწყვეტილია."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:15001
+#, fuzzy
+msgid "physical volume for ZFS"
+msgstr "ფიზიკური დისკწამყვანი LVM-ისათვის"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+#, fuzzy
+msgid "ZFS configuration action:"
+msgstr "LVM კონფიგურაციის ქმედება:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+#, fuzzy
+msgid "Summary of current ZFS configuration:"
+msgstr "LVM-ის მიმდინარე კონფიგურაციის შესახებ:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+#, fuzzy
+msgid ""
+" Free physical volumes:  ${FREE_PVS}\n"
+" Used physical volumes:  ${USED_PVS}\n"
+" ZFS pools:              ${VGS}\n"
+" ZFS logical volumes:    ${LVS}"
+msgstr ""
+" თავისუფალი ფიზიკური ტომები: ${FREE_PVS}\n"
+" დაკავებული ფიზიკური ტომები: ${USED_PVS}\n"
+" ტომთა ჯგუფები: ${VGS}\n"
+" ლოგიკური ტომები: ${LVS}"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:18001
+#, fuzzy
+msgid "Current ZFS configuration:"
+msgstr "LVM-ის მიმდინარე კონფიგურაცია:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:19001
+#, fuzzy
+msgid "Devices for the new ZFS pool:"
+msgstr "მოწყობილობები ახალი ტომების ჯგუფისთვის:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:19001
+#, fuzzy
+msgid "Please select devices for the new ZFS pool."
+msgstr "ახალი ტომთა ჯგუფისათვის მოწყობილობის ამორჩევა."
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:19001
+msgid "You can select one or more devices."
+msgstr "თქვენ შეგიძლიათ ერთი ან მეტო მოწყობილობის ამორჩევა."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "ZFS pool name:"
+msgstr ""
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+#, fuzzy
+msgid "Please enter the name you would like to use for the new ZFS pool."
+msgstr "დაარქვით სახელი ახალ ლოგიკურ ტომს."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+msgid "No physical volumes selected"
+msgstr "არ არის მითითებული ფიზიკური დისკწამყვანი"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+#, fuzzy
+msgid ""
+"No physical volumes were selected. The creation of a new ZFS pool has been "
+"aborted."
+msgstr ""
+"ფიზიკური ტომები არ იქნა მითითებული. ახალი ტომთა ჯგუფის შექმნა შეწყვეტილია."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "No ZFS pool name"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+#, fuzzy
+msgid "No name for the ZFS pool has been entered. Please enter a name."
+msgstr ""
+"ტომების ჯგუფის დასახელება არ იქნა შეყვანილი. გთხოვთ შეიყვანოთ დასახელება."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+#, fuzzy
+msgid "ZFS pool name already in use"
+msgstr "ასეთი ტომთა ჯგუფის სახელი უკვე არსებობს"
+
+#  templates.pot (PACKAGE VERSION)#-#-#-#-
+#  templates.pot (PACKAGE VERSION)#-#-#-#-
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+#, fuzzy
+msgid ""
+"The selected ZFS pool name is already in use. Please choose a different name."
+msgstr ""
+"ასეთი დასახელების ტომთა ჯგუფი უკვე არსებობს. ამოირჩიეთ სხვა დასახელება."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+#, fuzzy
+msgid "Error while creating ZFS pool"
+msgstr "შეცდომა ახალი ლოგიკური დისკწამყვანის გახსნისას."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+#, fuzzy
+msgid "The ZFS pool ${VG} could not be created."
+msgstr "ტომთა ჯგუფი ${VG} არ იხსნება."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001 ../partman-zfs.templates:35001
+#: ../partman-zfs.templates:39001
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr "დაწვრილებით იხილეთ /var/log/syslog ან ვირტუალური კონსოლი 4."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+#, fuzzy
+msgid "ZFS pool to delete:"
+msgstr "წასაშლელი ტომების ჯგუფი:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+#, fuzzy
+msgid "Please select the ZFS pool you wish to delete."
+msgstr "აირჩიეთ წასაშლელი ტომთა ჯგუფი."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid "No ZFS pool"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+#, fuzzy
+msgid "No ZFS pool has been found."
+msgstr "ვერ მოიძებნა ტომთა ჯგუფი."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+#, fuzzy
+msgid "The ZFS pool may have already been deleted."
+msgstr "შესაძლებელია ტომთა ჯგუფი უკვე წაშლილია."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+#, fuzzy
+msgid "Really delete the ZFS pool?"
+msgstr "ნამდვილად გნებავთ ტომების ჯგუფის წაშლა?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "Please confirm the removal of the ZFS pool ${VG}."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+#, fuzzy
+msgid "Error while deleting ZFS pool"
+msgstr "შეცდომა ტომთა ჯგუფის წაშლისას"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+#, fuzzy
+msgid ""
+"The selected ZFS pool could not be deleted. One or more logical volumes may "
+"currently be in use."
+msgstr ""
+"მითითებული ტომთა ჯგუფის წაშლა ვერ მოხერხდა. შესაძლებელია ერთი ან რამდენიმე "
+"ლოგიკური დისკწამყვანი დაკავებულია."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+#, fuzzy
+msgid "No ZFS pool found"
+msgstr "ვერ მოიძებნა ვერცერთი დანაყოფი"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+#, fuzzy
+msgid ""
+"No free ZFS pools were found for creating a new logical volume. Please "
+"create another ZFS pool, or free space in an existing ZFS pool."
+msgstr ""
+"ლოგიკური დისკწამყვანის შექმნისათვის საჭირო ტომთა ჯგუფი არ არსებობს. გახსენით "
+"დამატებითი ფიზიკური ტომები და ტომთა ჯგუფები ან შეამცირეთ არსებული ტომთა "
+"ჯგუფი."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Logical volume name:"
+msgstr "ლოგიკური დისკწამყვანის სახელი"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Please enter the name you would like to use for the new logical volume."
+msgstr "დაარქვით სახელი ახალ ლოგიკურ ტომს."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "ZFS pool:"
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+#, fuzzy
+msgid ""
+"Please select the ZFS pool where the new logical volume should be created."
+msgstr "აირჩიეთ ტომთა ჯგუფი, სადაც ლოგიკური დისკწამყვანი უნდა შეიქმნას."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "No logical volume name entered"
+msgstr "შეიყვანეთ ლოგიკური დისკწამყვანის სახელი"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+#, fuzzy
+msgid "No name for the logical volume has been entered. Please enter a name."
+msgstr "ლოგიკური დისკწამყვანის სახელი არ არის მითითებული. მიუთითეთ სახელი."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001 ../partman-zfs.templates:35001
+msgid "Error while creating a new logical volume"
+msgstr "შეცდომა ახალი ლოგიკური დისკწამყვანის გახსნისას."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+#, fuzzy
+msgid ""
+"The name ${LV} is already in use by another logical volume on the same ZFS "
+"pool (${VG})."
+msgstr "ლოგიკური დისკწამყვანი სახელად ${LV} უკვე არის ტომთა ჯგუფში (${VG})."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid "Logical volume size:"
+msgstr "ლოგიკური დისკწამყვანის ზომა:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid ""
+"Please enter the size of the new logical volume. The size may be entered in "
+"the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
+"10T (Terabytes). The default unit is Megabytes."
+msgstr ""
+"მიუთითეთ ახალი ლოგიკური დისკწამყვანის ზომა ფორმატში: 10K (კილობაიტი), 10M "
+"(მეგაბაიტი), 10G (გიგაბაიტი), 10T (ტერაბაიტი). თუ მითითებულია მარტო რიცხვი, "
+"იგულისხმება მეგაბაიტი."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid ""
+"Unable to create a new logical volume (${LV}) on ${VG} with the new size "
+"${SIZE}."
+msgstr ""
+"ლოგიკური დისკწამყვანის (${LV}) გახსნა ჯგუფში ${VG}, ზომით ${SIZE}, "
+"შეუძლებელია."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid "No logical volume found"
+msgstr "ლოგიკური დისკწამყვანი ვერ მოინახა"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+#, fuzzy
+msgid "No logical volume has been found. Please create a logical volume first."
+msgstr "ლოგიკური დისკწამყვანი ვერ მოინახა, შექმენით ლოგიკური დისკწამყვანი."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "Logical volume:"
+msgstr "ლოგიკური დისკწამყვანი:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "Please select the logical volume to delete."
+msgstr "აირჩიეთ წასაშლელი ლოგიკური დისკწამყვანი."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001
+msgid "in VG ${VG}"
+msgstr "VG-ში ${VG}"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid "Error while deleting the logical volume"
+msgstr "შეცდომა ლოგიკური დისკწამყვანის წაშლისას"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+#, fuzzy
+msgid "The logical volume ${LV} on ${VG} could not be deleted."
+msgstr "ვერ წაიშალა ლოგიკური დისკწამყვანი (${LV}) ჯგუფიდან ${VG}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+msgid "No usable physical volumes found"
+msgstr "ვერ მოინახა შესაფერისი ფიზიკური დისკწამყვანი"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+#, fuzzy
+msgid ""
+"No physical volumes (i.e. partitions) were found in this system. All "
+"physical volumes may already be in use. You may also need to load some "
+"required kernel modules or re-partition the hard drives."
+msgstr ""
+"თქვენს სისტემაში ფიზიკური დისკწამყვანი (დანაყოფი) ვერ მოინახა. შესაძლებელია, "
+"ყველა უკვე დაკავებულია, ან შეიძლება ჩასატვირთია ბირთვის საჭირო მოდულები ან "
+"ხელახლა დასაყოფია დისკები."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+#, fuzzy
+msgid "ZFS not available"
+msgstr "პროგრამული RAID მიუწვდომელია"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+#, fuzzy
+msgid ""
+"The current kernel doesn't support ZFS. You may need to load the zfs module."
+msgstr ""
+"ამ კონფიგურაციის ბირთვს არა აქვს LVM-ის მხარდაჭერა. სცადეთ lvm-mod მოდულის "
+"ჩატვირთვა."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+#, fuzzy
+msgid "Invalid logical volume or ZFS pool name"
+msgstr "ლოგიკური დისკწამყვანის ან დისკწამყვანთა ჯგუფის არასწორი სახელი"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+#, fuzzy
+msgid ""
+"Logical volume or ZFS pool names may only contain alphanumeric characters, "
+"hyphen, colon, period, and underscore. They must be 255 characters or less "
+"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
+"\", \"spare\" and \"log\" are not allowed."
+msgstr ""
+"ლოგიკური დისკწამყვანის ან დისკწამყვანთა ჯგუფის სახელები შესაძლოა შეიცავდეს "
+"ასონიშნებს, ცოფრებს, ტირეებს, პლუსის ნიშანს, წერტილს და ქვედა ტირეს. იგი "
+"მაქს. 128 სიმბოლოსგან შეიძლება შედგებოდეს და არ შეიძლება ტირეთი დაიწყოს. "
+"სახელები \".\" და \"..\" არაა ნებადართული. ასევე, სახელები არ შეიძლება "
+"დაიწყოს \"snapshot\"-ით."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Please choose a different name."
+msgstr "გთხოვთ ამოირჩიოთ სხვა სახელი."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "Remove existing logical volume data?"
+msgstr "გსურთ არსებული logical volume data-ს ამოშლა?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+#, fuzzy
+msgid ""
+"The selected device already contains the following ZFS logical volumes and "
+"ZFS pools which are about to be removed:"
+msgstr ""
+"არჩეული მოწყობილობა უკვე შეიცავს შემდეგ LVM ლოგიკურ ტომებს, ტომთა ჯგუფებს და "
+"ფიზიკურ ტომებს, რომლებიც მზადაა წასაშლელად:"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+#, fuzzy
+msgid "Logical volume(s): ${LVTARGETS}"
+msgstr "წასაშლელად გამზადებული ლოგიკური დისკ(ებ)ი: ${LVTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "ZFS pool(s): ${VGTARGETS}"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid ""
+"Note that this will also permanently erase any data currently on the logical "
+"volumes."
+msgstr ""
+"გაითვალისწინეთ, რომ ეს მოქმედება ლოგიკურ ტომებზე არსებულ მთელ მონაცემებს "
+"სამუდამოდ წაშლის."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "ZFS"
+msgstr ""
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+#, fuzzy
+msgid ""
+"A common situation for system administrators is to find that some disk "
+"partition (usually the most important one) is short on space, while some "
+"other partition is underused. ZFS can help with this."
+msgstr ""
+"სისტემური ადმინისტრატორები ხშირად ვარდებიან სიტუაციაში, როდესაც დისკის "
+"დანაყოფზე (უმეტეშ შემთხვევაში ყველაზე მნიშვნელოვან დანაყოფზე) ადგილი აღარ "
+"რჩება, თუმცა სხვა პარტიციებზე ადგილი საკმარისია. The Logical Volume Manager "
+"(LVM) ამ პრობლემის მოგვარებაში დაგეხმარებათ."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+#, fuzzy
+msgid ""
+"ZFS allows combining disk or partition devices (\"physical volumes\") to "
+"form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
+"partitions (\"logical volumes\"). ZFS pools and logical volumes may span "
+"across several physical disks. New physical volumes may be added to a ZFS "
+"pool at any time, and logical volumes have no size limit other than the "
+"total size of the ZFS pool."
+msgstr ""
+"LVM დისკის ან დანაყოფების მოწყობილობების (\"physical volumes\") გაერთიანების "
+"და ვირტუალური დისკის (\"volume group\") საშუალებას იძლევა, რომელიც შეიძლება "
+"ვირტუალურ დანაყოფებად (\"logical volumes\") დაიყოს. „Volume group“-ები და "
+"„logical volume“-ები შეიძლება რამდენიმე ფიზიკურ დისკზე იყოს განაწულებული. "
+"ახალი „physical volume“-ები შეიძლება ნებისმიერ დროს დაემატოს „volume group“-"
+"ს, ხოლო „logical volume“-ების ზომა შესაძლოა volume group-ზე არსებულ "
+"აუთვისებელ სივრცემდე გაიზარდოს."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+#, fuzzy
+msgid ""
+"The items on the ZFS configuration menu can be used to edit ZFS pools and "
+"logical volumes. After you return to the main partition manager screen, "
+"logical volumes will be displayed in the same way as ordinary partitions, "
+"and should be treated as such."
+msgstr ""
+"The items on the LVM configuration menu can be used to edit volume groups "
+"and logical volumes. After you return to the main partition manager screen, "
+"logical volumes will be displayed in the same way as ordinary partitions, "
+"and should be treated as such."

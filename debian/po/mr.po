@@ -12,11 +12,16 @@
 # in doc/i18n/i18n.txt
 #
 #
+# Translations from iso-codes:
+#   Alastair McKinstry <mckinstry@debian.org>, 2004.
+#   Priti Patil <prithisd@gmail.com>, 2007.
+#   Sampada Nakhare, 2007.
+#   Sandeep Shedmake <sshedmak@redhat.com>, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-10 22:47+0000\n"
+"POT-Creation-Date: 2011-08-01 22:50+0000\n"
 "PO-Revision-Date: 2011-03-05 22:52+0530\n"
 "Last-Translator: sampada <sampadanakhare@gmail.com>\n"
 "Language-Team: Marathi, janabhaaratii, C-DAC, Mumbai, India "
@@ -34,7 +39,12 @@ msgstr ""
 #. Description
 #. :sl4:
 #. Short file system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. keep it short (ideally a 3-letter acronym)
 #: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
+#: ../partman-zfs.templates:16001
 msgid "zfs"
 msgstr "zfs"
 
@@ -79,3 +89,706 @@ msgstr ""
 "या अधिष्ठापकाची 64-बिट (amd64) आवृत्ती (तुमच्या हार्डवेअरचे पाठबळ असल्यास) "
 "वापरण्यासाठी, वा विभाजन मेनूमध्ये परत जाऊन विभाजनांनी अन्य फाईल प्रणाली वापरण्याची "
 "संरचना करण्यासाठी तुम्हाला प्रोत्साहित करण्यात येते. "
+
+#. Type: text
+#. Description
+#: ../partman-zfs.templates:5001
+#, fuzzy
+msgid "Configure ZFS"
+msgstr "स्थानिकीये संरचित करा"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. What is "in use" is a partition
+#: ../partman-zfs.templates:6001
+#, fuzzy
+msgid "In use by ZFS pool ${VG}"
+msgstr "ताखंव्य खंड गट ${VG} कडून वापरात"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:7001
+msgid "Display configuration details"
+msgstr "संरचनेचे तपशील दाखवा"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:8001
+msgid "Create ZFS pool"
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:9001
+msgid "Delete ZFS pool"
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:10001
+msgid "Create logical volume"
+msgstr "तार्किक खंड बनवा"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:11001
+msgid "Delete logical volume"
+msgstr "तार्किक खंड काढून टाका"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:12001
+msgid "Finish"
+msgstr "पूर्ण करा"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:13001
+#, fuzzy
+msgid "Write the changes to disk and configure ZFS?"
+msgstr "डिस्कस् वर बदल लिहायचे व ताखंव्य संरचित करायचा?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:13001
+#, fuzzy
+msgid ""
+"Before ZFS can be configured, the current partitioning scheme has to be "
+"written to disk. These changes cannot be undone."
+msgstr ""
+"संकेताधारित खंडांची संरचना करता येण्यापूर्वी, सध्याची विभाजन योजना डीस्कवर लिहिली "
+"पाहिजे. हे बदल पुन्हा पूर्ववत करता येणार नाहीत."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:13001
+#, fuzzy
+msgid ""
+"After ZFS is configured, no additional changes to the partitioning scheme of "
+"disks containing physical volumes are allowed during the installation. "
+"Please decide if you are satisfied with the current partitioning scheme "
+"before continuing."
+msgstr ""
+"तार्किक खंड व्यवस्थापक संरचित झाल्यावर भौतिक खंड असलेल्या डिस्कस् वरील विभाजन योजनेमधे "
+"अधिष्ठापनेदरम्यान आणखी कोणतेही बदल करण्याची अनुमती नाही. पुढे जाण्यापूर्वी सध्याच्या "
+"विभाजन योजनेबद्दल आपण समाधानी असल्याची खातरजमा करून घ्या."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:14001
+#, fuzzy
+msgid "ZFS configuration failure"
+msgstr "ताखंव्य संरचना असफल"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:14001
+msgid "An error occurred while writing the changes to the disks."
+msgstr "डिस्कस् वर बदल लिहिताना त्रुटी निर्माण झाली."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:14001
+#, fuzzy
+msgid "ZFS configuration has been aborted."
+msgstr "संरचना मधेच सोडून देण्यात आली आहे."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:15001
+#, fuzzy
+msgid "physical volume for ZFS"
+msgstr "ताखंव्य करिता भौतिक खंड"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+#, fuzzy
+msgid "ZFS configuration action:"
+msgstr "ताखंव्य संरचना कृतीः"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+#, fuzzy
+msgid "Summary of current ZFS configuration:"
+msgstr "सध्याच्या ताखंव्य संरचनेचा सारांशः"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+#, fuzzy
+msgid ""
+" Free physical volumes:  ${FREE_PVS}\n"
+" Used physical volumes:  ${USED_PVS}\n"
+" ZFS pools:              ${VGS}\n"
+" ZFS logical volumes:    ${LVS}"
+msgstr ""
+" मोकळे भौतिक खंड:  ${FREE_PVS}\n"
+" वापरलेले भौतिक खंड: ${USED_PVS}\n"
+" खंड गट:         ${VGS}\n"
+" तार्किक खंड:        ${LVS}"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:18001
+#, fuzzy
+msgid "Current ZFS configuration:"
+msgstr "सध्याची ताखंव्य संरचनाः"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:19001
+#, fuzzy
+msgid "Devices for the new ZFS pool:"
+msgstr "नवीन खंड गटाकरिता उपकरणे:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:19001
+#, fuzzy
+msgid "Please select devices for the new ZFS pool."
+msgstr "नवीन खंड गटाकरिता उपकरणांची निवड करा."
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:19001
+msgid "You can select one or more devices."
+msgstr "आपण एक वा अधिक उपकरणे निवडू शकता."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "ZFS pool name:"
+msgstr ""
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+#, fuzzy
+msgid "Please enter the name you would like to use for the new ZFS pool."
+msgstr "या नवीन तार्किक खंडाला ठेवायचे नाव द्या."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+msgid "No physical volumes selected"
+msgstr "कोणतेही भौतिक खंड निवडले नाहीत"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+#, fuzzy
+msgid ""
+"No physical volumes were selected. The creation of a new ZFS pool has been "
+"aborted."
+msgstr ""
+"कोणतेही भौतिक खंड निवडलेले नाहीत. नवीन खंड गटाची निर्मिती मधेच सोडून देण्यात आली आहे."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "No ZFS pool name"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+#, fuzzy
+msgid "No name for the ZFS pool has been entered. Please enter a name."
+msgstr "खंड गटाला कोणतेही नाव दिलेले नाही. कृपया नाव द्या."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+#, fuzzy
+msgid "ZFS pool name already in use"
+msgstr "खंड गटाचे नाव आधीच वापरात आहे"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+#, fuzzy
+msgid ""
+"The selected ZFS pool name is already in use. Please choose a different name."
+msgstr "निवडलेले खंड गटाचे नाव आधीच वापरात आहे. कृपया अन्य नाव निवडा."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+#, fuzzy
+msgid "Error while creating ZFS pool"
+msgstr "नवीन तार्किक खंड बनवताना त्रूटी"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+#, fuzzy
+msgid "The ZFS pool ${VG} could not be created."
+msgstr "${VG} हा खंड गट बनवता आला नाही."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001 ../partman-zfs.templates:35001
+#: ../partman-zfs.templates:39001
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr "आधिक माहितीसाठी/var/log/syslog तपासा किंवा आभासी कन्सोल ४ पहा."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+#, fuzzy
+msgid "ZFS pool to delete:"
+msgstr "काढून टाकायचा खंड गटः"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+#, fuzzy
+msgid "Please select the ZFS pool you wish to delete."
+msgstr "आपल्याला काढून टाकायचा खंड गट निवडा."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid "No ZFS pool"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+#, fuzzy
+msgid "No ZFS pool has been found."
+msgstr "कोणताही खंड गट सापडला नाही."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+#, fuzzy
+msgid "The ZFS pool may have already been deleted."
+msgstr "हा खंड गट बहुदा आधीच काढून टाकलेला असावा."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+#, fuzzy
+msgid "Really delete the ZFS pool?"
+msgstr "हा खंड गट खरोखरच काढून टाकायचा?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "Please confirm the removal of the ZFS pool ${VG}."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+#, fuzzy
+msgid "Error while deleting ZFS pool"
+msgstr "खंड गट काढून टाकताना त्रूटी"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+#, fuzzy
+msgid ""
+"The selected ZFS pool could not be deleted. One or more logical volumes may "
+"currently be in use."
+msgstr ""
+"निवडलेला खंड गट काढून टाकता आला नाही. एक वा अधिक खंड गट बहुदा सध्या वापरात असावेत."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+#, fuzzy
+msgid "No ZFS pool found"
+msgstr "कोणतीही विभाजने आढळली नाहीत."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+#, fuzzy
+msgid ""
+"No free ZFS pools were found for creating a new logical volume. Please "
+"create another ZFS pool, or free space in an existing ZFS pool."
+msgstr ""
+"नवा तार्किक खंड बनवण्याकरिता कोणतेही मोकळे खंड गट सापडले नाहीत. आणखी भौतिक खंड व खंड "
+"गट बनवा, किंवा अस्तित्वात असलेला खंड गट कमी करा."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Logical volume name:"
+msgstr "तार्किक खंडाचे नाव:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Please enter the name you would like to use for the new logical volume."
+msgstr "या नवीन तार्किक खंडाला ठेवायचे नाव द्या."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "ZFS pool:"
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+#, fuzzy
+msgid ""
+"Please select the ZFS pool where the new logical volume should be created."
+msgstr "हा नवीन तार्किक खंड बनवण्याकरिता खंड गट निवडा."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "No logical volume name entered"
+msgstr "तार्किक खंडाला कोणतेही नाव दिले नाही"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+#, fuzzy
+msgid "No name for the logical volume has been entered. Please enter a name."
+msgstr "तार्किक खंडाला कोणतेही नाव दिलेले नाही. कृपया नाव द्या."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001 ../partman-zfs.templates:35001
+msgid "Error while creating a new logical volume"
+msgstr "नवीन तार्किक खंड बनवताना त्रूटी"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+#, fuzzy
+msgid ""
+"The name ${LV} is already in use by another logical volume on the same ZFS "
+"pool (${VG})."
+msgstr "${LV} हे नाव याच (${VG}) खंड गटावरील अन्य तार्किक खंडाकडून आधीच वापरात आहे."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid "Logical volume size:"
+msgstr "तार्किक खंडाचा आकार:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid ""
+"Please enter the size of the new logical volume. The size may be entered in "
+"the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
+"10T (Terabytes). The default unit is Megabytes."
+msgstr ""
+"कृपया या नवीन तार्किक खंडाचा आकार ठरवा. आकार पुढील स्वरूपात देता येईल: १०के "
+"(किलोबाइटस्), १०एम (मेगॅबाइटस्), १०जी (गीगॅबाइटस्), १०टी (टेरॅबाइटस्). मूलनिर्धारित एकक "
+"मेगॅबाइटस् आहे."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid ""
+"Unable to create a new logical volume (${LV}) on ${VG} with the new size "
+"${SIZE}."
+msgstr "${VG} वर दिलेल्या ${SIZE} आकाराचा नवीन तार्किक खंड (${LV}) बनवता आला नाही."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid "No logical volume found"
+msgstr "कोणताही तार्किक खंड सापडला नाही"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+#, fuzzy
+msgid "No logical volume has been found. Please create a logical volume first."
+msgstr "कोणताही तार्किक खंड सापडलेला नाही. प्रथम एखादा तार्किक खंड बनवा."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "Logical volume:"
+msgstr "तार्किक खंड:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "Please select the logical volume to delete."
+msgstr "काढून टाकण्याचा तार्किक खंड निवडा."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001
+msgid "in VG ${VG}"
+msgstr "${VG} खंग मध्ये"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid "Error while deleting the logical volume"
+msgstr "तार्किक खंड काढून टाकताना त्रुटी"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+#, fuzzy
+msgid "The logical volume ${LV} on ${VG} could not be deleted."
+msgstr "${VG} वरील ${LV} हा तार्किक खंड काढून टाकता आला नाही."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+msgid "No usable physical volumes found"
+msgstr "वापरण्यायोग्य भौतिक खंड सापडले नाहीत"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+#, fuzzy
+msgid ""
+"No physical volumes (i.e. partitions) were found in this system. All "
+"physical volumes may already be in use. You may also need to load some "
+"required kernel modules or re-partition the hard drives."
+msgstr ""
+"आपल्या प्रणालीत कोणतेही भौतिक खंड (म्हणजे विभाजने) सापडली नाहीत. सर्व भौतिक खंड बहुदा "
+"आधीच वापरात असावेत. आपल्याला कदाचित काही आवश्यक कर्नेल मॉड्युलस् भरावी लागतील, किंवा "
+"आपले हार्ड ड्राईव्हज् परत विभाजित करावे लागतील."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+#, fuzzy
+msgid "ZFS not available"
+msgstr "सॉफ्टवेअर रेड उपलब्ध नाही"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+#, fuzzy
+msgid ""
+"The current kernel doesn't support ZFS. You may need to load the zfs module."
+msgstr ""
+"हा कर्नेल तार्किक खंड व्यवस्थापकाला पाठबळ देऊ शकत नाही. आपल्याला कदाचित  lvm-mod "
+"मॉड्यूल भरावे लागेल."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+#, fuzzy
+msgid "Invalid logical volume or ZFS pool name"
+msgstr "तार्किक खंड वा खंड गटाचे नाव अवैध"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+#, fuzzy
+msgid ""
+"Logical volume or ZFS pool names may only contain alphanumeric characters, "
+"hyphen, colon, period, and underscore. They must be 255 characters or less "
+"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
+"\", \"spare\" and \"log\" are not allowed."
+msgstr ""
+"तार्किक खंड वा खंड गट यांच्या नावात फक्त अंकअक्षर चिन्हे, संयोगचिन्ह, अधिकचिन्ह, पूर्णविराम "
+"आणी अधोरेखा असू शकतात. ती १२८ वा त्यापेक्षा कमी चिन्हांनी बनलेली असणे आवश्यक आहे, व "
+"संयोगचिन्हाने त्यांची सुरुवात असू नये. \".\" आणी \"..\" या नावांना परवानगी नाही. तसेच "
+"तार्किक खंडांच्या नावांची सुरुवात \"snapshot\" ने होऊ नये."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Please choose a different name."
+msgstr "कृपया अन्य नाव निवडा."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "Remove existing logical volume data?"
+msgstr "अस्तित्वातील तार्किक खंडावरील माहिती काढून टाकायची?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+#, fuzzy
+msgid ""
+"The selected device already contains the following ZFS logical volumes and "
+"ZFS pools which are about to be removed:"
+msgstr ""
+"निवडलेल्या उपकरणावर आधीच पुढील ताखंव्य तार्किक खंड, खंड गट व भौतिक खंड आहेत, जे काढून "
+"टाकले जातीलः"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+#, fuzzy
+msgid "Logical volume(s): ${LVTARGETS}"
+msgstr "काढून टाकण्याचे तार्किक खंडः ${LVTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "ZFS pool(s): ${VGTARGETS}"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid ""
+"Note that this will also permanently erase any data currently on the logical "
+"volumes."
+msgstr ""
+"यामुळे या तार्किक खंडांवर सद्ध्या असलेली सर्व माहिती कायमची पुसून टाकली जाईल याची नोंद "
+"घ्या."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "ZFS"
+msgstr ""
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+#, fuzzy
+msgid ""
+"A common situation for system administrators is to find that some disk "
+"partition (usually the most important one) is short on space, while some "
+"other partition is underused. ZFS can help with this."
+msgstr ""
+"प्रणाली प्रशासकाला सामान्यतः आढळून येणारी परिस्थिती म्हणजे डिस्कच्या काही (बहुतांशी "
+"सर्वात महत्त्वाच्या) विभाजनांवर जागा कमी असण4, तर अन्य विभाजनांवर खूपच मोकली जागा "
+"असणे. अशा वेळी तार्किक खंड व्यस्थापक (LVM ताखंव्य) याची मदत होते."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+#, fuzzy
+msgid ""
+"ZFS allows combining disk or partition devices (\"physical volumes\") to "
+"form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
+"partitions (\"logical volumes\"). ZFS pools and logical volumes may span "
+"across several physical disks. New physical volumes may be added to a ZFS "
+"pool at any time, and logical volumes have no size limit other than the "
+"total size of the ZFS pool."
+msgstr ""
+"ताखंव्य वापरून डिस्क किंवा विभाजन उपकरणे (\"भौतिक खंड\") एकत्रित करून एक आभासी डिस्क "
+"(\"खंड गट\") बनवता येतो, ज्यात नंतर आभासी विभाजने (\"तार्किक खंड\") बनवता येतात. खंड "
+"गट आणि  तार्किक खंड अनेक भौतिक डिस्क्सवर पसरलेले असू शकतात. खंड गटात नवीन भौतिक खंड "
+"कधीही जोडता येतात, आणि खंड गटात वाटप न झालेली जेव्हडी जागा असेल तिथपर्यंत तार्किक खंड "
+"पुनराकारित करता येतात."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+#, fuzzy
+msgid ""
+"The items on the ZFS configuration menu can be used to edit ZFS pools and "
+"logical volumes. After you return to the main partition manager screen, "
+"logical volumes will be displayed in the same way as ordinary partitions, "
+"and should be treated as such."
+msgstr ""
+"ताखंव्य संरचना मेन्यूमधील घटक खंड गट आणि तार्किक खंड संपादित करण्यासाठी वापरता येतात. "
+"तुम्ही मुख्य विभाजन व्यवस्थापक पडद्यावर परत आल्यावर तार्किक खंड सामान्य विभाजनांप्रमाणेच "
+"दर्शवले जातील, आणि त्यांना तशीच वागणूक द्यावी."
