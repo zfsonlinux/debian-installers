@@ -90,7 +90,7 @@ Default: false
 #flag:translate!:4
 Description: Write the changes to disks and configure ZFS?
  Before ZFS can be configured, the current
- partitioning scheme has to be written to disk.  These changes cannot
+ partitioning scheme has to be written to disk. These changes cannot
  be undone.
  .
  After ZFS is configured, no additional changes
@@ -127,10 +127,10 @@ Choices: ${CHOICES_L10N}
 Description: ZFS configuration action:
  Summary of current ZFS configuration:
  .
-  Free Physical Volumes:  ${FREE_PVS}
-  Used Physical Volumes:  ${USED_PVS}
-  ZFS Pools:              ${VGS}
-  ZFS Logical Volumes:    ${LVS}
+  Free physical volumes:  ${FREE_PVS}
+  Used physical volumes:  ${USED_PVS}
+  ZFS pools:              ${VGS}
+  ZFS logical volumes:    ${LVS}
 Help: partman-zfs/help
 
 Template: partman-zfs/displayall
@@ -145,7 +145,7 @@ Type: multiselect
 Choices: ${PARTITIONS}
 # :sl4:
 Description: Devices for the new ZFS pool:
- Please select the devices for the new ZFS pool.
+ Please select devices for the new ZFS pool.
  .
  You can select one or more devices.
 
@@ -165,7 +165,7 @@ Description: No physical volumes selected
 Template: partman-zfs/vgcreate_nonamegiven
 Type: error
 # :sl4:
-Description: No ZFS pool name entered
+Description: No ZFS pool name
  No name for the ZFS pool has been entered. Please enter a name.
 
 Template: partman-zfs/vgcreate_nameused
@@ -193,7 +193,7 @@ Description: ZFS pool to delete:
 Template: partman-zfs/vgdelete_novg
 Type: error
 # :sl4:
-Description: No ZFS pool found
+Description: No ZFS pool
  No ZFS pool has been found.
  .
  The ZFS pool may have already been deleted.
@@ -217,7 +217,7 @@ Type: error
 # :sl4:
 Description: No ZFS pool found
  No free ZFS pools were found for creating a new logical volume.
- Please create another ZFS pool, or liberate space in an
+ Please create another ZFS pool, or free space in an
  existing ZFS pool.
 
 Template: partman-zfs/lvcreate_name
@@ -269,7 +269,7 @@ Template: partman-zfs/lvdelete_nolv
 Type: error
 # :sl4:
 Description: No logical volume found
- No logical volume has been found.  Please create a logical volume first.
+ No logical volume has been found. Please create a logical volume first.
 
 Template: partman-zfs/lvdelete_lvnames
 Type: select
@@ -295,7 +295,7 @@ Template: partman-zfs/nopartitions
 Type: error
 # :sl4:
 Description: No usable physical volumes found
- No physical volumes (i.e. partitions) were found in your system. All
+ No physical volumes (i.e. partitions) were found in this system. All
  physical volumes may already be in use. You may also need to load
  some required kernel modules or re-partition the hard drives.
 
@@ -313,7 +313,7 @@ Description: Invalid logical volume or ZFS pool name
  Logical volume or ZFS pool names may only contain alphanumeric
  characters, hyphen, plus, period and underscore. They must be 128
  characters or less and may not begin with a hyphen. The names "." and
- ".." are not allowed. In addition, logical volume names may not begin
+ ".." are not allowed. In addition, logical volume names can not begin
  with "snapshot".
  .
  Please choose a different name.
@@ -326,9 +326,9 @@ Description: Remove existing logical volume data?
  The selected device already contains the following ZFS logical volumes
  and ZFS pools which are about to be removed:
  .
- Logical volume(s) to be removed: ${LVTARGETS}
+ Logical volume(s): ${LVTARGETS}
  .
- ZFS pool(s) to be removed: ${VGTARGETS}
+ ZFS pool(s): ${VGTARGETS}
  .
  Note that this will also permanently erase any data currently on the
  logical volumes.
@@ -344,7 +344,7 @@ Description: ZFS
  ZFS allows combining disk or partition devices ("physical volumes") to form
  a virtual disk ("ZFS pool"), which can then be divided into virtual
  partitions ("logical volumes"). ZFS pools and logical volumes may span
- several physical disks. New physical volumes may be added to a ZFS pool
+ across several physical disks. New physical volumes may be added to a ZFS pool
  at any time, and logical volumes have no size limit other than the total
  size of the ZFS pool.
  .
