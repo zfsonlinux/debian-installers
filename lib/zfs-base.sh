@@ -32,34 +32,20 @@ zfs_get_config() {
 	return 0
 }
 
-
-# FIXME: rules stolen from zfs-base.sh, they don't necessarily match those of ZFS pools
 zfs_name_ok() {
 	local name
 	name="$1"
 
-	# Rule 1
 	if [ -z "$name" ]; then
 		return 1
 	fi
 
-	# Rule 2
-	if [ "$(echo -n "$name" | sed 's/[^-+_\.[:alnum:]]//g')" != "$name" ]; then
+	if [ "$(echo -n "$name" | sed 's/[^-:_\.[:alnum:]]//g')" != "$name" ]; then
 		return 1
 	fi
 
-	# Rule 3
-	if [ "$name" = "." -o "$name" = ".." ]; then
-		return 1
-	fi
-
-	# Rule 4
-	if [ "$(echo -n "$name" | sed 's/^-//')" != "$name" ]; then
-		return 1
-	fi
-
-	# Rule 5
-	if [ $(echo -n "$name" | wc -c) -gt 128 ]; then
+	# 255, not 256.  See http://www.freebsd.org/cgi/query-pr.cgi?pr=159357
+	if [ $(echo -n "$name" | wc -c) -gt 255 ]; then
 		return 1
 	fi
 
@@ -310,7 +296,6 @@ lv_name_ok() {
 	local lvname
 	lvname="$1"
 
-	# Rule 1
 	zfs_name_ok "$lvname" || return 1
 
 	return 0
@@ -387,8 +372,15 @@ vg_name_ok() {
 	local vgname
 	vgname="$1"
 
-	# Rule 1
 	zfs_name_ok "$vgname" || return 1
+
+	case "$vgname" in
+		mirror|raidz|spare|log|c[0-9]*) return 1 ;;
+	esac
+
+	if [ "$(echo -n "$vgname" | sed 's/^[^[:alnum:]]//')" != "$vgname" ]; then
+		return 1
+	fi
 
 	return 0
 }
