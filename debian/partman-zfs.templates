@@ -311,10 +311,9 @@ Type: error
 # :sl4:
 _Description: Invalid logical volume or ZFS pool name
  Logical volume or ZFS pool names may only contain alphanumeric
- characters, hyphen, plus, period, and underscore. They must be 128
- characters or less and may not begin with a hyphen. The names "." and
- ".." are not allowed. In addition, logical volume names cannot begin
- with "snapshot".
+ characters, hyphen, plus, period, and underscore. They must be 255
+ characters or less and must begin with an alphanumeric character. The names
+ "mirror", "raidz", "spare" and "log" are not allowed.
  .
  Please choose a different name.
 
