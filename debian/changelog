@@ -1,11 +1,15 @@
 base-installer (1.121) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Merge from Ubuntu:
     - Run dpkg with --force-unsafe-io during installation; syncing is
       unnecessary in this context and can slow things down quite a bit
       (closes: #605384).
   * Consider 3.0 and later kernels as being like 2.6 for the purposes of
     debconf template selection.
+
+  [ Samuel Thibault ]
+  * Propose kernels only of the same kind.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 10 Jan 2011 12:38:41 -0600
 

@@ -16,7 +16,8 @@ DISTRIBUTION=
 # used by kernel installation code
 KERNEL=
 KERNEL_LIST=/tmp/available_kernels.txt
-case `udpkg --print-os` in
+KERNEL_NAME=`udpkg --print-os`
+case $KERNEL_NAME in
 	linux)		KERNEL_MAJOR="$(uname -r | cut -d . -f 1,2)" ;;
 	kfreebsd)	KERNEL_MAJOR="$(uname -r | cut -d . -f 1)" ;;
 	hurd)		KERNEL_MAJOR="$(uname -v | cut -d ' ' -f 2 | cut -d . -f 1)" ;;
@@ -333,7 +334,7 @@ get_mirror_info () {
 
 kernel_update_list () {
 	# Use 'uniq' to avoid listing the same kernel more then once
-	chroot /target apt-cache search '^(kernel|linux|kfreebsd|gnumach)-image' | \
+	chroot /target apt-cache search "^(kernel|$KERNEL_NAME)-image" | \
 	cut -d" " -f1 | uniq > "$KERNEL_LIST.unfiltered"
 	kernels=`sort -r "$KERNEL_LIST.unfiltered" | tr '\n' ' ' | sed -e 's/ $//'`
 	for candidate in $kernels; do
