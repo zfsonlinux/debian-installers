@@ -8,6 +8,8 @@
 . /lib/partman/lib/zfs-base.sh
 
 # Stolen from partman-partitioning/free_space/new/do_option
+# A request was sent to export this function so that partman-zfs
+# can use it (see #636400).
 create_new_partition () {
 	open_dialog NEW_PARTITION $1 ext2 $2 $3 $4
 	local num id fs mp mplist mpcurrent numparts device
