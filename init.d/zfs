@@ -7,7 +7,108 @@
 . /lib/partman/lib/base.sh
 . /lib/partman/lib/zfs-base.sh
 
-# FIXME: correct path?
+# Stolen from partman-partitioning/free_space/new/do_option
+create_new_partition () {
+	open_dialog NEW_PARTITION $1 ext2 $2 $3 $4
+	local num id fs mp mplist mpcurrent numparts device
+	id=''
+	read_line num id x1 x2 x3 x4 x5
+	close_dialog
+
+	partitions=''
+	numparts=1
+	open_dialog PARTITIONS
+	while { read_line x1 part x3 x4 x5 x6 x7; [ "$part" ]; }; do
+		partitions="$partitions $part"
+		numparts=$(($numparts + 1))
+	done
+	close_dialog
+
+	db_progress START 0 $numparts partman/text/please_wait
+	db_progress INFO partman-partitioning/new_state
+
+	if [ "$5" ]; then
+		default_fs="$5"
+	else
+		db_get partman/default_filesystem
+		default_fs="$RET"
+	fi
+	if [ "$id" ] && [ -f "../../$default_fs" ]; then
+		# make better defaults for the new partition
+		mkdir -p $id
+		echo format >$id/method
+		>$id/format
+		>$id/use_filesystem
+		echo "$default_fs" >$id/filesystem
+		mkdir -p $id/options
+		if [ -f "/lib/partman/mountoptions/${default_fs}_defaults" ]; then
+			for op in $(cat "/lib/partman/mountoptions/${default_fs}_defaults"); do
+				echo "$op" >"$id/options/$op"
+			done
+		fi
+		mplist='/ /home /usr /var /tmp /usr/local /opt /srv /boot'
+		mpcurrent=$(
+			for dev in $DEVICES/*; do
+				[ -d $dev ] || continue
+				cd $dev
+				open_dialog PARTITIONS
+				while { read_line num id x1 x2 fs x3 x4; [ "$id" ]; }; do
+					[ $fs != free ] || continue
+					[ -f "$id/method" ] || continue
+					[ -f "$id/acting_filesystem" ] || continue
+					[ -f "$id/use_filesystem" ] || continue
+					[ -f "$id/mountpoint" ] || continue
+					echo $(cat $id/mountpoint) # echo ensures 1 line
+				done
+				close_dialog
+			done
+		)
+		for mp in $mpcurrent; do
+			mplist=$(echo $mplist | sed "s,$mp,,")
+		done
+		mp=''
+		for mp in $mplist; do
+			break
+		done
+		if [ "$mp" ]; then
+			echo $mp >$id/mountpoint
+		fi
+		menudir_default_choice /lib/partman/active_partition "$default_fs" mountpoint || true
+		menudir_default_choice /lib/partman/choose_partition partition_tree $dev//$id || true
+		# setting the bootable flag is too much unnecessary work:
+		#   1. check if the disk label supports bootable flag
+		#   2. check if the mount point is / or /boot and the partition
+		#	  type is `primary'
+		#   3. get the current flags
+		#   4. add `boot' and set the new flags
+		#   5. moreover, when the boot loader is installed in MBR
+		#	  no bootable flag is necessary
+	fi
+
+	db_progress STEP 1
+
+	for part in $partitions; do
+		update_partition $dev $part
+		db_progress STEP 1
+	done
+
+	db_progress STOP
+
+	if [ "$id" ]; then
+		while true; do
+			set +e
+			local code=0
+			ask_active_partition "$dev" "$id" "$num" || code=$?
+			if [ "$code" -ge 128 ] && [ "$code" -lt 192 ]; then
+				exit "$code" # killed by signal
+			elif [ "$code" -ge 100 ]; then
+				break
+			fi
+			set -e
+		done
+	fi
+}
+
 if [ -x /sbin/zpool ]; then
 	vgroups=$(/sbin/zpool list -H 2>/dev/null | \
 		sed -e 's/\t.*//' | sort)
@@ -94,18 +195,7 @@ for dev in /var/lib/partman/devices/*; do
 			close_dialog
 			# create partition in the free space
 			if [ "$free_space" ]; then
-				open_dialog NEW_PARTITION primary ext2 $free_space full $free_size
-				read_line num id size type fs path name
-				close_dialog
-				if [ "$id" ]; then
-					open_dialog GET_FILE_SYSTEM $id
-					read_line filesystem
-					close_dialog
-					if [ "$filesystem" != none ]; then
-						open_dialog CHANGE_FILE_SYSTEM $id $filesystem
-						close_dialog
-					fi
-				fi
+				create_new_partition primary $free_space full $free_size "zfs"
 			fi
 			open_dialog DISK_UNCHANGED
 			close_dialog
