@@ -16,11 +16,24 @@
 #
 # Volume er oversat til diskenhed. Ret hvis Dansk-gruppen finder en anbefaling.
 #
+# Translations from iso-codes:
+# Alastair McKinstry <mckinstry@computer.org>, 2001.
+# Claus Hindsgaul <claus.hindsgaul@gmail.com>, 2006.
+# Claus Hindsgaul <claus_h@image.dk>, 2004, 2005, 2006.
+# Computeroversættelse Tobias Toedter <t.toedter@gmx.net>, 2007.
+# Copyright (C) Free Software Foundation, Inc., 2006.
+# Frederik 'Freso' S. Olesen <freso.dk@gmail.com>, 2008.
+# Free Software Foundation, Inc., 2000, 2004, 2005.
+# Joe Hansen <joedalton2@yahoo.dk>, 2009, 2010, 2011.
+# Keld Simonsen <keld@dkuug.dk>, 2000, 2001.
+# Kenneth Christiansen <kenneth@gnu.org>, 2000.
+# Ole Laursen <olau@hardworking.dk>, 2001.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer_packages_po_sublevel1_da\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-10 22:47+0000\n"
+"POT-Creation-Date: 2011-08-01 22:50+0000\n"
 "PO-Revision-Date: 2010-10-29 00:05+0200\n"
 "Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: <dansk@dansk-gruppen.dk>\n"
@@ -38,7 +51,12 @@ msgstr ""
 #. Description
 #. :sl4:
 #. Short file system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. keep it short (ideally a 3-letter acronym)
 #: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
+#: ../partman-zfs.templates:16001
 msgid "zfs"
 msgstr "zfs"
 
@@ -77,3 +95,720 @@ msgid ""
 "(if your hardware supports this), or go back to the partitioning menu and "
 "configure the partitions to use another file system."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../partman-zfs.templates:5001
+#, fuzzy
+msgid "Configure ZFS"
+msgstr "Sæt regionalindstillinger op"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. What is "in use" is a partition
+#: ../partman-zfs.templates:6001
+#, fuzzy
+msgid "In use by ZFS pool ${VG}"
+msgstr "I brug af LVM-arkivgruppen ${VG}"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:7001
+msgid "Display configuration details"
+msgstr "Vis opsætningsdetaljer"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:8001
+msgid "Create ZFS pool"
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:9001
+msgid "Delete ZFS pool"
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:10001
+msgid "Create logical volume"
+msgstr "Opret logisk arkiv"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:11001
+msgid "Delete logical volume"
+msgstr "Slet logisk arkiv"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:12001
+msgid "Finish"
+msgstr "Afslut"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:13001
+#, fuzzy
+msgid "Write the changes to disk and configure ZFS?"
+msgstr "Skriv ændringerne til diskene og sæt den logiske arkivhåndtering op?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:13001
+#, fuzzy
+msgid ""
+"Before ZFS can be configured, the current partitioning scheme has to be "
+"written to disk. These changes cannot be undone."
+msgstr ""
+"Den valgte partitionering skal skrives til diskene før de krypterede arkiver "
+"kan sættes op. Disse ændringer kan ikke fortrydes."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:13001
+#, fuzzy
+msgid ""
+"After ZFS is configured, no additional changes to the partitioning scheme of "
+"disks containing physical volumes are allowed during the installation. "
+"Please decide if you are satisfied with the current partitioning scheme "
+"before continuing."
+msgstr ""
+"Når den logiske arkivhåndtering er sat op, er det ikke tilladt at ændre "
+"partitionerne på de diske, der indeholder fysiske arkiver under "
+"installationen. Afgør med dig selv, om du er tilfreds med den aktuelle "
+"partitionsudlægning, før du fortsætter."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:14001
+#, fuzzy
+msgid "ZFS configuration failure"
+msgstr "LVM-opsætningsfejl"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:14001
+msgid "An error occurred while writing the changes to the disks."
+msgstr "Der opstod en fejl under skrivning af ændringerne til diskene."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:14001
+#, fuzzy
+msgid "ZFS configuration has been aborted."
+msgstr "Opsætningen blev afbrudt."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:15001
+#, fuzzy
+msgid "physical volume for ZFS"
+msgstr "fysisk arkiv til LVM"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+#, fuzzy
+msgid "ZFS configuration action:"
+msgstr "LVM-opsætningshandling:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+#, fuzzy
+msgid "Summary of current ZFS configuration:"
+msgstr "Opsummering af den aktuelle LVM-opsætning:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+#, fuzzy
+msgid ""
+" Free physical volumes:  ${FREE_PVS}\n"
+" Used physical volumes:  ${USED_PVS}\n"
+" ZFS pools:              ${VGS}\n"
+" ZFS logical volumes:    ${LVS}"
+msgstr ""
+" Ledige fysiske arkiver:    ${FREE_PVS}\n"
+" Benyttede fysiske arkiver: ${USED_PVS}\n"
+" Arkivgrupper:            ${VGS}\n"
+" Logiske arkiver:           ${LVS}"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:18001
+#, fuzzy
+msgid "Current ZFS configuration:"
+msgstr "Aktuel LVM-opsætning:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:19001
+#, fuzzy
+msgid "Devices for the new ZFS pool:"
+msgstr "Enheder til den nye arkivgruppe:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:19001
+#, fuzzy
+msgid "Please select devices for the new ZFS pool."
+msgstr "Vælg de enheder, der skal fjernes fra den nye arkivgruppe."
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:19001
+msgid "You can select one or more devices."
+msgstr "Du kan angive en eller flere enheder."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "ZFS pool name:"
+msgstr ""
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+#, fuzzy
+msgid "Please enter the name you would like to use for the new ZFS pool."
+msgstr "Angiv det navn, du vil bruge til det nye logiske arkiv."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+msgid "No physical volumes selected"
+msgstr "Der blev ikke valgt nogen fysiske arkiver"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+#, fuzzy
+msgid ""
+"No physical volumes were selected. The creation of a new ZFS pool has been "
+"aborted."
+msgstr ""
+"Der blev ikke valgt nogle fysiske arkiver. Oprettelsen af en ny arkivgruppe "
+"blev afbrudt."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "No ZFS pool name"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+#, fuzzy
+msgid "No name for the ZFS pool has been entered. Please enter a name."
+msgstr ""
+"Der er ikke angivet noget navn til den valgte arkivgruppe. Angiv venligst et "
+"navn."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+#, fuzzy
+msgid "ZFS pool name already in use"
+msgstr "Arkivgruppenavnet er allerede i brug"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+#, fuzzy
+msgid ""
+"The selected ZFS pool name is already in use. Please choose a different name."
+msgstr "Det valgte arkivgruppenavn er allerede i brug. Vælg et andet navn."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+#, fuzzy
+msgid "Error while creating ZFS pool"
+msgstr "Fejl under oprettelse af nyt logisk arkiv"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+#, fuzzy
+msgid "The ZFS pool ${VG} could not be created."
+msgstr "Bindgruppen ${VG} kunne ikke oprettes."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001 ../partman-zfs.templates:35001
+#: ../partman-zfs.templates:39001
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr "Tjek /var/log/syslog eller kig på den virtuelle konsol 4 for detaljer."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+#, fuzzy
+msgid "ZFS pool to delete:"
+msgstr "Vælg en arkivgruppe at slette:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+#, fuzzy
+msgid "Please select the ZFS pool you wish to delete."
+msgstr "Vælg den arkivgruppe, du ønsker at slette."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid "No ZFS pool"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+#, fuzzy
+msgid "No ZFS pool has been found."
+msgstr "Fandt ingen arkivgrupper."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+#, fuzzy
+msgid "The ZFS pool may have already been deleted."
+msgstr "Arkivgruppen kan allerede være blevet slettet."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+#, fuzzy
+msgid "Really delete the ZFS pool?"
+msgstr "Vil du virkelig slette arkivgruppen?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "Please confirm the removal of the ZFS pool ${VG}."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+#, fuzzy
+msgid "Error while deleting ZFS pool"
+msgstr "Fejl under sletning af arkivgruppe"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+#, fuzzy
+msgid ""
+"The selected ZFS pool could not be deleted. One or more logical volumes may "
+"currently be in use."
+msgstr ""
+"Den valgte arkivgruppe kunne ikke slettes. Måske er en eller flere logiske "
+"arkivgrupper stadig i brug."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+#, fuzzy
+msgid "No ZFS pool found"
+msgstr "Fandt ingen partitioner"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+#, fuzzy
+msgid ""
+"No free ZFS pools were found for creating a new logical volume. Please "
+"create another ZFS pool, or free space in an existing ZFS pool."
+msgstr ""
+"Der blev ikke fundet nogen arkivgrupper til oprettelse af et nyt logisk "
+"arkiv. Opret flere fysiske arkiver og arkivgrupper eller reducér en "
+"eksisterende arkivgruppe."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Logical volume name:"
+msgstr "Navn på logisk arkiv:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Please enter the name you would like to use for the new logical volume."
+msgstr "Angiv det navn, du vil bruge til det nye logiske arkiv."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "ZFS pool:"
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+#, fuzzy
+msgid ""
+"Please select the ZFS pool where the new logical volume should be created."
+msgstr "Vælg den arkivgruppe, hvori det nye logiske arkiv skal oprettes."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "No logical volume name entered"
+msgstr "Der er ikke angivet noget navn til det logiske arkiv"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+#, fuzzy
+msgid "No name for the logical volume has been entered. Please enter a name."
+msgstr ""
+"Der er ikke angivet noget navn til det logiske arkiv. Angiv venligst et navn."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001 ../partman-zfs.templates:35001
+msgid "Error while creating a new logical volume"
+msgstr "Fejl under oprettelse af nyt logisk arkiv"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+#, fuzzy
+msgid ""
+"The name ${LV} is already in use by another logical volume on the same ZFS "
+"pool (${VG})."
+msgstr ""
+"Det angivne navn ${LV} er allerede i brug af et andet logisk arkiv i den "
+"samme arkivgruppe (${VG})."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid "Logical volume size:"
+msgstr "Størrelse på logisk arkiv:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid ""
+"Please enter the size of the new logical volume. The size may be entered in "
+"the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
+"10T (Terabytes). The default unit is Megabytes."
+msgstr ""
+"Angiv størrelsen på det nye logiske arkiv. Størrelsen kan angives i følgende "
+"formater: 10K (Kilobyte), 10M (Megabyte), 10G (Gigabyte), 10T (Terabyte). "
+"Som standard antages Megabyte."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid ""
+"Unable to create a new logical volume (${LV}) on ${VG} with the new size "
+"${SIZE}."
+msgstr ""
+"Kunne ikke oprette det logiske arkiv (${LV}) på ${VG} med den nye størrelse "
+"${SIZE}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid "No logical volume found"
+msgstr "Fandt ingen logiske arkiver"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+#, fuzzy
+msgid "No logical volume has been found. Please create a logical volume first."
+msgstr "Fandt ingen logiske arkiver. Opret et logisk arkiv først."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "Logical volume:"
+msgstr "Logisk arkiv:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "Please select the logical volume to delete."
+msgstr "Vælg det logiske arkiv, der skal slettes."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001
+msgid "in VG ${VG}"
+msgstr "i AG ${VG}"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid "Error while deleting the logical volume"
+msgstr "Fejl under sletning af logisk arkiv"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+#, fuzzy
+msgid "The logical volume ${LV} on ${VG} could not be deleted."
+msgstr "Det logiske arkiv (${LV}) på ${VG} kunne ikke slettes."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+msgid "No usable physical volumes found"
+msgstr "Fandt ingen brugbare fysiske arkiver"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+#, fuzzy
+msgid ""
+"No physical volumes (i.e. partitions) were found in this system. All "
+"physical volumes may already be in use. You may also need to load some "
+"required kernel modules or re-partition the hard drives."
+msgstr ""
+"Kunne ikke finde nogen fysiske arkiver (f.eks. partitioner) på dit system. "
+"Alle fysiske arkiver er muligvis allerede i brug. Det kan også være, at du "
+"er nødt til at indlæse nogle nødvendige kernemoduler eller repartitionere "
+"harddiskene."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+#, fuzzy
+msgid "ZFS not available"
+msgstr "Software-RAID ikke tilgængelig"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+#, fuzzy
+msgid ""
+"The current kernel doesn't support ZFS. You may need to load the zfs module."
+msgstr ""
+"Den aktuelle kerne understøtter ikke den logiske arkivhåndtering (LVM). "
+"Måske skal du indlæse modulet lvm-mod."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+#, fuzzy
+msgid "Invalid logical volume or ZFS pool name"
+msgstr "Ugyldigt navn på logisk arkiv eller arkivgruppe"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+#, fuzzy
+msgid ""
+"Logical volume or ZFS pool names may only contain alphanumeric characters, "
+"hyphen, colon, period, and underscore. They must be 255 characters or less "
+"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
+"\", \"spare\" and \"log\" are not allowed."
+msgstr ""
+"Navne på logiske arkiver eller arkivgrupper må kun indeholde bogstaver, tal, "
+"bindestreger, plus, punktum og understreger. De skal være 128 tegn eller "
+"kortere, og må ikke starte med en bindestreg. Navnene \".\" og \"..\" er "
+"ikke tilladte. Desuden må navne på logiske arkiver ikke starte med \"snapshot"
+"\"."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Please choose a different name."
+msgstr "Angiv venligst et andet navn."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "Remove existing logical volume data?"
+msgstr "Fjern eksisterende data om logiske arkiver?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+#, fuzzy
+msgid ""
+"The selected device already contains the following ZFS logical volumes and "
+"ZFS pools which are about to be removed:"
+msgstr ""
+"Den valgte enhed indeholder allerede nedenstående logiske arkiver, "
+"arkivgrupper og fysiske arkiver, som er ved at blive fjernet:"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+#, fuzzy
+msgid "Logical volume(s): ${LVTARGETS}"
+msgstr "Logiske arkiver der skal fjernes: ${LVTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "ZFS pool(s): ${VGTARGETS}"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid ""
+"Note that this will also permanently erase any data currently on the logical "
+"volumes."
+msgstr "Bemærk at dette også vil slette data på de logiske arkiver permanent."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "ZFS"
+msgstr ""
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+#, fuzzy
+msgid ""
+"A common situation for system administrators is to find that some disk "
+"partition (usually the most important one) is short on space, while some "
+"other partition is underused. ZFS can help with this."
+msgstr ""
+"En almindelig situation for systemadministratorer er, at en eller anden "
+"diskpartition (ofte den vigtigste) har utilstrækkelig diskplads, mens en "
+"anden partition ikke udnyttes fuldt. Logisk arkivhåndtering (LVM) kan hjælpe "
+"med dette."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+#, fuzzy
+msgid ""
+"ZFS allows combining disk or partition devices (\"physical volumes\") to "
+"form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
+"partitions (\"logical volumes\"). ZFS pools and logical volumes may span "
+"across several physical disks. New physical volumes may be added to a ZFS "
+"pool at any time, and logical volumes have no size limit other than the "
+"total size of the ZFS pool."
+msgstr ""
+"LVM tillader at diske eller partitionsenheder (\"fysiske arkiver\") udgør en "
+"virtuel disk (\"arkivgruppe\"), som så kan underinddeles i virtuelle "
+"partitioner (\"logiske arkiver\"). Arkivgrupper og logiske arkiver kan "
+"omfatte adskillige fysiske diske. Nye fysiske arkiver kan til enhver tid "
+"føjes til en arkivgruppe, og logiske arkivers størrelser kan ændres indtil "
+"de fylder al den uallokerede plads i arkivgruppen."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+#, fuzzy
+msgid ""
+"The items on the ZFS configuration menu can be used to edit ZFS pools and "
+"logical volumes. After you return to the main partition manager screen, "
+"logical volumes will be displayed in the same way as ordinary partitions, "
+"and should be treated as such."
+msgstr ""
+"Punkterne i LVM-opsætningsmenuen kan bruges til at redigere arkivgrupper og "
+"logiske arkiver. Når du vender tilbage til hovedskærmen for "
+"partitionshåndteringen, vil de logiske arkiver blive vist på samme måde som "
+"almindelige partitioner, og bør endvidere behandles som sådan."

@@ -8,11 +8,22 @@
 # This file is distributed under the same license as debian-installer.
 # Theppitak Karoonboonyanan <thep@linux.thai.net>, 2006-2011.
 #
+#
+# Translations from iso-codes:
+#   Tobias Quathamer <toddy@debian.org>, 2007.
+#     Translations taken from ICU SVN on 2007-09-09
+#   Free Software Foundation, Inc., 2002,2003,2004
+#   Alastair McKinstry <mckinstry@computer.org>, 2002, 2004
+#   Translations from KDE:
+#   - Thanomsub Noppaburana <donga@midaassets.com>
+#   Thanomsub Noppaburana <donga@midaassets.com> (Translations from KDE)
+#   Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005-2011
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-10 22:47+0000\n"
+"POT-Creation-Date: 2011-08-01 22:50+0000\n"
 "PO-Revision-Date: 2011-04-18 17:31+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -29,7 +40,12 @@ msgstr ""
 #. Description
 #. :sl4:
 #. Short file system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. keep it short (ideally a 3-letter acronym)
 #: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
+#: ../partman-zfs.templates:16001
 msgid "zfs"
 msgstr "zfs"
 
@@ -73,3 +89,699 @@ msgid ""
 msgstr ""
 "ขอแนะนำให้คุณใช้โปรแกรมติดตั้งรุ่น 64 บิต (amd64) แทน (ถ้าเครื่องของคุณรองรับ) "
 "หรือมิฉะนั้นก็ย้อนกลับไปที่เมนูการแบ่งพาร์ทิชัน แล้วตั้งค่าพาร์ทิชันดังกล่าวให้ใช้ระบบแฟ้มแบบอื่น"
+
+#. Type: text
+#. Description
+#: ../partman-zfs.templates:5001
+#, fuzzy
+msgid "Configure ZFS"
+msgstr "ตั้งค่าโลแคล"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. What is "in use" is a partition
+#: ../partman-zfs.templates:6001
+#, fuzzy
+msgid "In use by ZFS pool ${VG}"
+msgstr "กำลังใช้งานโดยกลุ่มโวลุม LVM ${VG}"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:7001
+msgid "Display configuration details"
+msgstr "แสดงรายละเอียดค่าตั้ง"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:8001
+msgid "Create ZFS pool"
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:9001
+msgid "Delete ZFS pool"
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:10001
+msgid "Create logical volume"
+msgstr "สร้าง logical volume"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:11001
+msgid "Delete logical volume"
+msgstr "ลบ logical volume"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:12001
+msgid "Finish"
+msgstr "เสร็จสิ้น"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:13001
+#, fuzzy
+msgid "Write the changes to disk and configure ZFS?"
+msgstr "จะบันทึกการเปลี่ยนแปลงทั้งหมดลงดิสก์ แล้วตั้งค่า LVM หรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:13001
+#, fuzzy
+msgid ""
+"Before ZFS can be configured, the current partitioning scheme has to be "
+"written to disk. These changes cannot be undone."
+msgstr ""
+"ก่อนที่จะตั้งค่าโวลุมเข้ารหัสลับได้ จะต้องบันทึกการแบ่งพาร์ทิชันปัจจุบันลงในดิสก์เสียก่อน "
+"ซึ่งการเปลี่ยนแปลงเหล่านี้ ไม่สามารถเรียกคืนได้อีก"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:13001
+#, fuzzy
+msgid ""
+"After ZFS is configured, no additional changes to the partitioning scheme of "
+"disks containing physical volumes are allowed during the installation. "
+"Please decide if you are satisfied with the current partitioning scheme "
+"before continuing."
+msgstr ""
+"เมื่อตั้งค่า Logical Volume Manager แล้ว จะไม่สามารถเปลี่ยนแปลงการแบ่งพาร์ทิชันในดิสก์ที่มี "
+"physical volume ได้อีกในระหว่างการติดตั้ง กรุณาตัดสินใจ "
+"ว่าคุณพอใจกับการแบ่งพาร์ทิชันปัจจุบันในดิสก์เหล่านี้แล้วหรือยัง ก่อนที่จะดำเนินการต่อไป"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:14001
+#, fuzzy
+msgid "ZFS configuration failure"
+msgstr "ตั้งค่า LVM ไม่สำเร็จ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:14001
+msgid "An error occurred while writing the changes to the disks."
+msgstr "เกิดข้อผิดพลาดขณะบันทึกการเปลี่ยนแปลงลงดิสก์"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:14001
+#, fuzzy
+msgid "ZFS configuration has been aborted."
+msgstr "การตั้งค่าถูกยกเลิก"
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:15001
+#, fuzzy
+msgid "physical volume for ZFS"
+msgstr "physical volume สำหรับ LVM"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+#, fuzzy
+msgid "ZFS configuration action:"
+msgstr "การดำเนินการตั้งค่า LVM:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+#, fuzzy
+msgid "Summary of current ZFS configuration:"
+msgstr "สรุปค่าตั้ง LVM ล่าสุด:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+#, fuzzy
+msgid ""
+" Free physical volumes:  ${FREE_PVS}\n"
+" Used physical volumes:  ${USED_PVS}\n"
+" ZFS pools:              ${VGS}\n"
+" ZFS logical volumes:    ${LVS}"
+msgstr ""
+" Physical Volume ที่ว่าง:   ${FREE_PVS}\n"
+" Physical Volume ที่ใช้:    ${USED_PVS}\n"
+" กลุ่มโวลุม:                ${VGS}\n"
+" Logical Volume:         ${LVS}"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:18001
+#, fuzzy
+msgid "Current ZFS configuration:"
+msgstr "ค่าตั้ง LVM ล่าสุด:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:19001
+#, fuzzy
+msgid "Devices for the new ZFS pool:"
+msgstr "อุปกรณ์สำหรับกลุ่มโวลุมใหม่:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:19001
+#, fuzzy
+msgid "Please select devices for the new ZFS pool."
+msgstr "กรุณาเลือกอุปกรณ์สำหรับกลุ่มโวลุมใหม่"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:19001
+msgid "You can select one or more devices."
+msgstr "คุณสามารถเลือกอุปกรณ์ได้มากกว่าหนึ่งชิ้น"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "ZFS pool name:"
+msgstr ""
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+#, fuzzy
+msgid "Please enter the name you would like to use for the new ZFS pool."
+msgstr "กรุณาตั้งชื่อ logical volume ใหม่ที่จะสร้าง"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+msgid "No physical volumes selected"
+msgstr "ไม่ได้เลือก physical volume"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+#, fuzzy
+msgid ""
+"No physical volumes were selected. The creation of a new ZFS pool has been "
+"aborted."
+msgstr "คุณไม่ได้เลือก physical volume ไว้ ขอยกเลิกการสร้างกลุ่มโวลุมใหม่"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "No ZFS pool name"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+#, fuzzy
+msgid "No name for the ZFS pool has been entered. Please enter a name."
+msgstr "คุณไม่ได้ป้อนชื่อกลุ่มโวลุม กรุณาป้อนชื่อด้วย"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+#, fuzzy
+msgid "ZFS pool name already in use"
+msgstr "ชื่อกลุ่มโวลุมถูกใช้ไปแล้ว"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+#, fuzzy
+msgid ""
+"The selected ZFS pool name is already in use. Please choose a different name."
+msgstr "ชื่อกลุ่มโวลุมที่คุณตั้ง ถูกใช้ไปแล้ว กรุณาตั้งเป็นชื่ออื่น"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+#, fuzzy
+msgid "Error while creating ZFS pool"
+msgstr "เกิดข้อผิดพลาดระหว่างสร้าง logical volume ใหม่"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+#, fuzzy
+msgid "The ZFS pool ${VG} could not be created."
+msgstr "ไม่สามารถสร้างกลุ่มโวลุม ${VG} ได้"
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001 ../partman-zfs.templates:35001
+#: ../partman-zfs.templates:39001
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr "กรุณาตรวจสอบ /var/log/syslog หรือดูที่คอนโซลเสมือนที่ 4 เพื่อดูรายละเอียด"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+#, fuzzy
+msgid "ZFS pool to delete:"
+msgstr "กลุ่มโวลุมที่จะลบ:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+#, fuzzy
+msgid "Please select the ZFS pool you wish to delete."
+msgstr "กรุณาเลือกกลุ่มโวลุมที่คุณต้องการลบ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid "No ZFS pool"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+#, fuzzy
+msgid "No ZFS pool has been found."
+msgstr "ไม่พบกลุ่มโวลุมใดๆ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+#, fuzzy
+msgid "The ZFS pool may have already been deleted."
+msgstr "กลุ่มโวลุมดังกล่าวอาจถูกลบไปแล้ว"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+#, fuzzy
+msgid "Really delete the ZFS pool?"
+msgstr "จะลบกลุ่มโวลุมจริงหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "Please confirm the removal of the ZFS pool ${VG}."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+#, fuzzy
+msgid "Error while deleting ZFS pool"
+msgstr "เกิดข้อผิดพลาดขณะลบกลุ่มโวลุม"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+#, fuzzy
+msgid ""
+"The selected ZFS pool could not be deleted. One or more logical volumes may "
+"currently be in use."
+msgstr "กลุ่มโวลุมที่คุณเลือก ไม่สามารถลบได้ เป็นไปได้ว่า logical volume ในนั้นอาจถูกใช้งานอยู่"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+#, fuzzy
+msgid "No ZFS pool found"
+msgstr "ไม่พบพาร์ทิชัน"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+#, fuzzy
+msgid ""
+"No free ZFS pools were found for creating a new logical volume. Please "
+"create another ZFS pool, or free space in an existing ZFS pool."
+msgstr ""
+"ไม่พบกลุ่มโวลุมที่ว่างอยู่สำหรับใช้สร้าง logical volume ใหม่ กรุณาสร้าง physical volume "
+"และกลุ่มโวลุมเพิ่ม หรือหดกลุ่มโวลุมที่มีอยู่"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Logical volume name:"
+msgstr "ชื่อ logical volume:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Please enter the name you would like to use for the new logical volume."
+msgstr "กรุณาตั้งชื่อ logical volume ใหม่ที่จะสร้าง"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "ZFS pool:"
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+#, fuzzy
+msgid ""
+"Please select the ZFS pool where the new logical volume should be created."
+msgstr "กรุณาเลือกกลุ่มโวลุมที่จะใช้สร้าง logical volume ใหม่"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "No logical volume name entered"
+msgstr "ไม่ได้ป้อนชื่อ logical volume"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+#, fuzzy
+msgid "No name for the logical volume has been entered. Please enter a name."
+msgstr "คุณไม่ได้ป้อนชื่อ logical volume กรุณาป้อนชื่อด้วย"
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001 ../partman-zfs.templates:35001
+msgid "Error while creating a new logical volume"
+msgstr "เกิดข้อผิดพลาดระหว่างสร้าง logical volume ใหม่"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+#, fuzzy
+msgid ""
+"The name ${LV} is already in use by another logical volume on the same ZFS "
+"pool (${VG})."
+msgstr "ชื่อ ${LV} ถูกใช้ไปแล้ว โดย logical volume อื่นในกลุ่มโวลุม (${VG}) เดียวกัน"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid "Logical volume size:"
+msgstr "ขนาด logical volume:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid ""
+"Please enter the size of the new logical volume. The size may be entered in "
+"the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
+"10T (Terabytes). The default unit is Megabytes."
+msgstr ""
+"กรุณาป้อนขนาดของ logical volume ใหม่ที่จะสร้าง คุณอาจป้อนขนาดในรูปแบบต่อไปนี้ได้: 10K "
+"(กิโลไบต์), 10M (เมกะไบต์), 10G (กิกะไบต์), 10T (เทราไบต์) หน่วยโดยปริยายคือเมกะไบต์"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid ""
+"Unable to create a new logical volume (${LV}) on ${VG} with the new size "
+"${SIZE}."
+msgstr "ไม่สามารถสร้าง logical volume (${LV}) ใหม่ใน ${VG} ด้วยขนาด ${SIZE} ที่กำหนด"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid "No logical volume found"
+msgstr "ไม่พบ logical volume"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+#, fuzzy
+msgid "No logical volume has been found. Please create a logical volume first."
+msgstr "ไม่พบ logical volume  กรุณาสร้าง logical volume ก่อน"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "Logical volume:"
+msgstr "Logical volume:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "Please select the logical volume to delete."
+msgstr "กรุณาเลือก logical volume ที่จะลบ"
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001
+msgid "in VG ${VG}"
+msgstr "ในกลุ่มโวลุม ${VG}"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid "Error while deleting the logical volume"
+msgstr "เกิดข้อผิดพลาดขณะลบ logical volume"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+#, fuzzy
+msgid "The logical volume ${LV} on ${VG} could not be deleted."
+msgstr "ไม่สามารถลบ logical volume (${LV}) ใน ${VG} ได้"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+msgid "No usable physical volumes found"
+msgstr "ไม่พบ physical volume ที่ใช้การได้"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+#, fuzzy
+msgid ""
+"No physical volumes (i.e. partitions) were found in this system. All "
+"physical volumes may already be in use. You may also need to load some "
+"required kernel modules or re-partition the hard drives."
+msgstr ""
+"ไม่พบ physical volume (กล่าวคือ พาร์ทิชัน) ในระบบของคุณ  physical volume "
+"ทั้งหมดอาจจะถูกใช้งานอยู่ หรือมิฉะนั้น คุณก็อาจต้องโหลดมอดูลของเคอร์เนลที่ต้องใช้ "
+"หรือแบ่งพาร์ทิชันในฮาร์ดดิสก์ใหม่"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+#, fuzzy
+msgid "ZFS not available"
+msgstr "ไม่รองรับ RAID แบบซอฟต์แวร์"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+#, fuzzy
+msgid ""
+"The current kernel doesn't support ZFS. You may need to load the zfs module."
+msgstr "เคอร์เนลที่ใช้อยู่ไม่รองรับ Logical Volume Manager คุณอาจต้องโหลดมอดูล lvm-mod"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+#, fuzzy
+msgid "Invalid logical volume or ZFS pool name"
+msgstr "ชื่อ logical volume หรือกลุ่มโวลุมใช้ไม่ได้"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+#, fuzzy
+msgid ""
+"Logical volume or ZFS pool names may only contain alphanumeric characters, "
+"hyphen, colon, period, and underscore. They must be 255 characters or less "
+"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
+"\", \"spare\" and \"log\" are not allowed."
+msgstr ""
+"ชื่อ logical volume หรือกลุ่มโวลุม ต้องประกอบด้วยตัวอักษร ตัวเลข ยัติภังค์ เครื่องหมายบวก "
+"หรือขีดล่างเท่านั้น ความยาวต้องไม่เกิน 128 ตัวอักษร และไม่สามารถขึ้นต้นด้วยยัติภังค์ได้ นอกจากนี้ "
+"ยังห้ามใช้ชื่อ \".\" และ \"..\" และห้ามขึ้นต้นชื่อ logical volume ด้วยคำว่า \"snapshot\" "
+"อีกด้วย"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Please choose a different name."
+msgstr "กรุณาตั้งชื่อใหม่"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "Remove existing logical volume data?"
+msgstr "จะลบข้อมูลใน logical volume เดิมที่มีอยู่หรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+#, fuzzy
+msgid ""
+"The selected device already contains the following ZFS logical volumes and "
+"ZFS pools which are about to be removed:"
+msgstr ""
+"อุปกรณ์ที่เลือกมี logical volume, กลุ่มโวลุม, และ physical volumn ของ LVM อยู่ก่อนแล้ว "
+"ซึ่งกำลังจะถูกลบออก:"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+#, fuzzy
+msgid "Logical volume(s): ${LVTARGETS}"
+msgstr "Logical volume ที่จะลบ: ${LVTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "ZFS pool(s): ${VGTARGETS}"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid ""
+"Note that this will also permanently erase any data currently on the logical "
+"volumes."
+msgstr "สังเกตว่า การลบนี้จะลบข้อมูลใดๆ ที่มีอยู่ใน logical volume ทิ้งอย่างถาวร"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "ZFS"
+msgstr ""
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+#, fuzzy
+msgid ""
+"A common situation for system administrators is to find that some disk "
+"partition (usually the most important one) is short on space, while some "
+"other partition is underused. ZFS can help with this."
+msgstr ""
+"สภาวการณ์หนึ่งที่ผู้ดูแลระบบพบบ่อย คือพบว่าพาร์ทิชันบางพาร์ทิชันของดิสก์ "
+"(ซึ่งมักเป็นพาร์ทิชันที่สำคัญที่สุด) กำลังเหลือที่ว่างไม่พอ ในขณะที่พาร์ทิชันอื่นๆ กลับถูกใช้งานน้อยมาก  "
+"Logical Volume Manager (LVM) สามารถช่วยได้"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+#, fuzzy
+msgid ""
+"ZFS allows combining disk or partition devices (\"physical volumes\") to "
+"form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
+"partitions (\"logical volumes\"). ZFS pools and logical volumes may span "
+"across several physical disks. New physical volumes may be added to a ZFS "
+"pool at any time, and logical volumes have no size limit other than the "
+"total size of the ZFS pool."
+msgstr ""
+"LVM ช่วยให้สามารถเชื่อมรวมดิสก์หรือพาร์ทิชัน (\"physical volume\") ให้เป็นดิสก์เสมือน "
+"(\"กลุ่มโวลุม\") ชิ้นเดียว ซึ่งจะสามารถแบ่งเป็นพาร์ทิชันเสมือน (\"logical volume\") หลายๆ "
+"ชิ้นได้ โดยกลุ่มโวลุมและ logical volume อาจกินเนื้อที่ในดิสก์จริงหลายลูกได้ สามารถเพิ่ม "
+"physical volume เข้าในกลุ่มโวลุมได้ทุกเวลา และสามารถเปลี่ยนขนาด logical volume "
+"โดยอาศัยเนื้อที่ว่างในกลุ่มโวลุมได้"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+#, fuzzy
+msgid ""
+"The items on the ZFS configuration menu can be used to edit ZFS pools and "
+"logical volumes. After you return to the main partition manager screen, "
+"logical volumes will be displayed in the same way as ordinary partitions, "
+"and should be treated as such."
+msgstr ""
+"รายการต่างๆ ในเมนูตั้งค่า LVM สามารถใช้แก้ไขกลุ่มโวลุมและ logical volume ได้ "
+"และเมื่อกลับมาที่หน้าจอหลักของโปรแกรมจัดการพาร์ทิชัน คุณก็จะพบ logical volume "
+"แสดงไว้เหมือนกับเป็นพาร์ทิชันปกติ และสามารถจัดการพาร์ทิชันไปตามปกติได้"

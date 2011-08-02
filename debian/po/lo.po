@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lo\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-10 22:47+0000\n"
+"POT-Creation-Date: 2011-08-01 22:50+0000\n"
 "PO-Revision-Date: 2010-11-26 09:11+0700\n"
 "Last-Translator: Anousak Souphavanh <anousak@gmail.com>\n"
 "Language-Team: Lao <lo@li.org>\n"
@@ -30,7 +30,12 @@ msgstr ""
 #. Description
 #. :sl4:
 #. Short file system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. keep it short (ideally a 3-letter acronym)
 #: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
+#: ../partman-zfs.templates:16001
 msgid "zfs"
 msgstr "zfs"
 
@@ -69,3 +74,698 @@ msgid ""
 "(if your hardware supports this), or go back to the partitioning menu and "
 "configure the partitions to use another file system."
 msgstr ""
+
+#. Type: text
+#. Description
+#: ../partman-zfs.templates:5001
+#, fuzzy
+msgid "Configure ZFS"
+msgstr "ຕັ້ງຄ່າກ່ຽວພາສາ"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. What is "in use" is a partition
+#: ../partman-zfs.templates:6001
+#, fuzzy
+msgid "In use by ZFS pool ${VG}"
+msgstr "ກຳລັງໃຊ້ງານໂດຍກຸ່ມໂວລ້ຳ LVM ${VG}"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:7001
+msgid "Display configuration details"
+msgstr "ສະແດງລາຍລະອຽດຄ່າຕັ້ງ"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:8001
+msgid "Create ZFS pool"
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:9001
+msgid "Delete ZFS pool"
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:10001
+msgid "Create logical volume"
+msgstr "ສ້າງ logical volume"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:11001
+msgid "Delete logical volume"
+msgstr "ລົບ logical volume"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:12001
+msgid "Finish"
+msgstr "ສຳເລັດ"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:13001
+#, fuzzy
+msgid "Write the changes to disk and configure ZFS?"
+msgstr "ຈະບັນທຶກການປ່ຽນແປງທັງໝົດ ແລ້ວຕັ້ງຄ່າ LVM ຫຼື ບໍ່ ?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:13001
+#, fuzzy
+msgid ""
+"Before ZFS can be configured, the current partitioning scheme has to be "
+"written to disk. These changes cannot be undone."
+msgstr ""
+"ກ່ອນທີ່ຈະຕັ້ງຄ່າເຂົ້າໂວລ້ຳເຂົ້າລະຫັດສະຫຼັບແລ້ວໄດ້ ຈະຕ້ອງບັນທຶກການແບ່ງພາທີຊັນປັດຈຸບັນລົງໃນດິກເສຍກ່ອນ "
+"ຊື່ງການປຽນແປງເຫຼົ່ານີ້ ບໍ່ສາມາດເອີ້ນຄືນໄດ້ອີກ"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:13001
+#, fuzzy
+msgid ""
+"After ZFS is configured, no additional changes to the partitioning scheme of "
+"disks containing physical volumes are allowed during the installation. "
+"Please decide if you are satisfied with the current partitioning scheme "
+"before continuing."
+msgstr ""
+"ເມື່ອຕັ້ງຄ່າ Logical Volume Manager ແລ້ວຈະບໍ່ສາມາດປ່ຽນແປງການແບ່ງພາທີຊັນໃນດິກທີ່ມີ physical "
+"volume ໄດ້ອິກໃນລະຫວ່າງການຕິດຕັ້ງກາລຸນາຕັດສິນໃຈວ່າທ່ານພໍໃຈກັນການແບ່ງພາທີຊັນປັນຈຸບັນໃນດິກເຫຼົ່ານີ້ "
+"ແລ້ວຫຼືຍັງກ່ອນທີ່ຈະດຳເນີນການຕໍ່ໄປ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:14001
+#, fuzzy
+msgid "ZFS configuration failure"
+msgstr "ຕັ້ງຄ່າ LVM ບໍ່ສຳເລັດ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:14001
+msgid "An error occurred while writing the changes to the disks."
+msgstr "ເກີດຂໍ້ຜິດພາດຂະນະບັນທຶກການປ່ຽນແປງລົງດິກ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:14001
+#, fuzzy
+msgid "ZFS configuration has been aborted."
+msgstr "ການຕັ້ງຄ່າຖຶກຍົກເລີກ"
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:15001
+#, fuzzy
+msgid "physical volume for ZFS"
+msgstr "physical volume ສຳລັບ LVM"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+#, fuzzy
+msgid "ZFS configuration action:"
+msgstr "ກຳລັງດຳເນີນການຕັ້ງຄ່າ LVM:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+#, fuzzy
+msgid "Summary of current ZFS configuration:"
+msgstr "ສະຫຼຸບປັບປຸງ LVM ລ່າສຸດ: "
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+#, fuzzy
+msgid ""
+" Free physical volumes:  ${FREE_PVS}\n"
+" Used physical volumes:  ${USED_PVS}\n"
+" ZFS pools:              ${VGS}\n"
+" ZFS logical volumes:    ${LVS}"
+msgstr ""
+" Physical Volume ທີ່ວ່າງ:  ${FREE_PVS}\n"
+" Physical Volume ທີ່ໃຊ້:   ${USED_PVS}\n"
+"ກຸ່ມໂວລ້ຳ:               ${VGS}\n"
+" Logical Volume:         ${LVS}"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:18001
+#, fuzzy
+msgid "Current ZFS configuration:"
+msgstr "ຄ່າຕັ້ງ LVM ລ່າສຸດ:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:19001
+#, fuzzy
+msgid "Devices for the new ZFS pool:"
+msgstr "ອຸປະກອນສຳລັບກຸ່ມໂວລ້ຳລຸ້ນໃໝ່:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:19001
+#, fuzzy
+msgid "Please select devices for the new ZFS pool."
+msgstr "ກາລຸນາເລືອກອຸປະກອນສຳລັບກຸ່ມໂວລ້ຳໃໝ່"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:19001
+msgid "You can select one or more devices."
+msgstr "ທ່ານສາມາດເລືອກອຸປະກອນຫຼາຍກ່ວາໜື່ງຢ່າງ"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "ZFS pool name:"
+msgstr ""
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+#, fuzzy
+msgid "Please enter the name you would like to use for the new ZFS pool."
+msgstr "ກະລຸນາຕັ້ງຊື່ logical volume ໃໝ່ທີ່ຈະສ້າງ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+msgid "No physical volumes selected"
+msgstr "ບໍ່ໄດ້ເລືອກ physical volume"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+#, fuzzy
+msgid ""
+"No physical volumes were selected. The creation of a new ZFS pool has been "
+"aborted."
+msgstr "ທ່ານບໍ່ໄດ້ເລືອກ physical volume ໄວ້ຂໍຍົກເລີກການຕັ້ງກຸ່ມໂວລ້ຳໃໝ່"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "No ZFS pool name"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+#, fuzzy
+msgid "No name for the ZFS pool has been entered. Please enter a name."
+msgstr "ທ່ານບໍ່ໄດ້ປ້ອນຊື່ກຸ່ມໂວລ້ຳ ກາລຸນາປ້ອນຊື່"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+#, fuzzy
+msgid "ZFS pool name already in use"
+msgstr "ຊື່ກຸ່ມໂວລຸມ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+#, fuzzy
+msgid ""
+"The selected ZFS pool name is already in use. Please choose a different name."
+msgstr "ຊື່ກຸ່ມໂວລ້ຳທີ່ທ່ານຕັ້ງ ຖຶກໃຊ້ແລ້ວ ກາລຸນາຕັ້ງເປັນຊື່ອື່ນ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+#, fuzzy
+msgid "Error while creating ZFS pool"
+msgstr "ເກີດຂໍ້ຜິດພາດລະຫວ່າງສ້າງ logical volume ໃໝ່"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+#, fuzzy
+msgid "The ZFS pool ${VG} could not be created."
+msgstr "ບໍ່ສາມາດສ້າງກຸ່ມໂວລ້ຳ ${VG}ໄດ້"
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001 ../partman-zfs.templates:35001
+#: ../partman-zfs.templates:39001
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr "ກະລຸນາກວດສອບ /var/log/syslog ຫຼືເບີ່ງທີ່ຄອນໂຊຄວາມແທ້ຈິງທີ 4 ເພື່ອເບິ່ງລາຍລະອຽດ."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+#, fuzzy
+msgid "ZFS pool to delete:"
+msgstr "ກຸ່ມໂວລຸມທີ່ຈະລົບ:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+#, fuzzy
+msgid "Please select the ZFS pool you wish to delete."
+msgstr "ກະລຸນາເລືອກກຸ່ມໂວລຸມທີ່ທ່ານຕ້ອງການລົບ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid "No ZFS pool"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+#, fuzzy
+msgid "No ZFS pool has been found."
+msgstr "ບໍ່ພົບກຸ່ມໂວລຸມໃດໆ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+#, fuzzy
+msgid "The ZFS pool may have already been deleted."
+msgstr "ກຸ່ມໂວລຸມດັ່ງກ່າວອາດຖືກລົບໄປແລ້ວ"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+#, fuzzy
+msgid "Really delete the ZFS pool?"
+msgstr "ຈະລົບກຸ່ມໂວລຸມແທ້ ຫຼື ບໍ?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "Please confirm the removal of the ZFS pool ${VG}."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+#, fuzzy
+msgid "Error while deleting ZFS pool"
+msgstr "ເກີດຂໍ້ຜິດພາດຂະນະລົບກຸ່ມໂວລຸມ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+#, fuzzy
+msgid ""
+"The selected ZFS pool could not be deleted. One or more logical volumes may "
+"currently be in use."
+msgstr "ກຸ່ມໂວລຸມທີ່ທ່ານເລືອກບໍ່ສາມາດລົບໄດ້ ເປັນໄປໄດ້ວ່າ logical volume ໃນນັນອາດຖືກໃຊ້ງານຢູ່"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+#, fuzzy
+msgid "No ZFS pool found"
+msgstr "ບໍ່ພົບພາທີຊັນ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+#, fuzzy
+msgid ""
+"No free ZFS pools were found for creating a new logical volume. Please "
+"create another ZFS pool, or free space in an existing ZFS pool."
+msgstr ""
+"ບໍ່ພົບກຸ່ມໂວລຸມທີ່ວ່າງຢູ່ສຳລັບໃຊ້ສ້າງ logical volume ໃໝ່ ກະລຸນາສ້າງ physical volume ແລະ "
+"ກຸ່ມໂວລຸມເພີ່ມ ຫຼື ກຸ່ມໂວລຸມທີ່ມີຢູ່ "
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Logical volume name:"
+msgstr "ຊື່ logical volume:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Please enter the name you would like to use for the new logical volume."
+msgstr "ກະລຸນາຕັ້ງຊື່ logical volume ໃໝ່ທີ່ຈະສ້າງ"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "ZFS pool:"
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+#, fuzzy
+msgid ""
+"Please select the ZFS pool where the new logical volume should be created."
+msgstr "ກະລຸນາເລືອກກຸ່ມໂວລຸມທີ່ຈະໃຊ້ສ້າງ logical volume ໃໝ່"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "No logical volume name entered"
+msgstr " ບໍ່ໄດ້ປ້ອນຊື່ logical volume"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+#, fuzzy
+msgid "No name for the logical volume has been entered. Please enter a name."
+msgstr "ທ່ານບໍ່ໄດ້ປ້ອນຊື່ logical volume ກະລຸນາປ້ອນຊື່"
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001 ../partman-zfs.templates:35001
+msgid "Error while creating a new logical volume"
+msgstr "ເກີດຂໍ້ຜິດພາດລະຫວ່າງສ້າງ logical volume ໃໝ່"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+#, fuzzy
+msgid ""
+"The name ${LV} is already in use by another logical volume on the same ZFS "
+"pool (${VG})."
+msgstr "ຊື່ ${LV} ຖືກໃຊ້ໄປແລ້ວໂດຍ logical volume ອື່ນໃນກຸ່ມໂວລຸມ (${VG}) ດຽວກັນ"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid "Logical volume size:"
+msgstr "ຂະໜາດ logical volume:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid ""
+"Please enter the size of the new logical volume. The size may be entered in "
+"the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
+"10T (Terabytes). The default unit is Megabytes."
+msgstr ""
+"ກາລຸນາປ້ອນຂະໜາດຂອງ logical volume ໃໝ່ທີ່ຈະສ້າງ ທ່ານສາມາດປ້ອນຂະໜາດໃນຮູບແບບຕໍ່ໄປນີ້ໄດ້:  10K "
+"( ກິໂລໄບຣ໌ ), 10M (ເມກາໄບຣ໌), 10G ( ກິກະໄບຣ໌ ), 10T ( ເທຮາໄບຣ໌ )"
+"ໜ່ວຍໂດຍປະລິຍາຍຄືເມກາໄບຣ໌"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid ""
+"Unable to create a new logical volume (${LV}) on ${VG} with the new size "
+"${SIZE}."
+msgstr "ບໍ່ສາມາດສ້າງ logical volume (${LV}) ໃມ່ໃນ  ${VG} ດ້ວຍຂະໜາດ ${SIZE} ທີ່ກຳນົດ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid "No logical volume found"
+msgstr "ບໍ່ພົບ logical volume"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+#, fuzzy
+msgid "No logical volume has been found. Please create a logical volume first."
+msgstr "ບໍ່ພົບ logical volume  ກາລຸນາສ້າງ logical volume ກ່ອນ"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "Logical volume:"
+msgstr "Logical volume:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "Please select the logical volume to delete."
+msgstr "ກາລຸນາເລືອກ logical volume ທີ່ລົບອອກ"
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001
+msgid "in VG ${VG}"
+msgstr "ໃນກຸ່ມໂວລ້ຳ ${VG}"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid "Error while deleting the logical volume"
+msgstr "ເກີດຂໍ້ຜິດພາດຂະນະລົບ logical volume"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+#, fuzzy
+msgid "The logical volume ${LV} on ${VG} could not be deleted."
+msgstr "ບໍ່ສາມາດລົບ logical volume (${LV}) ໃນ ${VG} ໄດ້"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+msgid "No usable physical volumes found"
+msgstr "ບໍ່ພົບ physical volume ທີ່ໃຊ້ການ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+#, fuzzy
+msgid ""
+"No physical volumes (i.e. partitions) were found in this system. All "
+"physical volumes may already be in use. You may also need to load some "
+"required kernel modules or re-partition the hard drives."
+msgstr ""
+"ບໍ່ພົບ physical volume ( ກວ່າຄືພາທີຊັນ ) ໃນລະບົບຂອງທ່ານ physical volume  "
+"ທັງໝົດອາດຈະຖຶກໃຊ້ງານຢູ່ ຫຼື ບໍ່ສະນັ້ນທ່ານກໍ່ອາດຈະຕ້ອງໂຫຼດໂມດູນຂອງເຄເນຣວທີ່ຕ້ອງໃຊ້ "
+"ຫຼືແບ່ງພາທີຊັນໃນຮາດດິກໃໝ່"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+#, fuzzy
+msgid "ZFS not available"
+msgstr "ບໍ່ຮອງຮັບ RAID ແບບຊອບແວຣ໌"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+#, fuzzy
+msgid ""
+"The current kernel doesn't support ZFS. You may need to load the zfs module."
+msgstr "ເຄເນຣວທີ່ໃຊ້ຢູ່ບໍ່ຮອງຮັບ Logical Volume Manager ທ່ານຈະຕ້ອງໂຫຼດໂມດູນ lvm-mod"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+#, fuzzy
+msgid "Invalid logical volume or ZFS pool name"
+msgstr "ຊື່ logical volume ຫຼື ກຸ່ມໂວລ້ຳທີ່ໃຊ້ບໍ່ໄດ້"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+#, fuzzy
+msgid ""
+"Logical volume or ZFS pool names may only contain alphanumeric characters, "
+"hyphen, colon, period, and underscore. They must be 255 characters or less "
+"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
+"\", \"spare\" and \"log\" are not allowed."
+msgstr ""
+"ຊື່ logical volume  ຫຼືກຸ່ມໂວລ້ຳຕ້ອງປະກອບດ້ວຍຕົວອັກສອນ ຕົວເລກ ເຄື່ອງໝາຍບວກ "
+"ຫຼືຂີດກາງເທົ່ານັນຄວາມຍາວຕ້ອງບໍ່ເກີນ 128 ຕົວອັກສອນ ແລະ ບໍ່ສາມາດຂຶ້ນຕົນດ້ວຍ ນອກຈາກນີ້ຍັງຫ້າມໃຊ້ຊື່ \"."
+"\" ແລະ \"..\" ແລະ ຫ້າມຂື້ນຕົ້ນຊື່ logical volume ດ້ວຍຄຳວ່າ \"snapshot\" ອິກດ້ວຍ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Please choose a different name."
+msgstr "ກາລຸນາຕັ້ງຊື່ໃໝ່"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "Remove existing logical volume data?"
+msgstr "ຈະລົບຂໍ້ມູນ logical volume ເດີມທີ່ມີຢູ່ ຫຼື ບໍ່?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+#, fuzzy
+msgid ""
+"The selected device already contains the following ZFS logical volumes and "
+"ZFS pools which are about to be removed:"
+msgstr ""
+"ອຸປະກອນທີ່ເລືອກ logical volume, ກຸ່ມໂວລ້ຳ, ແລະ physical volumn ຂອງ LVM "
+"ຢູ່ກ່ອນແລ້ວຊື່ງກຳລັງຈະຖຶກລົບອອກ"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+#, fuzzy
+msgid "Logical volume(s): ${LVTARGETS}"
+msgstr "Logical volume ທີ່ຈະລົບ: ${LVTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "ZFS pool(s): ${VGTARGETS}"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid ""
+"Note that this will also permanently erase any data currently on the logical "
+"volumes."
+msgstr "ສັງເກດວ່າການລົບນີ້ຈະລົບຂໍ້ມູນໃດໆທີ່ມີຢູ່ໃນທີ່ logical volume ຖີ້ມຢ່າງຖາວອນ"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "ZFS"
+msgstr ""
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+#, fuzzy
+msgid ""
+"A common situation for system administrators is to find that some disk "
+"partition (usually the most important one) is short on space, while some "
+"other partition is underused. ZFS can help with this."
+msgstr ""
+"ສະພາວະການໜື່ງທີ່ຜູ້ຮັກສາລະບົບຕະຫຼອດຄືພົບວ່າພາທີຊັນບາງພາທີຊັນຂອງດິກ ( ຊື່ງມັກເປັນພາທີຊັນທີ່ສຳຄັນທີ່ສຸດ ) "
+"ກຳລັງເລືອກທີ່ວ່າງບໍ່ພໍໃນຂະນະທີ່ພາທີຊັນອື່ນກັບຖຶກໃຊ້ງານໜ້ອຍຫຼາຍ  Logical Volume Manager (LVM) "
+"ສາມາດຊ່ວຍໄດ້"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+#, fuzzy
+msgid ""
+"ZFS allows combining disk or partition devices (\"physical volumes\") to "
+"form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
+"partitions (\"logical volumes\"). ZFS pools and logical volumes may span "
+"across several physical disks. New physical volumes may be added to a ZFS "
+"pool at any time, and logical volumes have no size limit other than the "
+"total size of the ZFS pool."
+msgstr ""
+"LVM ຊ່ວຍໃຫ້ສາມາດເຊືອມລວມດິກຫຼືພາທີຊັນ (\"physical volume\") ໃຫ້ເປັນດິກທີ່ແທ້ຈີ່ງ (\"ກຸ່ມໂວລ້ຳ"
+"\") ຢ່າງດຽວຊື່ງສາມາດແບ່ງປັນພາທີຊັນທີ່ແທ້ຈິ່ງ (\"logical volume\") ຫຼາຍໆຢ່າງໂດຍກຸ່ມໂວລ້ຳ ແລະ "
+"logical volume  ອາດກີນເນື້ອທີ່ໃນດິກແທ້ຫຼາຍລູກໄດ້ສາມາດເພີມ physical volume "
+"ເຂົ້າໃນກຸ່ມໂວລ້ຳໄດ້ໃນທຸກເວລາ ແລະ ສາມາດປ່ຽນຂະໜາດ logical volume ໂດຍໃຫ້ເນື້ອທີ່ວ່າງໃນກຸ່ມໂວລ້ຳໄດ້"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+#, fuzzy
+msgid ""
+"The items on the ZFS configuration menu can be used to edit ZFS pools and "
+"logical volumes. After you return to the main partition manager screen, "
+"logical volumes will be displayed in the same way as ordinary partitions, "
+"and should be treated as such."
+msgstr ""
+"ລາຍການຕ່າງໃນເມນູຫຼັກ LVM ສາມາດໃຫ້ແກ້ໄຂກຸ່ມໂວລ້ຳລຸ່ມນີ້ logical volume ໄດ້ "
+"ແລະເມື່ອກັບມາທີ່ໜ້າຈໍຫຼັກຂອງໂປແກຣມຈັດການພາທີຊັນທ່ານກໍ່ຈະພົບ logical volume "
+"ສະແດງໄວ້ຄືກັນກັບພາທີຊັນປົກກະຕິ ແລະ ສາມາດຈັດການພາທີຊັນໄປຕາມປົກກະຕິໄດ້"
