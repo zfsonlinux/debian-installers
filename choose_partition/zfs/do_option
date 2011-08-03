@@ -26,7 +26,7 @@ do_display() {
 }
 
 do_vg_create() {
-	local pvs line pv output vg pathmap
+	local pvs line pv output vg pathmap mode
 	pvs=""
 	pathmap=""
 
@@ -99,6 +99,47 @@ do_vg_create() {
 		return
 	fi
 	pvs=$(echo "$RET" | sed -e "s/ *([^)]*) *//g; s/ *, */\\$NL/g")
+	sizes=$(echo "$RET" | sed -e "s/[^ ]* *(//g;s/)//g; s/ *, */\\$NL/g")
+	numdev=$(echo "$sizes" | wc -l)
+
+	# If there is more than one PV, and all PVs have the same size, offer
+	# Mirror and RAID-Z
+	if [ "$numdev" -ge 2 ] && \
+	[ "$(echo "$sizes" | sort -u | wc -l)" != "$(echo "$sizes" | wc -l)" ]; then
+		local choices="Striped, Mirror"
+		# RAID-Z doesn't make sense with 2 PVs
+		if [ "$numdev" -ge 3 ]; then
+			choices="${choices}, RAID-Z"
+		fi
+		db_subst partman-zfs/vgcreate_multipv MULTIPV_CHOICES "$choices"
+		db_input critical partman-zfs/vgcreate_multipv
+		db_go || return
+		db_get partman-zfs/vgcreate_multipv
+		case $RET in
+			Mirror)
+				mode="mirror"
+			;;
+			RAID-Z)
+				local choices parity
+				choices="1"
+				parity="1"
+				if [ "$numdev" -ge 4 ]; then
+					choices="${choices}, 2"
+					# parity level 3 can't be enabled yet, it requires
+					# ZFS v28 (available in kfreebsd >= 8.3)
+					#if [ "$numdev" -ge 5 ]; then
+					#	choices="${choices}, 3"
+					#fi
+					db_subst partman-zfs/vgcreate_raidz_parity RAIDZ_PARITY "${choices}"
+					db_input critical partman-zfs/vgcreate_raidz_parity
+					db_go || return
+					db_get partman-zfs/vgcreate_raidz_parity
+					parity="$RET"
+				fi
+				mode="raidz${parity}"
+			;;
+		esac
+	fi
 
 	local newpvs=
 	local need_commit=
@@ -126,7 +167,7 @@ do_vg_create() {
 		do_initial_setup
 	fi
 
-	if ! vg_create "$vg" $pvs; then
+	if ! vg_create "$vg" $mode $pvs; then
 		db_subst partman-zfs/vgcreate_error VG "$vg"
 		db_input critical partman-zfs/vgcreate_error
 		db_go || true
