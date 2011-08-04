@@ -1,0 +1,26 @@
+#!/bin/sh
+# Warn the user if ZFS is to be used with less than 512 MB of memory.
+
+. /lib/partman/lib/base.sh
+
+if [ "$(human2longint "$(sed -ne "s/^MemTotal:\s*//p" /proc/meminfo)")" -ge 536870912 ]; then
+	exit 0
+fi
+
+if test -e /dev/zfs; then
+	if [ $(zpool list -H | wc -l) -gt 0 ]; then
+		found_zfs=true
+	fi
+fi
+
+# Warn if ZFS is to be used.
+if [ "$found_zfs" = true ]; then
+	db_set partman-zfs/lowmem true
+	db_input critical partman-zfs/lowmem || true
+	db_go || true
+	db_get partman-zfs/lowmem
+	if [ "$RET" = true ]; then
+		exit 1
+	fi
+fi
+
