@@ -398,7 +398,7 @@ vg_get_info() {
 	FREE=$(($FREE - 64))
 	# Never allow $FREE below 0.  Just in case.
 	if [ $FREE -lt 0 ]; then FREE=0 ; fi
-	LVS=$(vg_list_lvs $1)
-	PVS=$(vg_list_pvs $1)
+	LVS=$(vg_list_lvs $1 | wc -l)
+	PVS=$(vg_list_pvs $1 | wc -l)
 	return 0
 }
