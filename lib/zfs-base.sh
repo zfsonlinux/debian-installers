@@ -255,9 +255,6 @@ lv_get_info() {
 	lv=$2
 
 	SIZE="$(($(human2longint "$(zfs list -H -o avail "$vg/$lv")") / 1000000))"
-	FS="unknown"
-	# FIXME: mountpoint property or zvol mode?
-	MOUNT=""
 }
 
 # List all LVs and their VGs
@@ -352,8 +349,6 @@ vg_create() {
 	local vg pv
 	vg="$1"
 	shift
-
-	# FIXME: Assuming stripe mode. We need to ask if user prefers mirror or zraid.
 
 	log-output -t partman-zfs zpool create -f -m none -o altroot=/target "$vg" $* || return 1
 	return 0
