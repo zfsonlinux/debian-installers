@@ -174,8 +174,7 @@ pv_list_free() {
 	local pv vg
 
 	for pv in $(pv_list); do
-		# FIXME
-		if ! zpool status | grep -q "$(basename $pv)"; then
+		if ! zpool status | grep -q "\s$(basename $pv)\s"; then
 			echo "$pv"
 		fi
 	done
@@ -325,7 +324,9 @@ vg_list_free() {
 
 # Get all PVs from a VG
 vg_list_pvs() {
-	zpool status $1 | grep "\sONLINE\s" | tail -n +2 | sed -e 's,^\s*,/dev/,;s,\s.*,,'
+	zpool status $1 | grep "\sONLINE\s" | tail -n +2 \
+		| grep -v "\(mirror\|raidz[1-9]\)" \
+		| sed -e 's,^\s*,/dev/,;s,\s.*,,'
 }
 
 # Get all LVs from a VG
