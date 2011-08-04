@@ -16,6 +16,34 @@ Type: text
 # File system name
 _Description: ZFS file system
 
+Template: partman-zfs/multipv_root
+Type: error
+# :sl4:
+Description: This ZFS configuration is not supported without separate /boot
+ The ZFS pool where your root filesystem is hosted is configured to use more
+ than one physical volume.
+ .
+ With the exception of Mirror mode, configurations with multiple volumes
+ (Striped or RAID-Z) are not supported by the boot loader used by this
+ installer.
+ .
+ You should use a small /boot partition with either a separate ZFS pool or another
+ file system, such as UFS.
+
+Template: partman-zfs/multipv_boot
+Type: error
+# :sl4:
+Description: This ZFS configuration is not supported for /boot
+ The ZFS pool where your /boot filesystem is hosted is configured to use more
+ than one physical volume.
+ .
+ With the exception of Mirror mode, configurations with multiple volumes
+ (Striped or RAID-Z) are not supported by the boot loader used by this
+ installer.
+ .
+ You should either a separate ZFS pool or another file system, such as UFS, for
+ the /boot partition.
+
 Template: partman-zfs/i386
 Type: boolean
 # :sl4:

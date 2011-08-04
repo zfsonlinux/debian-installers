@@ -386,6 +386,25 @@ vg_name_ok() {
 	return 0
 }
 
+# Get multiPV mode
+vg_multipv_mode() {
+	local status dataset pool
+	dataset="$1"
+	pool="$(echo $dataset | cut -d / -f 1)"
+
+	status="$(zpool status $pool | grep "\sONLINE\s")"
+
+	if echo "$status" | grep -q "mirror"; then
+		 echo "mirror"
+	elif echo "$status" | grep -q "raidz[1-9]"; then
+		 echo "raidz"
+	else
+		 echo "striped"
+	fi
+
+	return 0
+}
+
 # Get VG info
 vg_get_info() {
 	local info
