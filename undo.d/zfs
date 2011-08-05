@@ -5,10 +5,10 @@
 # a loop partition table and partition.
 
 . /lib/partman/lib/base.sh
+. /lib/partman/lib/zfs-base.sh
 
 log-output -t partman zpool import -a -f -o altroot=/target
 
-# FIXME: correct path?
 if [ -x /sbin/zpool ]; then
 	vgroups=$(/sbin/zpool list -H 2>/dev/null | \
 		sed -e 's/\t.*//' | sort)
@@ -82,18 +82,7 @@ for dev in /var/lib/partman/devices/*; do
 			close_dialog
 			# create partition in the free space
 			if [ "$free_space" ]; then
-				open_dialog NEW_PARTITION primary ext2 $free_space full $free_size
-				read_line num id size type fs path name
-				close_dialog
-				if [ "$id" ]; then
-					open_dialog GET_FILE_SYSTEM $id
-					read_line filesystem
-					close_dialog
-					if [ "$filesystem" != none ]; then
-						open_dialog CHANGE_FILE_SYSTEM $id $filesystem
-						close_dialog
-					fi
-				fi
+				create_new_partition primary $free_space full $free_size "zfs"
 			fi
 			open_dialog DISK_UNCHANGED
 			close_dialog

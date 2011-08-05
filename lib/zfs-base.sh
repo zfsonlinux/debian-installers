@@ -174,8 +174,7 @@ pv_list_free() {
 	local pv vg
 
 	for pv in $(pv_list); do
-		# FIXME
-		if ! zpool status | grep -q "$(basename $pv)"; then
+		if ! zpool status | grep -q "\s$(basename $pv)\s"; then
 			echo "$pv"
 		fi
 	done
@@ -256,9 +255,6 @@ lv_get_info() {
 	lv=$2
 
 	SIZE="$(($(human2longint "$(zfs list -H -o avail "$vg/$lv")") / 1000000))"
-	FS="unknown"
-	# FIXME: mountpoint property or zvol mode?
-	MOUNT=""
 }
 
 # List all LVs and their VGs
@@ -325,7 +321,9 @@ vg_list_free() {
 
 # Get all PVs from a VG
 vg_list_pvs() {
-	zpool status $1 | grep "\sONLINE\s" | tail -n +2 | sed -e 's,^\s*,/dev/,;s,\s.*,,'
+	zpool status $1 | grep "\sONLINE\s" | tail -n +2 \
+		| grep -v "\(mirror\|raidz[1-9]\)" \
+		| sed -e 's,^\s*,/dev/,;s,\s.*,,'
 }
 
 # Get all LVs from a VG
@@ -351,8 +349,6 @@ vg_create() {
 	local vg pv
 	vg="$1"
 	shift
-
-	# FIXME: Assuming stripe mode. We need to ask if user prefers mirror or zraid.
 
 	log-output -t partman-zfs zpool create -f -m none -o altroot=/target "$vg" $* || return 1
 	return 0
@@ -385,6 +381,25 @@ vg_name_ok() {
 	return 0
 }
 
+# Get multiPV mode
+vg_multipv_mode() {
+	local status dataset pool
+	dataset="$1"
+	pool="$(echo $dataset | cut -d / -f 1)"
+
+	status="$(zpool status $pool | grep "\sONLINE\s")"
+
+	if echo "$status" | grep -q "mirror"; then
+		 echo "mirror"
+	elif echo "$status" | grep -q "raidz[1-9]"; then
+		 echo "raidz"
+	else
+		 echo "striped"
+	fi
+
+	return 0
+}
+
 # Get VG info
 vg_get_info() {
 	local info
@@ -401,4 +416,108 @@ vg_get_info() {
 	LVS=$(vg_list_lvs $1 | wc -l)
 	PVS=$(vg_list_pvs $1 | wc -l)
 	return 0
+}
+
+# Stolen from partman-partitioning/free_space/new/do_option
+# A request was sent to export this function so that partman-zfs
+# can use it (see #636400).
+create_new_partition () {
+	open_dialog NEW_PARTITION $1 ext2 $2 $3 $4
+	local num id fs mp mplist mpcurrent numparts device
+	id=''
+	read_line num id x1 x2 x3 x4 x5
+	close_dialog
+
+	partitions=''
+	numparts=1
+	open_dialog PARTITIONS
+	while { read_line x1 part x3 x4 x5 x6 x7; [ "$part" ]; }; do
+		partitions="$partitions $part"
+		numparts=$(($numparts + 1))
+	done
+	close_dialog
+
+	db_progress START 0 $numparts partman/text/please_wait
+	db_progress INFO partman-partitioning/new_state
+
+	if [ "$5" ]; then
+		default_fs="$5"
+	else
+		db_get partman/default_filesystem
+		default_fs="$RET"
+	fi
+	if [ "$id" ] && [ -f "../../$default_fs" ]; then
+		# make better defaults for the new partition
+		mkdir -p $id
+		echo format >$id/method
+		>$id/format
+		>$id/use_filesystem
+		echo "$default_fs" >$id/filesystem
+		mkdir -p $id/options
+		if [ -f "/lib/partman/mountoptions/${default_fs}_defaults" ]; then
+			for op in $(cat "/lib/partman/mountoptions/${default_fs}_defaults"); do
+				echo "$op" >"$id/options/$op"
+			done
+		fi
+		mplist='/ /home /usr /var /tmp /usr/local /opt /srv /boot'
+		mpcurrent=$(
+			for dev in $DEVICES/*; do
+				[ -d $dev ] || continue
+				cd $dev
+				open_dialog PARTITIONS
+				while { read_line num id x1 x2 fs x3 x4; [ "$id" ]; }; do
+					[ $fs != free ] || continue
+					[ -f "$id/method" ] || continue
+					[ -f "$id/acting_filesystem" ] || continue
+					[ -f "$id/use_filesystem" ] || continue
+					[ -f "$id/mountpoint" ] || continue
+					echo $(cat $id/mountpoint) # echo ensures 1 line
+				done
+				close_dialog
+			done
+		)
+		for mp in $mpcurrent; do
+			mplist=$(echo $mplist | sed "s,$mp,,")
+		done
+		mp=''
+		for mp in $mplist; do
+			break
+		done
+		if [ "$mp" ]; then
+			echo $mp >$id/mountpoint
+		fi
+		menudir_default_choice /lib/partman/active_partition "$default_fs" mountpoint || true
+		menudir_default_choice /lib/partman/choose_partition partition_tree $dev//$id || true
+		# setting the bootable flag is too much unnecessary work:
+		#   1. check if the disk label supports bootable flag
+		#   2. check if the mount point is / or /boot and the partition
+		#	  type is `primary'
+		#   3. get the current flags
+		#   4. add `boot' and set the new flags
+		#   5. moreover, when the boot loader is installed in MBR
+		#	  no bootable flag is necessary
+	fi
+
+	db_progress STEP 1
+
+	for part in $partitions; do
+		update_partition $dev $part
+		db_progress STEP 1
+	done
+
+	db_progress STOP
+
+	if [ "$id" ]; then
+		while true; do
+			set +e
+			local code=0
+			ask_active_partition "$dev" "$id" "$num" || code=$?
+			if [ "$code" -ge 128 ] && [ "$code" -lt 192 ]; then
+				exit "$code" # killed by signal
+			elif [ "$code" -ge 100 ]; then
+				break
+			fi
+			set -e
+		done
+	fi
 }

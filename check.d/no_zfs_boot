@@ -1,0 +1,44 @@
+#!/bin/sh
+# GRUB doesn't yet support Striped or RAID-Z configurations on ZFS.
+# Detect and warn.
+
+. /lib/partman/lib/base.sh
+. /lib/partman/lib/zfs-base.sh
+
+get_zfs_root_boot () {
+	(for i in /lib/partman/fstab.d/*; do
+		[ -x "$i" ] || continue
+		$i
+	done) |
+	while read fs mp type options dump pass; do
+		case "$type:$mp" in zfs:/ | zfs:/boot)
+			local mode
+			mode="$(vg_multipv_mode $fs)"
+			case $mode in striped|raidz)
+				if [ "$mp" = / ]; then
+					echo root_type=bad
+				elif [ "$mp" = /boot ]; then
+					echo boot_type=bad
+				fi
+			;;
+			esac
+		;;
+		esac
+	done
+}
+eval "$(get_zfs_root_boot)"
+
+
+if [ "$boot_type" = bad ]; then
+	db_input critical partman-zfs/multipv_boot || true
+	db_go || exit 1
+	exit 1
+fi
+
+if [ "$boot_type" = "" ] && [ "$root_type" = bad ]; then
+	db_input critical partman-zfs/multipv_root || true
+	db_go || exit 1
+	exit 1
+fi
+
+exit 0

@@ -104,8 +104,7 @@ do_vg_create() {
 
 	# If there is more than one PV, and all PVs have the same size, offer
 	# Mirror and RAID-Z
-	if [ "$numdev" -ge 2 ] && \
-	[ "$(echo "$sizes" | sort -u | wc -l)" != "$(echo "$sizes" | wc -l)" ]; then
+	if [ "$numdev" -ge 2 ] && [ "$(echo "$sizes" | sort -u | wc -l)" -eq 1 ]; then
 		local choices="Striped, Mirror"
 		# RAID-Z doesn't make sense with 2 PVs
 		if [ "$numdev" -ge 3 ]; then
