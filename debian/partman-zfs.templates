@@ -19,30 +19,28 @@ _Description: ZFS file system
 Template: partman-zfs/multipv_root
 Type: error
 # :sl4:
-Description: This ZFS configuration is not supported without separate /boot
- The ZFS pool where your root filesystem is hosted is configured to use more
- than one physical volume.
+Description: Separate /boot mandatory for this ZFS configuration
+ Your root file system is on a ZFS pool that uses more than one
+ physical volume.
  .
- With the exception of Mirror mode, configurations with multiple volumes
- (Striped or RAID-Z) are not supported by the boot loader used by this
- installer.
+ The boot loader only supports this configuration for pools in
+ Mirror mode, not Striped or RAID-Z modes.
  .
- You should use a small /boot partition with either a separate ZFS pool or another
- file system, such as UFS.
+ Make sure /boot is on a partition using a supported ZFS pool
+ configuration, or a different file system such as UFS.
 
 Template: partman-zfs/multipv_boot
 Type: error
 # :sl4:
-Description: This ZFS configuration is not supported for /boot
- The ZFS pool where your /boot filesystem is hosted is configured to use more
- than one physical volume.
+Description: Unsupported multiple volume ZFS for /boot
+ Your /boot partition is on a ZFS pool that uses more than one
+ physical volume.
  .
- With the exception of Mirror mode, configurations with multiple volumes
- (Striped or RAID-Z) are not supported by the boot loader used by this
- installer.
+ The boot loader only supports this configuration for pools in
+ Mirror mode, not Striped or RAID-Z modes.
  .
- You should either a separate ZFS pool or another file system, such as UFS, for
- the /boot partition.
+ Make sure /boot is on a partition using a supported ZFS pool
+ configuration, or a different file system such as UFS.
 
 Template: partman-zfs/i386
 Type: boolean
@@ -63,7 +61,7 @@ Type: boolean
 # :sl4:
 _Description: Go back to the menu and correct this problem?
  You have configured one or more partitions with the ZFS file
- system. Using ZFS on a computer with less than 512 Mb of memory
+ system. Using ZFS on a computer with less than 512 MB of memory
  may lead to stability problems and is not recommended.
  .
  You should go back to the partitioning menu and configure
@@ -193,14 +191,13 @@ Type: select
 Choices: ${MULTIPV_CHOICES}
 # :sl4:
 _Description: Multidisk mode for this ZFS pool:
- Please chose the mode  for multidisk operations for this ZFS pool:
-  - Striped: (default) data is spread across the physical volumes.
-             Similar to RAID 0;
-  - Mirror:  data is replicated to each physical volume.
-             Similar to RAID 1;
-  - RAID-Z:  some physical volumes store parity bits and data is
-             spread across others.
-             Similar to RAID 5 or RAID 6.
+ Please chose the mode for multidisk operations for this ZFS pool:
+  * Striped: similar to RAID 0 (default) - data is spread across the
+             physical volumes;
+  * Mirror:  similar to RAID 1 - data is replicated to each physical
+             volume;
+  * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes
+             store parity bits and data is spread across others.
 
 Template: partman-zfs/vgcreate_raidz_parity
 Type: select
@@ -374,7 +371,7 @@ _Description: Invalid logical volume or ZFS pool name
  Logical volume or ZFS pool names may only contain alphanumeric
  characters, hyphen, colon, period, and underscore. They must be 255
  characters or less and must begin with an alphanumeric character. The names
- "mirror", "raidz", "spare" and "log" are not allowed.
+ "mirror", "raidz", "spare", and "log" are not allowed.
  .
  Please choose a different name.
 
