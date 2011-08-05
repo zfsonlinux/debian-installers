@@ -33,7 +33,7 @@ _Description: Go back to the menu and correct this problem?
 Template: partman-zfs/lowmem
 Type: boolean
 # :sl4:
-Description: Go back to the menu and correct this problem?
+_Description: Go back to the menu and correct this problem?
  You have configured one or more partitions with the ZFS file
  system. Using ZFS on a computer with less than 512 Mb of memory
  may lead to stability problems and is not recommended.
@@ -164,19 +164,22 @@ Template: partman-zfs/vgcreate_multipv
 Type: select
 Choices: ${MULTIPV_CHOICES}
 # :sl4:
-Description: Multidisk mode for this ZFS pool:
- With the default "Striped" mode, data is spread across the physical volumes,
- similarly to how RAID 0 works. With "Mirror" mode, data is replicated to each
- physical volume, similarly to how RAID 1 works. With "RAID-Z" mode, a few
- physical volumes are designated to store parity bits into, whereas data is
- spread across the rest of them, similarly to how RAID 5 or RAID 6 work.
+_Description: Multidisk mode for this ZFS pool:
+ Please chose the mode  for multidisk operations for this ZFS pool:
+  - Striped: (default) data is spread across the physical volumes.
+             Similar to RAID 0;
+  - Mirror:  data is replicated to each physical volume.
+             Similar to RAID 1;
+  - RAID-Z:  some physical volumes store parity bits and data is
+             spread across others.
+             Similar to RAID 5 or RAID 6.
 
 Template: partman-zfs/vgcreate_raidz_parity
 Type: select
 Choices: ${RAIDZ_PARITY}
 # :sl4:
-Description: Parity level for RAID-Z:
- The parity level is the number of physical volumes that will be used to
+_Description: Parity level for RAID-Z:
+ Please choose the number of physical volumes that will be used to
  store parity bits.
 
 Template: partman-zfs/vgcreate_name
