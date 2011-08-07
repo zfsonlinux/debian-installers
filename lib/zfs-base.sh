@@ -393,7 +393,7 @@ vg_multipv_mode() {
 		 echo "mirror"
 	elif echo "$status" | grep -q "raidz[1-9]"; then
 		 echo "raidz"
-	elif [ "$(echo "$status" | wc -l)" -gt 3 ]; then
+	elif [ "$(echo "$status" | wc -l)" -gt 2 ]; then
 		 echo "striped"
 	else
 		 echo "single"
