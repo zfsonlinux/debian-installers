@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fa\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2011-08-04 22:50+0000\n"
+"POT-Creation-Date: 2011-08-07 17:41+0000\n"
 "PO-Revision-Date: 2011-03-21 22:30+0330\n"
 "Last-Translator: Behrad Eslamifar <behrad_es@yahoo.com>\n"
 "Language-Team: Debian-l10n-persian <debian-l10n-persian@lists.debian.org>\n"
@@ -57,10 +57,71 @@ msgstr "zfs"
 msgid "ZFS file system"
 msgstr "فایل سیستم ZFS"
 
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+#, fuzzy
+msgid "Separate /boot mandatory for this ZFS configuration"
+msgstr ":جاری LVMخلاصه تایید  "
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Your root file system is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+msgid ""
+"The boot loader only supports this configuration for pools in Mirror mode, "
+"not Striped or RAID-Z modes."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+msgid ""
+"Make sure /boot is on a partition using a supported ZFS pool configuration, "
+"or a different file system such as UFS."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+#, fuzzy
+msgid "Unsupported multiple volume ZFS for /boot"
+msgstr "استفاده از جدول پارتیشن پشتیبانی نشده برای /boot؟"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Your /boot partition is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:6001
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001 ../partman-zfs.templates:7001
 msgid "Go back to the menu and correct this problem?"
 msgstr "بازگشت به منو و تصحیح این مشکل؟"
 
@@ -84,6 +145,28 @@ msgid ""
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+msgid ""
+"You have configured one or more partitions with the ZFS file system. Using "
+"ZFS on a computer with less than 512 MB of memory may lead to stability "
+"problems and is not recommended."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+#, fuzzy
+msgid ""
+"You should go back to the partitioning menu and configure the partitions to "
+"use another file system."
+msgstr ""
+"اگر شما به منوی پارتیشن‌بندی بازنگشته و خطاها را اصلاح نکنید، پارتیشن "
+"همانگونه که هست استفاده خواهد شد."
 
 #. Type: text
 #. Description
@@ -284,6 +367,44 @@ msgstr "لطفا ابزارها را برای گروه volume جدید انتخ�
 #: ../partman-zfs.templates:22001
 msgid "You can select one or more devices."
 msgstr "شما می‌توانید یک یا چند ابزار انتخاب کنید"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+#, fuzzy
+msgid "Multidisk mode for this ZFS pool:"
+msgstr "ابزارهای گروه volume جدید:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid ""
+"Please choose the mode for multidisk operations for this ZFS pool:\n"
+" * Striped: similar to RAID 0 (default) - data is spread across the\n"
+"            physical volumes;\n"
+" * Mirror:  similar to RAID 1 - data is replicated to each physical\n"
+"            volume;\n"
+" * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
+"            store parity bits and data is spread across others."
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid "Parity level for RAID-Z:"
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid ""
+"Please choose the number of physical volumes that will be used to store "
+"parity bits."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -685,7 +806,7 @@ msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
-"\", \"spare\" and \"log\" are not allowed."
+"\", \"spare\", and \"log\" are not allowed."
 msgstr ""
 "آن‌ها باید 128 کاراکتر یا کمتر باشند و نباید با  hyphen, plus, period و "
 "underscore حجم منطقی یا نام های گروه صدا ممکن است تنها شامل کاراکترهای "

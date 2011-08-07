@@ -27,7 +27,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2011-08-04 22:50+0000\n"
+"POT-Creation-Date: 2011-08-07 17:41+0000\n"
 "PO-Revision-Date: 2011-03-09 02:14+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team:  Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -61,10 +61,71 @@ msgstr "zfs"
 msgid "ZFS file system"
 msgstr "ZFS 파일 시스템"
 
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+#, fuzzy
+msgid "Separate /boot mandatory for this ZFS configuration"
+msgstr "현재 LVM 설정 정리:"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Your root file system is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+msgid ""
+"The boot loader only supports this configuration for pools in Mirror mode, "
+"not Striped or RAID-Z modes."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+msgid ""
+"Make sure /boot is on a partition using a supported ZFS pool configuration, "
+"or a different file system such as UFS."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+#, fuzzy
+msgid "Unsupported multiple volume ZFS for /boot"
+msgstr "/boot 파티션에 지원하지 않는 파일 시스템을 사용하시겠습니까?"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Your /boot partition is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:6001
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001 ../partman-zfs.templates:7001
 msgid "Go back to the menu and correct this problem?"
 msgstr "메뉴로 돌아가서 이 문제를 바로잡으시겠습니까?"
 
@@ -87,10 +148,6 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:6001
 #, fuzzy
-#| msgid ""
-#| "You're encouraged to either use the 64-bit (amd64) version of this "
-#| "installer (if your hardware supports this), or go back to the "
-#| "partitioning menu and configure the partitions to use another file system."
 msgid ""
 "You should either use the 64-bit (amd64) version of this installer (if your "
 "hardware supports this), or go back to the partitioning menu and configure "
@@ -98,6 +155,32 @@ msgid ""
 msgstr ""
 "설치 프로그램의 64비트 버전을 (amd64) 사용하거나, 아니면 파티션 메뉴로 돌아가"
 "서 파티션에 다른 종류의 파일 시스템을 사용하기를 권장합니다."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+#, fuzzy
+msgid ""
+"You have configured one or more partitions with the ZFS file system. Using "
+"ZFS on a computer with less than 512 MB of memory may lead to stability "
+"problems and is not recommended."
+msgstr ""
+"ZFS 파일 시스템으로 설정한 파티션이 있습니다. 32비트 i386에서도 ZFS를 지원하"
+"긴 하지만 이 아키텍쳐의 한계 때문에 특별히 신경 써서 튜닝하지 않는다면 효율이"
+"나 안정성 문제가 발생할 수 있습니다."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+#, fuzzy
+msgid ""
+"You should go back to the partitioning menu and configure the partitions to "
+"use another file system."
+msgstr ""
+"파티션 메뉴로 돌아가서 이 오류를 바로잡지 않으면, 이 파티션은 지금 현재 상태"
+"로 사용해야 합니다."
 
 #. Type: text
 #. Description
@@ -298,6 +381,44 @@ msgstr "새 볼륨 그룹에 사용할 장치를 선택하십시오."
 #: ../partman-zfs.templates:22001
 msgid "You can select one or more devices."
 msgstr "한 개 혹은 그 이상의 장치를 선택할 수 있습니다."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+#, fuzzy
+msgid "Multidisk mode for this ZFS pool:"
+msgstr "새 볼륨 그룹에 쓸 장치:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid ""
+"Please choose the mode for multidisk operations for this ZFS pool:\n"
+" * Striped: similar to RAID 0 (default) - data is spread across the\n"
+"            physical volumes;\n"
+" * Mirror:  similar to RAID 1 - data is replicated to each physical\n"
+"            volume;\n"
+" * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
+"            store parity bits and data is spread across others."
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid "Parity level for RAID-Z:"
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid ""
+"Please choose the number of physical volumes that will be used to store "
+"parity bits."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -695,7 +816,7 @@ msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
-"\", \"spare\" and \"log\" are not allowed."
+"\", \"spare\", and \"log\" are not allowed."
 msgstr ""
 "논리 볼륨이나 볼륨 그룹의 이름에는 영문자, 숫자, 빼기(-), 더하기(+), 마침표"
 "(.), 밑줄기호(_)만 사용할 수 있습니다. 길이는 128 글자 이내이고, 빼기 기호로 "

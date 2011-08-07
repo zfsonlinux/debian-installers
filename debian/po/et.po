@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2011-08-04 22:50+0000\n"
+"POT-Creation-Date: 2011-08-07 17:41+0000\n"
 "PO-Revision-Date: 2011-03-22 14:11+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Eesti\n"
@@ -64,10 +64,71 @@ msgstr "zfs"
 msgid "ZFS file system"
 msgstr "ZFS failisüsteem"
 
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+#, fuzzy
+msgid "Separate /boot mandatory for this ZFS configuration"
+msgstr "Praeguse LVM seadistuse kokkuvõte:"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Your root file system is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+msgid ""
+"The boot loader only supports this configuration for pools in Mirror mode, "
+"not Striped or RAID-Z modes."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+msgid ""
+"Make sure /boot is on a partition using a supported ZFS pool configuration, "
+"or a different file system such as UFS."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+#, fuzzy
+msgid "Unsupported multiple volume ZFS for /boot"
+msgstr "Kas kasutada /boot jaoks toetamata failisüsteemi?"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Your /boot partition is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:6001
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001 ../partman-zfs.templates:7001
 msgid "Go back to the menu and correct this problem?"
 msgstr "Kas minna tagasi menüüsse ja viga parandada?"
 
@@ -91,10 +152,6 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:6001
 #, fuzzy
-#| msgid ""
-#| "You're encouraged to either use the 64-bit (amd64) version of this "
-#| "installer (if your hardware supports this), or go back to the "
-#| "partitioning menu and configure the partitions to use another file system."
 msgid ""
 "You should either use the 64-bit (amd64) version of this installer (if your "
 "hardware supports this), or go back to the partitioning menu and configure "
@@ -103,6 +160,33 @@ msgstr ""
 "On soovituslik kasutada kas selle paigaldaja 64-bitist (amd64) versiooni "
 "(kui su raudvara seda toetab) või minna tagasi partitsioneerimise menüüsse "
 "ja valida partitsioonide jaoks teine failisüsteem."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+#, fuzzy
+msgid ""
+"You have configured one or more partitions with the ZFS file system. Using "
+"ZFS on a computer with less than 512 MB of memory may lead to stability "
+"problems and is not recommended."
+msgstr ""
+"Sa oled seadistanud vähemalt ühele partitsioonile ZFS-failisüsteemi. Kuigi "
+"ZFS on toetatud 32-bitisel i386-l, võib selle kasutamine praeguse "
+"arhitektuuri puuduste tõttu ilma eriseadistusteta põhjustada kehva jõudlust "
+"või stabiilsusprobleeme."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+#, fuzzy
+msgid ""
+"You should go back to the partitioning menu and configure the partitions to "
+"use another file system."
+msgstr ""
+"Kui sa ei lähe partitsioneerimismenüüsse tagasi vigasid parandama, "
+"kasutatakse partitsioone nagu need on."
 
 #. Type: text
 #. Description
@@ -305,6 +389,44 @@ msgstr "Palun vali uuele köitegrupile seadmed."
 #: ../partman-zfs.templates:22001
 msgid "You can select one or more devices."
 msgstr "Pead valima vähemalt ühe seadme."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+#, fuzzy
+msgid "Multidisk mode for this ZFS pool:"
+msgstr "Uue köitegrupi seadmed:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid ""
+"Please choose the mode for multidisk operations for this ZFS pool:\n"
+" * Striped: similar to RAID 0 (default) - data is spread across the\n"
+"            physical volumes;\n"
+" * Mirror:  similar to RAID 1 - data is replicated to each physical\n"
+"            volume;\n"
+" * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
+"            store parity bits and data is spread across others."
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid "Parity level for RAID-Z:"
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid ""
+"Please choose the number of physical volumes that will be used to store "
+"parity bits."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -700,7 +822,7 @@ msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
-"\", \"spare\" and \"log\" are not allowed."
+"\", \"spare\", and \"log\" are not allowed."
 msgstr ""
 "Loogilise köite ja köitegrupi nimed võivad sisaldada vaid alfanumbrilisi "
 "märgendeid, sidekriipsu, plussi, punkti ning alakriipsu. Nad peavad olema "

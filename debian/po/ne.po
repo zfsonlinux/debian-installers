@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer_packages_po_sublevel1_ne\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2011-08-04 22:50+0000\n"
+"POT-Creation-Date: 2011-08-07 17:41+0000\n"
 "PO-Revision-Date: 2011-02-22 17:11-0600\n"
 "Last-Translator: \n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -57,10 +57,71 @@ msgstr "zfs"
 msgid "ZFS file system"
 msgstr "ZFS फाइल प्रणाली"
 
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+#, fuzzy
+msgid "Separate /boot mandatory for this ZFS configuration"
+msgstr "हालको LVM कन्फिगरेशनको संक्षेप:"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Your root file system is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+msgid ""
+"The boot loader only supports this configuration for pools in Mirror mode, "
+"not Striped or RAID-Z modes."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+msgid ""
+"Make sure /boot is on a partition using a supported ZFS pool configuration, "
+"or a different file system such as UFS."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+#, fuzzy
+msgid "Unsupported multiple volume ZFS for /boot"
+msgstr "/boot का लागि समर्थन प्राप्त नभएको फाइल प्रणाली प्रकार प्रयोग गर्नुहुन्छ?"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Your /boot partition is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:6001
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001 ../partman-zfs.templates:7001
 msgid "Go back to the menu and correct this problem?"
 msgstr "मेनुमा फर्केर यो समस्या सुधार्नुहुन्छ?"
 
@@ -83,10 +144,6 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:6001
 #, fuzzy
-#| msgid ""
-#| "You're encouraged to either use the 64-bit (amd64) version of this "
-#| "installer (if your hardware supports this), or go back to the "
-#| "partitioning menu and configure the partitions to use another file system."
 msgid ""
 "You should either use the 64-bit (amd64) version of this installer (if your "
 "hardware supports this), or go back to the partitioning menu and configure "
@@ -95,6 +152,32 @@ msgstr ""
 "तपाईँले कि त यस स्थापना सफ्ट्वेयरको 64-bit (amd64) भर्सन (यदि तपाईँको हार्डवेयरले समर्थन "
 "गर्छ भने) जडान गर्न सक्नु हुन्छ या त सो नभएको खण्डमा विभाजन मेनुमा पुन: फर्की अर्कै फाइल "
 "प्रणाली प्रयोग गर्न विभाजनहरू कन्फिगर गर्न सक्नु हुन्छ। "
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+#, fuzzy
+msgid ""
+"You have configured one or more partitions with the ZFS file system. Using "
+"ZFS on a computer with less than 512 MB of memory may lead to stability "
+"problems and is not recommended."
+msgstr ""
+"तपाईले जेड्‌एफ्एस् फाइल प्रणाली अन्तर्गत एक वा सो भन्दा बढी विभाजनहरू कन्फिगर गर्नु भएको छ।"
+"32-bit र i386मा जेड्‌एफ्एस् चल्ने भए पनि विशेष व्यवस्था नगरी प्रयोग गरेमा यस आर्खिटेक्चरको "
+"कमजोरीका कारण अस्थिरता लगायतका समस्याहरू आउन सक्छन्।"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+#, fuzzy
+msgid ""
+"You should go back to the partitioning menu and configure the partitions to "
+"use another file system."
+msgstr ""
+"यदि तपाईँ विभाजन मेनुमा फर्केर नजाने र यो त्रुटिहरू सुधार्ने हो भने, विभाजन यो प्रकारले "
+"प्रयोग हुनेछ ।"
 
 #. Type: text
 #. Description
@@ -295,6 +378,44 @@ msgstr "नयाँ भोल्युम समूहका लागि य�
 #: ../partman-zfs.templates:22001
 msgid "You can select one or more devices."
 msgstr "तपाईँ एउटा वा धेरै यन्त्रहरू चयन गर्न सक्नुहुन्छ ।"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+#, fuzzy
+msgid "Multidisk mode for this ZFS pool:"
+msgstr "नयाँ भोल्युम समूहका लागि यन्त्रहरू:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid ""
+"Please choose the mode for multidisk operations for this ZFS pool:\n"
+" * Striped: similar to RAID 0 (default) - data is spread across the\n"
+"            physical volumes;\n"
+" * Mirror:  similar to RAID 1 - data is replicated to each physical\n"
+"            volume;\n"
+" * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
+"            store parity bits and data is spread across others."
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid "Parity level for RAID-Z:"
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid ""
+"Please choose the number of physical volumes that will be used to store "
+"parity bits."
+msgstr ""
 
 #. Type: string
 #. Description
@@ -691,7 +812,7 @@ msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
-"\", \"spare\" and \"log\" are not allowed."
+"\", \"spare\", and \"log\" are not allowed."
 msgstr ""
 "लोजिकल भोल्युम वा भोल्युम समूह नामहरूले मात्र अल्फासङ्ख्यक क्यारेक्टरहरू, हाइफेन, प्लस, अवधि "
 "र अन्डरस्कोर समाविष्ट गर्दछ । तिनीहरू १२८ क्यारेक्टरको वा कम र हाइफेनद्वारा सुरु हुन नसक्ने "
