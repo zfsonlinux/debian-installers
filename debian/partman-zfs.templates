@@ -19,27 +19,27 @@ _Description: ZFS file system
 Template: partman-zfs/multipv_root
 Type: error
 # :sl4:
-_Description: Separate /boot mandatory for this ZFS configuration
+_Description: Separate /boot and /lib/modules mandatory for this ZFS configuration
  Your root file system is on a ZFS pool that uses more than one
  physical volume.
  .
  The boot loader only supports this configuration for pools in
  Mirror mode, not Striped or RAID-Z modes.
  .
- Make sure /boot is on a partition using a supported ZFS pool
- configuration, or a different file system such as UFS.
+ Make sure /boot and /lib/modules are on a partition using a supported
+ ZFS pool configuration, or a different file system such as UFS.
 
-Template: partman-zfs/multipv_boot
+Template: partman-zfs/multipv_other
 Type: error
 # :sl4:
-_Description: Unsupported multiple volume ZFS for /boot
- Your /boot partition is on a ZFS pool that uses more than one
+_Description: Unsupported multiple volume ZFS for ${MNT}
+ Your ${MNT} partition is on a ZFS pool that uses more than one
  physical volume.
  .
  The boot loader only supports this configuration for pools in
  Mirror mode, not Striped or RAID-Z modes.
  .
- Make sure /boot is on a partition using a supported ZFS pool
+ Make sure ${MNT} is on a partition using a supported ZFS pool
  configuration, or a different file system such as UFS.
 
 Template: partman-zfs/i386
