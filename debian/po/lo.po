@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lo\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2011-08-07 17:41+0000\n"
+"POT-Creation-Date: 2011-08-07 22:50+0000\n"
 "PO-Revision-Date: 2010-11-26 09:11+0700\n"
 "Last-Translator: Anousak Souphavanh <anousak@gmail.com>\n"
 "Language-Team: Lao <lo@li.org>\n"
@@ -52,7 +52,7 @@ msgstr "ລະບົບແຟ້ມ ZFS"
 #. :sl4:
 #: ../partman-zfs.templates:4001
 #, fuzzy
-msgid "Separate /boot mandatory for this ZFS configuration"
+msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
 msgstr "ສະຫຼຸບປັບປຸງ LVM ລ່າສຸດ: "
 
 #. Type: error
@@ -79,13 +79,10 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#. Type: error
-#. Description
-#. :sl4:
-#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+#: ../partman-zfs.templates:4001
 msgid ""
-"Make sure /boot is on a partition using a supported ZFS pool configuration, "
-"or a different file system such as UFS."
+"Make sure /boot and /lib/modules are on a partition using a supported ZFS "
+"pool configuration, or a different file system such as UFS."
 msgstr ""
 
 #. Type: error
@@ -93,7 +90,7 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:5001
 #, fuzzy
-msgid "Unsupported multiple volume ZFS for /boot"
+msgid "Unsupported multiple volume ZFS for ${MNT}"
 msgstr "ໃຊ້ລະບົບແຟ້ມທີ່ບໍ່ຮອງຮັບກັບ /boot ຫຼື ບໍ່ ?"
 
 #. Type: error
@@ -101,8 +98,17 @@ msgstr "ໃຊ້ລະບົບແຟ້ມທີ່ບໍ່ຮອງຮັບ
 #. :sl4:
 #: ../partman-zfs.templates:5001
 msgid ""
-"Your /boot partition is on a ZFS pool that uses more than one physical "
+"Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
+"or a different file system such as UFS."
 msgstr ""
 
 #. Type: boolean

@@ -25,7 +25,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2011-08-07 17:41+0000\n"
+"POT-Creation-Date: 2011-08-07 22:50+0000\n"
 "PO-Revision-Date: 2011-07-20 22:22+0400\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -66,7 +66,7 @@ msgstr "Файловая система ZFS"
 #. :sl4:
 #: ../partman-zfs.templates:4001
 #, fuzzy
-msgid "Separate /boot mandatory for this ZFS configuration"
+msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
 msgstr "Кратко о имеющейся конфигурации LVM:"
 
 #. Type: error
@@ -93,13 +93,10 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#. Type: error
-#. Description
-#. :sl4:
-#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+#: ../partman-zfs.templates:4001
 msgid ""
-"Make sure /boot is on a partition using a supported ZFS pool configuration, "
-"or a different file system such as UFS."
+"Make sure /boot and /lib/modules are on a partition using a supported ZFS "
+"pool configuration, or a different file system such as UFS."
 msgstr ""
 
 #. Type: error
@@ -107,7 +104,7 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:5001
 #, fuzzy
-msgid "Unsupported multiple volume ZFS for /boot"
+msgid "Unsupported multiple volume ZFS for ${MNT}"
 msgstr "Использовать неподдерживаемый тип файловой системы для /boot?"
 
 #. Type: error
@@ -115,8 +112,17 @@ msgstr "Использовать неподдерживаемый тип фай�
 #. :sl4:
 #: ../partman-zfs.templates:5001
 msgid ""
-"Your /boot partition is on a ZFS pool that uses more than one physical "
+"Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
+"or a different file system such as UFS."
 msgstr ""
 
 #. Type: boolean

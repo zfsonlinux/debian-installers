@@ -27,8 +27,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2011-08-07 17:41+0000\n"
-"PO-Revision-Date: 2011-08-05 09:03+0200\n"
+"POT-Creation-Date: 2011-08-07 22:50+0000\n"
+"PO-Revision-Date: 2011-08-08 08:48+0200\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
@@ -67,8 +67,8 @@ msgstr "système de fichiers ZFS"
 #. :sl4:
 #: ../partman-zfs.templates:4001
 #, fuzzy
-msgid "Separate /boot mandatory for this ZFS configuration"
-msgstr "Synthèse de la configuration de ZFS :"
+msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
+msgstr "Partition /boot séparée obligatoire dans cette configuration ZFS"
 
 #. Type: error
 #. Description
@@ -78,6 +78,8 @@ msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Le système de fichiers racine est situé sur un pool ZFS qui utilise plus "
+"d'un volume physique."
 
 #. Type: error
 #. Description
@@ -90,35 +92,52 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror mode, "
 "not Striped or RAID-Z modes."
 msgstr ""
+"Le programme d'amorçage ne gère cette configuration que pour les pools en "
+"mode « Mirror », pas pour ceux en mode « Striped » ou « Raid-Z »."
 
 #. Type: error
 #. Description
 #. :sl4:
-#. Type: error
-#. Description
-#. :sl4:
-#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+#: ../partman-zfs.templates:4001
+#, fuzzy
 msgid ""
-"Make sure /boot is on a partition using a supported ZFS pool configuration, "
-"or a different file system such as UFS."
+"Make sure /boot and /lib/modules are on a partition using a supported ZFS "
+"pool configuration, or a different file system such as UFS."
 msgstr ""
+"Veuillez faire en sorte que le répertoire /boot soit situé dans un pool ZFS "
+"compatible ou bien utilise un autre système de fichiers, par exemple UFS."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
 #, fuzzy
-msgid "Unsupported multiple volume ZFS for /boot"
-msgstr "Faut-il utiliser un système de fichiers non géré pour /boot ?"
+msgid "Unsupported multiple volume ZFS for ${MNT}"
+msgstr "Partition ZFS à volumes multiples non gérée pour /boot"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
+#, fuzzy
 msgid ""
-"Your /boot partition is on a ZFS pool that uses more than one physical "
+"Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"La partition /boot est située sur un pool ZFS qui utilise plus d'un volume "
+"physique."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+#, fuzzy
+msgid ""
+"Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
+"or a different file system such as UFS."
+msgstr ""
+"Veuillez faire en sorte que le répertoire /boot soit situé dans un pool ZFS "
+"compatible ou bien utilise un autre système de fichiers, par exemple UFS."
 
 #. Type: boolean
 #. Description
@@ -163,29 +182,26 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You have configured one or more partitions with the ZFS file system. Using "
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
 "Une ou plusieurs partitions sont configurées pour utiliser le système de "
-"fichiers ZFS. Bien que ce système de fichiers soit disponible sur les "
-"architectures 32 bits i386, l'utiliser sans réglages particuliers peut "
-"amener des problèmes de performances ou de stabilité en raison de certaines "
-"limites de cette architecture."
+"fichiers ZFS. Il est déconseillé d'utiliser ce système de fichiers sur une "
+"machine dotée de moins de 512 Mo de mémoire, cela peut amener des problèmes "
+"de stabilité."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
 msgstr ""
-"Si vous ne revenez pas au menu de partitionnement pour corriger ces erreurs, "
-"cette partition sera utilisée telle quelle."
+"Vous devriez revenir au menu de partitionnement et configurer les partitions "
+"pour utiliser un autre système de fichiers."
 
 #. Type: text
 #. Description
@@ -380,9 +396,8 @@ msgstr "Vous pouvez sélectionner un ou plusieurs périphériques."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "Périphériques pour le nouveau pool ZFS :"
+msgstr "Mode multidisque pour le pool ZFS :"
 
 #. Type: select
 #. Description
@@ -397,13 +412,21 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Veuillez choisir le mode d'utilisation multidisque pour ce pool ZFS :\n"
+" - Striped : analogue à RAID 0 (défaut) - données réparties sur les\n"
+"             volumes physiques ;\n"
+" - Mirror  : analogue à RAID 1 - les données sont répliquées sur chaque\n"
+"             volume physique ;\n"
+" - RAID-Z  : analogue à RAID 5 ou RAID 6 - certains volumes physiques\n"
+"             conservent les informations de parité et les données sont\n"
+"             réparties sur les autres."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "Niveau de parité pour RAID-Z :"
 
 #. Type: select
 #. Description
@@ -413,6 +436,8 @@ msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
 msgstr ""
+"Veuillez choisir le nombre de volumes physiques que serviront à conserver "
+"les informations de parité."
 
 #. Type: string
 #. Description
@@ -791,7 +816,6 @@ msgstr "Nom de volume logique ou de pool ZFS non valable"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
@@ -800,7 +824,7 @@ msgid ""
 msgstr ""
 "Les noms de volumes logiques ou les pools ZFS ne peuvent contenir que les "
 "caractères suivants : caractères alphanumériques, tiret, deux-points, point "
-"et caractère de soulignement (« underscore »). Ils ne doivent ni comporter "
+"et caractère de soulignement (« underscore »). Ils ne doivent pas comporter "
 "plus de 255 caractères et doivent commencer par un caractère alphanumérique. "
 "Les noms « mirror », « raidz », « spare » et « log » ne sont pas autorisés."
 

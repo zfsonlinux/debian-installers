@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2011-08-07 17:41+0000\n"
+"POT-Creation-Date: 2011-08-07 22:50+0000\n"
 "PO-Revision-Date: 2011-08-03 23:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: Basque <debian-l10n-basque@lists.debian.org>\n"
@@ -67,7 +67,7 @@ msgstr "ZFS fitxategi-sistema"
 #. :sl4:
 #: ../partman-zfs.templates:4001
 #, fuzzy
-msgid "Separate /boot mandatory for this ZFS configuration"
+msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
 msgstr "Uneko LVM konfigurazioaren laburpena:"
 
 #. Type: error
@@ -94,13 +94,10 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#. Type: error
-#. Description
-#. :sl4:
-#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+#: ../partman-zfs.templates:4001
 msgid ""
-"Make sure /boot is on a partition using a supported ZFS pool configuration, "
-"or a different file system such as UFS."
+"Make sure /boot and /lib/modules are on a partition using a supported ZFS "
+"pool configuration, or a different file system such as UFS."
 msgstr ""
 
 #. Type: error
@@ -108,7 +105,7 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:5001
 #, fuzzy
-msgid "Unsupported multiple volume ZFS for /boot"
+msgid "Unsupported multiple volume ZFS for ${MNT}"
 msgstr "/boot-erako onartzen ez den fitxategi-sistema bat erabili?"
 
 #. Type: error
@@ -116,8 +113,17 @@ msgstr "/boot-erako onartzen ez den fitxategi-sistema bat erabili?"
 #. :sl4:
 #: ../partman-zfs.templates:5001
 msgid ""
-"Your /boot partition is on a ZFS pool that uses more than one physical "
+"Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
+"or a different file system such as UFS."
 msgstr ""
 
 #. Type: boolean

@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: te\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2011-08-07 17:41+0000\n"
+"POT-Creation-Date: 2011-08-07 22:50+0000\n"
 "PO-Revision-Date: 2011-01-19 21:00+0530\n"
 "Last-Translator: Arjuna Rao Chavala <arjunaraoc@gmail.com>\n"
 "Language-Team: Telugu <debian-in-workers@lists.alioth.debian.org>\n"
@@ -57,7 +57,7 @@ msgstr "ZFS ఫైల్ వ్యవస్థ"
 #. :sl4:
 #: ../partman-zfs.templates:4001
 #, fuzzy
-msgid "Separate /boot mandatory for this ZFS configuration"
+msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
 msgstr "ప్రస్తుత LVM అమరిక సంక్షిప్త వివరము:"
 
 #. Type: error
@@ -84,13 +84,10 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#. Type: error
-#. Description
-#. :sl4:
-#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+#: ../partman-zfs.templates:4001
 msgid ""
-"Make sure /boot is on a partition using a supported ZFS pool configuration, "
-"or a different file system such as UFS."
+"Make sure /boot and /lib/modules are on a partition using a supported ZFS "
+"pool configuration, or a different file system such as UFS."
 msgstr ""
 
 #. Type: error
@@ -98,7 +95,7 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:5001
 #, fuzzy
-msgid "Unsupported multiple volume ZFS for /boot"
+msgid "Unsupported multiple volume ZFS for ${MNT}"
 msgstr "/boot కి తోడ్పాటు లేని ఫైల్ వ్యవస్థ వాడాలా?"
 
 #. Type: error
@@ -106,8 +103,17 @@ msgstr "/boot కి తోడ్పాటు లేని ఫైల్ వ్�
 #. :sl4:
 #: ../partman-zfs.templates:5001
 msgid ""
-"Your /boot partition is on a ZFS pool that uses more than one physical "
+"Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
+"or a different file system such as UFS."
 msgstr ""
 
 #. Type: boolean
