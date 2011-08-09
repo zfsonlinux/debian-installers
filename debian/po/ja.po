@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2011-08-07 22:50+0000\n"
-"PO-Revision-Date: 2010-09-02 10:33+0900\n"
+"PO-Revision-Date: 2011-08-09 19:55+0900\n"
 "Last-Translator:  Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "Language: \n"
@@ -64,9 +64,8 @@ msgstr "ZFS ファイルシステム"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr "現在の LVM 設定の概要:"
+msgstr "この ZFS 設定での、/boot と /lib/modules の強制的な分割"
 
 #. Type: error
 #. Description
@@ -76,6 +75,8 @@ msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"あなたのルートファイルシステムは 1つ以上の物理ボリュームを使う ZFS プール上に"
+"あります。"
 
 #. Type: error
 #. Description
@@ -88,6 +89,8 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror mode, "
 "not Striped or RAID-Z modes."
 msgstr ""
+"ブートローダは、ミラーモードでのプールのためのこの設定のみをサポートしてお"
+"り、ストリップッドまたは RAID-Z モードはサポートしていません。"
 
 #. Type: error
 #. Description
@@ -97,14 +100,16 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"/boot と /lib/modules が、サポートされている ZFS プール設定を使用しているパー"
+"ティション、あるいは UFS のような別のファイルシステムにあることを確認してくだ"
+"さい。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
-#, fuzzy
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr "/boot にサポートされていないファイルシステム形式を使いますか?"
+msgstr "${MNT} にサポートされていないマルチプルボリューム ZFS"
 
 #. Type: error
 #. Description
@@ -114,6 +119,8 @@ msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"あなたの ${MNT} パーティションは 1 つ以上の物理ボリュームを使用する ZFS プー"
+"ル上にあります。"
 
 #. Type: error
 #. Description
@@ -123,6 +130,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"${MNT} が、サポートされている ZFS プール設定を使用しているパーティション、あ"
+"るいは UFS のような別のファイルシステムにあることを確認してください。"
 
 #. Type: boolean
 #. Description
@@ -144,6 +153,10 @@ msgid ""
 "may lead to performance or stability problems due to limitations of this "
 "architecture."
 msgstr ""
+"ZFS ファイルシステム を使った 1 つ以上のパーティションを設定しました。ZFS は "
+"32 ビット i386 でサポートされてはいますが、特別な調整なしにこれを利用すると、"
+"このアーッキテクチャの制限のために、パフォーマンスや安定性の問題を引き起こす"
+"かもしれません。"
 
 #. Type: boolean
 #. Description
@@ -154,6 +167,9 @@ msgid ""
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
+"このインストーラの 64 ビット (amd64) バージョンを使用する (あなたのハードウェ"
+"アがこれをサポートしている場合) か、パーティショニングメニューに戻って別の"
+"ファイルシステムを使うようにパーティションを設定してください。"
 
 #. Type: boolean
 #. Description
@@ -164,35 +180,35 @@ msgid ""
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
+"ZFS ファイルシステム を使った 1 つ以上のパーティションを設定しました。512 MB "
+"以下のメモリしか持たないコンピュータでの ZFS の使用は、安定性の問題を引き起こ"
+"すかもしれず、推奨されません。"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
 msgstr ""
-"パーティショニングメニューに戻るかこれらのエラーの修正をしないと、パーティ"
-"ションはそのままの形で使われます。"
+"パーティショニングメニューに戻って別のファイルシステムを使うようにパーティ"
+"ションを設定すべきです。"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:8001
-#, fuzzy
 msgid "Configure ZFS"
-msgstr "ロケールの設定"
+msgstr "ZFS の設定"
 
 #. Type: text
 #. Description
 #. :sl4:
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
-#, fuzzy
 msgid "In use by ZFS pool ${VG}"
-msgstr "LVM ボリュームグループ ${VG} で利用"
+msgstr "ZFS プール ${VG} で利用"
 
 #. Type: text
 #. Description
@@ -210,7 +226,7 @@ msgstr "設定の詳細表示"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "ZFS プールの作成"
 
 #. Type: text
 #. Description
@@ -219,7 +235,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "ZFS プールの削除"
 
 #. Type: text
 #. Description
@@ -252,44 +268,40 @@ msgstr "完了"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid "Write the changes to disk and configure ZFS?"
-msgstr "ディスクへの変更を書き込み、LVM を設定しますか?"
+msgstr "ディスクへの変更を書き込み、ZFS を設定しますか?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
-"暗号化ボリュームを設定する前に、現在のパーティショニング機構をディスクに書き"
+"ZFS を設定できるようにする前に、現在のパーティショニング機構をディスクに書き"
 "込む必要があります。これらの変更は元に戻せません。"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"論理ボリュームマネージャが設定されると、物理ボリュームを含むディスクのパー"
-"ティショニング機構への追加のインストール中の変更はできません。続ける前に、現"
-"在のパーティショニング機構が満足のいくものかどうか確認してください。"
+"ZFS が設定されると、物理ボリュームを含むディスクのパーティショニング機構への"
+"追加のインストール中の変更はできません。続ける前に、現在のパーティショニング"
+"機構が満足のいくものかどうか確認してください。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration failure"
-msgstr "LVM の設定に失敗しました"
+msgstr "ZFS の設定に失敗しました"
 
 #. Type: error
 #. Description
@@ -302,39 +314,34 @@ msgstr "ディスクへの変更の書き込み中にエラーが発生しまし
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration has been aborted."
-msgstr "設定は中止されました。"
+msgstr "ZFS の設定は中止されました。"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:18001
-#, fuzzy
 msgid "physical volume for ZFS"
-msgstr "LVM の物理ボリューム"
+msgstr "ZFS の物理ボリューム"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "ZFS configuration action:"
-msgstr "LVM 設定アクション:"
+msgstr "ZFS 設定アクション:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "Summary of current ZFS configuration:"
-msgstr "現在の LVM 設定の概要:"
+msgstr "現在の ZFS 設定の概要:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -343,32 +350,29 @@ msgid ""
 msgstr ""
 " 未使用の物理ボリューム: ${FREE_PVS}\n"
 " 利用中の物理ボリューム: ${USED_PVS}\n"
-" ボリュームグループ:     ${VGS}\n"
-" 論理ボリューム:         ${LVS}"
+" ZFS プール:             ${VGS}\n"
+" ZFS 論理ボリューム:      ${LVS}"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid "Current ZFS configuration:"
-msgstr "現在の LVM 設定:"
+msgstr "現在の ZFS 設定:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Devices for the new ZFS pool:"
-msgstr "新しいボリュームグループのデバイス:"
+msgstr "新しい ZFS プールのデバイス:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Please select devices for the new ZFS pool."
-msgstr "新しいボリュームグループデバイスを選択してください。"
+msgstr "新しい ZFS プールのためのデバイスを選択してください。"
 
 #. Type: multiselect
 #. Description
@@ -381,9 +385,8 @@ msgstr "1 つ以上のデバイスを選択できます。"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "新しいボリュームグループのデバイス:"
+msgstr "この ZFS プールのマルチディスクモード:"
 
 #. Type: select
 #. Description
@@ -398,13 +401,20 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"この ZFS プールのマルチディスク操作モードを選んでください:\n"
+" * ストリップド: RAID 0 に類似 (デフォルト) - データは物理ボリュー\n"
+"           ム全体に拡散されます。\n"
+" * ミラー:  RAID 1 に類似 - データはそれぞれの物理ボリュームに複製\n"
+"           されます。\n"
+" * RAID-Z:  RAID 5 または RAID 6 に類似 - いくつかの物理ボリュームは\n"
+"            パリティビットを格納し、データはそれ以外に拡散されます。"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "RAID-Z のパリティレベル:"
 
 #. Type: select
 #. Description
@@ -414,21 +424,21 @@ msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
 msgstr ""
+"パリティビットを格納するのに使われる物理ボリュームの数を選んでください。"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "ZFS pool name:"
-msgstr ""
+msgstr "ZFS プール名:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr "新しい論理ボリュームに使いたい名前を入力してください。"
+msgstr "新しい ZFS プールに使いたい名前を入力してください。"
 
 #. Type: error
 #. Description
@@ -441,63 +451,55 @@ msgstr "物理ボリュームが選択されていません"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
 msgstr ""
-"物理ボリュームが選択されていません。新しいボリュームグループの作成が中止され"
-"ました。"
+"物理ボリュームが選択されていません。新しい ZFS プールの作成が中止されました。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "ZFS プール名がありません"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr "ボリュームグループ名が入力されていません。名前を入力してください。"
+msgstr "ZFS プール名が入力されていません。名前を入力してください。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid "ZFS pool name already in use"
-msgstr "ボリュームグループ名はすでに使われています"
+msgstr "ZFS プール名はすでに使われています"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
 msgstr ""
-"選択されたボリュームグループ名はすでに使われています。別の名前を選んでくださ"
-"い。"
+"選択された ZFS プール名はすでに使われています。別の名前を選んでください。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "Error while creating ZFS pool"
-msgstr "新しい論理ボリュームの作成中のエラー"
+msgstr "ZFS プール作成中のエラー"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "The ZFS pool ${VG} could not be created."
-msgstr "ボリュームグループ ${VG} を作成できませんでした。"
+msgstr "ZFS プール ${VG} を作成できませんでした。"
 
 #. Type: error
 #. Description
@@ -519,96 +521,86 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "ZFS pool to delete:"
-msgstr "削除するボリュームグループ:"
+msgstr "削除する ZFS プール:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "削除したいボリュームグループを選択してください。"
+msgstr "削除したい ZFS プールを選択してください。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "ZFS プールがありません"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "No ZFS pool has been found."
-msgstr "ボリュームグループが見つかりませんでした。"
+msgstr "ZFS プールが見つかりませんでした。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "The ZFS pool may have already been deleted."
-msgstr "ボリュームグループ名はすでに削除されているようです。"
+msgstr "ZFS プールはすでに削除されているようです。"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
-#, fuzzy
 msgid "Really delete the ZFS pool?"
-msgstr "本当にボリュームグループを削除しますか?"
+msgstr "本当に ZFS プールを削除しますか?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "ZFS プール ${VG} の削除を確認してください。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid "Error while deleting ZFS pool"
-msgstr "ボリュームグループの削除中のエラー"
+msgstr "ZFS プールの削除中のエラー"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
-"選択されたボリュームグループは削除できませんでした。おそらく 1 つ以上の論理ボ"
-"リュームがまだ使われているのでしょう。"
+"選択された ZFS プールは削除できませんでした。おそらく 1 つ以上の論理ボリュー"
+"ムがまだ使われているのでしょう。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid "No ZFS pool found"
-msgstr "パーティションが見つかりません"
+msgstr "ZFS プールが見つかりません"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"新しい論理ボリュームを作成するための空きボリュームグループが見つかりませんで"
-"した。さらに物理ボリュームとボリュームグループを作成するか、既存のボリューム"
-"グループを縮小してください。"
+"新しい論理ボリュームを作成するための空き ZFS プールが見つかりませんでした。別"
+"の ZFS プールを作成するか、既存の ZFS プールに空き領域を作ってください。"
 
 #. Type: string
 #. Description
@@ -629,16 +621,15 @@ msgstr "新しい論理ボリュームに使いたい名前を入力してくだ
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "ZFS プール:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
-#, fuzzy
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
-msgstr "新しい論理ボリュームを作成するボリュームグループを選択してください。"
+msgstr "新しい論理ボリュームを作成する ZFS プールを選択してください。"
 
 #. Type: error
 #. Description
@@ -651,7 +642,6 @@ msgstr "論理ボリューム名が入力されていません"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:37001
-#, fuzzy
 msgid "No name for the logical volume has been entered. Please enter a name."
 msgstr "論理ボリュームグループ名が入力されていません。名前を入力してください。"
 
@@ -669,13 +659,12 @@ msgstr "新しい論理ボリュームの作成中のエラー"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
 msgstr ""
-"名前 ${LV} はすでに同じボリュームグループ (${VG}) のほかの論理ボリュームに"
-"よって使われています。"
+"名前 ${LV} はすでに同じ ZFS プール (${VG}) のほかの論理ボリュームによって使わ"
+"れています。"
 
 #. Type: string
 #. Description
@@ -719,7 +708,6 @@ msgstr "論理ボリュームが見つかりません"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:41001
-#, fuzzy
 msgid "No logical volume has been found. Please create a logical volume first."
 msgstr ""
 "論理ボリュームが見つかりませんでした。論理ボリュームを最初に作成してくださ"
@@ -757,9 +745,8 @@ msgstr "論理ボリュームの削除中のエラー"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:44001
-#, fuzzy
 msgid "The logical volume ${LV} on ${VG} could not be deleted."
-msgstr "${VG} の論理ボリューム (${LV}) を削除できませんでした。"
+msgstr "${VG} の論理ボリューム ${LV} を削除できませんでした。"
 
 #. Type: error
 #. Description
@@ -772,7 +759,6 @@ msgstr "利用可能な物理ボリュームが見つかりません"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
@@ -786,44 +772,39 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid "ZFS not available"
-msgstr "ソフトウェア RAID デバイスは使用不可"
+msgstr "ZFS は使用不可"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
 msgstr ""
-"現在のカーネルは論理ボリュームマネージャをサポートしていません。lvm-mod モ"
-"ジュールをロードする必要があるでしょう。"
+"現在のカーネルは ZFS をサポートしていません。zfs モジュールをロードする必要が"
+"あるでしょう。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "論理ボリュームまたはボリュームグループ名が無効です"
+msgstr "論理ボリュームまたは ZFS プール名が無効です"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"論理ボリュームやボリュームグループ名は、英字、-、+、.、_のみを含むことができ"
-"ます。128 文字以下である必要があり、-から始めることはできません。\".\" およ"
-"び \"..\" という名前は許されていません。加えて、論理ボリューム名は \"snapshot"
-"\" から始めることはできません。"
+"論理ボリュームや ZFS プール名は、英字、-、:、.、_のみを含むことができます。"
+"255 文字以下である必要があり、英字から始めなければなりません。\"mirror"
+"\"、\"raidz\"、\"spare\"、\"log\"という名前は許されていません。"
 
 #. Type: error
 #. Description
@@ -843,28 +824,26 @@ msgstr "既存の論理ボリュームデータを削除しますか?"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"選択したデバイスには、すでに削除しようとしている下記の LVM 論理ボリューム、ボ"
-"リュームグループ、物理ボリュームが含まれています:"
+"選択したデバイスには、すでに削除しようとしている下記の ZFS 論理ボリュームおよ"
+"び ZFS プールが含まれています:"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr "削除される論理ボリューム: ${LVTARGETS}"
+msgstr "論理ボリューム: ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "ZFS プール: ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -882,13 +861,12 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
@@ -896,14 +874,13 @@ msgid ""
 msgstr ""
 "システム管理者にとってよくある状況は、いくつかのディスクパーティション (通常"
 "最も重要なもの) の残り容量が少なくなっており、その他のいくつかのパーティショ"
-"ンがあまり使われていないということがわかった、というものです。論理ボリューム"
-"マネージャ (KVM) はこの状況を救います。"
+"ンがあまり使われていないということがわかった、というものです。ZFS はこの状況"
+"を救います。"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -912,25 +889,22 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"LVM は、ディスクやパーティションデバイス (\"物理ボリューム\") を結合して、仮"
-"想パーティション (\"論理ボリューム\") に分割できる仮想ディスク (\"ボリューム"
-"グループ\") を形成できるようにします。ボリュームグループと論理ボリュームはい"
-"くつかの物理ディスクにまたがる可能性があります。新しい物理ボリュームは、ボ"
-"リュームグループにいつでも追加でき、論理ボリュームはボリュームグループの未配"
-"置領域の総量まで拡大できます。"
+"ZFS は、ディスクやパーティションデバイス (\"物理ボリューム\") を結合して、仮"
+"想パーティション (\"論理ボリューム\") に分割できる仮想ディスク (\"ZFS プール"
+"\") を形成できるようにします。ZFS プールと論理ボリュームはいくつかの物理ディ"
+"スクにまたがる可能性があります。新しい物理ボリュームは、ZFS プールにいつでも"
+"追加でき、論理ボリュームは ZFS プールの総量以外のサイズ制限はありません。"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"LVM 設定メニューの各項目は、ボリュームグループおよび論理ボリュームを編集する"
-"のに使えます。メインパーティションマネージャ画面に戻った後、論理ボリュームが"
-"通常のパーティション同様に表示され、通常のパーティション同様に扱うことができ"
-"ます。"
+"ZFS 設定メニューの各項目は、ZFS プールおよび論理ボリュームを編集するのに使え"
+"ます。メインパーティションマネージャ画面に戻った後、論理ボリュームが通常の"
+"パーティション同様に表示され、通常のパーティション同様に扱うことができます。"
