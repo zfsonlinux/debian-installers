@@ -1110,10 +1110,12 @@ case $ARCH in
 		fi
 		if [ "$rootfs" = "$bootfs" ]; then
 			pmon_grub_path=/boot/grub.elf
+			pmon_boot_cfg_path=$ROOT/boot.cfg
 		else
 			pmon_grub_path=/grub.elf
+			pmon_boot_cfg_path=$ROOT/boot/boot.cfg
 		fi
-		cat > $ROOT/boot.cfg <<EOF
+		cat > $pmon_boot_cfg_path <<EOF
 default 0
 timeout 0
 showmenu 0
