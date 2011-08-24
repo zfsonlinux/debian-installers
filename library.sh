@@ -18,7 +18,7 @@ KERNEL=
 KERNEL_LIST=/tmp/available_kernels.txt
 KERNEL_NAME=`udpkg --print-os`
 case $KERNEL_NAME in
-	linux)		KERNEL_MAJOR="$(uname -r | cut -d . -f 1,2)" ;;
+	linux)		KERNEL_MAJOR="$(uname -r | cut -d - -f 1 | cut -d . -f 1,2)" ;;
 	kfreebsd)	KERNEL_MAJOR="$(uname -r | cut -d . -f 1)" ;;
 	hurd)		KERNEL_MAJOR="$(uname -v | cut -d ' ' -f 2 | cut -d . -f 1)" ;;
 esac
