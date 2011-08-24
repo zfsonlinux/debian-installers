@@ -17,7 +17,7 @@ arch_check_usable_kernel () {
 
 arch_get_kernel () {
 	case "$KERNEL_MAJOR" in
-	    2.6)
+	    2.6|3.*)
 		case "$1" in
 		    *)
 			echo "linux-image-$KERNEL_MAJOR-$1"

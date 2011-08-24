@@ -38,7 +38,7 @@ arch_get_kernel () {
 	fi
 
 	case "$KERNEL_MAJOR" in
-	    2.6)
+	    2.6|3.*)
 		if [ "$SMP" ]; then
 			echo "linux-image-$KERNEL_MAJOR-$1$SMP"
 		fi

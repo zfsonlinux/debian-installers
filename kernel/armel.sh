@@ -22,7 +22,7 @@ arch_check_usable_kernel () {
 
 arch_get_kernel () {
 	case "$KERNEL_MAJOR" in
-	    2.6)
+	    2.6|3.*)
 		case "$1" in
 		    bast)
 			echo "linux-image-$KERNEL_MAJOR-s3c2410"
