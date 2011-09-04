@@ -499,6 +499,10 @@ install_kernel_linux () {
 		do_initrd=yes
 	fi
 
+	if [ `archdetect` = mipsel/loongson-2f ]; then
+	    do_initrd=yes
+	fi
+
 	if db_get base-installer/kernel/linux/link_in_boot ; then
 		if [ "$RET" = "true" ]; then
 			link_in_boot=yes
