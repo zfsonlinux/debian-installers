@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2011-08-07 22:50+0000\n"
-"PO-Revision-Date: 2011-03-09 02:14+0900\n"
+"PO-Revision-Date: 2011-09-13 08:15+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team:  Korean <debian-l10n-korean@lists.debian.org>\n"
 "Language: ko\n"
@@ -65,9 +65,8 @@ msgstr "ZFS 파일 시스템"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr "현재 LVM 설정 정리:"
+msgstr "/boot 및 /lib/modules 분리, 이 ZFS 설정에서 필수"
 
 #. Type: error
 #. Description
@@ -77,6 +76,8 @@ msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"루트 파일 시스템이 ZFS 풀 위에 있습니다. ZFS는 물리적인 크기보다 더 많은 공간"
+"을 사용합니다."
 
 #. Type: error
 #. Description
@@ -89,6 +90,8 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror mode, "
 "not Striped or RAID-Z modes."
 msgstr ""
+"부트로더에서 이 설정은 미러 모드의 풀에서만 지원합니다. 스트립트나 RAID-Z 모"
+"드에서는 지원하지 않습니다."
 
 #. Type: error
 #. Description
@@ -98,14 +101,15 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"/boot 및 /lib/modules 경로가 지원하는 ZFS 풀 설정 위에 있게 하거나, 아니면 다"
+"른 파일시스템을 (UFS 등) 사용하십시오."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
-#, fuzzy
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr "/boot 파티션에 지원하지 않는 파일 시스템을 사용하시겠습니까?"
+msgstr "${MNT}에 지원하지 않는 ZFS 다중 볼륨"
 
 #. Type: error
 #. Description
@@ -114,7 +118,7 @@ msgstr "/boot 파티션에 지원하지 않는 파일 시스템을 사용하시�
 msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
-msgstr ""
+msgstr "${MNT} 파티션이 물리적 볼륨을 여러 개 사용하는 ZFS 풀 위에 있습니다."
 
 #. Type: error
 #. Description
@@ -124,6 +128,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"${MNT} 경로가 지원하는 ZFS 풀 설정 위의 파티션에 있게 하거나, 아니면 다른 파"
+"일시스템을 (UFS 등) 사용하십시오."
 
 #. Type: boolean
 #. Description
@@ -153,57 +159,50 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:6001
-#, fuzzy
 msgid ""
 "You should either use the 64-bit (amd64) version of this installer (if your "
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
-"설치 프로그램의 64비트 버전을 (amd64) 사용하거나, 아니면 파티션 메뉴로 돌아가"
-"서 파티션에 다른 종류의 파일 시스템을 사용하기를 권장합니다."
+"설치 프로그램의 64비트 버전을 (amd64) 사용하거나 (하드웨어에서 지원하는 경"
+"우), 아니면 파티션 메뉴로 돌아가서 파티션에 다른 종류의 파일 시스템을 사용하"
+"기를 권장합니다."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You have configured one or more partitions with the ZFS file system. Using "
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
-"ZFS 파일 시스템으로 설정한 파티션이 있습니다. 32비트 i386에서도 ZFS를 지원하"
-"긴 하지만 이 아키텍쳐의 한계 때문에 특별히 신경 써서 튜닝하지 않는다면 효율이"
-"나 안정성 문제가 발생할 수 있습니다."
+"ZFS 파일 시스템으로 설정한 파티션이 있습니다. 메모리가 512MB가 안 되는 컴퓨터"
+"에서는 ZFS에 안정성 문제가 있으므로 사용을 권장하지 않습니다."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
-msgstr ""
-"파티션 메뉴로 돌아가서 이 오류를 바로잡지 않으면, 이 파티션은 지금 현재 상태"
-"로 사용해야 합니다."
+msgstr "파티션 메뉴로 돌아가서 다른 파일 시스템을 사용하도록 설정해야 합니다."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:8001
-#, fuzzy
 msgid "Configure ZFS"
-msgstr "로캘 설정"
+msgstr "ZFS 설정"
 
 #. Type: text
 #. Description
 #. :sl4:
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
-#, fuzzy
 msgid "In use by ZFS pool ${VG}"
-msgstr "논리 볼륨그룹 ${VG}에서 사용"
+msgstr "ZFS 풀 ${VG}에서 사용"
 
 #. Type: text
 #. Description
@@ -221,7 +220,7 @@ msgstr "설정 내역 보기"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "ZFS 풀 만들기"
 
 #. Type: text
 #. Description
@@ -230,7 +229,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "ZFS 풀 삭제"
 
 #. Type: text
 #. Description
@@ -263,34 +262,31 @@ msgstr "마치기"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid "Write the changes to disk and configure ZFS?"
-msgstr "바뀐 점을 디스크에 쓰고 LVM을 설정하시겠습니까?"
+msgstr "바뀐 점을 디스크에 쓰고 ZFS를 설정하시겠습니까?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
-"암호화 볼륨을 설정하기 전에 먼저 현재 파티션 구성을 디스크에 써야 합니다.  한"
-"번 쓰면 되돌릴 수 없습니다."
+"ZFS를 설정하기 전에 먼저 현재 파티션 구성을 디스크에 써야 합니다. 한번 쓰면 "
+"되돌릴 수 없습니다."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"LVM을 설정하면, 설치 중에는 물리 볼륨이 있는 디스크의 파티션 구성을 더 이상 "
+"ZFS를 설정하면, 설치 중에는 물리 볼륨이 있는 디스크의 파티션 구성을 더 이상 "
 "바꿀 수 없게 됩니다. 현재의 파티션 구성이 괜찮은지 먼저 확인하고 계속하십시"
 "오."
 
@@ -298,9 +294,8 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration failure"
-msgstr "LVM 설정 실패"
+msgstr "ZFS 설정 실패"
 
 #. Type: error
 #. Description
@@ -313,39 +308,34 @@ msgstr "바뀐 점을 디스크에 쓰는 중에 오류가 발생했습니다."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration has been aborted."
-msgstr "설정을 중단했습니다."
+msgstr "ZFS 설정을 중단했습니다."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:18001
-#, fuzzy
 msgid "physical volume for ZFS"
-msgstr "LVM의 물리 볼륨"
+msgstr "ZFS의 물리 볼륨"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "ZFS configuration action:"
-msgstr "LVM 설정 작업:"
+msgstr "ZFS 설정 작업:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "Summary of current ZFS configuration:"
-msgstr "현재 LVM 설정 정리:"
+msgstr "현재 ZFS 설정 요약:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -354,32 +344,29 @@ msgid ""
 msgstr ""
 " 남은 물리 볼륨:     ${FREE_PVS}\n"
 " 사용한 물리 볼륨 :  ${USED_PVS}\n"
-" 볼륨 그룹:          ${VGS}\n"
-" 논리 볼륨:          ${LVS}"
+" ZFS 풀:             ${VGS}\n"
+" ZFS 논리 볼륨:      ${LVS}"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid "Current ZFS configuration:"
-msgstr "현재 LVM 설정:"
+msgstr "현재 ZFS 설정:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Devices for the new ZFS pool:"
-msgstr "새 볼륨 그룹에 쓸 장치:"
+msgstr "새 ZFS 풀에 쓸 장치:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Please select devices for the new ZFS pool."
-msgstr "새 볼륨 그룹에 사용할 장치를 선택하십시오."
+msgstr "새 ZFS 풀에 사용할 장치를 선택하십시오."
 
 #. Type: multiselect
 #. Description
@@ -392,9 +379,8 @@ msgstr "한 개 혹은 그 이상의 장치를 선택할 수 있습니다."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "새 볼륨 그룹에 쓸 장치:"
+msgstr "이 ZFS 풀에 사용할 다중 디스크 모드:"
 
 #. Type: select
 #. Description
@@ -409,13 +395,21 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"ZFS 풀의 멀티디스크 동작 모드를 선택하십시오:\n"
+" * 스트립:  RAID 0과 비슷합니다 (기본값) - 데이터가 물리 볼륨 사이에 흩어져\n"
+"            저장됩니다.\n"
+" * 미러:    RAID 1과 비슷합니다 - 데이터가 각 물리 볼륨에 반복되어\n"
+"            저장됩니다.\n"
+" * RAID-Z:  RAID 5 또는 RAID 6과 비슷합니다 - 일부 물리 볼륨은 패리티 비트"
+"를\n"
+"            저장하고 데이터가 나머지 물리 볼륨에 흩어져 저장됩니다."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "RAID-Z의 패리티 단계:"
 
 #. Type: select
 #. Description
@@ -424,22 +418,21 @@ msgstr ""
 msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
-msgstr ""
+msgstr "패리티 비트를 저장하는데 사용할 물리 볼륨의 수를 선택하십시오."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "ZFS pool name:"
-msgstr ""
+msgstr "ZFS 풀 이름:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr "새 논리 볼륨에 사용하려는 이름을 입력하십시오."
+msgstr "새 ZFS 풀에 사용하려는 이름을 입력하십시오."
 
 #. Type: error
 #. Description
@@ -452,62 +445,54 @@ msgstr "물리 볼륨을 선택하지 않았습니다"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
 msgstr ""
-"물리 볼륨을 하나도 선택하지 않았습니다. 새 볼륨 그룹 만들기 작업을 중단했습니"
-"다."
+"물리 볼륨을 하나도 선택하지 않았습니다. 새 ZFS 풀 만들기 작업을 중단했습니다."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "ZFS 풀 이름 없음"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr "볼륨 그룹의 이름을 입력하지 않았습니다. 이름을 입력하십시오."
+msgstr "ZFS 풀의 이름을 입력하지 않았습니다. 이름을 입력하십시오."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid "ZFS pool name already in use"
-msgstr "볼륨 그룹 이름이 이미 사용 중입니다"
+msgstr "ZFS 풀 이름이 이미 사용 중입니다"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
-msgstr ""
-"지정한 볼륨 그룹 이름을 이미 사용하고 있습니다. 다른 이름을 사용하십시오."
+msgstr "지정한 ZFS 풀 이름을 이미 사용하고 있습니다. 다른 이름을 사용하십시오."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "Error while creating ZFS pool"
-msgstr "새 논리 볼륨을 만드는 데 오류가 발생했습니다"
+msgstr "ZFS 풀을 만드는데 오류가 발생했습니다"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "The ZFS pool ${VG} could not be created."
-msgstr "${VG} 볼륨 그룹을 만들 수 없습니다."
+msgstr "${VG} ZFS 풀을 만들 수 없습니다."
 
 #. Type: error
 #. Description
@@ -529,95 +514,86 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "ZFS pool to delete:"
-msgstr "지울 볼륨 그룹:"
+msgstr "삭제할 ZFS 풀:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "지우려는 볼륨 그룹을 선택하십시오."
+msgstr "삭제하려는 ZFS 풀을 선택하십시오."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "ZFS 풀 없음"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "No ZFS pool has been found."
-msgstr "볼륨 그룹을 찾을 수 없습니다."
+msgstr "ZFS 풀을 찾을 수 없습니다."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "The ZFS pool may have already been deleted."
-msgstr "볼륨 그룹이 이미 지워졌을 것입니다."
+msgstr "ZFS풀을 이미 삭제했을 것입니다."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
-#, fuzzy
 msgid "Really delete the ZFS pool?"
-msgstr "정말로 볼륨 그룹을 지우시겠습니까?"
+msgstr "정말로 ZFS 풀을 삭제하시겠습니까?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "${VG} ZFS 풀 제거를 확인하십시오."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid "Error while deleting ZFS pool"
-msgstr "볼륨 그룹을 지우는 데 오류가 발생했습니다"
+msgstr "ZFS 풀을 삭제하는데 오류가 발생했습니다"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
-"선택한 볼륨 그룹을 지울 수 없습니다. 한 개 이상의 논리 볼륨이 현재 사용 중일 "
+"선택한 ZFS 풀을 삭제할 수 없습니다. 한 개 이상의 논리 볼륨이 현재 사용 중일 "
 "것입니다."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid "No ZFS pool found"
-msgstr "파티션이 없습니다"
+msgstr "ZFS 풀이 없습니다"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"새 논리 볼륨을 만드는 데 쓸 빈 볼륨 그룹을 찾을 수 없습니다.  물리 볼륨과 볼"
-"륨 그룹을 더 만들거나, 현재 볼륨 그룹을 줄이십시오."
+"새 논리 볼륨을 만들 때 사용할 ZFS 풀이 없습니다. ZFS 풀을 추가로 만드시거나 "
+"기존 ZFS 풀에서 빈 공간을 만드십시오."
 
 #. Type: string
 #. Description
@@ -638,16 +614,15 @@ msgstr "새 논리 볼륨에 사용하려는 이름을 입력하십시오."
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "ZFS 풀:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
-#, fuzzy
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
-msgstr "논리 볼륨을 만들 볼륨 그룹을 선택하십시오."
+msgstr "논리 볼륨을 만들 ZFS 풀을 선택하십시오."
 
 #. Type: error
 #. Description
@@ -660,9 +635,8 @@ msgstr "논리 볼륨 이름을 입력하지 않았습니다"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:37001
-#, fuzzy
 msgid "No name for the logical volume has been entered. Please enter a name."
-msgstr "논리 볼륨의 이름을 입력하지 않았습니다.  이름을 입력하십시오."
+msgstr "논리 볼륨의 이름을 입력하지 않았습니다. 이름을 입력하십시오."
 
 #. Type: error
 #. Description
@@ -672,18 +646,16 @@ msgstr "논리 볼륨의 이름을 입력하지 않았습니다.  이름을 입�
 #. :sl4:
 #: ../partman-zfs.templates:38001 ../partman-zfs.templates:40001
 msgid "Error while creating a new logical volume"
-msgstr "새 논리 볼륨을 만드는 데 오류가 발생했습니다"
+msgstr "새 논리 볼륨을 만드는데 오류가 발생했습니다"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
-msgstr ""
-"${LV} 이름이 같은 볼륨 그룹의 (${VG}) 다른 논리 볼륨에서 사용 중입니다."
+msgstr "${LV} 이름이 같은 ZFS 풀의 (${VG}) 다른 논리 볼륨에서 사용 중입니다."
 
 #. Type: string
 #. Description
@@ -726,9 +698,8 @@ msgstr "논리 볼륨을 찾을 수 없습니다"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:41001
-#, fuzzy
 msgid "No logical volume has been found. Please create a logical volume first."
-msgstr "논리 볼륨이 없습니다.  먼저 논리 볼륨을 만드십시오."
+msgstr "논리 볼륨이 없습니다. 먼저 논리 볼륨을 만드십시오."
 
 #. Type: select
 #. Description
@@ -742,7 +713,7 @@ msgstr "논리 볼륨:"
 #. :sl4:
 #: ../partman-zfs.templates:42001
 msgid "Please select the logical volume to delete."
-msgstr "볼륨 그룹에서 지울 논리 볼륨을 선택하십시오."
+msgstr "볼륨 그룹에서 삭제할 논리 볼륨을 선택하십시오."
 
 #. Type: text
 #. Description
@@ -756,15 +727,14 @@ msgstr "볼륨 그룹 ${VG}에 있음"
 #. :sl4:
 #: ../partman-zfs.templates:44001
 msgid "Error while deleting the logical volume"
-msgstr "논리 볼륨을 지우는 데 오류가 발생했습니다"
+msgstr "논리 볼륨을 삭제하는데 오류가 발생했습니다"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:44001
-#, fuzzy
 msgid "The logical volume ${LV} on ${VG} could not be deleted."
-msgstr "${VG} 논리 그룹의 논리 볼륨을 (${LV}) 지울 수 없습니다."
+msgstr "${VG} 논리 그룹의 ${LV} 논리 볼륨을 삭제할 수 없습니다."
 
 #. Type: error
 #. Description
@@ -777,57 +747,52 @@ msgstr "사용할 수 있는 물리 볼륨이 없습니다"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
 "required kernel modules or re-partition the hard drives."
 msgstr ""
 "시스템에서 물리 볼륨(예를 들어 파티션)을 찾을 수 없습니다. 모든 물리 볼륨이 "
-"이미 사용 중입니다. 필요한 커널 모듈을 읽어들이던지, 하드 드라이브를 다시 파"
+"이미 사용 중입니다. 필요한 커널 모듈을 읽어들이거나, 하드 드라이브를 다시 파"
 "티션해야 합니다."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid "ZFS not available"
-msgstr "소프트웨어 RAID가 없습니다"
+msgstr "ZFS를 사용할 수 없습니다"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
 msgstr ""
-"현재 커널은 LVM을 지원하지 않습니다. lvm-mod 모듈을 읽어들여야 할 것입니다."
+"현재 커널은 ZFS를 지원하지 않습니다. zfs 모듈을 읽어들여야 할 것입니다."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "사용할 수 없는 논리 볼륨 이름이거나 볼륨 그룹 이름입니다"
+msgstr "사용할 수 없는 논리 볼륨 이름이거나 ZFS 풀 이름입니다"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"논리 볼륨이나 볼륨 그룹의 이름에는 영문자, 숫자, 빼기(-), 더하기(+), 마침표"
-"(.), 밑줄기호(_)만 사용할 수 있습니다. 길이는 128 글자 이내이고, 빼기 기호로 "
-"시작하면 안 됩니다. \".\"이나 \"..\"도 사용할 수 없습니다. 또 논리 볼륨 이름"
-"은 \"snapshot\"으로 시작하면 안 됩니다."
+"논리 볼륨이나 ZFS 풀의 이름에는 영문자, 숫자, 빼기(-), 더하기(+), 마침표(.), "
+"밑줄기호(_)만 사용할 수 있습니다. 길이는 255 글자 이내이고, 알파벳이나 숫자"
+"로 시작해야 합니다. 이름으로 \"mirror\", \"raidz\", \"spare\", \"log\"는 사용"
+"할 수 없습니다."
 
 #. Type: error
 #. Description
@@ -841,34 +806,31 @@ msgstr "다른 이름을 선택하십시오."
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "Remove existing logical volume data?"
-msgstr "기존의 논리 볼륨 데이터를 지우시겠습니까?"
+msgstr "기존의 논리 볼륨 데이터를 제거하시겠습니까?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"선택한 장치에 들어 있는 다음 LVM 물리 볼륨, 볼륨 그룹, 물리 볼륨을 지울 예정"
-"입니다:"
+"선택한 장치에 들어 있는 다음 ZFS 물리 볼륨 및 ZFS 풀을 제거할 예정입니다:"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr "지울 논리 볼륨: ${LVTARGETS}"
+msgstr "논리 볼륨: ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "ZFS 풀: ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -884,27 +846,25 @@ msgstr "또 이렇게 하면 논리 볼륨에 들어 있는 현재 데이터를 
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
 "other partition is underused. ZFS can help with this."
 msgstr ""
 "시스템 관리자는 이런 상황을 흔하게 접합니다. 일부 디스크 파티션에 (특히 제일 "
-"중요한 파티션이) 공간이 부족한데 다른 파티션은 공간이 남는 경우입니다. LVM(논"
-"리 볼륨 관리자)은 이런 상황에 좋습니다."
+"중요한 파티션이) 공간이 부족한데 다른 파티션은 공간이 남는 경우입니다. ZFS는 "
+"이런 상황에 좋습니다."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -913,24 +873,22 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"LVM을 사용하면 디스크 혹은 파티션 장치들을 (\"물리 볼륨\") 결합해 하나의 가"
-"상 디스크를 (\"볼륨 그룹\") 구성합니다. 그러면 이 볼륨 그룹을 가상 파티션으"
-"로 (\"논리 볼륨\") 나눌 수 있습니다. 볼륨 그룹 및 논리 볼륨은 실제로는 여러 "
-"개의 물리 디스크에 걸쳐 있을 수도 있습니다. 물리 볼륨은 언제든지 볼륨 그룹에 "
-"새로 추가할 수 있고, 볼륨 그룹 내의 할당하지 않은 공간만큼 논리 볼륨의 크기"
-"를 늘릴 수 있습니다."
+"ZFS를 사용하면 디스크 혹은 파티션 장치들을 (\"물리 볼륨\") 결합해 하나의 가"
+"상 디스크를 (\"ZFS 풀\") 구성합니다. 그러면 이 ZFS 풀을 가상 파티션으로 (\"논"
+"리 볼륨\") 나눌 수 있습니다. ZFS 풀 및 논리 볼륨은 실제로는 여러 개의 물리 디"
+"스크에 걸쳐 있을 수도 있습니다. 물리 볼륨은 언제든지 ZFS 풀에 새로 추가할 수 "
+"있고, 논리 볼륨은 ZFS 풀의 전체 크기를 제외하면 크기 제한이 없습니다."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"LVM 설정 메뉴의 항목을 이용해 볼륨 그룹 및 논리 볼륨을 편집합니다. 메인 파티"
-"션 관리자 화면으로 돌아오면 논리 볼륨이 보통 파티션과 똑같이 보이고 보통 파티"
-"션과 똑같이 취급할 수 있습니다."
+"ZFS 설정 메뉴의 항목을 이용해 ZFS 풀 및 논리 볼륨을 편집합니다. 주 파티션 관"
+"리자 화면으로 돌아오면 논리 볼륨이 보통 파티션과 똑같이 보이고 보통 파티션과 "
+"똑같이 취급할 수 있습니다."
