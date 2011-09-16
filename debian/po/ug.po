@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2011-08-07 22:50+0000\n"
-"PO-Revision-Date: 2011-03-24 09:40+0600\n"
+"PO-Revision-Date: 2011-09-16 10:36+0600\n"
 "Last-Translator: Sahran <sahran.ug@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
@@ -58,6 +58,7 @@ msgstr "ZFS ھۆججەت سىستېمىسى"
 #: ../partman-zfs.templates:4001
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
 msgstr ""
+"بۇ ZFS سەپلىمىسى ئۈچۈن /boot ۋە /lib/modules نى مەجبۇرىي تۈرگە ئايرىيدۇ."
 
 #. Type: error
 #. Description
@@ -66,7 +67,7 @@ msgstr ""
 msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
-msgstr ""
+msgstr "غول ھۆججەت سىستېمىسى كۆپ فىزىكىلىق دىسكىدىكى ZFS كۆلچىكىنى ئىشلەتكەن."
 
 #. Type: error
 #. Description
@@ -79,6 +80,8 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror mode, "
 "not Striped or RAID-Z modes."
 msgstr ""
+"قوزغىتىش يېتەكلىگۈچ Striped ياكى RAID-Z ھالىتىنى ئەمەس بەلكى تەسۋىر "
+"ھالىتىدىكى كۆلچىكىنىڭ سەپلىمىسىنىلا قوللايدۇ."
 
 #. Type: error
 #. Description
@@ -88,13 +91,15 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"/boot ۋە /lib/modules بولسا ZFS كۆلچەك سەپلىمىسىنى قوللايدىغان رايوندا "
+"ئىكەنلىكى ياكى UFS كە ئوخشاش پەرقلىق ھۆججەت سىستېمىسى ئىكەنلىكىنى جەزملەڭ."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr ""
+msgstr "${MNT} ئۈچۈن كۆپ دىسكىنى قوللىمايدىغان ZFS"
 
 #. Type: error
 #. Description
@@ -103,7 +108,7 @@ msgstr ""
 msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
-msgstr ""
+msgstr "${MNT} رايونىڭىز كۆپ فىزىكىلىق دىسكىدىكى ZFS كۆلچىكىنى ئىشلەتكەن."
 
 #. Type: error
 #. Description
@@ -113,6 +118,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"${MNT} نىڭ ZFS كۆل سەپلىمىسىنى قوللايدىغان رايوندا ئىكەنلىكى ياكى UFS كە "
+"ئوخشاش پەرقلىق ھۆججەت سىستېمىسى ئىكەنلىكىنى جەزملەڭ."
 
 #. Type: boolean
 #. Description
@@ -161,6 +168,9 @@ msgid ""
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
+"سىز بىر ياكى بىر قانچە رايوننى ZFS ھۆججەت سىستېمىسىدا سەپلىدىڭىز. ئەسلەك "
+"512MB دىن تۆۋەن بولغان ZFS ئىشلەتكەن كومپيۇتېردا مۇقىملىق مەسىلىسى كېلىپ "
+"چىقىشى مۇمكىن شۇڭا تەۋسىيە قىلىنمايدۇ."
 
 #. Type: boolean
 #. Description
@@ -170,6 +180,8 @@ msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
 msgstr ""
+"سىز كەينىدىكى رايونغا ئايرىش تىزىملىكىگە قايتىپ، رايوننى باشقا ھۆججەت "
+"سىستېمىسى ئىشلىتىشكە سەپلەڭ."
 
 #. Type: text
 #. Description
@@ -363,7 +375,7 @@ msgstr "بىر ياكى بىر قانچە ئۈسكۈنە تاللىيالايس�
 #. :sl4:
 #: ../partman-zfs.templates:23001
 msgid "Multidisk mode for this ZFS pool:"
-msgstr ""
+msgstr "ZFS كۆلچىكى ئۈچۈن كۆپ دىسكا ھالىتى:"
 
 #. Type: select
 #. Description
@@ -378,13 +390,21 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"بۇ ZFS كۆلچىكى ئۈچۈن كۆپ دىسكا مەشغۇلات ھالىتىنى تاللاڭ:\n"
+"* سىزىقلىق: RAID 0 (كۆڭۈلدىكى) غا ئوخشايدۇ - سانلىق مەلۇماتلار فىزىكىلىق "
+"دىسكىلار ئارا سىزىقلىق ئۆتۈشۈپ ساقلىنىدۇ؛\n"
+"* تەسۋىر:  RAID 1 گە ئوخشايدۇ - سانلىق مەلۇماتلار ھەر بىر فىزىكىلىق دىسكىغا "
+"كۆچۈرۈلىدۇ؛\n"
+"* RAID-Z:  بۇ RAID 5 ياكى RAID 6 گە ئوخشايدۇ - بەزى فىزىكىلىق دىسكىلار تاق-"
+"جۈپ تەكشۈرۈش خانىسىنى ساقلايدۇ، سانلىق مەلۇماتلار باشقىلار ئارىسىدا ئۆتۈشۈپ "
+"ساقلىنىدۇ."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "تاق-جۈپ تەكشۈرىدىغان RAID-Z دەرىجىسى:"
 
 #. Type: select
 #. Description
@@ -394,6 +414,7 @@ msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
 msgstr ""
+"تاق-جۈپ تەكشۈرىدىغان خانىسىنى ساقلايدىغان فىزىكىلىق دىسكا نومۇرىنى تاللاڭ."
 
 #. Type: string
 #. Description
@@ -532,7 +553,7 @@ msgstr "راستىنىلا ZFS كۆلچىكىنى ئۆچۈرەمسىز؟"
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "چىقىرىۋېتىدىغان ZFS كۆلچەك ${VG} نى جەزملەڭ."
 
 #. Type: error
 #. Description
@@ -652,7 +673,7 @@ msgid ""
 "10T (Terabytes). The default unit is Megabytes."
 msgstr ""
 "يېڭى لوگىكىلىق دىسكا چوڭلۇقىنى كىرگۈزۈڭ. تۆۋەندىكىدەك كىرگۈزسىڭىز بولىدۇ: "
-"10K (كىلوبايت)، 10M (مېگابايت)، 10G (گىگابايت)، 10T (تېرابايت). كۆڭۈلدىكى "
+"10K (كىلوبايت)، 10M (مېگابايت)، 10G (گېگابايت)، 10T (تېرابايت). كۆڭۈلدىكى "
 "بىرلىك مېگابايت."
 
 #. Type: error
@@ -713,7 +734,7 @@ msgstr "لوگىكىلىق دىسكىنى ئۆچۈرۈشتە خاتالىق كۆ
 #. :sl4:
 #: ../partman-zfs.templates:44001
 msgid "The logical volume ${LV} on ${VG} could not be deleted."
-msgstr "${VG} دىكى لوگىكىلىق دىسكا (${LV}) نى ئۆچۈرەلمەيدۇ."
+msgstr "${VG} دىكى لوگىكىلىق دىسكا ${LV} نى ئۆچۈرەلمەيدۇ."
 
 #. Type: error
 #. Description
@@ -770,6 +791,10 @@ msgid ""
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
+"لوگىكىلىق دىسكا ياكى ZFS كۆلچەك ئاتى پەقەت بىر بايتلىق ئىنگلىزچە ھەرپ، سان، "
+"سىزىق، قوش چېكىت ۋە ئاستى سىزىقنىلا ئۆز ئىچىگە ئالىدۇ. بۇ ئىسىملار 255 "
+"ھەرپتىن ئاز ياكى تەڭ بولۇشى ھەمدە ھەرپ بىلەن باشلىنىشى لازىم.  ئۇندىن باشقا "
+"ئاتى \"mirror\"، \"raidz\"، \"spare\"ۋە \"log\" بولسا بولمايدۇ."
 
 #. Type: error
 #. Description
@@ -836,6 +861,9 @@ msgid ""
 "partition (usually the most important one) is short on space, while some "
 "other partition is underused. ZFS can help with this."
 msgstr ""
+"سىستېما باشقۇرغۇچى دائىم بايقايدىغان بىر مەسىلە شۇكى بەزى دىسكا رايونى "
+"(ئادەتتە ئەڭ مۇھىم بىرى)نىڭ دىسكا بوشلۇقى ئاز ئەمما باشقا رايونلار ئاساسەن "
+"ئىشلىتىلمىگەن بولىدۇ. ZFS نىڭ بۇنىڭغا ياردىمى بار."
 
 #. Type: note
 #. Description
@@ -849,6 +877,12 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
+"ZFS دىسكا ياكى رايون ئۈسكۈنىسى («فىزىكىلىق دىسكا»)نى مەۋھۇم دىسكا («ZFS "
+"كۆلچەك»)دىن بىرلەشتۈرۈشكە يول قويىدۇ،  ئۇلارنى مەۋھۇم رايون («لوگىكىلىق "
+"دىسكا»)غا بۆلۈشكە بولىدۇ. ZFS كۆلچىكى ۋە لوگىكىلىق دىسكا بىر قانچە فىزىكىلىق "
+"دىسكىدىن ھالقىسا بولىدۇ. يېڭى فىزىكىلىق دىسكا ھەر قانداق ۋاقىتتا ZFS "
+"كۆلچىكىگە قوشۇلالايدۇ ھەمدە لوگىكىلىق دىسكا سىغىم چەكلىمىسى يوق بولۇپ، ھەتتا "
+"ZFS كۆلچىكىدىكى تەقسىملەنمىگەن ھەممە بوشلۇققا كېڭەيتكىلى بولىدۇ."
 
 #. Type: note
 #. Description
@@ -860,3 +894,6 @@ msgid ""
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
+"ZFS سەپلىمە تىزىملىكىدىكى تۈرلەر ZFS كۆلچىكى ۋە لوگىكىلىق رايون تەھرىرلەشكە "
+"ئىشلىتىلىدۇ. سىز  رايون باشقۇرغۇچنىڭ ئاساسىي ئېكرانىغا قايتقاندا، لوگىكىلىق "
+"رايون ئادەتتىكى رايون بىلەن ئوخشاش كۆرۈنىدۇ ھەمدە ئوخشاش مۇئامىلە قىلىنىدۇ."

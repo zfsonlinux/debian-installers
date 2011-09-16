@@ -59,9 +59,8 @@ msgstr "Dosiersistemo ZFS"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr "Resumo de la nuna LVM-agordo:"
+msgstr "Nepre oni apartigu /boot kaj /lib/modules por tiu ĉi agordo ZFS"
 
 #. Type: error
 #. Description
@@ -71,6 +70,8 @@ msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Via radika dosiersistemo estas en ZFS-aro kiu uzas pli ol unu konkreta "
+"datumportilo."
 
 #. Type: error
 #. Description
@@ -83,6 +84,8 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror mode, "
 "not Striped or RAID-Z modes."
 msgstr ""
+"La ekŝargilo nur subtenas tiun ĉi agordon por aroj en reĝimo 'Mirror', ne en "
+"reĝimoj 'Striped' aŭ RAID-Z."
 
 #. Type: error
 #. Description
@@ -92,14 +95,15 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"Certigu ke /boot kaj /lib/modules estas en diskparto kiu uzas subtenatan "
+"agordon de ZFS-aro, aŭ en malsama dosiersistemo tia kia UFS."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
-#, fuzzy
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr "Ĉu uzi ne subtenatan tipon de dosiersistemo por /boot?"
+msgstr "Ne subtenata multobla datumportilo ZFS por ${MNT}"
 
 #. Type: error
 #. Description
@@ -109,6 +113,8 @@ msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Via diskparto ${MNT} estas en ZFS-aro kiu uzas pli ol unu konkreta "
+"datumportilo."
 
 #. Type: error
 #. Description
@@ -118,6 +124,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"Certigu ke ${MNT} estas en diskparto kiu uzas subtenatan agordon de ZFS-aro, "
+"aŭ en malsama dosiersistemo tia kia UFS."
 
 #. Type: boolean
 #. Description
@@ -147,58 +155,53 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:6001
-#, fuzzy
 msgid ""
 "You should either use the 64-bit (amd64) version of this installer (if your "
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
-"Ni instigas vin uzi la 64-bitan (amd64) version de tiu ĉi instalilo (se via "
-"aparataro eltenas tion ĉi), aŭ retroiri al la diskpartiga menuo kaj agordi "
+"Vi devus uzi la 64-bitan (amd64) version de tiu ĉi instalilo (se via "
+"aparataro subtenas ĉi tion), aŭ retroiri al la diskpartiga menuo kaj agordi "
 "la diskpartojn por uzi alian dosiersistemon."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You have configured one or more partitions with the ZFS file system. Using "
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
-"Vi agordis unu aŭ pli diskpartojn kun la dosiersistemo ZFS. Kvankam ZFS "
-"estas subtenata en 32-bita i386, uzadi ĝin sen speciala agordado povas krei "
-"problemojn de stabileco aŭ kvalito, pro limoj en tiu ĉi arkiteturo."
+"Vi agordis unu aŭ pli diskpartojn kun la dosiersistemo ZFS. Uzo de ZFS en "
+"komputilo kun malpli ol 512 MB da memoro povas krei malstabilecajn "
+"problemojn kaj ne estas rekomendinde."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
 msgstr ""
-"Se vi ne retroiras al diskpartigada menuo por korekti ĉiujn erarojn, la "
-"diskparto estos uzita tiel, kiel ĝi estas."
+"Vi devos retroiri al la diskpartiga menuo kaj agordi la diskpartojn por uzi "
+"alian dosiersistemon."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:8001
-#, fuzzy
 msgid "Configure ZFS"
-msgstr "Agordi la regionparametrojn"
+msgstr "Agordi ZFS"
 
 #. Type: text
 #. Description
 #. :sl4:
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
-#, fuzzy
 msgid "In use by ZFS pool ${VG}"
-msgstr "Uzata de LVM-a datumportil-grupo ${VG}"
+msgstr "Uzata de ZFS-aro ${VG}"
 
 #. Type: text
 #. Description
@@ -216,7 +219,7 @@ msgstr "Montrigi detalojn pri agordo"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "Krei ZFS-aron"
 
 #. Type: text
 #. Description
@@ -225,7 +228,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "Forviŝi ZFS-aron"
 
 #. Type: text
 #. Description
@@ -258,45 +261,41 @@ msgstr "Finigi"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid "Write the changes to disk and configure ZFS?"
-msgstr "Ĉu skribi la ŝanĝojn sur diskoj kaj agordi LVM?"
+msgstr "Ĉu skribi la ŝanĝojn sur la disko kaj agordi ZFS?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
-"Antaŭ ol agordi la ĉifritajn datumportilojn, la nunan diskpartig-aranĝon "
-"devas esti skribita sur la disko. Tiuj ĉi ŝanĝoj ne povos esti malfarataj."
+"Antaŭ ol agordi ZFS, la nuna diskpartig-aranĝo devas esti skribita sur la "
+"disko. Tiuj ĉi ŝanĝoj ne povos esti malfarataj."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"Post agordado de la Logika Datumportila Administrilo, neniu plia ŝanĝo al la "
-"diskpart-aranĝo de diskoj enhavantaj konkretajn datumportilojn estos "
-"permesataj dum la instalado. Antaŭ ol daŭrigi, bonvolu certiĝi ke vi "
-"kontentas pri la nuna diskpartiga aranĝo."
+"Post agordado de ZFS, neniu plia ŝanĝo al la diskpart-aranĝo de diskoj "
+"enhavantaj konkretajn datumportilojn estos permesataj dum la instalado. "
+"Antaŭ ol daŭrigi, bonvolu certiĝi ke vi kontentas pri la nuna diskpartiga "
+"aranĝo."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration failure"
-msgstr "Akomodado de Logika Datumportila Administrilo fiaskis"
+msgstr "Agordado de ZFS fiaskis"
 
 #. Type: error
 #. Description
@@ -309,73 +308,65 @@ msgstr "Eraro okazis dum skribado de ŝanĝoj al la diskoj."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration has been aborted."
-msgstr "La agordado estas ĉesigita."
+msgstr "La agordado de ZFS estas ĉesigita."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:18001
-#, fuzzy
 msgid "physical volume for ZFS"
-msgstr "konkreta datumportilo por Logika Datumportila Administrilo"
+msgstr "konkreta datumportilo por ZFS"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "ZFS configuration action:"
-msgstr "Agorda ago de LVM (logika datumportila administrilo):"
+msgstr "Agorda ago de ZFS:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "Summary of current ZFS configuration:"
-msgstr "Resumo de la nuna LVM-agordo:"
+msgstr "Resumo de la nuna ZFS-agordo:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
 " ZFS pools:              ${VGS}\n"
 " ZFS logical volumes:    ${LVS}"
 msgstr ""
-" Liberaj Konkretaj Datumportiloj:  ${FREE_PVS}\n"
-" Uzataj Konktretaj Datumportiloj:  ${USED_PVS}\n"
-" Datumportilaj Grupoj:             ${VGS}\n"
-" Logikaj Datumportiloj:            ${LVS}"
+" Liberaj konkretaj datumportiloj:  ${FREE_PVS}\n"
+" Uzataj konktretaj datumportiloj:  ${USED_PVS}\n"
+" ZFS-aroj:                         ${VGS}\n"
+" Logikaj datumportiloj ZFS:        ${LVS}"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid "Current ZFS configuration:"
-msgstr "Nuna agordo de Logika Datumportila Administrilo:"
+msgstr "Nuna agordo de ZFS:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Devices for the new ZFS pool:"
-msgstr "Aparatoj por la nova datumportila grupo:"
+msgstr "Aparatoj por la nova ZFS-aro:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Please select devices for the new ZFS pool."
-msgstr "Bonvolu elekti aparatojn por la nova datumportila grupo."
+msgstr "Bonvolu elekti aparatojn por la nova ZFS-aro."
 
 #. Type: multiselect
 #. Description
@@ -388,9 +379,8 @@ msgstr "Vi povas elekti unu aŭ pli aparatojn."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "Aparatoj por la nova datumportila grupo:"
+msgstr "Plurdiska reĝimo por tiu ĉi ZFS-aro:"
 
 #. Type: select
 #. Description
@@ -894,7 +884,7 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
