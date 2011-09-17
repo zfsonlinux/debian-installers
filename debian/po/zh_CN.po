@@ -33,7 +33,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2011-08-07 22:50+0000\n"
-"PO-Revision-Date: 2011-08-11 11:13+0800\n"
+"PO-Revision-Date: 2011-09-18 01:07+0800\n"
 "Last-Translator: YunQiang Su <wzssyqa@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -71,9 +71,8 @@ msgstr "ZFS 文件系统"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr "当前 LVM 配置的总结："
+msgstr "此 ZFS 配置强制分离出了 /boot 和 /lib/modules"
 
 #. Type: error
 #. Description
@@ -82,7 +81,7 @@ msgstr "当前 LVM 配置的总结："
 msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
-msgstr ""
+msgstr "您的根文件系统在一个使用了多个物理卷的 ZFS 池上。"
 
 #. Type: error
 #. Description
@@ -95,6 +94,7 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror mode, "
 "not Striped or RAID-Z modes."
 msgstr ""
+"此引导器只对镜像(Mirror)模式的池支持此配置，对 Striped 或 RAID-Z 模式不支持。"
 
 #. Type: error
 #. Description
@@ -104,14 +104,15 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"确保 /boot 和 /lib/modules 位于一个使用了受支持的 ZFS 池配置的分区上，或者其"
+"它类型的文件系统，比如 UFS。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
-#, fuzzy
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr "在 /boot 上使用不受支持的文件系统吗？"
+msgstr "${MNT} 上不受支持的多卷 ZFS"
 
 #. Type: error
 #. Description
@@ -120,7 +121,7 @@ msgstr "在 /boot 上使用不受支持的文件系统吗？"
 msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
-msgstr ""
+msgstr "您的 ${MNT} 分区位于一个使用了多个物理分区的 ZFS 池上。"
 
 #. Type: error
 #. Description
@@ -130,6 +131,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"确保 ${MNT} 在一个使用了受支持的 ZFS 池配置的分区上，或者其它类型的文件系统，"
+"比如 UFS。"
 
 #. Type: boolean
 #. Description
@@ -158,54 +161,49 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:6001
-#, fuzzy
 msgid ""
 "You should either use the 64-bit (amd64) version of this installer (if your "
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
-"如果硬件支持，推荐您使用此安装器的 64 位版，或者返回分区菜单，配置使用其它文"
-"件系统。"
+"您必须要么使用此安装器的 64 位(AMD64)版(如果硬件支持的话)，或者返回分区菜单，"
+"配置使用其它文件系统。"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You have configured one or more partitions with the ZFS file system. Using "
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
-"您已经配置一个或多个使用 ZFS 文件系统的分区。虽然 ZFS 在 32 位 i386 受到支"
-"持，但是如果没有进行特殊调整可能会因为此架构的限制而产生性能或稳定性问题。"
+"您已经配置一个或多个使用 ZFS 文件系统的分区。在少于 512MB 内存的机器上使用 "
+"ZFS可能会造成不稳定，因而不推荐。"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
-msgstr "如果您不返回分区菜单并更正这些错误，将以现状使用此分区。"
+msgstr "您应该返回分区菜单并配置此分区使用其它文件系统。"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:8001
-#, fuzzy
 msgid "Configure ZFS"
-msgstr "配置区域"
+msgstr "配置 ZFS"
 
 #. Type: text
 #. Description
 #. :sl4:
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
-#, fuzzy
 msgid "In use by ZFS pool ${VG}"
-msgstr "已被 LVM 卷组 ${VG} 所使用"
+msgstr "已被 ZFS 池 ${VG} 所使用"
 
 #. Type: text
 #. Description
@@ -223,7 +221,7 @@ msgstr "显示配置详情"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "创建 ZFS 池"
 
 #. Type: text
 #. Description
@@ -232,7 +230,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "删除 ZFS 池"
 
 #. Type: text
 #. Description
@@ -265,44 +263,40 @@ msgstr "完成"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid "Write the changes to disk and configure ZFS?"
-msgstr "将修改写入磁盘并配置 LVM 吗？"
+msgstr "将修改写入磁盘并配置 ZFS 吗？"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
-"必须先将当前的分区方案写入磁盘，然后才能开始对加密卷进行配置。这些改动将不再"
-"可以撤消。"
+"必须先将当前的分区方案写入磁盘，然后才能开始配置 ZFS。这些改动将不再可以撤"
+"消。"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"一旦逻辑卷管理器设置完成，安装过程中就不允许再对包含物理卷的磁盘上的分区方案"
-"进行额外的改动。因此，在进行下一步操作之前，请您确认是否真的满意这些磁盘上当"
-"前的分区方案。"
+"一旦 ZFS 设置完成，安装过程中就不允许再对包含物理卷的磁盘上的分区方案进行额外"
+"的改动。因此，在进行下一步操作之前，请您确认是否真的满意这些磁盘上当前的分区"
+"方案。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration failure"
-msgstr "LVM 设置失败"
+msgstr "ZFS 设置失败"
 
 #. Type: error
 #. Description
@@ -315,39 +309,34 @@ msgstr "将修改内容写入磁盘时出现一个错误。"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration has been aborted."
-msgstr "设置被中止。"
+msgstr "ZFS 设置被中止。"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:18001
-#, fuzzy
 msgid "physical volume for ZFS"
-msgstr "LVM 物理卷"
+msgstr "ZFS 物理卷"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "ZFS configuration action:"
-msgstr "LVM 配置动作："
+msgstr "ZFS 配置动作："
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "Summary of current ZFS configuration:"
-msgstr "当前 LVM 配置的总结："
+msgstr "当前 ZFS 配置的总结："
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -356,32 +345,29 @@ msgid ""
 msgstr ""
 " 空闲物理卷：            ${FREE_PVS}\n"
 " 已用物理卷：            ${USED_PVS}\n"
-" 卷组：                  ${VGS}\n"
-" 逻辑卷：                ${LVS}"
+" ZFS 池：               ${VGS}\n"
+" ZFS 逻辑卷：           ${LVS}"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid "Current ZFS configuration:"
-msgstr "当前 LVM 配置"
+msgstr "当前 ZFS 配置"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Devices for the new ZFS pool:"
-msgstr "新卷组使用的设备："
+msgstr "新 ZFS 池使用的设备："
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Please select devices for the new ZFS pool."
-msgstr "请选择新卷组使用的设备。"
+msgstr "请选择新 ZFS 池使用的设备。"
 
 #. Type: multiselect
 #. Description
@@ -394,9 +380,8 @@ msgstr "您可以选择一个或多个设备。"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "新卷组使用的设备："
+msgstr "此 ZFS 池使用的多磁盘模式："
 
 #. Type: select
 #. Description
@@ -411,13 +396,18 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"请选择此 ZFS 池多磁盘操作的模式：\n"
+" * Striped: 类似于 RAID 0 (默认) - 数据分布跨越各个物理卷；\n"
+" * Mirror:  类似于 RAID 1 - 数据在每个物理卷上都重复；\n"
+" * RAID-Z:  类似于 RAID 5 或 RAID 6 - 一些物理卷存储奇偶校验位，\n"
+"              数据跨越分布于其它分区。"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "RAID-Z 的奇偶校验水平："
 
 #. Type: select
 #. Description
@@ -426,22 +416,21 @@ msgstr ""
 msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
-msgstr ""
+msgstr "请选择用于存储奇偶校验位的磁盘卷数目。"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "ZFS pool name:"
-msgstr ""
+msgstr "ZFS 池名称"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr "请输入新逻辑卷的名称。"
+msgstr "请输入新 ZFS 池的名称。"
 
 #. Type: error
 #. Description
@@ -454,59 +443,53 @@ msgstr "没有选择物理卷"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
-msgstr "未选择物理卷。建立新卷组的动作已被中止。"
+msgstr "未选择物理卷。建立新 ZFS 池的动作已被中止。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "无 ZFS 池名"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr "尚未输入卷组名。请输入一个名称。"
+msgstr "尚未输入 ZFS 池名。请输入一个名称。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid "ZFS pool name already in use"
-msgstr "卷组名已被使用"
+msgstr "ZFS 池名名已被使用"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
-msgstr "所选卷组名已被使用。请选用另一个名称。"
+msgstr "所选 ZFS 池名已被使用。请选用另一个名称。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "Error while creating ZFS pool"
-msgstr "创建新逻辑卷时出错"
+msgstr "创建 ZFS 池时出错"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "The ZFS pool ${VG} could not be created."
-msgstr "无法创建逻辑卷 ${VG}。"
+msgstr "无法创建 ZFS 池 ${VG}。"
 
 #. Type: error
 #. Description
@@ -526,93 +509,84 @@ msgstr "请检查 /var/log/syslog 或查看第四虚拟控制台以获得详细�
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "ZFS pool to delete:"
-msgstr "要删除的卷组："
+msgstr "要删除的 ZFS 池："
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "请选择您要删除的卷组。"
+msgstr "请选择您要删除的 ZFS 池。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "无 ZFS 池"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "No ZFS pool has been found."
-msgstr "没有找到卷组。"
+msgstr "没有找到 ZFS 池。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "The ZFS pool may have already been deleted."
-msgstr "卷组也许已被删除。"
+msgstr "此 ZFS 池也许已被删除。"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
-#, fuzzy
 msgid "Really delete the ZFS pool?"
-msgstr "真的要删除此卷组吗？"
+msgstr "真的要删除此 ZFS 池吗？"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "请确认对 ZFS 池 ${VG} 的删除。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid "Error while deleting ZFS pool"
-msgstr "删除卷组出错"
+msgstr "删除 ZFS 池出错"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
-msgstr "无法删除所选卷组。一个或多个逻辑卷正在被使用。"
+msgstr "无法删除所选 ZFS 池。一个或多个逻辑卷正在被使用。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid "No ZFS pool found"
-msgstr "未找到分区"
+msgstr "未找到 ZFS 池"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"未能找到建立新逻辑卷需要的空闲卷组。请创建更多的物理卷和卷组，或缩减某个现有"
-"卷组。"
+"未能找到建立新逻辑卷需要的空闲 ZFS 池。请创建其它 ZFS 池，或在现有的 ZFS 池中"
+"释放空间。"
 
 #. Type: string
 #. Description
@@ -633,16 +607,15 @@ msgstr "请输入新逻辑卷的名称。"
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "ZFS 池："
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
-#, fuzzy
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
-msgstr "请选择新逻辑卷所在的卷组。"
+msgstr "请选择新逻辑卷所在的 ZFS 池。"
 
 #. Type: error
 #. Description
@@ -672,11 +645,10 @@ msgstr "创建新逻辑卷时出错"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
-msgstr "逻辑卷名 ${LV} 已被同一卷组 (${VG}) 中的另一个逻辑卷使用。"
+msgstr "逻辑卷名 ${LV} 已被同一 ZFS 池 (${VG}) 中的另一个逻辑卷使用。"
 
 #. Type: string
 #. Description
@@ -766,54 +738,49 @@ msgstr "没有找到可用的物理卷"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
 "required kernel modules or re-partition the hard drives."
 msgstr ""
-"系统中没有找到物理卷 (即物理分区)。可能所有物理分区都在使用中。您也许应该加载"
+"系统中没有找到物理卷(即物理分区)。可能所有物理分区都在使用中。您也许应该加载"
 "一些必需的内核模块，或者对硬盘重新分区。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid "ZFS not available"
-msgstr "软件 RAID 不可用"
+msgstr "ZFS 不可用"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
-msgstr "当前的内核不支持逻辑卷管理器。您也许应该加载 lvm-mod 模块。"
+msgstr "当前的内核不支持 ZFS。您也许应该加载 zfs 模块。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "无效的逻辑卷或卷组名称"
+msgstr "无效的逻辑卷或 ZFS 池名称"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"逻辑卷或卷组的名称只能包含半角的英文字母、数字、连字符 (-)、加号、句点和下划"
-"线。这些名称必须少于或等于 128 个字符，并且不能以连字符开始。“.”和“..”两个名"
-"称是不被允许的。另外，逻辑卷的名称不能以“snapshot”开始。"
+"逻辑卷或 ZFS 池的名称只能包含半角的英文字母、数字、连字符 (-)、冒号、句点和下"
+"划线。这些名称必须少于或等于 128 个字符，并且不能以连字符开始。“.”和“..”两个"
+"名称是不被允许的。另外，逻辑卷的名称不能以“snapshot”开始。"
 
 #. Type: error
 #. Description
@@ -833,27 +800,24 @@ msgstr "移除现有的逻辑卷数据？"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
-msgstr ""
-"您所选择的设备已经包含了下列 LVM 逻辑卷、卷组和物理卷，它们将会被移除："
+msgstr "您所选择的设备已经包含了下列将要移除 ZFS 逻辑卷和 ZFS 池："
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr "要移除的逻辑卷：${LVTARGETS}"
+msgstr "逻辑卷：${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "ZFS 池: ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -869,26 +833,24 @@ msgstr "注意这也将会把这些逻辑卷上现有的数据全都永久删除
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
 "other partition is underused. ZFS can help with this."
 msgstr ""
 "系统管理员经常会发现的一个情况是有些磁盘分区(经常是最重要那些)可用空间低，而"
-"其他分区则基本没有使用。逻辑卷管理器(LVM)对此能有所帮助。"
+"其他分区则基本没有使用。ZFS 对此能有所帮助。"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -897,21 +859,20 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"LVM 允许合并磁盘或分区设备(“物理卷”)来组成虚拟磁盘(“卷组”)，它们可以被分割为"
-"虚拟分区(“逻辑卷”)。卷组和逻辑卷可以跨跃多个物理磁盘。新的物理卷在任何时间可"
-"以随时加入到卷组中，而且逻辑卷可以改变体积，直至扩大到使用卷组内所有未分配空"
-"间。"
+"ZFS 允许合并磁盘或分区设备(“物理卷”)来组成虚拟磁盘(“ZFS 池”)，它们可以被分割"
+"为虚拟分区(“逻辑卷”)。ZFS 池和逻辑卷可以跨跃多个物理磁盘。新的物理卷在任何时"
+"间可以随时加入到卷组中，而且逻辑卷可以改变体积，直至扩大到使用卷组内所有未分"
+"配空间。"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"LVM 配置菜单中的项目可用来编辑卷组和逻辑卷。在您返回到分区管理器主屏幕后，逻"
-"辑卷组会显示为与普通分区一样，并且应该被同等对待。"
+"ZFS 配置菜单中的项目可用来编辑 ZFS 池和逻辑卷。在您返回到分区管理器主屏幕后，"
+"逻辑卷组会显示为与普通分区一样，并且应该被同等对待。"
