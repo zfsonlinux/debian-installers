@@ -1,26 +1,22 @@
 #!/usr/bin/make -f
 
+SCONSFLAGS=--no-cache -C src debug=1
+
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-	OPTIM = -O0
+	SCONSFLAGS+= optim=-O0
 else
-	OPTIM = -O2
+	SCONSFLAGS+= optim=-O2
 endif
 
 override_dh_auto_build:
-	scons --no-cache -C src debug=1 optim=$(OPTIM)
-	xsltproc --nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl debian/zfs-fuse.man.xml
+	scons $(SCONSFLAGS)
 
 override_dh_auto_clean:
-	scons -c -C src
-	rm -f zfs-fuse.8
-	-test -r /usr/share/misc/config.sub && \
-	cp -f /usr/share/misc/config.sub src/lib/libumem/config.sub
-	-test -r /usr/share/misc/config.guess && \
-	cp -f /usr/share/misc/config.guess src/lib/libumem/config.guess
-
+	scons $(SCONSFLAGS) -ccc
+	rm -f src/.sconsign.dblite
 
 override_dh_auto_install:
-	scons -C src debug=1 DESTDIR=$(CURDIR)/debian/zfs-fuse install_dir=/sbin man_dir=/usr/share/man/man8 install
+	scons $(SCONSFLAGS) DESTDIR=$(CURDIR)/debian/zfs-fuse install_dir=/sbin man_dir=/usr/share/man/man8 install
 	install -m 644 contrib/zfsrc $(CURDIR)/debian/zfs-fuse/etc/zfs
 	install -m 644 -T contrib/zfs_completion.bash $(CURDIR)/debian/zfs-fuse/etc/bash_completion.d/zfs-fuse
 
@@ -30,8 +26,5 @@ override_dh_installchangelogs:
 override_dh_installinit:
 	dh_installinit --no-start -- start 38 S . stop 39 0 6 .
 
-override_dh_installman:
-	dh_installman zfs-fuse.8
-
 %:
-	dh $@ --with-quilt
+	dh $@
