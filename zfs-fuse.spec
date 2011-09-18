@@ -1,8 +1,8 @@
 # Release tag is supposed to be 0. for prerelease, X. for serial number in this version and alphatag XXXsvn.
 
 Name:          zfs-fuse
-Version:       0.6.9
-Release:       snapshot
+Version:       0.7.0
+Release:       1
 Summary:       The last word in filesystems
 License:       GPL
 Group:         System Environment/Daemons
@@ -72,7 +72,7 @@ install -m755 contrib/%{name}.initd.fedora $RPM_BUILD_ROOT%{_initrddir}/%{name}
 install -m644 contrib/%{name}.sysconfig $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/%{name}
 ln -s %{_sysconfdir}/init.d/%{name} $RPM_BUILD_ROOT%_sbindir/rc%{name}
 mkdir -p $RPM_BUILD_ROOT%{_mandir}/man8
-install -m 644 doc/*.8.gz $RPM_BUILD_ROOT%{_mandir}/man8
+install -m 644 doc/*.8 $RPM_BUILD_ROOT%{_mandir}/man8
 cd src
 scons install install_dir=$RPM_BUILD_ROOT%_sbindir man_dir=$RPM_BUILD_ROOT%_mandir/man8/
 
@@ -94,7 +94,13 @@ scons install install_dir=$RPM_BUILD_ROOT%_sbindir man_dir=$RPM_BUILD_ROOT%_mand
 %{_sbindir}/zstreamdump
 
 %changelog
-* Tue Jun 01 2010 Seth Heeren <sgheeren@hotmail.com> 0.6.9-0
+* Wed Mar 09 2011 Seth Heeren <zfs-fuse@sehe.nl> 0.7.0-1
+- Release 0.7.0
+
+* Fri Oct 01 2010 Seth Heeren <zfs-fuse@sehe.nl> 0.7.0-0
+- Release 0.7.0
+
+* Tue Jun 01 2010 Seth Heeren <zfs-fuse@sehe.nl> 0.6.9-0
 - Release 0.6.9 as is in preparation for 0.7.0
 
 * Sun Dec 06 2009 Manuel Amador (Rudd-O) <rudd-o@rudd-o.com> 0.6.0-1
