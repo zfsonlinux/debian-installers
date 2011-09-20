@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2011-08-07 22:50+0000\n"
-"PO-Revision-Date: 2011-09-14 21:52-0300\n"
+"PO-Revision-Date: 2011-09-19 20:14-0300\n"
 "Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "Language: eo\n"
@@ -395,13 +395,20 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Bonvolu elekti la reĝimon por plurdiskaj operacioj en tiu ĉi ZFS-aro:\n"
+" * Striped: simila al RAID 0 (apriora) - datumaro estas lasata tra la\n"
+"            konkretaj datumportiloj;\n"
+" * Mirror:  simila al RAID 1 - datumaro estas duobligata al ĉiu konkreta\n"
+"            datumportilo;\n"
+" * RAID-Z:  simila al RAID 5 aŭ RAID 6 - kelkaj konkretaj datumportiloj\n"
+"            konservas parecajn bitojn kaj datumaro estas lasata tra aliaj."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "Pareca nivelo por RAID-Z:"
 
 #. Type: select
 #. Description
@@ -411,22 +418,22 @@ msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
 msgstr ""
+"Bonvolu elekti la nombron da konkretaj datumportiloj kiuj estos uzataj por "
+"konservi parecajn bitojn."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "ZFS pool name:"
-msgstr ""
+msgstr "Nomo de ZFS-aro:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr ""
-"Bonvolu tajpi la nomon kiun vi deziras uzi por la nova logika datumportilo."
+msgstr "Bonvolu tajpi la nomon kiun vi deziras uzi por la ZFS-aro."
 
 #. Type: error
 #. Description
@@ -439,64 +446,56 @@ msgstr "Neniu konkreta datumportilo elektite"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
 msgstr ""
-"Neniu datumportilo estas elektita. La kreado de nova datumportila grupo "
-"estis nuligata."
+"Neniu konkreta datumportilo estas elektita. La kreado de nova ZFS-aro estis "
+"nuligata."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "Neniu nomo de ZFS-aro"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr ""
-"Neniu nomo por la datumportil-grupo estis indikata. Bonvolu tajpi nomon."
+msgstr "Neniu nomo por la ZFS-aro estis indikata. Bonvolu tajpi nomon."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid "ZFS pool name already in use"
-msgstr "Jam uzata datumportila grupa nomo"
+msgstr "Nomo de ZFS-aro jam estas okupata"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
 msgstr ""
-"La elektita datumportila grupnomo estas jam uzata. Bonvolu elekti malsaman "
-"nomon."
+"La elektita nomo de ZFS-aro estas jam uzata. Bonvolu elekti malsaman nomon."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "Error while creating ZFS pool"
-msgstr "Eraro dum kreado de nova logika datumportilo"
+msgstr "Eraro dum kreado de ZFS-aro"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "The ZFS pool ${VG} could not be created."
-msgstr "La datumportila grupo ${VG} ne povis esti kreata."
+msgstr "La ZFS-aro ${VG} ne povis esti kreata."
 
 #. Type: error
 #. Description
@@ -518,96 +517,86 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "ZFS pool to delete:"
-msgstr "Forviŝota datumportila grupo:"
+msgstr "Forviŝota ZFS-aro:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "Bonvolu elekti la datumportilan grupon, kiun vi volas forviŝi."
+msgstr "Bonvolu elekti la ZFS-aron, kiun vi volas forviŝi."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "Neniu ZFS-aro"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "No ZFS pool has been found."
-msgstr "Neniu datumportila grupo estas trovita."
+msgstr "Neniu ZFS-aro estas trovita."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "The ZFS pool may have already been deleted."
-msgstr "La datumportila grupo eble jam estas forviŝita."
+msgstr "La ZFS-aro eble jam estas forviŝita."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
-#, fuzzy
 msgid "Really delete the ZFS pool?"
-msgstr "Ĉu vi vere forviŝos la datumportilan grupon?"
+msgstr "Ĉu vi vere forviŝos la ZFS-aron?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "Bonvolu confirmu la forviŝon de la ZFS-aro ${VG}."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid "Error while deleting ZFS pool"
-msgstr "Eraro dum forviŝado de datumportila grupo"
+msgstr "Eraro dum forviŝado de ZFS-aro"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
-"La elektitan datumportilan grupon ne eblis forviŝi. Unu aŭ pli logikaj "
-"datumportiloj eble estas momente uzataj."
+"La elektitan ZFS-aron ne eblis forviŝi. Unu aŭ pli logikaj datumportiloj "
+"eble estas momente uzataj."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid "No ZFS pool found"
-msgstr "Neniu trovita diskparto"
+msgstr "Neniu trovita ZFS-aro"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"Neniu libera datumportila grupo troviĝis por krei novan logikan "
-"datumportilon. Bonvole kreu pli da konkretaj datumportiloj kaj datumportil-"
-"grupoj, aŭ reduktu ekzistantan datumportilan grupon."
+"Neniu libera ZFS-aroj troviĝis por krei novan logikan datumportilon. Bonvolu "
+"krei alian ZFS-aron, aŭ liberigu spacon en ekzistanta ZFS-aro."
 
 #. Type: string
 #. Description
@@ -629,18 +618,16 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "ZFS-aro:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
-#, fuzzy
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
 msgstr ""
-"Bonvolu elekti datumportil-grupon kie la nova logika datumportilo devos esti "
-"kreata."
+"Bonvolu elekti la ZFS-aron kie la nova logika datumportilo devos esti kreata."
 
 #. Type: error
 #. Description
@@ -671,13 +658,12 @@ msgstr "Eraro dum kreado de nova logika datumportilo"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
 msgstr ""
-"La nomo ${LV} jam estas uzata de alia logika datumportilo sur la sama "
-"datumportil-grupo (${VG})."
+"La nomo ${LV} jam estas uzata de alia logika datumportilo sur la sama ZFS-"
+"aro (${VG})."
 
 #. Type: string
 #. Description
@@ -772,59 +758,53 @@ msgstr "Neniu uzebla konkreta datumportilo trovite"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
 "required kernel modules or re-partition the hard drives."
 msgstr ""
-"Neniu konkreta datumportilo (t.e. diskparto) estis trovata en via sistemo. "
-"Ĉiuj konkretaj datumportiloj eble jam estas uzataj. Krome, eble vi bezonos "
-"ŝargi je kelkaj necesaj kernajn modulojn aŭ rediskpartigi la fiksajn diskojn."
+"Neniu konkreta datumportilo (t.e. diskparto) estis trovata en tiu ĉi "
+"sistemo. Ĉiuj konkretaj datumportiloj eble jam estas uzataj. Krome, eble vi "
+"bezonos ŝargi je kelkaj necesaj kernaj moduloj aŭ rediskpartigi la fiksajn "
+"diskojn."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid "ZFS not available"
-msgstr "Programeca RAID ne disponeblas"
+msgstr "ZFS ne disponeblas"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
 msgstr ""
-"La nuntempa kerno ne subtenas la Logikan Datumportilan Administrilon. Eble "
-"vi bezonos ŝargi la modulon lvm-mod."
+"La nuntempa kerno ne subtenas ZFS. Eble vi bezonos ŝargi je la modulo zfs."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "Malvalida logika datumportilo aŭ datumportila grup-nomo"
+msgstr "Malvalida logika datumportilo aŭ nomo de ZFS-aro"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"La logikaj datumportiloj aŭ datumportilaj grup-nomoj povas enhavas nur "
-"literojn, ciferojn, streketon, pluson, punkton kaj substrekon. Ili ampleksas "
-"maximume 128 signojn kaj ili ne devas komenciĝi per streketo. La nomoj \".\" "
-"kaj \"..\" ne estas permesataj. Krome, la logikaj datumportil-nomoj ne devas "
-"komenciĝi per \"snapshot\"."
+"Logikaj datumportiloj aŭ nomoj de ZFS-aroj povas enhavi nur literojn, "
+"ciferojn, streketon, pluson, punkton kaj substrekon. Ili ampleksas maximume "
+"255 signojn kaj devas komenciĝi per literoj/ciferoj. La nomoj \"mirror\" "
+"\"raidz\", \"spare\", kaj \"log\" ne estas permesataj."
 
 #. Type: error
 #. Description
@@ -844,29 +824,26 @@ msgstr "Ĉu forviŝi ekzistantan datumaron de logika datumportilo?"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"La elektita aparato jam enhavas la jenajn logikajn datumportilojn LVM, "
-"datumportil-grupojn kaj konkretajn datumportilojn, kiuj baldaŭ estos "
-"forviŝitaj:"
+"La elektita aparato jam enhavas la jenajn logikajn datumportilojn ZFS kaj "
+"ZFS-arojn, kiuj baldaŭ estos forviŝitaj:"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr "Forviŝota(j) logika(j) datumportilo(j): ${LVTARGETS}"
+msgstr "Logika(j) datumportilo(j): ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "ZFS-aro(j): ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -890,7 +867,6 @@ msgstr "ZFS"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
@@ -898,14 +874,12 @@ msgid ""
 msgstr ""
 "Ordinara situacio por sistem-administrantoj estas trovi ke iu diskparto "
 "(ofte la plej grava) estas kun malmulta spaco, dum iu alia diskparto estas "
-"apenaŭ uzata. La Logika Datumportila Administrilo (LVM) povas helpi pri tio "
-"ĉi."
+"apenaŭ uzata. ZFS povas helpi pri tio ĉi."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -914,26 +888,24 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"LVM ebligas kombini diskojn aŭ diskpart-aparatojn (\"konkretajn "
-"datumportilojn\") por formi virtualan diskon (\"datumportil-grupon\"), kiu "
-"povas tiel dividiĝi laŭ virtualaj diskpartoj (\"logikaj datumportiloj\"). "
-"Datumportil-grupoj kaj logikaj datumportiloj povas ampleksigi plurajn "
-"konkretajn diskojn. Novaj konkretaj datumportiloj povas esti aldonataj al "
-"datumportil-grupo iam ajn, kaj logikaj datumportiloj povas esti "
-"reampleksigataj ĝis la kvanto da nerezervita spaco en la datumportil-grupo."
+"ZFS ebligas kunmiksi diskojn aŭ diskpart-aparatojn (\"konkretajn "
+"datumportilojn\") por formi virtualan diskon (\"ZFS-aro\"), kiu povas tiel "
+"dividiĝi laŭ virtualaj diskpartoj (\"logikaj datumportiloj\"). ZFS-aroj kaj "
+"logikaj datumportiloj povas ampleksigi plurajn konkretajn diskojn. Novaj "
+"konkretaj datumportiloj povas esti aldonataj al ZFS-aro iam ajn, kaj logikaj "
+"datumportiloj havas neniun grando-limon krom la totala spaco de la ZFS-aro."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"La eroj en la agord-menuo de LVM povas esti uzataj por redakti datumportil-"
-"grupojn kaj logikajn datumportilojn. Post kiam vi retroiros la ĉefan "
-"diskpartigan administran ekranon, logikaj datumportiloj estos montrataj same "
-"kiel ordinaraj diskpartoj, kaj ili devos esti traktataj same tiel."
+"La eroj en la agord-menuo de ZFS povas esti uzataj por redakti ZFS-arojnkaj "
+"logikajn datumportilojn. Post kiam vi retroiros la ĉefan diskpartigan "
+"administran ekranon, logikaj datumportiloj estos montrataj same kiel "
+"ordinaraj diskpartoj, kaj ili devos esti traktataj tiel mem."
