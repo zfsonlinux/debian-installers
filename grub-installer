@@ -333,8 +333,15 @@ case "$frtype:$bootfstype:$bootfslabel:$grub_package" in
 		grub_package="grub-pc"
 	fi
 	;;
-    *:*:*:grub)
+    *:ext4:*:grub)
+	# We boot from ext4, requires grub2
 	grub_package="grub-pc"
+	;;
+    *:*:*:grub)
+	db_get grub-installer/grub2_instead_of_grub_legacy
+	if [ "$RET" = true ]; then
+		grub_package="grub-pc"
+	fi
 	;;
     *:ufs:*:*)
 	# Booting from UFS requires grub2

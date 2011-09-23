@@ -1,7 +1,14 @@
 grub-installer (1.68) UNRELEASED; urgency=low
 
+  [ Matt Kraai ]
   * Write boot.cfg to /boot if using a separate /boot partition (closes:
     #637792).
+
+  [ Colin Watson ]
+  * Restore the ability to choose to install GRUB Legacy by preseeding
+    (grub-installer/grub2_instead_of_grub_legacy=false), removed in 1.60 as
+    a side-effect of removing a warning message.  This is still useful e.g.
+    when installing inside Xen.
 
  -- Matt Kraai <kraai@debian.org>  Sun, 14 Aug 2011 07:31:43 -0700
 
