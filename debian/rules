@@ -9,11 +9,18 @@ else
 endif
 
 override_dh_auto_build:
+	# Get the latest config.sub, config.guess files from autotools-dev
+	-test -r /usr/share/misc/config.sub && \
+	cp -f /usr/share/misc/config.sub src/lib/libumem/config.sub
+	-test -r /usr/share/misc/config.guess && \
+	cp -f /usr/share/misc/config.guess src/lib/libumem/config.guess
 	scons $(SCONSFLAGS)
 
 override_dh_auto_clean:
 	scons $(SCONSFLAGS) -ccc
 	rm -f src/.sconsign.dblite
+	rm -f src/lib/libumem/config.guess
+	rm -f src/lib/libumem/config.sub
 
 override_dh_auto_install:
 	scons $(SCONSFLAGS) DESTDIR=$(CURDIR)/debian/zfs-fuse install_dir=/sbin man_dir=/usr/share/man/man8 install
