@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2011-08-07 22:50+0000\n"
-"PO-Revision-Date: 2011-09-18 21:28+0100\n"
+"PO-Revision-Date: 2011-09-26 10:46+0100\n"
 "Last-Translator: Marcin Owsiany <porridge@debian.org>\n"
 "Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
 "Language: pl\n"
@@ -54,7 +54,7 @@ msgstr ""
 #: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
 #: ../partman-zfs.templates:19001
 msgid "zfs"
-msgstr ""
+msgstr "zfs"
 
 #. Type: text
 #. Description
@@ -62,7 +62,7 @@ msgstr ""
 #. File system name
 #: ../partman-zfs.templates:3001
 msgid "ZFS file system"
-msgstr ""
+msgstr "system plików ZFS"
 
 #. Type: error
 #. Description
@@ -70,6 +70,7 @@ msgstr ""
 #: ../partman-zfs.templates:4001
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
 msgstr ""
+"Osobne katalogi /boot i /lib/modules są niezbędne dla tej konfiguracji ZFS"
 
 #. Type: error
 #. Description
@@ -79,6 +80,8 @@ msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Główny system plików znajduje się na puli ZFS, która używa więcej niż "
+"jednego woluminu fizycznego."
 
 #. Type: error
 #. Description
@@ -91,6 +94,8 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror mode, "
 "not Striped or RAID-Z modes."
 msgstr ""
+"Program rozruchowy obsługuje tą konfigurację pul jedynie w trybie Mirror, a "
+"nie w trybach Striped czy RAID-Z."
 
 #. Type: error
 #. Description
@@ -100,13 +105,16 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"Upewnij się, że katalogi /boot oraz /lib/modules znajdują się na partycji "
+"używającej obsługiwanej konfiguracji puli ZFS, lub na innym systemie plików, "
+"takim jak UFS."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr ""
+msgstr "Nieobsługiwane wiele woluminów ZFS dla ${MNT}"
 
 #. Type: error
 #. Description
@@ -116,6 +124,8 @@ msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Partycja ${MNT} znajduje się na puli ZFS używającej więcej niż jednego "
+"woluminu fizycznego."
 
 #. Type: error
 #. Description
@@ -125,6 +135,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"Upewnij się, że ${MNT} znajduje się na partycji używającej obsługiwanej "
+"konfiguracji puli ZFS, lub na innym systemie plików, takim jak UFS."
 
 #. Type: boolean
 #. Description
@@ -134,7 +146,7 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:6001 ../partman-zfs.templates:7001
 msgid "Go back to the menu and correct this problem?"
-msgstr ""
+msgstr "Powrócić do menu i poprawić ten błąd?"
 
 #. Type: boolean
 #. Description
@@ -146,6 +158,10 @@ msgid ""
 "may lead to performance or stability problems due to limitations of this "
 "architecture."
 msgstr ""
+"Skonfigurowałeś jedną lub więcej partycji z systemem plików ZFS. Mimo, że "
+"ZFS jest wspierany na 32-bitowym i386, używanie go bez specjalnego "
+"dostosowania może powodować problemy z wydajnością lub stabilnością, z "
+"powodu ograniczeń tej architektury."
 
 #. Type: boolean
 #. Description
@@ -156,6 +172,9 @@ msgid ""
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
+"Należy albo użyć 64-bitowej wersji (amd64) tego instalatora (jeśli Twój "
+"sprzęt ją obsłuży), albo powrócić do menu partycjonowania i skonfigurować "
+"partycje by używały innego systemu plików."
 
 #. Type: boolean
 #. Description
@@ -166,6 +185,9 @@ msgid ""
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
+"Skonfigurowałeś jedną lub więcej partycji z systemem plików ZFS. Używanie "
+"ZFS na komputerze z ilością pamięci mniejszą niż 512 MB może prowadzić do "
+"problemów ze stabilnością i nie jest zalecane."
 
 #. Type: boolean
 #. Description
@@ -175,13 +197,15 @@ msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
 msgstr ""
+"Powinieneś wrócić do menu partycjonowania i skonfigurować partycje by "
+"używały innego systemu plików."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:8001
 msgid "Configure ZFS"
-msgstr ""
+msgstr "Konfiguruj ZFS"
 
 #. Type: text
 #. Description
@@ -189,7 +213,7 @@ msgstr ""
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
 msgid "In use by ZFS pool ${VG}"
-msgstr ""
+msgstr "W użyciu przez pulę ZFS ${VG}"
 
 #. Type: text
 #. Description
@@ -198,7 +222,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:10001
 msgid "Display configuration details"
-msgstr ""
+msgstr "Wyświetl szczegóły konfiguracji"
 
 #. Type: text
 #. Description
@@ -207,7 +231,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "Tworzenie puli ZFS"
 
 #. Type: text
 #. Description
@@ -216,7 +240,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "Kasowanie puli ZFS"
 
 #. Type: text
 #. Description
@@ -225,7 +249,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:13001
 msgid "Create logical volume"
-msgstr ""
+msgstr "Utwórz logiczny wolumin"
 
 #. Type: text
 #. Description
@@ -234,7 +258,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
 msgid "Delete logical volume"
-msgstr ""
+msgstr "Usuń logiczny wolumin"
 
 #. Type: text
 #. Description
@@ -243,14 +267,14 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:15001
 msgid "Finish"
-msgstr ""
+msgstr "Zakończ"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
 msgid "Write the changes to disk and configure ZFS?"
-msgstr ""
+msgstr "Zapisać zmiany do dysków i skonfigurować ZFS?"
 
 #. Type: boolean
 #. Description
@@ -260,6 +284,8 @@ msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
+"Zanim ZFS będzie mógł zostać skonfigurowany, aktualny schemat "
+"partycjonowania musi zostać zapisany na dysku. Zmian tych nie można cofnąć."
 
 #. Type: boolean
 #. Description
@@ -271,48 +297,52 @@ msgid ""
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
+"Po skonfigurowaniu ZFS, niedozwolone są podczas instalacji jakiekolwiek "
+"dodatkowe zmiany układu partycji na dyskach zawierających woluminy fizyczne. "
+"Przed kontynuacją, proszę się upewnić, że aktualny układ partycji jest "
+"satysfakcjonujący."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
 msgid "ZFS configuration failure"
-msgstr ""
+msgstr "Konfiguracja ZFS nie powiodła się"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
 msgid "An error occurred while writing the changes to the disks."
-msgstr ""
+msgstr "Wystąpił błąd podczas zapisu zmian do dysków."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
 msgid "ZFS configuration has been aborted."
-msgstr ""
+msgstr "Konfiguracja ZFS została przerwana."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:18001
 msgid "physical volume for ZFS"
-msgstr ""
+msgstr "wolumin fizyczny dla ZFS"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
 msgid "ZFS configuration action:"
-msgstr ""
+msgstr "Działania konfiguracyjne ZFS:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
 msgid "Summary of current ZFS configuration:"
-msgstr ""
+msgstr "Podsumowanie aktualnej konfiguracji ZFS:"
 
 #. Type: select
 #. Description
@@ -324,41 +354,45 @@ msgid ""
 " ZFS pools:              ${VGS}\n"
 " ZFS logical volumes:    ${LVS}"
 msgstr ""
+" Wolne woluminy fizyczne:  ${FREE_PVS}\n"
+" Zajęte woluminy fizyczne: ${USED_PVS}\n"
+" Pule ZFS:                 ${VGS}\n"
+" Woluminy logiczne ZFS:    ${LVS}"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
 msgid "Current ZFS configuration:"
-msgstr ""
+msgstr "Aktualna konfiguracja ZFS:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
 msgid "Devices for the new ZFS pool:"
-msgstr ""
+msgstr "Urządzenia dla nowej puli ZFS:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
 msgid "Please select devices for the new ZFS pool."
-msgstr ""
+msgstr "Proszę wybrać urządzenia dla nowej puli ZFS."
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
 msgid "You can select one or more devices."
-msgstr ""
+msgstr "Możesz wybrać jedno lub więcej urządzeń."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
 msgid "Multidisk mode for this ZFS pool:"
-msgstr ""
+msgstr "Tryb wielodyskowy dla tej puli ZFS:"
 
 #. Type: select
 #. Description
@@ -373,13 +407,21 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Proszę wybrać tryb operacji wielodyskowych dla tej puli ZFS:\n"
+" * Striped: podobny do RAID 0 (domyślny) - dane są rozłożone\n"
+"            na woluminach fizycznych;\n"
+" * Mirror:  podobny do RAID 1 - dane są replikowane na każdy\n"
+"            z woluminów fizycznych;\n"
+" * RAID-Z:  podobny do RAID 5 lub RAID 6 - niektóre woluminy\n"
+"            fizyczne zawierają bity parzystości, a dane są rozłożone\n"
+"            na pozostałych."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "Poziom parzystości dla RAID-Z"
 
 #. Type: select
 #. Description
@@ -389,27 +431,29 @@ msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
 msgstr ""
+"Proszę wybrać ilość woluminów fizycznych, które będą używane do "
+"przechowywania bitów parzystości."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "ZFS pool name:"
-msgstr ""
+msgstr "Nazwa puli ZFS:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr ""
+msgstr "Proszę wprowadzić nazwę, której chcesz użyć dla nowej puli ZFS."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
 msgid "No physical volumes selected"
-msgstr ""
+msgstr "Nie wybrano fizycznych woluminów"
 
 #. Type: error
 #. Description
@@ -419,27 +463,29 @@ msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
 msgstr ""
+"Nie wybrano żadnych woluminów fizycznych. Tworzenie nowej puli ZFS zostało "
+"przerwane."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "Brak nazwy puli ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr ""
+msgstr "Nie wprowadzono żadnej nazwy puli ZFS. Proszę wprowadzić nazwę."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
 msgid "ZFS pool name already in use"
-msgstr ""
+msgstr "Nazwa puli ZFS jest już używana"
 
 #. Type: error
 #. Description
@@ -447,21 +493,21 @@ msgstr ""
 #: ../partman-zfs.templates:28001
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
-msgstr ""
+msgstr "Wybrana nazwa puli ZFS jest już używana. Proszę wybrać inną nazwę."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
 msgid "Error while creating ZFS pool"
-msgstr ""
+msgstr "Błąd podczas tworzenia puli ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
 msgid "The ZFS pool ${VG} could not be created."
-msgstr ""
+msgstr "Pula ZFS ${VG} nie mogła zostać utworzona."
 
 #. Type: error
 #. Description
@@ -475,63 +521,63 @@ msgstr ""
 #: ../partman-zfs.templates:29001 ../partman-zfs.templates:40001
 #: ../partman-zfs.templates:44001
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
-msgstr ""
+msgstr "Sprawdź /var/log/messages lub wirtualną konsolę nr 4 po szczegóły."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
 msgid "ZFS pool to delete:"
-msgstr ""
+msgstr "Pula ZFS do usunięcia:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
 msgid "Please select the ZFS pool you wish to delete."
-msgstr ""
+msgstr "Proszę wybrać pulę ZFS, którą chcesz usunąć."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "Brak puli ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool has been found."
-msgstr ""
+msgstr "Nie znaleziono żadnej puli ZFS."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "The ZFS pool may have already been deleted."
-msgstr ""
+msgstr "Pula ZFS mogła zostać już usunięta."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Really delete the ZFS pool?"
-msgstr ""
+msgstr "Naprawdę usunąć pulę ZFS?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "Proszę potwierdzić usunięcie puli ZFS ${VG}."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
 msgid "Error while deleting ZFS pool"
-msgstr ""
+msgstr "Błąd podczas usuwania puli ZFS"
 
 #. Type: error
 #. Description
@@ -541,13 +587,15 @@ msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
+"Wybrana pula ZFS nie mogła zostać usunięta. Możliwe, że jeden lub więcej "
+"woluminów logicznych jest aktualnie używanych."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
 msgid "No ZFS pool found"
-msgstr ""
+msgstr "Nie znaleziono puli ZFS"
 
 #. Type: error
 #. Description
@@ -557,13 +605,15 @@ msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
+"Nie znaleziono wolnych pul ZFS do utworzenia nowego woluminu logicznego. "
+"Proszę utworzyć nową pulę ZFS, lub zwolnić miejsce w istniejącej puli ZFS."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:35001
 msgid "Logical volume name:"
-msgstr ""
+msgstr "Nazwa woluminu logicznego:"
 
 #. Type: string
 #. Description
@@ -571,13 +621,14 @@ msgstr ""
 #: ../partman-zfs.templates:35001
 msgid "Please enter the name you would like to use for the new logical volume."
 msgstr ""
+"Proszę wprowadzić nazwę, której chcesz użyć dla nowego woluminu logicznego."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "Pula ZFS:"
 
 #. Type: select
 #. Description
@@ -586,13 +637,15 @@ msgstr ""
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
 msgstr ""
+"Proszę wybrać pulę ZFS, w której powinien zostać utworzony nowy wolumin "
+"logiczny."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:37001
 msgid "No logical volume name entered"
-msgstr ""
+msgstr "Nie wprowadzono nazwy woluminu logicznego"
 
 #. Type: error
 #. Description
@@ -600,6 +653,7 @@ msgstr ""
 #: ../partman-zfs.templates:37001
 msgid "No name for the logical volume has been entered. Please enter a name."
 msgstr ""
+"Nie wprowadzono nazwy dla woluminu logicznego. Proszę wprowadzić nazwę."
 
 #. Type: error
 #. Description
@@ -609,7 +663,7 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:38001 ../partman-zfs.templates:40001
 msgid "Error while creating a new logical volume"
-msgstr ""
+msgstr "Błąd podczas tworzenia nowego woluminu logicznego"
 
 #. Type: error
 #. Description
@@ -619,13 +673,15 @@ msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
 msgstr ""
+"Nazwa ${LV} jest obecnie używana przez inny wolumin logiczny w tej samej "
+"puli ZFS (${VG})."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:39001
 msgid "Logical volume size:"
-msgstr ""
+msgstr "Rozmiar woluminu logicznego:"
 
 #. Type: string
 #. Description
@@ -636,6 +692,9 @@ msgid ""
 "the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
 "10T (Terabytes). The default unit is Megabytes."
 msgstr ""
+"Proszę wprowadzić rozmiar nowego woluminu logicznego. Rozmiar może zostać "
+"wprowadzony w następujących formatach: 10K (kilobajty), 10M (megabajty), 10G "
+"(gigabajty), 10T (terabajty). Domyślną jednostką są megabajty."
 
 #. Type: error
 #. Description
@@ -645,13 +704,15 @@ msgid ""
 "Unable to create a new logical volume (${LV}) on ${VG} with the new size "
 "${SIZE}."
 msgstr ""
+"Nie udało się utworzyć nowego woluminu logicznego (${LV}) w ${VG}  o "
+"rozmiarze ${SIZE}."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:41001
 msgid "No logical volume found"
-msgstr ""
+msgstr "Nie znaleziono logicznych woluminów"
 
 #. Type: error
 #. Description
@@ -659,48 +720,50 @@ msgstr ""
 #: ../partman-zfs.templates:41001
 msgid "No logical volume has been found. Please create a logical volume first."
 msgstr ""
+"Nie znaleziono woluminu logicznego. Proszę utworzyć najpierw jakiś wolumin "
+"logiczny."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:42001
 msgid "Logical volume:"
-msgstr ""
+msgstr "Logiczny wolumin:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:42001
 msgid "Please select the logical volume to delete."
-msgstr ""
+msgstr "Proszę wybrać wolumin logiczny do usunięcia."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:43001
 msgid "in VG ${VG}"
-msgstr ""
+msgstr "w GW ${VG}"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:44001
 msgid "Error while deleting the logical volume"
-msgstr ""
+msgstr "Błąd podczas usuwania woluminu logicznego"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:44001
 msgid "The logical volume ${LV} on ${VG} could not be deleted."
-msgstr ""
+msgstr "Wolumin logiczny ${LV} w ${VG} nie mógł zostać usunięty."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
 msgid "No usable physical volumes found"
-msgstr ""
+msgstr "Nie znaleziono fizycznych woluminów zdatnych do wykorzystania"
 
 #. Type: error
 #. Description
@@ -711,13 +774,17 @@ msgid ""
 "physical volumes may already be in use. You may also need to load some "
 "required kernel modules or re-partition the hard drives."
 msgstr ""
+"Nie znaleziono woluminów fizycznych (tzn. partycji) w tym systemie. Możliwe, "
+"że wszystkie woluminy fizyczne są aktualnie używane. Może być także "
+"konieczne załadowanie jakichś wymaganych modułów jądra lub przepartycjonować "
+"dyski twarde."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
 msgid "ZFS not available"
-msgstr ""
+msgstr "ZFS niedostępne"
 
 #. Type: error
 #. Description
@@ -726,13 +793,14 @@ msgstr ""
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
 msgstr ""
+"Aktualne jądro nie obsługuje ZFS. Możliwe, że trzeba załadować moduł zfs."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
 msgid "Invalid logical volume or ZFS pool name"
-msgstr ""
+msgstr "Nieprawidłowa nazwa woluminu logicznego lub puli ZFS"
 
 #. Type: error
 #. Description
@@ -744,20 +812,24 @@ msgid ""
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
+"Nazwa woluminu logicznego lub puli ZFS może zawierać tylko znaki "
+"alfanumeryczne, myślnik, średnik, kropkę i podkreślenie. Musi mieć do 255 "
+"znaków i musi zaczynać się od znaku alfanumerycznego. Niedozwolone są "
+"również nazwy \"mirror\", \"raidz\", \"spare\" oraz \"log\"."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
 msgid "Please choose a different name."
-msgstr ""
+msgstr "Proszę wybrać inną nazwę."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "Remove existing logical volume data?"
-msgstr ""
+msgstr "Usunąć istniejące dane o woluminach logicznych?"
 
 #. Type: boolean
 #. Description
@@ -767,20 +839,22 @@ msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
+"Wybrane urządzenie zawiera już następujące woluminy logiczne ZFS i pule ZFS, "
+"które mają zostać usunięte:"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr ""
+msgstr "Wolumin(y) logiczne: ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "Pula(e) ZFS: ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -790,13 +864,15 @@ msgid ""
 "Note that this will also permanently erase any data currently on the logical "
 "volumes."
 msgstr ""
+"Zauważ, że ta operacje bezpowrotnie usunie wszelkie dane z woluminów "
+"logicznych."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
@@ -807,6 +883,10 @@ msgid ""
 "partition (usually the most important one) is short on space, while some "
 "other partition is underused. ZFS can help with this."
 msgstr ""
+"Administratorom dość często zdarza się sytuacja w której wolne miejsce na "
+"partycji (najczęściej najważniejszej) kończy się, a jednocześnie inna "
+"partycja jest wykorzystywana w niewielkim stopniu. ZFS może pomóc w takiej "
+"sytuacji."
 
 #. Type: note
 #. Description
@@ -820,6 +900,12 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
+"ZFS pozwala łączyć dyski lub partycje (\"woluminy fizyczne\") w wirtualny "
+"dysk (\"pulę ZFS\"), który można dzielić na wirtualne partycje (\"woluminy "
+"logiczne\"). Pule ZFS i woluminy logiczne mogą obejmować kilka fizycznych "
+"dysków. W każdej chwili można dołożyć nowy wolumin fizyczny do puli ZFS, a "
+"woluminy logiczne nie mają ograniczenia wielkości innego niż łączny rozmiar "
+"puli ZFS."
 
 #. Type: note
 #. Description
@@ -831,3 +917,7 @@ msgid ""
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
+"Pozycje menu konfiguracyjnego ZFS mogą być używane do edycji pul ZFS i "
+"woluminów logicznych. Po powrocie do głównego ekranu menedżera "
+"partycjonowania woluminy logiczne przedstawione będą jak zwykłe partycje i "
+"tak też powinny być traktowane."
