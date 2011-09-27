@@ -292,19 +292,8 @@ case $ARCH in
 		# This point can't be reached (yet).  See debian/isinstallable.
 		grub_package="grub-efi"
 	else
-		# On PC/BIOS, default to GRUB Legacy
-		grub_package="grub"
+		grub_package="grub-pc"
 	fi
-	;;
-    i386/*|amd64/*)
-	# On PC/BIOS, default to GRUB Legacy
-	grub_package="grub"
-	;;
-    kfreebsd-i386/*|kfreebsd-amd64/*)
-	grub_package="grub-pc"
-	;;
-    hurd-i386/*)
-	grub_package="grub-pc"
 	;;
     powerpc/*)
 	grub_package="grub-ieee1275"
@@ -313,49 +302,25 @@ case $ARCH in
 	grub_package="grub-yeeloong"
 	;;
     *)
-	info "Unknown architecture $ARCH, defaulting to grub-legacy"
-	grub_package="grub"
+	grub_package="grub-pc"
 esac
 
 case "$frtype:$bootfstype:$bootfslabel:$grub_package" in
     sataraid:*:*:*)
 	# Serial ATA RAID partition, currently only grub is supported
-	: ;;
+	grub_package="grub"
+	;;
     multipath:*:*:*)
 	# Multipath requires GRUB Legacy for now
-	: ;;
-    lvm:*:*:*)
-	# Booting from LVM requires grub2
-	grub_package="grub-pc"
+	grub_package="grub"
 	;;
-    *:*:gpt:*)
-	if [ "$grub_package" = "grub" ] ; then
-		grub_package="grub-pc"
-	fi
-	;;
-    *:ext4:*:grub)
-	# We boot from ext4, requires grub2
-	grub_package="grub-pc"
-	;;
-    *:*:*:grub)
-	db_get grub-installer/grub2_instead_of_grub_legacy
-	if [ "$RET" = true ]; then
-		grub_package="grub-pc"
-	fi
-	;;
-    *:ufs:*:*)
-	# Booting from UFS requires grub2
-	grub_package="grub-pc"
-	;;
-    *:zfs:*:*)
-	# Booting from ZFS requires grub2
-	grub_package="grub-pc"
-	;;
-    *:ext2fs:*:grub-pc | *:xfs:*:grub-pc)
-    	# Booting ext2fs or xfs using grub2 works
-        ;;
     *:*:*:grub-yeeloong)
-	# No reasonable alternative to GRUB here
+	;;
+    *:*:*:grub-pc)
+	db_get grub-installer/grub2_instead_of_grub_legacy
+	if [ "$RET" = false ]; then
+		grub_package="grub"
+	fi
 	;;
     *:*:*:*)
 	db_subst grub-installer/grub_not_mature_on_this_platform ARCH $ARCH
