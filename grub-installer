@@ -836,9 +836,9 @@ db_progress STEP 1
 db_progress INFO grub-installer/progress/step_config_loader
 
 if [ "$bootfstype" = "zfs" ]; then
-  # Required by update-grub on ZFS
-  mkdir -p $ROOT/boot/zfs
-  cp /boot/zfs/zpool.cache $ROOT/boot/zfs/
+	# Required by update-grub on ZFS
+	mkdir -p $ROOT/boot/zfs
+	cp /boot/zfs/zpool.cache $ROOT/boot/zfs/
 fi
 
 # Delete for idempotency
