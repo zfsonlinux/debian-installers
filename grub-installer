@@ -314,7 +314,8 @@ case "$frtype:$bootfstype:$bootfslabel:$grub_package" in
 	# Multipath requires GRUB Legacy for now
 	grub_package="grub"
 	;;
-    *:*:*:grub-yeeloong)
+    *:*:*:grub-yeeloong | lvm:*:*:* | *:*:gpt:* | :ext4:*:grub | *:ufs:*:* | *:zfs:*:* | *:btrfs:*:* )
+	# grub-legacy is not an option in these configurations
 	;;
     *:*:*:grub-pc)
 	db_get grub-installer/grub2_instead_of_grub_legacy
