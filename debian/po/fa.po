@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: fa\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2011-08-07 22:50+0000\n"
-"PO-Revision-Date: 2011-09-27 19:46+0330\n"
+"PO-Revision-Date: 2011-09-29 00:16+0330\n"
 "Last-Translator: Behrad Eslamifar <behrad_es@yahoo.com>\n"
 "Language-Team: Debian-l10n-persian <debian-l10n-persian@lists.debian.org>\n"
 "Language: \n"
@@ -73,6 +73,8 @@ msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"فایل سیستم root شما برروی ZFS pool ای است که از بیش از یک physical volume "
+"استفاده می‌کند."
 
 #. Type: error
 #. Description
@@ -85,6 +87,8 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror mode, "
 "not Striped or RAID-Z modes."
 msgstr ""
+"Boot loader این پیکربندی را تنها برای pool های در حالت mirror پشتیبانی می "
+"کند، نه در حالت Striped یا RAID-Z."
 
 #. Type: error
 #. Description
@@ -94,6 +98,9 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"مطمئن شوید که boot/ و lib/modules/ بر روی پارتیشنی قرار داشته باشند که "
+"پیکربندی ZFS pool پشتیبانی شده‌ای داشته باشند و یا برروی فایل سیستم دیگری "
+"مانند UFS باشند."
 
 #. Type: error
 #. Description
@@ -110,6 +117,8 @@ msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"پارتیشن ${MNT} شما برروی ZFS pool ای است که از بیش از یک physical volume "
+"استفاده می‌کند."
 
 #. Type: error
 #. Description
@@ -119,6 +128,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"مطمئن شوید ${MNT} بر روی یک پارتیشنی است که پیکربندی ZFS pool پشتیبانی شده "
+"دارد یا فایل سیستم دیگری مانند UFS."
 
 #. Type: boolean
 #. Description
@@ -272,16 +283,15 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"پس از آنکه مدیر حجم‌های منطقی تنظیم شود، اجازه هیچ تغییرات جدیدی در پارتیشن "
-"بندی دیسک‌ها در طول نصب شامل حجم‌های فیزیکی داده نمی‌شود. لطفا از پارتیشن بندی "
-"جاری پیش از ادامه اطمینان حاصل نمایید."
+"پس از پیکربندی ZFS، تغییرات اضافه تری در ساختار دیسک‌هایی که شامل physical "
+"volumeها هستند، در روند نصب، اجازه داده نمی‌شود. قبل از آنکه ادامه دهید، "
+"مطمئن شوید که از ساختار پارتیشن بندی موجود راضی هستید."
 
 #. Type: error
 #. Description
@@ -329,17 +339,16 @@ msgstr "خلاصیه از پیکربندی فعلی ZFS:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
 " ZFS pools:              ${VGS}\n"
 " ZFS logical volumes:    ${LVS}"
 msgstr ""
-" ${FREE_PVS}\n"
-"حجم‌های فیزیکی آزاد: ${USED_PVS}\n"
-"حجم‌های فیزیکی استفاده شده:${VGS}\n"
-"گروه های صدا:   ${LVS}صداهای منطقی:"
+" Physical volumes آزاد:  ${FREE_PVS}\n"
+" [hysical volumes استفاده شده:  ${USED_PVS}\n"
+" ZFS pools:              ${VGS}\n"
+" ZFS logical volumes:    ${LVS}"
 
 #. Type: note
 #. Description
@@ -373,9 +382,8 @@ msgstr "شما می‌توانید یک یا چند ابزار انتخاب کن
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "ابزارهای گروه volume جدید:"
+msgstr "حالت multidisk برای این ZFS pool:"
 
 #. Type: select
 #. Description
@@ -389,7 +397,7 @@ msgid ""
 "            volume;\n"
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
-msgstr ""
+msgstr "لطفاً یک حالت برای عملکرد multidisk برای ZFS pool انتخاب کنید:\n"
 
 #. Type: select
 #. Description
@@ -451,9 +459,8 @@ msgstr "No ZFS pool name"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr "هیچ نامی برای گروه حجم وارد نشده است. لطفا یک نام وارد کنید."
+msgstr "هیچ نامی برای ZFS pool  وارد نشده است. لطفا یک نام وارد کنید."
 
 #. Type: error
 #. Description
@@ -466,11 +473,10 @@ msgstr "نام ZFS pool قبلا استفاده شده است"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
 msgstr ""
-"نام گروه حجم انتخاب شده قبلا استفاده شده است. لطفا نام دیگری انتخاب کنید."
+"نام ZFS pool انتخاب شده قبلا استفاده شده است. لطفا نام دیگری انتخاب کنید."
 
 #. Type: error
 #. Description
@@ -560,13 +566,12 @@ msgstr "خطا در هنگام حذف ZFS pool"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
-"گروه volume انتخاب شده نمی‌تواند حذف شود. یک یا چند logical volumes ممکن است "
-"هم اکنون درحال استفاده باشد."
+"ZFS pool انتخاب شده نمی‌تواند حذف شود. یک یا چند logical volume ممکن است هم "
+"اکنون درحال استفاده باشد."
 
 #. Type: error
 #. Description
@@ -644,13 +649,12 @@ msgstr "خطا در هنگام ایجاد یک logical volume جدید"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
 msgstr ""
-"نام ${LV} قبلا به وسیله حجم منطقی دیگری در گروه صدای مشابه (${VG}) استفاده "
-"شده است."
+"نام ${LV} قبلا به وسیله logical volume دیگری در همان ZFS pool  (${VG}) "
+"استفاده شده است."
 
 #. Type: string
 #. Description
@@ -745,16 +749,14 @@ msgstr "هیچ volumes فیزیکی قابل استفاده ای یافت نشد
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
 "required kernel modules or re-partition the hard drives."
 msgstr ""
-"هیچ حجم فیزیکی (مانند پارتیشن‌ها) روی سیستم شما یافت نشد. تمام صداهای فیزیکی "
-"ممکن است قبلا مورد استفاده قرار گرفته باشند. شما همچنین نیاز دارید تا  بعضی "
-"ماژول های کرنل مورد نیاز  را لود کنید یا درایورهای هارد را مجددا پارتیشن "
-"بندی نمایید. "
+"هیچ physical volumeای (partition) در این ماشین پیدا نشد. ممکن است همه "
+"physical volumeها در حال استفاده باشند. ممکن نیاز باشد تا ماژول‌های کرنل مورد "
+"نیاز را بارگذاری کنید و یا دیسک سخت را مجدداً پارتیشن بندی نمایید."
 
 #. Type: error
 #. Description
@@ -767,12 +769,11 @@ msgstr "ZFS در دسترس نیست"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
 msgstr ""
-" را لود کنید.lvm-modکرنل جاری مدیر حجم منطقی را پشتیبانی نمی‌کند. شما نیاز "
-"دارید تا ماژول "
+"کرنل فعلی ZFS را پشتیبانی نمی‌کند. ممکن است نیاز باشد تا ماژول zfs را "
+"بارگذاری کنید."
 
 #. Type: error
 #. Description
@@ -785,17 +786,15 @@ msgstr "Logical volume یا نام ZFS pool نا معتبر است"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"آن‌ها باید 128 کاراکتر یا کمتر باشند و نباید با  hyphen, plus, period و "
-"underscore حجم منطقی یا نام های گروه صدا ممکن است تنها شامل کاراکترهای "
-"آلفانیومریک باشند، شروع شوند. «snapshot» مجاز نیستند. به علاوه، اسامی صدای "
-"منطقی نمی‌توانند با  «..»  و «.» آغاز شوند. اسامی hyphen "
+"نام‌های logical volume و ZFS pool تنها می‌تواند شامل حروف الفبا، خط تیره، "
+"دونقطه، مد و زیرین خط باشد. باید ۲۵۵ حرف و یا کمتر باشد و با حروف الفبا شروع "
+"شود. نام‌های \"mirror\", \"raidz\", \"spare\", و \"log\" مجاز نیستند."
 
 #. Type: error
 #. Description
@@ -815,13 +814,12 @@ msgstr "آیا می‌خواهید داده حجم منطقی موجود حذف 
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"گروه‌های حجم و صداهای فیزیکی که باید حذف شوند می‌باشد. LVM ابزار انتخاب شده "
-"قبلا شامل صداهای منطقی."
+"تجهیزات انتخاب شده در حال حاضر شامل ZFS logical volumeها و ZFS poolهایی "
+"هستند که قرار است حذف شوند:"
 
 #. Type: boolean
 #. Description
@@ -859,15 +857,14 @@ msgstr "ZFS"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
 "other partition is underused. ZFS can help with this."
 msgstr ""
-"می‌تواند در این مورد راهگشا باشد.LVM یک موقعیت عمومی برای مدیر سیستم آن است "
-"که پی ببرد برخی پارتیشن‌های دیسک (معمولا مهمترین آن) دچار کمبود فضا است، در "
-"حالی که پارتیشن دیگردر حال استفاده است. مدیر حجم منطقی"
+"معمول ترین موقعیت برای یک مدیر سیستم زمانی است که به دنبال پارتیشنی است "
+"(معمولا یک پارتیشن مهم) با یک فضای کوچک، در حالی بقیه پارتیشن در حال استفاده "
+"است. ZFS می‌تواند در اینجا کمک کند."
 
 #. Type: note
 #. Description
