@@ -62,9 +62,8 @@ msgstr "ZFS ફાઈલ સિસ્ટમ"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr "હાલનાં LVM રૂપરેખાંકનનો સાર:"
+msgstr "ZFS રૂપરેખાંકન માટે અલગ /boot અને /lib/modules જરુરી છે"
 
 #. Type: error
 #. Description
@@ -73,7 +72,7 @@ msgstr "હાલનાં LVM રૂપરેખાંકનનો સાર:"
 msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
-msgstr ""
+msgstr "તમારી રુટ ફાઈલ સિસ્ટમ એ ZFS પુલ પર છે જે એક કરતાં વધુ ભૌતિક કદ વાપરે છે."
 
 #. Type: error
 #. Description
@@ -86,6 +85,8 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror mode, "
 "not Striped or RAID-Z modes."
 msgstr ""
+"બૂટ લોડર આ રુપરેખાંકન માત્ર મિરર સ્થિતિમાં પૂલ્સ માટે આધાર આપે છે, સ્ટ્રિપ્ડ અથવા RAID-Z "
+"સ્થિતિઓ માટે નહી."
 
 #. Type: error
 #. Description
@@ -95,14 +96,15 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"ખાતરી કરો કે /boot અને /lib/modules એ ZFS પુલ રુપરેખાંકન ઉપયોગ કરતાં પાર્ટિશન, અથવા "
+"બીજી ફાઈલ સિસ્ટમ જેવી કે UFS પર હોય"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
-#, fuzzy
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr "/boot માટે આધાર ન અપાય તેવી ફાઇલ સિસ્ટમ વાપરશો?"
+msgstr "${MNT} માટે આધાર ન અપાયેલ અનેક કદ ZFS"
 
 #. Type: error
 #. Description
@@ -111,7 +113,7 @@ msgstr "/boot માટે આધાર ન અપાય તેવી ફાઇ�
 msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
-msgstr ""
+msgstr "તમારું ${MNT} પાર્ટિશન એ ZFS પુલ પર છે જે એક કરતાં વધુ ભૌતિક કદ ઉપયોગ કરે છે."
 
 #. Type: error
 #. Description
@@ -121,6 +123,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"ખાતરી કરો કે ${MNT} એ આધારિત ZFS પુલ રુપરેખાંકન, અથવા બીજી ફાઈલ સિસ્ટમ જેવી કે UFS "
+"પર હોય."
 
 #. Type: boolean
 #. Description
@@ -281,9 +285,8 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration failure"
-msgstr "LVM રૂપરેખાંકન નિષ્ફળ"
+msgstr "ZFS રૂપરેખાંકન નિષ્ફળતા"
 
 #. Type: error
 #. Description
@@ -324,17 +327,16 @@ msgstr "હાલનાં ZFS રૂપરેખાંકનનો સાર:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
 " ZFS pools:              ${VGS}\n"
 " ZFS logical volumes:    ${LVS}"
 msgstr ""
-" ખાલી ભૌતિક કદો:  ${FREE_PVS}\n"
+" ખાલી ભૌતિક કદો:    ${FREE_PVS}\n"
 " વપરાયેલ ભૌતિક કદો:  ${USED_PVS}\n"
-" કદ સમૂહો:          ${VGS}\n"
-" તાર્કિક કદો:        ${LVS}"
+" ZFS પૂલ્સ:         ${VGS}\n"
+" ZFS તાર્કિક કદો:     ${LVS}"
 
 #. Type: note
 #. Description
@@ -412,9 +414,8 @@ msgstr "ZFS પૂલ નામ:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr "નવાં તાર્કિક કદ માટે જે નામ તમે ઉપયોગ કરવા માંગતા હોવ તેનું નામ દાખલ કરો."
+msgstr "નવાં ZFS પૂલ માટે જે નામ તમે ઉપયોગ કરવા માંગતા હોવ તેનું નામ દાખલ કરો."
 
 #. Type: error
 #. Description
@@ -427,11 +428,10 @@ msgstr "કોઇ ભૌતિક કદો પસંદ કરેલ નથી"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
-msgstr "કોઇ ભૌતિક કદો પસંદ કરેલ નહોતાં. નવાં કદ સમૂહ બનાવવાનું બંધ કરવામાં આવેલ છે."
+msgstr "કોઇ ભૌતિક કદો પસંદ કરેલ નહોતાં. નવાં ZFS પૂલ બનાવવાનું બંધ કરવામાં આવેલ છે."
 
 #. Type: error
 #. Description
@@ -459,10 +459,9 @@ msgstr "ZFS પૂલ નામ પહેલેથી વપરાશમાં �
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
-msgstr "પસંદ કરેલ કદ સમૂહ નામ પહેલેથી વપરાશમાં છે. મહેરબાની કરી બીજું નામ પસંદ કરો."
+msgstr "પસંદ કરેલ ZFS પૂલ નામ પહેલેથી વપરાશમાં છે. મહેરબાની કરી બીજું નામ પસંદ કરો."
 
 #. Type: error
 #. Description
@@ -503,9 +502,8 @@ msgstr "દૂર કરવા માટેનાં ZFS પૂલ:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "મહેરબાની કરી તમે જે કદ સમૂહ દૂર કરવા માંગતા હોવ તે પસંદ કરો."
+msgstr "મહેરબાની કરી તમે જે ZFS પુલ દૂર કરવા માંગતા હોવ તે પસંદ કરો."
 
 #. Type: error
 #. Description
@@ -518,9 +516,8 @@ msgstr "કોઈ ZFS પૂલ નહી"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "No ZFS pool has been found."
-msgstr "કોઇ કદ સમૂહો મળ્યાં નથી."
+msgstr "કોઇ ZFS પુલ સમૂહો મળ્યાં નથી."
 
 #. Type: error
 #. Description
@@ -765,9 +762,8 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "અયોગ્ય તાર્કિક કદ અથવા કદ સમૂહ નામ"
+msgstr "અયોગ્ય તાર્કિક કદ અથવા ZFS પૂલ નામ"
 
 #. Type: error
 #. Description

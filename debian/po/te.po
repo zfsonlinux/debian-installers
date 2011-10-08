@@ -6,26 +6,28 @@
 # translation of te.po to Telugu
 # Telugu translation for debian-installer
 # This file is distributed under the same license as the debian-installer package.
-# వీవెన్ (Veeven) <launchpad.net>, 2007.
-# Y Giridhar Appaji Nag <giridhar@appaji.net>, 2008.
-# Arjuna Rao Chavala <arjunaraoc@gmail.com>,2010
 # Copyright (c) 2007 Rosetta Contributors and Canonical Ltd 2007
 #
 # Translations from iso-codes:
+# వీవెన్ (Veeven) <launchpad.net>, 2007.
+# Y Giridhar Appaji Nag <giridhar@appaji.net>, 2008.
+# Arjuna Rao Chavala <arjunaraoc@gmail.com>,2010.
 # Y Giridhar Appaji Nag <appaji@debian.org>, 2008, 2009.
 # Krishna Babu K <kkrothap@redhat.com>, 2009.
+# Arjuna Rao Chavala <arjunaraoc@googlemail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: te\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2011-08-07 22:50+0000\n"
-"PO-Revision-Date: 2011-09-18 15:32+0530\n"
+"PO-Revision-Date: 2011-10-08 12:07+0530\n"
 "Last-Translator: Arjuna Rao Chavala <arjunaraoc@gmail.com>\n"
-"Language-Team: Telugu <debian-in-workers@lists.alioth.debian.org>\n"
+"Language-Team: d-i <kde-i18n-doc@kde.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. Type: text
 #. Description
@@ -56,9 +58,8 @@ msgstr "ZFS ఫైల్ వ్యవస్థ"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr "ప్రస్తుత LVM అమరిక సంక్షిప్త వివరము:"
+msgstr "వేర్వేరు /boot మరియు /lib/modules,  ZFS అమరిక కు తప్పనిసరి"
 
 #. Type: error
 #. Description
@@ -67,7 +68,7 @@ msgstr "ప్రస్తుత LVM అమరిక సంక్షిప్త
 msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
-msgstr ""
+msgstr "ZFS పూల్ పై మీ రూట్ ఫైల్ వ్యవస్థ వుంది. ఇది ఒకటి కంటే ఎక్కువ డిస్కులు  వాడబడుతున్నాయి."
 
 #. Type: error
 #. Description
@@ -80,6 +81,7 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror mode, "
 "not Striped or RAID-Z modes."
 msgstr ""
+"మిర్రర్ విధానంలో పూల్స్ కొరకు అమరిక తోడ్పాటు బూట్ లోడర్ లో వుంది, స్ట్రైప్డ్ లేక RAID-Z  విధానంలో లేదు."
 
 #. Type: error
 #. Description
@@ -89,14 +91,15 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"/boot మరియు /lib/modules ఒకే విభజన పై  ZFS పూల్ అమరిక తోడ్పాటుతో తప్పక వున్నాయని , లేక UFS "
+"లాంటి వేరే ఫైల్ వ్యవస్థ పై వున్నాయని ధృఢపరచుకోండి."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
-#, fuzzy
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr "/boot కి తోడ్పాటు లేని ఫైల్ వ్యవస్థ వాడాలా?"
+msgstr "${MNT} కొరకుతోడ్పాటు లేని బహుళ వాల్యూమ్ ZFS "
 
 #. Type: error
 #. Description
@@ -105,7 +108,7 @@ msgstr "/boot కి తోడ్పాటు లేని ఫైల్ వ్�
 msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
-msgstr ""
+msgstr "మీ ${MNT} విభజన ఒకటి కంటె ఎక్కువ భౌతిక  డిస్క్ వాడే ZFS పూల్ మీదున్నది."
 
 #. Type: error
 #. Description
@@ -115,6 +118,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"${MNT} ఒకే విభజన పై  ZFS పూల్ అమరిక తోడ్పాటుతో వుందని , లేక UFS లాంటి వేరే ఫైల్ వ్యవస్థ పై "
+"వున్నాయని ధృఢపరచుకోండి."
 
 #. Type: boolean
 #. Description
@@ -136,6 +141,8 @@ msgid ""
 "may lead to performance or stability problems due to limitations of this "
 "architecture."
 msgstr ""
+"ZFS ఫైల్ వ్యవస్థతో ఒకటి లేక మరిన్ని విభజనలను అమర్చారు. ZFS 32-bit i386 పై ప్రత్యేక ట్యూనింగ్ "
+"లేకుండా తోడ్పాటు వుంది కాని, సామర్థ్యం లేక స్థిరత్వ సమస్యలు ఈ అర్కిటెక్చర్  పరిమితుల వలన రావచ్చు"
 
 #. Type: boolean
 #. Description
@@ -146,6 +153,8 @@ msgid ""
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
+"64-bit (amd64) స్థాపనావ్యవస్థ రూపం మీ హార్డవేర్ తోడ్పాటు వుంటే  లేక  విభజన మెనూ కి వెళ్లి "
+"విభజనలను  వేరొక ఫైల్ వ్యవస్థ తో  అమర్చాలి"
 
 #. Type: boolean
 #. Description
@@ -156,33 +165,32 @@ msgid ""
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
+"ZFS ఫైల్ వ్యవస్థతో ఒకటి లేక ఎక్కువ విభజనలు అమర్చారు.  512 MB కన్నా మెమరీ తక్కువ కంప్యూటర్లపైై "
+"ZFS  స్థిరత్వ సమస్యలు రావచ్చు అందువలన సిఫారస్ లేదు."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
-msgstr "విభజన మెనూ కి వెనక్కి వెళ్లి, ఈ తప్పులు సరి దిద్దనిచో, విభజన ఉన్నపళంగా వాడబడుతుంది."
+msgstr "విభజన మెనూ కి వెనక్కి వెళ్లి, వేరొక ఫైల్ వ్యవస్థతో   use విభజన అమర్చండి"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:8001
-#, fuzzy
 msgid "Configure ZFS"
-msgstr "ప్రాంతీయత (లొకేల్)  అమరిక చేయి"
+msgstr "ZFS అమరిక"
 
 #. Type: text
 #. Description
 #. :sl4:
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
-#, fuzzy
 msgid "In use by ZFS pool ${VG}"
-msgstr "LVM volume group ${VG} లో వాడబడినవి"
+msgstr "ZFS పూల్ ${VG} వాడుతున్నది"
 
 #. Type: text
 #. Description
@@ -200,7 +208,7 @@ msgstr "అమరిక వివరాలు చూపు"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "నిర్మించు ZFS  పూల్"
 
 #. Type: text
 #. Description
@@ -209,7 +217,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "తొలగించుము ZFS పూల్"
 
 #. Type: text
 #. Description
@@ -242,44 +250,38 @@ msgstr "ముగించు"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid "Write the changes to disk and configure ZFS?"
-msgstr "మార్పులు డిస్క్ లలో వ్రాసి  మరియు  LVM అమరిక చేయాలా?"
+msgstr "మార్పులు డిస్క్ లలో వ్రాసి  మరియు  ZFS అమరిక చేయాలా?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
-"Encrypted volumes అమరిక ముందు, ప్రస్తుత విభజన పద్ధతి  డిస్క్ లో  వ్రాయాలి. ఈ మార్పులు రద్దు "
-"చేయుటవీలుకాదు."
+"ZFS అమరిక ముందు, ప్రస్తుత విభజన పద్ధతి   డిస్క్ లో  వ్రాయాలి. ఈ మార్పులు రద్దు చేయుటవీలుకాదు."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"Logical Volume Manager అమరిక అయిన తరువాత, డిస్క్ లలో  Physical Volume లోని విభజనలలో "
-"అదనపు మార్పులు, స్థాపన క్రియలో  అనుమతించబడవు. కొనసాగించే ముందు, ఈ  విభజన పద్ధతితో సంతృప్తి "
-"పడ్డారని   అంగీకరించండి."
+"ZFS అమరిక అయిన తరువాత, డిస్క్ లలో  Physical Volume లోని విభజనలలో అదనపు మార్పులు, స్థాపన "
+"క్రియలో  అనుమతించబడవు. కొనసాగించే ముందు, ఈ  విభజన పద్ధతితో సంతృప్తి పడ్డారని   అంగీకరించండి."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration failure"
-msgstr "LVM అమరిక విఫలం"
+msgstr "ZFS అమరిక విఫలం"
 
 #. Type: error
 #. Description
@@ -292,73 +294,65 @@ msgstr "మార్పులు డిస్క్ లలో రాయునప
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration has been aborted."
-msgstr "అమరిక  మధ్యంతరంగా నిలిపివేయబడింది."
+msgstr "ZFS అమరిక  మధ్యంతరంగా నిలిపివేయబడింది."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:18001
-#, fuzzy
 msgid "physical volume for ZFS"
-msgstr "LVM కొరకు Physical volume"
+msgstr "ZFS కొరకు Physical volume"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "ZFS configuration action:"
-msgstr "LVM అమరిక  చర్య:"
+msgstr "ZFS అమరిక  చర్య:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "Summary of current ZFS configuration:"
-msgstr "ప్రస్తుత LVM అమరిక సంక్షిప్త వివరము:"
+msgstr "ప్రస్తుత ZFS అమరిక సంక్షిప్త వివరము:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
 " ZFS pools:              ${VGS}\n"
 " ZFS logical volumes:    ${LVS}"
 msgstr ""
-"   ఖా‌ళీ Physical Volumes:  ${FREE_PVS}\n"
-"   ఉపయోగంలో వున్న  Physical Volumes:  ${USED_PVS}\n"
-" Volume Groups:          ${VGS}\n"
-" Logical Volumes:        ${LVS}"
+" ఖా‌ళీ Physical Volumes:  ${FREE_PVS}\n"
+" ఉపయోగంలో వున్న  Physical Volumes:  ${USED_PVS}\n"
+" ZFS పూల్ళు:          ${VGS}\n"
+" ZFS Logical Volumes:        ${LVS}"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid "Current ZFS configuration:"
-msgstr "ప్రస్తుత LVM అమరిక :"
+msgstr "ప్రస్తుత ZFS అమరిక :"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Devices for the new ZFS pool:"
-msgstr "కొత్త  Volume group కొరకు పరికరాలు:"
+msgstr "కొత్త  ZFS పూల్ కొరకు పరికరాలు:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Please select devices for the new ZFS pool."
-msgstr "కొత్త  Volume group కొరకు పరికరాలు ఎంచుకో."
+msgstr "కొత్త  ZFS పూల్ కొరకు పరికరాలు ఎంచుకో."
 
 #. Type: multiselect
 #. Description
@@ -371,9 +365,8 @@ msgstr "ఒకటి లేక మరిన్ని పరికరాలు �
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "కొత్త  Volume group కొరకు పరికరాలు:"
+msgstr "ఈ ZFS పూల్ కొరకు మల్టీడిస్క్ మోడ్:"
 
 #. Type: select
 #. Description
@@ -388,13 +381,20 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"ఈ ZFS pool కొరకు మల్టీడిస్క్ క్రియల విధానం ఎంచుకోండి:\n"
+" * Striped: RAID 0 లాగా (default) - డాటా భౌతిక వాల్యూమ్ల పై\n"
+"             విస్తరించి వుంటుంది;\n"
+" * Mirror: RAID 1 లాగా - డాటా  ప్రతి భౌతిక వాల్యూమ్data \n"
+"            పై రాయబడుతుంది;\n"
+" * RAID-Z:  RAID 5  లేక RAID 6 లాగా- కొన్ని భౌతిక వాల్యూమ్లు\n"
+"            పారిటి బిట్లుదాస్తాయి డాటా మిగతా వాటిలో విస్తరించి వుంటుంది."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "పారిటీ స్థాయి  RAID-Z కొరకు:"
 
 #. Type: select
 #. Description
@@ -403,22 +403,21 @@ msgstr ""
 msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
-msgstr ""
+msgstr "పారిటీ బిట్లు దాచుటకు భౌతిక వాల్యూమ్ల సంఖ్య ఎంపిక  చేయండి.."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "ZFS pool name:"
-msgstr ""
+msgstr "ZFS  పూల్ పేరు:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr "కొత్త Logical volume కొరకు  పేరు ప్రవేశపెట్టు:"
+msgstr "కొత్త ZFS కొరకు  పేరు ప్రవేశపెట్టు:"
 
 #. Type: error
 #. Description
@@ -431,59 +430,53 @@ msgstr "Physical volumes ఎంపికచేయలేదు"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
-msgstr "Physical volumes ఎంపికచేయలేదు. కొత్త Volume group సృష్ఠి అర్థాంతరంగా రద్దుచేయబడినది"
+msgstr "Physical volumes ఎంపికచేయలేదు. కొత్త ZFS పూల్ సృష్ఠి అర్థాంతరంగా రద్దుచేయబడినది"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "ZFS  పూల్ పేరు లేదు"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr "Volume group పేరు ప్రవేశపెట్టలేదు. దయచేసి పేరు ప్రవేశపెట్టండి."
+msgstr "ZFS పూల్ పేరు ప్రవేశపెట్టలేదు. దయచేసి పేరు ప్రవేశపెట్టండి."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid "ZFS pool name already in use"
-msgstr "Volume group పేరు యిప్పటికే వాడుకలో వుంది"
+msgstr "ZFS పూల్ పేరు యిప్పటికే వాడుకలో వుంది"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
-msgstr "ఎంచుకున్న Volume group పేరు యిప్పటికే వాడుకలో వుంది. దయచేసి ఇంకొకపేరు ఎంచుకో."
+msgstr "ఎంచుకున్న ZFS పూల్ పేరు యిప్పటికే వాడుకలో వుంది. దయచేసి ఇంకొకపేరు ఎంచుకో."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "Error while creating ZFS pool"
-msgstr "కొత్త  Logical volume సృష్ఠిలో దోషం"
+msgstr "కొత్త  ZFS pool సృష్ఠిలో దోషం"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "The ZFS pool ${VG} could not be created."
-msgstr "Volume group ${VG} సృష్ఠి వీలుకాలేదు."
+msgstr "ZFS pool ${VG} సృష్ఠి వీలుకాలేదు."
 
 #. Type: error
 #. Description
@@ -503,93 +496,84 @@ msgstr "వివరాలకు /var/log/syslog లేక virtual console 4 చ
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "ZFS pool to delete:"
-msgstr "నిర్మూలించుటకు Volume group:"
+msgstr "నిర్మూలించుటకు ZFS పూల్:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "నిర్మూలించదలచుకున్న Volume group ఎంచుకో "
+msgstr "నిర్మూలించదలచుకున్న ZFS పూల్ ఎంచుకో "
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "ZFS  పూల్  లేదు"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "No ZFS pool has been found."
-msgstr "Volume group కనబడలేదు"
+msgstr "ZFS పూల్ కనబడలేదు"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "The ZFS pool may have already been deleted."
-msgstr "Volume group తొలగించి వుండవచ్చు."
+msgstr "ZFS పూల్ తొలగించి వుండవచ్చు."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
-#, fuzzy
 msgid "Really delete the ZFS pool?"
-msgstr "Volume group ఖచ్ఛితంగా నిర్మూలించాలా?"
+msgstr "ZFS పూల్ ఖచ్ఛితంగా నిర్మూలించాలా?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "ZFS pool ${VG} నిర్మూలించట నిర్థారించు."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid "Error while deleting ZFS pool"
-msgstr "Volume group తొలగించుటలో దోషం ఏర్పడింది"
+msgstr "ZFS పూల్ తొలగించుటలో దోషం ఏర్పడింది"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
-msgstr "Volume group తొలగించుట విఫలం. ఒకటి లేక మరిన్ని Logical Volumes వాడుకలో వుండవచ్చు."
+msgstr "ZFS పూల్ తొలగించుట విఫలం. ఒకటి లేక మరిన్ని Logical Volumes వాడుకలో వుండవచ్చు."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid "No ZFS pool found"
-msgstr "విభజనలు కనబడలేదు"
+msgstr "ZFS పూల్ కనబడలేదు"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"కొత్త   logical volume సృష్ఠికి   ఖాళీ Volume groups కనబడలేదు.  Physical volumes "
-"మరియు  Volume groups సృష్ఠించు లేక ప్రస్తుతమున్న  Volume groupని కుదించు."
+"కొత్త   logical volume సృష్ఠికి   ఖాళీ  ZFS పూల్ కనబడలేదు.  మరియు  ZFS పూల్ సృష్టించు లేక "
+"ప్రస్తుతమున్న ZFS పూల్ కుదించు."
 
 #. Type: string
 #. Description
@@ -610,16 +594,15 @@ msgstr "కొత్త Logical volume కొరకు  పేరు ప్ర�
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "ZFS  పూల్:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
-#, fuzzy
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
-msgstr "కొత్త  logical volume సృష్ఠించుటకు Volume groupను ఎంచుకో"
+msgstr "కొత్త  logical volume సృష్ఠించుటకు ZFS పూల్ ను ఎంచుకో"
 
 #. Type: error
 #. Description
@@ -649,11 +632,10 @@ msgstr "కొత్త  Logical volume సృష్ఠిలో దోషం"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
-msgstr "${LV} పేరు అదే volume group (${VG})లో  ఇంకొక  Logical volume కి వాడారు."
+msgstr "${LV} పేరు అదే  ZFS ఫూల్(${VG})లో  ఇంకొక  Logical volume కి వాడారు."
 
 #. Type: string
 #. Description
@@ -743,57 +725,50 @@ msgstr "వాడుటకు వీలైన Physical volumes కనబడల�
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
 "required kernel modules or re-partition the hard drives."
 msgstr ""
 "Physical volumes (అనగా విభజనలు) మీ వ్యవస్థలో  కనబడలేదు. అన్నీ Physical volumes యిప్పటికే "
-"వాడుకలో వుండవచ్చు. అవసరమైన  కెర్నెల్ మాడ్యూళ్లు నింపటం లేక హార్డ్ డ్రైవ్లను తిరిగి విభజన చేయటం అవసరం."
+"వాడుకలో వుండవచ్చు. అవసరమైన  కెర్నెల్ మాడ్యూళ్లు నింపటం లేక హార్డ్ డ్రైవ్లను  తిరిగి విభజన చేయటం "
+"అవసరం."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid "ZFS not available"
-msgstr "సాఫ్ట్వేర్  RAID అందుబాటులో లేదు."
+msgstr "ZFS అందుబాటులో లేదు."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
-msgstr ""
-"ప్రస్తుత కెర్నెల్   Logical Volume Manager తోడ్పాటు లేదు. తిరిగి  lvm-mod మాడ్యూల్ నింపవలసిన "
-"అవసరం వుండవచ్చు."
+msgstr "ప్రస్తుత కెర్నెల్   ZFS తోడ్పాటు లేదు. తిరిగి  zfs మాడ్యూల్ నింపవలసిన అవసరం వుండవచ్చు."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "సరిలేని  Logical volume లేక  Volume group పేరు"
+msgstr "సరిలేని  Logical volume లేక  ZFS పూల్ పేరు"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Logical volume లేక Volume group పేర్లలో  అక్షరాలు, సంఖ్యలు,హైపెన్, కూడిక, ఫుల్ స్టాప్, అండర్ "
-"స్కోర్ మాత్రమే వాడాలి. దాని పరిమాణం 128 లేక అంతకన్నా తక్కువు వుండాలి, హైపెన్ తో ప్రారంభం కాకూడదు. పేర్లు "
-"\".\" మరియు \"..\" అనుమతించబడవు. ఇంకా , Logical volume పేర్లు   \"snapshot\"తో "
-"ప్రారంభం కాకూడదు."
+"Logical volume లేక ZFS పూల్ పేర్లలో  అక్షరాలు, సంఖ్యలు,హైపెన్, కూడిక, ఫుల్ స్టాప్, అండర్ స్కోర్ "
+"మాత్రమే వాడాలి. దాని పరిమాణం 255 లేక అంతకన్నా తక్కువు వుండాలి, అక్షరం లేక సంఖ్యతో ప్రారంభంకావాలి పేర్లు "
+"mirror\", \"raidz\", \"spare\", మరియు \"log\" అనుమతించబడవు."
 
 #. Type: error
 #. Description
@@ -813,28 +788,24 @@ msgstr "ప్రస్తుతమున్న Logical volume డాటా త�
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
-msgstr ""
-"ఎంపికైన పరికరం లో  తొలగించబోవుచున్న    LVM Logical volumes, Volume groups మరియు "
-"Physical volumes వున్నాయి:"
+msgstr "ఎంపికైన పరికరం లో  తొలగించబోవుచున్న  ZFS Logical volumes, మరియు ZFS పూళ్లు:"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr "తొలగించబోవు Logical volume(s): ${LVTARGETS}"
+msgstr "Logical volume(s): ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "ZFS pool(s): ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -851,26 +822,24 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
 "other partition is underused. ZFS can help with this."
 msgstr ""
-"వ్యవస్థ నిర్వాహకులకు సామాన్యంగా ఎదురయ్యే సమస్య   ఒ క డిస్క్ విభజనలో ఖాళీ స్థలం తక్కువవటం, ఇతర "
-"విభజన పెద్దగా వాడకపోవటం. Logical Volume Manager (LVM) యిటువంటి  దానికి సహాయ పడగలదు."
+"వ్యవస్థ నిర్వాహకులకు సామాన్యంగా ఎదురయ్యే సమస్య   ఒక డిస్క్ విభజన(చాలా ముఖ్యమైనది)లో ఖాళీ స్థలం "
+"తక్కువవటం, ఇతర విభజన పెద్దగా వాడకపోవటం. ZFS యిటువంటి  దానికి సహాయ పడగలదు."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -879,23 +848,21 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"LVM డిస్క్ లేక విభజన పరికరాలను (\"physical volumes\")ను కలిపి మిథ్యా డిస్క్ (\"volume group"
-"\"), చేయటానికి తోడ్పడుతుంది. దీనిలో  మిథ్యా విభజనలు (\"logical volumes\") చేయవచ్చు. Volume "
-"groups మరియు  logical volumes ఎక్కువ డిస్క్ లపై విస్తరించవచ్చు. కొత్త Physical volumes "
-"volume group కు  ఎప్పుడైనా జతచేయవచ్చు, మరియు  Logical volumes, Volume group లో "
-"కేటాయించబడని స్థలం వరకు పరిమాణంలో మార్పులు చేయవచ్చు ."
+"ZFS డిస్క్ లేక విభజన పరికరాలను (\"physical volumes\")ను కలిపి మిథ్యా డిస్క్ (\"volume group"
+"\"), చేయటానికి తోడ్పడుతుంది. దీనిలో  మిథ్యా విభజనలు (\"logical volumes\") చేయవచ్చు. ZFS "
+"పూళ్లు మరియు  logical volumes ఎక్కువ డిస్క్ లపై విస్తరించవచ్చు. కొత్త Physical volumes "
+"ZFS పూల్ కు  ఎప్పుడైనా జతచేయవచ్చు, మరియు  Logical volumes,ZFS పూల్ లో కేటాయించబడని స్థలం "
+"వరకు పరిమాణంలో మార్పులు చేయవచ్చు."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"LVM అమరిక మెనూలో అంశాలతో Volume groups మరియు  Logical volumes మార్పులు చేయవచ్చు. ప్రధాన "
-"విభజన నిర్వాహకి తెరకి వచ్చినప్పుడు Logical volumes సాధారణ విభజన లలాగానే  చూపబడతాయి మరియ వాటిని "
-"అలాగే  వాడాలి."
+"ZFS అమరిక మెనూలో అంశాలతో ZFS పూల్ మరియు  Logical volumes మార్పులు చేయవచ్చు. ప్రధాన విభజన "
+"నిర్వాహకి తెరకి వచ్చినప్పుడు Logical volumes సాధారణ విభజనలలాగానే  చూపబడతాయి మరియ వాటిని అలాగే  వాడాలి."
