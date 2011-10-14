@@ -355,7 +355,7 @@ while [ 1 ]; do
 	# Get some statistics
 	allowed_pvs=$(pv_list_allowed_free | wc -l)
 	free_pvs=$(pv_list_free | wc -l)
-	used_pvs=$(zpool list -H -o name | while read i ; do zpool status $i | grep "\sONLINE\s" | tail -n +2 ; done | wc -l)  # Used PVs
+	used_pvs=$(zpool list -H -o name | while read i ; do vg_list_pvs $i ; done | wc -l)  # Used PVs
 	vgs=$(vg_list | wc -l)
 	lvs=$(lv_list | wc -l)
 
