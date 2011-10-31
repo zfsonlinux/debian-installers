@@ -1,0 +1,25 @@
+From 7b2127a04471412b435be8ecc542971ea2773183 Mon Sep 17 00:00:00 2001
+From: Seth Heeren <zfs-fuse@sehe.nl>
+Date: Wed, 7 Sep 2011 03:00:35 +0200
+Subject: [PATCH 7/7] Fixed a rogue pointer in the handling of pidfile option
+
+---
+ src/zfs-fuse/main.c |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/src/zfs-fuse/main.c b/src/zfs-fuse/main.c
+index 32543ab..668ba4a 100644
+--- a/src/zfs-fuse/main.c
++++ b/src/zfs-fuse/main.c
+@@ -251,7 +251,7 @@ static void parse_args(int argc, char *argv[])
+ 				if (cf_pidfile != NULL)
+ 					syslog(LOG_WARNING,"%s: duplicate pid-file setting, prior setting '%s' ignored", progname, cf_pidfile);
+ 
+-				cf_pidfile = optarg;
++				cf_pidfile = strdup(optarg);
+ 
+ 				if (cf_pidfile == NULL) {
+ 					fprintf(stderr, "%s: you need to specify a file name\n\n", progname);
+-- 
+1.7.7.1
+

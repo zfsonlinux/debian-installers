@@ -1,0 +1,26 @@
+From d66593d025263f4deb4fe6d5df9c6a01fea6a2c7 Mon Sep 17 00:00:00 2001
+From: Seth Heeren <zfs-fuse@sehe.nl>
+Date: Thu, 18 Aug 2011 22:01:05 +0200
+Subject: [PATCH 3/7] fixed wrong flag value on --enable-xattr
+
+Reported by Hannes Landeholm
+---
+ src/zfs-fuse/main.c |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/src/zfs-fuse/main.c b/src/zfs-fuse/main.c
+index e8191bc..32543ab 100644
+--- a/src/zfs-fuse/main.c
++++ b/src/zfs-fuse/main.c
+@@ -158,7 +158,7 @@ static struct option longopts[] = {
+ 	{ "enable-xattr",
+ 	  0,
+ 	  &cf_enable_xattr,
+-	  0
++	  1
+ 	},
+ 	{ 0, 0, 0, 0 }
+ };
+-- 
+1.7.7.1
+

@@ -1,0 +1,33 @@
+From 43db46c01365f2402be46d5b24ec5d2d8da90679 Mon Sep 17 00:00:00 2001
+From: Seth Heeren <zfs-fuse@sehe.nl>
+Date: Fri, 19 Aug 2011 16:02:22 +0200
+Subject: [PATCH 5/7] Fixing xattr lookup for symlinks
+
+Merged from
+commit a36c6f75b7b53499410d55d90c6bd4a4176ceda3
+Author: Emmanuel Anne <emmanuel.anne@gmail.com>
+Date:   Fri Aug 19 00:22:38 2011 +0200
+
+    a better fix for xattrs on symlinks
+
+    apparently someone at sun just forgot to transfer the lookup operation to the
+    table of operations for symlinks. Now xattrs work for symlinks too.
+---
+ src/zfs-fuse/zfs_vnops.c |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/src/zfs-fuse/zfs_vnops.c b/src/zfs-fuse/zfs_vnops.c
+index b45fc7d..d26a37c 100644
+--- a/src/zfs-fuse/zfs_vnops.c
++++ b/src/zfs-fuse/zfs_vnops.c
+@@ -4740,6 +4740,7 @@ const fs_operation_def_t zfs_symvnodeops_template[] = {
+ 	VOPNAME_GETATTR,	{ .vop_getattr = zfs_getattr },
+ 	VOPNAME_SETATTR,	{ .vop_setattr = zfs_setattr },
+ 	VOPNAME_ACCESS,		{ .vop_access = zfs_access },
++	VOPNAME_LOOKUP,		{ .vop_lookup = zfs_lookup },
+ 	VOPNAME_RENAME,		{ .vop_rename = zfs_rename },
+ 	VOPNAME_READLINK,	{ .vop_readlink = zfs_readlink },
+ 	VOPNAME_INACTIVE,	{ .vop_inactive = zfs_inactive },
+-- 
+1.7.7.1
+

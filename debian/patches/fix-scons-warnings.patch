@@ -1,0 +1,56 @@
+From e23fc0bbee1da912523dd70616116228980400ed Mon Sep 17 00:00:00 2001
+From: "Stefan G. Weichinger" <gmail@oops.co.at>
+Date: Mon, 14 Mar 2011 19:44:25 +0100
+Subject: [PATCH 1/7] fix scons warnings
+
+---
+ src/lib/libnvpair/SConscript    |    4 ++--
+ src/lib/libzfscommon/SConscript |    4 ++--
+ src/lib/libzpool/SConscript     |    4 ++--
+ 3 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/src/lib/libnvpair/SConscript b/src/lib/libnvpair/SConscript
+index 4562f82..ada74fa 100644
+--- a/src/lib/libnvpair/SConscript
++++ b/src/lib/libnvpair/SConscript
+@@ -1,7 +1,7 @@
+ Import('env')
+ 
+-BuildDir('build-user', '.', duplicate = 0)
+-BuildDir('build-kernel', '.', duplicate = 0)
++VariantDir('build-user', '.', duplicate = 0)
++VariantDir('build-kernel', '.', duplicate = 0)
+ 
+ objects = Split('libnvpair.c nvpair.c nvpair_alloc_fixed.c nvpair_alloc_system.c')
+ 
+diff --git a/src/lib/libzfscommon/SConscript b/src/lib/libzfscommon/SConscript
+index c4eedf4..4c23a85 100644
+--- a/src/lib/libzfscommon/SConscript
++++ b/src/lib/libzfscommon/SConscript
+@@ -1,7 +1,7 @@
+ Import('env')
+ 
+-BuildDir('build-user', '.', duplicate = 0)
+-BuildDir('build-kernel', '.', duplicate = 0)
++VariantDir('build-user', '.', duplicate = 0)
++VariantDir('build-kernel', '.', duplicate = 0)
+ 
+ objects = Split('compress.c list.c zfs_comutil.c zfs_deleg.c zfs_namecheck.c zfs_prop.c zpool_prop.c zprop_common.c')
+ 
+diff --git a/src/lib/libzpool/SConscript b/src/lib/libzpool/SConscript
+index e9700e8..1e56b39 100644
+--- a/src/lib/libzpool/SConscript
++++ b/src/lib/libzpool/SConscript
+@@ -1,7 +1,7 @@
+ Import('env')
+ 
+-BuildDir('build-user', '.', duplicate = 0)
+-BuildDir('build-kernel', '.', duplicate = 0)
++VariantDir('build-user', '.', duplicate = 0)
++VariantDir('build-kernel', '.', duplicate = 0)
+ 
+ objects = Split('arc.c bplist.c dbuf.c dnode_sync.c dmu.c dmu_object.c dmu_objset.c dmu_send.c dmu_traverse.c dmu_tx.c dmu_zfetch.c dnode.c dsl_dataset.c dsl_deleg.c dsl_dir.c dsl_pool.c dsl_prop.c dsl_scrub.c dsl_synctask.c fletcher.c flushwc.c gzip.c lzjb.c metaslab.c refcount.c rprwlock.c rrwlock.c sha256.c spa.c spa_config.c spa_errlog.c spa_history.c spa_misc.c space_map.c txg.c uberblock.c unique.c util.c vdev.c vdev_cache.c vdev_file.c vdev_label.c vdev_mirror.c vdev_missing.c vdev_queue.c vdev_raidz.c vdev_root.c zap.c zap_leaf.c zap_micro.c zfs_byteswap.c zfs_fm.c zfs_fuid.c zfs_znode.c zil.c zio.c zio_checksum.c zio_compress.c zio_inject.c kmem_asprintf.c ddt.c ddt_zap.c zle.c')
+ 
+-- 
+1.7.7.1
+
