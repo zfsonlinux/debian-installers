@@ -30,7 +30,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2011-08-07 22:50+0000\n"
-"PO-Revision-Date: 2011-07-28 09:12+0100\n"
+"PO-Revision-Date: 2011-10-31 14:24+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "Language: sk\n"
@@ -67,9 +67,8 @@ msgstr "súborový systém ZFS"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr "Zhrnutie súčasného nastavenia LVM:"
+msgstr "Oddelené /boot a /lib/modules sú v tejto konfigurácii ZFS povinné"
 
 #. Type: error
 #. Description
@@ -79,6 +78,8 @@ msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Váš koreňový súborový systém je vo fonde ZFS, ktorý využíva viac ako jeden "
+"fyzický zväzok."
 
 #. Type: error
 #. Description
@@ -91,6 +92,8 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror mode, "
 "not Striped or RAID-Z modes."
 msgstr ""
+"Zavádzač systému podporuje túto konfiguráciu iba v režime Zrkadla, nie v "
+"režimoch Striped či RAID-Z."
 
 #. Type: error
 #. Description
@@ -100,14 +103,15 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"Ubezpečte sa, že /boot a /lib/modules sú na oddieli používajúcom podporovanú "
+"konfiguráciu fondu ZFS alebo iný súborový systém ako napr. UFS."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
-#, fuzzy
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr "Použiť nepodporovaný súborový systém pre /boot?"
+msgstr "Nepodporovaný viaczväzkový ZFS pre ${MNT}"
 
 #. Type: error
 #. Description
@@ -117,6 +121,8 @@ msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Vaša oblasť ${MNT} je vo fonde ZFS, ktorý využíva viac ako jeden fyzický "
+"zväzok."
 
 #. Type: error
 #. Description
@@ -126,6 +132,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"Ubezpečte sa, že ${MNT} je na oddieli používajúcom podporovanú konfiguráciu "
+"fondu ZFS alebo iný súborový systém ako napr. UFS."
 
 #. Type: boolean
 #. Description
@@ -156,59 +164,53 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:6001
-#, fuzzy
 msgid ""
 "You should either use the 64-bit (amd64) version of this installer (if your "
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
-"Odporúčame, aby ste použili buď 64-bitovú verziu (amd64) tohto inštalátora "
-"(ak ju váš hardvér podporuje) alebo sa vrátili do menu rozdelenia disku a "
-"nastavili pre svoje diskové oblasti iný súborový systém."
+"Mali by ste použiť buď 64-bitovú verziu (amd64) tohto inštalátora (ak ju váš "
+"hardvér podporuje) alebo sa vrátiť do menu rozdelenia disku a nastaviť pre "
+"svoje diskové oblasti iný súborový systém."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You have configured one or more partitions with the ZFS file system. Using "
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
-"Nakonfigurovali ste jednu alebo viac oblastí so súborovým systémom ZFS. Hoci "
-"je ZFS podporované na 32-bitovom i386, ak ho budete používať bez špeciálneho "
-"doladenia, môže to viesť k problémov s výkonom alebo stabilitou z dôvodov "
-"obmedzenia tejto architektúry."
+"Nakonfigurovali ste jednu alebo viac oblastí so súborovým systémom ZFS. "
+"Používanie ZFS na počítači s menej ako 512 MB pamäte môže viesť k problémom "
+"so stabilitou a neodporúča sa."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
 msgstr ""
-"Ak sa nevrátite späť do menu rozdeľovania a neodstránite chyby, táto oblasť "
-"sa použije tak ako je."
+"Mali by ste sa vrátiť späť do menu rozdeľovania a nastaviť oblasti, aby "
+"používali iný súborový systém."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:8001
-#, fuzzy
 msgid "Configure ZFS"
-msgstr "Konfigurácia locales"
+msgstr "Konfigurácia ZFS"
 
 #. Type: text
 #. Description
 #. :sl4:
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
-#, fuzzy
 msgid "In use by ZFS pool ${VG}"
-msgstr "Používa sa LVM skupinou zväzkov ${VG}"
+msgstr "Využíva fond ZFS ${VG}"
 
 #. Type: text
 #. Description
@@ -226,7 +228,7 @@ msgstr "Zobrazenie podrobností nastavenia"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "Vytvoriť fond ZFS"
 
 #. Type: text
 #. Description
@@ -235,7 +237,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "Zmazať fond ZFS"
 
 #. Type: text
 #. Description
@@ -268,45 +270,40 @@ msgstr "Ukončiť"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid "Write the changes to disk and configure ZFS?"
-msgstr "Zapísať zmeny na disky a nastaviť LVM?"
+msgstr "Zapísať zmeny na disk a nastaviť ZFS?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
-"Pred nastavením šifrovaných zväzkov sa musí na disk uložiť aktuálna schéma "
-"rozdelenia. Tieto zmeny sú nevratné."
+"Pred nastavením ZFS sa musí na disk zapísať aktuálna schéma rozdelenia. "
+"Tieto zmeny sú nevratné."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"Po nastavení správcu logických zväzkov (LVM) už nie sú počas inštalácie "
-"povolené žiadne ďalšie zmeny rozloženia diskov obsahujúcich fyzické zväzky. "
-"Prosím, pred pokračovaním sa uistite, či ste spokojní s aktuálnym rozložením "
-"oblastí na týchto diskoch."
+"Po nastavení ZFS už nie sú počas inštalácie povolené žiadne ďalšie zmeny "
+"rozloženia diskov obsahujúcich fyzické zväzky. Prosím, pred pokračovaním sa "
+"uistite, či ste spokojní s aktuálnym rozložením oblastí na týchto diskoch."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration failure"
-msgstr "Chyba pri nastavení LVM"
+msgstr "Chyba pri nastavení ZFS"
 
 #. Type: error
 #. Description
@@ -319,39 +316,34 @@ msgstr "Pri zapisovaní zmien na disky došlo k chybe."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration has been aborted."
-msgstr "Nastavenie bolo prerušené."
+msgstr "Nastavenie ZFS bolo prerušené."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:18001
-#, fuzzy
 msgid "physical volume for ZFS"
-msgstr "fyzický zväzok pre LVM"
+msgstr "fyzický zväzok pre ZFS"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "ZFS configuration action:"
-msgstr "Krok nastavenia LVM:"
+msgstr "Operácia nastavenia ZFS:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "Summary of current ZFS configuration:"
-msgstr "Zhrnutie súčasného nastavenia LVM:"
+msgstr "Zhrnutie súčasného nastavenia ZFS:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -360,32 +352,29 @@ msgid ""
 msgstr ""
 " Voľné fyzické zväzky:   ${FREE_PVS}\n"
 " Použité fyzické zväzky: ${USED_PVS}\n"
-" Skupiny zväzkov:        ${VGS}\n"
-" Logické zväzky:         ${LVS}"
+" Fondy ZFS:              ${VGS}\n"
+" Logické zväzky ZFS:     ${LVS}"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid "Current ZFS configuration:"
-msgstr "Súčasné nastavenie LVM:"
+msgstr "Súčasné nastavenie ZFS:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Devices for the new ZFS pool:"
-msgstr "Zariadenia pre novú skupinu zväzkov:"
+msgstr "Zariadenia pre nový fond ZFS:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Please select devices for the new ZFS pool."
-msgstr "Zvoľte zariadenia na novú skupinu zväzkov."
+msgstr "Prosím, zvoľte zariadenia pre nový fond ZFS."
 
 #. Type: multiselect
 #. Description
@@ -398,9 +387,8 @@ msgstr "Môžete zvoliť jedno alebo viac zariadení."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "Zariadenia pre novú skupinu zväzkov:"
+msgstr "Viacdiskový režim pre tento fond ZFS:"
 
 #. Type: select
 #. Description
@@ -415,13 +403,21 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Prosím, vyberte režim viacdiskovej prevádzky pre tento fond ZFS:\n"
+" * Striped: podobné ako RAID 0 (predvolené) - dáta sa rozprestrú\n"
+"            naprieč fyzickými zväzkami;\n"
+" * Zrkadlo: podobné ako RAID 1 - dáta sa replikujú na každý\n"
+"            z fyzických zväzkov;\n"
+" * RAID-Z:  podobné ako RAID 5 alebo RAID 6 - niektoré fyzické\n"
+"            zväzky ukladajú paritné bity a dáta sa rozprestrú\n"
+"            naprieč ostatnými"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "Úroveň parity pre RAID-Z:"
 
 #. Type: select
 #. Description
@@ -431,22 +427,23 @@ msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
 msgstr ""
+"Prosím, zvoľte počet fyzických zväzkov, ktoré sa použijú na uloženie "
+"paritných bitov."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "ZFS pool name:"
-msgstr "ZFS pool %s, zväzok %s"
+msgstr "Názov fondu ZFS:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr "Zadajte názov na označenie nového logického zväzku."
+msgstr ""
+"Prosím, zadajte názov, ktorý chcete použiť na označenie nového fondu ZFS."
 
 #. Type: error
 #. Description
@@ -459,12 +456,11 @@ msgstr "Neboli zvolené žiadne fyzické zväzky"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
 msgstr ""
-"Neboli zvolené žiadne fyzické zväzky. Vytvorenie novej skupiny zväzkov bolo "
+"Neboli zvolené žiadne fyzické zväzky. Vytvorenie nového fondu ZFS bolo "
 "prerušené."
 
 #. Type: error
@@ -472,48 +468,43 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "Nebol zadaný názov fondu ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr "Pre skupinu zväzkov nebol zadaný žiaden názov. Prosím, zadajte názov."
+msgstr "Pre fond ZFS nebol zadaný žiaden názov. Prosím, zadajte názov."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid "ZFS pool name already in use"
-msgstr "Daný názov skupiny zväzkov už existuje"
+msgstr "Fond ZFS s uvedeným názvom už existuje"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
-msgstr "Názov zvolenej skupiny zväzkov už existuje. Prosím, zvoľte iný názov."
+msgstr "Názov fondu ZFS sa už používa. Prosím, zvoľte iný názov."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "Error while creating ZFS pool"
-msgstr "Chyba pri vytváraní nového logického zväzku"
+msgstr "Chyba pri vytváraní fondu ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "The ZFS pool ${VG} could not be created."
-msgstr "Skupina zväzkov ${VG} sa nedá vytvoriť."
+msgstr "Fond ZFS ${VG} sa nedá vytvoriť."
 
 #. Type: error
 #. Description
@@ -535,96 +526,86 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "ZFS pool to delete:"
-msgstr "Skupina zväzkov na zmazanie:"
+msgstr "Fond ZFS na zmazanie:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "Vyberte skupinu zväzkov, ktorú chcete zmazať."
+msgstr "Prosím, vyberte fond ZFS, ktorý chcete zmazať."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "Nebol zadaný fond ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "No ZFS pool has been found."
-msgstr "Nebola nájdená žiadna skupina zväzkov."
+msgstr "Neboli nájdené žiadne fondy ZFS."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "The ZFS pool may have already been deleted."
-msgstr "Skupina zväzkov je už možno zmazaná."
+msgstr "Fond ZFS je už možno zmazaný."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
-#, fuzzy
 msgid "Really delete the ZFS pool?"
-msgstr "Naozaj zmazať skupinu zväzkov?"
+msgstr "Naozaj zmazať fond ZFS?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "Prosím, potvrďte odstránenie fondu ZFS ${VG}."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid "Error while deleting ZFS pool"
-msgstr "Chyba pri mazaní skupiny zväzkov"
+msgstr "Chyba pri mazaní fondu ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
-"Zvolená skupina zväzkov sa nedá zmazať. Niektoré logické zväzky sa stále "
-"používajú."
+"Zvolený fond ZFS sa nedá zmazať. Je možné, že sa niektoré logické zväzky "
+"momentálne používajú."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid "No ZFS pool found"
-msgstr "Neboli nájdené žiadne oblasti"
+msgstr "Neboli nájdené fondy ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"Nenašli sa žiadne voľné skupiny zväzkov na vytvorenie nového logického "
-"zväzku. Musíte vytvoriť viac fyzických zväzkov a skupín zväzkov alebo "
-"zmenšiť jestvujúcu skupinu zväzkov."
+"Nenašli sa žiadne voľné fondy ZFS na vytvorenie nového logického zväzku. "
+"Prosím, vytvorte ďalší fond ZFS alebo zmenšite existujúci fond ZFS."
 
 #. Type: string
 #. Description
@@ -645,16 +626,15 @@ msgstr "Zadajte názov na označenie nového logického zväzku."
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "Fond ZFS:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
-#, fuzzy
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
-msgstr "Zvoľte skupinu zväzkov na vytvorenie nového logického zväzku."
+msgstr "Prosím,  vyberte fond ZFS, kde sa má vytvoriť nový logický zväzok."
 
 #. Type: error
 #. Description
@@ -667,9 +647,8 @@ msgstr "Nebol zadaný žiaden názov logického zväzku"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:37001
-#, fuzzy
 msgid "No name for the logical volume has been entered. Please enter a name."
-msgstr "Pre logický zväzok nebol zadaný žiaden názov. Prosím, zadajte názov."
+msgstr "Pre logický zväzok nebol zadaný žiadny názov. Prosím, zadajte názov."
 
 #. Type: error
 #. Description
@@ -685,13 +664,12 @@ msgstr "Chyba pri vytváraní nového logického zväzku"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
 msgstr ""
-"Zadaný názov ${LV} už používa na tej istej skupine zväzkov iný logický "
-"zväzok (${VG})."
+"Zadaný názov ${LV} už používa v tom istom fonde ZFS iný logický zväzok "
+"(${VG})."
 
 #. Type: string
 #. Description
@@ -735,9 +713,9 @@ msgstr "Nenašli sa žiadne logické zväzky"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:41001
-#, fuzzy
 msgid "No logical volume has been found. Please create a logical volume first."
-msgstr "Nenašli sa žiadne logické zväzky. Logický zväzok teda musíte vytvoriť."
+msgstr ""
+"Nenašli sa žiadne logické zväzky. Prosím, najskôr logický zväzok vytvorte."
 
 #. Type: select
 #. Description
@@ -771,7 +749,6 @@ msgstr "Chyba pri mazaní logického zväzku"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:44001
-#, fuzzy
 msgid "The logical volume ${LV} on ${VG} could not be deleted."
 msgstr "Logický zväzok (${LV}) na ${VG} sa nedá zmazať."
 
@@ -786,58 +763,51 @@ msgstr "Nenašli sa žiadne použiteľné fyzické zväzky"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
 "required kernel modules or re-partition the hard drives."
 msgstr ""
-"Na vašom systéme sa nenašli žiadne fyzické zväzky (t.j. oblasti). Je možné, "
-"že všetky fyzické zväzky sú už použité. Takisto asi budete musieť načítať "
-"príslušné kernel moduly alebo znovu rozdeliť pevné disky."
+"Na tomto systéme sa nenašli žiadne fyzické zväzky (t.j. oblasti). Je možné, "
+"že všetky fyzické zväzky sú už použité. Možno tiež budete musieť načítať "
+"príslušné moduly jadra alebo znovu rozdeliť pevné disky."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid "ZFS not available"
-msgstr "Softvérový RAID nie je dostupný"
+msgstr "ZFS je dostupný"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
-msgstr ""
-"Aktuálne jadro nepodporuje správcu logických zväzkov (LVM). Možno "
-"potrebujete načítať modul lvm-mod."
+msgstr "Aktuálne jadro nepodporuje ZFS. Možno potrebujete načítať modul zfs."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "Neplatný logický zväzok alebo názov logického zväzku"
+msgstr "Neplatný logický zväzok alebo názov fondu ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Logický zväzok alebo názvy logických zväzkov môžu pozostávať len z písmen, "
-"číslic, bodiek, pomlčiek, znakov podčiarknutia a plus. Nesmú sa začínať "
-"pomlčkou a musia mať nanajvýš 128 znakov. Nie sú povolené názvy „.“ a „..“. "
-"Navyše názvy logických zväzkov nesmú začínať slovom „snapshot“."
+"Logický zväzok alebo názvy fondov ZFS môžu pozostávať len z písmen, číslic, "
+"pomlčiek, dvojbodiek, bodiek, znakov podčiarknutia a plus. Musia začínať "
+"písmenom alebo číslicou a musia mať nanajvýš 255 znakov. Nie sú povolené "
+"názvy „mirror“, „raidz“, „spare“ a „log“."
 
 #. Type: error
 #. Description
@@ -857,28 +827,26 @@ msgstr "Odstrániť údaje existujúcich logických zväzkov?"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"Zvolené zariadenie už obsahuje nasledovné LVM logické zväzky, skupiny "
-"zväzkov a fyzické zväzky, ktoré sa musia odstrániť:"
+"Zvolené zariadenie už obsahuje nasledovné logické zväzky ZFS a fondy ZFS, "
+"ktoré sa musia odstrániť:"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr "Logické zväzky na zmazanie: ${LVTARGETS}"
+msgstr "Logické zväzky: ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "Fond(y) ZFS: ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -896,13 +864,12 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
@@ -910,13 +877,12 @@ msgid ""
 msgstr ""
 "Bežná situácia pre správcov systémov je zistenie, že niektoré disková oblasť "
 "(zvyčajne tá najdôležitejšia) nemá dostatok miesta, pričom iná oblasť je "
-"nevyužitá. Správca logických zväzkov (LVM) tu dokáže pomôcť."
+"nevyužitá. ZFS tu dokáže pomôcť."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -925,26 +891,24 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"LVM umožňuje kombinovať dosky alebo zariadenia oblastí („fyzické zväzky“) "
+"ZFSM umožňuje kombinovať disky alebo zariadenia oblastí („fyzické zväzky“) "
 "tak, aby vytvorilo virtuálny disk („skupinu zväzkov“), ktorú možno následne "
-"rozdeliť do virtuálnych oblastí („logické zväzky“). Skupiny zväzkov a "
-"logické zväzky môžu siahať naprieč niekoľkými fyzickými diskami. Nové "
-"fyzické zväzky možno kedykoľvek pridávať do skupiny zväzkov a možno zmeniť "
-"veľkosť logických zväzkov až do veľkosti nevyužitého miesta v skupine "
-"zväzkov."
+"rozdeliť do virtuálnych oblastí („logické zväzky“). Fondy ZFS a logické "
+"zväzky môžu siahať naprieč niekoľkými fyzickými diskami. Nové fyzické zväzky "
+"možno kedykoľvek pridávať do fondu ZFS a možno zmeniť veľkosť logických "
+"zväzkov až do veľkosti nevyužitého miesta vo fonde ZFS."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"Položky v konfiguračnom menu LVM možno použiť na úpravu skupín zväzkov a "
+"Položky v konfiguračnom menu LVM možno použiť na úpravu fondov ZFS a "
 "logických zväzkov. Keď sa vrátite na hlavnú obrazovku správcu oblastí, "
 "logické zväzky sa zobrazia rovnakým  spôsobom ako bežné oblasti a malo by sa "
 "s nimi tak zaobchádzať."
