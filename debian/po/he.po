@@ -36,7 +36,7 @@ msgstr ""
 "Project-Id-Version: he\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2011-08-07 22:50+0000\n"
-"PO-Revision-Date: 2011-10-26 23:28+0200\n"
+"PO-Revision-Date: 2011-11-09 22:16+0200\n"
 "Last-Translator: Lior Kaplan <kaplan@debian.org>\n"
 "Language-Team: Hebrew <>\n"
 "Language: he\n"
@@ -74,9 +74,8 @@ msgstr "מערכת קבצים ZFS"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr "סיכום של הגדרות מנהל מחיצות לוגיות הנוכחיות:"
+msgstr "הפרדה בין /boot ל-/lib/modules הינה חובה להגדרת ZFS זו"
 
 #. Type: error
 #. Description
@@ -85,7 +84,7 @@ msgstr "סיכום של הגדרות מנהל מחיצות לוגיות הנוכ
 msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
-msgstr ""
+msgstr "מערכת קבצי השורש שלך נמצאת על מאגר ZFS שמשתמש ביותר מהתקן פיזי אחד."
 
 #. Type: error
 #. Description
@@ -98,6 +97,7 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror mode, "
 "not Striped or RAID-Z modes."
 msgstr ""
+"המאתחל תומך בהגדרה זו רק עבור מאגרים במצב ראי, לא מצבי מפוספס או RAID-Z."
 
 #. Type: error
 #. Description
@@ -107,14 +107,15 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"וודא ש-/boot ו-/lib/modules נמצאים על מחיצה המשתמשת בהגדרת מאגר ZFS נתמכת, "
+"או במערכת קבצים אחרת כמו UFS."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
-#, fuzzy
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr "להשתמש בסוג מערכת קבצים שאינו נתמך בשביל /boot?"
+msgstr "אין תמיכה ב-ZFS מרובה-התקנים עבור ${MNT}"
 
 #. Type: error
 #. Description
@@ -123,7 +124,7 @@ msgstr "להשתמש בסוג מערכת קבצים שאינו נתמך בשבי
 msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
-msgstr ""
+msgstr "מחיצת ${MNT} שלך נמצאת על מאגר ZFS שמשתמש ביותר מהתקן פיסי אחד."
 
 #. Type: error
 #. Description
@@ -133,6 +134,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"וודא ש-${MNT} נמצא על מחיצה המשתמשת בהגדרת מאגר ZFS נתמכת, או במערכת קבצים "
+"אחרת כמו UFS."
 
 #. Type: boolean
 #. Description
@@ -154,6 +157,9 @@ msgid ""
 "may lead to performance or stability problems due to limitations of this "
 "architecture."
 msgstr ""
+"הגדרת מחיצה אחת או יותר עם מערכת הקבצים ZFS.  למרות ש-ZFS נתמך על ידי 32 bit "
+"i386, שימוש בו ללא כוונון מיוחד עלול לגרום לבעיות ביצועים או יציבות בגלל "
+"מגבלות של ארכיטקטורה זו."
 
 #. Type: boolean
 #. Description
@@ -164,6 +170,9 @@ msgid ""
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
+"עליך או להשתמש בגירסת 64 ביטים (amd64) של תוכנת ההתקנה (אם החומרה שלך תומכת "
+"ב-64 ביטים), או לחזור לתפריט החלוקה למחיצות ולהגדיר את המחיצות לשימוש במערכת "
+"קבצים אחרת."
 
 #. Type: boolean
 #. Description
@@ -174,35 +183,34 @@ msgid ""
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
+"הגדרת מחיצה אחת או יותר עם מערכת הקבצים ZFS.  שימוש ב-ZFS במחשב עם פחות "
+"מ-512MB זכרון עלול לגרום לבעיות יציבות ואינו מומלץ."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
 msgstr ""
-"אם לא תחזור לתפריט הגדרת המחיצות לתיקון השגיאות, המחיצה תהיה בשימוש כמות "
-"שהיא."
+"עליך לחזור לתפריט חלוקה למחיצות ולהגדיר את המחיצות מחדש כך שישתמשו במערכת "
+"קבצים אחרת."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:8001
-#, fuzzy
 msgid "Configure ZFS"
-msgstr "קבע הגדרות מקומיות"
+msgstr "קבע הגדרות ל-ZFS"
 
 #. Type: text
 #. Description
 #. :sl4:
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
-#, fuzzy
 msgid "In use by ZFS pool ${VG}"
-msgstr "בשימוש על ידי קבוצת נפחים של מנהל מחיצות לוגיות ${VG}"
+msgstr "בשימוש על ידי קבוצת נפחים מסוג ZFS ${VG}"
 
 #. Type: text
 #. Description
@@ -220,7 +228,7 @@ msgstr "הצגת פרטי הגדרות"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "צור מאגר ZFS"
 
 #. Type: text
 #. Description
@@ -229,7 +237,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "מחק קבוצת ZFS"
 
 #. Type: text
 #. Description
@@ -262,44 +270,40 @@ msgstr "סיום"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid "Write the changes to disk and configure ZFS?"
-msgstr "לכתוב את השינויים לדיסקים ולהגדיר את מנהל מחיצות לוגיות?"
+msgstr "לכתוב את השינויים לדיסקים ולהגדיר את ZFS?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
-"לפני שניתן יהיה להגדיר נפחים מוצפנים, הסכמה הנוכחית של החלוקה למחיצות צריכה "
-"להיכתב לדיסק. שינויים אלה אינם הפיכים."
+"לפני שניתן להגדיר ZFS, הסכמה הנוכחית של החלוקה למחיצות צריכה להיכתב לדיסק. "
+"שינויים אלה אינם הפיכים."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"לאחר הגדרת מנהל המחיצות הלוגיות, אסור לעשות שינויים בחלוקה למחיצות על "
-"הדיסקים המכילים נפחים פיזיים. וודא כי אתה מרוצה עם החלוקה הנוכחית למחיצות "
-"בדיסקים האלו."
+"לאחר הגדרת ZFS, ייאסר לעשות שינויים נוספים בחלוקה למחיצות על הדיסקים המכילים "
+"נפחים פיזיים במהלך ההתקנה. וודא כי אתה מרוצה מהחלוקה הנוכחית למחיצות לפני "
+"שהינך ממשיך."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration failure"
-msgstr "שגיאה בהגדרת מנהל מחיצות לוגיות (LVM)"
+msgstr "תקלה בהגדרת ZFS"
 
 #. Type: error
 #. Description
@@ -312,39 +316,34 @@ msgstr "שגיאה קרתה בזמן כתיבת השינויים לדיסקים.
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration has been aborted."
-msgstr "תהליך ההגדרה בוטל."
+msgstr "תהליך ההגדרה של ZFS בוטל."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:18001
-#, fuzzy
 msgid "physical volume for ZFS"
-msgstr "נפח פיזי למנהל מחיצות לוגיות"
+msgstr "נפח פיזי ל-ZFS"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "ZFS configuration action:"
-msgstr "פעולות להגדרת מנהל מחיצות לוגיות:"
+msgstr "פעולה להגדרת ZFS:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "Summary of current ZFS configuration:"
-msgstr "סיכום של הגדרות מנהל מחיצות לוגיות הנוכחיות:"
+msgstr "סיכום של ההגדרה הנוכחית של ZFS:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -353,32 +352,29 @@ msgid ""
 msgstr ""
 " נפחים פיזיים פנויים:  ${FREE_PVS}\n"
 " נפחים פיזיים בשימוש:  ${USED_PVS}\n"
-" קבוצות נפחים:         ${VGS}\n"
-" נפחים לוגיים:           ${LVS}"
+" נפחי ZFS:         ${VGS}\n"
+" נפחי ZFS לוגיים:           ${LVS}"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid "Current ZFS configuration:"
-msgstr "הגדרות מנהל מחיצות לוגיות נוכחיות:"
+msgstr "ההגדרה הנוכחית של ZFS:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Devices for the new ZFS pool:"
-msgstr "התקנים לקבוצת נפחים חדשה:"
+msgstr "התקנים למאגר ZFS החדש:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Please select devices for the new ZFS pool."
-msgstr "בחר התקנים לקבוצה נפחים חדשה."
+msgstr "בחר התקנים למאגר ZFS החדש."
 
 #. Type: multiselect
 #. Description
@@ -391,9 +387,8 @@ msgstr "ניתן לבחור התקן אחד או יותר."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "התקנים לקבוצת נפחים חדשה:"
+msgstr "מצב מרובה-דיסקים למאגר ZFS זה:"
 
 #. Type: select
 #. Description
@@ -408,13 +403,17 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"אנא בחר את מצב הפעולות מרובות-הדיסקים למאגר ZFS זה: * מפוספס: דומה ל-RAID 0 "
+"(ברירת המחדל) - הנתונים מפוזרים לרוחב הנפחים הפיזיים; * ראי: דומה ל-RAID 1 - "
+"הנתונים משוכפלים לכל נפח פיזי; * RAID-Z: דומה ל-RAID 5 או ל-RAID 6 - כמה "
+"נפחים פיזיים שומרים סביות זוגיות והנתונים מפוזרים לרוחב נפחים פיזיים אחרים."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "רמת הזוגיות ל-RAID-Z:"
 
 #. Type: select
 #. Description
@@ -423,23 +422,21 @@ msgstr ""
 msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
-msgstr ""
+msgstr "בחר את מספר הנפחים הפיזיים שישמשו לאחסון סביות הזוגיות."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "ZFS pool name:"
-msgstr "מאגר ZFS %s, כרך %s"
+msgstr "שם מאגר ZFS:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr "הכנס את השם שבו תרצה להשתמש עבור הנפח הלוגי החדש."
+msgstr "הכנס את השם שבו תרצה להשתמש עבור מאגר ה-ZFS החדש."
 
 #. Type: error
 #. Description
@@ -452,59 +449,53 @@ msgstr "לא נבחרו נפחים פיזיים"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
-msgstr "לא נבחרו נפחים פיזיים. בוטלה יצירת קבוצת נפחים חדשה."
+msgstr "לא נבחרו נפחים פיזיים. בוטלה יצירת מאגר ZFS חדש."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "חסר שם מאגר ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr "לא הוכנס שם עבור קבוצת הנפחים. נא להכניס שם."
+msgstr "לא הוכנס שם עבור מאגר ה-ZFS. נא להכניס שם."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid "ZFS pool name already in use"
-msgstr "קבוצת נפחים כבר בשימוש"
+msgstr "שם מאגר ה-ZFS כבר בשימוש"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
-msgstr "השם שנבחר לקבוצת הנפחים כבר נמצא בשימוש. נא לבחור שם אחר."
+msgstr "השם שנבחר למאגר ה-ZFS כבר נמצא בשימוש. נא לבחור שם אחר."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "Error while creating ZFS pool"
-msgstr "שגיאה בזמן יצירת נפח לוגי חדש"
+msgstr "שגיאה בזמן יצירת מאגר ה-ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "The ZFS pool ${VG} could not be created."
-msgstr "לא ניתן לצור קבוצת הנפחים ${VG}."
+msgstr "לא ניתן ליצור מאגר ZFS ${VG}."
 
 #. Type: error
 #. Description
@@ -525,95 +516,86 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "ZFS pool to delete:"
-msgstr "קבוצת נפחים למחיקה:"
+msgstr "מאגר ZFS למחיקה:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "בחר קבוצת נפחים שברצונך למחוק."
+msgstr "בחר מאגר ZFS שברצונך למחוק."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "אין מאגר ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "No ZFS pool has been found."
-msgstr "לא נמצאה קבוצת נפחים."
+msgstr "לא נמצא מאגר ZFS."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "The ZFS pool may have already been deleted."
-msgstr "כנראה שכבר נמחקה קבוצת נפחים."
+msgstr "כנראה שכבר נמחק מאגר ה-ZFS."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
-#, fuzzy
 msgid "Really delete the ZFS pool?"
-msgstr "האם אתה בטוח שברצונך למחוק את קבוצת הנפחים?"
+msgstr "האם אתה בטוח שברצונך למחוק את מאגר ה-ZFS?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "נא לאשר את מחיקת מאגר ה-ZFS ${VG}."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid "Error while deleting ZFS pool"
-msgstr "שגיאה במחיקת קבוצת הנפחים"
+msgstr "שגיאה במחיקת מאגר ה-ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
-"לא ניתן למחוק את קבוצת הנפחים הנבחרת. אחד או יותר נפחים לוגיים כנראה בשימוש "
+"לא ניתן למחוק את מאגר ה-ZFS הנבחר. אחד או יותר נפחים לוגיים כנראה בשימוש "
 "כרגע."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid "No ZFS pool found"
-msgstr "לא נמצאו מחיצות"
+msgstr "לא נמצא מאגר ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"לא נמצאו קבוצות נפחים פנויות ליצירת נפח לוגי חדש. צור עוד נפחים פיזיים "
-"וקבוצות נפחים, או צמצם קבוצת נפחים קיימת."
+"לא נמצאו מאגרי ZFS פנויים ליצירת נפח לוגי חדש. צור עוד מאגר ZFS, או שחרר "
+"מרחב במאגר ZFS קיים."
 
 #. Type: string
 #. Description
@@ -634,16 +616,15 @@ msgstr "הכנס את השם שבו תרצה להשתמש עבור הנפח הל
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "מאגר ZFS:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
-#, fuzzy
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
-msgstr "בחר את קבוצת הנפחים שבה ייווצר הנפח הלוגי החדש."
+msgstr "בחר את מאגר ה-ZFS שבו ייווצר הנפח הלוגי החדש."
 
 #. Type: error
 #. Description
@@ -674,11 +655,10 @@ msgstr "שגיאה בזמן יצירת נפח לוגי חדש"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
-msgstr "השם ${LV} כבר בשימוש על ידי נפח לוגי אחר באותה קבוצת נפחים (${VG})."
+msgstr "השם ${LV} כבר בשימוש על ידי נפח לוגי אחר באותו מאגר ZFS (${VG})."
 
 #. Type: string
 #. Description
@@ -771,58 +751,51 @@ msgstr "לא נמצאו נפחים פיזיים שמישים"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
 "required kernel modules or re-partition the hard drives."
 msgstr ""
-"לא נמצאו נפחים פיזיים (מחיצות לדוגמה) במערכת שלך. כל הנפחים הפיזיים יכולים "
-"להיות כבר בשימוש. אולי תצטרך לטעון מודולים לליבה שלך או לחלק מחדש דיסקים "
-"קשיחים."
+"לא נמצאו נפחים פיזיים (ז\"א מחיצות) במערכת שלך. כל הנפחים הפיזיים כנראה כבר "
+"בשימוש. אולי תצטרך גם לטעון מודולים לליבה שלך או לחלק מחדש דיסקים קשיחים "
+"למחיצות."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid "ZFS not available"
-msgstr "התקן RAID תוכנה אינו זמין"
+msgstr "ZFS אינו זמין"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
-msgstr ""
-"הליבה הנוכחית לא מכילה תמיכה במנהל מחיצות לוגיות. כדאי לטעון את המודול lvm-"
-"mod."
+msgstr "הליבה הנוכחית לא מכילה תמיכה ב-ZFS. ייתכן שתצטרך לטעון את מודול zfs."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "שם לא חוקי עבור נפח לוגי או קבוצת נפחים"
+msgstr "שם לא חוקי עבור נפח לוגי או מאגר ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"השמות של נפחים לוגיים או קבוצות נפחים יכולים להכיל רק תווים אלפא נומריים, "
-"מקף, פלוס, נקודה, וקו תחתון. הם חייבים להיות בעלי 128 תווים או פחות ולא "
-"יכולים להתחיל במקף. השמות \".\" ו-\"..\" אסורים. בנוסף, השמות של נפחים "
-"לוגיים לא יכולים להתחיל עם \"snapshot\"."
+"השמות של נפחים לוגיים או מאגרי ZFS יכולים להכיל רק תווים אלפא נומריים, מקף, "
+"נקודותיים, נקודה, וקו תחתון. הם חייבים להיות בעלי 255 תווים או פחות ולהתחיל "
+"בתו אלפא נומרי.  השמות \"mirror\", \"raidz\", \"spare\", ו-\"log\" אינם "
+"חוקיים. "
 
 #. Type: error
 #. Description
@@ -842,28 +815,26 @@ msgstr "להסיר את המידע על הנפחים הלוגיים?"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"ההתקן שנבחר כבר מכיל את הנפחים הלוגיים, קבוצות הנפחים והנפחים פיזיים הבאים, "
-"שעומדים להיות מוסרים:"
+"ההתקן שנבחר כבר מכיל את הנפחים הלוגיים ומאגרי ZFS הבאים, שעומדים להיות "
+"מוסרים:"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr "נפחים לוגיים להסרה: ${LVTARGETS}"
+msgstr "נפחים לוגיים: ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "מאגרי ZFS: ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -879,27 +850,24 @@ msgstr "שים לב שפעולה זאת תמחק לצמיתות את המידע 
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
 "other partition is underused. ZFS can help with this."
 msgstr ""
 "מצב נפוץ עבור מנהלי מערכות הוא, שמחיצת דיסק כלשהי (בדרך כלל החשובה ביותר) "
-"התמלאה, בעוד שיש מקום פנוי בשפע במחיצה אחרת . מנהל מחיצות לוגיות (LVM) יכול "
-"לסייע במצב כזה."
+"התמלאה, בעוד שיש מקום פנוי בשפע במחיצה אחרת . ZFS יכול לסייע במצב כזה."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -908,24 +876,22 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"מנהל מחיצות לוגיות (LVM) מאפשר צירוף דיסקים או התקנים ברי-חלוקה למחיצות "
-"(\"נפחים פיזיים\") לבניית ,דיסק וירטואלי, (\"קבוצת נפחים\"), שניתן לאחר מכן "
-"לחלוקה למחיצות וירטואליות (\"נפחים לוגיים\"). דיסקים וירטואליים ונפחים "
-"לוגיים יכולים להתפרש על פני דיסקים פיזיים רבים. ניתן לצרף נפחים פיזיים לדיסק "
-"וירטואלי בכל זמן, וניתן לשנות נפחים של נפחים לוגיים עד לנפח של המרחב הפנוי "
-"בדיסק הוירטואלי."
+"ZFS מאפשר צירוף דיסקים או התקנים ברי-חלוקה למחיצות (\"נפחים פיזיים\") "
+"לבניית ,דיסק וירטואלי, (\"מאגר ZFS\"), שניתן לאחר מכן לחלוקה למחיצות "
+"וירטואליות (\"נפחים לוגיים\"). מאגרי ZFS ונפחים לוגיים יכולים להתפרש על פני "
+"דיסקים פיזיים רבים. ניתן לצרף נפחים פיזיים למאגר ZFS בכל זמן, והמגבלה היחידה "
+"לנפחם של נפחים לוגיים היא הנפח הכולל של מאגר ה-ZFS."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"ניתן להשתמש בסעיפים בתפריט הגדרות מנהל מחיצות לוגיות לעריכת קבוצות נפחים "
-"ונפחים לוגיים. אחרי חזרתך למסך הראשי של מנהל המחיצות, נפחים לוגיים יוצגו "
-"באותה הצורה כמו מחיצות רגילות ויש להתייחס אליהם בהתאם."
+"ניתן להשתמש בסעיפים בתפריט הגדרות ZFS לעריכת מאגרי ZFS ונפחים לוגיים. אחרי "
+"חזרתך למסך הראשי של מנהל המחיצות, נפחים לוגיים יוצגו באותה הצורה כמו מחיצות "
+"רגילות ויש להתייחס אליהם בהתאם."
