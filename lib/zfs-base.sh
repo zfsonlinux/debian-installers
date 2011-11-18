@@ -308,12 +308,18 @@ vg_list() {
 	zpool list -H | sed -e 's/\t.*//'
 }
 
+# Get free space of a VG (in human-readable form)
+vg_get_free_space() {
+	# ZFS v28 supports "free", ZFS v15 supports "avail".
+	zpool list -H -o free $1 2> /dev/null || zpool list -H -o avail $1
+}
+
 # List all VGs with free space
 vg_list_free() {
 	local vg
 
 	for vg in $(vg_list); do
-		if [ $(human2longint "$(zpool list -H -o avail $vg)") -gt 0 ]; then
+		if [ $(human2longint "$(vg_get_free_space $vg)") -gt 0 ]; then
 			echo "$vg"
 		fi
 	done
