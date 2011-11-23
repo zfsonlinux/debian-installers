@@ -11,7 +11,7 @@ pass=$6
 
 case $type in
     zfs)
-	zfs set mountpoint=/${mp#/} ${fs#/dev/zvol/} || exit 1
+	mount -t zfs ${fs#/dev/zvol/} ${mp} || exit 1
 	exit 0
 	;;
 esac
