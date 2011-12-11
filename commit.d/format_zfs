@@ -67,7 +67,7 @@ for dev in $DEVICES/*; do
 			log-output -t partman --pass-stdout \
 				zfs destroy "${fs}" >/dev/null || code=$?
 			log-output -t partman --pass-stdout \
-				zfs create -o mountpoint=legacy "${fs}" >/dev/null || code=$?
+				zfs create -o mountpoint=none "${fs}" >/dev/null || code=$?
 			sync
 			db_progress STOP
 
