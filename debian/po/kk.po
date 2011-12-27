@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2011-08-07 22:50+0000\n"
-"PO-Revision-Date: 2011-09-21 14:41+0600\n"
+"PO-Revision-Date: 2011-12-24 17:53+0600\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -60,9 +60,8 @@ msgstr "ZFS файлдық жүйе"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr "Ағымдық LVM конфигурациясының қорытындысы:"
+msgstr "Бөлек /boot пен /lib/modules бумалары ZFS баптауы үшін керек"
 
 #. Type: error
 #. Description
@@ -72,6 +71,8 @@ msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Сіздің түбірлік файлдық жүйеңіз бірден көп физикалық томды қолданатын ZFS "
+"пулында орналасқан."
 
 #. Type: error
 #. Description
@@ -84,6 +85,8 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror mode, "
 "not Striped or RAID-Z modes."
 msgstr ""
+"Жүктеуші бұл конфигурацияны тек Mirror режиміндегі пулдар үшін қолдайды, ал "
+"Striped және RAID-Z режимдегі пулдарды қолдамайды."
 
 #. Type: error
 #. Description
@@ -93,14 +96,16 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"/boot пен /lib/modules бумалары қолдауы бар ZFS пул конфигурациясын, не "
+"басқа файлдық жүйесін, UFS сияқты, қолданатын  бөлімде орналасқанына көз "
+"жеткізіңіз."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
-#, fuzzy
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr "/boot үшін қолдау жоқ файлдық жүйені қолдану керек пе?"
+msgstr "${MNT} үшін қолдауы жоқ көптомды ZFS"
 
 #. Type: error
 #. Description
@@ -110,6 +115,8 @@ msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Сіздің ${MNT} бөліміңіз бірден көп физикалық томды қолданып тұрған ZFS "
+"пулында орналасқан."
 
 #. Type: error
 #. Description
@@ -119,6 +126,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"${MNT} бумасы қолдауы бар ZFS пул конфигурациясын, не басқа файлдық жүйесін, "
+"UFS сияқты, қолданатын  бөлімде орналасқанына көз жеткізіңіз."
 
 #. Type: boolean
 #. Description
@@ -140,6 +149,10 @@ msgid ""
 "may lead to performance or stability problems due to limitations of this "
 "architecture."
 msgstr ""
+"Сіз бір не бірнеше бөлімдерді ZFS файлдық жүйесімен баптағансыз. ZFS ішінде "
+"32-биттік i386 режимге қолдауы болса да, оны ешбір қосымша баптаусыз қолдану "
+"бұл архитектурасының шектеулеріне байланысты өнімділіктің кемуіне әкеп соғуы "
+"мүмкін."
 
 #. Type: boolean
 #. Description
@@ -150,6 +163,9 @@ msgid ""
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
+"Сізге бұл орнатқыштың 64-биттік (amd64) нұсқасын қолдану керек, немесе "
+"бөлімдеу мәзіріне кері қайтып, бұл бөлімдерді басқа файлдық жүйесін "
+"қолданатындай етіп баптау керек."
 
 #. Type: boolean
 #. Description
@@ -160,35 +176,35 @@ msgid ""
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
+"Сіз бір не бірнеше бөлімдерді ZFS файлдық жүйесімен баптағансыз. Оперативтік "
+"жадысы 512 МБ-тан аз компьютерде ZFS қолдану тұрақтылық мәселеліне әкеп "
+"соғуы мүмкін, сол үшін ұсынылмайды."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
 msgstr ""
-"Егер сіз бөлу мәзіріндегі бөлімдерге қайта оралып, қателерді түземесеңіз, "
-"бөлім сол күйінде қолданылады."
+"Сізге дисктерді бөлімдеу мәзіріне кері қайтып, бөлімдерді басқа файлдық "
+"жүйені қолданатындай баптау керек."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:8001
-#, fuzzy
 msgid "Configure ZFS"
-msgstr "Локальдерді баптау"
+msgstr "ZFS баптау"
 
 #. Type: text
 #. Description
 #. :sl4:
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
-#, fuzzy
 msgid "In use by ZFS pool ${VG}"
-msgstr "${VG} LVM томдар тобының қолданысында"
+msgstr "${VG} ZFS пулының қолданысында"
 
 #. Type: text
 #. Description
@@ -206,7 +222,7 @@ msgstr "Баптау туралы мәліметті көрсету"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "ZFS пулын жасау"
 
 #. Type: text
 #. Description
@@ -215,7 +231,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "ZFS пулын өшіру"
 
 #. Type: text
 #. Description
@@ -248,44 +264,40 @@ msgstr "Аяқтау"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid "Write the changes to disk and configure ZFS?"
-msgstr "Өзгерістерді дискке жазу керек пе?"
+msgstr "Дискіге өзгерістерді жазып, ZFS баптау керек пе?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
-"Шифрленген томды баптамай тұрып, бөлудің схемасын дискке жазу керек. Бұл "
-"өзгерістерді болдырмау мүмкін болмайды."
+"ZFS баптамай тұрып, бөлудің схемасын дискке жазу керек. Бұл өзгерістерді "
+"болдырмау мүмкін болмайды."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"Логикалық Том Менеджерін баптағаннан кейін, физикалық томдардағы бөлу "
-"схемасына ешқандай өзгеріс енгізу мүмкін болмайды. Жалғастырмас бұрын осы "
-"схеманың сізге жарайтындығына көз жеткізіңіз."
+"ZFS баптағаннан кейін, физикалық томдары бар дисктердің бөлімдеу схемасына "
+"ешқандай өзгеріс енгізу мүмкін болмайды. Жалғастырмас бұрын осы схеманың "
+"сізге жарайтындығына көз жеткізіңіз."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration failure"
-msgstr "LVM баптау сәтсіз аяқталды"
+msgstr "ZFS баптау сәтсіз аяқталды"
 
 #. Type: error
 #. Description
@@ -298,73 +310,65 @@ msgstr "Өзгерістерді дискке жазу кезінде қате �
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration has been aborted."
-msgstr "Баптаудан бас тартылды."
+msgstr "ZFS баптаудан бас тартылды."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:18001
-#, fuzzy
 msgid "physical volume for ZFS"
-msgstr "LVM-ге арналған физикалық том"
+msgstr "ZFS-ке арналған физикалық том"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "ZFS configuration action:"
-msgstr "LVM баптауы:"
+msgstr "ZFS баптау әрекеті:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "Summary of current ZFS configuration:"
-msgstr "Ағымдық LVM конфигурациясының қорытындысы:"
+msgstr "Ағымдағы ZFS конфигурациясының қорытындысы:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
 " ZFS pools:              ${VGS}\n"
 " ZFS logical volumes:    ${LVS}"
 msgstr ""
-" Бос физикалық том:  ${FREE_PVS}\n"
-" Қолданыстағы физикалық том:  ${USED_PVS}\n"
-" Томдар тобы:          ${VGS}\n"
-" Логикалық томдар:        ${LVS}"
+" Бос физикалық томдар:  ${FREE_PVS}\n"
+" Қолданыстағы физикалық томдар:  ${USED_PVS}\n"
+" ZFS пулдары:            ${VGS}\n"
+" ZFS логикалық томдары:  ${LVS}"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid "Current ZFS configuration:"
-msgstr "Ағымдық LVM конфигурациясы:"
+msgstr "Ағымдағы ZFS конфигурациясы:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Devices for the new ZFS pool:"
-msgstr "Томдар тобын жою кезінде қателік орын алды"
+msgstr "Жаңа ZFS пулы үшін құрылғылар:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Please select devices for the new ZFS pool."
-msgstr "Томдардың жаңа тобы үшін құрылғыларды таңдаңыз."
+msgstr "Жаңа ZFS пулы үшін құрылғыларды таңдаңыз."
 
 #. Type: multiselect
 #. Description
@@ -377,9 +381,8 @@ msgstr "Сіз бір немесе бірнеше құрылғыны таңда�
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "Томдар тобын жою кезінде қателік орын алды"
+msgstr "Бұл ZFS пулы үшін мультидиск режимі:"
 
 #. Type: select
 #. Description
@@ -394,13 +397,20 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Бұл ZFS пулының мультидиск әрекеттері үшін режимді таңдаңыз:\n"
+" * Striped: RAID 0-ге ұқсас (үнсіз келісім бойынша) - мәліметтер\n"
+"            физикалық томдар арасында таратылады;\n"
+" * Mirror:  RAID 1-ге ұқсас - мәліметтер әр физикалық\n"
+"            томда қайталанады;\n"
+" * RAID-Z:  RAID 5 не RAID 6-ға ұқсас - кейбір физикалық томдар\n"
+"            жұптық биттерін сақтап, мәліметтер басқа томдарға таратылады."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "RAID-Z үшін жұптық деңгейі:"
 
 #. Type: select
 #. Description
@@ -409,22 +419,21 @@ msgstr ""
 msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
-msgstr ""
+msgstr "Жұптық биттерін сақтайтын физикалық томдар санын таңдаңыз."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "ZFS pool name:"
-msgstr ""
+msgstr "ZFS пул аты:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr "Жаңа логиклақ томның атын енгізіңіз."
+msgstr "Жаңа ZFS пулының атын енгізіңіз."
 
 #. Type: error
 #. Description
@@ -437,60 +446,53 @@ msgstr "Физикалық томдар таңдалған жоқ"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
-msgstr ""
-"Ешбір физикалық том таңдалмады. Жаңа томдар тобын құрудан бас тартылды."
+msgstr "Ешбір физикалық том таңдалмады. Жаңа ZFS пулын жасаудан бас тартылды."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "ZFS пул аты жоқ"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr "Томдар тобының аты көрсетілмеген. Атын енгізіңіз."
+msgstr "ZFS пулының аты көрсетілмеген. Атын енгізіңіз."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid "ZFS pool name already in use"
-msgstr "Томдардың тобының мұндай атауы бар"
+msgstr "ZFS пул аты қолдануда"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
-msgstr "Томдар тобының көрсетілген аты бұрыннан бар. Басқа ат енгізіңіз."
+msgstr "ZFS пулының көрсетілген аты қолданылуда. Басқа атын енгізіңіз."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "Error while creating ZFS pool"
-msgstr "Логикалық том жасау кезінде қате кетті"
+msgstr "ZFS пулын жасау кезінде қате кетті"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "The ZFS pool ${VG} could not be created."
-msgstr "${VG} томдар тобын жасала алмайды."
+msgstr "${VG} ZFS пулын жасау мүмкін емес."
 
 #. Type: error
 #. Description
@@ -511,95 +513,86 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "ZFS pool to delete:"
-msgstr "Жойылатын томдар тобы:"
+msgstr "Өшірілетін ZFS пулы:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "Жойылатын томдар тобын таңдаңыз."
+msgstr "Өшіру үшін ZFS пулын таңдаңыз."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "ZFS пулы жоқ"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "No ZFS pool has been found."
-msgstr "Ешбір тодар тобы табылған жоқ."
+msgstr "Ешбір ZFS пулы табылмады."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "The ZFS pool may have already been deleted."
-msgstr "Томдардың тобының мұндай атауы бар"
+msgstr "ZFS пулы өшірілген болуы мүмкін."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
-#, fuzzy
 msgid "Really delete the ZFS pool?"
-msgstr "Сіз шынымен томдар тобын жоюды қалайсыз ба?"
+msgstr "ZFS пулын шынымен өшіру керек пе?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "ZFS пулын ${VG} өшіруді растаңыз."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid "Error while deleting ZFS pool"
-msgstr "Томдар тобын жою кезінде қате кетті"
+msgstr "ZFS пулын өшіру кезінде қате кетті"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
-"Аталған томдар тобы жойыла алмайды. Бір немесе бірнеше логикалық томдар әлі "
-"де пайдалымда екені ықтимал."
+"Таңдалған ZFS пулын өшіру мүмкін емес. Бір немесе бірнеше логикалық томд әлі "
+"де пайдалануда болуы мүмкін."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid "No ZFS pool found"
-msgstr "Ешбір бөлім табылмады"
+msgstr "Бірде-бір ZFS пулы табылмады"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"Жаңа логикалық томды жасау үшін бос томдар тобы табылмады. Қосымша физикалық "
-"томдар мен топтарды жасаңыз немесе бар томдар тобының қысқартыңыз."
+"Жаңа логикалық томды жасау үшін бос ZFS пулдары табылмады. Басқа ZFS пулын "
+"жасаңыз немесе бар болып тұрған ZFS пулында орынды тазартыңыз."
 
 #. Type: string
 #. Description
@@ -620,16 +613,15 @@ msgstr "Жаңа логиклақ томның атын енгізіңіз."
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "ZFS пулы:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
-#, fuzzy
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
-msgstr "Жаңа логиклаық том жасалатын томдар тобын таңдаңыз."
+msgstr "Жаңа логикалық том жасалатын ZFS пулын таңдаңыз."
 
 #. Type: error
 #. Description
@@ -659,12 +651,12 @@ msgstr "Логикалық том жасау кезінде қате кетті"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
 msgstr ""
-"${LV} атауы қазіргі кезде ${VG} тобындағы басқа логикалық томға берілген."
+"${LV} атауы қазіргі кезде дәл сол ZFS пулындағы (${VG}) басқа логикалық "
+"томға берілген."
 
 #. Type: string
 #. Description
@@ -757,13 +749,12 @@ msgstr "Ешбір физикалық том табылмады"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
 "required kernel modules or re-partition the hard drives."
 msgstr ""
-"Ешбір физикалық том (бөлім) табылмады. Барлық физикалық томдар қолданыста "
+"Ешбір физикалық том (бөлім) табылмады. Барлық физикалық томдар қолдануда "
 "болуы мүмкін. Сонымен қатар арнайы ядролық модульдерді жүктеу не қатты "
 "дисктерді бөлу қажет болуы мүмкін."
 
@@ -771,45 +762,39 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid "ZFS not available"
-msgstr "Бағдарламалық RAID қолжетерсіз"
+msgstr "ZFS қолжетерсіз"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
 msgstr ""
-"Бұл ядроның конфигурациясы Логикалық Томдардың Менеджерін қолдамайды. "
-"Ядроның бұл функциясы іске қосу үшін lvm-mod модулін жүктеу керек болуы "
-"мүмкін."
+"Ағымдағы ядро ZFS қолдамайды. Сізге zfs модулін жүктеу керек болуы мүмкін."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "Логикалық томның не томдар тобының аты жарамсыз"
+msgstr "Логикалық томның не ZFS пулының аты жарамсыз"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Логикалық томның не томдар тобының аты 128 таңбадан аспайтын әрі дефистен "
-"басталмайтын әріп, сан, дефис, плюс, нүкте, астын сызу белгсінен тұруы "
-"мүмкін. \".\" және \"..\" аттары жарамайды. Сонымен қатар логикалық томның "
-"аттары \"snapshot\" деп басталмауы тиіс."
+"Логикалық том не ZFS пул аттары құрамында тек сандық-әріптік таңбалар, "
+"дефис, үтір, нүкте мен астыңғы сызық болуы мүмкін. Олардың ұзындығы 255 "
+"таңбадан аспай, сан не әріптен басталуы тиіс. Келесі аттарды қолдануға "
+"болмайды: \"mirror\", \"raidz\", \"spare\", және \"log\"."
 
 #. Type: error
 #. Description
@@ -829,28 +814,26 @@ msgstr "Логикалық томдағы деректерді жоюды қал
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"Таңдалған құрылғы келесі жойылатын LVM логикалық томдарын, томдар тобын және "
-"физикалық томдарды қамтиды:"
+"Таңдалған құрылғы келесі жойылатын ZFS логикалық томдарын мен ZFS пулдарын "
+"қамтиды:"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr "Жойылатын логикалық том: ${LVTARGETS}"
+msgstr "Логикалық том(дар): ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "ZFS пул(дар)ы: ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -867,27 +850,24 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
 "other partition is underused. ZFS can help with this."
 msgstr ""
 "Жүйелік администраторлар жиі кезігетін жағдай - дискінің кейбір бөлімдерінде "
-"аз орын қалса, басқалары аз қолданылады. Осы жағдайда Логикалық томдарды "
-"басқарушысы (LVM) көмектесе алады."
+"аз орын қалса, басқалары аз қолданылады. Осы жағдайда ZFS көмектесе алады."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -896,25 +876,24 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"LVM диск пен бөлімдерді (\"физикалық томдар\") виртуалды диск (\"томдар тобы"
-"\") түріне біріктіреді, өз кезегінде оларды виртуалды бөлімдерге "
-"(\"логикалық томдар\") бөлуге алады. Томдар топтары мен логикалық томдар "
-"бірнеше физикалық дискіні қамтуы мүмкін. Жаңа физикалық томдарды томдар "
-"тобына кез-келген уақытта қосуға болады, ал логикалық томдар өлшемдерін жаңа "
-"қосылған дисктер ұсынатын бос орынды қамтитындай өзгертуге болады."
+"ZFS диск пен бөлімдерді (\"физикалық томдар\") виртуалды диск (\"ZFS пулы\") "
+"түріне біріктіреді, өз кезегінде оларды виртуалды бөлімдерге (\"логикалық "
+"томдар\") бөлуге алады. ZFS пулдары мен логикалық томдар бірнеше физикалық "
+"дискіні қамтуы мүмкін. Жаңа физикалық томдарды ZFS пулына кез-келген уақытта "
+"қосуға болады, ал логикалық томдар өлшемдері тек ZFS пулы өлшемімен "
+"шектелген."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"LVM баптау мәзіріндегі нұсқаларды томдар топтарын мен логикалық томдарды "
-"түзетуге қолдануға болады. Негізгі бөлімдер басқарушысы терезесіне оралған "
-"кезде, логикалық томдар қалыпты бөлімдер ретінде көрсетіледі, және ол "
-"ретінде саналуы керек."
+"ZFS баптау мәзіріндегі нұсқалар ZFS пулдарын мен логикалық томдарды түзетуге "
+"қолдануға болады. Негізгі бөлімдер басқарушысы терезесіне оралған кезде, "
+"логикалық томдар қалыпты бөлімдер ретінде көрсетіледі, және ол ретінде "
+"саналуы керек."
