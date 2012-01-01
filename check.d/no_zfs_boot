@@ -1,5 +1,5 @@
 #!/bin/sh
-# GRUB doesn't yet support Striped or RAID-Z configurations on ZFS.
+# GRUB doesn't yet support RAID-Z configurations on ZFS.
 # Detect and warn.
 
 . /lib/partman/lib/base.sh
@@ -16,7 +16,7 @@ get_zfs_root_boot () {
 				local mode
 				mode="$(vg_multipv_mode $fs)"
 				case $mode in
-					striped|raidz) st=bad ;;
+					raidz) st=bad ;;
 					*) st=good ;;
 				esac
 			else

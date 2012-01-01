@@ -24,7 +24,7 @@ _Description: Separate /boot and /lib/modules mandatory for this ZFS configurati
  physical volume.
  .
  The boot loader only supports this configuration for pools in
- Mirror mode, not Striped or RAID-Z modes.
+ Mirror or Striped modes, but not RAID-Z mode.
  .
  Make sure /boot and /lib/modules are on a partition using a supported
  ZFS pool configuration, or a different file system such as UFS.
@@ -37,7 +37,7 @@ _Description: Unsupported multiple volume ZFS for ${MNT}
  physical volume.
  .
  The boot loader only supports this configuration for pools in
- Mirror mode, not Striped or RAID-Z modes.
+ Mirror or Striped modes, but not RAID-Z mode.
  .
  Make sure ${MNT} is on a partition using a supported ZFS pool
  configuration, or a different file system such as UFS.
