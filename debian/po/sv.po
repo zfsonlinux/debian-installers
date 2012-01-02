@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2012-01-01 22:50+0000\n"
-"PO-Revision-Date: 2011-10-02 12:10+0100\n"
+"PO-Revision-Date: 2012-01-02 21:02+0100\n"
 "Last-Translator: Martin Bagge / brother <brother@bsnet.se>\n"
 "Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
 "Language: sv\n"
@@ -75,7 +75,6 @@ msgid ""
 msgstr ""
 "Ditt rot-filsystem finns på en ZFS-pool som använder mer än en fysisk volym."
 
-# striped på svenska?
 #. Type: error
 #. Description
 #. :sl4:
@@ -83,16 +82,12 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
-#, fuzzy
-#| msgid ""
-#| "The boot loader only supports this configuration for pools in Mirror "
-#| "mode, not Striped or RAID-Z modes."
 msgid ""
 "The boot loader only supports this configuration for pools in Mirror or "
 "Striped modes, but not RAID-Z mode."
 msgstr ""
 "Uppstartshanteraren stöder bara denna inställning för pooler i spegelläge "
-"(mirror), lägena striped och RAID-Z stöds inte."
+"(mirror), lägena stripning och RAID-Z stöds inte."
 
 #. Type: error
 #. Description
@@ -102,13 +97,15 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"Säkerställ att /boot och /lib finns på en partition som använder ZFS-pool-"
+"inställnngar som stöds eller på ett annats filsystem, exempelvis UFS."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr ""
+msgstr "ZFS multipla volymer utan stöd för ${MNT}"
 
 #. Type: error
 #. Description
@@ -128,6 +125,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"Säkerställ att /boot och /lib finns på en partition som använder ZFS-pool-"
+"inställnngar som stöds eller på ett annats filsystem, exempelvis UFS."
 
 #. Type: boolean
 #. Description
@@ -158,43 +157,39 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:6001
-#, fuzzy
 msgid ""
 "You should either use the 64-bit (amd64) version of this installer (if your "
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
-"Du rekommenderas att använda antingen 64-bitarsversionen (amd64) av detta "
-"installationsprogram (om din maskinvara har stöd för den) eller gå tillbaka "
-"till partitioneringsmenyn och konfigurera partitionerna till att använda ett "
+"Du ska använda antingen 64-bitarsversionen (amd64) av detta installeraren "
+"(om din maskinvara har stöd för den) eller gå tillbaka till "
+"partitioneringsmenyn och konfigurera partitionerna till att använda ett "
 "annat filsystem."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You have configured one or more partitions with the ZFS file system. Using "
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
-"Du har konfigurerat en eller flera partitioner med filsystemet ZFS. Även om "
-"ZFS stöds på 32-bitars i386 så kan användning av det utan speciell "
-"finjustering leda till prestanda- eller stabilitetsproblem på grund av "
-"begränsningar för denna arkitektur."
+"Du har konfigurerat en eller flera partitioner med filsystemet ZFS. Att "
+"använda ZFS på en dator med mindre än 512 MB minne kan leda till "
+"stabilitetsproblem och rekommenderas inte."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
 msgstr ""
-"Om du inte går tillbaka till partitioneringsmenyn och korrigerar de här "
-"felen så kommer partitionen att användas i befintligt skick."
+"Du borde gå tillbaka till partitioneringsmenyn och ställa in partitionerna "
+"att använda ett annat filsystem."
 
 #. Type: text
 #. Description
@@ -276,30 +271,27 @@ msgstr "Skriv ändringarna till diskarna och konfigurera ZFS?"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
-"Innan den krypterade volymen kan konfigureras måste den nuvarande "
-"partitioneringsplanen skrivas till disk. De här ändringarna kan man inte "
-"ångra."
+"Innan ZFS kan ställas in måste det aktuella partioneringsschemat skrivas "
+"till disk. Dessa ändringar kan inte ångras."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"Efter att den logiska volymhanteraren har konfigurerats tillåts inga "
-"ytterligare ändringar i partitioneringsplanen för diskar som innehåller "
-"fysiska volymer. När du är nöjd med den aktuella partitioneringsplanen kan "
-"du fortsätta."
+"När ZFS har ställs in kan inga övriga ändringar till partitioneringsschemat "
+"göras med avseende på fysiska volymer för resterande del av installationen. "
+"Bestäm dig för om du är nöjd med det aktuella partitioneringsschemat innan "
+"du fortsätter."
 
 #. Type: error
 #. Description
@@ -347,7 +339,6 @@ msgstr "Sammandrag av aktuell ZFS-konfiguration:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -356,8 +347,8 @@ msgid ""
 msgstr ""
 " Lediga fysiska volymer:  ${FREE_PVS}\n"
 " Använda fysiska volymer: ${USED_PVS}\n"
-" Volymgrupper:            ${VGS}\n"
-" Logiska volymer:         ${LVS}"
+" ZFS-pooler:            ${VGS}\n"
+" ZFS logiska volymer:     ${LVS}"
 
 #. Type: note
 #. Description
@@ -407,6 +398,12 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Ange läge för multidisk-operationer för denna ZFS-pool:\n"
+" * Stripning: lik RAID 0 (standard) - data sprids över de fysiska\n"
+"            volymerna.\n"
+" * Spegel: lik RAID 1 - data kopieras till varje fysisk volym.\n"
+" * RAID-Z: lik RAID 5 eller RAID 6 - några fysiska volymer lagrar\n"
+"            paritetsbitar och data sprids ut över de övriga."
 
 #. Type: select
 #. Description
@@ -593,14 +590,12 @@ msgstr "Ingen ZFS-pool hittades"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"Hittade inga lediga volymgrupper, vilka behövs för att skapa en ny logisk "
-"volym. Skapa fler fysiska volymer och volymgrupper, eller minska en "
-"befintlig volymgrupp."
+"Hittade inga lediga ZFS-pooler för att skapa en ny logisk volym. Skapa en "
+"ZFS-pool eller minska utrymmet i en existerande ZFS-pool."
 
 #. Type: string
 #. Description
@@ -756,13 +751,12 @@ msgstr "Hittade inga användbara fysisk volymer"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
 "required kernel modules or re-partition the hard drives."
 msgstr ""
-"Hittade inga fysiska volymer (dvs partitioner) i ditt system. Alla fysiska "
+"Hittade inga fysiska volymer (dvs partitioner) i detta system. Alla fysiska "
 "volymer kan redan vara använda. Du kan också behöva läsa in några nödvändiga "
 "kärnmoduler eller partitionera om hårddiskarna."
 
@@ -793,18 +787,16 @@ msgstr "Ogiltig logisk volym eller ZFS-pool-namn"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Namn på logiska volymer eller volymgrupper får endast innehålla "
-"alfanumeriska tecken, bindestreck, plus, punkt och understreck. De får vara "
-"128 tecken eller mindre och får inte börja med ett bindestreck. Namnen \".\" "
-"och \"..\" tillåts inte. I tillägg till det får logiska volymnamn inte börja "
-"med \"snapshot\"."
+"Namn på logiska volymer eller ZFS-pooler får endast innehålla alfanumeriska "
+"tecken, bindestreck, kolon, punkt och understreck. De får vara 255 tecken "
+"eller mindre och måste börja med ett alfanumeriskt tecken. Namnen \"mirror"
+"\", \"raidz\", \"spare\" och \"log\" tillåts inte."
 
 #. Type: error
 #. Description
@@ -824,13 +816,12 @@ msgstr "Ta bort befintlig logisk volymdata?"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"Den valda enheten innehåller redan följande logiska LVM-volymer, "
-"volymgrupper och fysiska volymer som kommer att tas bort:"
+"Den valda enheten innehåller redan följande ZFS logiska volymer och ZFS-"
+"pooler som kommer att tas bort:"
 
 #. Type: boolean
 #. Description
@@ -868,22 +859,19 @@ msgstr "ZFS"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
 "other partition is underused. ZFS can help with this."
 msgstr ""
 "En vanlig situation för systemadministratörer är att någon diskpartition "
-"(oftast den mest viktiga) har lite diskutrymme ledigt, samtidigt som någon "
-"annan partition används lite. Logiska volymhanteraren (LVM) kan hjälpa till "
-"att undvika det."
+"(oftast den mest viktiga) har för lite diskutrymme ledigt, samtidigt som "
+"någon annan partition används lite. ZFS kan hjälpa till att undvika detta."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -892,25 +880,24 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"LVM tillåter att disk- eller partitionsenheter kombineras (\"fysiska volymer"
-"\") för att bilda en virtuell disk (\"volymgrupp\"), som sedan kan delas upp "
-"i virtuella partitioner (\"logiska volymer\"). Volymgrupper och logiska "
-"volymer kan sträcka sig över flera fysiska diskar. Nya fysiska volymer kan "
-"läggas till en volymgrupp när som helst, och logiska volymer kan man ändra "
-"storlek på upp till den mängd oallokerat utrymme som finns i volymgruppen."
+"ZFS tillåter att disk- eller partitionsenheter kombineras (\"fysiska volymer"
+"\") för att bilda en virtuell disk (\"ZFS-pool\"), som sedan kan delas upp i "
+"virtuella partitioner (\"logiska volymer\"). ZFS-pooler och logiska volymer "
+"kan sträcka sig över flera fysiska diskar. Nya fysiska volymer kan läggas "
+"till en ZFS-pool när som helst, och logiska volymer har ingen maxgräns på "
+"storleken utöver den totala storleken på ZFS-poolen."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"Objekten i konfigurationsmenyn för LVM kan användas för att redigera "
-"volymgrupper och logiska volymer. Efter att du har återvänt till "
-"huvudskärmen för partitionshanteraren så kommer logiska volymer att visas på "
-"samma sätt som vanliga partitioner, och de ska behandlas som det också."
+"Objekten i konfigurationsmenyn för ZFS kan användas för att redigera ZFS-"
+"pooler och logiska volymer. Efter att du har återvänt till huvudskärmen för "
+"partitionshanteraren kommer logiska volymer att visas på samma sätt som "
+"vanliga partitioner, och de ska behandlas som det också."
