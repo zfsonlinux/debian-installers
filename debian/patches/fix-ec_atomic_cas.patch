@@ -1,0 +1,63 @@
+--- zfs-fuse-0.7.0.orig/src/lib/libumem/sol_compat.h
++++ zfs-fuse-0.7.0/src/lib/libumem/sol_compat.h
+@@ -176,23 +176,15 @@ static INLINE uint_t ec_atomic_cas(uint_
+         : "memory");
+   return prev;
+ }
+-# endif
+-
+-# ifndef ec_atomic_inc
+-static INLINE uint_t ec_atomic_inc(uint_t *mem)
++# elif defined(__sparc__) && defined(__GNUC__)
++static INLINE uint_t ec_atomic_cas(uint_t *mem, uint_t with, uint_t cmp)
+ {
+-  register uint_t last;
+-  do {
+-    last = *mem;
+-  } while (ec_atomic_cas(mem, last+1, last) != last);
+-  return ++last;
++  __asm volatile ("cas [%3],%2,%0"
++        : "+r"(with), "=m"(*(mem))
++        : "r"(cmp), "r"(mem), "m"(*(mem)) );
++  return with;
+ }
+ # endif
+-# ifndef ec_atomic_inc64
+-   /* yeah, it's not great.  It's only used to bump failed allocation
+-    * counts, so it is not critical right now. */
+-#  define ec_atomic_inc64(a)  (*a)++
+-# endif
+ 
+ #endif
+ 
+@@ -208,8 +200,30 @@ static INLINE uint_t ec_atomic_inc(uint_
+ #define ISP2(x)    (((x) & ((x) - 1)) == 0)
+ 
+ /* beware! umem only uses these atomic adds for incrementing by 1 */
++#if defined(_WIN32) || (defined(__GNUC__) && \
++   (defined(__i386__) || defined(__x86_64__) || defined(__sparc__)))
++# ifndef ec_atomic_inc
++static INLINE uint_t ec_atomic_inc(uint_t *mem)
++{
++  register uint_t last;
++  do {
++    last = *mem;
++  } while (ec_atomic_cas(mem, last+1, last) != last);
++  return ++last;
++}
++# endif
++# ifndef ec_atomic_inc64
++   /* yeah, it's not great.  It's only used to bump failed allocation
++    * counts, so it is not critical right now. */
++#  define ec_atomic_inc64(a)  (*a)++
++# endif
++
+ #define atomic_add_64(lvalptr, delta) ec_atomic_inc64(lvalptr)
+ #define atomic_add_32_nv(a, b)  	  ec_atomic_inc(a) 
++#else
++extern uint32_t atomic_add_32_nv(volatile uint32_t *, int32_t);
++extern void atomic_add_64(volatile uint64_t *, int64_t);
++#endif
+ 
+ #ifndef NANOSEC
+ #define NANOSEC 1000000000
