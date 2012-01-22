@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2012-01-01 22:50+0000\n"
-"PO-Revision-Date: 2011-12-04 00:12+0100\n"
+"PO-Revision-Date: 2012-01-22 19:41+0100\n"
 "Last-Translator: Karolina Kalic <karolina@resenje.org>\n"
 "Language-Team: Serbian/Cyrillic\n"
 "Language: \n"
@@ -62,15 +62,13 @@ msgstr "ZFS фајл систем"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr "Одвојени /boot и /lib/modules су обавезни за ZFS конфигурацију"
+msgstr "Одвојени /boot и /lib/modules су обавезни за ову ZFS конфигурацију"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
@@ -85,19 +83,17 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
-#, fuzzy
 msgid ""
 "The boot loader only supports this configuration for pools in Mirror or "
 "Striped modes, but not RAID-Z mode."
 msgstr ""
-"Покретачки програм подржава само ову конфигурацију за групе у „Mirror“ моду, "
-"не у „Striped“ или „RAID-Z“ модовима."
+"Покретачки програм подржава само ову конфигурацију за групе у „Mirror“ или "
+"„Striped“ моду, а не у „RAID-Z“ моду."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
@@ -110,7 +106,7 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:5001
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr ""
+msgstr "Неподржани вишеструки ZFS волумен за ${MNT}"
 
 #. Type: error
 #. Description
@@ -120,6 +116,8 @@ msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Ваша ${MNT} партиција је на ZFS групи која користи више од једног физичког "
+"волумена."
 
 #. Type: error
 #. Description
@@ -129,6 +127,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"Утврдите да је ${MNT} на партицији која користи подржану конфигурацију ZFS "
+"групе, или други фајл систем као што је UFS."
 
 #. Type: boolean
 #. Description
@@ -150,6 +150,10 @@ msgid ""
 "may lead to performance or stability problems due to limitations of this "
 "architecture."
 msgstr ""
+"Конфигурисали сте једну или више партиција користећи ZFS фајл систем. Иако "
+"је ZFS подржан на 32-битном i386 систему, коритећи га без поцебног "
+"подешавања може довести до проблема у перформансама или стабилности због "
+"ограничења ове архитектуре."
 
 #. Type: boolean
 #. Description
@@ -160,6 +164,9 @@ msgid ""
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
+"Требате или да користите 64-битну (amd64) верзију инсталера (ако ваш хардвер "
+"подржава) или да се вратите у мени за партиционисање и конфигуришете "
+"партиције да користе други фајл систем."
 
 #. Type: boolean
 #. Description
@@ -170,6 +177,9 @@ msgid ""
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
+"Конфигурисали сте једну или више партиција са ZFS фајл системом. Коришћење "
+"ZFS-а на комјутеру са мање од 512 MB меморије може довести до проблема са "
+"стабилношћу и није прероручено."
 
 #. Type: boolean
 #. Description
@@ -194,7 +204,6 @@ msgstr "Конфигуроши ZFS"
 #. :sl4:
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
-#, fuzzy
 msgid "In use by ZFS pool ${VG}"
 msgstr "Партиција у употреби од ZFS групе волумена ${VG}"
 
@@ -214,7 +223,7 @@ msgstr "Приказати детаље кофигурације"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "Направити ZFS групу"
 
 #. Type: text
 #. Description
@@ -223,7 +232,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "Обрисати ZFS групу"
 
 #. Type: text
 #. Description
@@ -263,37 +272,33 @@ msgstr "Записати промене на диск и конфигуриса�
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
-"Пре него што енкриптовани волумени могу бити конфигурисани, тренутна "
-"партициона шема мора бити записана на диск.  Ове промене се не могу "
-"поништити."
+"Пре него што ZFS може бити конфигурисан, тренутна партициона шема мора бити "
+"записана на диск.  Ове промене се не могу поништити."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"Након конфигурације LVM-a нису дозвољене додатне измене током инсталације на "
-"партиционој шеми дискова који садрже физичке волумене. Одлучите да ли сте "
+"Након конфигурације ZFS-a, нису дозвољене додатне измене током инсталације "
+"на партиционој шеми дискова који садрже физичке волумене. Одлучите да ли сте "
 "задовољни тренутном партиционом шемом за ове дискове пре него што наставите."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration failure"
-msgstr "Грешка при конфигурацији LVM-а"
+msgstr "Грешка при конфигурацији ZFS-а"
 
 #. Type: error
 #. Description
@@ -306,39 +311,34 @@ msgstr "Дошло је до грешке приликом записивања 
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration has been aborted."
-msgstr "Конфигурисање је прекинуто."
+msgstr "Конфигурисање ZFS-а је прекинуто."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:18001
-#, fuzzy
 msgid "physical volume for ZFS"
-msgstr "физички волумен за LVM"
+msgstr "физички волумен за ZFS"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "ZFS configuration action:"
-msgstr "Конфигурисање LVM-а:"
+msgstr "Конфигурисање ZFS-а:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "Summary of current ZFS configuration:"
-msgstr "Преглед тренутне LVM конфигурације:"
+msgstr "Преглед тренутне ZFS конфигурације:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -347,32 +347,29 @@ msgid ""
 msgstr ""
 " Слободни физички волумени:  ${FREE_PVS}\n"
 " Искоришћени физички волумени:  ${USED_PVS}\n"
-" Групе волумена:          ${VGS}\n"
-" Логички волумени:        ${LVS}"
+" ZFS групе:          ${VGS}\n"
+" ZFS логички волумени:        ${LVS}"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid "Current ZFS configuration:"
-msgstr "Тренутна LVM конфигурација:"
+msgstr "Тренутна ZFS конфигурација:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Devices for the new ZFS pool:"
-msgstr "Уређаји за нову групу:"
+msgstr "Уређаји за нову ZFS групу:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Please select devices for the new ZFS pool."
-msgstr "Изаберите уређај за нову групу волумена."
+msgstr "Изаберите уређаје за нову ZFS групу."
 
 #. Type: multiselect
 #. Description
@@ -385,9 +382,8 @@ msgstr "Можете изабрати један или више уређаја.
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "Уређаји за нову групу:"
+msgstr "Мултидиск режим за ову ZFS групу:"
 
 #. Type: select
 #. Description
@@ -402,13 +398,20 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Please choose the mode for multidisk operations for this ZFS pool:\n"
+" * Striped: similar to RAID 0 (default) - data is spread across the\n"
+"            physical volumes;\n"
+" * Mirror:  similar to RAID 1 - data is replicated to each physical\n"
+"            volume;\n"
+" * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
+"            store parity bits and data is spread across others."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "Ниво парности за RAID-Z:"
 
 #. Type: select
 #. Description
@@ -418,21 +421,22 @@ msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
 msgstr ""
+"Унесите број физичких волумена које ће се користити за складиштење битова "
+"парности."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "ZFS pool name:"
-msgstr ""
+msgstr "Име ZFS групе:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr "Унесите име за нову логичку партицију."
+msgstr "Унесите име за нову ZFS групу."
 
 #. Type: error
 #. Description
@@ -445,59 +449,53 @@ msgstr "Физички волумени нису изабрани"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
-msgstr "Физички волумени нису изабрани."
+msgstr "Физички волумени нису изабрани. Креација нове ZFS групе је прекинута."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "Нема имена ZFS групе"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr "Није унето име за групу волумена. Унесите име."
+msgstr "Није унето име за ZFS групу. Унесите име."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid "ZFS pool name already in use"
-msgstr "Име за групу волумена је већ у употреби"
+msgstr "Име за ZFS групу је већ у употреби"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
-msgstr "Изабрано име за групу волумена је већ у употреби. Изаберите груго име."
+msgstr "Изабрано име за ZFS групу је већ у употреби. Изаберите друго име."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "Error while creating ZFS pool"
-msgstr "Грешка при креирању новог логичког волумена"
+msgstr "Грешка при креирању ZFS групе"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "The ZFS pool ${VG} could not be created."
-msgstr "Група волумена ${VG} не може бити креирана."
+msgstr "ZFS група ${VG} не може бити креирана."
 
 #. Type: error
 #. Description
@@ -517,96 +515,86 @@ msgstr "За детаље погледајте /var/log/syslog или вирту
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "ZFS pool to delete:"
-msgstr "Група волумена за брисање:"
+msgstr "ZFS група за брисање:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "Изаберите групу волумена коју желите да обришете."
+msgstr "Изаберите ZFS групу коју желите да обришете."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "Нема ZFS групе"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "No ZFS pool has been found."
-msgstr "Није пронађена група волумена."
+msgstr "Није пронађена ZFS група."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "The ZFS pool may have already been deleted."
-msgstr "Група волумена је можда већ обрисана."
+msgstr "ZFS група је можда већ обрисана."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
-#, fuzzy
 msgid "Really delete the ZFS pool?"
-msgstr "Стварно обрисати групу волумена?"
+msgstr "Стварно обрисати ZFS групу?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "Потврдите уклањање ZFS групе ${VG}."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid "Error while deleting ZFS pool"
-msgstr "Грешка при брисању групе волумена"
+msgstr "Грешка при брисању ZFS групе"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
-"Изабрана група волумена не може бити обрисана. Један или више логичких "
-"волумена је можда у употреби."
+"Изабрана ZFS група не може бити обрисана. Један или више логичких волумена "
+"је можда у употреби."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid "No ZFS pool found"
-msgstr "Није пронађена ниједна партиција"
+msgstr "Није пронађена ниједна ZFS група"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"Нису пронађене слободне групе волумена за креирање новог логичког волумена. "
-"Креирајте више физичких волумена и група волумена, или смањите постојећу "
-"групу волумена."
+"Нису пронађене слободне ZFS групе за креирање новог логичког волумена. "
+"Креирајте још једну ZFS групу, или ослободите место на постојећој."
 
 #. Type: string
 #. Description
@@ -627,16 +615,15 @@ msgstr "Унесите име за нову логичку партицију."
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "ZFS група:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
-#, fuzzy
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
-msgstr "Изаберите групу волумена где треба бити креиран нови логички волумен."
+msgstr "Изаберите ZFS групу где треба бити креиран нови логички волумен."
 
 #. Type: error
 #. Description
@@ -666,12 +653,11 @@ msgstr "Грешка при креирању новог логичког вол�
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
 msgstr ""
-"Име ${LV} за логички волумен је већ у употреби у оквиру исте групе волумена "
+"Име ${LV} за логички волумен је већ у употреби у оквиру исте ZFS групе "
 "(${VG})."
 
 #. Type: string
@@ -765,7 +751,6 @@ msgstr "Нису пронађени употребљиви физички вол
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
@@ -779,42 +764,38 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid "ZFS not available"
-msgstr "Софтверски RAID није доступан"
+msgstr "ZFS није доступан"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
-msgstr "Тренутни кернел не подржава LVM. Треба да учитате „lvm-mod“ модул."
+msgstr "Тренутни кернел не подржава ZFS. Треба да учитате „zfs“ модул."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "Неисправно име за логички волумен или групу волумена"
+msgstr "Неисправно име за логички волумен или ZFS групу"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Називи логичких волумена или групе волумена могу да садрже само "
-"алфанумеричке карактере, црту, плус, тачку и доњу црту. Могу да имају "
-"највише 128 карактера и не могу да почињу цртом. Називи „.“ и „..“ нису "
-"дозвољени. Додатно, називи логичких волумена не могу да почињу са „snapshot“."
+"Називи логичких волумена или ZFS група могу да садрже само алфанумеричке "
+"карактере, црту, двотачку и доњу црту. Могу да имају највише 255 карактера и "
+"морају да почињу алфанумеричким карактером. Називи „mirror“, „raidz“, "
+"„spare“ и „log“ нису дозвољени."
 
 #. Type: error
 #. Description
@@ -834,28 +815,26 @@ msgstr "Уклонити постојеће податке логичких пр
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"Изабрани уређај веч садржи следеће LVM логичке волумене, групе волумена и "
-"физичке волумене који ће бити уклоњени:"
+"Изабрани уређај веч садржи следеће ZFS логичке волумене и ZFS групе који ће "
+"бити уклоњени:"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr "Логички волумен(и) које терба уклонити: ${LVTARGETS}"
+msgstr "Логички волумен(и): ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "ZFS група(е): ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -873,13 +852,12 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
@@ -887,13 +865,12 @@ msgid ""
 msgstr ""
 "Честа ситуација за систем администраторе је да нађу неке партиције које "
 "имају мањак простора (обично најважније), док су неке друге партиције слабо "
-"у употреби. LVM може ту да помогне."
+"у употреби. ZFS може ту да помогне."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -902,25 +879,24 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"LVM омогућава комбиновање диск или партиционих уређаја („физички волумени“) "
-"за формирање виртуалног диска („група волумена“), који онда може бити "
-"подељен на виртуалне партиције („логички волумени“). Групе волумена и "
-"логички волумени могу да се простиру на више физичких дискова. Нови физички "
-"волумени могу бити додати групи волумена било кад и логички волумени могу "
-"бити проширени за величину неалоцираног простора у групи волумена."
+"ZFS омогућава комбиновање диск или партиционих уређаја („физички волумени“) "
+"за формирање виртуалног диска („ZFS група“), који онда може бити подељен на "
+"виртуалне партиције („логички волумени“). ZFS групе и логички волумени могу "
+"да се простиру на више физичких дискова. Нови физички волумени могу бити "
+"додати ZFS групи било кад и логички волумени немају ограничење у величини "
+"осим укупне величине ZFS групе."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"Ставке у LVM конфигурационом менију могу бити употребљене за уређивање група "
-"волумена и логичких волумена. Након што се вратите на уређивање партиција, "
+"Ставке у ZFS конфигурационом менију могу бити употребљене за уређивање ZFS "
+"група и логичких волумена. Након што се вратите на уређивање партиција, "
 "логички волумени ће бити приказани као обичне партиције и као такве их треба "
 "третирати."
