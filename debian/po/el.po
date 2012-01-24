@@ -8,6 +8,10 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
+#
+# Translations from iso-codes:
+#     Translations taken from ICU SVN on 2007-09-09
+#   Panayotis Pakos <aeikineton@yahoo.com>
 # George Papamichelakis <george@step.gr>, 2004.
 # Emmanuel Galatoulas <galas@tee.gr>, 2004.
 # Konstantinos Margaritis <markos@debian.org>, 2004, 2006.
@@ -15,15 +19,22 @@
 # quad-nrg.net <galaxico@quad-nrg.net>, 2005, 2006, 2007.
 # quad-nrg.net <yodesy@quad-nrg.net>, 2006, 2008.
 # QUAD-nrg.net <yodesy@quad-nrg.net>, 2006.
-# galaxico@quad-nrg.net <galaxico@quad-nrg.net>, 2009.
+# galaxico@quad-nrg.net <galaxico@quad-nrg.net>, 2009, 2011.
 # Emmanuel Galatoulas <galaxico@quad-nrg.net>, 2009, 2010.
+#   Tobias Quathamer <toddy@debian.org>, 2007.
+#   Free Software Foundation, Inc., 2004.
+#   Alastair McKinstry <mckinstry@computer.org>, 2001.
+#   QUAD-nrg.net <yodesy@quad-nrg.net>, 2006, 2010.
+#   Simos Xenitellis <simos@hellug.gr>, 2001.
+#   Konstantinos Margaritis <markos@debian.org>, 2004.
+#   Athanasios Lefteris <alefteris@gmail.com>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: grub-installer@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-23 22:49+0000\n"
-"PO-Revision-Date: 2010-09-04 19:11+0300\n"
-"Last-Translator: Emmanuel Galatoulas <galaxico@quad-nrg.net>\n"
+"PO-Revision-Date: 2012-01-23 15:57+0200\n"
+"Last-Translator: galaxico <galaxico@quad-nrg.net>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -230,17 +241,6 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:7001
-#, fuzzy
-#| msgid ""
-#| "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
-#| "device in /dev. Below are some examples:\n"
-#| " - \"(hd0)\" or \"/dev/hda\" will install GRUB to the master boot record\n"
-#| "   of your first hard drive (IDE);\n"
-#| " - \"(hd0,2)\" or \"/dev/hda2\" will use the second partition of your\n"
-#| "   first IDE drive;\n"
-#| " - \"(hd2,5)\" or \"/dev/sdc5\" will use the first extended partition of\n"
-#| "   your third drive (SCSI here);\n"
-#| " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgid ""
 "The device should be specified as a device in /dev. Below are some "
 "examples:\n"
@@ -251,17 +251,17 @@ msgid ""
 "   drive;\n"
 " - \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Η συσκευή μπορεί να καθοριστεί χρησιμοποιώντας τον συμβολισμό του GRUB "
-"\"(hdn,m)\" ή σαν συσκευή στον κατάλογο /dev. Ακολουθούν μερικά "
-"παραδείγματα \n"
-" - \"(hd0)\" ή \"/dev/hda\" θα εγκαταστήσει το GRUB στο master boot record\n"
-"   του πρώτου σκληρού δίσκου (IDE).\n"
-" - \"(hd0,2)\" ή \"/dev/hda2\" θα το εγκαταστήσει στην δεύτερη κατάτμηση\n"
-"   του πρώτου σκληρού δίσκου IDE.\n"
-" - \"(hd2,5)\" ή \"/dev/sdc5\" θα χρησιμοποιήσει την πρώτη εκτεταμένη "
-"κατάτμηση\n"
-"   του τρίτου σας δίσκου (σ' αυτήν την περίπτωση SCSI);\n"
-" - \"(fd0)\" ή \"/dev/fd0\" θα εγκαταστήσει το GRUB σε μια δισκέττα."
+"Η συσκευή αυτή θα πρέπει να προσδιοριστεί ως συσκευή στο /dev. Παρακάτω "
+"δίνονται μερικά παραδείγματα:\n"
+" - το \"/dev/sda\" θα εγκαταστήσει το GRUB στο κύριο αρχείο εκκίνησης (MBR) "
+"του πρώτου σκληρού δίσκου \n"
+"   στο σύστημά σας;\n"
+" - το \"/dev/sda2\" θα χρησιμοποιήσει την δεύτερη κατάτμηση του πρώτου "
+"σκληρού δίσκου;\n"
+" - το \"/dev/sdc5\" θα χρησιμοποιήσει την πρώτη επεκτεταμένη κατάτμηση του "
+"τρίτου σκληρού\n"
+"   δίσκου;\n"
+" - το \"/dev/fd0\" θα εγκαταστήσει το GRUB σε μια δισκέττα."
 
 #. Type: password
 #. Description
@@ -384,9 +384,8 @@ msgstr "Η εκτέλεση του 'update-grub' απέτυχε."
 #. Description
 #. :sl4:
 #: ../grub-installer.templates:16001
-#, fuzzy
 msgid "Install GRUB?"
-msgstr "Εγκατάσταση του φορτωτή εκκίνησης GRUB"
+msgstr "Να γίνει εγκατάσταση του GRUB;"
 
 #. Type: boolean
 #. Description
@@ -396,6 +395,9 @@ msgid ""
 "GRUB 2 is the next generation of GNU GRUB, the boot loader that is commonly "
 "used on i386/amd64 PCs. It is now also available for ${ARCH}."
 msgstr ""
+"Το GRUB 2 είναι η επόμενη γενιά του GNU GRUB, του φορτωτή εκκίνησης που "
+"χρησιμοποιείται ευρέως σε υπολογιστές i386/amd64. Τώρα είναι διαθέσιμο και "
+"για την αρχιτεκτονική ${ARCH}."
 
 #. Type: boolean
 #. Description
@@ -407,6 +409,12 @@ msgid ""
 "breakage, and have an idea on how to recover your system if it becomes "
 "unbootable. You're advised not to try this in production environments."
 msgstr ""
+"Διαθέτει αρκετά καινούρια ενδιαφέροντα χαρακτηριστικά αλλά αποτελεί ακόμα "
+"πειραματικό λογισμικό για την παρούσα αρχιτεκτονική. Αν επιλέξετε να το "
+"εγκαταστήσετε θα πρέπει να είστε έτοιμοι και για κάποια προβλήματα καθώς και "
+"να γνωρίζετε πώς να ανακτήσετε το σύστημά σας αν αυτό καταστεί μη "
+"εκκινήσιμο. Σας συμβουλεύουμε να μην το εγκαταστήσετε σε παραγωγικά "
+"περιβάλλοντα."
 
 #. Type: text
 #. Description
