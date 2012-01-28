@@ -9,26 +9,24 @@
 # in doc/i18n/i18n.txt
 # astur <malditoastur@gmail.com>, 2010
 # Marquinos <maacub@gmail.com>, 2010.
-#
 # Translations from iso-codes:
-#   Marcos Alvarez Costales <marcoscostales@gmail.com>, 2009, 2010.
-#
+# Marcos Alvarez Costales <marcoscostales@gmail.com>, 2009, 2010.
 # Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
 # Marquinos <maacub@gmail.com>, 2008.
-#
+# Mikel González <mikelglez@softastur.org>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2012-01-01 22:50+0000\n"
-"PO-Revision-Date: 2011-05-03 21:27+0100\n"
-"Last-Translator: MAAC <maacub@gmail.com>\n"
-"Language-Team: laptop\n"
-"Language: en\n"
+"PO-Revision-Date: 2012-01-28 13:25+0100\n"
+"Last-Translator: Mikel González <mikelglez@softastur.org>\n"
+"Language-Team: Softastur\n"
+"Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. Type: text
 #. Description
@@ -59,9 +57,8 @@ msgstr "Sistema ficheros ZFS"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr "Sumariu de la configuración LVM actual:"
+msgstr "Pa esta configuración ZFS ye obligáu separar /boot y /lib/modules"
 
 #. Type: error
 #. Description
@@ -71,6 +68,7 @@ msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"El sistema de ficheros root ta nuna ZFS pool qu'usa más d'ún volume físicu."
 
 #. Type: error
 #. Description
@@ -83,6 +81,8 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror or "
 "Striped modes, but not RAID-Z mode."
 msgstr ""
+"El xestor d'arranque namás que soporta esta configuración pa pools en modu "
+"espeyu o llista, pero non pal modu RAID-Z."
 
 #. Type: error
 #. Description
@@ -92,14 +92,15 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"Asegúrate de que /boot y /lib/modules tan nuna partición con una "
+"configuración ZFS pool válida, o otru sistema de ficheros diferente como UFS."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
-#, fuzzy
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr "¿Usar triba de sistema de ficheros nun sofitada pa /boot?"
+msgstr "Volumes múltiples ZFS nun soportaos pa ${MNT}"
 
 #. Type: error
 #. Description
@@ -108,7 +109,7 @@ msgstr "¿Usar triba de sistema de ficheros nun sofitada pa /boot?"
 msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
-msgstr ""
+msgstr "La partición ${MNT} ta nuna ZFS pool que usa más d'ún volume físicu."
 
 #. Type: error
 #. Description
@@ -118,6 +119,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"Asegúrate de que ${MNT} ta nuna partición con una configuración ZFS pool "
+"válida, o otru sistema de ficheros diferente como UFS."
 
 #. Type: boolean
 #. Description
@@ -148,59 +151,53 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:6001
-#, fuzzy
 msgid ""
 "You should either use the 64-bit (amd64) version of this installer (if your "
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
-"Encamentamoste usar la versión de 64 bits (amd64) d'esti programa "
-"d'instalación (si l'hardware lo permite), o volver al menú de particionáu y "
-"configurar les particiones pa usar otru sistema de ficheros."
+"Deberíes usar la versión de 64 bits (amd64) d'esti programa d'instalación "
+"(si'l hardware ye compatible), o volver al menú de particionáu y configurar "
+"les particiones pa usar otru sistema de ficheros."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You have configured one or more partitions with the ZFS file system. Using "
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
-"Configuraste una o más particiones col sistema de ficheros ZFS. A pesar de "
-"que ZFS ye compatible con 32 bits i386, usáu ensin axuste especial puede "
-"conducir a problemes de rendimientu o estabilidá debío a llimitaciones "
-"d'esta arquitectura."
+"Configuraste una o más particiones col sistema de ficheros ZFS. Usar ZFS nun "
+"equipu con menos de 512 MB de memoria puede xenerar problemes d'estabilidá y "
+"nun ta recomendáu."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
 msgstr ""
-"Si nun vuelves p'atrás al menú de particionáu y corrixes esos fallos, la "
-"partición usaráse como ta."
+"Deberíes tornar al menú de particionáu y configurar les particiones usando "
+"otru sistema de ficheros."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:8001
-#, fuzzy
 msgid "Configure ZFS"
-msgstr "Configurar locales"
+msgstr "Configurar ZFS"
 
 #. Type: text
 #. Description
 #. :sl4:
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
-#, fuzzy
 msgid "In use by ZFS pool ${VG}"
-msgstr "N'usu por grupu de volume LVM ${VG}"
+msgstr "N'usu por ZFS pool ${VG}"
 
 #. Type: text
 #. Description
@@ -218,7 +215,7 @@ msgstr "Visualizar detalles de configuración"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "Facer ZFS pool"
 
 #. Type: text
 #. Description
@@ -227,7 +224,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "Desaniciar ZFS pool"
 
 #. Type: text
 #. Description
@@ -260,46 +257,41 @@ msgstr "Finar"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid "Write the changes to disk and configure ZFS?"
-msgstr "¿Escribir cambios a los discos y configurar LVM?"
+msgstr "¿Escribir cambeos a los discos y configurar ZFS?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
-"Anantes d'encriptar los volúmenes, pueden ser configuraos, l'esquema de "
-"particionáu actual tien qu'escribise al discu. Esos cambios nun se pueden "
-"desfacer."
+"Eantes de configurar ZFS, l'esquema de particiones configuráu tien "
+"d'escribise nel discu. Nun podrás desfacer esti cambéu."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"Dempués de que te configuráu'l Xestor de Volume Llóxicu, nun tan permitíos "
-"cambios adicionales durante la instalación a les particiones nos discos que "
-"caltienen volúmenes físicos. Por favor, decide si l'esquema actual de "
-"particionáu en esos discos ye'l que quies anantes de siguir."
+"Depués de configurar ZFS, nun podrás facer más cambeos al esquema de "
+"particiones de los discos con volumes físicos durante la instalación. Por "
+"favor asegurate de que tas satisfechu/a col esquema de particiones enantes "
+"de siguir."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration failure"
-msgstr "Falló configuración LVM"
+msgstr "Falló de configuración ZFS"
 
 #. Type: error
 #. Description
@@ -312,73 +304,65 @@ msgstr "Ocurrió un fallu mientres s'escribíen los cambios a los discos."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration has been aborted."
-msgstr "La configuración fue encaboxada."
+msgstr "Configuración ZFS encaboxada."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:18001
-#, fuzzy
 msgid "physical volume for ZFS"
-msgstr "volume físicu pa LVM"
+msgstr "volume físicu pa ZFS"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "ZFS configuration action:"
-msgstr "Acción configuración LVM:"
+msgstr "Aición configuración ZFS:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "Summary of current ZFS configuration:"
-msgstr "Sumariu de la configuración LVM actual:"
+msgstr "Sumariu de la configuración ZFS d'anguaño:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
 " ZFS pools:              ${VGS}\n"
 " ZFS logical volumes:    ${LVS}"
 msgstr ""
-" Volúmenes Físicos Llibres:  ${FREE_PVS}\n"
-" Volúmenes Físicos Usaos:  ${USED_PVS}\n"
-" Grupos de Volume:          ${VGS}\n"
-" Volumenes Llóxicos:        ${LVS}"
+" Volumes físicos llibres:  ${FREE_PVS}\n"
+" Volumes físicos usaos:  ${USED_PVS}\n"
+" ZFS pools:          ${VGS}\n"
+" Volumenes llóxicos ZFS:        ${LVS}"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid "Current ZFS configuration:"
-msgstr "Configuración actual LVM:"
+msgstr "Configuración ZFS d'anguaño:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Devices for the new ZFS pool:"
-msgstr "Preseos pal nuevu grupu de volume:"
+msgstr "Preseos pa la nueva ZFS pool:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Please select devices for the new ZFS pool."
-msgstr "Por favor, seleiciona los preseos pal nuevu grupu de volume."
+msgstr "Por favor, esbilla los preseos pa la ZFS pool nueva."
 
 #. Type: multiselect
 #. Description
@@ -391,9 +375,8 @@ msgstr "Puedes seleicionar ún o más preseos."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "Preseos pal nuevu grupu de volume:"
+msgstr "Mou multidiscu pa esta ZFS pool:"
 
 #. Type: select
 #. Description
@@ -408,13 +391,20 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Por favor esbilla el mou pa les operaciones multidiscu con esta ZFS pool:\n"
+" * Llista: asemeyáu a RAID 0 (predefiníu) - los datos llistense a lo llargo\n"
+"            de los volumes físicos;\n"
+" * Espeyu:  asemeyáu a RAID 1 - los datos cálquense a cada volume\n"
+"            físicu;\n"
+" * RAID-Z:  asemeyáu a RAID 5 o RAID 6 - dalgunos volumes físicos\n"
+"            guarden paridá de bits y los datos llistense nos otros."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "Nivel de paridá pa RAID-Z:"
 
 #. Type: select
 #. Description
@@ -424,21 +414,22 @@ msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
 msgstr ""
+"Por favor esbilla el númberu de volumes físicos que vas usar pa guardar "
+"paridá de bits."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "ZFS pool name:"
-msgstr ""
+msgstr "Nome pa la ZFS pool:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr "Por favor, introduz el nome que quies usar pal nuevu volume llóxicu."
+msgstr "Por favor, introduz el nome que quies usar pa la nueva ZFS pool."
 
 #. Type: error
 #. Description
@@ -451,64 +442,55 @@ msgstr "Ensín volumenes físicos seleicionaos"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
-msgstr ""
-"Ensín volumenes físicos seleicionaos. Encaboxóse la criación d'un nuevu "
-"grupu de volume."
+msgstr "Nun esbillasti volumes. Nun se fizo la ZFS pool nueva."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "Ensin nome pa la ZFS pool"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr ""
-"Ensín nome pal grupu de volume qu'introduciste. Por favor, introduz un nome."
+msgstr "Nun punxisti un nome pa la ZFS pool. Por favor, introduz un nome."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid "ZFS pool name already in use"
-msgstr "Nome grupu volume ya ta n'usu"
+msgstr "Esi nome pa la ZFS pool ya ta n'usu"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
 msgstr ""
-"El nome del grupu de volume seleicionáu ya ta n'usu. Por favor, escueye un "
-"nome distintu."
+"El nome pa la ZFS pool que punxisti ya ta n'usu. Por favor, escueye un nome "
+"distintu."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "Error while creating ZFS pool"
-msgstr "Fallu mientres se críaba un volume llóxicu nuevu"
+msgstr "Fallu al facer la ZFS pool"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "The ZFS pool ${VG} could not be created."
-msgstr "Nun pudo criase grupu de volumen ${VG}."
+msgstr "Nun se fizo la ZFS pool ${VG}."
 
 #. Type: error
 #. Description
@@ -528,96 +510,86 @@ msgstr "Comprobar /var/log/syslog o ver consola virtual 4 pa los detalles."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "ZFS pool to delete:"
-msgstr "Grupu de volume a esborrar:"
+msgstr "ZFS pool a desaniciar:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "Por favor, seleiciona'l grupu de volume que quies esborrar."
+msgstr "Por favor, esbilla la ZFS pool que quies desaniciar."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "Nun hai ZFS pool"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "No ZFS pool has been found."
-msgstr "Nun atopáu grupu de volume."
+msgstr "Nun hai ZFS pool."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "The ZFS pool may have already been deleted."
-msgstr "El grupu de volume puede ya tar esborráu."
+msgstr "Paez que la ZFS pool ya se desanició."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
-#, fuzzy
 msgid "Really delete the ZFS pool?"
-msgstr "¿De xuru que quies esborrar el grupu de volume?"
+msgstr "¿De xuru que quies desaniciar la ZFS pool?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "Por favor confirma que quies desaniciar la ZFS pool ${VG}."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid "Error while deleting ZFS pool"
-msgstr "Fallu mientres s'esborraba grupu de volume"
+msgstr "Fallu al desaniciar la ZFS pool"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
-"El grupu de volume seleicionáu nun puede esborrase. Un o más volúmenes "
-"llóxicos puedes tar actualmente n'usu."
+"La ZFS pool qu'esbillasti nun se borró. Ún o más volumes llóxicos podríen "
+"tar n'usu anguaño."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid "No ZFS pool found"
-msgstr "Ensín particiones atopaes"
+msgstr "Nun hai ZFS pool"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"Nun atopaos grupos de volume llibres pa la criación del volume llóxicu "
-"nuevu. Por favor, cria más volúmenes físicos y grupos de volume, o amenorga "
-"un grupu de volume existente."
+"Nun hai ZFS pools llibres pa facer un volume llóxicu nuevu. Por favor, fai "
+"otra ZFS pool, llibera espaciu nuna ZFS pool esistente."
 
 #. Type: string
 #. Description
@@ -638,18 +610,16 @@ msgstr "Por favor, introduz el nome que quies usar pal nuevu volume llóxicu."
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "ZFS pool:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
-#, fuzzy
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
 msgstr ""
-"Por favor, introduz el grupu de volume onde'l nuevu volume llóxicu será "
-"criáu."
+"Por favor esbilla la ZFS pool onde quies facer el volume llóxicu nuevu."
 
 #. Type: error
 #. Description
@@ -662,10 +632,8 @@ msgstr "Nun introducíu nome volume llóxicu"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:37001
-#, fuzzy
 msgid "No name for the logical volume has been entered. Please enter a name."
-msgstr ""
-"Nun s'introduxo un nome pal volume llóxicu. Por favor, introduz un nome."
+msgstr "Nun punxisti un nome pal volume llóxicu. Por favor, introduz un nome."
 
 #. Type: error
 #. Description
@@ -681,13 +649,11 @@ msgstr "Fallu mientres se críaba un volume llóxicu nuevu"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
 msgstr ""
-"El nome ${LV} ya ta n'usu por otru volume llóxicu nel mesmu grupu de volume "
-"(${VG})."
+"El nome ${LV} ya ta n'usu por otru volume llóxicu na mesma ZFS pool (${VG})."
 
 #. Type: string
 #. Description
@@ -731,10 +697,10 @@ msgstr "Nun atopáu volume llóxicu"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:41001
-#, fuzzy
 msgid "No logical volume has been found. Please create a logical volume first."
 msgstr ""
-"Nun atopáu un volume llóxicu. Por favor cria un volume llóxicu anantes."
+"Nun s'alcuentra nengún volume llóxicu. Por favor fai un volume llóxicu "
+"enantes."
 
 #. Type: select
 #. Description
@@ -768,9 +734,8 @@ msgstr "Fallu mientres s'esborraba'l volume llóxicu"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:44001
-#, fuzzy
 msgid "The logical volume ${LV} on ${VG} could not be deleted."
-msgstr "El volume llóxicu (${LV}) en ${VG} nun pudo esborrase."
+msgstr "El volume llóxicu (${LV}) en ${VG} nun se desanció."
 
 #. Type: error
 #. Description
@@ -783,59 +748,52 @@ msgstr "Nun atopaos volumenes físicos usables"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
 "required kernel modules or re-partition the hard drives."
 msgstr ""
-"Nun atopaos volúmenes físicos (p. e. particiones) nel to sistema. Tolos "
-"volúmenes físicos ya tan n'usu. Puedes necesitar cargar dalgún módulu de "
-"kernel requeríu o reparticionar los discos duros."
+"Nun hai volumes físicos (p.e. particiones) nel sistema. Tolos volumes "
+"físicos ya tan n'usu. Pue que tamién necesites cargar dalgún módulu del "
+"kernel necesariu o reparticionar los discos duros."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid "ZFS not available"
-msgstr "Software RAID nun disponible"
+msgstr "ZFS nun ta disponible"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
 msgstr ""
-"El kernel actual nun sofita'l Xestor de Volume Llóxicu. Puedes necesitar "
-"cargar el módulu lvm-mod."
+"El kernel n'usu nun sofita ZFS. Pue que necesites cargar el módulu zfs."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "Volume llóxicu o nome de grupu de volume nun válidu"
+msgstr "Volume llóxicu o ZFS pool non válidu"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Los nomes de los volúmenes lóxicos o los grupos de volúmenes namás puen "
-"contener carauteres alfanuméricos, el guión, el signu suma, puntu y el "
-"sorrayáu. Tienen de tener una llonxitú de 128 caracteres o inferior y nun "
-"puen entamar con un guión. Nun se permite usar los nomes «.» y «..». Los "
-"nomes de los volúmenes lóxicos tampoco puen entamar con «snapshot»."
+"Los nomes del volume llóxicu o ZFS namás puen tener caráuteres alfa-"
+"numbéricos, el guión, el signu suma, puntu y el sorrayáu. Tienen de tener "
+"255 caráuteres o menos y tienen d'entamar con un caráuter alfa-numbéricu. "
+"Nun s'acepten los nomes \"mirror\", \"raidz\", \"spare\" y \"log\"."
 
 #. Type: error
 #. Description
@@ -855,28 +813,26 @@ msgstr "¿Desaniciar datos del volume llóxicu existente?"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"El preséu seleicionáu caltien los siguientes volúmenes llóxicos LVM, grupos "
-"de volume y volúmenes físicos los cuales van ser desaniciados:"
+"El preséu esbillao yá contién los volumes llóxicos ZFS y ZFS pools que "
+"vienen darréu que van desaniciase:"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr "Volume(s) llóxicu(os) a desaniciar: ${LVTARGETS}"
+msgstr "Volume(s) llóxicu(os): ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "ZFS pool(s): ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -894,28 +850,26 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
 "other partition is underused. ZFS can help with this."
 msgstr ""
-"Una situación común pa los alministradores de sistemes ye alcontrar que "
+"Una situación común pa los alministradores de sistemes ye dar con que "
 "dalgunes particiones de discu (normalmente la más importante) ye curtia "
-"n'espaciu, mientres qu'otres particiones tan infrautilizaes. El xestor de "
-"volúmenes llóxicos (LVM) puede aidar con esto."
+"n'espaciu, mientres qu'otres particiones tan desaprovechaes. ZFS pue ayudar "
+"con esto."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -924,26 +878,24 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"LVM permite amestar preseos de discu o partición (\"volúmenes físicos\") pa "
-"formar un discu virtual (\"grupu de volume\"), que puede dixebrase en "
-"particiones virtuales (\"volúmenes llóxicos\"). Grupos de volúmenes y los "
-"volúmenes llóxicos pueden abarcar varios discos. Nuevos volúmenes físicos "
-"pueden ser amestaos a un grupu de volume, en cualisquier momenty, y los "
-"volúmenes llóxicos pueden camudase de tamañu fasta pola cantidá d'espaciu "
-"nun asignáu nel grupu de volume."
+"ZFS permite combinar preseos de discu o particiones (\"volumes físicos\") pa "
+"formar un discu virtual (\"ZFS pool\"), que pue dixebrase en particiones "
+"virtuales (\"volumes llóxicos\"). ZFS pools y volumes llóxicos pueden "
+"abarcar dellos discos físicos. Se pueden amestar volumes físicos nuevos a "
+"una ZFS pool en cualesquier momentu, y los volumes llóxicos nun tienen topes "
+"de tamañu sacante'l tamañu total de la ZFS pool."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"Los puntos de menú de configuración de LVM pueden ser usaos pa editar los "
-"grupos de volume y volúmenes llóxicos. Dempués de volver a la partición "
-"principal xestor de pantalla, los volúmenes llóxicos amosaránse na mesma "
-"manera que les particiones ordinaries, y debe tratase como tal."
+"Los puntos de menú de configuración de ZFS pueden ser usaos pa editar les "
+"ZFS y los volumes llóxicos. Al tornar a la pantalla principal del xestor de "
+"particiones, verás los volumes llóxicos igua que les particiones ordinaries, "
+"y deberás tratalos como tal."
