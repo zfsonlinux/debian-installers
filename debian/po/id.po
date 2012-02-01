@@ -32,7 +32,7 @@ msgstr ""
 "Project-Id-Version: debian-installer (level1)\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2012-01-01 22:50+0000\n"
-"PO-Revision-Date: 2012-01-26 18:55+0700\n"
+"PO-Revision-Date: 2012-02-01 13:12+0700\n"
 "Last-Translator: Mahyuddin Susanto <udienz@ubuntu.com>\n"
 "Language-Team: Bahasa Indonesia <debian-l10n-id@gurame.fisika.ui.ac.id>\n"
 "Language: \n"
@@ -70,9 +70,8 @@ msgstr "sistem berkas ZFS"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr "Ringkasan konfigurasi LVM saat ini:"
+msgstr "Memisahkan /boot dan /lib/modules wajib untuk pengaturan ZFS ini"
 
 #. Type: error
 #. Description
@@ -82,6 +81,8 @@ msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Root sistem berkas anda ada di pool ZFS yang menggunakan volum fisik lebih "
+"dari satu."
 
 #. Type: error
 #. Description
@@ -94,6 +95,8 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror or "
 "Striped modes, but not RAID-Z mode."
 msgstr ""
+"Pemuat boot ini hanya mendukung pengaturan di mode Mirror dan Srtiped, tapi "
+"tidak di mode RAID-Z."
 
 #. Type: error
 #. Description
@@ -103,14 +106,15 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"Pastikan bahwa /boot dan /lib/modules dalam partisi yang mendukung "
+"pengaturan pool ZFS, atau sistem berkas yang berbeda seperti UFS."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
-#, fuzzy
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr "Gunakan jenis sistem berkas yang tak didukung untuk /boot?"
+msgstr "multi volume ZFS yang tidak didukung untuk ${MNT}"
 
 #. Type: error
 #. Description
@@ -120,6 +124,7 @@ msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Partisi ${MNT} anda di pool ZFS menggunakan lebih dari satu volume fisik."
 
 #. Type: error
 #. Description
@@ -129,6 +134,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"Pastikan bahwa ${MNT} di partisi yang mendukung pengaturan pool ZFS, atau "
+"sistem berkas yang seperti UFS."
 
 #. Type: boolean
 #. Description
@@ -175,30 +182,27 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
 msgstr ""
-"Jika Anda tidak kembali ke menu partisi sebelumnya dan memperbaiki kesalahan-"
-"kesalahan ini, partisi ini akan digunakan apa adanya."
+"Anda harus kembali ke menu partisi dan mengatur partisi untuk menggunakan "
+"sistem berkas lainya."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:8001
-#, fuzzy
 msgid "Configure ZFS"
-msgstr "Konfigurasikan sistem lokal"
+msgstr "Mengatur ZFS"
 
 #. Type: text
 #. Description
 #. :sl4:
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
-#, fuzzy
 msgid "In use by ZFS pool ${VG}"
-msgstr "Sedang digunakan oleh volume grup LVM: ${VG}"
+msgstr "Digunakan oleh pool ZFS ${VG}"
 
 #. Type: text
 #. Description
@@ -216,7 +220,7 @@ msgstr "Tampilkan rincian pengaturan"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "Membuat pool ZFS"
 
 #. Type: text
 #. Description
@@ -225,7 +229,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "Buang pool ZFS"
 
 #. Type: text
 #. Description
@@ -258,45 +262,40 @@ msgstr "Selesai"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid "Write the changes to disk and configure ZFS?"
-msgstr "Tulis perubahan ke harddisk dan konfigurasi LVM?"
+msgstr "Tulis perubahan ke harddisk dan atur ZFS?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
-"Sebelum volum terenkripsi dapat dikonfigurasi, pola partisi saat ini harus "
-"dituliskan ke hard disk. Perubahan ini tidak dapat dikembalikan."
+"Sebelum ZFS dapat diatur, pola partisi saat ini harus dituliskan ke hard "
+"disk. Perubahan ini tidak dapat dikembalikan."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"Setelah Pengelola Volum Logikal dikonfigurasi, tidak diperbolehkan adanya "
-"perubahan tambahan pada partisi yang berisikan volum fisik selama "
-"pemasangan. Sebelum melanjutkan ke langkah berikutnya, pastikan Anda puas "
-"dengan pola partisi saat ini."
+"Setelah ZFS diatur, tidak diperbolehkan adanya perubahan tambahan pada "
+"partisi yang berisikan volum fisik selama pemasangan. Sebelum melanjutkan ke "
+"langkah berikutnya, pastikan Anda puas dengan pola partisi saat ini."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration failure"
-msgstr "Konfigurasi LVM gagal"
+msgstr "Pengaturan ZFS gagal"
 
 #. Type: error
 #. Description
@@ -309,73 +308,65 @@ msgstr "Terjadi kesalahan saat menuliskan perubahan ke hard disk."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration has been aborted."
-msgstr "Konfigurasi telah dibatalkan."
+msgstr "Pengaturan ZFS telah dibatalkan."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:18001
-#, fuzzy
 msgid "physical volume for ZFS"
-msgstr "Volum fisik untuk LVM"
+msgstr "Volum fisik untuk ZFS"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "ZFS configuration action:"
-msgstr "Tindakan untuk konfigurasi LVM:"
+msgstr "Tindakan untuk pengaturan ZFS:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "Summary of current ZFS configuration:"
-msgstr "Ringkasan konfigurasi LVM saat ini:"
+msgstr "Ringkasan pengaturan ZFS saat ini:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
 " ZFS pools:              ${VGS}\n"
 " ZFS logical volumes:    ${LVS}"
 msgstr ""
-"Volum Fisik Tersedia:  ${FREE_PVS}\n"
-"Volum Fisika Terpakai:  ${USED_PVS}\n"
-"Grup Volum:          ${VGS}\n"
-"Volum Logikal:             ${LVS}"
+"Volum Fisik Tersedia:\t${FREE_PVS}\n"
+"Volum Fisika Terpakai:\t${USED_PVS}\n"
+"Pool ZFS:          \t${VGS}\n"
+"Volum Logikal ZFS:\t${LVS}"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid "Current ZFS configuration:"
-msgstr "Konfigurasi LVM saat ini:"
+msgstr "Konfigurasi ZFS saat ini:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Devices for the new ZFS pool:"
-msgstr "Piranti untuk Grup Volum baru:"
+msgstr "Piranti baru untuk pool ZFS:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Please select devices for the new ZFS pool."
-msgstr "Silakan memilih piranti untuk Grup Volum baru."
+msgstr "Silakan memilih piranti baru untuk pool ZFS."
 
 #. Type: multiselect
 #. Description
@@ -388,9 +379,8 @@ msgstr "Anda dapat memilih satu piranti atau lebih."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "Piranti untuk Grup Volum baru:"
+msgstr "Modus Multidisk untuk pool ZFS ini:"
 
 #. Type: select
 #. Description
@@ -427,15 +417,14 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "ZFS pool name:"
-msgstr ""
+msgstr "Nama pool ZFS:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr "Silakan masukkan nama yang ingin dipakai untuk Volum Logikal baru."
+msgstr "Silakan masukkan nama yang ingin dipakai untuk pool ZFS baru."
 
 #. Type: error
 #. Description
@@ -448,61 +437,54 @@ msgstr "Belum ada Volum Fisik yang dipilih"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
 msgstr ""
-"Belum ada volum fisik yang dipilih. Pembuatan Grup Volum baru telah "
-"dibatalkan."
+"Belum ada volum fisik yang dipilih. Pembuatan pool ZFS baru telah dibatalkan."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "Nama pool ZFS tidak ada"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr "Nama Grup Volum tidak dimasukkan. Silakan masukkan sebuah nama."
+msgstr "Nama pool ZFS tidak dimasukkan. Silakan masukkan sebuah nama."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid "ZFS pool name already in use"
-msgstr "Nama Grup Volum telah dipakai"
+msgstr "Nama pool ZFS telah dipakai"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
-msgstr "Nama Grup Volum yang dipilih telah dipakai. Silakan pilih nama lain."
+msgstr "Nama pool ZFS yang dipilih telah dipakai. Silakan pilih nama lain."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "Error while creating ZFS pool"
-msgstr "Terjadi kesalahan saat membuat Volum Logikal baru"
+msgstr "Terjadi kesalahan saat membuat pool ZFS baru"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "The ZFS pool ${VG} could not be created."
-msgstr "Grup volum ${VG} tidak dapat dibuat."
+msgstr "Pool ZFS ${VG} tidak dapat dibuat."
 
 #. Type: error
 #. Description
@@ -522,96 +504,86 @@ msgstr "Periksa /var/log/syslog atau lihat konsol maya no. 4."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "ZFS pool to delete:"
-msgstr "Grup Volum yang ingin dihapus:"
+msgstr "Pool ZFS yang ingin dihapus:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "Silakan pilih Grup Volum yang ingin Anda hapus."
+msgstr "Silakan pilih pool ZFS yang ingin Anda hapus."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "Pool ZFS tidak ada"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "No ZFS pool has been found."
-msgstr "Grup Volum tidak ditemukan."
+msgstr "Pool ZFS tidak ditemukan."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "The ZFS pool may have already been deleted."
-msgstr "Grup Volum mungkin telah dihapus."
+msgstr "Pool ZFS mungkin telah dihapus."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
-#, fuzzy
 msgid "Really delete the ZFS pool?"
-msgstr "Yakin menghapus Grup Volum?"
+msgstr "Yakin menghapus pool ZFS?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "Silakan konformasi pembuangan dari pool ZFS $(VG)"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid "Error while deleting ZFS pool"
-msgstr "Terjadi kesalahan saat menghapus Grup Volum"
+msgstr "Terjadi kesalahan saat menghapus pool ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
-"Grup Volum yang dipilih tidak dapat dihapus. Satu atau lebih Volum Logikal "
+"Pool ZFS yang dipilih tidak dapat dihapus. Satu atau lebih Volum Logikal "
 "mungkin sedang dipakai saat ini."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid "No ZFS pool found"
-msgstr "Partisi tidak ditemukan"
+msgstr "Tidak ada pool ZFS yang ditemukan"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"Tidak terdapat volum grup yang memiliki ruang kosong dimana dapat dibuat "
-"volum logikal yang baru. Silakan buat lagi volum fisik dan grup volum, atau "
-"kurangi ukuran grup volum yang ada."
+"Tidak ditemukan pool ZFS yang kosong untuk membuat volum logikal baru. "
+"Silakan buat pool lain, atau ruang ksoong di poll ZFS yang ada."
 
 #. Type: string
 #. Description
@@ -632,16 +604,15 @@ msgstr "Silakan masukkan nama yang ingin dipakai untuk Volum Logikal baru."
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "Pool ZFS:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
-#, fuzzy
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
-msgstr "Silakan memilih Grup Volum tempat Volum Logikal baru akan dibuat."
+msgstr "Silakan memilih pool ZFS tempat Volum Logikal baru akan dibuat."
 
 #. Type: error
 #. Description
@@ -677,8 +648,8 @@ msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
 msgstr ""
-"Nama ${LV} telah dipakai oleh Volum Logikal lain pada Grup Volum (${VG}) "
-"yang sama."
+"Nama ${LV} telah dipakai oleh Volum Logikal lain pada pool ZFS (${VG}) yang "
+"sama."
 
 #. Type: string
 #. Description
@@ -772,7 +743,6 @@ msgstr "Tidak ditemukan Volum Fisik yang dapat dipakai"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
@@ -786,28 +756,24 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid "ZFS not available"
-msgstr "Piranti lunak RAID tidak tersedia"
+msgstr "ZFS tidak tersedia"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
 msgstr ""
-"Kernel yang dipakai tidak mendukung Pengelola Volum Logikal (LVM). Anda "
-"mungkin perlu memuat modul lvm-mod."
+"Kernel yang dipakai tidak mendukung ZFS. Anda mungkin perlu memuat modul zfs."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "Nama grup volum atau volum logikal tidak sah. "
+msgstr "Nama pool ZFS atau volum logikal tidak sah. "
 
 #. Type: error
 #. Description
@@ -820,11 +786,10 @@ msgid ""
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Nama grup volum atau volum logikal hanya dapat berisi karekter angka, huruf, "
-"tanda hubung, tambah, titik, dan garis bawah. Nama harus kurang dari 128 "
-"karakter dan tidak boleh didahului tanda-hubung. Nama dengan \".\" dan \".."
-"\" tidak boleh. Khusus nama volum logikal tidak boleh diawali dengan "
-"\"snapshot\"."
+"Nama pool ZFS atau volum logikal hanya dapat berisi karekter angka, huruf, "
+"tanda hubung, tambah, titik, dan garis bawah. Nama harus kurang dari 255 "
+"karakter dan tidak boleh didahului karakter angka. Nama dengan \"mirror\", "
+"\"raidz\", \"spare\", dan \"log\" tidak boleh."
 
 #. Type: error
 #. Description
@@ -849,23 +814,22 @@ msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"Piranti yang Anda pilih untuk dihapus telah berisi volum logikal, volum grup "
-"dan volum fisik LVM berikut ini:"
+"Silakan pilih piranti yang terdapat volum logikal ZFS dan pool ZFS yang akan "
+"dibuang:"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr "Volum logikal yang akan dibuang: ${LVTARGETS}"
+msgstr "Volum logikal: ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "Pool ZFS: ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -883,13 +847,12 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
@@ -897,8 +860,7 @@ msgid ""
 msgstr ""
 "Situasi umum yang ditemui administrator sistam adalah mendapati bahwa "
 "beberapa partisi (terkadang  partisi yang terpenting) kehabisan ruang, "
-"sedangkan partisi lainnya kelebihan. Pengelola Volum Logikal (LVM) dapat "
-"mengatasi ini."
+"sedangkan partisi lainnya kelebihan. ZFS dapat mengatasi ini."
 
 #. Type: note
 #. Description
@@ -913,7 +875,7 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"LVM memungkinkan harddisk atau partisi (\"volum fisik\") digabung jadi satu "
+"ZFS memungkinkan harddisk atau partisi (\"volum fisik\") digabung jadi satu "
 "harddisk maya (\"grup volum\"), yang dapat dibagi-bagi menjadi partisi maya "
 "(\"volum logikal\"). Grup volum dan volum logikal dapat berada pada harddisk "
 "yang berbeda. Volum fisika baru dapat ditambahkan ke grup volum kapan saja. "
