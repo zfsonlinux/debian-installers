@@ -32,7 +32,7 @@ msgstr ""
 "Project-Id-Version: debian-installer (level1)\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2012-01-01 22:50+0000\n"
-"PO-Revision-Date: 2012-02-01 13:12+0700\n"
+"PO-Revision-Date: 2012-02-06 01:08+0700\n"
 "Last-Translator: Mahyuddin Susanto <udienz@ubuntu.com>\n"
 "Language-Team: Bahasa Indonesia <debian-l10n-id@gurame.fisika.ui.ac.id>\n"
 "Language: \n"
@@ -157,6 +157,10 @@ msgid ""
 "may lead to performance or stability problems due to limitations of this "
 "architecture."
 msgstr ""
+"Anda telah mengatur satu atau lebih partisi dengan sistem berkas ZFS. "
+"Meskipun ZFS didukung di i386 32-bit, menggunakannya tanpa tuning khusus "
+"dapat menyebabkan masalah performa atau stabilitas karena keterbatasan "
+"arsitektur ini."
 
 #. Type: boolean
 #. Description
@@ -167,6 +171,9 @@ msgid ""
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
+"Sebaiknya anda menggunakan versi 64-bit (amd64) dari installer ini (jika "
+"perangkat keras anda mendukung ini), atau kembali ke menu partisi dan atur "
+"partisi untuk menggunakan sistem berkas lain."
 
 #. Type: boolean
 #. Description
@@ -177,6 +184,9 @@ msgid ""
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
+"Anda menngatur satu atau lebih partisi dengan sistem berkas ZFS. Menggunakan "
+"ZFS di komputer yang mempunyai memori kurang dari 512 MB dapat menyebabkan "
+"masalah kestabilan dan tidak dianjurkan."
 
 #. Type: boolean
 #. Description
@@ -395,13 +405,20 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Silakan pilih mode untuk operasi multidiska untuk pool ZFS ini:\n"
+" * Stripped: mirip dengan RAID 0 (bawaan) - Data akan disebarkan ke\n"
+"             volum fisik;\n"
+" * Mirror: mirip dengan RAID 1 - Data dibuat replika ke setiap\n"
+"           volum fisik;\n"
+" * RAID-Z; mirip dengan RAID 5 atai RAID 6 - beberapa volum fisik\n"
+"           menyimpan bit parity dan data disebarkan ke lainnya;"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "Level parity untuk RAID-Z:"
 
 #. Type: select
 #. Description
@@ -411,6 +428,8 @@ msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
 msgstr ""
+"Silakan pilih jumlah dari volum fisik yang akan digunakan untuk menyimpat "
+"bit parity."
 
 #. Type: string
 #. Description
@@ -547,7 +566,7 @@ msgstr "Yakin menghapus pool ZFS?"
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr "Silakan konformasi pembuangan dari pool ZFS $(VG)"
+msgstr "Silakan konformasi pembuangan dari pool ZFS $(VG)."
 
 #. Type: error
 #. Description
@@ -643,7 +662,6 @@ msgstr "Terjadi kesalahan saat membuat Volum Logikal baru"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
@@ -779,7 +797,6 @@ msgstr "Nama pool ZFS atau volum logikal tidak sah. "
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
@@ -789,7 +806,7 @@ msgstr ""
 "Nama pool ZFS atau volum logikal hanya dapat berisi karekter angka, huruf, "
 "tanda hubung, tambah, titik, dan garis bawah. Nama harus kurang dari 255 "
 "karakter dan tidak boleh didahului karakter angka. Nama dengan \"mirror\", "
-"\"raidz\", \"spare\", dan \"log\" tidak boleh."
+"\"raidz\", \"spare\", dan \"log\" tidak diijinkan."
 
 #. Type: error
 #. Description
@@ -809,7 +826,6 @@ msgstr "Hapus data volum logikal yang ada?"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
@@ -866,7 +882,6 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -876,24 +891,23 @@ msgid ""
 "total size of the ZFS pool."
 msgstr ""
 "ZFS memungkinkan harddisk atau partisi (\"volum fisik\") digabung jadi satu "
-"harddisk maya (\"grup volum\"), yang dapat dibagi-bagi menjadi partisi maya "
-"(\"volum logikal\"). Grup volum dan volum logikal dapat berada pada harddisk "
-"yang berbeda. Volum fisika baru dapat ditambahkan ke grup volum kapan saja. "
+"harddisk maya (\"pool ZFS\"), yang dapat dibagi-bagi menjadi partisi maya "
+"(\"volum logikal\"). Pool ZFS dan volum logikal dapat berada pada harddisk "
+"yang berbeda. Volum fisika baru dapat ditambahkan ke pool ZFS kapan saja. "
 "Volum logikal dapat diubah-ubah ukurannya sesuai ruang yang tersedia pada "
-"grup volum."
+"pool ZFS."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"Menu konfigurasi LVM dapat digunakan untuk menyunting grop volum dan volum "
+"Menu pengaturan ZFS dapat digunakan untuk menyunting pool ZFS dan volum "
 "logikal. Setelah Anda kembali ke menu utama pengelolaan partisi, volum "
 "logikal akan ditampilkan dengan cara yang sama seperti partisi biasa dan "
 "diperlakukan sama pula."
