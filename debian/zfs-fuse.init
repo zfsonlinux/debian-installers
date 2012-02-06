@@ -119,14 +119,14 @@ do_stop() {
 
 do_start() {
     if is_running; then
-        log_action_msg "zfs-fuse is already running"
-        return 1
+        log_action_msg "zfs-fuse is already running."
+        return 0
     fi
     if [ "x$ENABLE_ZFS" != "xyes" ]; then
-        log_action_msg "Disabled by /etc/default/$NAME" >&2
-        return 1
+        log_action_msg "zfs-fuse is disabled by /etc/default/$NAME." >&2
+        return 0
     fi
-	upgrade_zpool_cache_location
+    upgrade_zpool_cache_location
     log_daemon_msg "Starting $NAME" "zfs-fuse"
     if [ -n "$DAEMON_OPTS" ]; then
         log_action_cont_msg "Warning: use of DAEMON_OPTS deprecated: use /etc/zfs/zfsrc instead"
