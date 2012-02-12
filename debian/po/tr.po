@@ -33,7 +33,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2012-01-01 22:50+0000\n"
-"PO-Revision-Date: 2012-01-29 15:30+0200\n"
+"PO-Revision-Date: 2012-02-12 01:51+0200\n"
 "Last-Translator: Mert Dirik <mertdirik@gmail.com>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "Language: \n"
@@ -160,6 +160,10 @@ msgid ""
 "may lead to performance or stability problems due to limitations of this "
 "architecture."
 msgstr ""
+"Bir veya daha fazla bölümü ZFS dosya sistemini kullanacak şekilde "
+"yapılandırdınız. ZFS 32-bit'lik i386 mimârisinde desteklenir; fakat "
+"mimârideki sınırlamalardan ötürü  özel ayarlamalar yapılmadan kullanılması "
+"başarım ya da kararlılık sorunlarına yol açabilir."
 
 #. Type: boolean
 #. Description
@@ -170,6 +174,9 @@ msgid ""
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
+"Donanımınız destekliyorsa kurulum programının 64-bit (amd64) sürümünü "
+"kullanmalı ya da bölümleme menüsüne geri dönmeli ve bölümleri başka bir "
+"dosya sistemi kullanacak şekilde yapılandırmalısınız."
 
 #. Type: boolean
 #. Description
@@ -180,6 +187,9 @@ msgid ""
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
+"Bir veya daha fazla bölümü ZFS dosya sistemini kullanacak şekilde "
+"yapılandırdınız. 512 MB'den daha az belleğe sahip sistemlerde ZFS kullanmak "
+"kararlılık sorunlarına neden olabilir ve tavsiye edilmez."
 
 #. Type: boolean
 #. Description
@@ -399,6 +409,13 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Lütfen bu ZFS havuzundaki çokludisk işlemlerinde kullanılacak kipi seçin:\n"
+" * Şeritli: RAID 0'a benzer (öntanımlı) - veri fiziksel ciltler boyunca\n"
+"            yayılarak yazılır;\n"
+" * Aynalanmış:  RAID 1'e benzer - veri her bir fiziksel cilde\n"
+"            kopyalanır;\n"
+" * RAID-Z:  RAID 5 ya da RAID 6'ya benzer - bazı fiziksel cilter\n"
+"            eşlik bitlerini depolarken veri diğerlerine yayılarak yazılır."
 
 #. Type: select
 #. Description
@@ -415,6 +432,7 @@ msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
 msgstr ""
+"Lütfen eşlik bitlerinin depolanacağı fiziksel ciltlerin sayısını seçin."
 
 #. Type: string
 #. Description
