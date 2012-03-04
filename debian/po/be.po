@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: be\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2012-01-01 22:50+0000\n"
-"PO-Revision-Date: 2012-01-18 23:40+0300\n"
-"Last-Translator: Pavel Piatruk <piatruk.p@gmail.com>\n"
+"PO-Revision-Date: 2012-03-04 17:29+0300\n"
+"Last-Translator: Viktar Siarheichyk <viсs@eq.by>\n"
 "Language-Team: Belarusian (Official spelling) <debian-l10n-belarusian@lists."
 "debian.org>\n"
 "Language: \n"
@@ -61,9 +61,10 @@ msgstr "Файлавая сістэма ZFS"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr "Агляд актуальных наладак LVM:"
+msgstr ""
+"Для такой канфігурацыі ZFS /boot і /lib/modules абавязкова мусяць быць "
+"асобныя"
 
 #. Type: error
 #. Description
@@ -73,6 +74,8 @@ msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Ваша каранёвая файлавая сістэма знаходзіцца на ZFS-пуле, які выкарыстоўвае "
+"некалькі фізічных тамоў."
 
 #. Type: error
 #. Description
@@ -85,6 +88,8 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror or "
 "Striped modes, but not RAID-Z mode."
 msgstr ""
+"Загрузчык падтрымлівае такую канфігурацыю толькі для пулаў у рэжымах Mirror "
+"альбо Striped, але не ў рэжыме RAID-Z."
 
 #. Type: error
 #. Description
@@ -94,13 +99,16 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"Пераканайцеся, што на падзеле, дзе знаходзяцца /boot і /lib/modules, "
+"канфігурацыя пула ZFS падтрымліваецца, альбо іншая файлавая сістэма, такая, "
+"як UFS."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr ""
+msgstr "Шмат тамоў ZFS для ${MNT} не падтрымліваецца"
 
 #. Type: error
 #. Description
@@ -110,6 +118,8 @@ msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Ваш падзел ${MNT} знаходзіцца на пуле ZFS, які ўжывае некалькі фізічных "
+"тамоў."
 
 #. Type: error
 #. Description
@@ -119,6 +129,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"Пераканайцеся, што на падзеле, дзе знаходзіцца ${MNT}, канфігурацыя пула ZFS "
+"падтрымліваецца, альбо іншая файлавая сістэма, такая, як UFS."
 
 #. Type: boolean
 #. Description
@@ -149,42 +161,38 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:6001
-#, fuzzy
 msgid ""
 "You should either use the 64-bit (amd64) version of this installer (if your "
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
-"Вам раіцца або выкарыстаць 64-бітную (amd64) версію гэтага інсталятара (калі "
-"ваша абсталяванне падтрэмлівае яго), або вярнуцца ў меню разметкі дыскаў і "
-"выкарыстаць іншую файлавую сістэму."
+"Вы павінны або выкарыстаць 64-бітную (amd64) версію гэтага інсталятара (калі "
+"ваша абсталяванне падтрымлівае яго), або вярнуцца ў меню разметкі дыскаў і "
+"наладзіць раздзелы выкарыстоўваць іншую файлавую сістэму."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You have configured one or more partitions with the ZFS file system. Using "
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
-"Вы наладзілі адзін ці болей падзелаў як файлавая сістэма ZFS. Хаця ZFS "
-"падтрымліваецца на 32-бітнай i386 архітэктуры, выкарыстанне яе без дакладнай "
-"рэгуліроўкі можа прывесці да праблем вытворчасці або стабільнасці ў сувязі з "
-"абмежаваннямі гэтай архітэктуры."
+"Вы наладзілі адзін ці болей падзелаў з файлавай сістэмай ZFS. Карыстанне ZFS "
+"на кампутары з меней за 512 МБ памяці можа прывесці да праблем са "
+"стабільнасцю і не рэкамендуецца. "
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
 msgstr ""
-"Калі Вы не вернецеся ў меню перадзелу, каб выправіць памылкі, падзел будзе "
-"скарыстаны як ёсць."
+"Вам трэба вярнуцца ў меню падзелу дыскаў і сканфігураваць, каб раздзелы "
+"выкарыстоўвалі іншую файлавую сістэму."
 
 #. Type: text
 #. Description
@@ -217,7 +225,7 @@ msgstr "Паказаць падрабязнасці наладкі"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "Стварыць пул ZFS"
 
 #. Type: text
 #. Description
@@ -226,7 +234,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "Сцерці пул ZFS"
 
 #. Type: text
 #. Description
@@ -259,36 +267,33 @@ msgstr "Скончыць"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid "Write the changes to disk and configure ZFS?"
-msgstr "Запісаць змены на дыск і наладзіць LVM?"
+msgstr "Запісаць гэтыя змены на дыск і наладзіць ZFS?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
-"Перад тым, як наладжваць шыфраваныя тамы, трэба запісаць актуальную схему "
-"падзелаў на дыск. Гэтыя змены немагчыма будзе скасаваць."
+"Перад тым, як канфігураваць ZFS, трэба запісаць актуальную схему раздзелаў "
+"на дыск. Гэтыя змены немагчыма будзе адмяніць."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"Пасля наладкі Logical Volume Manager нельга будзе дадаткова змяняць ніякія "
-"падзелы на дысках, дзе месцяцца фізічныя тамы. Перад працягам пераканайцеся, "
-"што Вас задавальняе актуальная схема падзелу."
+"Пасля таго, як ZFS будзе сканфігураваны, ужо нельга будзе нічога змяніць "
+"падчас інсталяцыі ў падзеле дыскаў, на якіх месцяцца фізічныя тамы. Перад "
+"тым, як працягваць, пераканайцеся, што вас задавальняе такая схема падзелу."
 
 #. Type: error
 #. Description
@@ -308,25 +313,22 @@ msgstr "Падчас запісу зменаў на дыск адбылася п
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration has been aborted."
-msgstr "Працэс наладкі быў перарваны."
+msgstr "Працэс канфігурацыі ZFS быў перарваны."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:18001
-#, fuzzy
 msgid "physical volume for ZFS"
-msgstr "фізічны том для LVM"
+msgstr "фізічны том для ZFS"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "ZFS configuration action:"
-msgstr "Дзеянне па наладцы LVM:"
+msgstr "Дзеянне па канфігурацыі ZFS:"
 
 #. Type: select
 #. Description
@@ -339,17 +341,16 @@ msgstr "Агляд актуальных наладак ZFS:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
 " ZFS pools:              ${VGS}\n"
 " ZFS logical volumes:    ${LVS}"
 msgstr ""
-" Вольныя фізічныя тамы: ${FREE_PVS}\n"
-" Ужытыя фізічныя тамы:  ${USED_PVS}\n"
-" Групы тамоў:           ${VGS}\n"
-" Лагічныя тамы:         ${LVS}"
+" Свабодныя фізічныя тамы:    ${FREE_PVS}\n"
+" Выкарыстаныя фізічныя тамы: ${USED_PVS}\n"
+" Пулы ZFS:                   ${VGS}\n"
+" Лагічныя тамы ZFS:          ${LVS}"
 
 #. Type: note
 #. Description
@@ -362,17 +363,15 @@ msgstr "Актуальныя наладкі ZFS:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Devices for the new ZFS pool:"
-msgstr "Прылады для новай групы тамоў:"
+msgstr "Прылады для новага пула ZFS:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Please select devices for the new ZFS pool."
-msgstr "Калі ласка, пазначце прылады для новай групы тамоў."
+msgstr "Калі ласка, пазначце прылады для новага пула ZFS."
 
 #. Type: multiselect
 #. Description
@@ -385,9 +384,8 @@ msgstr "Вы можаце пазначыць адну ці больш прыла
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "Прылады для новай групы тамоў:"
+msgstr "Шматдыскавы рэжым для гэтага пула ZFS:"
 
 #. Type: select
 #. Description
@@ -402,13 +400,21 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Выберыце рэжым шматдыскавай працы для гэтага пула ZFS: * Striped: падобны да "
+"RAID 0 (першапачатковы) - звесткі            распаўсюджваюцца па фізічных "
+"тамах;\n"
+" * Mirror: падобны да RAID 1 - звесткі паўтараюцца на кожным\n"
+"            фізічным томе;\n"
+" * RAID-Z: падобны да RAID 5 ці RAID 6 - некаторыя фізічныя\n"
+"            тамы захоўваюць захоўваюць біты цотнасці, звесткі\n"
+"            распаўсюджваюцца па астатніх тамах."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "Узровень цотнасці для RAID-Z:"
 
 #. Type: select
 #. Description
@@ -417,23 +423,21 @@ msgstr ""
 msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
-msgstr ""
+msgstr "Выберыце колькасць фізічных тамоў, што будуць захоўваць біты цотнасці."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "ZFS pool name:"
-msgstr ""
+msgstr "Імя пула ZFS:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr ""
-"Калі ласка, увядзіце назву, што вы хочаце ўжываць для новага лагічнага тома."
+msgstr "Калі ласка, упішыце назву для новага пула ZFS."
 
 #. Type: error
 #. Description
@@ -446,46 +450,41 @@ msgstr "Не пазначана фізічных тамоў."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
 msgstr ""
-"Не пазначана ніводнага фізічнага тома. Стварэнне новай групы тамоў спынена."
+"Не пазначана ніводнага фізічнага тома. Стварэнне новага пула ZFS спынена."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "Няма імя пула ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr ""
-"Ніякай назвы не было пададзена для групы тамоў. Калі ласка, ўвядзіце назву."
+msgstr "Не пададзена назвы для пула ZFS. Калі ласка, ўвядзіце назву."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid "ZFS pool name already in use"
-msgstr "Такая назва групы тамоў ужо ўжываецца."
+msgstr "Такая назва пула ZFS ужо ўжываецца"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
 msgstr ""
-"Абраная назва групы тамоў ужо ўжываецца. Калі ласка, прапануйце іншую назву."
+"Абраная назва пула ZFS ужо ўжываецца. Калі ласка, прапануйце іншую назву."
 
 #. Type: error
 #. Description
@@ -526,16 +525,15 @@ msgstr "ZFS пул, які трэба выдаліць:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "Калі ласка, пазначце групу тамоў, якую Вы хочаце выдаліць."
+msgstr "Калі ласка, пазначце пул ZFS, які вы хочаце выдаліць."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "Няма пула ZFS"
 
 #. Type: error
 #. Description
@@ -548,9 +546,8 @@ msgstr "Не знойдзена ніводнага пула ZFS."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "The ZFS pool may have already been deleted."
-msgstr "Гэтая група тамоў была выдалена раней."
+msgstr "Гэты пул ZFS ужо быў выдалены."
 
 #. Type: boolean
 #. Description
@@ -564,7 +561,7 @@ msgstr "Сапраўды выдаліць пул ZFS?"
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "Пацвердзіце, што трэба сціраць пул ZFS ${VG}."
 
 #. Type: error
 #. Description
@@ -577,13 +574,12 @@ msgstr "Памылка падчас выдалення пула ZFS"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
-"Немагчыма выдаліць пазначаную групу тамоў. Адзін ці больш лагічных тамоў "
-"могуць зараз быць ва ўжытку."
+"Немагчыма выдаліць пазначаны пул ZFS. Адзін ці некалькі лагічных тамоў, "
+"магчыма, зараз выкарыстоўваюцца."
 
 #. Type: error
 #. Description
@@ -596,14 +592,12 @@ msgstr "Не знойдзена ZFS пулаў"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"Не знойдзена вольных груп тамоў для новага лагічнага тома. Калі ласка, "
-"стварыце больш фізічных тамоў і груп тамоў, або зменшыце існуючую групу "
-"тамоў."
+"Не знойдзена свабодных пулаў ZFS для новага лагічнага тома. Калі ласка, "
+"стварыце іншы пул ZFS або вызваліце месца ў наяўным пуле ZFS."
 
 #. Type: string
 #. Description
@@ -625,17 +619,15 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "Пул ZFS:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
-#, fuzzy
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
-msgstr ""
-"Калі ласка, пазначце групу тамоў, у якой трэба стварыць новы фізічны том."
+msgstr "Калі ласка, пазначце пул ZFS, дзе трэба стварыць новы лагічны том."
 
 #. Type: error
 #. Description
@@ -666,13 +658,10 @@ msgstr "Памылка пры стварэнні новага лагічнага
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
-msgstr ""
-"Назва ${LV} ужо выкарыстоўваецца іншым лагічным томам у той жа самай групе "
-"тамоў (${VG})."
+msgstr "Назву ${LV} ужо мае іншы лагічны том у тым жа самым пуле ZFS (${VG})."
 
 #. Type: string
 #. Description
@@ -765,16 +754,14 @@ msgstr "Не знойдзена прыдатных фізічных тамоў"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
 "required kernel modules or re-partition the hard drives."
 msgstr ""
-"У Вашай сістэме не знойдзена ніводнага фізічнага тома (г.зн. падзела). "
-"Магчыма, усе фізічныя тамы зараз ва ўжытку. Таксама магчыма, што Вам трэба "
-"загрузіць неабходныя модулі ядра альбо зноў зрабіць перадзел жорсткіх "
-"дыскаў. "
+"У гэтай сістэме не знойдзена ніводнага фізічнага тома (г. зн. раздзела). "
+"Магчыма, усе фізічныя тамы зараз выкарыстоўваюцца. Альбо, магчыма, вам трэба "
+"загрузіць неабходныя модулі ядра ці зноў зрабіць падзел цвёрдых дыскаў."
 
 #. Type: error
 #. Description
@@ -787,37 +774,32 @@ msgstr "ZFS недаступны"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
 msgstr ""
-"Зараз ядро не падтрымлівае Logical Volume Manager. Вам трэба загрузіць "
-"модуль lvm-mod."
+"Зараз ядро не падтрымлівае ZFS. Магчыма, вам трэба загрузіць модуль zfs."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "Няслушная назва лагічнага тома ці групы тамоў"
+msgstr "Непрыдатная назва лагічнага тома ці пула ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Назвы лагічнага тома ці групы тамоў могуць змяшчаць толькі алфавітна-"
-"лічбавыя сімвалы, дэфіс, плюс, кропку і падкрэсліванне. Даўжыня назваў "
-"мусіць быць не больш за 128 сімвалаў, нельга пачынаць назву з дэфіса. Назвы "
-"\".\" і \"..\" не дазволены. Да таго ж, назва лагічнага тома не можа "
-"пачынацца з \"snapshot\"."
+"Назвы лагічных тамоў ці пулаў ZFS могуць змяшчаць толькі лацінскія літары, "
+"лічбы, дэфіс, двукроп'е, кропку і падкрэсліванне. Яны мусіць быць не "
+"даўжэйшыя за 255 знакаў, пачынацца з літары ці лічбы. Назвы \"mirror\", "
+"\"raidz\", \"spare\" і \"log\" не дазволены."
 
 #. Type: error
 #. Description
@@ -837,28 +819,26 @@ msgstr "Ці выдаліць інфармацыю лагічнага тома?"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"Абраная прылада ўжо ўтрымлівае наступныя лагічныя ці фізічныя тамы альбо "
-"групы тамоў LVM, якія трэба выдаліць:"
+"Абраная прылада ўжо ўтрымлівае наступныя лагічныя тамы ZFS і пулы ZFS, якія "
+"будуць выдаленыя:"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr "Лагічны том альбо тамы, якія трэба выдаліць: ${LVTARGETS}"
+msgstr "Лагічныя тамы: ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "Пул(ы) ZFS: ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -876,27 +856,25 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
 "other partition is underused. ZFS can help with this."
 msgstr ""
-"Выявіць, што нейкі важны падзел (часта, самы важны) заняты ці не напоўніцу, "
-"а іншы амаль вольны - звычайна сітуацыя для сістэмнага адміністратара. "
-"Кіраўнік Лагічных Тамоў (LVM) можа дапамагчы ў гэтым."
+"Выявіць, што нейкі важны падзел (часта - самы важны) заняты ці не напоўніцу, "
+"а іншы амаль вольны - звычайная сітуацыя для сістэмнага адміністратара. ZFS "
+"можа дапамагчы ў гэтым."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -905,25 +883,24 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"LVM лазваляе камбінаваць дыскі ці падзелы (\"фізічныя тамы\") у форму "
-"віртуальных дыскаў (\"групы тамоў\"), што далей могуць быць падзелены на "
-"віртуальныя падзелы (\"лагічныя тамы\"). Групы тамоў і лагічныя тамы могуць "
-"сягаць на некалькі фізічных дыскаў. Новыя фізічныя тамы могуць быць "
-"дададзеныя ў групу тамоў ў любы момант, і памер лагічных тамоў можа быць "
-"зменены аж да аб'ёму вольнага месца ў групе тамоў."
+"ZFS дазваляе камбінаваць дыскі ці раздзелы (\"фізічныя тамы\") і рабіць "
+"віртуальны дыск (\"пул ZFS\"), які потым можна падзяліць на віртуальныя "
+"раздзелы (\"лагічныя тамы\"). Пулы ZFS і лагічныя тамы могуць ахопліваць "
+"некалькі фізічных дыскаў. Новыя фізічныя тамы могуць быць дададзеныя ў пул "
+"ZFS у любы момант, і памер лагічных тамоў можа быць зменены аж да аб'ёму "
+"вольнага месца ў групе тамоў."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"Элементы ў меню наладкі LVM могуць быць ужыты каб адрэдагаваць групы тамоў і "
-"лагічныя тамы. Калі вернецеся ў галоўны кіраўнік перадзелу, лагічныя тамы "
-"будуць паказаныя гэтак жа, як звычайныя падзелы, і могуць быць апрацаваны "
-"гэтак жа."
+"Элементы ў меню канфігурацыі ZFS можна выкарыстоўваць, каб адрэдагаваць пулы "
+"ZFS і лагічныя тамы. Калі вернецеся ў галоўны кіраўнік падзелу дыскаў, "
+"лагічныя тамы будуць паказаныя гэтак жа, як звычайныя падзелы, і могуць быць "
+"апрацаваныя гэтак жа."
