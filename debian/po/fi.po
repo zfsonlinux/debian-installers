@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2012-01-01 22:50+0000\n"
-"PO-Revision-Date: 2012-03-20 16:35+0200\n"
+"PO-Revision-Date: 2012-03-21 09:00+0200\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "Language: fi\n"
@@ -153,6 +153,9 @@ msgid ""
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
+"Sinun tulee joko käyttää 64-bittistä (amd64) versiota tästä asentimesta (jos "
+"laitteesi tukee tätä), tai mennä takaisin osiointivalikkoon ja määrittää "
+"osiot käyttämään jotakin toista tiedostojärjestelmää."
 
 #. Type: boolean
 #. Description
@@ -168,21 +171,19 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
 msgstr ""
-"Mikäli et palaa osiointivalikkoon ja korjaa näitä virheitä, käytetään osiota "
-"sellaisena kuin se on."
+"Sinun tulee palata osiointivalikkoon ja määrittää osiot käyttämään jotakin "
+"toista tiedostojärjestelmää."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:8001
-#, fuzzy
 msgid "Configure ZFS"
-msgstr "Tee maa- ja kieliasetukset"
+msgstr "Tee ZFS:n asetukset"
 
 #. Type: text
 #. Description
@@ -209,7 +210,7 @@ msgstr "Näytä asetukset yksityiskohtaisesti"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "Luo ZFS-varanto"
 
 #. Type: text
 #. Description
@@ -218,7 +219,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "Poista ZFS-varanto"
 
 #. Type: text
 #. Description
@@ -251,9 +252,8 @@ msgstr "Lopeta"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid "Write the changes to disk and configure ZFS?"
-msgstr "Tallenna muutokset levyille ja tee LVM:n asetukset?"
+msgstr "Tallenna muutokset levyille ja tee ZFS:n asetukset?"
 
 #. Type: boolean
 #. Description
@@ -334,7 +334,6 @@ msgstr "Yhteenveto käytössä olevista LVM:n asetuksista:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -343,16 +342,15 @@ msgid ""
 msgstr ""
 " Vapaat fyysiset taltiot:  ${FREE_PVS}\n"
 " Käyt.  fyysiset taltiot:  ${USED_PVS}\n"
-" Taltioryhmät:             ${VGS}\n"
-" Loogiset taltiot:         ${LVS}"
+" ZFS-varannot:             ${VGS}\n"
+" Loogiset ZFS-taltiot:     ${LVS}"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid "Current ZFS configuration:"
-msgstr "Käytössä olevat LVM:n asetukset:"
+msgstr "Käytössä olevat ZFS:n asetukset:"
 
 #. Type: multiselect
 #. Description
@@ -404,7 +402,7 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "Pariteettitaso RAID-Z:lle:"
 
 #. Type: select
 #. Description
@@ -414,21 +412,22 @@ msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
 msgstr ""
+"Valitse pariteettibittien tallentamiseen käytettävien fyysisten taltioiden "
+"lukumäärä."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "ZFS pool name:"
-msgstr ""
+msgstr "ZFS-varannon nimi:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr "Anna haluamasi nimi uudelle loogiselle taltiolle."
+msgstr "Anna haluamasi nimi uudelle ZFS-varannolle."
 
 #. Type: error
 #. Description
@@ -453,7 +452,7 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "Ei ZFS-varannon nimeä"
 
 #. Type: error
 #. Description
@@ -533,7 +532,7 @@ msgstr "Valitse poistettava taltioryhmä."
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "Ei ZFS-varantoa"
 
 #. Type: error
 #. Description
@@ -564,7 +563,7 @@ msgstr "Haluatko varmasti poistaa taltioryhmän?"
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "Varmista ZFS-varannon ${VG} poistaminen."
 
 #. Type: error
 #. Description
@@ -625,7 +624,7 @@ msgstr "Anna haluamasi nimi uudelle loogiselle taltiolle."
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "ZFS-varanto:"
 
 #. Type: select
 #. Description
@@ -845,16 +844,15 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr "Poistettavat loogiset taltiot: ${LVTARGETS}"
+msgstr "Loogiset taltiot: ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "ZFS-varanto/varannot: ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -871,7 +869,7 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
