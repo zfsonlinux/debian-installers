@@ -98,7 +98,7 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	imgbase="linux-image-$KERNEL_MAJOR"
+	imgbase="linux-image"
 
 	set -- $1
 	while [ $# -ge 1 ]; do

@@ -36,11 +36,11 @@ arch_get_kernel () {
 			set r4k-ip22
 			;;
 		    5kc-malta)
-			echo "linux-image-$KERNEL_MAJOR-$1"
+			echo "linux-image-$1"
 			set 4kc-malta
 			;;
 		esac
-		echo "linux-image-$KERNEL_MAJOR-$1"
+		echo "linux-image-$1"
 		;;
 	    *)
 		warning "Unsupported kernel major '$KERNEL_MAJOR'."

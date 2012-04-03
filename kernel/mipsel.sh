@@ -31,11 +31,11 @@ arch_get_kernel () {
 	    2.6|3.*)
 		case $1 in
 		    5kc-malta)
-			echo "linux-image-$KERNEL_MAJOR-$1"
+			echo "linux-image-$1"
 			set 4kc-malta
 			;;
 		esac
-		echo "linux-image-$KERNEL_MAJOR-$1"
+		echo "linux-image-$1"
 		;;
 	    *)
 		warning "Unsupported kernel major '$KERNEL_MAJOR'."

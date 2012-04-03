@@ -18,5 +18,5 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	echo "linux-image-$KERNEL_MAJOR-amd64"
+	echo "linux-image-amd64"
 }

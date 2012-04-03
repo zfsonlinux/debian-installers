@@ -20,7 +20,7 @@ arch_get_kernel () {
 	    2.6|3.*)
 		case "$1" in
 		    *)
-			echo "linux-image-$KERNEL_MAJOR-$1"
+			echo "linux-image-$1"
 			;;
 		esac
 		;;
