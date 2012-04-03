@@ -335,7 +335,7 @@ get_mirror_info () {
 kernel_update_list () {
 	# Use 'uniq' to avoid listing the same kernel more then once
 	chroot /target apt-cache search "^(kernel|$KERNEL_NAME)-image" | \
-	cut -d" " -f1 | uniq > "$KERNEL_LIST.unfiltered"
+	cut -d" " -f1 | grep -v "linux-image-2.6" | uniq > "$KERNEL_LIST.unfiltered"
 	kernels=`sort -r "$KERNEL_LIST.unfiltered" | tr '\n' ' ' | sed -e 's/ $//'`
 	for candidate in $kernels; do
 		if [ -n "$FLAVOUR" ]; then
