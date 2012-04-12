@@ -10,14 +10,20 @@
 # Vũ Quang Trung <vu.quang.trung@auf.org>
 # Trịnh Minh Thành <tmthanh@yahoo.com>
 # Clytie Siddall <clytie@riverland.net.au>, 2005-2010
+# Hai-Nam Nguyen <hainam@jcisio.com>, 2012
+#
+# Translations from iso-codes:
+# Clytie Siddall <clytie@riverland.net.au>, 2005-2009.
+# Copyright © 2009 Free Software Foundation, Inc.
+# Nguyễn Hùng Vũ <vuhung16@bigfoot.com>, 2001.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer Level 1\n"
 "Report-Msgid-Bugs-To: grub-installer@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-23 22:49+0000\n"
-"PO-Revision-Date: 2010-09-28 18:01+0930\n"
-"Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
+"PO-Revision-Date: 2012-04-11 00:58+0100\n"
+"Last-Translator: Hai-Nam Nguyen <hainam@jcisio.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
@@ -221,17 +227,6 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:7001
-#, fuzzy
-#| msgid ""
-#| "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
-#| "device in /dev. Below are some examples:\n"
-#| " - \"(hd0)\" or \"/dev/hda\" will install GRUB to the master boot record\n"
-#| "   of your first hard drive (IDE);\n"
-#| " - \"(hd0,2)\" or \"/dev/hda2\" will use the second partition of your\n"
-#| "   first IDE drive;\n"
-#| " - \"(hd2,5)\" or \"/dev/sdc5\" will use the first extended partition of\n"
-#| "   your third drive (SCSI here);\n"
-#| " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgid ""
 "The device should be specified as a device in /dev. Below are some "
 "examples:\n"
@@ -242,15 +237,13 @@ msgid ""
 "   drive;\n"
 " - \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"Thiết bị này có thể được ghi rõ bằng kiểu ghi « (hdn,m) » của GRUB, hoặc "
-"dạng thiết bị trong « /dev ». Bên dưới có vài mẫu :\n"
-" • « (hd0) » hay « /dev/hda » sẽ cài đặt GRUB vào mục ghi\n"
-"\tkhởi động chủ trên đĩa cứng (IDE) thứ nhất;\n"
-" • « (hd0,2) » hay « /dev/hda2 » sẽ chiếm phân vùng thứ hai\n"
-"\ttrên đĩa cứng IDE thứ nhất;\n"
-" • « (hd2,5) » hay « /dev/sdc5 » sẽ chiếm phân vùng kéo dài\n"
-"\tthứ nhất trên đĩa cứng thứ ba (SCSI trong mẫu này)\n"
-" • « (fd0) » hay « /dev/fd0 » sẽ cài đặt GRUB vào một đĩa mềm."
+"Thiết bị này cần được thiết lập như là thiết bị tại /dev. Bên dưới có vài "
+"mẫu :\n"
+"- « /dev/sda » sẽ cài đặt GRUB vào mục ghi khởi động chủ (MBR) trên đĩa cứng "
+"thứ nhất;\n"
+"- « /dev/sda2 » sẽ chiếm phân vùng thứ hai trên đĩa cứng thứ nhất;\n"
+"- « /dev/sdc5 » sẽ chiếm phân vùng kéo dài thứ nhất trên đĩa cứng thứ ba;\n"
+"- « /dev/fd0 » sẽ cài đặt GRUB vào một đĩa mềm."
 
 #. Type: password
 #. Description
@@ -369,9 +362,8 @@ msgstr "Việc thực hiện lệnh « update grub » (cập nhật GRUB) bị l
 #. Description
 #. :sl4:
 #: ../grub-installer.templates:16001
-#, fuzzy
 msgid "Install GRUB?"
-msgstr "Đang cài đặt bộ nạp khởi động GRUB"
+msgstr "Cài đặt GRUB?"
 
 #. Type: boolean
 #. Description
@@ -381,6 +373,8 @@ msgid ""
 "GRUB 2 is the next generation of GNU GRUB, the boot loader that is commonly "
 "used on i386/amd64 PCs. It is now also available for ${ARCH}."
 msgstr ""
+"GRUB 2 là thế hệ kế tiếp của GNU GRUB, bộ nạp khởi động thường dùng trong "
+"các PC i386/amd64. Hiện tại còn có phiên bản cho ${ARCH}."
 
 #. Type: boolean
 #. Description
@@ -392,6 +386,10 @@ msgid ""
 "breakage, and have an idea on how to recover your system if it becomes "
 "unbootable. You're advised not to try this in production environments."
 msgstr ""
+"Nó có các tính năng mới hấp dẫn nhưng vẫn còn đang trong giai đoạn thử "
+"nghiệm đối với kiến trúc này. Nếu bạn chọn cài đặt, hãy chuẩn bị tinh thần "
+"với các lỗi, và biết cách cứu hệ thống khi nó không thể khởi động được. Bạn "
+"không nên thử trong môi trường sản xuất."
 
 #. Type: text
 #. Description
