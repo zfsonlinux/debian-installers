@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2012-01-01 22:50+0000\n"
-"PO-Revision-Date: 2010-11-08 09:16+0100\n"
+"PO-Revision-Date: 2012-04-21 09:42+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
 "org>\n"
@@ -64,9 +64,8 @@ msgstr "ZFS fájlrendszer"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr "Jelenlegi LVM konfiguráció összefoglalója:"
+msgstr "Elválasztott /boot és /lib/modules kötelező e ZFS beállításhoz"
 
 #. Type: error
 #. Description
@@ -87,7 +86,7 @@ msgstr ""
 msgid ""
 "The boot loader only supports this configuration for pools in Mirror or "
 "Striped modes, but not RAID-Z mode."
-msgstr ""
+msgstr "A boot betöltő"
 
 #. Type: error
 #. Description
@@ -102,9 +101,8 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
-#, fuzzy
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr "Nem támogatott fájlrendszer-típust használsz a /boot-hoz?"
+msgstr "Nem támogatott több kötetes ZFS ehhez: ${MNT}"
 
 #. Type: error
 #. Description
@@ -144,6 +142,9 @@ msgid ""
 "may lead to performance or stability problems due to limitations of this "
 "architecture."
 msgstr ""
+"Egy vagy több partíciót ZFS fájlrendszerre állítottál. Bár a ZFS támogatott "
+"a 32-bites i386 porton, speciális hangolás nélkül való használata "
+"teljesítmény vagy stabilitási gondokat okozhat e géptípus korlátai miatt."
 
 #. Type: boolean
 #. Description
@@ -154,6 +155,9 @@ msgid ""
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
+"Használd e telepítő 64-bites verzióját (amd64, ha a gép támogatja), vagy "
+"lépj vissza a particionáló menübe és állítsd be a partíciókat más "
+"fájlrendszer használatára."
 
 #. Type: boolean
 #. Description
@@ -164,26 +168,27 @@ msgid ""
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
+"Egy vagy több partíciót ZFS fájlrendszerre állítottál. A ZFS használata 512 "
+"MB méretnél kisebb memóriájú gépen stabilitásai gondokat okozhat így nem "
+"ajánlott."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
 msgstr ""
-"Ha nem térsz vissza a particionáló menübe és orvoslod e gondokat, a partíció "
-"így kerül használatba."
+"Térj vissza a particionáló menübe és állítsd be a partíciókat más "
+"fájlrendszer használatára."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:8001
-#, fuzzy
 msgid "Configure ZFS"
-msgstr "Helyi értékek beállítása"
+msgstr "ZFS beállítása"
 
 #. Type: text
 #. Description
@@ -252,45 +257,40 @@ msgstr "Kész"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid "Write the changes to disk and configure ZFS?"
-msgstr "Változások lemezre írása és LVM konfigurálása?"
+msgstr "Változások lemezre írása és ZFS konfigurálása?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
-"A titkosított kötetek konfigurálása előtt a partíciós táblát ki kell írni. "
-"Ez visszavonhatatlan."
+"A ZFS beállítása előtt a partíciós táblát lemezre kell írni. Ez "
+"módosításokat nem lehet visszavonni."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"A Logikai kötet kezelő konfigurálása után a fizikai köteteket tartalmazó "
-"lemezek partíciói már nem módosíthatók a telepítéskor. Most kell végleg "
-"eldönteni, hogy e lemezek jelenlegi particionálása mindenben megfelel az "
-"igényeknek."
+"A ZFS beállítása után a fizikai köteteket tartalmazó lemezek partíciói már "
+"nem módosíthatók a telepítéskor. Most kell végleg eldönteni, hogy e lemezek "
+"jelenlegi particionálása mindenben megfelel az igényeknek."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration failure"
-msgstr "LVM-konfigurációs hiba"
+msgstr "ZFS beállítási hiba"
 
 #. Type: error
 #. Description
@@ -303,33 +303,29 @@ msgstr "A változások lemezekre írása során hiba lépett fel."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration has been aborted."
-msgstr "A beállítás törölve"
+msgstr "A ZFS beállítás törölve."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:18001
-#, fuzzy
 msgid "physical volume for ZFS"
-msgstr "LVM fizikai kötet"
+msgstr "ZFS fizikai kötet"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "ZFS configuration action:"
-msgstr "LVM konfiguráló művelet:"
+msgstr "ZFS beállító művelet:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "Summary of current ZFS configuration:"
-msgstr "Jelenlegi LVM konfiguráció összefoglalója:"
+msgstr "Jelenlegi ZFS beállítás összefoglalója:"
 
 #. Type: select
 #. Description
@@ -351,9 +347,8 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid "Current ZFS configuration:"
-msgstr "Jelenlegi LVM beállítás:"
+msgstr "Jelenlegi ZFS beállítás:"
 
 #. Type: multiselect
 #. Description
@@ -415,6 +410,7 @@ msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
 msgstr ""
+"Kérlek, add meg a paritás bitek tárolására szolgáló fizikai kötetek számát."
 
 #. Type: string
 #. Description
@@ -648,9 +644,8 @@ msgstr "Nincs logikai kötet név"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:37001
-#, fuzzy
 msgid "No name for the logical volume has been entered. Please enter a name."
-msgstr "Nincs logikai kötet név. Adj meg egyet."
+msgstr "Nincs még neve a logikai kötetnek. Kérlek, adj meg egyet."
 
 #. Type: error
 #. Description
@@ -715,9 +710,8 @@ msgstr "Nincs logikai kötet"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:41001
-#, fuzzy
 msgid "No logical volume has been found. Please create a logical volume first."
-msgstr "Nincs logikai kötet. Előbb létre kell hozni egyet."
+msgstr "Nem találtam logikai kötetet. Előbb létre kell hozni egyet."
 
 #. Type: select
 #. Description
@@ -751,9 +745,8 @@ msgstr "Hiba a logikai kötet törlése közben"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:44001
-#, fuzzy
 msgid "The logical volume ${LV} on ${VG} could not be deleted."
-msgstr "Az ${LV} logikai kötet ${VG} kötetcsoportból törlése sikertelen."
+msgstr "E logikai kötetet: ${LV} itt: ${VG} nem tudtam törölni."
 
 #. Type: error
 #. Description
@@ -766,34 +759,29 @@ msgstr "Nincs használható fizikai kötet"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
 "required kernel modules or re-partition the hard drives."
 msgstr ""
-"Nem találtam fizikai kötetet (partíciót) a rendszeren. Talán már fizikai "
-"kötet használatban van. Vagy más rendszermag modulok betöltése vagy a "
-"merevlemezek újraparticionálása szükséges."
+"Nem találtam fizikai kötetet (partíciót) a rendszeren. Talán már minden "
+"fizikai kötet használatban van. Vagy más rendszermag modulok betöltése vagy "
+"a merevlemezek újraparticionálása szükséges."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid "ZFS not available"
-msgstr "Nincs szoftver RAID eszköz"
+msgstr "ZFS nem elérhető"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
-msgstr ""
-"E rendszermag nem támogatja a Logikai kötetkezelőt. Az lvm-mod modul "
-"betöltése segíthet ebben."
+msgstr "E rendszermag nem támogat ZFS-t. Vagy be kell tölteni a zfs modult."
 
 #. Type: error
 #. Description
@@ -849,9 +837,8 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr "Eltávolítandó logikai kötet(ek): ${LVTARGETS}"
+msgstr "Logikai kötetek: ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -876,21 +863,20 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
 "other partition is underused. ZFS can help with this."
 msgstr ""
 "A rendszergazdák gyakori esete, hogy egy lemez-partíción (persze, mindig a "
-"legfontosabbon) túl kevés hely marad, míg mások kihasználatlanok. A Logikai "
-"kötetkezelő (LVM) megkönnyítheti ezt a helyzetet."
+"legfontosabbon) túl kevés hely marad, míg mások kihasználatlanok. A ZFS "
+"megkönnyítheti ezt a helyzetet."
 
 #. Type: note
 #. Description
