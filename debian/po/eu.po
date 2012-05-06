@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2012-01-01 22:50+0000\n"
-"PO-Revision-Date: 2011-09-24 15:53+0200\n"
+"PO-Revision-Date: 2012-05-06 15:56+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: debian-l10n-eu@lists.debian.org\n"
 "Language: eu\n"
@@ -66,7 +66,7 @@ msgstr "ZFS fitxategi-sistema"
 #: ../partman-zfs.templates:4001
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
 msgstr ""
-"Bereizitako /boot eta /lib/modules beharrezkoak dagoen ZFS konfiguraziorako"
+"Derrigorrezkoa /boot eta /lib/modules bereiztea ZFS konfigurazioarentzako"
 
 #. Type: error
 #. Description
@@ -76,8 +76,8 @@ msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
-"Zure erro fitxategi-sistema bolumen fisiko bat baino gehiago erabiltzen duen "
-"ZFS bilgune batetan dago."
+"Erroko fitxategi-sistema bolumen fisiko bat baino gehiago erabiltzen duen "
+"ZFS gordailu batean dago."
 
 #. Type: error
 #. Description
@@ -86,16 +86,12 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
-#, fuzzy
-#| msgid ""
-#| "The boot loader only supports this configuration for pools in Mirror "
-#| "mode, not Striped or RAID-Z modes."
 msgid ""
 "The boot loader only supports this configuration for pools in Mirror or "
 "Striped modes, but not RAID-Z mode."
 msgstr ""
-"Abuio abiarazleak bilgune konfigruazioak ispulu moduan bakarrik onartzen du, "
-"ez RAID-Z nodoetan banaturiko moduak."
+"Abioko abiarazleak multzo (Striped) edo ispilu banatuetako moduko gordailuak "
+"soilik onartzen ditu, baina ez RAID-Z modua."
 
 #. Type: error
 #. Description
@@ -105,15 +101,16 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
-"Ziuratu zaitez /boot eta /lib/modules onartzen den ZFS bilgune konfigurazio "
-"batetan, edo UFS bezalako beste fitxategi-sistema batetan egotea."
+"Ziurtatu zaitez ZFS gordailuaren onartutako konfigurazioa darabilen partizio "
+"batean, edo UFS bezalako bestelako fitxategi-sistema batean, daudela /boot "
+"eta /lib/modules, "
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr "Onartzen ez den bolumen anitzeko ZFS ${MNT}-rentzat"
+msgstr "Onartu gabeko bolumen anitzeko ZFS ${MNT}(r)en"
 
 #. Type: error
 #. Description
@@ -123,8 +120,8 @@ msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
-"Zure ${MNT} bolumen fisiko bat baino gehiago erabiltzen duen ZFS bilgune "
-"batetan dago."
+"${MNT} partizioa bolumen fisiko bat baino gehiago erabiltzen duen ZFS "
+"gordailu batean dago."
 
 #. Type: error
 #. Description
@@ -134,8 +131,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
-"Ziuratu zaitez ${MNT} onartzen den ZFS bilgune konfigurazio batetan, edo UFS "
-"bezalako beste fitxategi-sistema batetan egotea."
+"Ziurtatu zaitez ZFS gordailuaren onartutako konfigurazioa darabilen partizio "
+"batean, edo UFS bezalako bestelako fitxategi-sistema batean, dagoela ${MNT}"
 
 #. Type: boolean
 #. Description
@@ -157,10 +154,10 @@ msgid ""
 "may lead to performance or stability problems due to limitations of this "
 "architecture."
 msgstr ""
-"ZFS fitxategi sistema erabiltzen duen partizio bat edo gehiago konfiguratu "
-"duzu. Nahiz 32bit-etako i386-an ZFS-ek euskarria duen, berau dohitze berezi "
-"batez erabiliaz arkitektura honek dituen mugak direla eta ematen diren "
-"performantzia edo estabilitate arazoak konpondu daitezke"
+"Partizio bat edo gehiago ZFS fitxategi-sistemarekin konfiguratu duzu. Nahiz "
+"eta 32bit-etako i386 arkitekturan ZFS onartuta egon, doiketa berezirik egin "
+"gabe errendimendu edo egonkortasunean arazoak gerta daitezke arkitektura "
+"honen murriztapenak direla eta."
 
 #. Type: boolean
 #. Description
@@ -171,8 +168,8 @@ msgid ""
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
-"Instalatzailearen 64-bit (amd64) bertsioa (zure hardwareak onartzen badu) "
-"erabiltzea edo, partizio menura atzera jo eta partizioak beste fitxategi-"
+"Hardwareak onartzen badu instalatzailearen 64-bit (amd64) bertsioa "
+"erabiltzea edo, partizioen menura atzera joan eta partizioak beste fitxategi-"
 "sistema batekin lan egiteko konfiguratzea gomendatzen dizugu."
 
 #. Type: boolean
@@ -185,7 +182,7 @@ msgid ""
 "problems and is not recommended."
 msgstr ""
 "ZFS fitxategi-sistema erabiltzen duen partizio bat edo gehiago konfiguratu "
-"duzu. 512 MB memoria baino gutxiago duen ordenagailu batetan instalatzeak "
+"duzu. 512 MB memoria baino gutxiago duen ordenagailu batean instalatzeak "
 "egonkortasun arazoak sor ditzake eta ez da gomendatzen."
 
 #. Type: boolean
@@ -197,7 +194,7 @@ msgid ""
 "use another file system."
 msgstr ""
 "Partizioak egiteko menura itzuli eta partizioak beste fitxategi-sistema bat "
-"erabiltzeko konfiguratu beharko zenituzke."
+"erabiltzeko konfiguratu beharko zenuke."
 
 #. Type: text
 #. Description
@@ -212,7 +209,7 @@ msgstr "Konfiguratu ZFS"
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
 msgid "In use by ZFS pool ${VG}"
-msgstr "ZFS ${VG} bilguneak erabilia"
+msgstr "${VG} ZFS gordailuan erabiltzen"
 
 #. Type: text
 #. Description
@@ -230,7 +227,7 @@ msgstr "Bistaratu konfigurazioaren xehetasunak"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr "Sortu ZFS bilgunea"
+msgstr "Sortu ZFS gordailua"
 
 #. Type: text
 #. Description
@@ -239,7 +236,7 @@ msgstr "Sortu ZFS bilgunea"
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr "Ezabatu ZFS bilgunea"
+msgstr "Ezabatu ZFS gordailua"
 
 #. Type: text
 #. Description
@@ -305,7 +302,7 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:17001
 msgid "ZFS configuration failure"
-msgstr "ZFS konfigurazio errorea"
+msgstr "ZFS konfigurazioko errorea"
 
 #. Type: error
 #. Description
@@ -354,8 +351,8 @@ msgid ""
 msgstr ""
 " Bolumen fisiko libreak:         ${FREE_PVS}\n"
 " Erabilitako bolumen fisikoak:  ${USED_PVS}\n"
-" ZFS taldeak:          ${VGS}\n"
-" ZFS bolumenak:        ${LVS}"
+" ZFS gordailuak:          ${VGS}\n"
+" ZFS bolumen logikoak:        ${LVS}"
 
 #. Type: note
 #. Description
@@ -369,14 +366,14 @@ msgstr "Uneko ZFS konfigurazioa:"
 #. :sl4:
 #: ../partman-zfs.templates:22001
 msgid "Devices for the new ZFS pool:"
-msgstr "ZFS talde berriaren gailuak:"
+msgstr "ZFS gordailu berriaren gailuak:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
 msgid "Please select devices for the new ZFS pool."
-msgstr "Hautatu ZFS talde berriaren gailuak."
+msgstr "Hautatu ZFS gordailu berriaren gailuak."
 
 #. Type: multiselect
 #. Description
@@ -390,7 +387,7 @@ msgstr "Gailu bat edo gehiago hauta ditzakezu."
 #. :sl4:
 #: ../partman-zfs.templates:23001
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "ZFS talde berriaren disko-anitzeko modua"
+msgstr "ZFS gordailu berriaren disko-anitzeko modua:"
 
 #. Type: select
 #. Description
@@ -405,13 +402,21 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Aukeratu modua ZFS gordailuaren disko anitzentzako:\n"
+" * Multzotan banatuta: RAID 0 bezalakoa (lehenetsia) - datuak\n"
+"         bolumen fisikoetan zehar banatzen dira;\n"
+" * Ispiluan banatuta: RAID 1 bezalakoa - datuak bolumen fisiko\n"
+"         bakoitzean bikoizten dira;\n"
+" * RAID-Z: RAID 5 edo RAID 6 bezalakoa - bolumen fisiko batzuk\n"
+"         paritate-bita gordetzen dute eta datuak beste\n"
+"         batzuen artean banatzen dira."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "RAID-Z moduaren paritate maila:"
 
 #. Type: select
 #. Description
@@ -421,21 +426,21 @@ msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
 msgstr ""
+"Aukeratu bolumen fisikoen kopurua paritate-bitak gordetzean erabiltzeko."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "ZFS pool name:"
-msgstr ""
+msgstr "ZFS gordailuaren izena:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr "Sartu bolumen logiko berrian erabili nahi duzun izena."
+msgstr "Idatzi ZFS gordailu berriaren izena."
 
 #. Type: error
 #. Description
@@ -448,63 +453,57 @@ msgstr "Ez da bolumen fisikorik hautatu"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
 msgstr ""
-"Bolumen fisikorik ez da hautatu. Bolumen talde berria sortzeko ahalegina "
-"abortatu egin da."
+"Ez da bolumen fisikorik hautatu. ZFS gordailu berriaren sorrera abortatu "
+"egin da."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "Ez dago ZFS gordailuaren izenik"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr "Ez da bolumen taldearentzako izenik adierazi. Sartu izen bat."
+msgstr "Ez da ZFS gordailuaren izenik eman. Idatzi izen bat."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid "ZFS pool name already in use"
-msgstr "Bolumen taldearen izena lehendik erabilita dago"
+msgstr "ZFS gordailuaren izena jadanik erabilita dago"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
 msgstr ""
-"Hautatutako bolumen taldearen izena lehendik erabilita dago. Aukeratu beste "
+"Hautatutako ZFS gordailuaren izena jadanik erabilitako dago. Aukeratu beste "
 "izen bat."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "Error while creating ZFS pool"
-msgstr "Errorea bolumen logiko berria sortzean"
+msgstr "Errorea ZFS gordailua sortzean"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "The ZFS pool ${VG} could not be created."
-msgstr "Ezin izan da ${VG} bolumen taldea sortu."
+msgstr "Ezin izan da ${VG} ZFS gordailua sortu."
 
 #. Type: error
 #. Description
@@ -524,96 +523,86 @@ msgstr "Egiaztatu /var/log/messages edo ikusi 4. kontsola xehetasunetarako."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "ZFS pool to delete:"
-msgstr "Ezabatu beharreko bolumen taldea:"
+msgstr "ZFS gordailua ezabatzeko:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "Hautatu ezabatu nahi duzun bolumen taldea."
+msgstr "Hautatu ezabatzea nahi duzun ZFS gordailua."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "ZFS gordailurik ez"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "No ZFS pool has been found."
-msgstr "Ez da bolumen talderik aurkitu."
+msgstr "Ez da ZFS gordailurik aurkitu."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "The ZFS pool may have already been deleted."
-msgstr "Bolumen taldea agian lehendik ezabatuta dago."
+msgstr "ZFS gordailua agian lehendik ezabatuta dago."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
-#, fuzzy
 msgid "Really delete the ZFS pool?"
-msgstr "Bolumen taldea benetan ezabatu nahi duzu?"
+msgstr "ZFS gordailua benetan ezabatzea nahi duzu?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "Berretsi ${VG} ZFS gordailua ezabatzea."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid "Error while deleting ZFS pool"
-msgstr "Errorea bolumen taldea ezabatzean"
+msgstr "Errorea ZFS gordailua ezabatzean"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
-"Hautatutako bolumen taldea ezin izan da ezabatu. Agian bolumen logikoetako "
-"bat edo gehiago unean erabiltzen ari dira."
+"Ezin izan da hautatutako ZFS gordailua ezabatu. Agian unean bolumen "
+"logikoetako bat edo gehiago erabiltzen ari dira."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid "No ZFS pool found"
-msgstr "Ez da partiziorik aurkitu"
+msgstr "Ez da ZFS gordailurik aurkitu"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"Ez da bolumen talde librerik aurkitu bolumen logiko berri bat sortzeko. "
-"Sortu bolumen fisiko eta bolumen talde gehiago, edo murriztu lehendik dagoen "
-"bolumen taldea."
+"Ez da ZFS gordailu librerik aurkitu bolumen logiko berri bat sortzeko. Sortu "
+"beste ZFS gordailua, edo egin lekua lehendik dagoen ZFS gordailu batean."
 
 #. Type: string
 #. Description
@@ -634,16 +623,15 @@ msgstr "Sartu bolumen logiko berrian erabili nahi duzun izena."
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "ZFS gordailua:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
-#, fuzzy
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
-msgstr "Hautatu bolumen taldea (bolumen logiko berria bertan sortzeko)."
+msgstr "Hautatu ZFS gordailua (bolumen logiko berria bertan sortzeko)."
 
 #. Type: error
 #. Description
@@ -673,12 +661,11 @@ msgstr "Errorea bolumen logiko berria sortzean"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
 msgstr ""
-"${LV} izena lehendik erabili du bolumen talde bereko (${VG}) beste bolumen "
+"${LV} izena lehendik erabili du ZFS gordailu bereko (${VG}) beste bolumen "
 "logiko batek."
 
 #. Type: string
@@ -772,13 +759,12 @@ msgstr "Ez da bolumen fisiko erabilgarririk aurkitu"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
 "required kernel modules or re-partition the hard drives."
 msgstr ""
-"Bolumen fisikorik (hau da, partiziorik) ez da aurkitu sisteman. Baliteke "
+"Ez da bolumen fisikorik (adib. partiziorik) aurkitu sisteman. Baliteke "
 "bolumen fisiko guztiak lehendik erabilita egotea. Agian behar diren nukleo-"
 "modulu batzuk kargatu edo disko gogorretan partizioak berriro egin beharko "
 "dituzu."
@@ -787,45 +773,40 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid "ZFS not available"
-msgstr "RAID softwarea ez dago eskuragarri"
+msgstr "ZFS ez dago erabilgarri"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
 msgstr ""
-"Uneko nukleoak ez du Bolumen Logikoen Kudeatzailea onartzen. Agian lvm-mod "
-"kargatu behar da."
+"Uneko nukleoak ez du ZFS onartzen. Agian zfs modulua kargatu beharko duzu."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "Bolumen logiko edo bolumen talde izen baliogabea"
+msgstr "Bolumen logiko edo ZFS gordailuaren izen baliogabea"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Bolumen logiko edo bolumen taldeen izenek karaktere alfanumerikoak, "
-"marratxoa, plus, puntu eta azpimarrak soilik izan dezakete. 128 karaktere "
-"edo gutxiago izan behar ditu eta ezin da marratxoaz hasi. \".\" eta \"..\" "
-"izenak ez daude baimenduta. Honez gain, bolumen logikoen izenak ezin dira "
-"\"snapshot\" hitzarekin hasi."
+"Bolumen logiko edo ZFS gordailuen izenek karaktere alfanumerikoak, "
+"marratxoa, plus, puntu eta azpimarrak soilik izan dezakete. 255 karaktere "
+"edo gutxiago izan behar ditu, eta alfazenbakizko karaktere batekin hasi "
+"behar da. Honez gain, 'mirror', 'raidz', 'spare' eta 'log' izenak debekatuta "
+"daude."
 
 #. Type: error
 #. Description
@@ -845,27 +826,26 @@ msgstr "Bolumen logikoko datu guztiak ezabatu?"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"Hautatutako gailuak dagoeneko baditu ezabatu egingo diren hurrengo LVM "
-"bolumen logiko, bolumen taldeak eta bolumen fisikoak:"
+"Hautatutako gailuak ezabatu egingo diren ZFS bolumen logiko eta ZFS gordailu "
+"hauek ditu:"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr "Bolumen logikoa(k): ${LVTARGETS}"
+msgstr "Bolumen logikoak: ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "ZFS gordailuak: ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -883,28 +863,25 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
 "other partition is underused. ZFS can help with this."
 msgstr ""
-"Sistema kudeatzaileen egoera arrunt bat da disko partizio batenbat "
-"(normalean garrantzitsuena) leku gabe geratzea beste partizio batenbat "
-"erabili gabe dagoelarik. Bolumen logiko kudeatzaileak (LVM) honetan lagun "
-"zaitzake."
+"Sistemako administratzaileen egoera arrunt bat da disko partizio baten bat "
+"(normalean garrantzitsuena) leku gabe geratzea beste partizio baten bat "
+"erabili gabe dagoelarik. ZFS fitxategi-sistemak honetan lagun zaitzake."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -913,25 +890,24 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"LVM-ek disko edo partzio gailuak (\"bolumen fisikoak\") disko birtual bat "
-"sortzeko (\"Bolumen taldea\") konbinatzeko aukera ematen du, berau partizio "
-"birtualetan banatu daiteke (\"Bolumen logikoak\"). Bolumen talde eta bolumen "
-"logikoek zenbait disko fisiko batera ditzakete. Bolumen fisiko berriak "
-"edozein momentutan batu daitezke bolumen taldera eta bolumen logikoak "
-"bolumen taldean libre dagoen tokia hartzeko tamainaz aldatu daitezke."
+"ZFS fitxategi-sistemak disko edo partizio gailuak (\"bolumen fisikoak\") "
+"disko birtual bat sortzeko (\"ZFS gordailua\") konbinatzeko aukera ematen "
+"du, berau partizio birtualetan banatu daiteke (\"bolumen logikoak\"). ZFS "
+"gordailu eta bolumen logikoek zenbait disko fisiko batera ditzakete. Bolumen "
+"fisiko berriak edozein momentutan batu daitezke ZFS gordailura eta bolumen "
+"logikoak ZFS gordailuan libre dagoen tokia hartzeko tamainaz alda daitezke."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"LVM konfigurazio menuko elementuak erabili daitezke bolumen talde eta "
-"bolumen logikoak editatzeko. Behin partizio kudeaketa pantaila nagusira "
-"itzultzean, bolumen logikoak partizio arruntak bezala bistaraziko dira, eta "
+"ZFS konfigurazioko menuko elementuak erabili daitezke ZFS gordailu eta "
+"bolumen logikoak editatzeko. Behin partizioak kudeatzeko pantaila nagusira "
+"itzultzean, bolumen logikoak partizio arruntak bezala bistaratuko dira, eta "
 "hauek bezala erabili behar dira."
