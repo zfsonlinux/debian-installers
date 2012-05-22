@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2012-01-01 22:50+0000\n"
-"PO-Revision-Date: 2012-03-21 09:00+0200\n"
+"PO-Revision-Date: 2012-05-22 13:33+0300\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "Language: fi\n"
@@ -63,9 +63,8 @@ msgstr "ZFS-tiedostojärjestelmä"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr "Yhteenveto käytössä olevista LVM:n asetuksista:"
+msgstr "Erilliset /boot ja /lib/modules vaaditaan näillä ZFS-asetuksilla"
 
 #. Type: error
 #. Description
@@ -75,6 +74,8 @@ msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Juuritiedostojärjestelmä on ZFS-varannossa, joka käyttää useampaa kuin yhtä "
+"taltiota."
 
 #. Type: error
 #. Description
@@ -87,6 +88,8 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror or "
 "Striped modes, but not RAID-Z mode."
 msgstr ""
+"Käynnistyslatain tukee tällaista vain varannoille, jotka toimivat peilaus- "
+"tai lomitustilassa. RAID-Z-tila ei siis ole tuettu."
 
 #. Type: error
 #. Description
@@ -96,14 +99,15 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"Varmista, että /boot ja /lib/modules ovat osiolla, joka käyttää tuettuja ZFS-"
+"varannon asetuksia, tai toista tiedostojärjestelmää kuten UFS:ää."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
-#, fuzzy
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr "Käytetäänkö /boot-osiolle tiedostojärjestelmää, joka ei ole tuettu?"
+msgstr "Tukematon usean taltion ZFS liitoskohdassa ${MNT}"
 
 #. Type: error
 #. Description
@@ -113,6 +117,8 @@ msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Osio ${MNT} on ZFS-varannossa, joka käyttää useampaa kuin yhtä fyysistä "
+"taltiota."
 
 #. Type: error
 #. Description
@@ -122,6 +128,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"Varmista, että ${MNT} on osiolla, joka käyttää tuettuja ZFS-varannon "
+"asetuksia tai toista tiedostojärjestelmää (kuten UFS)."
 
 #. Type: boolean
 #. Description
@@ -143,6 +151,10 @@ msgid ""
 "may lead to performance or stability problems due to limitations of this "
 "architecture."
 msgstr ""
+"Yksi tai useampia osioita on asetettu käyttämään ZFS-tiedostojärjestelmää. "
+"Vaikka ZFS on tuettu 32-bittisellä i386-järjestelmällä, sen käyttö ilman "
+"erityistä hienosäätöä voi johtaa suorituskyky- tai vakausongelmiin tämän "
+"arkkitehtuurin rajoitusten takia."
 
 #. Type: boolean
 #. Description
@@ -166,6 +178,9 @@ msgid ""
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
+"Yksi tai useampia osioita on määritetty käyttämään ZFS-tiedostojärjestelmää. "
+"ZFS:n käyttö tietokoneella, jossa on alle 512MB keskusmuistia, voi johtaa "
+"vakausongelmiin eikä ole suositeltavaa."
 
 #. Type: boolean
 #. Description
@@ -190,9 +205,8 @@ msgstr "Tee ZFS:n asetukset"
 #. :sl4:
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
-#, fuzzy
 msgid "In use by ZFS pool ${VG}"
-msgstr "Osio käytössä LVM:n taltioryhmässä ${VG}"
+msgstr "Käytössä ZFS-varannossa ${VG}"
 
 #. Type: text
 #. Description
@@ -259,37 +273,33 @@ msgstr "Tallenna muutokset levyille ja tee ZFS:n asetukset?"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
-"Ennen kuin salattujen taltioiden asetukset voidaan tehdä, on nykyiset "
-"levyosiot tallennettava levyille. Näitä muutoksia ei voi perua."
+"Ennen kuin ZFS:n asetukset voidaan tehdä, on nykyiset levyosiot "
+"tallennettava levyille. Näitä muutoksia ei voi perua."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"Kun loogisen taltiohallinnan asetukset on tehty, asennuksen aikana ei ole "
-"enää mahdollista tehdä lisämuutoksia niiden levyjen osioille, joissa "
-"fyysiset taltiota sijaitsevat. Varmista, että nyt tehdyt osiot ovat "
-"sellaiset kuin haluat."
+"Kun ZFS:n asetukset on tehty, asennuksen aikana ei ole enää mahdollista "
+"tehdä lisämuutoksia niiden levyjen osioille, joissa fyysiset taltiota "
+"sijaitsevat. Varmista, että nyt tehdyt osiot ovat sellaiset kuin haluat."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration failure"
-msgstr "Virhe loogisen taltiohallinnan asetuksissa"
+msgstr "Virhe ZFS:n asetuksissa"
 
 #. Type: error
 #. Description
@@ -302,33 +312,29 @@ msgstr "Tallennettaessa muutoksia levyille tapahtui virhe."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration has been aborted."
-msgstr "Asetuksien teko on keskeytetty."
+msgstr "ZFS-ssetuksien teko on keskeytetty."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:18001
-#, fuzzy
 msgid "physical volume for ZFS"
-msgstr "fyysinen taltio LVM:lle"
+msgstr "fyysinen taltio ZFS:lle"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "ZFS configuration action:"
-msgstr "LVM:n asetustoiminto:"
+msgstr "ZFS:n asetustoiminto:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "Summary of current ZFS configuration:"
-msgstr "Yhteenveto käytössä olevista LVM:n asetuksista:"
+msgstr "Yhteenveto käytössä olevista ZFS:n asetuksista:"
 
 #. Type: select
 #. Description
@@ -356,17 +362,15 @@ msgstr "Käytössä olevat ZFS:n asetukset:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Devices for the new ZFS pool:"
-msgstr "Uuden taltioryhmän laitteet:"
+msgstr "Uuden ZFS-varannon laitteet:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Please select devices for the new ZFS pool."
-msgstr "Valitse uuden taltioryhmän laitteet."
+msgstr "Valitse uuden ZFS-varannon laitteet."
 
 #. Type: multiselect
 #. Description
@@ -379,9 +383,8 @@ msgstr "Voit valita yhden tai useamman laitteen."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "Uuden taltioryhmän laitteet:"
+msgstr "Monilevytila tälle ZFS-varannolle:"
 
 #. Type: select
 #. Description
@@ -396,6 +399,13 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Valitse monilevytila tälle ZFS-v-arannolle:\n"
+" * Lomitus: kuten RAID 0 (oletus) - data jaetaan fyysisten\n"
+"            taltioiden välillä;\n"
+" * Peilaus: kuten RAID 1 - data monistetaan jokaiselle\n"
+"            fyysiselle taltiolle;\n"
+" * RAID-Z:  kuten RAID 5 tai RAID 6 - joillekin fyysisille taltioille \n"
+"            tallennetaan pariteettidata, ja data jaetaan muiden kesken."
 
 #. Type: select
 #. Description
@@ -440,12 +450,11 @@ msgstr "Fyysisiä taltioita ei ole valittu"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
 msgstr ""
-"Yhtään fyysistä taltiota ei valittu. Uuden taltioryhmän luonti keskeytettiin."
+"Yhtään fyysistä taltiota ei valittu. Uuden ZFS-varannon luonti keskeytettiin."
 
 #. Type: error
 #. Description
@@ -458,42 +467,37 @@ msgstr "Ei ZFS-varannon nimeä"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr "Taltioryhmälle ei ole annettu nimeä. Anna jokin nimi."
+msgstr "ZFS-varannolle ei ole annettu nimeä. Anna jokin nimi."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid "ZFS pool name already in use"
-msgstr "Taltioryhmän nimi on jo käytössä"
+msgstr "ZFS-varannon nimi on jo käytössä"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
-msgstr "Valittu taltioryhmän nimi on jo käytössä. Valitse jokin muu nimi."
+msgstr "Valittu ZFS-varannon nimi on jo käytössä. Valitse jokin muu nimi."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "Error while creating ZFS pool"
-msgstr "Virhe luotaessa uutta loogista taltiota"
+msgstr "Virhe luotaessa ZFS-varantoa"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "The ZFS pool ${VG} could not be created."
-msgstr "Taltioryhmää ${VG} ei voitu luoda."
+msgstr "ZFS-varantoa ${VG} ei voitu luoda."
 
 #. Type: error
 #. Description
@@ -515,17 +519,15 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "ZFS pool to delete:"
-msgstr "Poistettava taltioryhmä:"
+msgstr "Poistettava ZFS-varanto:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "Valitse poistettava taltioryhmä."
+msgstr "Valitse poistettava ZFS-varanto."
 
 #. Type: error
 #. Description
@@ -538,25 +540,22 @@ msgstr "Ei ZFS-varantoa"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "No ZFS pool has been found."
-msgstr "Yhtään taltioryhmää ei löytynyt."
+msgstr "Yhtään ZFS-varantoa ei löytynyt."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "The ZFS pool may have already been deleted."
-msgstr "Taltioryhmä saattaa olla jo poistettu."
+msgstr "ZFS-varanto saattaa olla jo poistettu."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
-#, fuzzy
 msgid "Really delete the ZFS pool?"
-msgstr "Haluatko varmasti poistaa taltioryhmän?"
+msgstr "Haluatko varmasti poistaa ZFS-varannon?"
 
 #. Type: boolean
 #. Description
@@ -569,41 +568,37 @@ msgstr "Varmista ZFS-varannon ${VG} poistaminen."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid "Error while deleting ZFS pool"
-msgstr "Virhe poistettaessa taltioryhmää"
+msgstr "Virhe poistettaessa ZFS-varantoa"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
-"Valittua taltioryhmää ei voitu poistaa. Jotkin loogisista taltiosta "
+"Valittua ZFS-varantoa ei voitu poistaa. Jotkin loogisista taltiosta "
 "saattavat olla parhaillaan käytössä."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid "No ZFS pool found"
-msgstr "Osioita ei löytynyt"
+msgstr "ZFS-varantoa ei löytynyt"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"Uuden loogisen taltion luomiseen ei löytynyt vapaata taltioryhmää. Luo lisää "
-"fyysisiä taltioita ja taltioryhmiä tai supista jotain nykyistä taltioryhmää."
+"Uuden loogisen taltion luomiseen ei löytynyt vapaata ZFS-varantoa. Luo lisää "
+"varantoja tai supista jotain nykyistä ZFS-varantoa."
 
 #. Type: string
 #. Description
@@ -630,10 +625,9 @@ msgstr "ZFS-varanto:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
-#, fuzzy
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
-msgstr "Valitse mihin taltioryhmään uusi looginen taltio luodaan."
+msgstr "Valitse mihin ZFS-varantoon uusi looginen taltio luodaan."
 
 #. Type: error
 #. Description
@@ -663,12 +657,11 @@ msgstr "Virhe luotaessa uutta loogista taltiota"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
 msgstr ""
-"Nimi ${LV} on jo toisen loogisen taltion käytössä samassa taltioryhmässä "
+"Nimi ${LV} on jo toisen loogisen taltion käytössä samassa ZF-varannossa "
 "(${VG})."
 
 #. Type: string
@@ -761,13 +754,12 @@ msgstr "Yhtään käytettävissä olevaa fyysistä taltiota ei löytynyt"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
 "required kernel modules or re-partition the hard drives."
 msgstr ""
-"Järjestelmästä ei löytynyt yhtään fyysistä taltiota (t.s. osiota). Kaikki "
+"Järjestelmästä ei löytynyt yhtään fyysistä taltiota (ts. osiota). Kaikki "
 "fyysiset taltiot ovat ehkä jo käytössä. Mahdollisesti on myös ladattava "
 "tarvittavia ytimen moduuleita tai osioitava kiintolevyt uudestaan."
 
@@ -775,44 +767,39 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid "ZFS not available"
-msgstr "Ohjelmallinen RAID ei ole käytettävissä"
+msgstr "ZFS ei käytettävissä"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
 msgstr ""
-"Nykyinen ydin ei tue loogista taltiohallintaa (LVM). Mahdollisesti on "
-"ladattava lvm-mod-moduuli."
+"Nykyinen ydin ei tue loogista ZFS:ää. Mahdollisesti on ladattava zfs-moduuli."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "Virheellinen loogisen taltion tai taltioryhmän nimi"
+msgstr "Virheellinen loogisen taltion tai ZFS-varannon nimi"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Loogisten taltioiden tai taltioryhmien nimissä saa olla vain kirjaimia, "
-"numeroita, tavuviiva, plusmerkki, piste ja alaviiva. Nimen enimmäispituus on "
-"128 merkkiä. Nimi ei saa alkaa tavuviivalla. Nimet ”.” ja ”..” eivät kelpaa. "
-"Lisäksi loogisten taltioiden nimen alku ei saa olla ”snapshot”."
+"Loogisten taltioiden tai ZFS-varantojen nimissä saa olla vain kirjaimia, "
+"numeroita, tavuviiva, kaksoispiste, piste ja alaviiva. Nimen enimmäispituus "
+"on 255 merkkiä. Nimen tulee alkaa kirjaimella tai numerolla. Nimet ”mirror”, "
+"”raidz”, ”spare” tai ”log” eivät kelpaa. "
 
 #. Type: error
 #. Description
@@ -832,13 +819,12 @@ msgstr "Poistetaanko nykyisen loogisen taltion tiedot?"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"Valitulla laitteella on jo seuraavat loogiset taltiot, taltioryhmät ja "
-"fyysiset taltiot, joita ollaan poistamassa:"
+"Valitulla laitteella on jo seuraavat loogiset taltiot ja ZFS-varannot, joita "
+"ollaan poistamassa:"
 
 #. Type: boolean
 #. Description
@@ -875,21 +861,19 @@ msgstr "ZFS"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
 "other partition is underused. ZFS can help with this."
 msgstr ""
 "Usein toistuu tilanne, jossa jollain (yleensä tärkeällä) levyosiolla on "
-"liian vähän tilaa ja jollain toisella osiolla on ylimääräistä tilaa. "
-"Looginen taltiohallinta (LVM) voi auttaa tässä tilanteessa."
+"liian vähän tilaa ja jollain toisella osiolla on ylimääräistä tilaa. ZFS voi "
+"auttaa tässä tilanteessa."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -898,25 +882,24 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"LVM mahdollistaa levyjen ja osiolaitteiden (”fyysisten taltioiden”) "
-"yhdistämisen virtuaaliseksi levyksi (”taltioryhmäksi”), joka voidaan sitten "
-"jakaa virtuaalisiin osioihin (”loogisiin taltioihin”). Taltioryhmät ja "
+"ZFS mahdollistaa levyjen ja osiolaitteiden (”fyysisten taltioiden”) "
+"yhdistämisen virtuaaliseksi levyksi (”ZFS-varannoksi”), joka voidaan sitten "
+"jakaa virtuaalisiin osioihin (”loogisiin taltioihin”). ZFS-varannot ja "
 "loogiset taltiot voivat koostua useammasta fyysisestä levystä. Uusia levyjä "
-"voidaan lisätä taltioryhmään koska vain ja loogisten taltioiden kokoja "
-"voidaan muuttaa taltioryhmän jakamattoman tilan rajoissa."
+"voidaan lisätä ZFS-varantoon koska vain ja loogisten taltioiden kokoja "
+"voidaan muuttaa ZFS-varannon jakamattoman tilan rajoissa."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"LVM:n asetusvalikon kohtia voidaan käyttää taltioryhmien ja loogisten "
+"ZFS:n asetusvalikon kohtia voidaan käyttää ZFS-varantojen ja loogisten "
 "taltioiden muokkaamiseen. Palattuasi takaisin osiointisovelluksen "
 "päävalikkoon, loogiset taltiot näytetään samanlaisina kuin normaalit osiot "
 "ja niitä tulisi käsitellä normaaleina osioina."
