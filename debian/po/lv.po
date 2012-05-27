@@ -4,37 +4,39 @@
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
 # translation of lv.po to Latvian
-# Aigars Mahinovs <aigarius@debian.org>, 2006, 2008.
-# Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008.
-# Peteris Krisjanis <pecisk@gmail.com>, 2008.
 # Latvian messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
 # Translations from iso-codes:
+# Copyright (C) Free Software Foundation, Inc., 2001,2003.
+# Translations from KDE:
+# Andris Maziks <andzha@latnet.lv>
+#
+# Aigars Mahinovs <aigarius@debian.org>, 2006, 2008.
+# Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008.
 # Aigars Mahinovs <aigarius@debian.org>, 2006.
 # Alastair McKinstry <mckinstry@computer.org>, 2001, 2002.
-# Copyright (C) Free Software Foundation, Inc., 2001,2003.
-# Free Software Foundation, Inc., 2002,2004
+# Free Software Foundation, Inc., 2002,2004.
 # Juris Kudiņš <cooker@inbox.lv>, 2001.
 # Rihards Priedītis <rprieditis@gmail.com>, 2009, 2010.
-# Translations from KDE:
-# Andris Maziks <andzha@latnet.lv> 
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2012.
+# Peteris Krisjanis <pecisk@gmail.com>, 2008, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lv\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2012-01-01 22:50+0000\n"
-"PO-Revision-Date: 2010-11-17 00:02+0200\n"
-"Last-Translator: Aigars Mahinovs <aigarius@debian.org>\n"
-"Language-Team: Latvian <locale@laka.lv>\n"
+"PO-Revision-Date: 2012-05-27 12:29+0300\n"
+"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
+"Language-Team: Latviešu <locale-l10n@googlegroups.com>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
-"2);\n"
+"2)\n"
 
 #. Type: text
 #. Description
@@ -59,15 +61,15 @@ msgstr "zfs"
 #. File system name
 #: ../partman-zfs.templates:3001
 msgid "ZFS file system"
-msgstr "ZFS failu sistēma"
+msgstr "ZFS datņu sistēma"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:4001
-#, fuzzy
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr "Pašreizējās LVM konfigurācijas kopsavilkums:"
+msgstr ""
+"Šai ZFS konfigurācijai /boot un /lib/modules direktorijām ir jābūt atsevišķām"
 
 #. Type: error
 #. Description
@@ -77,6 +79,8 @@ msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Saknes datņu sistēma atrodas ZFS pūlā, kas izmanto vairāk kā vienu fizisko "
+"sējumu."
 
 #. Type: error
 #. Description
@@ -89,6 +93,8 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror or "
 "Striped modes, but not RAID-Z mode."
 msgstr ""
+"Palaidējs atbalsta tikai šo konfigurāciju pūliem ar \"Spoguļa\" vai \"Svītru"
+"\" režīmiem, bet ne RAID-Z režīmu."
 
 #. Type: error
 #. Description
@@ -98,14 +104,15 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"Pārliecinieties, ka /boot un /lib/modules atrodas uz nodalījuma, kas izmanto "
+"atbalstītu ZFS pūla konfigurāciju, vai citu datņu sistēmu, piemēram, UFS."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
-#, fuzzy
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr "Lietot neatbalstītu failu sistēmas tipu priekš /boot?"
+msgstr "Neatbalstīts vairāku sējumu ZFS uz ${MNT}"
 
 #. Type: error
 #. Description
@@ -115,6 +122,8 @@ msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"${MNT} nodalījums atrodas ZFS pūlā, kas izmanto vairāk kā vienu fizisko "
+"sējumu."
 
 #. Type: error
 #. Description
@@ -124,6 +133,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"Pārliecinieties, ka ${MNT} atrodas uz nodalījuma, kas izmanto atbalstītu ZFS "
+"pūla konfigurāciju, vai citu datņu sistēmu, piemēram, UFS."
 
 #. Type: boolean
 #. Description
@@ -145,6 +156,10 @@ msgid ""
 "may lead to performance or stability problems due to limitations of this "
 "architecture."
 msgstr ""
+"Viens vai vairāki nodalījumi ir konfigurēti ar ZFS datņu sistēmu. Lai gan "
+"ZFS atbalsta 32 bitu i386 arhitektūru, tās lietošana bez īpašas "
+"pieregulēšanas var izraisīt veiktspējas vai stabilitātes problēmas dēļ šīs "
+"arhitektūras ierobežojumiem."
 
 #. Type: boolean
 #. Description
@@ -155,6 +170,9 @@ msgid ""
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
+"Izmantojiet šī instalatora 64 bitu (amd64) versiju (ja šī aparatūra to "
+"atbalsta), vai ejiet atpakaļ uz disku dalīšanas izvēlni un konfigurējiet "
+"nodalījumus uz citu datņu sistēmu."
 
 #. Type: boolean
 #. Description
@@ -165,35 +183,35 @@ msgid ""
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
+"You have configured one or more partitions with the ZFS file system. ZFS "
+"izmantošana datorā, kurā ir mazāk kā 512 MB atmiņas var izraisīt "
+"stabilitātes problēmas un tas nav ieteicams."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:7001
-#, fuzzy
 msgid ""
 "You should go back to the partitioning menu and configure the partitions to "
 "use another file system."
 msgstr ""
-"Ja neatgriezīsieties un neatrisināsiet radušās kļūdas, šī sadaļa tiks "
-"izmantota tāda, kāda tā šobrīd ir."
+"Ejiet atpakaļ uz disku dalīšanas izvēlni un konfigurējiet nodalījumus uz "
+"citu datņu sistēmu."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:8001
-#, fuzzy
 msgid "Configure ZFS"
-msgstr "Lokalizācijas konfigurēšana"
+msgstr "Konfigurēt ZFS"
 
 #. Type: text
 #. Description
 #. :sl4:
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
-#, fuzzy
 msgid "In use by ZFS pool ${VG}"
-msgstr "Tiek lietota LVM sējumu grupā ${VG}"
+msgstr "Izmanto ZFS pūls ${VG}"
 
 #. Type: text
 #. Description
@@ -202,7 +220,7 @@ msgstr "Tiek lietota LVM sējumu grupā ${VG}"
 #. Use infinitive form
 #: ../partman-zfs.templates:10001
 msgid "Display configuration details"
-msgstr "Parādīt informāciju par konfigurāciju"
+msgstr "Parādīt sīkāku informāciju par konfigurāciju"
 
 #. Type: text
 #. Description
@@ -211,7 +229,7 @@ msgstr "Parādīt informāciju par konfigurāciju"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "Izveidot ZFS pūlu"
 
 #. Type: text
 #. Description
@@ -220,7 +238,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "Dzēst ZFS pūlu"
 
 #. Type: text
 #. Description
@@ -229,7 +247,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:13001
 msgid "Create logical volume"
-msgstr "Veidot loģisko sējumu"
+msgstr "Izveidot loģisko sējumu"
 
 #. Type: text
 #. Description
@@ -253,45 +271,40 @@ msgstr "Beigt"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid "Write the changes to disk and configure ZFS?"
-msgstr "Saglabāt izmaiņas diskā un konfigurēt LVM?"
+msgstr "Saglabāt izmaiņas diskā un konfigurēt ZFS?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
 msgstr ""
-"Pirms konfigurēt šifrētos sējumus, pašreizējais sadaļu izkārtojums ir "
-"jāsaglabā diskā. Šīs izmaiņas vairs nevarēs atcelt."
+"Pirms konfigurēt ZFS, pašreizējais nodalījumu izkārtojums ir jāsaglabā "
+"diskā. Šīs izmaiņas vairs nevarēs atcelt."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:16001
-#, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
 "Please decide if you are satisfied with the current partitioning scheme "
 "before continuing."
 msgstr ""
-"Kad Logical Volume Manager konfigurēšana pabeigta, vairs nevar ieviest "
-"izmaiņas to disku sadalījumos, kas satur fiziskos sējumus. Lūdzu, "
-"pārliecinieties, ka pašreizējie disku sadalījumi ir jums pa prātam, pirms "
-"turpināt instalāciju."
+"Kad ZFS konfigurēšana pabeigta, vairs nevar ieviest izmaiņas to disku "
+"sadalījumos, kas satur fiziskos sējumus. Lūdzu, pārliecinieties, ka "
+"pašreizējie disku sadalījumi ir jums pa prātam, pirms turpināt instalāciju."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration failure"
-msgstr "LVM konfigurēšanas kļūda"
+msgstr "ZFS konfigurēšanas kļūda"
 
 #. Type: error
 #. Description
@@ -304,39 +317,34 @@ msgstr "Notika kļūda, rakstot izmaiņas diskos."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:17001
-#, fuzzy
 msgid "ZFS configuration has been aborted."
-msgstr "Konfigurēšana tika pārtraukta."
+msgstr "ZFS konfigurēšana tika pārtraukta."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:18001
-#, fuzzy
 msgid "physical volume for ZFS"
-msgstr "LVM fiziskais sējums"
+msgstr "ZFS fiziskais sējums"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "ZFS configuration action:"
-msgstr "LVM konfigurēšanas darbības:"
+msgstr "ZFS konfigurēšanas darbības:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid "Summary of current ZFS configuration:"
-msgstr "Pašreizējās LVM konfigurācijas kopsavilkums:"
+msgstr "Pašreizējās ZFS konfigurācijas kopsavilkums:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -345,32 +353,29 @@ msgid ""
 msgstr ""
 " Brīvie fiziskie sējumi:   ${FREE_PVS}\n"
 " Lietotie fiziskie sējumi: ${USED_PVS}\n"
-" Sējumu grupas:            ${VGS}\n"
-" Loģiskie sējumi:          ${LVS}"
+" ZFS pūli:                 ${VGS}\n"
+" ZFS loģiskie sējumi:      ${LVS}"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid "Current ZFS configuration:"
-msgstr "Pašreizējā LVM konfigurācija:"
+msgstr "Pašreizējā ZFS konfigurācija:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Devices for the new ZFS pool:"
-msgstr "Ierīces jaunai sējumu grupai:"
+msgstr "Ierīces jaunajam ZFS pūlam:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 msgid "Please select devices for the new ZFS pool."
-msgstr "Lūdzu, izvēlieties, kuras ierīces iekļaut jaunajā sējumu grupā."
+msgstr "Lūdzu, izvēlieties, kuras ierīces iekļaut jaunajā ZFS pūlā."
 
 #. Type: multiselect
 #. Description
@@ -383,9 +388,8 @@ msgstr "Jūs varat izvēlēties vienu vai vairākas ierīces."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "Ierīces jaunai sējumu grupai:"
+msgstr "Vairāku disku režīms šim ZFS pūlam:"
 
 #. Type: select
 #. Description
@@ -400,13 +404,19 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Izvēlieties vairāku disku darbības režīmu šim ZFS pūlam:\n"
+" * Svītrots: līdzīgs RAID 0 (noklusējuma) — dati tiek izkaisīti pa\n"
+"             fiziskajiem sējumiem;\n"
+" * Spogulis: līdzīgs RAID 1 — dati tiek dublēti uz katra fiziskā sējuma;\n"
+" * RAID-Z:   līdzīgi RAID 5 vai RAID 6 — daži fiziskie sējumi satur\n"
+"             paritātes bitus un dati tiek izkaisīti pa pārējiem."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "RAID-Z paritātes līmenis:"
 
 #. Type: select
 #. Description
@@ -416,39 +426,39 @@ msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
 msgstr ""
+"Lūdzu, izvēlieties fizisko sējumu skaitu, kas tiks izmantoti, lai glabātu "
+"paritātes bitus."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "ZFS pool name:"
-msgstr ""
+msgstr "ZFS pūla nosaukums:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr "Ievadiet nosaukumu, ko dot jaunajam loģiskajam sējumam"
+msgstr "Lūdzu, ievadiet jaunā ZFS pūla nosaukumu."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
 msgid "No physical volumes selected"
-msgstr "Neviens fiziskais sējums netika izvēlēts"
+msgstr "Nav izvēlēts neviens fiziskais sējums"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
 msgstr ""
-"Neviens fiziskais sējums netika izvēlēts. Jaunas sējumu grupas izveide tika "
+"Neviens fiziskais sējums netika izvēlēts. Jauna ZFS pūla izveide tika "
 "pārtraukta."
 
 #. Type: error
@@ -456,50 +466,45 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "Nav ZFS pūla nosaukuma"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr "Sējumu grupas nosaukums netika ievadīts. Lūdzu, ievadiet nosaukumu."
+msgstr "ZFS pūla nosaukums netika ievadīts. Lūdzu, ievadiet nosaukumu."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid "ZFS pool name already in use"
-msgstr "Šāds sējumu grupas nosaukums jau tiek lietots"
+msgstr "Šāds ZFS pūla nosaukums jau tiek lietots"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
 msgstr ""
-"Izvēlētais sējumu grupas nosaukums jau tiek izmantots. Lūdzu, izvēlieties "
-"citu nosaukumu."
+"Izvēlētais ZFS pūla nosaukums jau tiek izmantots. Lūdzu, izvēlieties citu "
+"nosaukumu."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "Error while creating ZFS pool"
-msgstr "Kļūda, veidojot jaunu loģisko sējumu"
+msgstr "Kļūda, veidojot ZFS pūlu"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 msgid "The ZFS pool ${VG} could not be created."
-msgstr "Neizdevās izveidot sējumu grupu ${VG}."
+msgstr "Neizdevās izveidot ZFS pūlu ${VG}."
 
 #. Type: error
 #. Description
@@ -521,95 +526,86 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "ZFS pool to delete:"
-msgstr "Dzēst sējumu grupu:"
+msgstr "Dzēšamais ZFS pūls:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "Lūdzu, izvēlieties, kuru sējumu grupu jūs vēlaties dzēst."
+msgstr "Lūdzu, izvēlieties, kuru ZFS pūlu vēlaties dzēst."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "Nav ZFS pūla"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "No ZFS pool has been found."
-msgstr "Neviena sējumu grupa nav atrasta."
+msgstr "Neviens ZFS pūls nav atrasts."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 msgid "The ZFS pool may have already been deleted."
-msgstr "Šī sējumu grupa jau ir izdzēsta."
+msgstr "Šis ZFS pūls jau ir izdzēsts."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
-#, fuzzy
 msgid "Really delete the ZFS pool?"
-msgstr "Tiešām dzēst sējumu grupu?"
+msgstr "Tiešām dzēst ZFS pūlu?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "Lūdzu, apstipriniet ZFS pūla ${VG} dzēšanu."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid "Error while deleting ZFS pool"
-msgstr "Kļūda, dzēšot sējumu grupu"
+msgstr "Kļūda, dzēšot ZFS pūlu"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
-"Izvēlēto sējumu grupu nevar izdzēst. Iespējams, viens vai vairāki tās "
-"loģiskie sējumi pašlaik ir piemontēti."
+"Izvēlēto ZFS pūlu nevar izdzēst. Iespējams, viens vai vairāki tās loģiskie "
+"sējumi pašlaik ir piemontēti."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid "No ZFS pool found"
-msgstr "Nav atrastas sadaļas"
+msgstr "Neviens ZFS pūls nav atrasts"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"Brīvas sējumu grupas nav atrastas. Lūdzu, izveidojiet papildu fiziskos "
-"sējumus un sējumu grupas, vai arī sašauriniet kādu esošo sējumu grupu."
+"Nav atrastu brīvu ZFS pūlu jauna loģiskā sējuma izveidei. Lūdzu, izveidojiet "
+"citu ZFS pūlu, vai atbrīvojiet vietu esošā ZFS pūlā."
 
 #. Type: string
 #. Description
@@ -623,36 +619,34 @@ msgstr "Loģiskā sējuma nosaukums:"
 #. :sl4:
 #: ../partman-zfs.templates:35001
 msgid "Please enter the name you would like to use for the new logical volume."
-msgstr "Ievadiet nosaukumu, ko dot jaunajam loģiskajam sējumam"
+msgstr "Ievadiet nosaukumu, ko dot jaunajam loģiskajam sējumam."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "ZFS pūls:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
-#, fuzzy
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
-msgstr "Lūdzu, izvēlieties sējumu grupu, kurā izveidot jauno loģisko sējumu."
+msgstr "Lūdzu, izvēlieties ZFS pūlu, kurā izveidot jauno loģisko sējumu."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:37001
 msgid "No logical volume name entered"
-msgstr "Loģiskā sējuma nosaukums nav ievadīts"
+msgstr "Nav ievadīts loģiskā sējuma nosaukums"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:37001
-#, fuzzy
 msgid "No name for the logical volume has been entered. Please enter a name."
 msgstr "Loģiskajam sējumam netika norādīts nosaukums. Lūdzu, ievadiet to."
 
@@ -670,11 +664,10 @@ msgstr "Kļūda, veidojot jaunu loģisko sējumu"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
-msgstr "Nosaukums ${LV} jau tiek lietots šajā sējumu grupā (${VG})."
+msgstr "Nosaukums ${LV} jau tiek lietots šajā ZFS pūlā (${VG})."
 
 #. Type: string
 #. Description
@@ -704,7 +697,7 @@ msgid ""
 "Unable to create a new logical volume (${LV}) on ${VG} with the new size "
 "${SIZE}."
 msgstr ""
-"Nevaru izveidot jaunu loģisko sējumu (${LV}) uz ${VG} ar izmēru ${SIZE}."
+"Nevar izveidot jaunu loģisko sējumu (${LV}) grupā ${VG} ar izmēru ${SIZE}."
 
 #. Type: error
 #. Description
@@ -717,9 +710,9 @@ msgstr "Loģiskie sējumi nav atrasti"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:41001
-#, fuzzy
 msgid "No logical volume has been found. Please create a logical volume first."
-msgstr "Te nav loģisko sējumu. Lūdzu, vispirms izveidojiet tos."
+msgstr ""
+"Nav atrasts neviens loģiskais sējums. Lūdzu, vispirms izveidojiet kādu."
 
 #. Type: select
 #. Description
@@ -740,7 +733,7 @@ msgstr "Lūdzu, izvēlieties, kuru loģisko sējumu dzēst."
 #. :sl4:
 #: ../partman-zfs.templates:43001
 msgid "in VG ${VG}"
-msgstr "Sējumu grupā ${VG}"
+msgstr "sējumu grupā ${VG}"
 
 #. Type: error
 #. Description
@@ -753,9 +746,8 @@ msgstr "Kļūda, dzēšot loģisko sējumu"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:44001
-#, fuzzy
 msgid "The logical volume ${LV} on ${VG} could not be deleted."
-msgstr "Loģisko sējumu (${LV}) uz ${VG} neizdevās dzēst."
+msgstr "Loģisko sējumu ${LV} grupā ${VG} neizdevās dzēst."
 
 #. Type: error
 #. Description
@@ -768,59 +760,53 @@ msgstr "Nav atrasti lietojami fiziskie sējumi"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:45001
-#, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
 "required kernel modules or re-partition the hard drives."
 msgstr ""
-"Jūsu sistēmā netika atrasti fiziskie sējumi (t.i. sadaļas). Iespējams, visi "
-"fiziskie sējumi jau tiek lietoti, vai arī jāielādē papildu kodola moduļi, "
-"vai jāpārdala cietie diski."
+"Šajā sistēmā netika atrasti fiziskie sējumi (t.i. nodalījumi). Iespējams, "
+"visi fiziskie sējumi jau tiek lietoti, vai arī jāielādē papildu kodola "
+"moduļi, vai jāpārdala cietie diski."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid "ZFS not available"
-msgstr "Programmatūras RAID nav pieejams"
+msgstr "ZFS nav pieejams"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:46001
-#, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
 msgstr ""
-"Pašreizējais kodols neatbalsta Logical Volume Manager. Iespējams, jums "
-"vajadzētu ielādēt lvm-mod moduli."
+"Pašreizējais kodols neatbalsta ZFS. Iespējams, jums vajadzētu ielādēt zfs "
+"moduli."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "Nederīgs loģiskā sējuma vai sējumu grupas nosaukums"
+msgstr "Nederīgs loģiskā sējuma vai ZFS pūla nosaukums"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 msgid ""
 "Logical volume or ZFS pool names may only contain alphanumeric characters, "
 "hyphen, colon, period, and underscore. They must be 255 characters or less "
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Loģisko sējumu un sējumu grupu nosaukumi var saturēt tikai latīņu burtus, "
-"ciparus, mīnusa un plusa zīmes, punktus un pasvītrojuma zīmes. Vārdiem jābūt "
-"īsākiem par 128 zīmēm un tie nevar sākties ar mīnusa zīmi. Vārdi \".\" un "
-"\"..\" nav atļauti. Tāpat arī vārdi, kas sākas ar \"snapshot\", nav "
-"pieļaujami."
+"Loģisko sējumu un ZFS pūlu nosaukumi var saturēt tikai latīņu burtus, "
+"ciparus, defises, kolu, punktus un pasvītrojuma zīmes. Vārdiem jābūt ne "
+"garākiem par 255 rakstzīmēm un tiem jāsākas ar burtu vai ciparu. Vārdi "
+"\"mirror\", \"raidz\", \"spare\" un \"log\" nav atļauti."
 
 #. Type: error
 #. Description
@@ -840,28 +826,26 @@ msgstr "Dzēst esošo loģisko sējumu datus?"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"Izvēlētā ierīce jau satur šādus LVM loģiskos sējumus, sējumu grupas un "
-"fiziskos sējumus, kas tiks aizvākti:"
+"Izvēlētā ierīce jau satur šādus ZFS loģiskos sējumus un ZFS pūlus, kas tiks "
+"izņemti:"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr "Aizvācamie loģiskie sējumi: ${LVTARGETS}"
+msgstr "Loģiskais(-ie) sējums(-i): ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "ZFS pūls(-i): ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -879,27 +863,25 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
 "other partition is underused. ZFS can help with this."
 msgstr ""
-"Biežas situācija sistēmu administrēšanā ir kad viena no diska sadaļām "
-"(parasti tā svarīgākā) ir pārpildīta, kamēr citas ir tukšas. LVM var "
+"Bieža situācija sistēmu administrēšanā ir, kad viens no diska nodalījumiem "
+"(parasti vissvarīgākā) ir pārpildīta, kamēr citas ir tukšas. ZFS var "
 "palīdzēt risināt šo problēmu."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -908,24 +890,23 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"LVM atļauj apvienot diskus vai to sadaļas (\"fiziskie sējumi\") lai "
-"izveidotu virtuālu disku (\"sējumu grupu\"), no kuras var izdalīt vairākas "
-"virtuālas sadaļas (\"loģiskie sējumi\"). Sējumu grupas un loģiskie sējumi "
-"var atrasties uz vairākiem fiziskajiem diskiem. Jebkurā brīdī var pievienot "
-"jaunus fiziskos sējumus sējumu grupām un tāpat var palielināt loģisko sējumu "
-"izmēru izmantojot brīvo vietu sējumu grupā."
+"ZFS ļauj apvienot diskus vai to nodalījums (\"fiziskie sējumi\") lai "
+"izveidotu virtuālu disku (\"ZFS pūlu\"), no kuras var izdalīt vairākus "
+"virtuālus nodalījumus (\"loģiskie sējumi\"). ZFS pūli un loģiskie sējumi var "
+"atrasties uz vairākiem fiziskajiem diskiem. Jebkurā brīdī var pievienot "
+"jaunus fiziskos sējumus ZFS pūliem. Loģisko sējumu izmēra ierobežojums ir "
+"tikai kopējā ZFS pūla izmērs."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"LVM konfigurācijas izvēlnes ļauj izveidot sējumu grupas un loģiskos sējumus. "
-"Pēc atgriešanās galvenajā sadaļu veidošanas izvēlnē loģiskie sējumi "
-"parādīsies kā vienkāršas sadaļas un tā tos arī vajadzētu izmantot."
+"ZFS konfigurācijas izvēlnes ļauj rediģēt ZFS pūlus un loģiskos sējumus. Pēc "
+"atgriešanās galvenajā nodalījumu veidošanas izvēlnē loģiskie sējumi "
+"parādīsies kā parasti nodalījumi, un tos varēs atbilstoši izmantot."
