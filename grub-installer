@@ -35,6 +35,15 @@ info() {
 ARCH="$(archdetect)"
 info "architecture: $ARCH"
 
+ensure_proc_in_target() {
+	# Ensure /proc is available there, needed for RAID+LVM for example (#662086)
+	local initial_proc_contents="$(ls $ROOT/proc)"
+	if [ -z "$initial_proc_contents" ]; then
+		info "Mounting /proc into $ROOT"
+		mount -t proc proc $ROOT/proc
+	fi
+}
+
 get_serial_console() {
 	# Get the last 'console=' entry (if none, the whole string is returned)
 	local defconsole="$(sed -e 's/.*\(console=[^ ]*\).*/\1/' /proc/cmdline)"
@@ -623,6 +632,8 @@ db_subst grub-installer/progress/step_install_loader BOOTDEV "$bootdev"
 db_progress INFO grub-installer/progress/step_install_loader
 
 info "Installing grub on '$bootdev'"
+
+ensure_proc_in_target
 
 update_mtab
 
