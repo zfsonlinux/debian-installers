@@ -55,7 +55,7 @@ msgstr "Córas comhaid ZFS"
 #. :sl4:
 #: ../partman-zfs.templates:4001
 msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
-msgstr ""
+msgstr "Tá gá le /boot agus /lib/modules faoi leith sa gcumraíocht ZFS seo"
 
 #. Type: error
 #. Description
@@ -65,6 +65,8 @@ msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Tá do fhréamhchóras comhad ar linn ZFS a úsáideann níos mó ná imleabhar "
+"fisiceach amháin."
 
 #. Type: error
 #. Description
@@ -77,6 +79,8 @@ msgid ""
 "The boot loader only supports this configuration for pools in Mirror or "
 "Striped modes, but not RAID-Z mode."
 msgstr ""
+"Tacaíonn an luchtóir tosaithe leis an gcumraíocht seo sa mhód 'Scáthán' nó "
+"'Stríoctha', ach ní thacaíonn sa mhód RAID-Z."
 
 #. Type: error
 #. Description
@@ -86,13 +90,15 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"Bí cinnte go bhfuil /boot agus /lib/modules ar dheighilt a úsáideann "
+"cumraíocht ZFS a dtacaítear léi, nó córas comhad eile, mar shampla UFS."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:5001
 msgid "Unsupported multiple volume ZFS for ${MNT}"
-msgstr ""
+msgstr "Il-imleabhar ZFS gan tacaíocht ar ${MNT}"
 
 #. Type: error
 #. Description
@@ -102,6 +108,8 @@ msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"Tá do dheighilt ${MNT} ar linn ZFS a úsáideann níos mó ná imleabhar "
+"fisiceach amháin."
 
 #. Type: error
 #. Description
@@ -111,6 +119,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"Bí cinnte go bhfuil ${MNT} ar dheighilt a úsáideann cumraíocht ZFS a "
+"dtacaítear léi, nó córas comhad eile, mar shampla UFS."
 
 #. Type: boolean
 #. Description
@@ -132,6 +142,10 @@ msgid ""
 "may lead to performance or stability problems due to limitations of this "
 "architecture."
 msgstr ""
+"Chumraigh tú deighilt nó deighiltí leis an gcóras comhad ZFS. Cé go "
+"dtacaítear le ZFS ar chórais 32-giotán i386, má úsáideann tú é gan tiúnadh "
+"speisialta, seans go mbeidh fadhbanna feidhmíochta nó cobhsaíochta agat mar "
+"gheall ar lochtanna san ailtire seo."
 
 #. Type: boolean
 #. Description
@@ -142,6 +156,9 @@ msgid ""
 "hardware supports this), or go back to the partitioning menu and configure "
 "the partitions to use another file system."
 msgstr ""
+"Ba chóir duit an leagan 64-giotán (amd64) den suiteálaí seo a úsáid (má "
+"thacaíonn do chrua-earra leis), nó fill ar an roghchlár deighilte agus "
+"cumraigh na deighiltí le córas comhad eile."
 
 #. Type: boolean
 #. Description
@@ -152,6 +169,9 @@ msgid ""
 "ZFS on a computer with less than 512 MB of memory may lead to stability "
 "problems and is not recommended."
 msgstr ""
+"Chumraigh tú deighilt nó deighiltí leis an gcóras comhad ZFS. Seans go "
+"mbeidh fadhbanna cobhsaíochta agat ar ríomhaire a bhfuil níos lú ná 512MB "
+"cuimhne air - ní mholtar é seo."
 
 #. Type: boolean
 #. Description
@@ -177,7 +197,7 @@ msgstr "Cumraigh ZFS"
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
 msgid "In use by ZFS pool ${VG}"
-msgstr ""
+msgstr "In úsáid ag linn ZFS ${VG}"
 
 #. Type: text
 #. Description
@@ -195,7 +215,7 @@ msgstr "Taispeáin na mionsonraí cumraíochta"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "Cruthaigh linn ZFS"
 
 #. Type: text
 #. Description
@@ -204,7 +224,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "Scrios linn ZFS"
 
 #. Type: text
 #. Description
@@ -371,13 +391,20 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Roghnaigh an mód il-diosca le haghaidh na linne ZFS seo:\n"
+" * Stríoctha: cosúil le RAID 0 (réamhshocrú) - sonraí scaipthe timpeall\n"
+"              na n-imleabhar fisiceach;\n"
+" * Scáthán:   cosúil le RAID 1 - sonraí cóipeáilte ar gach imleabhar\n"
+"              fisiceach;\n"
+" * RAID-Z:    cosúil le RAID 5 nó RAID 6 - stóráiltear giotáin phaireachta\n"
+"              ar imleabhair fhisiceacha áirithe, agus sonraí ar chinn eile."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "Leibhéal paireachta le haghaidh RAID-Z:"
 
 #. Type: select
 #. Description
@@ -387,13 +414,15 @@ msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
 msgstr ""
+"Roghnaigh líon na n-imleabhar fisiceach a úsáidfear chun giotáin phaireachta "
+"a stóráil."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "ZFS pool name:"
-msgstr ""
+msgstr "Ainm na linne ZFS:"
 
 #. Type: string
 #. Description
@@ -527,7 +556,7 @@ msgstr "An bhfuil tú cinnte gur mian leat an linn ZFS a scriosadh?"
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "Dearbhaigh gur mhaith leat linn ZFS ${VG} a scriosadh."
 
 #. Type: error
 #. Description
