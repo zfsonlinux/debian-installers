@@ -40,7 +40,11 @@ ensure_proc_in_target() {
 	local initial_proc_contents="$(ls $ROOT/proc)"
 	if [ -z "$initial_proc_contents" ]; then
 		info "Mounting /proc into $ROOT"
-		mount -t proc proc $ROOT/proc
+		if [ "$(uname)" = "GNU/kFreeBSD" ];
+			mount -t linprocfs proc $ROOT/proc
+		else
+			mount -t proc proc $ROOT/proc
+		fi
 	fi
 }
 
