@@ -35,18 +35,17 @@ info() {
 ARCH="$(archdetect)"
 info "architecture: $ARCH"
 
-ensure_proc_in_target() {
-	# Ensure /proc is available there, needed for RAID+LVM for example (#662086)
-	local initial_proc_contents="$(ls $ROOT/proc)"
-	if [ -z "$initial_proc_contents" ]; then
-		info "Mounting /proc into $ROOT"
-		if [ "$(uname)" = "GNU/kFreeBSD" ];
-			mount -t linprocfs proc $ROOT/proc
-		else
-			mount -t proc proc $ROOT/proc
-		fi
+# Ensure proc is mounted in all the $chroot calls;
+# needed for RAID+LVM for example
+local initial_proc_contents="$(ls $ROOT/proc)"
+if [ -z "$initial_proc_contents" ]; then
+	info "Mounting /proc into $ROOT"
+	if [ "$(udpkg --print-os)" = "kfreebsd" ];
+		mount -t linprocfs proc $ROOT/proc
+	else
+		mount -t proc proc $ROOT/proc
 	fi
-}
+fi
 
 get_serial_console() {
 	# Get the last 'console=' entry (if none, the whole string is returned)
@@ -285,7 +284,6 @@ elif type multipath >/dev/null 2>&1; then
 	if [ "$frdisk" ]; then
 		# Create the device nodes for grub:
 		apt-install dmsetup
-		$chroot $ROOT mount /proc
 		$chroot $ROOT dmsetup mknodes
 	fi
 elif type lvdisplay >/dev/null 2>&1 && \
@@ -446,10 +444,6 @@ if [ $exit_code -ne 0 ] ; then
 fi
 
 grub_debian_version="$($chroot $ROOT dpkg-query -W -f '${Version}' $inst_package)"
-
-if [ "$frtype" = multipath ]; then
-	$chroot $ROOT umount /proc
-fi
 
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_os-probe
@@ -636,8 +630,6 @@ db_subst grub-installer/progress/step_install_loader BOOTDEV "$bootdev"
 db_progress INFO grub-installer/progress/step_install_loader
 
 info "Installing grub on '$bootdev'"
-
-ensure_proc_in_target
 
 update_mtab
 
@@ -1134,3 +1126,8 @@ fi
 
 db_progress STEP 1
 db_progress STOP
+
+if ! umount $ROOT/proc; then
+	info "Failed to unmount /proc in $ROOT"
+
+fi
