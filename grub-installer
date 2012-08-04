@@ -40,7 +40,7 @@ info "architecture: $ARCH"
 local initial_proc_contents="$(ls $ROOT/proc)"
 if [ -z "$initial_proc_contents" ]; then
 	info "Mounting /proc into $ROOT"
-	if [ "$(udpkg --print-os)" = "kfreebsd" ];
+	if [ "$(udpkg --print-os)" = "kfreebsd" ]; then
 		mount -t linprocfs proc $ROOT/proc
 	else
 		mount -t proc proc $ROOT/proc
