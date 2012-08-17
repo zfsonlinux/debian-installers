@@ -1,0 +1,77 @@
+diff --git a/contrib/hanoi.cron.daily b/contrib/hanoi.cron.daily
+new file mode 100644
+index 0000000..a92b021
+--- /dev/null
++++ b/contrib/hanoi.cron.daily
+@@ -0,0 +1,68 @@
++#!/bin/bash
++
++# This algorithm implements a variation of the Towers of Hanoi rotation method
++# (see http://en.wikipedia.org/wiki/Backup_rotation_scheme#Towers_of_Hanoi).
++#
++# Unlike traditional ToH rotation, which uses a finite set of physical tapes,
++# we operate on a set of snapshots whose size doesn't necessarily have to be
++# bounded. Note that the number of snapshots only grows logarithmically with
++# time, which makes it very hard to fill your hard disk (even when running
++# unbounded).
++#
++# The result is that once we've run this for long enough, we'll find that for
++# recent dates (e.g. last few days) almost all snapshots are available, and the
++# older the date we're searching the more spread available snapshots will be.
++
++set -e
++
++. /etc/default/zfs
++
++# Does $1 belong to class $2 ?
++isclass ()
++{
++	if [ "$2" == "$AUTOSNAP_MAX_SNAPSHOTS" ] ; then
++		# Special-case. Treat all snapshots as if they belong to
++		# this class (in addition to their real class).
++		return 0
++	fi
++	local remainder=$((2 ** ($2 - 1)))
++	local divisor=$((${remainder} * 2))
++	[ $(($1 % ${divisor})) == ${remainder} ]
++}
++
++classify ()
++{
++	local creation="$1"
++	local creation_in_days="$(($(LANG=C date +%s -d "@${creation}") / 86400))"
++	local class="1"
++	# Find the class ${creation_in_days} belongs to.
++	while ! isclass "${creation_in_days}" "${class}" ; do
++		class=$((${class}+1))
++	done
++	echo "${class}"
++}
++
++for fs in $AUTOSNAP_FILESYSTEMS ; do
++	# Create today's snapshot.
++	echo zfs snapshot ${fs}@autosnap-$(date +%F)
++	zfs snapshot ${fs}@autosnap-$(date +%F)
++
++	# Remove any snapshots in the same class as today's addition.
++	LANG=C zfs list -r ${fs} -t snapshot -H -o name,creation \
++	| grep @autosnap- \
++	| while read name creation_human ; do
++		creation="$(LANG=C date +%s -d "${creation_human}")"
++		echo "$(classify "${creation}") ${creation} ${name}"
++		done \
++	| sort -nr \
++	| while read class creation name ; do
++		echo ${class} ${name}
++		if [ ${class} == "${previous_class}" ] ; then
++			echo zfs destroy "${name}"
++			zfs destroy "${name}"
++		fi
++		previous_class="${class}"
++		done
++done
++
++exit 0
+-- 
+1.7.10.4
+
