@@ -37,7 +37,7 @@ info "architecture: $ARCH"
 
 # Ensure proc is mounted in all the $chroot calls;
 # needed for RAID+LVM for example
-local initial_proc_contents="$(ls $ROOT/proc)"
+initial_proc_contents="$(ls $ROOT/proc)"
 if [ -z "$initial_proc_contents" ]; then
 	info "Mounting /proc into $ROOT"
 	if [ "$(udpkg --print-os)" = "kfreebsd" ]; then
