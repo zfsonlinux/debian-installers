@@ -219,3 +219,13 @@ Type: boolean
 Default: true
 Description: for internal use; can be preseeded
  Make sure that at least one partition is marked as active (bootable).
+
+Template: grub-installer/mounterr
+Type: error
+# :sl4:
+_Description: Failed to mount /target/proc
+ Mounting the proc file system on /target/proc failed.
+ .
+ Check /var/log/syslog or see virtual console 4 for the details.
+ .
+ Warning: Your system may be unbootable!

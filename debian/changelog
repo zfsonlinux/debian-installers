@@ -1,6 +1,13 @@
 grub-installer (1.79) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Don't try to use local outside a function.
+
+  [ Steve McIntyre ]
+  * Allow grub for amd64/efi and i386/efi, installing grub-efi instead of
+    grub-pc.
+  * Make sure that we have /sys and /proc mounted in /target in the
+    postinst, so that efibootmgr will work ok.
 
  -- Colin Watson <cjwatson@debian.org>  Thu, 20 Sep 2012 13:33:13 +0100
 

@@ -312,10 +312,15 @@ case $ARCH in
 	if [ -d /sys/firmware/efi ]; then
 		# This point can't be reached (yet).  See debian/isinstallable.
 		grub_package="grub-efi"
-		experimental_arch
 	else
 		grub_package="grub-pc"
 	fi
+	;;
+    i386/efi|amd64/efi)
+	grub_package="grub-efi"
+	;;
+    i386/*|amd64/*)
+	grub_package="grub-pc"
 	;;
     powerpc/*)
 	grub_package="grub-ieee1275"
@@ -409,11 +414,14 @@ db_progress INFO grub-installer/progress/step_install
 # to grub legacy, or vice-versa
 case "$grub_package" in
     grub)
-	log-output -t grub-installer $chroot $ROOT dpkg -P grub-pc-bin grub-pc
+	log-output -t grub-installer $chroot $ROOT dpkg -P grub-pc-bin grub-pc grub-efi grub-efi-amd64-bin grub-efi-amd64 grub-efi-ia32-bin grub-efi-ia32
 	;;
     grub-pc)
-	log-output -t grub-installer $chroot $ROOT dpkg -P grub grub-legacy
-	;;
+	log-output -t grub-installer $chroot $ROOT dpkg -P grub grub-legacy grub-efi grub-efi-amd64-bin grub-efi-amd64 grub-efi-ia32-bin grub-efi-ia32
+    ;;
+    grub-efi)
+	log-output -t grub-installer $chroot $ROOT dpkg -P grub grub-legacy grub-pc-bin grub-pc
+    ;;
 esac
 
 exit_code=0
@@ -662,7 +670,7 @@ if [ -z "$frdisk" ]; then
 
 		CODE=0
 		case $ARCH:$grub_package in
-		    *:grub|*:grub-pc|sparc:grub-ieee1275)
+		    *:grub|*:grub-pc|*:grub-efi|sparc:grub-ieee1275)
 			info "Running $chroot $ROOT grub-install $grub_install_params \"$bootdev\""
 			log-output -t grub-installer $chroot $ROOT grub-install $grub_install_params "$bootdev" || CODE=$?
 			;;
@@ -675,7 +683,7 @@ if [ -z "$frdisk" ]; then
 			info "grub-install ran successfully"
 		else
 			case $ARCH:$grub_package in
-			    *:grub|*:grub-pc|sparc:grub-ieee1275)
+			    *:grub|*:grub-pc|*:grub-efi|sparc:grub-ieee1275)
 				error "Running 'grub-install $grub_install_params \"$bootdev\"' failed."
 				;;
 			    *)
@@ -962,7 +970,7 @@ if [ "$serial" ] ; then
 		) >$ROOT/boot/grub/$menu_file.new
 		mv $ROOT/boot/grub/$menu_file.new $ROOT/boot/grub/$menu_file
 		;;
-	    grub-pc)
+	    grub-pc|grub-efi)
 		if grep -q "^GRUB_TERMINAL=" $ROOT/etc/default/grub; then
 			sed -i $ROOT/etc/default/grub -e "s/^\(GRUB_TERMINAL\)=.*/\1=serial/g"
 		else
