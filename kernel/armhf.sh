@@ -1,6 +1,6 @@
 arch_get_kernel_flavour () {
 	case "$SUBARCH" in
-	    mx5)
+	    mx5|vexpress)
 		echo "$SUBARCH"
 		return 0 ;;
 	    *)
