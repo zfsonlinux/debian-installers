@@ -221,8 +221,10 @@ rootfs=$(findfs /)
 bootfs=$(findfs /boot)
 [ -n "$bootfs" ] || bootfs="$rootfs"
 
+
 bootfstype=$(findfstype /boot)
-[ -n "$bootfstype" ] || bootfstype="$(findfstype /)"
+rootfstype="$(findfstype /)"
+[ -n "$bootfstype" ] || bootfstype=$rootfstype
 
 case $ARCH in
     powerpc/chrp|powerpc/chrp_rs6k|powerpc/chrp_ibm|powerpc/cell)
@@ -862,7 +864,7 @@ fi
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_config_loader
 
-if [ "$bootfstype" = "zfs" ]; then
+if [ "$bootfstype" = "zfs" ] || [ "$rootfstype" = "zfs" ] ; then
 	# Required by update-grub on ZFS
 	mkdir -p $ROOT/boot/zfs
 	cp /boot/zfs/zpool.cache $ROOT/boot/zfs/
