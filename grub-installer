@@ -643,11 +643,16 @@ info "Installing grub on '$bootdev'"
 
 update_mtab
 
-if [ -z "$frdisk" ]; then
+installed=0
 
+if [ -z "$frdisk" ]; then
 	# Install grub on each space separated disk in the list
 	bootdevs="$bootdev"
 	for bootdev in $bootdevs; do
+		# workaround for #681227
+		if [ ! -b $bootdev ]; then
+			continue
+		fi
 		grub_install_params=
 		if ! is_floppy "$bootdev"; then
 			if $chroot $ROOT grub-install -h 2>&1 | grep -q no-floppy; then
@@ -683,6 +688,7 @@ if [ -z "$frdisk" ]; then
 		esac
 		if [ "$CODE" = 0 ]; then
 			info "grub-install ran successfully"
+			installed=$(( $installed + 1 ))
 		else
 			case $ARCH:$grub_package in
 			    *:grub|*:grub-pc|*:grub-efi|sparc:grub-ieee1275)
@@ -699,7 +705,12 @@ if [ -z "$frdisk" ]; then
 			exit 1
 		fi
 	done
-
+	if [ $installed -lt 1 ]; then
+		error "no boot device found to install to"
+		# we should probably show an error message here, but I believe
+		# we're in string freeze...
+		exit 1
+	fi
 else
 
 	# Semi-manual grub setup for Serial ATA RAID/multipath
