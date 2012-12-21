@@ -29,7 +29,7 @@ arch_check_usable_kernel () {
 }
 
 arch_get_kernel () {
-	CPUS="$(ls /proc/device-tree/cpus/ | grep -ci @[0-9])" || CPUS=1
+	CPUS="$(ls "$OFCPUS" 2>/dev/null | grep -ci @[0-9])" || CPUS=1
 	if [ "$CPUS" ] && [ "$CPUS" -gt 1 ] && \
 	   [ "$1" != "powerpc64" ] && [ "$1" != "prep" ] ; then
 		SMP=-smp
