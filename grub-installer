@@ -652,7 +652,7 @@ if [ -z "$frdisk" ]; then
 	bootdevs="$bootdev"
 	for bootdev in $bootdevs; do
 		# workaround for #681227
-		if [ ! -b $bootdev -a $bootdev != dummy ]; then
+		if ! [ "$bootdev" = dummy -o -b "$bootdev" -o -c "$bootdev" ]; then
 			continue
 		fi
 		grub_install_params=
