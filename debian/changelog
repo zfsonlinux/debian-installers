@@ -1,10 +1,10 @@
-grub-installer (1.85) UNRELEASED; urgency=low
+grub-installer (1.85) unstable; urgency=low
 
-  * Fix the workaround for #681227 to work with grub-efi and grub-yeeloong.
-  * Allow installing GRUB to a character device, as on GNU/kFreeBSD.
-    Thanks to Steven Chamberlain. Closes: #696903
+  [ Steven Chamberlain ]
+  * Revert workaround for #681227, which was actually not a valid bug.
+    Closes: #696903, #696942 (regressions introduced by said workaround)
 
- -- Matt Kraai <kraai@ftbfs.org>  Sun, 23 Dec 2012 15:24:25 -0800
+ -- Julien Cristau <jcristau@debian.org>  Thu, 31 Jan 2013 19:54:06 +0100
 
 grub-installer (1.84) unstable; urgency=low
 
@@ -14,6 +14,9 @@ grub-installer (1.84) unstable; urgency=low
   * Apply patch from Arno Töll to fix / on ZFS where /boot isn't.
     Closes: #651720.
   * Add $SELF to uploaders
+
+  [ Updated translations ]
+  * Catalan (ca.po) by Jordi Mallach
 
  -- Wouter Verhelst <wouter@debian.org>  Sun, 16 Dec 2012 17:28:47 +0100
 
