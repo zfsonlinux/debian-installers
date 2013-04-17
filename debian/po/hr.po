@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: Debian-installer 1st-stage master file HR\n"
 "Report-Msgid-Bugs-To: grub-installer@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-21 22:04+0000\n"
-"PO-Revision-Date: 2013-04-16 05:30+0200\n"
+"PO-Revision-Date: 2013-04-17 18:08+0200\n"
 "Last-Translator: Tomislav Krznar <tomislav.krznar@gmail.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -89,7 +89,7 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
-"Pozor: ako instalacija nije pronašla druge operacijske sustave koji se "
+"Upozorenje: ako instalacija nije pronašla druge operacijske sustave koji se "
 "nalaze na ovom računalu, izmjena osnovnog boot zapisa učinit će te sustave "
 "privremeno nedostupnim. GRUB možete kasnije ručno podesiti da ih podiže."
 
@@ -117,7 +117,7 @@ msgid ""
 "the boot order defined in the system's BIOS setup."
 msgstr ""
 "GRUB se uvijek instalira na osnovni boot zapis (MBR) Serial ATA RAID diska. "
-"Također se podrazumijeva da je disk odabran kao prvi tvrdi disk u poretku "
+"Također se podrazumijeva da je disk izabran kao prvi tvrdi disk u poretku "
 "dizanja koji se podešava u BIOS-u sustava."
 
 #. Type: boolean
@@ -149,8 +149,7 @@ msgstr "Ne mogu podesiti GRUB"
 #. :sl3:
 #: ../grub-installer.templates:4001
 msgid "An error occurred while setting up GRUB for your Serial ATA RAID disk."
-msgstr ""
-"Pojavila se pogreška pri podešavanju GRUB-a za vaš Serial ATA RAID disk."
+msgstr "Pojavila se greška pri podešavanju GRUB-a za vaš Serial ATA RAID disk."
 
 #. Type: error
 #. Description
@@ -186,7 +185,7 @@ msgid ""
 "device in the system's FibreChannel adapter BIOS."
 msgstr ""
 "GRUB se uvijek instalira na osnovni boot zapis (MBR) multipath uređaja. "
-"Također se podrazumijeva da je WWID ovog uređaja odabran kao uređaj za "
+"Također se podrazumijeva da je WWID ovog uređaja izabran kao uređaj za "
 "dizanje sustava u BIOS-u FibreChannel adaptera."
 
 #. Type: error
@@ -194,7 +193,7 @@ msgstr ""
 #. :sl3:
 #: ../grub-installer.templates:6001
 msgid "An error occurred while setting up GRUB for the multipath device."
-msgstr "Pojavila se pogreška pri podešavanju GRUB-a za multipath uređaj."
+msgstr "Pojavila se greška pri podešavanju GRUB-a za multipath uređaj."
 
 #. Type: string
 #. Description
@@ -214,11 +213,11 @@ msgid ""
 "can install GRUB elsewhere on the drive, or to another drive, or even to a "
 "floppy."
 msgstr ""
-"Trebate učiniti vaš novoinstalirani sustav sposobnim da se podiže, i to tako "
-"da instalirate GRUB boot učitavač na odgovarajući diskovni uređaj. "
-"Uobičajeno je staviti ga u osnovni boot zapis (master boot record) vašeg "
-"prvog tvrdog diska. Možete ga staviti i drugdje na tome disku, ili na drugi "
-"disk, ili čak i na disketu."
+"Trebate učiniti vaš novoinstalirani sustav sposobnim za podizanje tako da "
+"instalirate GRUB boot učitavač na odgovarajući diskovni uređaj. Uobičajeno "
+"je staviti ga u osnovni boot zapis (master boot record) vašeg prvog tvrdog "
+"diska. Možete ga staviti i drugdje na tome disku, na drugi disk ili čak i na "
+"disketu."
 
 #. Type: string
 #. Description
@@ -236,10 +235,10 @@ msgid ""
 msgstr ""
 "Uređaj možete odrediti kao uređaj iz /dev. Evo nekoliko primjera:\n"
 " - \"/dev/sda\" instalirat će GRUB u osnovni boot zapis vašeg prvog\n"
-"   tvrdog diska;\n"
-" - \"/dev/sda2\" označava drugu particiju vašeg prvog tvrdog diska;\n"
+"   tvrdog diska,\n"
+" - \"/dev/sda2\" označava drugu particiju vašeg prvog tvrdog diska,\n"
 " - \"/dev/sdc5\" označava prvu logičku particiju vašeg trećeg\n"
-"   tvrdog diska;\n"
+"   tvrdog diska,\n"
 " - \"/dev/fd0\" instalirat će GRUB na disketu."
 
 #. Type: password
@@ -263,8 +262,8 @@ msgid ""
 msgstr ""
 "GRUB boot učitavač nudi niz moćnih interaktivnih mogućnosti, koje bi se "
 "mogle iskoristiti za kompromitiranje vašeg sustava ako neovlašteni korisnici "
-"imaju pristup stroju dok se podiže. Kako bi se obranili od tako nečeg, "
-"možete odabrati lozinku čiji će se upis zahtijevati prije uređivanja "
+"imaju pristup stroju dok se podiže. Kako biste se obranili od tako nečeg, "
+"možete izabrati lozinku čiji će se upis zahtijevati prije uređivanja "
 "izbornika ili ulaska u GRUB naredbeni redak. Pretpostavljena vrijednost je "
 "da će svaki korisnik moći pokrenuti svaki izbor iz izbornika bez unošenja "
 "lozinke."
@@ -298,7 +297,7 @@ msgstr ""
 #. :sl2:
 #: ../grub-installer.templates:10001
 msgid "Password input error"
-msgstr "Pogreška pri unošenju lozinke"
+msgstr "Greška pri unošenju lozinke"
 
 #. Type: error
 #. Description
@@ -323,7 +322,7 @@ msgid ""
 "loader, the installed system will not boot."
 msgstr ""
 "Paket '${GRUB}' se nije uspio instalirati na /target/. Bez GRUB boot "
-"učitavača, instalirani sustav se neće moći podići."
+"učitavača instalirani sustav se neće moći podići."
 
 #. Type: error
 #. Description
@@ -337,7 +336,7 @@ msgstr "Ne mogu instalirati GRUB na ${BOOTDEV}"
 #. :sl2:
 #: ../grub-installer.templates:13001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "Izvršenje 'grub-install ${BOOTDEV}' nije uspjelo."
+msgstr "Izvršavanje 'grub-install ${BOOTDEV}' nije uspjelo."
 
 #. Type: error
 #. Description
@@ -347,14 +346,14 @@ msgstr "Izvršenje 'grub-install ${BOOTDEV}' nije uspjelo."
 #. :sl2:
 #: ../grub-installer.templates:13001 ../grub-installer.templates:14001
 msgid "This is a fatal error."
-msgstr "Ovo je kobna pogreška."
+msgstr "Ovo je kobna greška."
 
 #. Type: error
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:14001
 msgid "Executing 'update-grub' failed."
-msgstr "Izvršenje 'update-grub' nije uspjelo."
+msgstr "Izvršavanje 'update-grub' nije uspjelo."
 
 #. Type: boolean
 #. Description
@@ -480,4 +479,4 @@ msgstr "Za pojedinosti provjerite /var/log/syslog ili četvrtu konzolu."
 #. :sl4:
 #: ../grub-installer.templates:28001
 msgid "Warning: Your system may be unbootable!"
-msgstr "Pozor: vaš sustav možda se ne može pokrenuti!"
+msgstr "Upozorenje: vaš sustav možda se ne može pokrenuti!"
