@@ -86,6 +86,19 @@ _Description: Device for boot loader installation:
     drive;
   - "/dev/fd0" will install GRUB to a floppy.
 
+Template: grub-installer/choose_bootdev
+Type: select
+Choices-C: manual, ${DEVICES_LIST}
+#flag:translate!:2
+__Choices: Enter device manually, ${DESCRIPTIONS}
+# :sl2:
+_Description: Device for boot loader installation:
+ You need to make the newly installed system bootable, by installing
+ the GRUB boot loader on a bootable device. The usual way to do this is to
+ install GRUB on the master boot record of your first hard drive. If you
+ prefer, you can install GRUB elsewhere on the drive, or to another drive,
+ or even to a floppy.
+
 Template: grub-installer/password
 Type: password
 # :sl2:

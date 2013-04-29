@@ -1,5 +1,6 @@
 #! /bin/sh
 
+# export DEBCONF_DEBUG=5
 set -e
 . /usr/share/debconf/confmodule
 #set -x
@@ -590,7 +591,81 @@ esac
 db_progress STEP 1
 db_progress INFO grub-installer/progress/step_bootdev
 
+select_bootdev() {
+	[ "X" = "X${DEBCONF_DEBUG}" ] || log "select_bootdev: arg='$1'"
+
+	local dev_list dev_descr grubdev devices disk_id dev descr
+	local default_choice chosen result
+
+	result=""
+	default_choice="$1"
+
+	# /dev/disk/by-id has multiple links for the same physical disk.
+	# Let's trust grub-mkdevicemap to select the most suitable ones
+	# and correctly handle systems with no /dev/disk/by-id.
+	# Use disk id string as a shortcut way to describe it.
+	# FIXME switch to grub-pc's far more elegant disk_descriptions()
+	dev_list=
+	dev_descr=
+	devices="$($chroot $ROOT grub-mkdevicemap --no-floppy -m - | cut -f2)"
+	for grubdev in $devices; do
+		disk_id="$(device_to_id $grubdev)"
+		dev="$(readlink -f "$disk_id")"
+		dev_list="${dev_list:+$dev_list, }$dev"
+		descr="$(echo $disk_id |sed -e 's+^.*/++' |sed -e 's+,+\\,+g')"
+		if [ "$dev" = "$disk_id" ]; then
+			dev_descr="${dev_descr:+$dev_descr, }$dev"
+		else
+			#/dev/sdX (id)
+			dev_descr="${dev_descr:+$dev_descr, }$dev  ($descr)"
+		fi
+	done
+
+	[ "X" = "X${DEBCONF_DEBUG}" ] || log "Bootdev Choices: '$dev_list'"
+	[ "X" = "X${DEBCONF_DEBUG}" ] || log "Bootdev Descriptions: '$dev_descr'"
+
+	db_subst grub-installer/choose_bootdev DEVICES_LIST "$dev_list"
+	db_subst grub-installer/choose_bootdev DESCRIPTIONS "$dev_descr"
+	# set initial selection
+	if [ -n "$default_choice" ] ; then
+		chosen="$(readlink -f "$default_choice")"
+		if [ -n "$chosen" ] ;then
+			db_set grub-installer/choose_bootdev "$chosen"
+		fi
+	fi
+
+	db_input high grub-installer/choose_bootdev || true
+	if ! db_go; then
+		log "Returning to menu"
+		db_progress STOP
+		exit 10
+	fi
+
+	db_get grub-installer/choose_bootdev || true
+	# Choices-C (not shown to user) can be set to 'manual'
+	if [ "$RET" = "manual" ] ; then
+		result=""
+	else
+		result="$(echo "$RET" | cut -d' ' -f1)"
+	fi
+
+	[ "X" = "X${DEBCONF_DEBUG}" ] || log "select_bootdev: result='$result'"
+	echo "$result"
+}
+
+if [ "$bootdev" != "dummy" ] && [ ! "$frdev" ]; then
+	# check for a preseeded value
+	db_get grub-installer/bootdev || true
+	if [ -n "$RET" ] ; then
+		bootdev="$RET"
+	fi
+fi
+
 while : ; do
+
+	[ "X" = "X${DEBCONF_DEBUG}" ] || \
+	    log "q='$q' state='$state' defbd='$default_bootdev' bd='$bootdev'"
+
 	if [ "$state" = 1 ]; then
 		db_input high $q || true
 		if ! db_go; then
@@ -600,8 +675,18 @@ while : ; do
 		fi
 		db_get $q
 		if [ "$RET" = true ]; then
-			bootdev="$default_bootdev"
-			break
+			# default_bootdev can be guessed incorrectly.
+			# If the user supplied a value for bootdev,
+			# ask them to resolve any conflict.
+			if [ "$bootdev" != "$default_bootdev" ] ; then
+				bootdev="$(select_bootdev "$bootdev")"
+				previous_state=1
+			fi
+			if [ -e "$bootdev" ] ; then
+			    break
+			else
+			    state=2
+			fi
 		else
 			# Exit to menu if /boot is on SATA RAID/multipath; we
 			# don't support device selection in that case
@@ -612,7 +697,15 @@ while : ; do
 			state=2
 		fi
 	elif [ "$state" = 2 ]; then
-		db_input critical grub-installer/bootdev || true
+
+		if [ "$previous_state" != "1" ]; then
+			bootdev="$(select_bootdev "$bootdev")"
+			unset previous_state
+		fi
+
+		if [ ! -e "$bootdev" ]; then
+		    db_input critical grub-installer/bootdev || true
+		fi
 		if ! db_go; then
 			if [ "$q" ]; then
 				state=1
