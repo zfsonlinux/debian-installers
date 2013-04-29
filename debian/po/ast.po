@@ -18,9 +18,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: grub-installer@packages.debian.org\n"
-"POT-Creation-Date: 2012-09-21 22:04+0000\n"
-"PO-Revision-Date: 2012-10-09 13:08+0100\n"
-"Last-Translator: ivarela <ivarela@ubuntu.com>\n"
+"POT-Creation-Date: 2013-04-29 22:04+0000\n"
+"PO-Revision-Date: 2012-10-10 02:04+0100\n"
+"Last-Translator: Mikel González <mikelglez@softastur.org>\n"
 "Language-Team: Softastur\n"
 "Language: ast\n"
 "MIME-Version: 1.0\n"
@@ -138,7 +138,7 @@ msgstr "El preséu  root GRUB ye: ${GRUBROOT}."
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:4001 ../grub-installer.templates:6001
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:15001
 msgid "Unable to configure GRUB"
 msgstr "Nun puede configurase GRUB"
 
@@ -196,14 +196,20 @@ msgstr "Ocurrió un fallu mientres s'afitaba GRUB nel preséu multicamín."
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#. Type: select
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:7001 ../grub-installer.templates:8002
 msgid "Device for boot loader installation:"
 msgstr "Preséu pa la instalación del cargador d'arranque:"
 
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#. Type: select
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:7001 ../grub-installer.templates:8002
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -239,17 +245,23 @@ msgstr ""
 " - \"/dev/sdc5\" usará la primer partición estendida del tercer discu duru;\n"
 " - \"/dev/fd0\" instalará GRUB nun disquete."
 
+#. Type: select
+#. Choices
+#: ../grub-installer.templates:8001
+msgid "Enter device manually"
+msgstr "Introduzu un preséu manualmente"
+
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:9001
 msgid "GRUB password:"
 msgstr "Contraseña GRUB:"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:9001
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -269,21 +281,21 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:9001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "Si nun quies afitar la contraseña GRUB, dexa esti campu baleru."
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:10001
 msgid "Re-enter password to verify:"
 msgstr "Reintroduz la contraseña pa verificar:"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:10001
 msgid ""
 "Please enter the same GRUB password again to verify that you have typed it "
 "correctly."
@@ -294,14 +306,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:11001
 msgid "Password input error"
 msgstr "Fallu d'entrada de contraseña"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:11001
 msgid "The two passwords you entered were not the same. Please try again."
 msgstr ""
 "Les dos contraseñes qu'introduxisti nun son iguales. Por favor, intentalo "
@@ -310,14 +322,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:13001
 msgid "GRUB installation failed"
 msgstr "Falló instalación GRUB"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:13001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -328,14 +340,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:14001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "Nun puede instalase GRUB en ${BOOTDEV}"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:14001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "Falló la execución 'grub-install ${BOOTDEV}'"
 
@@ -345,28 +357,28 @@ msgstr "Falló la execución 'grub-install ${BOOTDEV}'"
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001 ../grub-installer.templates:14001
+#: ../grub-installer.templates:14001 ../grub-installer.templates:15001
 msgid "This is a fatal error."
 msgstr "Esti ye un fallu grave."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:15001
 msgid "Executing 'update-grub' failed."
 msgstr "Falló executar 'update-grub'."
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:17001
 msgid "Install GRUB?"
 msgstr "¿Instalar GRUB?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:17001
 msgid ""
 "GRUB 2 is the next generation of GNU GRUB, the boot loader that is commonly "
 "used on i386/amd64 PCs. It is now also available for ${ARCH}."
@@ -377,7 +389,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:17001
 msgid ""
 "It has interesting new features but is still experimental software for this "
 "architecture. If you choose to install it, you should be prepared for "
@@ -392,49 +404,49 @@ msgstr ""
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:17001
+#: ../grub-installer.templates:18001
 msgid "Installing GRUB boot loader"
 msgstr "Instalando cargador d'arranque GRUB"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18001
+#: ../grub-installer.templates:19001
 msgid "Looking for other operating systems..."
 msgstr "Guetando otros sistemes operativos..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:19001
+#: ../grub-installer.templates:20001
 msgid "Installing the '${GRUB}' package..."
 msgstr "Instalando'l paquete '${GRUB}'..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:20001
+#: ../grub-installer.templates:21001
 msgid "Determining GRUB boot device..."
 msgstr "Determinando preséu d'arranque GRUB"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:21001
+#: ../grub-installer.templates:22001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "Executando \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:22001
+#: ../grub-installer.templates:23001
 msgid "Running \"update-grub\"..."
 msgstr "Executando \"update-grub\"..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:23001
+#: ../grub-installer.templates:24001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "Anovando /etc/kernel-img.conf..."
 
@@ -442,7 +454,7 @@ msgstr "Anovando /etc/kernel-img.conf..."
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:24001
+#: ../grub-installer.templates:25001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "Instalar el cargador d'arranque GRUB nel discu duru"
 
@@ -450,34 +462,34 @@ msgstr "Instalar el cargador d'arranque GRUB nel discu duru"
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:25001
+#: ../grub-installer.templates:26001
 msgid "Reinstall GRUB boot loader"
 msgstr "Reinstalar el cargador d'arranque GRUB"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Failed to mount /target/proc"
 msgstr "Falló montar /target/proc"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Mounting the proc file system on /target/proc failed."
 msgstr "Falló montar el sistema de ficheros proc en /target/proc"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr "Comprobar /var/log/syslog o ver consola virtual 4 pa los detalles."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Warning: Your system may be unbootable!"
 msgstr "Avisu: ¡El to sistema pue nun ser arrancable!"

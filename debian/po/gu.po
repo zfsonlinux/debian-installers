@@ -24,9 +24,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-i\n"
 "Report-Msgid-Bugs-To: grub-installer@packages.debian.org\n"
-"POT-Creation-Date: 2012-09-21 22:04+0000\n"
-"PO-Revision-Date: 2010-02-27 10:20+0530\n"
-"Last-Translator: Kartik Mistry <kartik@debian.org>\n"
+"POT-Creation-Date: 2013-04-29 22:04+0000\n"
+"PO-Revision-Date: 2008-08-07 11:42+0530\n"
+"Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati <team@utkarsh.org>\n"
 "Language: gu\n"
 "MIME-Version: 1.0\n"
@@ -139,7 +139,7 @@ msgstr "GRUB રુટ ઉપકરણ છે: ${GRUBROOT}."
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:4001 ../grub-installer.templates:6001
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:15001
 msgid "Unable to configure GRUB"
 msgstr "GRUB રૂપરેખાંકિત કરવામાં અસક્ષમ"
 
@@ -197,14 +197,20 @@ msgstr "મલ્ટિપાથ ઉપકરણ માટે GRUB ગોઠવ�
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#. Type: select
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:7001 ../grub-installer.templates:8002
 msgid "Device for boot loader installation:"
 msgstr "બૂટ લોડર સ્થાપન માટેનું ઉપકરણ:"
 
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#. Type: select
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:7001 ../grub-installer.templates:8002
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -237,17 +243,23 @@ msgstr ""
 " - \"/dev/sdc5\" તમારી ત્રીજી હાર્ડડિસ્કનું પ્રથમ વિસ્તૃત પાર્ટિશન ઉપયોગ કરશે;\n"
 " - \"/dev/fd0\" ફ્લોપીમાં GRUB સ્થાપન કરશે."
 
+#. Type: select
+#. Choices
+#: ../grub-installer.templates:8001
+msgid "Enter device manually"
+msgstr "ઉપકરણ જાતે દાખલ કરો"
+
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:9001
 msgid "GRUB password:"
 msgstr "GRUB પાસવર્ડ:"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:9001
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -265,21 +277,21 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:9001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "જો તમે GRUB પાસવર્ડ ગોઠવવા માંગતા ન હોવ તો, આ જગ્યાને ખાલી છોડી દો."
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:10001
 msgid "Re-enter password to verify:"
 msgstr "ચકાસણી માટે પાસવર્ડ ફરી-દાખલ કરો:"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:10001
 msgid ""
 "Please enter the same GRUB password again to verify that you have typed it "
 "correctly."
@@ -290,28 +302,28 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:11001
 msgid "Password input error"
 msgstr "પાસવર્ડ દાખલ કરવામાં ક્ષતિ"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:11001
 msgid "The two passwords you entered were not the same. Please try again."
 msgstr "તમે દાખલ કરેલ બે પાસવર્ડ સરખાં નહોતા. મહેરબાની કરી ફરી પ્રયત્ન કરો."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:13001
 msgid "GRUB installation failed"
 msgstr "GRUB સ્થાપન નિષ્ફળ ગયું"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:13001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -322,14 +334,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:14001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "${BOOTDEV} માં GRUB સ્થાપિત કરવામાં નિષ્ફળ"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:14001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "'grub-install ${BOOTDEV}' ચલાવવાનું નિષ્ફળ."
 
@@ -339,28 +351,28 @@ msgstr "'grub-install ${BOOTDEV}' ચલાવવાનું નિષ્ફળ
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001 ../grub-installer.templates:14001
+#: ../grub-installer.templates:14001 ../grub-installer.templates:15001
 msgid "This is a fatal error."
 msgstr "આ ઘાતક ક્ષતિ છે."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:15001
 msgid "Executing 'update-grub' failed."
 msgstr "'update-grub' ચલાવવાનું નિષ્ફળ."
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:17001
 msgid "Install GRUB?"
 msgstr "GRUB સ્થાપિત કરશો?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:17001
 msgid ""
 "GRUB 2 is the next generation of GNU GRUB, the boot loader that is commonly "
 "used on i386/amd64 PCs. It is now also available for ${ARCH}."
@@ -371,7 +383,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:17001
 msgid ""
 "It has interesting new features but is still experimental software for this "
 "architecture. If you choose to install it, you should be prepared for "
@@ -385,49 +397,49 @@ msgstr ""
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:17001
+#: ../grub-installer.templates:18001
 msgid "Installing GRUB boot loader"
 msgstr "GRUB બૂટ લોડર સ્થાપિત કરે છે"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18001
+#: ../grub-installer.templates:19001
 msgid "Looking for other operating systems..."
 msgstr "બીજી ઓપરેટિંગ સિસ્ટમ્સ માટે ચકાસે છે..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:19001
+#: ../grub-installer.templates:20001
 msgid "Installing the '${GRUB}' package..."
 msgstr "'${GRUB}' પેકેજ સ્થાપિત કરે છે..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:20001
+#: ../grub-installer.templates:21001
 msgid "Determining GRUB boot device..."
 msgstr "GRUB બૂટ ઉપકરણ નક્કી કરે છે..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:21001
+#: ../grub-installer.templates:22001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "\"grub-install ${BOOTDEV}\" ચલાવે છે..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:22001
+#: ../grub-installer.templates:23001
 msgid "Running \"update-grub\"..."
 msgstr "\"update-grub\" ચલાવે છે..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:23001
+#: ../grub-installer.templates:24001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "/etc/kernel-img.conf સુધારે છે..."
 
@@ -435,7 +447,7 @@ msgstr "/etc/kernel-img.conf સુધારે છે..."
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:24001
+#: ../grub-installer.templates:25001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "GRUB બૂટ લોડરને હાર્ડ ડિસ્ક પર સ્થાપિત કરો"
 
@@ -443,34 +455,34 @@ msgstr "GRUB બૂટ લોડરને હાર્ડ ડિસ્ક પર
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:25001
+#: ../grub-installer.templates:26001
 msgid "Reinstall GRUB boot loader"
 msgstr "GRUB બૂટ લોડર ફરી સ્થાપિત કરો"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Failed to mount /target/proc"
 msgstr "/target/proc માઉન્ટ કરવામાં નિષ્ફળ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Mounting the proc file system on /target/proc failed."
 msgstr "/target/proc પર proc ફાઇલ સિસ્ટમ માઉન્ટ કરવામાં નિષ્ફળ ગયું"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr "/var/log/syslog તપાસો અથવા માહિતી માટે વર્ચયુઅલ કોન્સોલ ૪ જુઓ."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Warning: Your system may be unbootable!"
 msgstr "ચેતવણી: તમારી સિસ્ટમ કદાચ શરૂ થઇ શકશે નહી!"

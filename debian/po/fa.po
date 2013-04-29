@@ -23,9 +23,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fa\n"
 "Report-Msgid-Bugs-To: grub-installer@packages.debian.org\n"
-"POT-Creation-Date: 2012-09-21 22:04+0000\n"
-"PO-Revision-Date: 2012-09-18 10:30+0330\n"
-"Last-Translator: Hamid <hamid.r1988@gmail.com>\n"
+"POT-Creation-Date: 2013-04-29 22:04+0000\n"
+"PO-Revision-Date: 2012-10-20 19:56+0330\n"
+"Last-Translator: Behrad Eslamifar <behrad_es@yahoo.com>\n"
 "Language-Team: Debian-l10n-persian <debian-l10n-persian@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -139,7 +139,7 @@ msgstr "دستگاه گراب root دستگاه رو به رو است : ${GRUBRO
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:4001 ../grub-installer.templates:6001
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:15001
 msgid "Unable to configure GRUB"
 msgstr "ناتوان در پیکربندی GRUB"
 
@@ -197,14 +197,20 @@ msgstr "هنگام نصب گراب برای ابزار multipath خطایی رخ
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#. Type: select
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:7001 ../grub-installer.templates:8002
 msgid "Device for boot loader installation:"
 msgstr "ابزار برای نصب بارگذار بالاآمدن:"
 
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#. Type: select
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:7001 ../grub-installer.templates:8002
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -239,17 +245,23 @@ msgstr ""
 "   خواهد کرد;\n"
 " - \"/dev/fd0\" گراب را بر روی فلاپی نصب خواهد کرد."
 
+#. Type: select
+#. Choices
+#: ../grub-installer.templates:8001
+msgid "Enter device manually"
+msgstr "ورود نام تجهیز به صورت دستی"
+
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:9001
 msgid "GRUB password:"
 msgstr "کلمهٔ‌عبور GRUB:"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:9001
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -268,7 +280,7 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:9001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr ""
 "اگر تمایل ندارید که کلمهٔ‌عبور GRUB تنظیم کنید، این قسمت را خالی بگذارید."
@@ -276,14 +288,14 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:10001
 msgid "Re-enter password to verify:"
 msgstr "ورود مجدد کلمه عبور:"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:10001
 msgid ""
 "Please enter the same GRUB password again to verify that you have typed it "
 "correctly."
@@ -294,28 +306,28 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:11001
 msgid "Password input error"
 msgstr "خطای ورودی کلمهٔ‌عبور"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:11001
 msgid "The two passwords you entered were not the same. Please try again."
 msgstr "دو کلمهٔ‌عبوری که وارد کرده‌اید یکی نبودند. لطفاً دوباره سعی کنید."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:13001
 msgid "GRUB installation failed"
 msgstr "نصب GRUB شکست خورد"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:13001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -326,14 +338,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:14001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "ناتوان در نصب GRUB در ${BOOTDEV}"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:14001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "اجرای 'grub-install ${BOOTDEV}' شکست خورد."
 
@@ -343,28 +355,28 @@ msgstr "اجرای 'grub-install ${BOOTDEV}' شکست خورد."
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001 ../grub-installer.templates:14001
+#: ../grub-installer.templates:14001 ../grub-installer.templates:15001
 msgid "This is a fatal error."
 msgstr "این یک خطای ... است."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:15001
 msgid "Executing 'update-grub' failed."
 msgstr "اجرای 'update-grub' شکست خورد."
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:17001
 msgid "Install GRUB?"
 msgstr "نصب GRUB؟"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:17001
 msgid ""
 "GRUB 2 is the next generation of GNU GRUB, the boot loader that is commonly "
 "used on i386/amd64 PCs. It is now also available for ${ARCH}."
@@ -375,7 +387,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:17001
 msgid ""
 "It has interesting new features but is still experimental software for this "
 "architecture. If you choose to install it, you should be prepared for "
@@ -390,49 +402,49 @@ msgstr ""
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:17001
+#: ../grub-installer.templates:18001
 msgid "Installing GRUB boot loader"
 msgstr "نصب راه‌انداز GRUB"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18001
+#: ../grub-installer.templates:19001
 msgid "Looking for other operating systems..."
 msgstr "جستجوی سایر سیستم‌عامل‌ها..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:19001
+#: ../grub-installer.templates:20001
 msgid "Installing the '${GRUB}' package..."
 msgstr "نصب بستهٔ '${GRUB}' ..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:20001
+#: ../grub-installer.templates:21001
 msgid "Determining GRUB boot device..."
 msgstr "تشخیص دستگاه راه‌انداز GRUB..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:21001
+#: ../grub-installer.templates:22001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "در حال اجرای «grub-install ${BOOTDEV}»..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:22001
+#: ../grub-installer.templates:23001
 msgid "Running \"update-grub\"..."
 msgstr "در حال اجرای «update-grub»..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:23001
+#: ../grub-installer.templates:24001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "بروزرسانی /etc/kernel-img.conf..."
 
@@ -440,7 +452,7 @@ msgstr "بروزرسانی /etc/kernel-img.conf..."
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:24001
+#: ../grub-installer.templates:25001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "نصب راه‌انداز GRUB بر روی یک دیسک سخت"
 
@@ -448,34 +460,34 @@ msgstr "نصب راه‌انداز GRUB بر روی یک دیسک سخت"
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:25001
+#: ../grub-installer.templates:26001
 msgid "Reinstall GRUB boot loader"
 msgstr "نصب مجدد راه‌انداز GRUB"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Failed to mount /target/proc"
 msgstr " /target/proc مانت نشد ."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Mounting the proc file system on /target/proc failed."
 msgstr "فایل سیستم proc بر روی  /target/proc مانت نشده است ."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr "/var/log/syslog یا کنسول مجازی ۴ را برای جزئیات ببینید."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Warning: Your system may be unbootable!"
 msgstr "اخطار : سیستم شما ممکن است قابل راه اندازی شدن نباشد ."

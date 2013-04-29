@@ -22,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: grub-installer@packages.debian.org\n"
-"POT-Creation-Date: 2012-09-21 22:04+0000\n"
-"PO-Revision-Date: 2012-09-21 11:30+0600\n"
+"POT-Creation-Date: 2013-04-29 22:04+0000\n"
+"PO-Revision-Date: 2012-10-18 16:54+0600\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh \n"
 "Language: kk\n"
@@ -139,7 +139,7 @@ msgstr "GRUB түбірлік құрылғысы: ${GRUBROOT}."
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:4001 ../grub-installer.templates:6001
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:15001
 msgid "Unable to configure GRUB"
 msgstr "GRUB баптауы мүмкін болмады"
 
@@ -197,14 +197,20 @@ msgstr "Сіздің multipath құрылғыңызға GRUB орнату кез
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#. Type: select
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:7001 ../grub-installer.templates:8002
 msgid "Device for boot loader installation:"
 msgstr "Жүйелік жүктеушіні орнату құрылғысы:"
 
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#. Type: select
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:7001 ../grub-installer.templates:8002
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -240,17 +246,23 @@ msgstr ""
 "   кеңейтілген бөліміне орнатылады;\n"
 " - \"/dev/fd0\" нәтижесінде GRUB дискетке орнатылады."
 
+#. Type: select
+#. Choices
+#: ../grub-installer.templates:8001
+msgid "Enter device manually"
+msgstr "Құрылғы атын қолмен көрсету"
+
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:9001
 msgid "GRUB password:"
 msgstr "GRUB паролі:"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:9001
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -268,21 +280,21 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:9001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "GRUB паролін орнатқыңыз келмесе, жолды бос қалдырыңыз."
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:10001
 msgid "Re-enter password to verify:"
 msgstr "Тексеру үшін парольді қайта енгізіңіз:"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:10001
 msgid ""
 "Please enter the same GRUB password again to verify that you have typed it "
 "correctly."
@@ -291,14 +303,14 @@ msgstr "Дұрыс терілгеніне көз жеткізу мақсатын
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:11001
 msgid "Password input error"
 msgstr "Пароль енгізу қатесі"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:11001
 msgid "The two passwords you entered were not the same. Please try again."
 msgstr ""
 "Сіз енгізген парольдар бір-бірімен сәйкес келмейді. Парольді қайта енгізіңіз."
@@ -306,14 +318,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:13001
 msgid "GRUB installation failed"
 msgstr "GRUB орнатуы сәтсіз аяқталды"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:13001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -324,14 +336,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:14001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "${BOOTDEV} құрылғысына GRUB орнату мүмкін болмады"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:14001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "'grub-install ${BOOTDEV}' командасын орындау мүмкін болмады."
 
@@ -341,28 +353,28 @@ msgstr "'grub-install ${BOOTDEV}' командасын орындау мүмкі
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001 ../grub-installer.templates:14001
+#: ../grub-installer.templates:14001 ../grub-installer.templates:15001
 msgid "This is a fatal error."
 msgstr "Бұл жөнделмейтіе қате."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:15001
 msgid "Executing 'update-grub' failed."
 msgstr "'update-grub' командасын орындау мүмкін болмады."
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:17001
 msgid "Install GRUB?"
 msgstr "GRUB орнату керек пе?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:17001
 msgid ""
 "GRUB 2 is the next generation of GNU GRUB, the boot loader that is commonly "
 "used on i386/amd64 PCs. It is now also available for ${ARCH}."
@@ -373,7 +385,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:17001
 msgid ""
 "It has interesting new features but is still experimental software for this "
 "architecture. If you choose to install it, you should be prepared for "
@@ -389,49 +401,49 @@ msgstr ""
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:17001
+#: ../grub-installer.templates:18001
 msgid "Installing GRUB boot loader"
 msgstr "GRUB жүйелік жүктеуішін орнату"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18001
+#: ../grub-installer.templates:19001
 msgid "Looking for other operating systems..."
 msgstr "Басқа операциялық жүйелерді іздеу..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:19001
+#: ../grub-installer.templates:20001
 msgid "Installing the '${GRUB}' package..."
 msgstr "'${GRUB}' дестесін орнату..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:20001
+#: ../grub-installer.templates:21001
 msgid "Determining GRUB boot device..."
 msgstr "GRUB үшін жүктеуші құрылғысын анықтау..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:21001
+#: ../grub-installer.templates:22001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "\"grub-install ${BOOTDEV}\" іске қосу..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:22001
+#: ../grub-installer.templates:23001
 msgid "Running \"update-grub\"..."
 msgstr "\"update-grub\" іске қосу..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:23001
+#: ../grub-installer.templates:24001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "/etc/kernel-img.conf жаңарту..."
 
@@ -439,7 +451,7 @@ msgstr "/etc/kernel-img.conf жаңарту..."
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:24001
+#: ../grub-installer.templates:25001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "GRUB жүйелік жүктеуішін қатты дискіге орнату"
 
@@ -447,28 +459,28 @@ msgstr "GRUB жүйелік жүктеуішін қатты дискіге ор�
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:25001
+#: ../grub-installer.templates:26001
 msgid "Reinstall GRUB boot loader"
 msgstr "GRUB жүйелік жүктеушісін қайта орнату"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Failed to mount /target/proc"
 msgstr "/target/proc тіркеу сәтсіз"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Mounting the proc file system on /target/proc failed."
 msgstr "Базалық жүйені /target/ бумасын орнату сәтсіз аяқталды."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
 "Қосымша мәліметті /var/log/syslog файлынан не 4 виртуал консольдан қараңыз."
@@ -476,6 +488,6 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Warning: Your system may be unbootable!"
 msgstr "Ескерту: сіздің жүйеңіз жүктеле алмайтындай қалуы мүмкін!"

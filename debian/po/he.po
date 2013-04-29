@@ -34,8 +34,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer_packages_po_sublevel1_he\n"
 "Report-Msgid-Bugs-To: grub-installer@packages.debian.org\n"
-"POT-Creation-Date: 2012-09-21 22:04+0000\n"
-"PO-Revision-Date: 2012-09-21 13:10+0300\n"
+"POT-Creation-Date: 2013-04-29 22:04+0000\n"
+"PO-Revision-Date: 2012-10-18 16:15+0200\n"
 "Last-Translator: Omer Zak <w1@zak.co.il>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "Language: he\n"
@@ -149,7 +149,7 @@ msgstr "התקן השורש של GRUB הוא: ${GRUBROOT}."
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:4001 ../grub-installer.templates:6001
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:15001
 msgid "Unable to configure GRUB"
 msgstr "לא מצליח להגדיר את GRUB"
 
@@ -206,14 +206,20 @@ msgstr "שגיאה קרתה בזמן הגדרת GRUB להתקן רב-הנתיב�
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#. Type: select
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:7001 ../grub-installer.templates:8002
 msgid "Device for boot loader installation:"
 msgstr "התקן עבור התקנת מנהל האתחול:"
 
 #. Type: string
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:7001
+#. Type: select
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:7001 ../grub-installer.templates:8002
 msgid ""
 "You need to make the newly installed system bootable, by installing the GRUB "
 "boot loader on a bootable device. The usual way to do this is to install "
@@ -248,17 +254,23 @@ msgstr ""
 "במקרה זה);\n"
 " - \"/dev/fd0\"·יתקין את GRUB על דיסקט."
 
+#. Type: select
+#. Choices
+#: ../grub-installer.templates:8001
+msgid "Enter device manually"
+msgstr "הזנת התקן באופן ידני"
+
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:9001
 msgid "GRUB password:"
 msgstr "סיסמת GRUB:"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:9001
 msgid ""
 "The GRUB boot loader offers many powerful interactive features, which could "
 "be used to compromise your system if unauthorized users have access to the "
@@ -275,21 +287,21 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:8001
+#: ../grub-installer.templates:9001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
 msgstr "אם אינך רוצה לקבוע סיסמת GRUB, השאר את הדה ריק."
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:10001
 msgid "Re-enter password to verify:"
 msgstr "הכנס שוב את הסיסמה לבדיקה אם הכנסת אותה נכון:"
 
 #. Type: password
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:9001
+#: ../grub-installer.templates:10001
 msgid ""
 "Please enter the same GRUB password again to verify that you have typed it "
 "correctly."
@@ -298,28 +310,28 @@ msgstr "אנא הכנס את סיסמת ה-GRUB בשנית על מנת לווד�
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:11001
 msgid "Password input error"
 msgstr "שגיאה בקליטת הסיסמה"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:10001
+#: ../grub-installer.templates:11001
 msgid "The two passwords you entered were not the same. Please try again."
 msgstr "שתי הסיסמאות שהכנסת אינן זהות. אנא נסה שוב."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:13001
 msgid "GRUB installation failed"
 msgstr "התקנת GRUB נכשלה"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:12001
+#: ../grub-installer.templates:13001
 msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
@@ -330,14 +342,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:14001
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "לא ניתן להתקין את GRUB ב-${BOOTDEV}"
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001
+#: ../grub-installer.templates:14001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
 msgstr "הרצת 'grub-install ${BOOTDEV}' נכשלה."
 
@@ -347,28 +359,28 @@ msgstr "הרצת 'grub-install ${BOOTDEV}' נכשלה."
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:13001 ../grub-installer.templates:14001
+#: ../grub-installer.templates:14001 ../grub-installer.templates:15001
 msgid "This is a fatal error."
 msgstr "זאת שגיאה קטלנית."
 
 #. Type: error
 #. Description
 #. :sl2:
-#: ../grub-installer.templates:14001
+#: ../grub-installer.templates:15001
 msgid "Executing 'update-grub' failed."
 msgstr "הרצת 'update-grub' נכשלה."
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:17001
 msgid "Install GRUB?"
 msgstr "להתקין את GRUB?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:17001
 msgid ""
 "GRUB 2 is the next generation of GNU GRUB, the boot loader that is commonly "
 "used on i386/amd64 PCs. It is now also available for ${ARCH}."
@@ -379,7 +391,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:16001
+#: ../grub-installer.templates:17001
 msgid ""
 "It has interesting new features but is still experimental software for this "
 "architecture. If you choose to install it, you should be prepared for "
@@ -394,49 +406,49 @@ msgstr ""
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:17001
+#: ../grub-installer.templates:18001
 msgid "Installing GRUB boot loader"
 msgstr "התקנת מנהל האתחול GRUB"
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:18001
+#: ../grub-installer.templates:19001
 msgid "Looking for other operating systems..."
 msgstr "מחפש מערכות הפעלה אחרות..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:19001
+#: ../grub-installer.templates:20001
 msgid "Installing the '${GRUB}' package..."
 msgstr "מתקין את החבילה  '${GRUB}'..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:20001
+#: ../grub-installer.templates:21001
 msgid "Determining GRUB boot device..."
 msgstr "קובע את התקן האתחול של GRUB..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:21001
+#: ../grub-installer.templates:22001
 msgid "Running \"grub-install ${BOOTDEV}\"..."
 msgstr "מריץ \"grub-install ${BOOTDEV}\"..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:22001
+#: ../grub-installer.templates:23001
 msgid "Running \"update-grub\"..."
 msgstr "מריץ \"update-grub\"..."
 
 #. Type: text
 #. Description
 #. :sl1:
-#: ../grub-installer.templates:23001
+#: ../grub-installer.templates:24001
 msgid "Updating /etc/kernel-img.conf..."
 msgstr "מעדכן את /etc/kernel-img.conf..."
 
@@ -444,7 +456,7 @@ msgstr "מעדכן את /etc/kernel-img.conf..."
 #. Description
 #. Main menu item
 #. :sl1:
-#: ../grub-installer.templates:24001
+#: ../grub-installer.templates:25001
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "התקנת מנהל האתחול GRUB על דיסק קשיח"
 
@@ -452,28 +464,28 @@ msgstr "התקנת מנהל האתחול GRUB על דיסק קשיח"
 #. Description
 #. Rescue menu item
 #. :sl2:
-#: ../grub-installer.templates:25001
+#: ../grub-installer.templates:26001
 msgid "Reinstall GRUB boot loader"
 msgstr "התקנה מחדש של מנהל האתחול GRUB"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Failed to mount /target/proc"
 msgstr "נכשל העיגון של /target/proc"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Mounting the proc file system on /target/proc failed."
 msgstr "עיגון מערכת הקבצים מסוג proc ב- /target/proc נכשל."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
 "בדוק את /var/log/syslog או את הקונסול הווירטואלי מספר 4 בשביל פרטים נוספים."
@@ -481,6 +493,6 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../grub-installer.templates:28001
+#: ../grub-installer.templates:29001
 msgid "Warning: Your system may be unbootable!"
 msgstr "אזהרה: יתכן שהמערכת שלך אינה ניתנת לאתחול!"
