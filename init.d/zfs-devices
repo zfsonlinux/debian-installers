@@ -5,9 +5,15 @@
 db_register partman-zfs/confirm partman-zfs/confirm_nooverwrite
 
 # Load modules and scan volume groups if it was not done before
-if [ ! -f /var/lib/partman/zfs ] && [ "$(udpkg --print-os)" = kfreebsd ] ; then
+if [ ! -f /var/lib/partman/zfs ] && [ "$(udpkg --print-os)" = kfreebsd -o "$(udpkg --print-os)" = linux ] ; then
 	# load required kernel modules
-	kldload zfs >/dev/null 2>&1
+	db_progress INFO partman/progress/init/loading_zfs
+	if [ "$(udpkg --print-os)" = kfreebsd ]; then
+	    kldload zfs >/dev/null 2>&1
+	else
+	    modprobe zfs #>/dev/null 2>&1
+	    sleep 5 # Might be a little excessive, but...
+	fi
 
 	# make sure that zfs is available
 	if ! test -e /dev/zfs ; then
@@ -16,8 +22,14 @@ if [ ! -f /var/lib/partman/zfs ] && [ "$(udpkg --print-os)" = kfreebsd ] ; then
 		exit 0
 	fi
 
-	# scan for zfs pools
-	log-output -t partman zpool import -a -f -o altroot=/target
+	# Just to make sure...
+	if ! test -d /boot/zfs ; then
+	    mkdir -p /boot/zfs
+	fi
+
+	# scan for zfs pools - don't mount any filesystems, they are unmounted
+	# by partman anyway...
+	log-output -t partman zpool import -a -f -o altroot=/target -N
 
 	# Some ZFS versions don't create cachefile when "-o altroot" is used.
 	# Request it explicitly.
