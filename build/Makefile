@@ -519,7 +519,7 @@ ifndef ONLY_KLIBC
 		-L $(TREE)/usr/lib/cdebconf/frontend \
 		$(addprefix -l,$(notdir $(wildcard $(TREE)/usr/lib/cdebconf/frontend/*.so))) \
 		`find $(TEMP) -type f -a \( -perm /0111 -o -name '*.so' -o -name '*.so.*' \) | \
-		 grep -v udeblibs | grep -v 'usr/lib/xorg/modules/.*\.so'`
+		 egrep -v 'udeblibs|usr/lib/xorg/modules/.*\.so|\.gz'`
 
 ifeq ($(DEB_HOST_ARCH),armhf)
 	# armhf has two linkers for now, while the world gets sorted
