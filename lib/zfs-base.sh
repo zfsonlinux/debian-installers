@@ -278,6 +278,28 @@ lv_create() {
 	return $?
 }
 
+# Create a FS
+fs_create() {
+    local fs=$1
+
+    zfs create $fs || code=$?
+    if [ "$code" -eq 0 ]; then
+	logger -t partman-zfs "created $fs"
+    else
+	logger -t partman-zfs "ERROR: create $fs failed"
+    fi
+
+    return $code
+}
+
+# Check if a FS exists
+fs_check_exists() {
+    local fs=$1
+
+    zfs list -H -o name $fs || code=$?
+    return $code
+}
+
 # Delete a LV
 lv_delete() {
 	local vg lv device
@@ -537,5 +559,20 @@ create_new_partition () {
 			fi
 			set -e
 		done
+	fi
+}
+
+# Get a value from the VG
+get_vg_value() {
+	local pool=$1
+	local property=$2
+
+	set -- `zpool get $property $pool | grep -E "^$pool.*$property"`
+	if [ "$3" = "on" ]; then
+		db_set partman-zfs/modify/$property true
+		echo "true"
+	else
+		db_set partman-zfs/modify/$property false
+		echo "false"
 	fi
 }
