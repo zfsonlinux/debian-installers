@@ -264,12 +264,17 @@ lv_list() {
 
 # Create a LV
 lv_create() {
-	local vg lv extents
+	local vg lv extents blocksize
 	vg="$1"
 	lv="$2"
 	size="$3"
 
-	log-output -t partman-zfs zfs create -V $size "$vg/$lv"
+	blocksize=""
+	if [ "$(udpkg --print-os)" = linux ]; then
+	    blocksize="-o volblocksize=4096"
+	fi
+
+	log-output -t partman-zfs zfs create $blocksize -V $size "$vg/$lv"
 	return $?
 }
 
