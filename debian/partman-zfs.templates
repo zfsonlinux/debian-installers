@@ -106,6 +106,13 @@ Type: text
 # Use infinitive form
 _Description: Create logical volume
 
+Template: partman-zfs/menu/createfs
+Type: text
+# :sl4:
+# Menu entry
+# Use infinitive form
+_Description: Create root filesystem
+
 Template: partman-zfs/menu/deletelv
 Type: text
 # :sl4:
@@ -168,6 +175,7 @@ _Description: ZFS configuration action:
   Used physical volumes:  ${USED_PVS}
   ZFS pools:              ${VGS}
   ZFS logical volumes:    ${LVS}
+  ${BOOTFS}
 Help: partman-zfs/help
 
 Template: partman-zfs/displayall
@@ -367,11 +375,11 @@ _Description: ZFS not available
 Template: partman-zfs/badnamegiven
 Type: error
 # :sl4:
-_Description: Invalid logical volume or ZFS pool name
- Logical volume or ZFS pool names may only contain alphanumeric
- characters, hyphen, colon, period, and underscore. They must be 255
- characters or less and must begin with an alphanumeric character. The names
- "mirror", "raidz", "spare", and "log" are not allowed.
+_Description: Invalid logical volume, ZFS pool name or ZFS filesystem name
+ Logical volumes, ZFS pool names and ZFS filesystems may only contain
+ alphanumeric characters, hyphen, colon, period, and underscore. They must
+ be 255 characters or less and must begin with an alphanumeric character.
+ The names "mirror", "raidz", "spare", and "log" are not allowed.
  .
  Please choose a different name.
 
@@ -409,3 +417,33 @@ _Description: ZFS
  and logical volumes. After you return to the main partition manager screen,
  logical volumes will be displayed in the same way as ordinary partitions,
  and should be treated as such.
+
+Template: partman-zfs/choose_pool
+Type: select
+Choices: ${GROUPS}
+# :sl4:
+#flag:translate!:2
+_Description: Select pool to modify:
+
+Template: partman-zfs/choose_bootfs
+Type: string
+_Description: ZFS boot fs name:
+ Please enter the name of the boot fs.
+ .
+ This will be prefixed by ${VG}/ROOT and mounted as your root file system.
+ ${FOUND_EXISTING_FS}
+
+Template: partman-zfs/bootfs_nonamegiven
+Type: error
+# :sl4:
+_Description: No filesystem name entered
+ No name for the root filesystem has been entered. Please enter a
+ name.
+
+Template: partman-zfs/bootfs
+Type: string
+_Description: ZFS boot fs
+
+Template: partman/progress/init/loading_zfs
+Type: text
+_Description: Loading ZFS module...

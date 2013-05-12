@@ -259,7 +259,9 @@ lv_get_info() {
 
 # List all LVs and their VGs
 lv_list() {
-	zfs list -r -o name -H | grep /
+	local base=$1
+
+	zfs list -r -o name -H $base | grep /
 }
 
 # Create a LV
@@ -566,13 +568,97 @@ create_new_partition () {
 get_vg_value() {
 	local pool=$1
 	local property=$2
+	local val
 
-	set -- `zpool get $property $pool | grep -E "^$pool.*$property"`
-	if [ "$3" = "on" ]; then
-		db_set partman-zfs/modify/$property true
+	set -- `zpool get $property $pool | grep -E "^$pool.*"`
+	val=$3
+
+	if [ "$val" = "on" ]; then
+		db_metaget partman-zfs/text/in_use description
+		if [ -n "$RET" ]; then
+		    db_set partman-zfs/modify/$property true
+		fi
 		echo "true"
-	else
-		db_set partman-zfs/modify/$property false
+	elif [ "$val" = "off" ]; then
+		db_metaget partman-zfs/text/in_use description
+		if [ -n "$RET" ]; then
+			db_set partman-zfs/modify/$property false
+		fi
 		echo "false"
+	elif [ "$val" = "-" -o "$val" = "none" ]; then
+		echo "unset"
+	else
+		echo "$val"
 	fi
+}
+
+# Get a value from a FS
+get_lv_value() {
+	local fs=$1
+	local property=$2
+	local val
+
+	set -- `zfs get $property $fs | grep -E "^$fs"`
+	val=$3
+
+	if [ "$val" = "on" ]; then
+		db_metaget partman-zfs/text/in_use description
+		if [ -n "$RET" ]; then
+			db_set partman-zfs/modify/$property true
+		fi
+		echo "true"
+	elif [ "$val" = "off" ]; then
+		db_metaget partman-zfs/text/in_use description
+		if [ -n "$RET" ]; then
+			db_set partman-zfs/modify/$property false
+		fi
+		echo "false"
+	elif [ "$val" = "-" -o "$val" = "none" ]; then
+		echo "unset"
+	else
+		echo "$val"
+	fi
+}
+
+create_bootfs() {
+	local pool=$1
+	local fs=$2
+	local code subfs
+
+	if ! fs_check_exists $pool/ROOT; then
+	    if fs_create $pool/ROOT; then
+		# ERROR: Can't create FS! Why not!?
+		return
+	    fi
+	    zfs set mountpoint=none $pool/ROOT
+	fi
+
+	if ! fs_check_exists $pool/ROOT/$fs; then
+	    if fs_create $pool/ROOT/$fs; then
+		# ERROR: Can't create FS! Why not!?
+		return
+	    fi
+	    zfs set mountpoint=/ $pool/ROOT/$fs
+
+	    zpool set bootfs=$pool/ROOT/$fs $pool
+	    db_set partman-zfs/bootfs $pool/ROOT/$fs
+	    logger -t partman-zfs "set bootfs=$pool/ROOT/$fs on $pool success"
+
+	    for subfs in boot home var; do
+		if ! fs_create $pool/ROOT/$fs/$subfs; then
+		    zfs set mountpoint=/$subfs $pool/ROOT/$fs/$subfs
+		    logger -t partman-zfs "$pool/ROOT/$fs/$subfs created"
+		fi
+	    done
+	else
+	    # FS already exists - use it as root fs
+	    zpool set bootfs=$pool/ROOT/$fs $pool
+	    db_set partman-zfs/bootfs $pool/ROOT/$fs
+	fi
+
+	# NOTE: Doesn't seem to work...
+	db_subst partman-basicfilesystems/progress_formatting_mountable \
+	    MOUNT_POINT "/" TYPE "zfs" PARTITION "" DEVICE "$pool/ROOT/$fs"
+	db_subst partman/text/confirm_item \
+	    TYPE "zfs" PARTITION "" DEVICE "$pool/ROOT/$fs"
 }

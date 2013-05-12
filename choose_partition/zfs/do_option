@@ -25,6 +25,70 @@ do_display() {
 	db_get partman-zfs/displayall
 }
 
+do_fs_create() {
+	local vgs vg fs output vgs_cnt existing_fs example RET
+
+	# Find all VGs
+	vgs=""
+	for vg in $(vg_list); do
+		vg_get_info "$vg"
+		output=$(printf "%-30s (%sMB)" "$vg" "$SIZE")
+		vgs="${vgs:+$vgs, }$output"
+	done
+	vgs_cnt=$(vg_list | wc -l)
+
+	if [ $vgs_cnt -gt 1 ]; then
+	    # Prompt for VG to use
+	    db_subst partman-zfs/choose_pool GROUPS "$vgs"
+	    db_reset partman-zfs/choose_pool
+	    db_input critical partman-zfs/choose_pool
+	    db_go || return
+	    db_get partman-zfs/choose_pool
+	    vg=$(echo "$RET" | sed -e 's/[[:space:]]*(.*//')
+	else
+	    vg=$(echo "$vgs" | sed -e 's/[[:space:]]*(.*//')
+	fi
+
+	# Find any existing root fs
+	existing_fs=0
+	if fs_check_exists $vg/ROOT; then
+	    example=`zfs list -H -o name -r -d 1 $vg/ROOT | tail -n1 | sed 's/.*ROOT\///'`
+	    [ -n "$example" -a "$example" != "$vg/ROOT" ] && existing_fs=1
+	else
+	    example="`hostname`"
+	fi
+
+	db_subst partman-zfs/choose_bootfs VG "$vg"
+	if [ "$existing_fs" -eq 1 ]; then
+	    # Promt for root fs to use/create
+	    db_subst partman-zfs/choose_bootfs FOUND_EXISTING_FS "\
+There is an existing filesystem named '$vg/ROOT/$example' \
+in the pool. If you like to use that to install onto, just \
+press enter. If not, simply choose another filesystem to create."
+	fi
+	db_set partman-zfs/choose_bootfs "$example"
+	db_fset partman-zfs/choose_bootfs seen false
+	db_input critical partman-zfs/choose_bootfs
+	db_go || return
+	db_get partman-zfs/choose_bootfs
+	fs="$RET"
+
+	# Check FS name
+	if [ -z "$fs" ]; then
+	    db_input critical partman-zfs/bootfs_nonamegiven
+	    db_go || true
+	    return
+	fi
+
+	if ! zfs_name_ok "$fs"; then
+		db_input critical partman-zfs/badnamegiven
+		db_go || true
+		return
+	fi
+	    
+	create_bootfs "$vg" "$fs"
+}
+
 do_vg_create() {
 	local pvs line pv output vg pathmap mode
 	pvs=""
@@ -359,6 +423,13 @@ while [ 1 ]; do
 	vgs=$(vg_list | wc -l)
 	lvs=$(lv_list | wc -l)
 
+	db_get partman-zfs/bootfs
+	if [ -n "$RET" ]; then
+	    bootfs="  ZFS boot fs:            ${RET}"
+	else
+	    bootfs=""
+	fi
+
 	# Build menu options
 	choices=""
 	choices_l10n=""
@@ -368,6 +439,8 @@ while [ 1 ]; do
 	fi
 	# Other options only if there is at least one VG
 	if [ $vgs -gt 0 ]; then
+		zfs_menu_add createfs
+
 		# First check, then add so the order is constant
 		do_deletevg=""
 		do_createlv=""
@@ -402,6 +475,7 @@ while [ 1 ]; do
 	db_subst partman-zfs/mainmenu USED_PVS "$used_pvs"
 	db_subst partman-zfs/mainmenu VGS "$vgs"
 	db_subst partman-zfs/mainmenu LVS "$lvs"
+	db_subst partman-zfs/mainmenu BOOTFS "$bootfs"
 	db_reset partman-zfs/mainmenu
 	db_input critical partman-zfs/mainmenu
 	db_go || break
@@ -414,6 +488,7 @@ while [ 1 ]; do
 	    deletevg)	do_vg_delete ;;
 	    createlv)	do_lv_create ;;
 	    deletelv)	do_lv_delete ;;
+	    createfs)	do_fs_create ;;
 	    finish)	break ;;
 	    *)
 		logger -t partman-zfs "Unknown selection '$option'"

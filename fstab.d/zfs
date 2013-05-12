@@ -1,6 +1,7 @@
 #!/bin/sh
 
 . /lib/partman/lib/base.sh
+. /lib/partman/lib/zfs-base.sh
 
 for dev in $DEVICES/*; do
 	[ -d $dev ] || continue
@@ -29,4 +30,23 @@ for dev in $DEVICES/*; do
 		esac
 	done
 	close_dialog
+done
+
+local vg lv val mp
+for vg in $(vg_list); do
+    val=`get_vg_value $vg bootfs`
+    if [ "$val" != "unset" ]; then
+	for lv in $(lv_list $vg); do
+	    val=`get_lv_value $lv mountpoint`
+	    if [ "$val" != "unset" ]; then
+		if echo "$val" | grep -Eq '^/target'; then
+		    mp=`echo "$val/" | sed -e 's/\/target//' -e 's/\/$//'`
+		    [ -z "$mp" ] && mp="/"
+
+		    # fs mp type options dump pass
+		    echo "$lv $mp zfs - - -"
+		fi
+	    fi
+	done
+    fi
 done
