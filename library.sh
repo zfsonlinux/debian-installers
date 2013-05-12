@@ -342,6 +342,18 @@ get_mirror_info () {
 	fi
 }
 
+check_kernel_usability () {
+    arch2=`echo $2 | sed 's/-.*//'`
+    if chroot /target apt-cache show "$1" | grep -Eq "^(Architecture:.*)$2|$arch2"
+    then 
+	return 0
+    elif arch_check_usable_kernel "$1" "$FLAVOUR"; then
+	return 0
+    else
+	return 1
+    fi
+}
+
 kernel_update_list () {
 	# Use 'uniq' to avoid listing the same kernel more then once
 	chroot /target apt-cache search "^(kernel|$KERNEL_NAME)-image" | \
@@ -349,7 +361,7 @@ kernel_update_list () {
 	kernels=`sort -r "$KERNEL_LIST.unfiltered" | tr '\n' ' ' | sed -e 's/ $//'`
 	for candidate in $kernels; do
 		if [ -n "$FLAVOUR" ]; then
-			if arch_check_usable_kernel "$candidate" "$FLAVOUR"; then
+			if check_kernel_usability "$candidate" "$FLAVOUR" ; then
 				echo "$candidate"
 				info "kernel $candidate usable on $FLAVOUR"
 			else
