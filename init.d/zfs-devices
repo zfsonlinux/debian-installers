@@ -11,16 +11,12 @@ if [ ! -f /var/lib/partman/zfs ] && [ "$(udpkg --print-os)" = kfreebsd -o "$(udp
 	if [ "$(udpkg --print-os)" = kfreebsd ]; then
 	    kldload zfs >/dev/null 2>&1
 	else
-	    modprobe zfs #>/dev/null 2>&1
-	    sleep 5 # Might be a little excessive, but...
+	    modprobe zfs >/dev/null 2>&1
+	    [ "$?" -ne 1 ] && sleep 5 # Give it some time to settle. Might be a little excessive, but...
 	fi
 
-	# make sure that zfs is available
-	if ! test -e /dev/zfs ; then
-		db_input critical partman-zfs/nozfs
-		db_go
-		exit 0
-	fi
+	# Make sure that zfs is available - not a critical error.
+	test -e /dev/zfs || exit 0
 
 	# Just to make sure...
 	if ! test -d /boot/zfs ; then
