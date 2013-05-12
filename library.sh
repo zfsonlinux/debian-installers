@@ -316,8 +316,12 @@ get_mirror_info () {
 
 		mirror_error=""
 
-		db_get mirror/protocol || mirror_error=1
-		PROTOCOL="$RET"
+		db_get mirror/protocol
+		if [ -n "$RET" ]; then
+		    PROTOCOL="$RET"
+		else
+		    PROTOCOL="http"
+		fi
 
 		db_get mirror/$PROTOCOL/hostname || mirror_error=1
 		MIRROR="$RET"
@@ -325,7 +329,12 @@ get_mirror_info () {
 		db_get mirror/$PROTOCOL/directory || mirror_error=1
 		DIRECTORY="$RET"
 
-		COMPONENTS="main"
+		db_get mirror/components
+		if [ -n "$RET" ]; then
+		    COMPONENTS="$RET"
+		else
+		    COMPONENTS="main"
+		fi
 
 		if [ "$mirror_error" = 1 ] || [ -z "$PROTOCOL" ] || [ -z "$MIRROR" ]; then
 			exit_error base-installer/cannot_install
