@@ -112,9 +112,11 @@ check_target () {
 	fi
 
 	# Undo dev bind mounts for idempotency.
-	if grep -qE '^[^ ]+ /target/dev' /proc/mounts; then
-		umount /target/dev
-	fi
+	for mnt in proc sys dev; do
+	    if grep -qE "^[^ ]+ /target/$mnt" /proc/mounts; then
+		umount /target/mnt
+	    fi
+	done
 	# Unmount /dev/.static/dev if mounted on same device as /target
 	mp_stdev=$(grep -E '^[^ ]+ /dev/\.static/dev' /proc/mounts | \
 		   cut -d" " -f1)
@@ -131,6 +133,11 @@ setup_dev_linux () {
 	mount --bind /target/dev /dev/.static/dev
 	# Mirror device nodes in D-I environment to target
 	mount --bind /dev /target/dev/
+
+	# Mount /proc and /sys to make sure that grub-probe works
+	# (might only be nessesary for zfs-grub).
+	mount --bind /proc /target/proc
+	mount --bind /sys /target/sys
 }
 
 setup_dev_kfreebsd() {
