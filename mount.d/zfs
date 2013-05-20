@@ -20,16 +20,8 @@ case $type in
 	    log_exec zfs set mountpoint=/${mp#/} ${fs#/dev/zvol/}
 	else
 	    # ZFS
-	    if [ "$mp" = "/var" ]; then
-		# NOTE: !!! DANGEROUS !!!
-		# /lib/partman/finish.d/20mount_partitions creates '/target/var/{lock,run}'
-		# and ZFS don't do overlay mounts by default. And it might not be a
-		# good idea to do one here - the mount might (will?) fail at next boot.
-		rm -Rvf /target/var
-	    fi
-
-	    log_exec zfs set mountpoint=$mp $fs
-	    log_exec zfs mount $fs
+	    [ ! -d "/target/$mp" ] && mkdir -p "/target/$mp"
+	    log_exec mount -t zfs $fs /target/$mp
 	fi
 	exit 0
 	;;

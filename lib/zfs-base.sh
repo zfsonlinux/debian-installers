@@ -283,14 +283,14 @@ lv_create() {
 # Create a FS
 fs_create() {
     local fs=$1
+    local code
 
-    zfs create $fs || code=$?
-    if [ "$code" -eq 0 ]; then
-	logger -t partman-zfs "created $fs"
-    else
+    zfs create -o mountpoint=none $fs ; code=$?
+    if [ "$code" -ne 0 ]; then
 	logger -t partman-zfs "ERROR: create $fs failed"
+    else
+	logger -t partman-zfs "Create $fs succeeded"
     fi
-
     return $code
 }
 
@@ -298,8 +298,8 @@ fs_create() {
 fs_check_exists() {
     local fs=$1
 
-    zfs list -H -o name $fs || code=$?
-    return $code
+    zfs list -H -o name $fs > /dev/null 2>&1
+    return $?
 }
 
 # Delete a LV
@@ -626,28 +626,30 @@ create_bootfs() {
 	local code subfs
 
 	if ! fs_check_exists $pool/ROOT; then
-	    if fs_create $pool/ROOT; then
+	    if ! fs_create $pool/ROOT; then
 		# ERROR: Can't create FS! Why not!?
 		return
 	    fi
-	    zfs set mountpoint=none $pool/ROOT
 	fi
 
 	if ! fs_check_exists $pool/ROOT/$fs; then
-	    if fs_create $pool/ROOT/$fs; then
+	    if ! fs_create $pool/ROOT/$fs; then
 		# ERROR: Can't create FS! Why not!?
 		return
 	    fi
 	    zfs set mountpoint=/ $pool/ROOT/$fs
 
 	    zpool set bootfs=$pool/ROOT/$fs $pool
-	    db_set partman-zfs/bootfs $pool/ROOT/$fs
-	    logger -t partman-zfs "set bootfs=$pool/ROOT/$fs on $pool success"
+	    if [ "$?" -eq 0 ]; then
+		db_set partman-zfs/bootfs $pool/ROOT/$fs
+		logger -t partman-zfs "set bootfs=$pool/ROOT/$fs on $pool success"
+	    else
+		logger -t partman-zfs "set bootfs=$pool/ROOT/$fs on $pool FAILED"
+	    fi
 
-	    for subfs in boot home var; do
-		if ! fs_create $pool/ROOT/$fs/$subfs; then
-		    zfs set mountpoint=/$subfs $pool/ROOT/$fs/$subfs
-		    logger -t partman-zfs "$pool/ROOT/$fs/$subfs created"
+	    for subfs in boot home var usr; do
+		if fs_create $pool/ROOT/$fs/$subfs; then
+		    log-output -t partman-zfs zfs set mountpoint=legacy $pool/ROOT/$fs/$subfs
 		fi
 	    done
 	else
@@ -656,9 +658,74 @@ create_bootfs() {
 	    db_set partman-zfs/bootfs $pool/ROOT/$fs
 	fi
 
-	# NOTE: Doesn't seem to work...
-	db_subst partman-basicfilesystems/progress_formatting_mountable \
-	    MOUNT_POINT "/" TYPE "zfs" PARTITION "" DEVICE "$pool/ROOT/$fs"
-	db_subst partman/text/confirm_item \
-	    TYPE "zfs" PARTITION "" DEVICE "$pool/ROOT/$fs"
+	vg_get_info $pool # SIZE in MB..
+
+# This needs changes in parted to treat a ZFS as a device.
+#	create_disk "$pool" "Z File System Dataset" "$SIZE"
+}
+
+dev_to_devdir () {
+	echo $DEVICES/$(echo $1 | tr / =)
+}
+
+create_disk () {
+	device=$1
+	model=$2
+	size=$3
+
+	devdir=$(dev_to_devdir $device)
+	mkdir $devdir || return 1
+	cd $devdir
+
+	echo $device > $devdir/device
+	echo $model > $devdir/model
+	echo $size > $devdir/size
+
+	open_dialog OPEN $device ## NOTE: Fails if (when) $device != block device.
+	read_line response
+	close_dialog
+	if [ "$response" = failed ]; then
+		rm -rf $devdir
+		return 1
+	fi
+
+	return 0
+}
+
+create_partition () {
+	local id num size type fs path name free_space free_size filesystem
+	filesystem=$2
+
+	cd $(dev_to_devdir $1)
+
+	open_dialog NEW_LABEL loop
+	close_dialog
+
+	# find the free space
+	open_dialog PARTITIONS
+	free_space=''
+	while { read_line num id size type fs path name; [ "$id" ]; }; do
+		if [ "$fs" = free ]; then
+			free_space=$id
+			free_size=$size
+			# we can't break here
+		fi
+	done
+	close_dialog
+
+	# create partition in the free space
+	if [ "$free_space" ]; then
+		open_dialog NEW_PARTITION primary $filesystem $free_space full $free_size
+		read_line num id size type fs path name
+		close_dialog
+		if [ -z "$id" ]; then
+			log "error: NEW_PARTITION returned no id"
+			return
+		fi
+	fi
+	open_dialog DISK_UNCHANGED
+	close_dialog
+
+	mkdir -p $id
+	echo $id
 }

@@ -32,21 +32,18 @@ for dev in $DEVICES/*; do
 	close_dialog
 done
 
-local vg lv val mp
+# NOTE: This won't work if filesystems isn't created in tree format.
+local vg lv val mp rootfs
 for vg in $(vg_list); do
-    val=`get_vg_value $vg bootfs`
-    if [ "$val" != "unset" ]; then
-	for lv in $(lv_list $vg); do
-	    val=`get_lv_value $lv mountpoint`
-	    if [ "$val" != "unset" ]; then
-		if echo "$val" | grep -Eq '^/target'; then
-		    mp=`echo "$val/" | sed -e 's/\/target//' -e 's/\/$//'`
-		    [ -z "$mp" ] && mp="/"
-
-		    # fs mp type options dump pass
-		    echo "$lv $mp zfs - - -"
+	for lv in $(vg_list_lvs $vg); do
+		val=`get_lv_value $lv mountpoint`
+		if [ "$val" = "/" -o "$val" = "/target" ]; then
+			# This is the root FS.
+			rootfs=$lv
+			echo "$lv / zfs defaults 0 0"
+		elif [ "$val" = "legacy" -a -n "$rootfs" ]; then
+			mp=$(echo "$lv" | sed "s@$rootfs@@")
+			[ -n "$mp" ] && echo "$lv $mp zfs defaults 0 0"
 		fi
-	    fi
 	done
-    fi
 done
