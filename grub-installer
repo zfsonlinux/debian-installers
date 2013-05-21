@@ -151,7 +151,7 @@ update_grub () {
 }
 
 findfs () {
-	if ! grub_probe -t device $1; then
+	if ! grub_probe -t device $1 | head -n1; then
 		mount | grep "on $ROOT${1%/} " | tail -n1 | cut -d' ' -f1
 	fi
 }
