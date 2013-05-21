@@ -949,7 +949,8 @@ db_progress INFO grub-installer/progress/step_config_loader
 if [ "$bootfstype" = "zfs" ] || [ "$rootfstype" = "zfs" ] ; then
 	# Required by update-grub on ZFS
 	mkdir -p $ROOT/boot/zfs
-	cp /boot/zfs/zpool.cache $ROOT/boot/zfs/
+	cp -r /boot/zfs $ROOT/boot
+	[ -f "/etc/hostid" -a ! -f "$ROOT/etc/hostid" ] && cp /etc/hostid $ROOT/etc/hostid
 fi
 
 # Delete for idempotency
