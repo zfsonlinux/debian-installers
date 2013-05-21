@@ -13,6 +13,25 @@ log_exec() {
 	log-output -t partman-zfs --pass-stdout $* || exit 1
 }
 
+# Check if /usr is on a separate filesystem.
+# The initrd mounts the root fs using zfs (and libs)
+# on the initrd. But when 'mount remaining fs' runs,
+# then /usr/lib doesn't exist and therefor filesystems
+# can't be mounted...
+check_separate_usr_fs() {
+	local vg lv val mp rootfs
+	for vg in $(vg_list); do
+		for lv in $(vg_list_lvs $vg); do
+			val=`get_lv_value $lv mountpoint`
+			if [ "$val" = "/usr" -o "$val" = "/target/usr" ]; then
+				return 1
+			fi
+		done
+	done
+
+	return 0
+}
+
 case $type in
     zfs)
 	if echo "$fs" | grep -Eq '^/'; then
@@ -21,6 +40,13 @@ case $type in
 	else
 	    # ZFS
 	    [ ! -d "/target/$mp" ] && mkdir -p "/target/$mp"
+
+	    if [ "$fs" = "/usr" -o "$fs" = "/target/usr" ] &&
+		$(check_separate_usr_fs)
+	    then
+		cp -r /usr/lib /target/usr
+	    fi
+
 	    log_exec mount -t zfs $fs /target/$mp
 	fi
 	exit 0
