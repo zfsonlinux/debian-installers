@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer_packages_po_sublevel1_is\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2012-01-01 22:50+0000\n"
+"POT-Creation-Date: 2013-05-21 22:05+0000\n"
 "PO-Revision-Date: 2012-04-06 10:43+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
@@ -47,7 +47,7 @@ msgstr ""
 #. :sl4:
 #. keep it short (ideally a 3-letter acronym)
 #: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
-#: ../partman-zfs.templates:19001
+#: ../partman-zfs.templates:20001
 msgid "zfs"
 msgstr "zfs"
 
@@ -235,6 +235,16 @@ msgstr "Búa til sýndardisk"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
+#, fuzzy
+msgid "Create root filesystem"
+msgstr "Búa til %s skráakerfi"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:15001
 msgid "Delete logical volume"
 msgstr "Eyða sýndardiski"
 
@@ -243,14 +253,14 @@ msgstr "Eyða sýndardiski"
 #. :sl4:
 #. Menu entry
 #. Use infinitive form
-#: ../partman-zfs.templates:15001
+#: ../partman-zfs.templates:16001
 msgid "Finish"
 msgstr "Enda"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:16001
+#: ../partman-zfs.templates:17001
 #, fuzzy
 msgid "Write the changes to disk and configure ZFS?"
 msgstr "Rita breytingar á diska og setja upp LVM sýndardiskstjóra?"
@@ -258,7 +268,7 @@ msgstr "Rita breytingar á diska og setja upp LVM sýndardiskstjóra?"
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:16001
+#: ../partman-zfs.templates:17001
 #, fuzzy
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
@@ -270,7 +280,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:16001
+#: ../partman-zfs.templates:17001
 #, fuzzy
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
@@ -286,7 +296,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:17001
+#: ../partman-zfs.templates:18001
 #, fuzzy
 msgid "ZFS configuration failure"
 msgstr "Stilling LVM sýndardiskstjóra mistókst"
@@ -294,14 +304,14 @@ msgstr "Stilling LVM sýndardiskstjóra mistókst"
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:17001
+#: ../partman-zfs.templates:18001
 msgid "An error occurred while writing the changes to the disks."
 msgstr "Villa kom upp við ritun breytinganna á diskana."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:17001
+#: ../partman-zfs.templates:18001
 #, fuzzy
 msgid "ZFS configuration has been aborted."
 msgstr "Hætt hefur verið við uppsetninguna."
@@ -309,7 +319,7 @@ msgstr "Hætt hefur verið við uppsetninguna."
 #. Type: text
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:18001
+#: ../partman-zfs.templates:19001
 #, fuzzy
 msgid "physical volume for ZFS"
 msgstr "rauneintak fyrir LVM sýndardiskastjórann"
@@ -317,7 +327,7 @@ msgstr "rauneintak fyrir LVM sýndardiskastjórann"
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:20001
+#: ../partman-zfs.templates:21001
 #, fuzzy
 msgid "ZFS configuration action:"
 msgstr "Stilliaðgerð fyrir sýndardiskastjóra (LVM):"
@@ -325,7 +335,7 @@ msgstr "Stilliaðgerð fyrir sýndardiskastjóra (LVM):"
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:20001
+#: ../partman-zfs.templates:21001
 #, fuzzy
 msgid "Summary of current ZFS configuration:"
 msgstr "Ágrip af núgildandi uppsetningu sýndardiskastjóra (LVM):"
@@ -333,13 +343,14 @@ msgstr "Ágrip af núgildandi uppsetningu sýndardiskastjóra (LVM):"
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:20001
+#: ../partman-zfs.templates:21001
 #, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
 " ZFS pools:              ${VGS}\n"
-" ZFS logical volumes:    ${LVS}"
+" ZFS logical volumes:    ${LVS}\n"
+" ${BOOTFS}"
 msgstr ""
 " Laus rauneintök: ${FREE_PVS}\n"
 " Notuð rauneintök: ${USED_PVS}\n"
@@ -349,7 +360,7 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:21001
+#: ../partman-zfs.templates:22001
 #, fuzzy
 msgid "Current ZFS configuration:"
 msgstr "Núgildandi stillingar LVM sýndardiskastjóra:"
@@ -357,7 +368,7 @@ msgstr "Núgildandi stillingar LVM sýndardiskastjóra:"
 #. Type: multiselect
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:22001
+#: ../partman-zfs.templates:23001
 #, fuzzy
 msgid "Devices for the new ZFS pool:"
 msgstr "Tæki í nýja sýndardiskinn:"
@@ -365,7 +376,7 @@ msgstr "Tæki í nýja sýndardiskinn:"
 #. Type: multiselect
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:22001
+#: ../partman-zfs.templates:23001
 #, fuzzy
 msgid "Please select devices for the new ZFS pool."
 msgstr "Veldu tæki í nýja sýndardiskinn."
@@ -373,14 +384,14 @@ msgstr "Veldu tæki í nýja sýndardiskinn."
 #. Type: multiselect
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:22001
+#: ../partman-zfs.templates:23001
 msgid "You can select one or more devices."
 msgstr "Þú getur valið eitt eða fleiri tæki."
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:23001
+#: ../partman-zfs.templates:24001
 #, fuzzy
 msgid "Multidisk mode for this ZFS pool:"
 msgstr "Tæki í nýja sýndardiskinn:"
@@ -388,7 +399,7 @@ msgstr "Tæki í nýja sýndardiskinn:"
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:23001
+#: ../partman-zfs.templates:24001
 msgid ""
 "Please choose the mode for multidisk operations for this ZFS pool:\n"
 " * Striped: similar to RAID 0 (default) - data is spread across the\n"
@@ -402,14 +413,14 @@ msgstr ""
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:24001
+#: ../partman-zfs.templates:25001
 msgid "Parity level for RAID-Z:"
 msgstr ""
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:24001
+#: ../partman-zfs.templates:25001
 msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
@@ -418,14 +429,14 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:25001
+#: ../partman-zfs.templates:26001
 msgid "ZFS pool name:"
 msgstr ""
 
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:25001
+#: ../partman-zfs.templates:26001
 #, fuzzy
 msgid "Please enter the name you would like to use for the new ZFS pool."
 msgstr "Sláðu inn það heiti sem þú kýst fyrir nýja rökeintakið."
@@ -433,14 +444,14 @@ msgstr "Sláðu inn það heiti sem þú kýst fyrir nýja rökeintakið."
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:26001
+#: ../partman-zfs.templates:27001
 msgid "No physical volumes selected"
 msgstr "Engin rauneintök voru valin"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:26001
+#: ../partman-zfs.templates:27001
 #, fuzzy
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
@@ -452,14 +463,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:27001
+#: ../partman-zfs.templates:28001
 msgid "No ZFS pool name"
 msgstr ""
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:27001
+#: ../partman-zfs.templates:28001
 #, fuzzy
 msgid "No name for the ZFS pool has been entered. Please enter a name."
 msgstr "Sýndardisknum hefur ekki verið gefið neitt nafn. Sláðu inn heiti."
@@ -467,7 +478,7 @@ msgstr "Sýndardisknum hefur ekki verið gefið neitt nafn. Sláðu inn heiti."
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:28001
+#: ../partman-zfs.templates:29001
 #, fuzzy
 msgid "ZFS pool name already in use"
 msgstr "Heiti sýndardisks þegar í notkun"
@@ -475,7 +486,7 @@ msgstr "Heiti sýndardisks þegar í notkun"
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:28001
+#: ../partman-zfs.templates:29001
 #, fuzzy
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
@@ -485,7 +496,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:29001
+#: ../partman-zfs.templates:30001
 #, fuzzy
 msgid "Error while creating ZFS pool"
 msgstr "Villa kom upp við að búa til nýtt rökeintak"
@@ -493,7 +504,7 @@ msgstr "Villa kom upp við að búa til nýtt rökeintak"
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:29001
+#: ../partman-zfs.templates:30001
 #, fuzzy
 msgid "The ZFS pool ${VG} could not be created."
 msgstr "Ekki var hægt að búa til sýndardiskinn ${VG}."
@@ -507,8 +518,8 @@ msgstr "Ekki var hægt að búa til sýndardiskinn ${VG}."
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:29001 ../partman-zfs.templates:40001
-#: ../partman-zfs.templates:44001
+#: ../partman-zfs.templates:30001 ../partman-zfs.templates:41001
+#: ../partman-zfs.templates:45001
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
 "Skoðaðu skránna /var/log/syslog, eða skipanalínu (virtual console) 4 fyrir "
@@ -517,7 +528,7 @@ msgstr ""
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:30001
+#: ../partman-zfs.templates:31001
 #, fuzzy
 msgid "ZFS pool to delete:"
 msgstr "Sýndardiskur sem á að eyða:"
@@ -525,7 +536,7 @@ msgstr "Sýndardiskur sem á að eyða:"
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:30001
+#: ../partman-zfs.templates:31001
 #, fuzzy
 msgid "Please select the ZFS pool you wish to delete."
 msgstr "Veldu sýndardiskinn sem þú vilt eyða."
@@ -533,14 +544,14 @@ msgstr "Veldu sýndardiskinn sem þú vilt eyða."
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:31001
+#: ../partman-zfs.templates:32001
 msgid "No ZFS pool"
 msgstr ""
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:31001
+#: ../partman-zfs.templates:32001
 #, fuzzy
 msgid "No ZFS pool has been found."
 msgstr "Enginn sýndardiskur hefur fundist."
@@ -548,7 +559,7 @@ msgstr "Enginn sýndardiskur hefur fundist."
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:31001
+#: ../partman-zfs.templates:32001
 #, fuzzy
 msgid "The ZFS pool may have already been deleted."
 msgstr "Hugsanlega hefur sýndardisknum þegar verið eytt."
@@ -556,7 +567,7 @@ msgstr "Hugsanlega hefur sýndardisknum þegar verið eytt."
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:32001
+#: ../partman-zfs.templates:33001
 #, fuzzy
 msgid "Really delete the ZFS pool?"
 msgstr "Á virkilega að eyða sýndardisknum?"
@@ -564,14 +575,14 @@ msgstr "Á virkilega að eyða sýndardisknum?"
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:32001
+#: ../partman-zfs.templates:33001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
 msgstr ""
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:33001
+#: ../partman-zfs.templates:34001
 #, fuzzy
 msgid "Error while deleting ZFS pool"
 msgstr "Villa við eyðingu sýndardisks"
@@ -579,7 +590,7 @@ msgstr "Villa við eyðingu sýndardisks"
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:33001
+#: ../partman-zfs.templates:34001
 #, fuzzy
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
@@ -591,7 +602,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:34001
+#: ../partman-zfs.templates:35001
 #, fuzzy
 msgid "No ZFS pool found"
 msgstr "Engar disksneiðar fundust"
@@ -599,7 +610,7 @@ msgstr "Engar disksneiðar fundust"
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:34001
+#: ../partman-zfs.templates:35001
 #, fuzzy
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
@@ -611,28 +622,28 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:35001
+#: ../partman-zfs.templates:36001
 msgid "Logical volume name:"
 msgstr "Heiti rökeintaks:"
 
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:35001
+#: ../partman-zfs.templates:36001
 msgid "Please enter the name you would like to use for the new logical volume."
 msgstr "Sláðu inn það heiti sem þú kýst fyrir nýja rökeintakið."
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:36001
+#: ../partman-zfs.templates:37001
 msgid "ZFS pool:"
 msgstr ""
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:36001
+#: ../partman-zfs.templates:37001
 #, fuzzy
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
@@ -641,14 +652,14 @@ msgstr "Veldu sýndardiskinn þar sem búa á til nýja rökeintakið."
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:37001
+#: ../partman-zfs.templates:38001
 msgid "No logical volume name entered"
 msgstr "Ekkert heiti á rökeintaki var slegið inn"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:37001
+#: ../partman-zfs.templates:38001
 msgid "No name for the logical volume has been entered. Please enter a name."
 msgstr ""
 "Ekkert heiti hefur verið slegið inn fyrir rökeintakið. Sláðu inn heiti."
@@ -659,14 +670,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:38001 ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:39001 ../partman-zfs.templates:41001
 msgid "Error while creating a new logical volume"
 msgstr "Villa kom upp við að búa til nýtt rökeintak"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:38001
+#: ../partman-zfs.templates:39001
 #, fuzzy
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
@@ -677,14 +688,14 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:39001
+#: ../partman-zfs.templates:40001
 msgid "Logical volume size:"
 msgstr "Stærð rökeintaks:"
 
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:39001
+#: ../partman-zfs.templates:40001
 msgid ""
 "Please enter the size of the new logical volume. The size may be entered in "
 "the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
@@ -697,7 +708,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:41001
 msgid ""
 "Unable to create a new logical volume (${LV}) on ${VG} with the new size "
 "${SIZE}."
@@ -706,63 +717,63 @@ msgstr "Gat ekki búið til nýtt rökeintak (${LV}) á ${VG} af stærðinni ${S
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:41001
+#: ../partman-zfs.templates:42001
 msgid "No logical volume found"
 msgstr "Engin rökeintök fundust"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:41001
+#: ../partman-zfs.templates:42001
 msgid "No logical volume has been found. Please create a logical volume first."
 msgstr "Ekkert rökeintak fannst. Búðu fyrst til rökeintak."
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:42001
+#: ../partman-zfs.templates:43001
 msgid "Logical volume:"
 msgstr "Rökeintak:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:42001
+#: ../partman-zfs.templates:43001
 msgid "Please select the logical volume to delete."
 msgstr "Veldu rökeintakið sem á að eyða."
 
 #. Type: text
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:43001
+#: ../partman-zfs.templates:44001
 msgid "in VG ${VG}"
 msgstr "á sýndardiski ${VG}"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:44001
+#: ../partman-zfs.templates:45001
 msgid "Error while deleting the logical volume"
 msgstr "Villa við eyðingu rökeintaksins"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:44001
+#: ../partman-zfs.templates:45001
 msgid "The logical volume ${LV} on ${VG} could not be deleted."
 msgstr "Ekki var hægt að eyða rökeintakinu (${LV}) á ${VG}."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:45001
+#: ../partman-zfs.templates:46001
 msgid "No usable physical volumes found"
 msgstr "Engin nothæf rauneintök (diskar/disksneiðar) fundust"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:45001
+#: ../partman-zfs.templates:46001
 #, fuzzy
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
@@ -776,7 +787,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:46001
+#: ../partman-zfs.templates:47001
 #, fuzzy
 msgid "ZFS not available"
 msgstr "Hugbúnaðar-RAID er ekki tiltækt"
@@ -784,7 +795,7 @@ msgstr "Hugbúnaðar-RAID er ekki tiltækt"
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:46001
+#: ../partman-zfs.templates:47001
 #, fuzzy
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
@@ -795,21 +806,21 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:47001
+#: ../partman-zfs.templates:48001
 #, fuzzy
-msgid "Invalid logical volume or ZFS pool name"
+msgid "Invalid logical volume, ZFS pool name or ZFS filesystem name"
 msgstr "Ógilt nafn rökeintaks eða sýndardisks"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:47001
+#: ../partman-zfs.templates:48001
 #, fuzzy
 msgid ""
-"Logical volume or ZFS pool names may only contain alphanumeric characters, "
-"hyphen, colon, period, and underscore. They must be 255 characters or less "
-"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
-"\", \"spare\", and \"log\" are not allowed."
+"Logical volumes, ZFS pool names and ZFS filesystems may only contain "
+"alphanumeric characters, hyphen, colon, period, and underscore. They must be "
+"255 characters or less and must begin with an alphanumeric character. The "
+"names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
 "Nöfn rökeintaka eða sýndardiska mega aðeins innihalda bókstafi og tölustafi, "
 "bandstrik, plús, punkt og undirstrik. Íslenskir stafir eru ekki leyfðir. Þau "
@@ -820,21 +831,21 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:47001
+#: ../partman-zfs.templates:48001
 msgid "Please choose a different name."
 msgstr "Notaðu annað nafn."
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid "Remove existing logical volume data?"
 msgstr "Eyða núverandi gögnum um rökeintök?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 #, fuzzy
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
@@ -846,7 +857,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 #, fuzzy
 msgid "Logical volume(s): ${LVTARGETS}"
 msgstr "Rökeintak eða rökeintök sem á að fjarlægja: ${LVTARGETS}"
@@ -854,14 +865,14 @@ msgstr "Rökeintak eða rökeintök sem á að fjarlægja: ${LVTARGETS}"
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid "ZFS pool(s): ${VGTARGETS}"
 msgstr ""
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid ""
 "Note that this will also permanently erase any data currently on the logical "
 "volumes."
@@ -871,14 +882,14 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid "ZFS"
 msgstr ""
 
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 #, fuzzy
 msgid ""
 "A common situation for system administrators is to find that some disk "
@@ -892,7 +903,7 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 #, fuzzy
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
@@ -913,7 +924,7 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 #, fuzzy
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
@@ -924,3 +935,60 @@ msgstr ""
 "Atriðin á LVM stillingavalmyndinni má nota til að sýsla með sýndardiska og "
 "rökeintök. Þegar farið er til baka í disksneiðastjórann, verða rökeintök "
 "birt eins og venjulegar disksneiðar og ætti að umgangast sem slíkar."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:51001
+msgid "Select pool to modify:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:52001
+msgid "ZFS boot fs name:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:52001
+#, fuzzy
+msgid "Please enter the name of the boot fs."
+msgstr "Sláðu inn heiti þessarar vélar."
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:52001
+msgid ""
+"This will be prefixed by ${VG}/ROOT and mounted as your root file system. "
+"${FOUND_EXISTING_FS}"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:53001
+#, fuzzy
+msgid "No filesystem name entered"
+msgstr "Ekkert skráarkerfi var tengt við /target"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:53001
+#, fuzzy
+msgid "No name for the root filesystem has been entered. Please enter a name."
+msgstr "Sýndardisknum hefur ekki verið gefið neitt nafn. Sláðu inn heiti."
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:54001
+msgid "ZFS boot fs"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../partman-zfs.templates:55001
+#, fuzzy
+msgid "Loading ZFS module..."
+msgstr "Skrái kjarnaeiningar..."

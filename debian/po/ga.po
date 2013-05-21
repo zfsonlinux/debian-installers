@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2012-01-01 22:50+0000\n"
-"PO-Revision-Date: 2012-04-05 20:47+0200\n"
-"Last-Translator: Kevin Patrick Scannell <kscanne@gmail.com>\n"
+"POT-Creation-Date: 2013-05-21 22:05+0000\n"
+"PO-Revision-Date: 2006-03-21 14:42-0500\n"
+"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
 "Language: ga\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgstr ""
 #. :sl4:
 #. keep it short (ideally a 3-letter acronym)
 #: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
-#: ../partman-zfs.templates:19001
+#: ../partman-zfs.templates:20001
 msgid "zfs"
 msgstr "zfs"
 
@@ -241,6 +241,16 @@ msgstr "Cruthaigh imleabhar loighciúil"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
+#, fuzzy
+msgid "Create root filesystem"
+msgstr "Cruthaigh córas comhad %s"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:15001
 msgid "Delete logical volume"
 msgstr "Scrios imleabhar loighciúil"
 
@@ -249,14 +259,14 @@ msgstr "Scrios imleabhar loighciúil"
 #. :sl4:
 #. Menu entry
 #. Use infinitive form
-#: ../partman-zfs.templates:15001
+#: ../partman-zfs.templates:16001
 msgid "Finish"
 msgstr "Críochnaigh"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:16001
+#: ../partman-zfs.templates:17001
 msgid "Write the changes to disk and configure ZFS?"
 msgstr ""
 "An bhfuil fonn ort na hathruithe a scríobh ar an diosca agus ZFS a chumrú?"
@@ -264,7 +274,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:16001
+#: ../partman-zfs.templates:17001
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
@@ -275,7 +285,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:16001
+#: ../partman-zfs.templates:17001
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
@@ -289,54 +299,56 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:17001
+#: ../partman-zfs.templates:18001
 msgid "ZFS configuration failure"
 msgstr "Theip ar chumraíocht ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:17001
+#: ../partman-zfs.templates:18001
 msgid "An error occurred while writing the changes to the disks."
 msgstr "Tharla earráid agus na hathruithe á scríobh ar an diosca."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:17001
+#: ../partman-zfs.templates:18001
 msgid "ZFS configuration has been aborted."
 msgstr "Tobscoireadh an chumraíocht ZFS."
 
 #. Type: text
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:18001
+#: ../partman-zfs.templates:19001
 msgid "physical volume for ZFS"
 msgstr "imleabhar fisiceach le haghaidh ZFS"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:20001
+#: ../partman-zfs.templates:21001
 msgid "ZFS configuration action:"
 msgstr "Gníomh cumraíochta ZFS:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:20001
+#: ../partman-zfs.templates:21001
 msgid "Summary of current ZFS configuration:"
 msgstr "Achoimre ar an gcumraíocht reatha ZFS:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:20001
+#: ../partman-zfs.templates:21001
+#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
 " ZFS pools:              ${VGS}\n"
-" ZFS logical volumes:    ${LVS}"
+" ZFS logical volumes:    ${LVS}\n"
+" ${BOOTFS}"
 msgstr ""
 " Imleabhair shaora fhisiceacha:   ${FREE_PVS}\n"
 " Imleabhair úsáidte fhisiceacha:  ${USED_PVS}\n"
@@ -346,42 +358,42 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:21001
+#: ../partman-zfs.templates:22001
 msgid "Current ZFS configuration:"
 msgstr "Cumraíocht reatha ZFS:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:22001
+#: ../partman-zfs.templates:23001
 msgid "Devices for the new ZFS pool:"
 msgstr "Gléasanna don linn nua ZFS:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:22001
+#: ../partman-zfs.templates:23001
 msgid "Please select devices for the new ZFS pool."
 msgstr "Roghnaigh na gléasanna is mian leat cur leis an linn nua ZFS."
 
 #. Type: multiselect
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:22001
+#: ../partman-zfs.templates:23001
 msgid "You can select one or more devices."
 msgstr "Is féidir leat gléas nó gléasanna a roghnú."
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:23001
+#: ../partman-zfs.templates:24001
 msgid "Multidisk mode for this ZFS pool:"
 msgstr "Mód il-diosca don linn ZFS seo:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:23001
+#: ../partman-zfs.templates:24001
 msgid ""
 "Please choose the mode for multidisk operations for this ZFS pool:\n"
 " * Striped: similar to RAID 0 (default) - data is spread across the\n"
@@ -402,14 +414,14 @@ msgstr ""
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:24001
+#: ../partman-zfs.templates:25001
 msgid "Parity level for RAID-Z:"
 msgstr "Leibhéal paireachta le haghaidh RAID-Z:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:24001
+#: ../partman-zfs.templates:25001
 msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
@@ -420,28 +432,28 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:25001
+#: ../partman-zfs.templates:26001
 msgid "ZFS pool name:"
 msgstr "Ainm na linne ZFS:"
 
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:25001
+#: ../partman-zfs.templates:26001
 msgid "Please enter the name you would like to use for the new ZFS pool."
 msgstr "Cuir isteach an t-ainm is mian leat tabhairt ar an linn nua ZFS."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:26001
+#: ../partman-zfs.templates:27001
 msgid "No physical volumes selected"
 msgstr "Níor roghnaíodh aon imleabhair fhisiceacha"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:26001
+#: ../partman-zfs.templates:27001
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
@@ -451,28 +463,28 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:27001
+#: ../partman-zfs.templates:28001
 msgid "No ZFS pool name"
 msgstr "Linn ZFS gan ainm"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:27001
+#: ../partman-zfs.templates:28001
 msgid "No name for the ZFS pool has been entered. Please enter a name."
 msgstr "Níor tugadh ainm ar an linn ZFS. Tabhair uait ainm, le do thoil."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:28001
+#: ../partman-zfs.templates:29001
 msgid "ZFS pool name already in use"
 msgstr "Tá linn ZFS leis an ainm seo ann cheana"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:28001
+#: ../partman-zfs.templates:29001
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
 msgstr ""
@@ -482,14 +494,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:29001
+#: ../partman-zfs.templates:30001
 msgid "Error while creating ZFS pool"
 msgstr "Earráid agus linn ZFS á cruthú"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:29001
+#: ../partman-zfs.templates:30001
 msgid "The ZFS pool ${VG} could not be created."
 msgstr "Níorbh fhéidir linn ZFS ${VG} a chruthú."
 
@@ -502,8 +514,8 @@ msgstr "Níorbh fhéidir linn ZFS ${VG} a chruthú."
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:29001 ../partman-zfs.templates:40001
-#: ../partman-zfs.templates:44001
+#: ../partman-zfs.templates:30001 ../partman-zfs.templates:41001
+#: ../partman-zfs.templates:45001
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
 "Seiceáil /var/log/syslog nó féach ar chonsól fíorúil 4 le tuilleadh eolais a "
@@ -512,63 +524,63 @@ msgstr ""
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:30001
+#: ../partman-zfs.templates:31001
 msgid "ZFS pool to delete:"
 msgstr "Linn ZFS le scriosadh:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:30001
+#: ../partman-zfs.templates:31001
 msgid "Please select the ZFS pool you wish to delete."
 msgstr "Roghnaigh an linn ZFS is mian leat a scriosadh."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:31001
+#: ../partman-zfs.templates:32001
 msgid "No ZFS pool"
 msgstr "Gan linn ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:31001
+#: ../partman-zfs.templates:32001
 msgid "No ZFS pool has been found."
 msgstr "Níor aimsíodh aon linn ZFS."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:31001
+#: ../partman-zfs.templates:32001
 msgid "The ZFS pool may have already been deleted."
 msgstr "Seans gur scriosadh an linn ZFS cheana."
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:32001
+#: ../partman-zfs.templates:33001
 msgid "Really delete the ZFS pool?"
 msgstr "An bhfuil tú cinnte gur mian leat an linn ZFS a scriosadh?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:32001
+#: ../partman-zfs.templates:33001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
 msgstr "Dearbhaigh gur mhaith leat linn ZFS ${VG} a scriosadh."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:33001
+#: ../partman-zfs.templates:34001
 msgid "Error while deleting ZFS pool"
 msgstr "Earráid agus an linn ZFS á scriosadh"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:33001
+#: ../partman-zfs.templates:34001
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
@@ -579,14 +591,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:34001
+#: ../partman-zfs.templates:35001
 msgid "No ZFS pool found"
 msgstr "Níor aimsíodh aon linn ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:34001
+#: ../partman-zfs.templates:35001
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
@@ -597,14 +609,14 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:35001
+#: ../partman-zfs.templates:36001
 msgid "Logical volume name:"
 msgstr "Ainm an imleabhair loighciúil:"
 
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:35001
+#: ../partman-zfs.templates:36001
 msgid "Please enter the name you would like to use for the new logical volume."
 msgstr ""
 "Cuir isteach an t-ainm is mian leat tabhairt ar an imleabhar loighciúil nua."
@@ -612,14 +624,14 @@ msgstr ""
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:36001
+#: ../partman-zfs.templates:37001
 msgid "ZFS pool:"
 msgstr "Linn ZFS:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:36001
+#: ../partman-zfs.templates:37001
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
 msgstr ""
@@ -628,14 +640,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:37001
+#: ../partman-zfs.templates:38001
 msgid "No logical volume name entered"
 msgstr "Níor tugadh ainm ar an imleabhar loighciúil"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:37001
+#: ../partman-zfs.templates:38001
 msgid "No name for the logical volume has been entered. Please enter a name."
 msgstr ""
 "Níor tugadh ainm ar an imleabhar loighciúil.  Tabhair uait ainm le do thoil."
@@ -646,14 +658,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:38001 ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:39001 ../partman-zfs.templates:41001
 msgid "Error while creating a new logical volume"
 msgstr "Earráid agus grúpa nua imleabhar á chruthú"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:38001
+#: ../partman-zfs.templates:39001
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
@@ -664,14 +676,14 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:39001
+#: ../partman-zfs.templates:40001
 msgid "Logical volume size:"
 msgstr "Méid an imleabhair loighciúil:"
 
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:39001
+#: ../partman-zfs.templates:40001
 msgid ""
 "Please enter the size of the new logical volume. The size may be entered in "
 "the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
@@ -685,7 +697,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:41001
 msgid ""
 "Unable to create a new logical volume (${LV}) on ${VG} with the new size "
 "${SIZE}."
@@ -696,14 +708,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:41001
+#: ../partman-zfs.templates:42001
 msgid "No logical volume found"
 msgstr "Níor aimsíodh imleabhar loighciúil"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:41001
+#: ../partman-zfs.templates:42001
 msgid "No logical volume has been found. Please create a logical volume first."
 msgstr ""
 "Níor aimsíodh imleabhar loighciúil.  Cruthaigh imleabhar loighciúil i "
@@ -712,49 +724,49 @@ msgstr ""
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:42001
+#: ../partman-zfs.templates:43001
 msgid "Logical volume:"
 msgstr "Imleabhar loighciúil:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:42001
+#: ../partman-zfs.templates:43001
 msgid "Please select the logical volume to delete."
 msgstr "Roghnaigh an t-imleabhar loighciúil is mian leat a scriosadh."
 
 #. Type: text
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:43001
+#: ../partman-zfs.templates:44001
 msgid "in VG ${VG}"
 msgstr "i VG ${VG}"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:44001
+#: ../partman-zfs.templates:45001
 msgid "Error while deleting the logical volume"
 msgstr "Earráid agus an t-imleabhar loighciúil á scriosadh"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:44001
+#: ../partman-zfs.templates:45001
 msgid "The logical volume ${LV} on ${VG} could not be deleted."
 msgstr "Níorbh fhéidir imleabhar loighciúil ${LV} ar ${VG} a scriosadh."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:45001
+#: ../partman-zfs.templates:46001
 msgid "No usable physical volumes found"
 msgstr "Níor aimsíodh aon imleabhair fhisiceacha inúsáidte"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:45001
+#: ../partman-zfs.templates:46001
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
@@ -768,14 +780,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:46001
+#: ../partman-zfs.templates:47001
 msgid "ZFS not available"
 msgstr "Níl ZFS ar fáil"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:46001
+#: ../partman-zfs.templates:47001
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
 msgstr ""
@@ -784,19 +796,21 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:47001
-msgid "Invalid logical volume or ZFS pool name"
+#: ../partman-zfs.templates:48001
+#, fuzzy
+msgid "Invalid logical volume, ZFS pool name or ZFS filesystem name"
 msgstr "Imleabhar loighciúil neamhbhailí nó ainm neamhbhailí ar linn ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:47001
+#: ../partman-zfs.templates:48001
+#, fuzzy
 msgid ""
-"Logical volume or ZFS pool names may only contain alphanumeric characters, "
-"hyphen, colon, period, and underscore. They must be 255 characters or less "
-"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
-"\", \"spare\", and \"log\" are not allowed."
+"Logical volumes, ZFS pool names and ZFS filesystems may only contain "
+"alphanumeric characters, hyphen, colon, period, and underscore. They must be "
+"255 characters or less and must begin with an alphanumeric character. The "
+"names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
 "Seo iad na carachtair atá ceadaithe in ainmneacha ar imleabhair loighciúla "
 "nó ar linnte ZFS: carachtair alfauimhriúla, fleiscín, comhartha móide, ponc "
@@ -807,14 +821,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:47001
+#: ../partman-zfs.templates:48001
 msgid "Please choose a different name."
 msgstr "Roghnaigh ainm difriúil."
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid "Remove existing logical volume data?"
 msgstr ""
 "An bhfuil tú ag iarraidh na sonraí atá ar an imleabhar loighciúil a bhaint?"
@@ -822,7 +836,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
@@ -833,21 +847,21 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid "Logical volume(s): ${LVTARGETS}"
 msgstr "Imleabhair loighciúla: ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid "ZFS pool(s): ${VGTARGETS}"
 msgstr "Linn(te) ZFS: ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid ""
 "Note that this will also permanently erase any data currently on the logical "
 "volumes."
@@ -858,14 +872,14 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid "ZFS"
 msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
@@ -878,7 +892,7 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -898,7 +912,7 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
@@ -910,3 +924,62 @@ msgstr ""
 "phríomhscáileán an bhainisteora deighilte, taispeánfar imleabhair loighciúla "
 "sa tslí chéanna a thaispeántar gnáthdheighiltí, agus ba chóir duit déileáil "
 "leo mar ghnáthdheighiltí."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:51001
+msgid "Select pool to modify:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:52001
+#, fuzzy
+msgid "ZFS boot fs name:"
+msgstr "Ainm na linne ZFS:"
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:52001
+#, fuzzy
+msgid "Please enter the name of the boot fs."
+msgstr "Iontráil óstainm an chórais seo."
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:52001
+msgid ""
+"This will be prefixed by ${VG}/ROOT and mounted as your root file system. "
+"${FOUND_EXISTING_FS}"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:53001
+#, fuzzy
+msgid "No filesystem name entered"
+msgstr "Níl aon chóras comhad feistithe ar /target"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:53001
+#, fuzzy
+msgid "No name for the root filesystem has been entered. Please enter a name."
+msgstr "Níor tugadh ainm ar an linn ZFS. Tabhair uait ainm, le do thoil."
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:54001
+#, fuzzy
+msgid "ZFS boot fs"
+msgstr "Linn ZFS:"
+
+#. Type: text
+#. Description
+#: ../partman-zfs.templates:55001
+#, fuzzy
+msgid "Loading ZFS module..."
+msgstr "Modúil á gclárú..."

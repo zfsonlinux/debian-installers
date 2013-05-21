@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dDz.po\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2012-01-01 22:50+0000\n"
+"POT-Creation-Date: 2013-05-21 22:05+0000\n"
 "PO-Revision-Date: 2012-02-29 04:41-0500\n"
 "Last-Translator: Jurmey Rabgay <jrabgay@dit.gov.bt>\n"
 "Language-Team: Dzongkha <pgeyleg@dit.gov.bt>\n"
@@ -41,7 +41,7 @@ msgstr ""
 #. :sl4:
 #. keep it short (ideally a 3-letter acronym)
 #: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
-#: ../partman-zfs.templates:19001
+#: ../partman-zfs.templates:20001
 msgid "zfs"
 msgstr "zfs"
 
@@ -244,6 +244,16 @@ msgstr "གཏན་ཚིག་ཅན་གྱི་སྡེ་ཚན་གས
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
+#, fuzzy
+msgid "Create root filesystem"
+msgstr "%s ཡིག་སྣོད་རིམ་ལུགས་གསར་བསྐྲུན་འབད།"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:15001
 msgid "Delete logical volume"
 msgstr "གཏན་ཚིག་ཅན་གྱི་སྡེ་ཚན་བཏོན་གཏང་།"
 
@@ -252,21 +262,21 @@ msgstr "གཏན་ཚིག་ཅན་གྱི་སྡེ་ཚན་བཏ
 #. :sl4:
 #. Menu entry
 #. Use infinitive form
-#: ../partman-zfs.templates:15001
+#: ../partman-zfs.templates:16001
 msgid "Finish"
 msgstr "རྫོགས་ནི།"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:16001
+#: ../partman-zfs.templates:17001
 msgid "Write the changes to disk and configure ZFS?"
 msgstr "ཌིཀསི་ལུ་བསྒྱུར་བཅོས་བྲིས་ཞིནམ་ལས་ ཛེཌི་ཨེཕ་ཨེསི་ རིམ་སྒྲིག་འབད་ནི་ཨིན་ན?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:16001
+#: ../partman-zfs.templates:17001
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
@@ -277,7 +287,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:16001
+#: ../partman-zfs.templates:17001
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
@@ -291,54 +301,56 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:17001
+#: ../partman-zfs.templates:18001
 msgid "ZFS configuration failure"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ རིམ་སྒྲིག་འཐུས་ཤོར།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:17001
+#: ../partman-zfs.templates:18001
 msgid "An error occurred while writing the changes to the disks."
 msgstr "ཌིཀསི་ཚུ་གི་ནང་བསྒྱུར་བཅོས་ཚུ་འབྲིཝ་ད་འཛོལ་བ་བྱུང་ནུག།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:17001
+#: ../partman-zfs.templates:18001
 msgid "ZFS configuration has been aborted."
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ རིམ་སྒྲིག་འདི་བར་བཤོལ་བྱུང་ནུག"
 
 #. Type: text
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:18001
+#: ../partman-zfs.templates:19001
 msgid "physical volume for ZFS"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་གི་དོན་ལུ་ ཕི་སི་ཀཱལ་བོ་ལུསམ།"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:20001
+#: ../partman-zfs.templates:21001
 msgid "ZFS configuration action:"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ རིམ་སྒྲིག་བྱ་བ:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:20001
+#: ../partman-zfs.templates:21001
 msgid "Summary of current ZFS configuration:"
 msgstr "ད་ལྟོའི་ཛེཌི་ཨེཕ་ཨེསི་ རིམ་སྒྲིག་མདོར་བསྡུས:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:20001
+#: ../partman-zfs.templates:21001
+#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
 " ZFS pools:              ${VGS}\n"
-" ZFS logical volumes:    ${LVS}"
+" ZFS logical volumes:    ${LVS}\n"
+" ${BOOTFS}"
 msgstr ""
 "རང་དབང་ཕི་སི་ཀཱལ་བོ་ལུསམ་:  ${FREE_PVS}\n"
 "ལག་ལེན་འཐབ་ཡོད་པའི་ཕི་སི་ཀཱལ་བོ་ལུསམ་:  ${USED_PVS}\n"
@@ -348,42 +360,42 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:21001
+#: ../partman-zfs.templates:22001
 msgid "Current ZFS configuration:"
 msgstr "ད་ལྟོའི་ཛེཌི་ཨེཕ་ཨེསི་ རིམ་སྒྲིག་:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:22001
+#: ../partman-zfs.templates:23001
 msgid "Devices for the new ZFS pool:"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་གསརཔ་གི་དོན་ལུ་ཐབས་འཕྲུལ:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:22001
+#: ../partman-zfs.templates:23001
 msgid "Please select devices for the new ZFS pool."
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་གསརཔ་གི་དོན་ལུ་ ཐབས་འཕྲུལ་སེལ་འཐུ་འབད་གནང་།"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:22001
+#: ../partman-zfs.templates:23001
 msgid "You can select one or more devices."
 msgstr "ཁྱོད་ཀྱིས་ཐབས་འཕྲུལ་ཚུ་གཅིག་ཡང་ན་ལེ་ཤ་སེལ་འཐུ་འབད་ཚུགས།"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:23001
+#: ../partman-zfs.templates:24001
 msgid "Multidisk mode for this ZFS pool:"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་འདི་གི་དོན་ལུ་ སྣ་མང་ཌིཀསི་ནོཌི:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:23001
+#: ../partman-zfs.templates:24001
 msgid ""
 "Please choose the mode for multidisk operations for this ZFS pool:\n"
 " * Striped: similar to RAID 0 (default) - data is spread across the\n"
@@ -404,14 +416,14 @@ msgstr ""
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:24001
+#: ../partman-zfs.templates:25001
 msgid "Parity level for RAID-Z:"
 msgstr "RAID-Z གི་དོན་ལུ་ གཅིག་མཚུངས་གནས་རིམ:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:24001
+#: ../partman-zfs.templates:25001
 msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
@@ -422,28 +434,28 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:25001
+#: ../partman-zfs.templates:26001
 msgid "ZFS pool name:"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་མིང་:"
 
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:25001
+#: ../partman-zfs.templates:26001
 msgid "Please enter the name you would like to use for the new ZFS pool."
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་གསརཔ་གི་དོན་ལུ་ ལག་ལེན་འཐབ་ནི་ཨིན་པའི་མིང་བཙུགས་གནང་།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:26001
+#: ../partman-zfs.templates:27001
 msgid "No physical volumes selected"
 msgstr "དངོས་ཅན་སྐད་ཤུགས་ཚུ་སེལ་འཐུ་མ་འབད་བས།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:26001
+#: ../partman-zfs.templates:27001
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
@@ -454,28 +466,28 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:27001
+#: ../partman-zfs.templates:28001
 msgid "No ZFS pool name"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་མིང་མེད།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:27001
+#: ../partman-zfs.templates:28001
 msgid "No name for the ZFS pool has been entered. Please enter a name."
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་གྱི་མིང་མ་བཙུགས་པས། མིང་བཙུགས་གནང་།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:28001
+#: ../partman-zfs.templates:29001
 msgid "ZFS pool name already in use"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་མིང་འདི་ ཧེ་མ་ལས་ལག་ལེན་འཐབ་སྟེ་འདུག"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:28001
+#: ../partman-zfs.templates:29001
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
 msgstr ""
@@ -485,14 +497,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:29001
+#: ../partman-zfs.templates:30001
 msgid "Error while creating ZFS pool"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་གསར་བསྐྲུན་འབདཝ་ད་འཛོལ་བ།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:29001
+#: ../partman-zfs.templates:30001
 msgid "The ZFS pool ${VG} could not be created."
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་ ${VG} འདི་གསར་བསྐྲུན་འབད་མ་ཚུགས།"
 
@@ -505,71 +517,71 @@ msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་ ${VG} འད�
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:29001 ../partman-zfs.templates:40001
-#: ../partman-zfs.templates:44001
+#: ../partman-zfs.templates:30001 ../partman-zfs.templates:41001
+#: ../partman-zfs.templates:45001
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr "/var/log/syslog ཞིབ་དཔྱད་འབད་ཡང་ན་རྒྱས་བཤད་ཀྱི་དོན་ལུ་བར་ཅུ་ཡལ་མ་སྒྲོམ་༤་པ་འདི་བལྟ།"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:30001
+#: ../partman-zfs.templates:31001
 msgid "ZFS pool to delete:"
 msgstr "བཏོན་བཏང་ནིའི་ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:30001
+#: ../partman-zfs.templates:31001
 msgid "Please select the ZFS pool you wish to delete."
 msgstr "ཁྱོད་ཀྱིས་བཏོན་བཏང་ནི་ཨིན་མི་ ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་འདི་སེལ་འཐུ་འབད་གནང་།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:31001
+#: ../partman-zfs.templates:32001
 msgid "No ZFS pool"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་མེད།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:31001
+#: ../partman-zfs.templates:32001
 msgid "No ZFS pool has been found."
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་མ་ཐོབ།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:31001
+#: ../partman-zfs.templates:32001
 msgid "The ZFS pool may have already been deleted."
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་འདི་ ཧེ་མ་ལས་བཏོན་བཏང་ཡོདཔ་འོང་ནི་མས།"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:32001
+#: ../partman-zfs.templates:33001
 msgid "Really delete the ZFS pool?"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་འདི་ཐད་རི་བ་རི་བཏོན་བཏང་ནི་ཨིན་ན?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:32001
+#: ../partman-zfs.templates:33001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་པཱུལ་ ${VG} བཏོན་བཏང་ནིའི་ངེས་དཔྱད་འབད་གནང་།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:33001
+#: ../partman-zfs.templates:34001
 msgid "Error while deleting ZFS pool"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་བཏོན་བཏང་པའི་སྐབས་ལུ་འཛོལ་བ།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:33001
+#: ../partman-zfs.templates:34001
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
@@ -580,14 +592,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:34001
+#: ../partman-zfs.templates:35001
 msgid "No ZFS pool found"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་མ་ཐོབ།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:34001
+#: ../partman-zfs.templates:35001
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
@@ -598,14 +610,14 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:35001
+#: ../partman-zfs.templates:36001
 msgid "Logical volume name:"
 msgstr "གཏན་ཚིག་ཅན་གྱི་བོ་ལུསམ་མིང:"
 
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:35001
+#: ../partman-zfs.templates:36001
 msgid "Please enter the name you would like to use for the new logical volume."
 msgstr ""
 "ཁྱོད་ཀྱིས་གཏན་ཚིག་ཅན་གྱི་བོ་ལུསམ་གསརཔ་གི་དོན་ལུ་ལག་ལེན་འཐབ་ནི་ལུ་དགའ་བ་ཅིན་མིང་བཙུགས་གནང་།"
@@ -613,14 +625,14 @@ msgstr ""
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:36001
+#: ../partman-zfs.templates:37001
 msgid "ZFS pool:"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:36001
+#: ../partman-zfs.templates:37001
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
 msgstr "ལོ་ཇི་ཀཱལ་བོ་ལུསམ་གསརཔ་ཅིག་བཟོ་དགོ་སའི་ ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་སེལ་འཐུ་འབད་གནང་།"
@@ -628,14 +640,14 @@ msgstr "ལོ་ཇི་ཀཱལ་བོ་ལུསམ་གསརཔ་ཅ
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:37001
+#: ../partman-zfs.templates:38001
 msgid "No logical volume name entered"
 msgstr "གཏན་ཚིག་ཅན་གྱི་བོ་ལུསམ་མིང་ཐོ་བཀོད་མ་འབད་བས།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:37001
+#: ../partman-zfs.templates:38001
 msgid "No name for the logical volume has been entered. Please enter a name."
 msgstr "གཏན་ཚིག་ཅན་གྱི་བོ་ལུསམ་དོན་ལུ་མིང་མ་བཙུགས་པས། ་མིང་བཙུགས་ད་གནང་།"
 
@@ -645,14 +657,14 @@ msgstr "གཏན་ཚིག་ཅན་གྱི་བོ་ལུསམ་ད
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:38001 ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:39001 ../partman-zfs.templates:41001
 msgid "Error while creating a new logical volume"
 msgstr "གཏན་ཚིག་ཅན་གྱི་བོ་ལུསམ་གསརཔ་གསར་བསྐྲུན་འབདཝ་ད་འཛོལ་བ།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:38001
+#: ../partman-zfs.templates:39001
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
@@ -662,14 +674,14 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:39001
+#: ../partman-zfs.templates:40001
 msgid "Logical volume size:"
 msgstr "གཏན་ཚིག་ཅན་གྱི་བོ་ལུསམ་ཚད:"
 
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:39001
+#: ../partman-zfs.templates:40001
 msgid ""
 "Please enter the size of the new logical volume. The size may be entered in "
 "the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
@@ -682,7 +694,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:41001
 msgid ""
 "Unable to create a new logical volume (${LV}) on ${VG} with the new size "
 "${SIZE}."
@@ -693,14 +705,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:41001
+#: ../partman-zfs.templates:42001
 msgid "No logical volume found"
 msgstr "གཏན་ཚིག་ཅན་གྱི་བོ་ལུསམ་འཚོལ་མ་ཐོབ།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:41001
+#: ../partman-zfs.templates:42001
 msgid "No logical volume has been found. Please create a logical volume first."
 msgstr ""
 "གཏན་ཚིག་ཅན་གྱི་བོ་ལུསམ་འཚོལ་མ་ཐོབ། དང་པ་རང་གཏན་ཚིག་ཅན་གྱི་བོ་ལུསམ་ གསར་བསྐྲུན་འབད་གནང་།"
@@ -708,49 +720,49 @@ msgstr ""
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:42001
+#: ../partman-zfs.templates:43001
 msgid "Logical volume:"
 msgstr "གཏན་ཚིག་ཅན་གྱི་བོ་ལུསམ་:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:42001
+#: ../partman-zfs.templates:43001
 msgid "Please select the logical volume to delete."
 msgstr "བཏོན་གཏང་ནིའི་དོན་ལས་ གཏན་ཚིགས་ཅན་གྱི་བོ་ལུསམ་ སེལ་འཐུ་འབད་གནང་།"
 
 #. Type: text
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:43001
+#: ../partman-zfs.templates:44001
 msgid "in VG ${VG}"
 msgstr "ཝི་ཇི་ ${VG}ནང་།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:44001
+#: ../partman-zfs.templates:45001
 msgid "Error while deleting the logical volume"
 msgstr "གཏན་ཚིག་ཅན་གྱི་བོ་ལུསམ་བཏོན་གཏངམ་ད་འཛོལ་བ།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:44001
+#: ../partman-zfs.templates:45001
 msgid "The logical volume ${LV} on ${VG} could not be deleted."
 msgstr " ${VG}ལུ་ཡོད་མི་ གཏན་ཚིག་ཅན་གྱི་བོ་ལུསམ་(${LV})འདི་བཏོན་གཏང་མ་ཚུགས།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:45001
+#: ../partman-zfs.templates:46001
 msgid "No usable physical volumes found"
 msgstr "ལག་ལེན་འཐབ་བཏུབ་པའི་སྐད་ཤུགས་ཚུ་འཚོལ་མ་ཐོབ།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:45001
+#: ../partman-zfs.templates:46001
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
@@ -763,14 +775,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:46001
+#: ../partman-zfs.templates:47001
 msgid "ZFS not available"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་མིན་འདུག"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:46001
+#: ../partman-zfs.templates:47001
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
 msgstr ""
@@ -780,19 +792,21 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:47001
-msgid "Invalid logical volume or ZFS pool name"
+#: ../partman-zfs.templates:48001
+#, fuzzy
+msgid "Invalid logical volume, ZFS pool name or ZFS filesystem name"
 msgstr "ནུས་མེད་ལོ་ཇི་ཀཱལ་བོ་ལུསམ་ ཡང་ན་ ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་མིང་།"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:47001
+#: ../partman-zfs.templates:48001
+#, fuzzy
 msgid ""
-"Logical volume or ZFS pool names may only contain alphanumeric characters, "
-"hyphen, colon, period, and underscore. They must be 255 characters or less "
-"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
-"\", \"spare\", and \"log\" are not allowed."
+"Logical volumes, ZFS pool names and ZFS filesystems may only contain "
+"alphanumeric characters, hyphen, colon, period, and underscore. They must be "
+"255 characters or less and must begin with an alphanumeric character. The "
+"names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
 "གཏན་ཚིགས་ཅན་གྱི་བོ་ལུསམ་ ཡང་ན་ ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་གྱི་མིང་ནང་ལུ་ ཀ་ཁ་ཨང་ཡིག་གི་ཡིག་འབྲུ་ཚུ་དང་ སྦྲེལ་"
 "རྟགས་ དེ་ལས་ བསྡོམས་རྟགས་དང་དུས་ཡུན་ གཞན་ཡང་གཤམ་ཐིག་ཚུ་རྐྱངམ་ཅིག་ཡོདཔ་ཨིན། དེ་ཚུ་ལུ་ཡིག་འབྲུ་ "
@@ -802,21 +816,21 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:47001
+#: ../partman-zfs.templates:48001
 msgid "Please choose a different name."
 msgstr "མིང་སོར་སོ་ཅིག་ གདམ་ཁ་རྐྱབས།"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid "Remove existing logical volume data?"
 msgstr "ཡོད་བཞིན་པའི་ ལོ་ཇི་ཀཱལ་བོ་ལུསམ་གི་གནས་སྡུད་ རྩ་བསྐྲད་གཏང་ནི་ཨིན་ན་?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
@@ -827,21 +841,21 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid "Logical volume(s): ${LVTARGETS}"
 msgstr "ལོ་ཇི་ཀཱལ་བོ་ལུསམ་(ཚུ་): ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid "ZFS pool(s): ${VGTARGETS}"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་(ཚུ་): ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid ""
 "Note that this will also permanently erase any data currently on the logical "
 "volumes."
@@ -852,14 +866,14 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid "ZFS"
 msgstr "ཛེཌི་ཨེཕ་ཨེསི།"
 
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
@@ -872,7 +886,7 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -890,7 +904,7 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
@@ -900,3 +914,62 @@ msgstr ""
 "ཛེཌི་ཨེཕ་ཨེསི་རིམ་སྒྲིག་དཀར་ཆག་ནང་ཡོད་པའི་དངོས་གྲངས་འདི་ཚུ་ ཛེཌི་ཨེཕ་ཨེསི་པཱུལ་དང་ལོ་ཇི་ཀཱལ་བོ་ལུསམ་ཞུན་"
 "དག་འབད་ནིའི་དོན་ལུ་ ལག་ལེན་འཐབ་བཏུབ། བར་བཅད་འཛིན་སྐྱོང་པའི་གསལ་གཞི་ངོ་མ་ནང་ལོག་པའི་ཤུལ་ལས་ ལོ་"
 "ཇི་ཀཱལ་བོ་ལུསམ་འདི་ ཨ་རྟག་ཧ་ལུགས་ཀྱི་བར་བཅད་བཟུམ་སྦེ་སྟོན་ནི་ཨིནམ་ལས་ དེ་ལུ་ཆ་འཇོག་འབད་དགོ"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:51001
+msgid "Select pool to modify:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:52001
+#, fuzzy
+msgid "ZFS boot fs name:"
+msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་མིང་:"
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:52001
+#, fuzzy
+msgid "Please enter the name of the boot fs."
+msgstr "རིམ་ལུགས་ཀྱི་དོན་ལུ་ཧོསིཊི་གི་མིང་བཙུགས་གནང་།"
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:52001
+msgid ""
+"This will be prefixed by ${VG}/ROOT and mounted as your root file system. "
+"${FOUND_EXISTING_FS}"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:53001
+#, fuzzy
+msgid "No filesystem name entered"
+msgstr " /target ལུ་ཡིག་སྣོེད་རིམ་ལུགས་སྦྱར་བརྩེགས་མ་འབད་བས།"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:53001
+#, fuzzy
+msgid "No name for the root filesystem has been entered. Please enter a name."
+msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་གྱི་མིང་མ་བཙུགས་པས། མིང་བཙུགས་གནང་།"
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:54001
+#, fuzzy
+msgid "ZFS boot fs"
+msgstr "ཛེཌི་ཨེཕ་ཨེསི་ པཱུལ་:"
+
+#. Type: text
+#. Description
+#: ../partman-zfs.templates:55001
+#, fuzzy
+msgid "Loading ZFS module..."
+msgstr "ཚད་གཞི་ཚུ་ཐོ་བཀོད་འབད་དོ..."

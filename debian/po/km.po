@@ -4,7 +4,6 @@
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
 # translation of km.po to Khmer
-#
 # Khoem Sokhem <khoemsokhem@khmeros.info>, 2006, 2007, 2008, 2010.
 #   eng vannak <evannak@khmeros.info>, 2006.
 #   auk piseth <piseth_dv@khmeros.info>, 2006.
@@ -14,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: km\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2012-01-01 22:50+0000\n"
+"POT-Creation-Date: 2013-05-21 22:05+0000\n"
 "PO-Revision-Date: 2012-01-18 15:40+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -37,7 +36,7 @@ msgstr ""
 #. :sl4:
 #. keep it short (ideally a 3-letter acronym)
 #: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
-#: ../partman-zfs.templates:19001
+#: ../partman-zfs.templates:20001
 msgid "zfs"
 msgstr "zfs"
 
@@ -234,6 +233,16 @@ msgstr "បង្កើត​ភាគ​ឡូជីខល"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
+#, fuzzy
+msgid "Create root filesystem"
+msgstr "បង្កើត​ប្រព័ន្ធ​ឯកសារ​ %s"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:15001
 msgid "Delete logical volume"
 msgstr "លុប​ភាគ​ឡូជីខល"
 
@@ -242,21 +251,21 @@ msgstr "លុប​ភាគ​ឡូជីខល"
 #. :sl4:
 #. Menu entry
 #. Use infinitive form
-#: ../partman-zfs.templates:15001
+#: ../partman-zfs.templates:16001
 msgid "Finish"
 msgstr "បញ្ចប់"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:16001
+#: ../partman-zfs.templates:17001
 msgid "Write the changes to disk and configure ZFS?"
 msgstr "សរសេរ​ការ​ផ្លាស់ប្ដូរ​ទៅកាន់​ថាស ហើយ​កំណត់​រចនាសម្ព័ន្ធ ZFS ?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:16001
+#: ../partman-zfs.templates:17001
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
@@ -267,7 +276,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:16001
+#: ../partman-zfs.templates:17001
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
@@ -281,54 +290,56 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:17001
+#: ../partman-zfs.templates:18001
 msgid "ZFS configuration failure"
 msgstr "បរាជ័យ​ក្នុង​ការ​កំណត់​រចនាសម្ព័ន្ធ ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:17001
+#: ../partman-zfs.templates:18001
 msgid "An error occurred while writing the changes to the disks."
 msgstr "កំហុស​មួយ​បាន​កើតឡើង ខណៈពេល​សរសេរ​ការ​ផ្លាស់ប្ដូរ​ទៅ​ថាស ។"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:17001
+#: ../partman-zfs.templates:18001
 msgid "ZFS configuration has been aborted."
 msgstr "ការ​កំណត់​រចនាសម្ព័ន្ធ ZFS ត្រូវ​បាន​បោះបង់ ។"
 
 #. Type: text
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:18001
+#: ../partman-zfs.templates:19001
 msgid "physical volume for ZFS"
 msgstr "ភាគ​ថាស​ហ្វីស៊ីខល​សម្រាប់ ZFS"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:20001
+#: ../partman-zfs.templates:21001
 msgid "ZFS configuration action:"
 msgstr "សកម្មភាព​កំណត់​រចនាសម្ព័ន្ធ ZFS ៖"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:20001
+#: ../partman-zfs.templates:21001
 msgid "Summary of current ZFS configuration:"
 msgstr "សេចក្ដីសង្ខេប​របស់​ការ​កំណត់​រចនាសម្ព័ន្ធ ZFS បច្ចុប្បន្ន ៖"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:20001
+#: ../partman-zfs.templates:21001
+#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
 " ZFS pools:              ${VGS}\n"
-" ZFS logical volumes:    ${LVS}"
+" ZFS logical volumes:    ${LVS}\n"
+" ${BOOTFS}"
 msgstr ""
 " ភាគ​ថាស​ហ្វីស៊ីខល​ទំនេរ ៖  ${FREE_PVS}\n"
 " ភាគ​ថាស​ហ្វីស៊ីខល​ដែល​បាន​ប្រើ ៖  ${USED_PVS}\n"
@@ -338,42 +349,42 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:21001
+#: ../partman-zfs.templates:22001
 msgid "Current ZFS configuration:"
 msgstr "ការ​កំណត់​រចនាសម្ព័ន្ធ ZFS បច្ចុប្បន្ន ៖"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:22001
+#: ../partman-zfs.templates:23001
 msgid "Devices for the new ZFS pool:"
 msgstr "ឧបករណ៍​សម្រាប់​ក្រុម ZFS ថ្មី ៖"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:22001
+#: ../partman-zfs.templates:23001
 msgid "Please select devices for the new ZFS pool."
 msgstr "សូម​ជ្រើស​ឧបករណ៍​សម្រាប់​ក្រុម ZFS ថ្មី ។"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:22001
+#: ../partman-zfs.templates:23001
 msgid "You can select one or more devices."
 msgstr "អ្នកអាច​ជ្រើស​ឧបករណ៍​មួយ ឬ ច្រើន ។​"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:23001
+#: ../partman-zfs.templates:24001
 msgid "Multidisk mode for this ZFS pool:"
 msgstr "របៀប​ថាស​ច្រើន​សម្រាប់​ក្រុម ZFS នេះ ៖"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:23001
+#: ../partman-zfs.templates:24001
 msgid ""
 "Please choose the mode for multidisk operations for this ZFS pool:\n"
 " * Striped: similar to RAID 0 (default) - data is spread across the\n"
@@ -394,14 +405,14 @@ msgstr ""
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:24001
+#: ../partman-zfs.templates:25001
 msgid "Parity level for RAID-Z:"
 msgstr "កម្រិត​ស្មើគ្នា​សម្រាប់ RAID-Z ៖"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:24001
+#: ../partman-zfs.templates:25001
 msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
@@ -410,28 +421,28 @@ msgstr "សូម​ជ្រើស​ចំនួន​ភាគ​ថាស​
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:25001
+#: ../partman-zfs.templates:26001
 msgid "ZFS pool name:"
 msgstr "ឈ្មោះ​ក្រុម ZFS ៖"
 
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:25001
+#: ../partman-zfs.templates:26001
 msgid "Please enter the name you would like to use for the new ZFS pool."
 msgstr "សូម​បញ្ចូល​ឈ្មោះ​ដែល​អ្នក​ចង់​ប្រើ​សម្រាប់​ក្រុម ZFS ថ្មី ។"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:26001
+#: ../partman-zfs.templates:27001
 msgid "No physical volumes selected"
 msgstr "មិន​បាន​ជ្រើស​ភាគ​ពិត​ឡើយ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:26001
+#: ../partman-zfs.templates:27001
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
@@ -440,28 +451,28 @@ msgstr "គ្មាន​ភាគ​ថាស​ហ្វីស៊ីខល​
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:27001
+#: ../partman-zfs.templates:28001
 msgid "No ZFS pool name"
 msgstr "គ្មាន​ឈ្មោះ​ក្រុម ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:27001
+#: ../partman-zfs.templates:28001
 msgid "No name for the ZFS pool has been entered. Please enter a name."
 msgstr "គ្មាន​ឈ្មោះ​សម្រាប់​ក្រុម ZFS ត្រូវ​បាន​បញ្ចូល​ឡើយ ។ សូម​បញ្ចូល​ឈ្មោះ​មួយ ។"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:28001
+#: ../partman-zfs.templates:29001
 msgid "ZFS pool name already in use"
 msgstr "ឈ្មោះ​ក្រុម ZFS បាន​ប្រើ​រួច​ហើយ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:28001
+#: ../partman-zfs.templates:29001
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
 msgstr "ឈ្មោះ​ក្រុម ZFS ដែល​បាន​ជ្រើស បាន​ប្រើ​រួច​ហើយ ។ សូម​ជ្រើស​ឈ្មោះ​មួយ​ផ្សេងទៀត ។"
@@ -469,14 +480,14 @@ msgstr "ឈ្មោះ​ក្រុម ZFS ដែល​បាន​ជ្រ�
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:29001
+#: ../partman-zfs.templates:30001
 msgid "Error while creating ZFS pool"
 msgstr "កំហុស​ខណៈ​ពេល​បង្កើត​ក្រុម ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:29001
+#: ../partman-zfs.templates:30001
 msgid "The ZFS pool ${VG} could not be created."
 msgstr "ក្រុម ZFS ${VG} មិន​អាច​ត្រូវ​បាន​បង្កើត​ឡើយ ។"
 
@@ -489,71 +500,71 @@ msgstr "ក្រុម ZFS ${VG} មិន​អាច​ត្រូវ​ប�
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:29001 ../partman-zfs.templates:40001
-#: ../partman-zfs.templates:44001
+#: ../partman-zfs.templates:30001 ../partman-zfs.templates:41001
+#: ../partman-zfs.templates:45001
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr "សម្រាប់​ព័ត៌មាន​លម្អិត សូម​ពិនិត្យ​មើល /var/log/syslog ឬ មើលកុងសូល​និម្មិត​ទី ៤ ។"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:30001
+#: ../partman-zfs.templates:31001
 msgid "ZFS pool to delete:"
 msgstr "ក្រុម ZFS ដែល​ត្រូវ​លុប ៖"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:30001
+#: ../partman-zfs.templates:31001
 msgid "Please select the ZFS pool you wish to delete."
 msgstr "សូម​ជ្រើស​ក្រុម ZFS ដែល​អ្នក​ចង់​លុប ។"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:31001
+#: ../partman-zfs.templates:32001
 msgid "No ZFS pool"
 msgstr "គ្មាន​ក្រុម ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:31001
+#: ../partman-zfs.templates:32001
 msgid "No ZFS pool has been found."
 msgstr "រក​មិន​ឃើញ​ក្រុម ZFS ឡើយ ។"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:31001
+#: ../partman-zfs.templates:32001
 msgid "The ZFS pool may have already been deleted."
 msgstr "ក្រុម ZFS ប្រហែល​ជា​ត្រូវ​បាន​លុប​រួច​ហើយ ។"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:32001
+#: ../partman-zfs.templates:33001
 msgid "Really delete the ZFS pool?"
 msgstr "ពិត​ជា​លុប​ក្រុម ZFS មែន​ឬ ?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:32001
+#: ../partman-zfs.templates:33001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
 msgstr "សូម​អះអាង​ការ​យកចេញ​នៃ​ក្រុម ZFS ${VG} ។"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:33001
+#: ../partman-zfs.templates:34001
 msgid "Error while deleting ZFS pool"
 msgstr "កំហុស​ខណៈ​ពេល​លុប​ក្រុម ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:33001
+#: ../partman-zfs.templates:34001
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
@@ -563,14 +574,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:34001
+#: ../partman-zfs.templates:35001
 msgid "No ZFS pool found"
 msgstr "រក​មិន​ឃើញ​ក្រុម ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:34001
+#: ../partman-zfs.templates:35001
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
@@ -581,28 +592,28 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:35001
+#: ../partman-zfs.templates:36001
 msgid "Logical volume name:"
 msgstr "ឈ្មោះ​ភាគ​ឡូជីខល ៖"
 
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:35001
+#: ../partman-zfs.templates:36001
 msgid "Please enter the name you would like to use for the new logical volume."
 msgstr "សូម​បញ្ចូល​ឈ្មោះ ដែល​អ្នក​ចង់​ប្រើ​សម្រាប់​ភាគ​ឡូជីខល​ថ្មី ៖"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:36001
+#: ../partman-zfs.templates:37001
 msgid "ZFS pool:"
 msgstr "ក្រុម ZFS ៖"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:36001
+#: ../partman-zfs.templates:37001
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
 msgstr "សូម​ជ្រើស​ក្រុម ZFS ដែល​ជា​កន្លែង​ភាគ​ថាស​ឡូជីខល​ថ្មី​គួរ​ត្រូវ​បាន​បង្កើត ។"
@@ -610,14 +621,14 @@ msgstr "សូម​ជ្រើស​ក្រុម ZFS ដែល​ជា​�
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:37001
+#: ../partman-zfs.templates:38001
 msgid "No logical volume name entered"
 msgstr "មិន​បាន​បញ្ចូល​ឈ្មោះ​ភាគ​ឡូជីខល​ឡើយ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:37001
+#: ../partman-zfs.templates:38001
 msgid "No name for the logical volume has been entered. Please enter a name."
 msgstr "គ្មាន​ឈ្មោះ​សម្រាប់​ភាគ​ថាស​ឡូជីខល​ត្រូវ​បានបញ្ចូល​ទេ ។ សូម​បញ្ចូល​ឈ្មោះ ។"
 
@@ -627,14 +638,14 @@ msgstr "គ្មាន​ឈ្មោះ​សម្រាប់​ភាគ​
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:38001 ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:39001 ../partman-zfs.templates:41001
 msgid "Error while creating a new logical volume"
 msgstr "កំហុស​ខណៈ​ពេល​បង្កើត​ភាគ​ឡូជីខល​ថ្មី"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:38001
+#: ../partman-zfs.templates:39001
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
@@ -644,14 +655,14 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:39001
+#: ../partman-zfs.templates:40001
 msgid "Logical volume size:"
 msgstr "ទំហំ​ភាគ​ឡូជីខល ៖"
 
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:39001
+#: ../partman-zfs.templates:40001
 msgid ""
 "Please enter the size of the new logical volume. The size may be entered in "
 "the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
@@ -663,7 +674,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:41001
 msgid ""
 "Unable to create a new logical volume (${LV}) on ${VG} with the new size "
 "${SIZE}."
@@ -672,63 +683,63 @@ msgstr "មិន​អាច​បង្កើត​ភាគ​ឡូជីខ
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:41001
+#: ../partman-zfs.templates:42001
 msgid "No logical volume found"
 msgstr "រក​មិន​ឃើញ​ភាគ​ឡូជីខល"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:41001
+#: ../partman-zfs.templates:42001
 msgid "No logical volume has been found. Please create a logical volume first."
 msgstr "មិន​បាន​រកឃើញ​ភាគ​ឡូជីខល​ឡើយ ។ សូម​បង្កើត​ភាគ​ឡូជីខល​មួយ​សិន ។"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:42001
+#: ../partman-zfs.templates:43001
 msgid "Logical volume:"
 msgstr "ភាគ​ឡូជីខល ៖"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:42001
+#: ../partman-zfs.templates:43001
 msgid "Please select the logical volume to delete."
 msgstr "សូម​ជ្រើស​ភាគ​​ឡូជីខល​ត្រូវ​លុប ។"
 
 #. Type: text
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:43001
+#: ../partman-zfs.templates:44001
 msgid "in VG ${VG}"
 msgstr "ជា VG ${VG}"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:44001
+#: ../partman-zfs.templates:45001
 msgid "Error while deleting the logical volume"
 msgstr "កំហុស​ខណៈ​ពេល​លុប​ភាគ​ឡូជីខល"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:44001
+#: ../partman-zfs.templates:45001
 msgid "The logical volume ${LV} on ${VG} could not be deleted."
 msgstr "មិន​អាច​លុប​ភាគ​ឡូជីខល (${LV}) លើ ${VG} បាន​ឡើយ ។"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:45001
+#: ../partman-zfs.templates:46001
 msgid "No usable physical volumes found"
 msgstr "រក​មិន​ឃើញ​ភាគ​ពិត​ដែល​អាច​ប្រើ​បាន"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:45001
+#: ../partman-zfs.templates:46001
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
@@ -740,14 +751,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:46001
+#: ../partman-zfs.templates:47001
 msgid "ZFS not available"
 msgstr "មិន​អាច​ប្រើ ZFS បាន​ទេ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:46001
+#: ../partman-zfs.templates:47001
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
 msgstr "ខឺណែល​បច្ចុប្បន្ន​មិន​គាំ​ទ្រ​ ZFS ឡើយ ។​ អ្នក​ប្រហែល​ជា​ត្រូវ​ផ្ទុក​ម៉ូឌុល zfs ។"
@@ -755,19 +766,21 @@ msgstr "ខឺណែល​បច្ចុប្បន្ន​មិន​គា
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:47001
-msgid "Invalid logical volume or ZFS pool name"
+#: ../partman-zfs.templates:48001
+#, fuzzy
+msgid "Invalid logical volume, ZFS pool name or ZFS filesystem name"
 msgstr "ភាគ​ហ្វីស៊ីខល ឬ​ឈ្មោះ​ក្រុម ZFS ដែល​មិន​ត្រឹមត្រូវ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:47001
+#: ../partman-zfs.templates:48001
+#, fuzzy
 msgid ""
-"Logical volume or ZFS pool names may only contain alphanumeric characters, "
-"hyphen, colon, period, and underscore. They must be 255 characters or less "
-"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
-"\", \"spare\", and \"log\" are not allowed."
+"Logical volumes, ZFS pool names and ZFS filesystems may only contain "
+"alphanumeric characters, hyphen, colon, period, and underscore. They must be "
+"255 characters or less and must begin with an alphanumeric character. The "
+"names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
 "ភាគ​ហ្វីស៊ីខល ឬ​ឈ្មោះ​ក្រុម ZFS អាច​មាន​តែ​តួអក្សរ​តាម​អក្សរ​ក្រម​លេខ សញ្ញា (-) សញ្ញា (:) សញ្ញា​ចុច "
 "(.) និង​សញ្ញា (_) ប៉ុណ្ណោះ ។ ឈ្មោះ​ត្រូវតែ​មាន ២៥៥ តួអក្សរ ឬ​តិច​ជាង ហើយ​ត្រូវតែ​ចាប់ផ្ដើម​ដោយ​តួអក្សរ​"
@@ -777,21 +790,21 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:47001
+#: ../partman-zfs.templates:48001
 msgid "Please choose a different name."
 msgstr "សូម​ជ្រើស​ឈ្មោះ​ផ្សេង​មួយ ។"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid "Remove existing logical volume data?"
 msgstr "យក​ទិន្នន័យ​លើ​ភាគ​​តក្ក​ដែល​មាន​ស្រាប់​ចេញ ?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
@@ -802,21 +815,21 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid "Logical volume(s): ${LVTARGETS}"
 msgstr "ភាគ​ឡូជីខល ៖ ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid "ZFS pool(s): ${VGTARGETS}"
 msgstr "ក្រុម ZFS ៖ ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid ""
 "Note that this will also permanently erase any data currently on the logical "
 "volumes."
@@ -825,14 +838,14 @@ msgstr "ចំណាំថា វា​នឹង​លុប​ជា​អច�
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid "ZFS"
 msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
@@ -845,7 +858,7 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -862,7 +875,7 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
@@ -872,3 +885,62 @@ msgstr ""
 "ធាតុ​​នៅ​ក្នុង​ម៉ឺនុយ​កំណត់​រចនាសម្ព័ន្ធ​ ZFS អាច​ត្រូវ​បាន​​ប្រើ ​ដើម្បី​កែសម្រួល​ក្រុម ZFS និង​ភាគ​ថាស​ឡូជីខល ។ "
 "បន្ទាប់​ពី​អ្នក​ត្រឡប់​ទៅ​អេក្រង់​កម្មវិធី​គ្រប់គ្រង​ភាគ​ថាស​មេ ភាគ​ថាស​ឡូជីខល​នឹង​ត្រូវ​បាន​បង្ហាញ​តាម​វិធី​ដដែល​​ដូច​គ្នា​"
 "នឹង​ភាគ​ថាស​ធម្មតា ហើយ​គួរ​ត្រូវ​បាន​ចាក់​ទុក​ថា​ដូច្នេះ ។"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:51001
+msgid "Select pool to modify:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:52001
+#, fuzzy
+msgid "ZFS boot fs name:"
+msgstr "ឈ្មោះ​ក្រុម ZFS ៖"
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:52001
+#, fuzzy
+msgid "Please enter the name of the boot fs."
+msgstr "សូម​បញ្ចូល​ឈ្មោះ​ម៉ាស៊ីន​សម្រាប់​ប្រព័ន្ធ​នេះ ។"
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:52001
+msgid ""
+"This will be prefixed by ${VG}/ROOT and mounted as your root file system. "
+"${FOUND_EXISTING_FS}"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:53001
+#, fuzzy
+msgid "No filesystem name entered"
+msgstr "មិន​បាន​ម៉ោន​ប្រព័ន្ធ​ឯកសារ​លើ /target ឡើយ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:53001
+#, fuzzy
+msgid "No name for the root filesystem has been entered. Please enter a name."
+msgstr "គ្មាន​ឈ្មោះ​សម្រាប់​ក្រុម ZFS ត្រូវ​បាន​បញ្ចូល​ឡើយ ។ សូម​បញ្ចូល​ឈ្មោះ​មួយ ។"
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:54001
+#, fuzzy
+msgid "ZFS boot fs"
+msgstr "ក្រុម ZFS ៖"
+
+#. Type: text
+#. Description
+#: ../partman-zfs.templates:55001
+#, fuzzy
+msgid "Loading ZFS module..."
+msgstr "កំពុង​ចុះ​ឈ្មោះ​ម៉ូឌុល​..."

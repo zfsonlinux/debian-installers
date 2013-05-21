@@ -20,9 +20,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kn\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2012-01-01 22:50+0000\n"
-"PO-Revision-Date: 2012-10-15 17:26+0530\n"
-"Last-Translator: Prabodh <prabodh@fsmk.org>\n"
+"POT-Creation-Date: 2013-05-21 22:05+0000\n"
+"PO-Revision-Date: 2012-11-04 20:30+0530\n"
+"Last-Translator: Vikram Vincent <vincentvikram@gmail.com>\n"
 "Language-Team: Kannada <debian-l10n-kannada@lists.debian.org>\n"
 "Language: kn\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr ""
 #. :sl4:
 #. keep it short (ideally a 3-letter acronym)
 #: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
-#: ../partman-zfs.templates:19001
+#: ../partman-zfs.templates:20001
 msgid "zfs"
 msgstr "zfs"
 
@@ -245,6 +245,16 @@ msgstr "ಕುತಾರ್ಕಿಕ ಪರಿಮಾಣವನ್ನು ಸ್ರ�
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
+#, fuzzy
+msgid "Create root filesystem"
+msgstr "%s ಕಡತ ವ್ಯವಸ್ಥೆಯನ್ನು ನಿರ್ಮಿಸು."
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:15001
 msgid "Delete logical volume"
 msgstr "ತಾರ್ಕಿಕ ಪರಿಮಾಣವನ್ನು ತೆಗೆದುಹಾ"
 
@@ -258,21 +268,21 @@ msgstr "ತಾರ್ಕಿಕ ಪರಿಮಾಣವನ್ನು ತೆಗೆದ�
 #. :sl4:
 #. Menu entry
 #. Use infinitive form
-#: ../partman-zfs.templates:15001
+#: ../partman-zfs.templates:16001
 msgid "Finish"
 msgstr "ಮುಗಿಸು"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:16001
+#: ../partman-zfs.templates:17001
 msgid "Write the changes to disk and configure ZFS?"
 msgstr "ಬದಲಾವಣೆಗಳನ್ನು ಡಿಸ್ಕಿಗೆ ಬರೆದು ZFSಅನ್ನು ಸಂರಚಿಸುವುದೇ?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:16001
+#: ../partman-zfs.templates:17001
 msgid ""
 "Before ZFS can be configured, the current partitioning scheme has to be "
 "written to disk. These changes cannot be undone."
@@ -283,7 +293,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:16001
+#: ../partman-zfs.templates:17001
 msgid ""
 "After ZFS is configured, no additional changes to the partitioning scheme of "
 "disks containing physical volumes are allowed during the installation. "
@@ -297,54 +307,56 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:17001
+#: ../partman-zfs.templates:18001
 msgid "ZFS configuration failure"
 msgstr "ZFS ಸಂರಚನೆ ವಿಫಲಗೊಂಡಿದೆ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:17001
+#: ../partman-zfs.templates:18001
 msgid "An error occurred while writing the changes to the disks."
 msgstr "ಬದಲಾವಣೆಗಳನ್ನು ಡಿಸ್ಕಿಗೆ ಬರೆಯುವಾಗ ಒಂದು ದೋಷವುಂಟಾಗಿದೆ."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:17001
+#: ../partman-zfs.templates:18001
 msgid "ZFS configuration has been aborted."
 msgstr "ZFS ಸಂರಚನಾ ಪ್ರಕ್ರಿಯೆಯು ಸ್ಥಗಿಥಗೊಳಿಸಲ್ಪಟ್ಟಿದೆ."
 
 #. Type: text
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:18001
+#: ../partman-zfs.templates:19001
 msgid "physical volume for ZFS"
 msgstr "ZFSಗಾಗಿ ಭೌತಿಕ ಸಂಪುಟ"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:20001
+#: ../partman-zfs.templates:21001
 msgid "ZFS configuration action:"
 msgstr "ZFS ಸಂರಚನಾ ಕಾರ್ಯ:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:20001
+#: ../partman-zfs.templates:21001
 msgid "Summary of current ZFS configuration:"
 msgstr "ಪ್ರಸಕ್ತ ZFS ಸಂರಚನೆಯ ಸಾರಾಂಶ:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:20001
+#: ../partman-zfs.templates:21001
+#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
 " ZFS pools:              ${VGS}\n"
-" ZFS logical volumes:    ${LVS}"
+" ZFS logical volumes:    ${LVS}\n"
+" ${BOOTFS}"
 msgstr ""
 " ಬಿಡುವಾದ ಭೌತಿಕ ಸಂಪುಟಗಳು:  ${FREE_PVS}\n"
 " ಬಳಕೆಯಾದ ಭೌತಿಕ ಸಂಪುಟಗಳು: ${USED_PVS}\n"
@@ -354,42 +366,42 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:21001
+#: ../partman-zfs.templates:22001
 msgid "Current ZFS configuration:"
 msgstr "ಪ್ರಸಕ್ತ ZFS ಸಂರಚನೆ:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:22001
+#: ../partman-zfs.templates:23001
 msgid "Devices for the new ZFS pool:"
 msgstr "ಹೊಸ ZFS ಸಮೂಹದ ಉಪಕರಣಗಳು:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:22001
+#: ../partman-zfs.templates:23001
 msgid "Please select devices for the new ZFS pool."
 msgstr "ದಯಮಾಡಿ ಹೊಸ ZFS ಸಮೂಹಕ್ಕಾಗಿ ಉಪಕರಣಗಳನ್ನು ಆಯ್ಕೆಮಾಡು."
 
 #. Type: multiselect
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:22001
+#: ../partman-zfs.templates:23001
 msgid "You can select one or more devices."
 msgstr "ನೀವು ಒಂದು ಅಥವಾ ಹೆಚ್ಚು ಸಾಧನಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡಬಹುದು."
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:23001
+#: ../partman-zfs.templates:24001
 msgid "Multidisk mode for this ZFS pool:"
 msgstr "ಈ ZFS ಸಮೂಹದ ಮಲ್ಟಿಡಿಸ್ಕ್ ವಿಧಾನ:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:23001
+#: ../partman-zfs.templates:24001
 msgid ""
 "Please choose the mode for multidisk operations for this ZFS pool:\n"
 " * Striped: similar to RAID 0 (default) - data is spread across the\n"
@@ -410,14 +422,14 @@ msgstr ""
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:24001
+#: ../partman-zfs.templates:25001
 msgid "Parity level for RAID-Z:"
 msgstr "RAID-Zನ ಪ್ಯಾರಿಟಿ ಮಟ್ಟ:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:24001
+#: ../partman-zfs.templates:25001
 msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
@@ -427,28 +439,28 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:25001
+#: ../partman-zfs.templates:26001
 msgid "ZFS pool name:"
 msgstr "ZFS ಸಮೂಹದ ಹೆಸರು:"
 
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:25001
+#: ../partman-zfs.templates:26001
 msgid "Please enter the name you would like to use for the new ZFS pool."
 msgstr "ದಯವಿಟ್ಟು ಹೊಸ ZFS ಸಮೂಹಕ್ಕೆ ನೀವು ಬಳಸಲು ಇಚ್ಛಿಸುವ ಹೆಸರನ್ನು ದಾಖಲಿಸಿ."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:26001
+#: ../partman-zfs.templates:27001
 msgid "No physical volumes selected"
 msgstr "ಯಾವುದೇ ಭೌತಿಕ ಸಂಪುಟಗಳನ್ನು ಆಯ್ಕೆಮಾಡಲಾಗಿಲ್ಲ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:26001
+#: ../partman-zfs.templates:27001
 msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
@@ -459,28 +471,28 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:27001
+#: ../partman-zfs.templates:28001
 msgid "No ZFS pool name"
 msgstr "ಯಾವುದೇ ZFS ಸಮೂಹದ ಹೆಸರು ಇಲ್ಲ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:27001
+#: ../partman-zfs.templates:28001
 msgid "No name for the ZFS pool has been entered. Please enter a name."
 msgstr "ZFS ಸಮೂಹಕ್ಕೆ ಯಾವುದೇ ಹೆಸರನ್ನು ದಖಲಿಸಲಾಗಿಲ್ಲ. ದಯಮಾಡಿ ಇಂದು ಹೆಸರನ್ನು ದಾಖಲಿಸಿ."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:28001
+#: ../partman-zfs.templates:29001
 msgid "ZFS pool name already in use"
 msgstr "ZFS ಸಮೂಹದ ಹೆಸರು ಈಗಾಗಲೆ ಬಳಕೆಯಲ್ಲಿದೆ."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:28001
+#: ../partman-zfs.templates:29001
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
 msgstr ""
@@ -489,14 +501,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:29001
+#: ../partman-zfs.templates:30001
 msgid "Error while creating ZFS pool"
 msgstr "ZFS ಸಮೂಹವನ್ನು ರಚಿಸುವಾಗ ದೋಷವುಂಟಾಗಿದೆ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:29001
+#: ../partman-zfs.templates:30001
 msgid "The ZFS pool ${VG} could not be created."
 msgstr "${VG} ZFS ಸಮೂಹವನ್ನು ನಿರ್ಮಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
@@ -521,8 +533,8 @@ msgstr "${VG} ZFS ಸಮೂಹವನ್ನು ನಿರ್ಮಿಸಲು ಸಾ
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:29001 ../partman-zfs.templates:40001
-#: ../partman-zfs.templates:44001
+#: ../partman-zfs.templates:30001 ../partman-zfs.templates:41001
+#: ../partman-zfs.templates:45001
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
 msgstr ""
 "/var/log/syslogನಲ್ಲಿ ಅಥವಾ ಅವಾಸ್ತವಿಕ ಆಜ್ಞಾಫಲಕ ೪ ರಲ್ಲಿ ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಪರೀಕ್ಷಿಸಿ."
@@ -530,63 +542,63 @@ msgstr ""
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:30001
+#: ../partman-zfs.templates:31001
 msgid "ZFS pool to delete:"
 msgstr "ಅಳಿಸಬೇಕಾದ ZFS ಸಮೂಹ :"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:30001
+#: ../partman-zfs.templates:31001
 msgid "Please select the ZFS pool you wish to delete."
 msgstr "ತೆಗೆದುಹಾಕಬೇಕೆಂದಿರುವ ZFS ಸಮೂಹವನ್ನು ಆಯ್ಕೆಮಾಡಿ.."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:31001
+#: ../partman-zfs.templates:32001
 msgid "No ZFS pool"
 msgstr "ಯಾವುದೇ ZFS ಸಮೂಹ ಇಲ್ಲ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:31001
+#: ../partman-zfs.templates:32001
 msgid "No ZFS pool has been found."
 msgstr "ಯಾವುದೇ  ZFS ಸಮೂಹ ಪತ್ತೆಯಾಗಲಿಲ್ಲ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:31001
+#: ../partman-zfs.templates:32001
 msgid "The ZFS pool may have already been deleted."
 msgstr "ZFS ಸಮೂಹವನ್ನು ಆಗಲೇ ತೆಗೆದುಹಾಕಲಾಗಿರಬಹುದು."
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:32001
+#: ../partman-zfs.templates:33001
 msgid "Really delete the ZFS pool?"
 msgstr "ನಿಜವಾಗಿಯು  ZFS ಸಮೂಹವನ್ನು  ಅಳಿಸಲು ಇಚ್ಚಿಸುತ್ತೀರ?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:32001
+#: ../partman-zfs.templates:33001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
 msgstr "ದಯಮಾಡಿ ZFS ಸಮೂಹ ${VG}ಯನ್ನು ತೆಗೆದುಹಾಕುವುದೆ ಎಂದು ಖಾತ್ರಿಪಡಿಸಿ."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:33001
+#: ../partman-zfs.templates:34001
 msgid "Error while deleting ZFS pool"
 msgstr "ZFS ಸಮೂಹವನ್ನು  ಅಳಿಸುವಾಗ ದೋಷವುಂಟಾಗಿದೆ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:33001
+#: ../partman-zfs.templates:34001
 msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
@@ -597,14 +609,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:34001
+#: ../partman-zfs.templates:35001
 msgid "No ZFS pool found"
 msgstr "ಯಾವುದೆ ZFS ಸಮೂಹ ಕಂಡುಬಂದಿಲ್ಲ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:34001
+#: ../partman-zfs.templates:35001
 msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
@@ -616,28 +628,28 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:35001
+#: ../partman-zfs.templates:36001
 msgid "Logical volume name:"
 msgstr "ತಾರ್ಕಿಕ ಪರಿಮಾಣದ ಹೆಸರು:"
 
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:35001
+#: ../partman-zfs.templates:36001
 msgid "Please enter the name you would like to use for the new logical volume."
 msgstr "ದಯಮಾಡಿ ಹೊಸ ತಾರ್ಕಿಕ ಸಂಪುಟಕ್ಕೆ ಬಳಸಬೇಕಾದ ಹೆಸರನ್ನು ದಾಖಲಿಸಿ."
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:36001
+#: ../partman-zfs.templates:37001
 msgid "ZFS pool:"
 msgstr "ZFS ಸಮೂಹ:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:36001
+#: ../partman-zfs.templates:37001
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
 msgstr "ದಯಮಾಡಿ ಹೊಸ ತಾರ್ಕಿಕ ಸಂಪುಟವನ್ನು ಯಾವ ZFS ಸಮೂಹದಲ್ಲಿ ನಿರ್ಮಿಸಬೇಕೆಂದು ಆಯ್ಕೆ ಮಾಡಿ."
@@ -645,14 +657,14 @@ msgstr "ದಯಮಾಡಿ ಹೊಸ ತಾರ್ಕಿಕ ಸಂಪುಟವನ
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:37001
+#: ../partman-zfs.templates:38001
 msgid "No logical volume name entered"
 msgstr "ಯಾವುದೇ ತಾರ್ಕಿಕ  ಪರಿಮಾಣ ಹೆಸರನ್ನು ನಮೂದಿಸಲಾಗಿಲ್ಲ."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:37001
+#: ../partman-zfs.templates:38001
 msgid "No name for the logical volume has been entered. Please enter a name."
 msgstr ""
 "ತಾರ್ಕಿಕ ಸಂಪುಟಕ್ಕೆ ಯಾವುದೇ ಹೆಸರನ್ನು ದಾಖಲಿಸಲಾಗಿಲ್ಲ. ದಯಮಾಡಿ ಒಂದು ಹೆಸರನ್ನು ದಾಖಲಿಸಿ."
@@ -663,14 +675,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:38001 ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:39001 ../partman-zfs.templates:41001
 msgid "Error while creating a new logical volume"
 msgstr "ಹೊಸ ತಾರ್ಕಿಕ ಪರಿಮಾಣ ರಚಿಸುವಾಗ ದೋಷಉಂಟಾಗಿದೆ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:38001
+#: ../partman-zfs.templates:39001
 msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
@@ -681,14 +693,14 @@ msgstr ""
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:39001
+#: ../partman-zfs.templates:40001
 msgid "Logical volume size:"
 msgstr "ತಾರ್ಕಿಕ ಪರಿಮಾಣ ಗಾತ್ರ:"
 
 #. Type: string
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:39001
+#: ../partman-zfs.templates:40001
 msgid ""
 "Please enter the size of the new logical volume. The size may be entered in "
 "the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
@@ -701,7 +713,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:41001
 msgid ""
 "Unable to create a new logical volume (${LV}) on ${VG} with the new size "
 "${SIZE}."
@@ -712,14 +724,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:41001
+#: ../partman-zfs.templates:42001
 msgid "No logical volume found"
 msgstr "ಯಾವುದೇ ತಾರ್ಕಿಕ ಪರಿಮಾಣವು ಕಂಡುಬಂದಿಲ್ಲ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:41001
+#: ../partman-zfs.templates:42001
 msgid "No logical volume has been found. Please create a logical volume first."
 msgstr ""
 "ಯಾವುದೇ ತಾರ್ಕಿಕ ಸಂಪುಟ ಪತ್ತೆಯಾಗಿಲ್ಲ. ದಯಮಾಡಿ  ತಾರ್ಕಿಕ ಸಂಪುಟವೊಂದನ್ನು ಮೊದಲು ನಿರ್ಮಿಸಿ."
@@ -727,49 +739,49 @@ msgstr ""
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:42001
+#: ../partman-zfs.templates:43001
 msgid "Logical volume:"
 msgstr "ತಾರ್ಕಿಕ ಪರಿಮಾಣ:"
 
 #. Type: select
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:42001
+#: ../partman-zfs.templates:43001
 msgid "Please select the logical volume to delete."
 msgstr "ತೆಗೆದುಹಾಕಬೇಕೆಂದಿರುವ ತಾರ್ಕಿಕ ಪರಿಮಾಣವನ್ನು ಆಯ್ಕೆಮಾಡಿ.."
 
 #. Type: text
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:43001
+#: ../partman-zfs.templates:44001
 msgid "in VG ${VG}"
 msgstr "in VG ${VG}"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:44001
+#: ../partman-zfs.templates:45001
 msgid "Error while deleting the logical volume"
 msgstr "ತಾರ್ಕಿಕ ಪರಿಮಾಣವ್ನ್ನು ಅಳಿಸುವಾಗ  ದೋಷವುಂಟಾಗಿದೆ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:44001
+#: ../partman-zfs.templates:45001
 msgid "The logical volume ${LV} on ${VG} could not be deleted."
 msgstr "${VG} ಮೇಲಿನ ${LV} ತಾರ್ಕಿಕ ಸಂಪುಟವನ್ನು ತೆಗೆದು ಹಾಕಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:45001
+#: ../partman-zfs.templates:46001
 msgid "No usable physical volumes found"
 msgstr "ಯಾವುದೇ ಬಳಸಬಲ್ಲಂತಹ ಭೌತಿಕ ಸಂಪುಟಗಳು ಪತ್ತೆಯಾಗಿಲ್ಲ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:45001
+#: ../partman-zfs.templates:46001
 msgid ""
 "No physical volumes (i.e. partitions) were found in this system. All "
 "physical volumes may already be in use. You may also need to load some "
@@ -782,14 +794,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:46001
+#: ../partman-zfs.templates:47001
 msgid "ZFS not available"
 msgstr "ZFS ಲಭ್ಯವಿಲ್ಲ"
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:46001
+#: ../partman-zfs.templates:47001
 msgid ""
 "The current kernel doesn't support ZFS. You may need to load the zfs module."
 msgstr "ಪ್ರಸ್ತುತ ಕರ್ನಲ್ ZFSಅನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. ನೀವು zfs ಘಟಕವನ್ನು ತುಂಬಬೇಕಾಗಬಹುದು."
@@ -797,19 +809,21 @@ msgstr "ಪ್ರಸ್ತುತ ಕರ್ನಲ್ ZFSಅನ್ನು ಬೆಂ
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:47001
-msgid "Invalid logical volume or ZFS pool name"
+#: ../partman-zfs.templates:48001
+#, fuzzy
+msgid "Invalid logical volume, ZFS pool name or ZFS filesystem name"
 msgstr "ಅಮಾನ್ಯ ತಾರ್ಕಿಕ ಸಂಪುಟ ಅಥವಾ ZFS ಸಮೂಹದ ಹೆಸರು "
 
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:47001
+#: ../partman-zfs.templates:48001
+#, fuzzy
 msgid ""
-"Logical volume or ZFS pool names may only contain alphanumeric characters, "
-"hyphen, colon, period, and underscore. They must be 255 characters or less "
-"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
-"\", \"spare\", and \"log\" are not allowed."
+"Logical volumes, ZFS pool names and ZFS filesystems may only contain "
+"alphanumeric characters, hyphen, colon, period, and underscore. They must be "
+"255 characters or less and must begin with an alphanumeric character. The "
+"names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
 "ತಾರ್ಕಿಕ ಸಂಪುಟ ಅಥವಾ ZFS ಸಮೂಹ ನಾಮಗಳು ಕೇವಲ ಅಕ್ಷರಿಕ, ಅಂಕಿ, ಕೂಡುಗೆರೆ, ಅಪೂರ್ಣವಿರಾಮ, "
 "ಪೂರ್ಣವಿರಾಮ ಮತ್ತು ಅಡಿಗೆರೆಗಳನ್ನು ಮಾತ್ರ ಹೊಂದಿರಬೇಕು. ಅವುಗಳ ಸಂಖ್ಯೆ ೨೫೫ ಅಥವಾ ಅದಕ್ಕಿನ್ನ "
@@ -819,21 +833,21 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:47001
+#: ../partman-zfs.templates:48001
 msgid "Please choose a different name."
 msgstr "ಬೇರೆ ಹೆಸರನ್ನು ಆಯ್ಕೆಮಾಡು"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid "Remove existing logical volume data?"
 msgstr "ಈಗಿರುವ ತಾರ್ಕಿಕ ಸಂಪುಟದಲ್ಲಿನ ಮಾಹಿತಿಯನ್ನು ತೆಗೆದುಹಾಕುವುದೇ?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
@@ -844,21 +858,21 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid "Logical volume(s): ${LVTARGETS}"
 msgstr "ತಾರ್ಕಿಕ ಸಂಪುಟ(ಗಳು): ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid "ZFS pool(s): ${VGTARGETS}"
 msgstr "ZFS ಸಮೂಹ(ಗಳು): ${VGTARGETS}"
 
 #. Type: boolean
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:48001
+#: ../partman-zfs.templates:49001
 msgid ""
 "Note that this will also permanently erase any data currently on the logical "
 "volumes."
@@ -868,14 +882,14 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid "ZFS"
 msgstr "ZFS"
 
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid ""
 "A common situation for system administrators is to find that some disk "
 "partition (usually the most important one) is short on space, while some "
@@ -888,7 +902,7 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid ""
 "ZFS allows combining disk or partition devices (\"physical volumes\") to "
 "form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
@@ -907,7 +921,7 @@ msgstr ""
 #. Type: note
 #. Description
 #. :sl4:
-#: ../partman-zfs.templates:49001
+#: ../partman-zfs.templates:50001
 msgid ""
 "The items on the ZFS configuration menu can be used to edit ZFS pools and "
 "logical volumes. After you return to the main partition manager screen, "
@@ -917,3 +931,62 @@ msgstr ""
 "ZFS ಸಂಯೋಜನಾ ಪಟ್ಟಿಯಲ್ಲಿನ ಆಯ್ಕೆಗಳನ್ನು ಉಪಯೋಗಿಸಿ ZFS ಸಮೂಹಗಳು ಮತ್ತು ತಾರ್ಕಿಕ ಸಂಪುಟಗಳನ್ನು "
 "ಸಂಪಾದಿಸಬಹುದು. ಒಮ್ಮೆ ನೀವು ಮುಖ್ಯ ವಿಭಜನಾ ವ್ಯವಸ್ಥಾಪಕ ದೃಶ್ಯ ಪರದೆ ಹಿಂದಿರುಗಿದರೆ, ತಾರ್ಕಿಕ "
 "ಸಂಪುಟಗಳನ್ನು ಸಾಧಾರಣ ವಿಭಜನೆಗಳಂತೆಯೇ ತೋರಿಸಲಾಗುವುದು ಮತ್ತು ಹಾಗೆಯೇ ಕಾಣಬೇಕು."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:51001
+msgid "Select pool to modify:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:52001
+#, fuzzy
+msgid "ZFS boot fs name:"
+msgstr "ZFS ಸಮೂಹದ ಹೆಸರು:"
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:52001
+#, fuzzy
+msgid "Please enter the name of the boot fs."
+msgstr "ದಯವಿಟ್ಟು ಈ ಗಣಕದ ಆತಿಥೇಯನಾಮವನ್ನು ನಮೂದಿಸಿ"
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:52001
+msgid ""
+"This will be prefixed by ${VG}/ROOT and mounted as your root file system. "
+"${FOUND_EXISTING_FS}"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:53001
+#, fuzzy
+msgid "No filesystem name entered"
+msgstr "/target ಮೇಲೆ ಯಾವುದೇ ಕಡತ ವ್ಯವಸ್ಥೆಯನ್ನು ಏರಿಸಲಾಗಿಲ್ಲ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:53001
+#, fuzzy
+msgid "No name for the root filesystem has been entered. Please enter a name."
+msgstr "ZFS ಸಮೂಹಕ್ಕೆ ಯಾವುದೇ ಹೆಸರನ್ನು ದಖಲಿಸಲಾಗಿಲ್ಲ. ದಯಮಾಡಿ ಇಂದು ಹೆಸರನ್ನು ದಾಖಲಿಸಿ."
+
+#. Type: string
+#. Description
+#: ../partman-zfs.templates:54001
+#, fuzzy
+msgid "ZFS boot fs"
+msgstr "ZFS ಸಮೂಹ:"
+
+#. Type: text
+#. Description
+#: ../partman-zfs.templates:55001
+#, fuzzy
+msgid "Loading ZFS module..."
+msgstr "\"ಮಾಡ್ಯೂಲ್\"ಗಳನ್ನು ನೋಂದಾಯಿಸಲಾಗುತ್ತಿದೆ"
