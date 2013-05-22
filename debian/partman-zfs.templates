@@ -111,7 +111,7 @@ Type: text
 # :sl4:
 # Menu entry
 # Use infinitive form
-_Description: Create root filesystem
+_Description: Create root file system
 
 Template: partman-zfs/menu/deletelv
 Type: text
@@ -375,8 +375,8 @@ _Description: ZFS not available
 Template: partman-zfs/badnamegiven
 Type: error
 # :sl4:
-_Description: Invalid logical volume, ZFS pool name or ZFS filesystem name
- Logical volumes, ZFS pool names and ZFS filesystems may only contain
+_Description: Invalid logical volume, ZFS pool name or ZFS file system name
+ Logical volumes, ZFS pool names and ZFS file systems may only contain
  alphanumeric characters, hyphen, colon, period, and underscore. They must
  be 255 characters or less and must begin with an alphanumeric character.
  The names "mirror", "raidz", "spare", and "log" are not allowed.
@@ -423,27 +423,32 @@ Type: select
 Choices: ${GROUPS}
 # :sl4:
 #flag:translate!:2
-_Description: Select pool to modify:
+_Description: Pool to modify:
 
 Template: partman-zfs/choose_bootfs
 Type: string
-_Description: ZFS boot fs name:
- Please enter the name of the boot fs.
+# :sl4:
+#flag:translate!:3
+_Description: ZFS boot file system name:
+ Please enter the name of the boot file system among the following:
  .
- This will be prefixed by ${VG}/ROOT and mounted as your root file system.
  ${FOUND_EXISTING_FS}
+ .
+ This will be prefixed by ${VG}/ROOT and mounted as the root file system.
 
 Template: partman-zfs/bootfs_nonamegiven
 Type: error
 # :sl4:
-_Description: No filesystem name entered
- No name for the root filesystem has been entered. Please enter a
+_Description: No file system name entered
+ No name has been entered for the root file system. Please enter a
  name.
 
 Template: partman-zfs/bootfs
 Type: string
-_Description: ZFS boot fs
+# :sl4:
+_Description: ZFS boot
 
 Template: partman/progress/init/loading_zfs
 Type: text
+# :sl4:
 _Description: Loading ZFS module...
