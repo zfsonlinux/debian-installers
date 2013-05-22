@@ -4,7 +4,7 @@
 # DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
 #
 # Thai translation of debian-installer.
-# Copyright (C) 2006-2012 Software in the Public Interest, Inc.
+# Copyright (C) 2006-2013 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 # Theppitak Karoonboonyanan <thep@linux.thai.net>, 2006-2011.
 #
@@ -17,14 +17,14 @@
 #   Translations from KDE:
 #   - Thanomsub Noppaburana <donga@midaassets.com>
 #   Thanomsub Noppaburana <donga@midaassets.com> (Translations from KDE)
-#   Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005-2012
+#   Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005-2013
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2013-05-21 22:05+0000\n"
-"PO-Revision-Date: 2012-02-24 11:17+0700\n"
+"POT-Creation-Date: 2013-05-22 22:05+0000\n"
+"PO-Revision-Date: 2013-05-22 18:34+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
@@ -240,8 +240,8 @@ msgstr "สร้างโวลุมลอจิคัล"
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
 #, fuzzy
-msgid "Create root filesystem"
-msgstr "สร้างระบบแฟ้ม %s"
+msgid "Create root file system"
+msgstr "สร้างระบบแฟ้มราก"
 
 #. Type: text
 #. Description
@@ -339,7 +339,6 @@ msgstr "สรุปการตั้งค่า ZFS ล่าสุด:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -350,7 +349,8 @@ msgstr ""
 " โวลุมจริงที่ว่าง:           ${FREE_PVS}\n"
 " โวลุมจริงที่ใช้:            ${USED_PVS}\n"
 " พูล ZFS:                ${VGS}\n"
-" โวลุมลอจิคัลของ ZFS:      ${LVS}"
+" โวลุมลอจิคัลของ ZFS:      ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -770,8 +770,8 @@ msgstr "เคอร์เนลที่ใช้อยู่ไม่รอง
 #. :sl4:
 #: ../partman-zfs.templates:48001
 #, fuzzy
-msgid "Invalid logical volume, ZFS pool name or ZFS filesystem name"
-msgstr "ชื่อโวลุมลอจิคัลหรือพูล ZFS ใช้ไม่ได้"
+msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
+msgstr "ชื่อโวลุมลอจิคัล หรือชื่อพูล ZFS หรือชื่อระบบแฟ้ม ZFS ไม่ใช่ชื่อที่ใช้ได้"
 
 #. Type: error
 #. Description
@@ -779,14 +779,15 @@ msgstr "ชื่อโวลุมลอจิคัลหรือพูล ZF
 #: ../partman-zfs.templates:48001
 #, fuzzy
 msgid ""
-"Logical volumes, ZFS pool names and ZFS filesystems may only contain "
+"Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"ชื่อโวลุมลอจิคัลหรือพูล ZFS  ต้องประกอบด้วยตัวอักษร ตัวเลข ยัติภังค์ ทวิภาค (:) จุลภาค "
-"หรือขีดล่างเท่านั้น ความยาวต้องไม่เกิน 255 ตัวอักษร และต้องขึ้นต้นด้วยตัวอักษรหรือตัวเลขเท่านั้น "
-"และห้ามใช้ชื่อ \"mirror\", \"raidz\", \"spare\", และ \"log\""
+"ชื่อโวลุมลอจิคัล, ชื่อพูล ZFS และชื่อระบบแฟ้ม ZFS ต้องประกอบด้วยตัวอักษร ตัวเลข ยัติภังค์ ทวิภาค "
+"(:) จุลภาค หรือขีดล่างเท่านั้น ความยาวต้องไม่เกิน 255 ตัวอักษร "
+"และต้องขึ้นต้นด้วยตัวอักษรหรือตัวเลขเท่านั้น และห้ามใช้ชื่อ \"mirror\", \"raidz\", \"spare"
+"\", และ \"log\""
 
 #. Type: error
 #. Description
@@ -889,57 +890,64 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:51001
-msgid "Select pool to modify:"
-msgstr ""
+#, fuzzy
+msgid "Pool to modify:"
+msgstr "เลือกพูลที่จะเปลี่ยนแปลง:"
 
 #. Type: string
 #. Description
+#. :sl4:
 #: ../partman-zfs.templates:52001
 #, fuzzy
-msgid "ZFS boot fs name:"
-msgstr "ชื่อพูล ZFS:"
+msgid "ZFS boot file system name:"
+msgstr "ชื่อระบบแฟ้ม ZFS สำหรับบูต:"
 
 #. Type: string
 #. Description
+#. :sl4:
 #: ../partman-zfs.templates:52001
 #, fuzzy
-msgid "Please enter the name of the boot fs."
-msgstr "กรุณาป้อนชื่อโฮสต์ของเครื่องนี้"
+msgid "Please enter the name of the boot file system among the following:"
+msgstr "กรุณาป้อนชื่อระบบแฟ้มที่จะใช้บูต"
 
 #. Type: string
 #. Description
+#. :sl4:
 #: ../partman-zfs.templates:52001
+#, fuzzy
 msgid ""
-"This will be prefixed by ${VG}/ROOT and mounted as your root file system. "
-"${FOUND_EXISTING_FS}"
+"This will be prefixed by ${VG}/ROOT and mounted as the root file system."
 msgstr ""
+"ชื่อนี้จะถูกนำหน้าด้วย ${VG}/ROOT และจะถูกเมานท์เป็นระบบแฟ้มรากของคุณ "
+"${FOUND_EXISTING_FS}"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
 #, fuzzy
-msgid "No filesystem name entered"
-msgstr "ไม่ได้เมานท์ระบบแฟ้มไว้ที่ /target"
+msgid "No file system name entered"
+msgstr "ไม่ได้ป้อนชื่อระบบแฟ้ม"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
 #, fuzzy
-msgid "No name for the root filesystem has been entered. Please enter a name."
-msgstr "คุณไม่ได้ป้อนชื่อพูล ZFS กรุณาป้อนชื่อด้วย"
+msgid "No name has been entered for the root file system. Please enter a name."
+msgstr "คุณไม่ได้ป้อนชื่อระบบแฟ้มราก กรุณาป้อนชื่อด้วย"
 
 #. Type: string
 #. Description
+#. :sl4:
 #: ../partman-zfs.templates:54001
 #, fuzzy
-msgid "ZFS boot fs"
-msgstr "พูล ZFS:"
+msgid "ZFS boot"
+msgstr "ระบบแฟ้มบูต ZFS:"
 
 #. Type: text
 #. Description
+#. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "กำลังลงทะเบียนมอดูลต่างๆ..."
+msgstr "กำลังโหลดมอดูล ZFS..."

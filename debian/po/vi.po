@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer Level 1\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2013-05-21 22:05+0000\n"
-"PO-Revision-Date: 2012-04-11 00:58+0100\n"
+"POT-Creation-Date: 2013-05-22 22:05+0000\n"
+"PO-Revision-Date: 2013-05-22 09:21+0100\n"
 "Last-Translator: Hai-Nam Nguyen <hainam@jcisio.com>\n"
 "Language-Team: Vietnamese <debian-l10n-vietnamese@lists.debian.org>\n"
 "Language: vi\n"
@@ -247,8 +247,8 @@ msgstr "Tạo khối tin hợp lệ"
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
 #, fuzzy
-msgid "Create root filesystem"
-msgstr "Tạo hệ thống tập tin %s"
+msgid "Create root file system"
+msgstr "Tạo hệ thống tập tin boot"
 
 #. Type: text
 #. Description
@@ -346,7 +346,6 @@ msgstr "Bản tóm tắt cấu hình ZFS hiện thời:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -354,10 +353,11 @@ msgid ""
 " ZFS logical volumes:    ${LVS}\n"
 " ${BOOTFS}"
 msgstr ""
-" Khối tin vật lý còn rảnh: ${FREE_PVS}\n"
-" Khối tin vật lý đã chiếm: ${USED_PVS}\n"
-" Nhóm khối tin ZFS:        ${VGS}\n"
-" Khối tin luận lý ZFS:     ${LVS}"
+"Khối tin vật lí còn trống: ${FREE_PVS}\n"
+"Khối tin vật lí đã dùng:    ${USED_PVS}\n"
+"Pool ZFS:                   ${VGS}\n"
+"Khối tin luận lí ZFS:       ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -796,8 +796,9 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:48001
 #, fuzzy
-msgid "Invalid logical volume, ZFS pool name or ZFS filesystem name"
-msgstr "Khối tin luận lý hoặc pool ZFS có tên không hợp lệ"
+msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
+msgstr ""
+"Khối tin luận lí, pool ZFS hoặc hệ thống tập tin ZFS có tên không hợp lệ"
 
 #. Type: error
 #. Description
@@ -805,15 +806,15 @@ msgstr "Khối tin luận lý hoặc pool ZFS có tên không hợp lệ"
 #: ../partman-zfs.templates:48001
 #, fuzzy
 msgid ""
-"Logical volumes, ZFS pool names and ZFS filesystems may only contain "
+"Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Khối tin hợp lý hoặc pool ZFS có tên phải chứa chỉ các ký tự chữ số, dấu "
-"trừ, dấu cộng, dấu chấm và/hay dấu gạch chân. Độ dài tối đa 255 kí tự và "
-"phải bắt đầu bằng số hoặc chữ cái.  Không được dùng các tên \"mirror\", "
-"\"raidz\", \"spare\",và \"log\"."
+"Tên của khối tin luận lí hoặc pool ZFS phải chứa chỉ các kí tự chữ số, dấu "
+"gạch nối, dấu hai chấm, dấu chấm và dấu gạch chân. Độ dài tối đa 255 kí tự "
+"và phải bắt đầu bằng số hoặc chữ cái.  Không được dùng các tên \"mirror\", "
+"\"raidz\", \"spare\", và \"log\"."
 
 #. Type: error
 #. Description
@@ -923,58 +924,65 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:51001
-msgid "Select pool to modify:"
-msgstr ""
+#, fuzzy
+msgid "Pool to modify:"
+msgstr "Chọn pool muốn thay đổi:"
 
 #. Type: string
 #. Description
+#. :sl4:
 #: ../partman-zfs.templates:52001
 #, fuzzy
-msgid "ZFS boot fs name:"
-msgstr "Tên pool ZFS:"
+msgid "ZFS boot file system name:"
+msgstr "Tên httt khởi động ZFS:"
 
 #. Type: string
 #. Description
+#. :sl4:
 #: ../partman-zfs.templates:52001
 #, fuzzy
-msgid "Please enter the name of the boot fs."
-msgstr "Hãy nhập tên máy cho hệ thống này."
+msgid "Please enter the name of the boot file system among the following:"
+msgstr "Hãy nhập tên cho httt khởi động."
 
 #. Type: string
 #. Description
+#. :sl4:
 #: ../partman-zfs.templates:52001
+#, fuzzy
 msgid ""
-"This will be prefixed by ${VG}/ROOT and mounted as your root file system. "
-"${FOUND_EXISTING_FS}"
+"This will be prefixed by ${VG}/ROOT and mounted as the root file system."
 msgstr ""
+"Cái này sẽ được thêm tiền tố ${VG}/ROOT và gắn kết làm hệ thống tập tin "
+"root. ${FOUND_EXISTING_FS}"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
 #, fuzzy
-msgid "No filesystem name entered"
-msgstr "Không có hệ thống tập tin được lắp vào « /target »"
+msgid "No file system name entered"
+msgstr "Chưa nhập tên hệ thống tập tin"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
 #, fuzzy
-msgid "No name for the root filesystem has been entered. Please enter a name."
-msgstr "Chưa nhập vào tên cho pool ZFS. Hãy nhập một tên."
+msgid "No name has been entered for the root file system. Please enter a name."
+msgstr "Chưa nhận tên cho hệ thống tập tin root. Hãy nhập tên."
 
 #. Type: string
 #. Description
+#. :sl4:
 #: ../partman-zfs.templates:54001
 #, fuzzy
-msgid "ZFS boot fs"
-msgstr "Pool ZFS:"
+msgid "ZFS boot"
+msgstr "Hệ thống tập tin ZFS boot"
 
 # Prebaseconfig progress bar item
 #. Type: text
 #. Description
+#. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "Đang đăng ký các mô-đun..."
+msgstr "Đang nạp mô-đun ZFS..."

@@ -7,7 +7,7 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # Console-setup strings translations:
 # (identified by "./console-setup.templates")
-# Copyright (C) 2003-2012 Miguel Figueiredo <elmig@debianpt.org>
+# Copyright (C) 2003-2013 Miguel Figueiredo <elmig@debianpt.org>
 # This file is distributed under the same license as debian-installer.
 #
 #
@@ -23,8 +23,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
-"POT-Creation-Date: 2013-05-21 22:05+0000\n"
-"PO-Revision-Date: 2012-10-18 20:42+0100\n"
+"POT-Creation-Date: 2013-05-22 22:05+0000\n"
+"PO-Revision-Date: 2013-05-22 22:02+0100\n"
 "Last-Translator:  Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team:  Portuguese <traduz@debianpt.org>\n"
 "Language: pt\n"
@@ -250,8 +250,8 @@ msgstr "Criar volume lógico"
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
 #, fuzzy
-msgid "Create root filesystem"
-msgstr "Criar sistema de ficheiros %s"
+msgid "Create root file system"
+msgstr "Criar sistema de ficheiros raiz"
 
 #. Type: text
 #. Description
@@ -350,7 +350,6 @@ msgstr "Sumário da actual configuração de ZFS:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -361,7 +360,8 @@ msgstr ""
 " Volumes Físicos Livres:  ${FREE_PVS}\n"
 " Volumes Físicos Usados:  ${USED_PVS}\n"
 " Pools ZFS:               ${VGS}\n"
-" Volumes Lógicos ZFS:     ${LVS}"
+" Volumes Lógicos ZFS:     ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -809,8 +809,9 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:48001
 #, fuzzy
-msgid "Invalid logical volume, ZFS pool name or ZFS filesystem name"
-msgstr "Volume lógico ou nome de pool ZFS inválido."
+msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
+msgstr ""
+"Volume lógico, nome de pool ZFS ou de nome de sistema de ficheiros inválidos."
 
 #. Type: error
 #. Description
@@ -818,16 +819,16 @@ msgstr "Volume lógico ou nome de pool ZFS inválido."
 #: ../partman-zfs.templates:48001
 #, fuzzy
 msgid ""
-"Logical volumes, ZFS pool names and ZFS filesystems may only contain "
+"Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Os nomes de volumes lógicos ou nomes de pools ZFS apenas podem conter "
-"caracteres alfanuméricos, hífen, dois pontos, ponto e o traço inferior. "
-"Podem de ter 255 caracteres, ou menos, e têm de começar por um caractere "
-"alfanumérico. Os nomes \"mirror\", \"raidz\", \"spare\" e \"log\" não são "
-"permitidos."
+"Os nomes de volumes lógicos, de nomes de pools ZFS e de sistemas de "
+"ficheiros ZFS apenas podem conter caracteres alfanuméricos, hífen, dois "
+"pontos, ponto e o traço inferior. Podem ter até 255 caracteres, e têm de "
+"começar por um caractere alfanumérico. Os nomes \"mirror\", \"raidz\", "
+"\"spare\" e \"log\" não são permitidos."
 
 #. Type: error
 #. Description
@@ -938,58 +939,66 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:51001
-msgid "Select pool to modify:"
-msgstr ""
+#, fuzzy
+msgid "Pool to modify:"
+msgstr "Escolha pool a modificar:"
 
 #. Type: string
 #. Description
+#. :sl4:
 #: ../partman-zfs.templates:52001
 #, fuzzy
-msgid "ZFS boot fs name:"
-msgstr "Nome de pool ZFS:"
+msgid "ZFS boot file system name:"
+msgstr "Nome de fs de arranque ZFS:"
 
 #. Type: string
 #. Description
+#. :sl4:
 #: ../partman-zfs.templates:52001
 #, fuzzy
-msgid "Please enter the name of the boot fs."
-msgstr "Por favor, introduza o nome do computador para este sistema."
+msgid "Please enter the name of the boot file system among the following:"
+msgstr "Por introduza o nome do sistema de ficheiros de arranque."
 
 #. Type: string
 #. Description
+#. :sl4:
 #: ../partman-zfs.templates:52001
+#, fuzzy
 msgid ""
-"This will be prefixed by ${VG}/ROOT and mounted as your root file system. "
-"${FOUND_EXISTING_FS}"
+"This will be prefixed by ${VG}/ROOT and mounted as the root file system."
 msgstr ""
+"Isto terá o prefixo ${VG}/ROOT e será montado como o seu sistema de "
+"ficheiros raiz."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
 #, fuzzy
-msgid "No filesystem name entered"
-msgstr "Nenhum sistema de ficheiros montado em /target"
+msgid "No file system name entered"
+msgstr "Não foi introduzido nenhum nome de sistema de ficheiros"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
 #, fuzzy
-msgid "No name for the root filesystem has been entered. Please enter a name."
+msgid "No name has been entered for the root file system. Please enter a name."
 msgstr ""
-"Não foi introduzido nenhum nome para o pool ZFS. Por favor introduza um nome."
+"Não foi introduzido nenhum nome para o sistema de ficheiros raiz. Por favor "
+"introduza um nome."
 
 #. Type: string
 #. Description
+#. :sl4:
 #: ../partman-zfs.templates:54001
 #, fuzzy
-msgid "ZFS boot fs"
+msgid "ZFS boot"
 msgstr "Pool ZFS:"
 
 #. Type: text
 #. Description
+#. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "A registar os módulos ..."
+msgstr "A carregar o módulo ZFS..."
