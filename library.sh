@@ -112,11 +112,9 @@ check_target () {
 	fi
 
 	# Undo dev bind mounts for idempotency.
-	for mnt in proc sys dev; do
-	    if grep -qE "^[^ ]+ /target/$mnt" /proc/mounts; then
-		umount /target/mnt
-	    fi
-	done
+	if grep -qE '^[^ ]+ /target/dev' /proc/mounts; then
+		umount /target/dev
+	fi
 	# Unmount /dev/.static/dev if mounted on same device as /target
 	mp_stdev=$(grep -E '^[^ ]+ /dev/\.static/dev' /proc/mounts | \
 		   cut -d" " -f1)
@@ -133,11 +131,6 @@ setup_dev_linux () {
 	mount --bind /target/dev /dev/.static/dev
 	# Mirror device nodes in D-I environment to target
 	mount --bind /dev /target/dev/
-
-	# Mount /proc and /sys to make sure that grub-probe works
-	# (might only be nessesary for zfs-grub).
-	mount --bind /proc /target/proc
-	mount --bind /sys /target/sys
 }
 
 setup_dev_kfreebsd() {
@@ -323,12 +316,8 @@ get_mirror_info () {
 
 		mirror_error=""
 
-		db_get mirror/protocol
-		if [ -n "$RET" ]; then
-		    PROTOCOL="$RET"
-		else
-		    PROTOCOL="http"
-		fi
+		db_get mirror/protocol || mirror_error=1
+		PROTOCOL="$RET"
 
 		db_get mirror/$PROTOCOL/hostname || mirror_error=1
 		MIRROR="$RET"
@@ -336,29 +325,12 @@ get_mirror_info () {
 		db_get mirror/$PROTOCOL/directory || mirror_error=1
 		DIRECTORY="$RET"
 
-		db_get mirror/components
-		if [ -n "$RET" ]; then
-		    COMPONENTS="$RET"
-		else
-		    COMPONENTS="main"
-		fi
+		COMPONENTS="main"
 
 		if [ "$mirror_error" = 1 ] || [ -z "$PROTOCOL" ] || [ -z "$MIRROR" ]; then
 			exit_error base-installer/cannot_install
 		fi
 	fi
-}
-
-check_kernel_usability () {
-    arch2=`echo $2 | sed 's/-.*//'`
-    if chroot /target apt-cache show "$1" | grep -Eq "^(Architecture:.*)$2|$arch2"
-    then 
-	return 0
-    elif arch_check_usable_kernel "$1" "$FLAVOUR"; then
-	return 0
-    else
-	return 1
-    fi
 }
 
 kernel_update_list () {
@@ -368,7 +340,7 @@ kernel_update_list () {
 	kernels=`sort -r "$KERNEL_LIST.unfiltered" | tr '\n' ' ' | sed -e 's/ $//'`
 	for candidate in $kernels; do
 		if [ -n "$FLAVOUR" ]; then
-			if check_kernel_usability "$candidate" "$FLAVOUR" ; then
+			if arch_check_usable_kernel "$candidate" "$FLAVOUR"; then
 				echo "$candidate"
 				info "kernel $candidate usable on $FLAVOUR"
 			else
