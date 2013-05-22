@@ -151,7 +151,7 @@ update_grub () {
 }
 
 findfs () {
-	if ! grub_probe -t device $1 | head -n1; then
+	if ! grub_probe -t device $1; then
 		mount | grep "on $ROOT${1%/} " | tail -n1 | cut -d' ' -f1
 	fi
 }
@@ -949,8 +949,7 @@ db_progress INFO grub-installer/progress/step_config_loader
 if [ "$bootfstype" = "zfs" ] || [ "$rootfstype" = "zfs" ] ; then
 	# Required by update-grub on ZFS
 	mkdir -p $ROOT/boot/zfs
-	cp -r /boot/zfs $ROOT/boot
-	[ -f "/etc/hostid" -a ! -f "$ROOT/etc/hostid" ] && cp /etc/hostid $ROOT/etc/hostid
+	cp /boot/zfs/zpool.cache $ROOT/boot/zfs/
 fi
 
 # Delete for idempotency
