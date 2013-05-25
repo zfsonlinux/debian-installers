@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2012-11-27 16:57+0900\n"
+"PO-Revision-Date: 2013-05-25 19:54+0900\n"
 "Last-Translator:  Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Debian L10n Japanese <debian-japanese@lists.debian.org>\n"
 "Language: \n"
@@ -252,9 +252,8 @@ msgstr "論理ボリュームの作成"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 msgid "Create root file system"
-msgstr "%s ファイルシステムの作成"
+msgstr "ルートファイルシステムの作成"
 
 #. Type: text
 #. Description
@@ -352,7 +351,6 @@ msgstr "現在の ZFS 設定の概要:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -363,7 +361,8 @@ msgstr ""
 " 未使用の物理ボリューム: ${FREE_PVS}\n"
 " 利用中の物理ボリューム: ${USED_PVS}\n"
 " ZFS プール:             ${VGS}\n"
-" ZFS 論理ボリューム:      ${LVS}"
+" ZFS 論理ボリューム:      ${LVS}<\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -801,24 +800,23 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "論理ボリュームまたは ZFS プール名が無効です"
+msgstr "論理ボリュームか ZFS プール名か ZFS ファイルシステムの名前が無効です"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"論理ボリュームや ZFS プール名は、英字、-、:、.、_のみを含むことができます。"
-"255 文字以下である必要があり、英字から始めなければなりません。\"mirror"
-"\"、\"raidz\"、\"spare\"、\"log\"という名前は許されていません。"
+"論理ボリュームや ZFS プール、ZFS ファイルシステムの名前には、英数"
+"字、-、:、.、_のみを含むことができます。255 文字以下である必要があり、英数字"
+"から始めなければなりません。\"mirror\"、\"raidz\"、\"spare\"、\"log\"という名"
+"前は許されていません。"
 
 #. Type: error
 #. Description
@@ -928,23 +926,21 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "変更するプール名:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "ZFS boot file system name:"
-msgstr "ZFS プール名:"
+msgstr "ZFS ブートファイルシステム名:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "このシステムのホスト名を入力してください。"
+msgstr "以下の中からブートファイルシステム名を入力してください:"
 
 #. Type: string
 #. Description
@@ -953,35 +949,34 @@ msgstr "このシステムのホスト名を入力してください。"
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
 msgstr ""
+"この先頭に ${VG}/ROOT が付加され、ルートファイルシステムとしてマウントされま"
+"す。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No file system name entered"
-msgstr "/target にマウントされたファイルシステムがありません"
+msgstr "ファイルシステムの名前が入力されていません"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "ZFS プール名が入力されていません。名前を入力してください。"
+msgstr ""
+"ルートファイルシステムの名前が入力されていません。名前を入力してください。"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 msgid "ZFS boot"
-msgstr "ZFS プール:"
+msgstr "ZFS ブート"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "モジュールを登録しています..."
+msgstr "ZFS モジュールをロードしています..."

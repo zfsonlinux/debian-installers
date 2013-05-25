@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2012-10-19 21:31+0200\n"
+"PO-Revision-Date: 2013-05-25 14:39+0200\n"
 "Last-Translator:  Miroslav Kure <kurem@debian.cz>\n"
 "Language-Team:  Czech <provoz@debian.cz>\n"
 "Language: cs\n"
@@ -242,9 +242,8 @@ msgstr "Vytvořit logický svazek"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 msgid "Create root file system"
-msgstr "Vytvořit souborový systém %s"
+msgstr "Vytvořit kořenový souborový systém"
 
 #. Type: text
 #. Description
@@ -342,7 +341,6 @@ msgstr "Přehled aktuálního nastavení ZFS:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -353,7 +351,8 @@ msgstr ""
 " Volné fyzické svazky:    ${FREE_PVS}\n"
 " Použité fyzické svazky:  ${USED_PVS}\n"
 " ZFS pooly:               ${VGS}\n"
-" Logické svazky ZFS:      ${LVS}"
+" Logické svazky ZFS:      ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -785,25 +784,23 @@ msgstr "Aktuální jádro nepodporuje ZFS. Možná musíte zavést modul zfs."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "Neplatné jméno logického svazku nebo ZFS poolu"
+msgstr "Neplatné jméno logického svazku, ZFS poolu nebo souborového systému"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Jména logických svazků a ZFS poolů mohou obsahovat pouze alfanumerické "
-"znaky, pomlčku, dvojtečku, tečku a podtržítko. Musí mít méně než 255 znaků a "
-"musí začínat alfanumerickým znakem. Nejsou dovolena jména „mirror“, „raidz“, "
-"„spare“ a „log“."
+"Jména logických svazků, ZFS poolů a souborových systémů ZFS mohou obsahovat "
+"pouze alfanumerické znaky, pomlčku, dvojtečku, tečku a podtržítko. Musí mít "
+"méně než 256 znaků a musí začínat alfanumerickým znakem. Nejsou dovolena "
+"jména „mirror“, „raidz“, „spare“ a „log“."
 
 #. Type: error
 #. Description
@@ -913,23 +910,21 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Pool pro úpravy:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "ZFS boot file system name:"
-msgstr "Jméno ZFS poolu:"
+msgstr "Jméno zaváděcího souborového systému ZFS:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "Zadejte jméno tohoto počítače."
+msgstr "Zadejte jméno zaváděcícho souborového systému z následujícího seznamu:"
 
 #. Type: string
 #. Description
@@ -938,35 +933,34 @@ msgstr "Zadejte jméno tohoto počítače."
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
 msgstr ""
+"Před jméno bude přidáno ${VG}/ROOT a výsledek se připojí jako kořenový "
+"souborový systém."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No file system name entered"
-msgstr "Pod /target není připojen žádný souborový systém"
+msgstr "Nebyl zadán název souborového systému"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "Nebylo zadáno jméno ZFS poolu. Zadejte prosím nějaké jméno."
+msgstr ""
+"Nebylo zadáno jméno kořenového souborového systému. Zadejte prosím jméno."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 msgid "ZFS boot"
-msgstr "ZFS pool:"
+msgstr "ZFS boot"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "Registrují se moduly..."
+msgstr "Nahrává se modul ZFS..."
