@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2012-12-08 16:47+0100\n"
+"PO-Revision-Date: 2013-06-11 19:04+0200\n"
 "Last-Translator: Dr. Nagy Elemér Károly <eknagy@omikk.bme.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
 "org>\n"
@@ -252,9 +252,8 @@ msgstr "Logikai kötet létrehozása"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 msgid "Create root file system"
-msgstr "%s fájlrendszer létrehozása"
+msgstr "Gyökér fájlrendszer létrehozása"
 
 #. Type: text
 #. Description
@@ -352,7 +351,6 @@ msgstr "Jelenlegi ZFS beállítás összefoglalója:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -360,10 +358,11 @@ msgid ""
 " ZFS logical volumes:    ${LVS}\n"
 " ${BOOTFS}"
 msgstr ""
-" Szabad fizikai kötetek:  ${FREE_PVS}\n"
+" Szabad fizikai kötetek:    ${FREE_PVS}\n"
 " Használt fizikai kötetek:  ${USED_PVS}\n"
-" ZFS kötetek:              ${VGS}\n"
-" ZFS logikai kötetek:    ${LVS}"
+" ZFS kötetek:               ${VGS}\n"
+" ZFS logikai kötetek:       ${LVS}\n"
+"${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -794,25 +793,25 @@ msgstr "E rendszermag nem támogat ZFS-t. Vagy be kell tölteni a zfs modult."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "Érvénytelen logikai kötet vagy ZFS tároló név"
+msgstr ""
+"Érvénytelen logikai kötet név, érvénytelen ZFS tároló név vagy érvénytelen "
+"ZFS fájlrendszer név"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"A logikai kötet és ZFS tároló név csak alfanumerikus karaktert, kötőjelet, "
-"kettőspontot, pontot és aláhúzást tartalmazhat. Legfeljebb 255 karakter "
-"hosszú lehet és alfanumerikus karakterrel kell kezdődnie. A \"mirror\", "
-"\"raidz\", \"spare\" és \"log\" nevek tiltottak."
+"Logikai kötet, ZFS tároló és ZFS fájlrendszer név csak alfanumerikus "
+"karaktert, kötőjelet, kettőspontot, pontot és aláhúzást tartalmazhat. "
+"Legfeljebb 255 karakter hosszú lehet és alfanumerikus karakterrel kell "
+"kezdődnie. A \"mirror\", \"raidz\", \"spare\" és \"log\" nevek tiltottak."
 
 #. Type: error
 #. Description
@@ -922,23 +921,21 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Módosítandó kötet:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "ZFS boot file system name:"
-msgstr "ZFS tároló neve:"
+msgstr "A ZFS betöltő fájlrendszer neve:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "Add meg a rendszer gépnevét."
+msgstr "Kérlek add meg a betöltő fájlrendszer nevét a következőkkel együtt:"
 
 #. Type: string
 #. Description
@@ -947,35 +944,34 @@ msgstr "Add meg a rendszer gépnevét."
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
 msgstr ""
+"Ez a ${VG}/ROOT előtaggal lesz ellátva és fel lesz csatolva, mint betöltő "
+"fájlrendszer."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No file system name entered"
-msgstr "Nincs a /target-be csatolt fájlrendszer"
+msgstr "Nem adtál meg fájlrendszer nevet"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "Nincs ZFS tároló név megadva. Adj meg egyet."
+msgstr ""
+"Nem adtál meg nevet a betöltő fájlrendszernek. Kérlek adj meg egy nevet."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 msgid "ZFS boot"
-msgstr "ZFS tároló:"
+msgstr "ZFS betöltő"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "Modulok bejegyzése..."
+msgstr "ZFS modulok betöltése..."
