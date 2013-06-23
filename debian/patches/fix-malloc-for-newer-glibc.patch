@@ -1,0 +1,14 @@
+Description: Newer GLibC changes the way __malloc_initialize_hook is initialized
+Author: Ben Collins <ben.c@servergy.com>
+
+--- zfs-fuse-0.7.0.orig/src/lib/libumem/malloc.c
++++ zfs-fuse-0.7.0/src/lib/libumem/malloc.c
+@@ -453,7 +453,7 @@ static void __attribute__((constructor))
+ 	}
+ }
+ 
+-void (*__malloc_initialize_hook)(void) = umem_malloc_init_hook;
++void (* __volatile __malloc_initialize_hook)(void) = umem_malloc_init_hook;
+ 
+ #else
+ void __attribute__((constructor))

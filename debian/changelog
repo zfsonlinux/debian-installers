@@ -1,3 +1,14 @@
+zfs-fuse (0.7.0-10.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix "ftbfs with eglibc-2.17":
+    add patch fix-malloc-for-newer-glibc.patch from Ben Collins / Ubuntu:
+    - Newer GLibC changes the way __malloc_initialize_hook is initialized, so
+      patch malloc.c accordingly.
+    (Closes: #701447)
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 23 Jun 2013 16:09:01 +0200
+
 zfs-fuse (0.7.0-10) unstable; urgency=low
 
   * Fix "issues forbidden SG_IO ioctl on partitions" (Closes: #657166)
