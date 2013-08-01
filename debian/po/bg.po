@@ -35,7 +35,7 @@ msgstr ""
 "Project-Id-Version: bg\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2012-10-18 14:04+0300\n"
+"PO-Revision-Date: 2013-08-01 19:46+0200\n"
 "Last-Translator: Damyan Ivanov <dmn@debian.org>\n"
 "Language-Team: Български <dict@fsa-bg.org>\n"
 "Language: bg\n"
@@ -261,9 +261,8 @@ msgstr "Създаване на логически том"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 msgid "Create root file system"
-msgstr "Създаване на файлова система %s"
+msgstr "Създаване на коренова файлова система"
 
 #. Type: text
 #. Description
@@ -361,7 +360,6 @@ msgstr "Текущата конфигурация на ZFS накратко:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -372,7 +370,8 @@ msgstr ""
 " Свободни физически томове:    ${FREE_PVS}\n"
 " Използвани физически томове:  ${USED_PVS}\n"
 " Пулове на ZFS:                ${VGS}\n"
-" Логически томове на ZFS:      ${LVS}"
+" Логически томове на ZFS:      ${LVS}\n"
+"${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -806,25 +805,24 @@ msgstr "Текущото ядро не поддържа ZFS. Може би тр�
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "Непозволено име на логически том или пул на ZFS"
+msgstr "Непозволено име на логически том, пул или файлова система на ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Имената на логическите томове и пуловете на ZFS могат да съдържат само букви "
-"на латиница, цифри, тире, двоеточие, точка и подчертаващо тире. Дължината на "
-"името не трябва да превишава 255 символа и трябва да започва с буква или "
-"цифра. Имената „mirror“, „raidz“, „spare“ и „log“ не са позволени."
+"Имената на логическите томове, пуловете и файловите системи на ZFS могат да "
+"съдържат само букви на латиница, цифри, тире, двоеточие, точка и "
+"подчертаващо тире. Дължината на името не трябва да превишава 255 символа и "
+"трябва да започва с буква или цифра. Имената „mirror“, „raidz“, „spare“ и "
+"„log“ не са позволени."
 
 #. Type: error
 #. Description
@@ -935,23 +933,21 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Пул за промяна:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "ZFS boot file system name:"
-msgstr "Име на пула на ZFS:"
+msgstr "Файлова система за начално зареждане на ZFS:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "Моля, въведете име на хоста за тази система."
+msgstr "Изберете файловата система за начално зареждане след следните:"
 
 #. Type: string
 #. Description
@@ -960,35 +956,33 @@ msgstr "Моля, въведете име на хоста за тази сист
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
 msgstr ""
+"${VG}/ROOT ще бъде добавено отпред и резултатът ще се монтира като корен на "
+"файловата система."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No file system name entered"
-msgstr "Не е монтирана файлова система в /target"
+msgstr "Не е въведена файлова система"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "Не е въведено име за пула на ZFS. Моля, въведете име."
+msgstr "Не е въведено име за кореновата файлова система. Моля, въведете име."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 msgid "ZFS boot"
-msgstr "Пул на ZFS:"
+msgstr "Начално зареждане от ZFS"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "Регистриране на модулите..."
+msgstr "Зареждане на модула на ZFS..."
