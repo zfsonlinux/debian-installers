@@ -32,10 +32,10 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2012-03-08 23:41+0100\n"
+"PO-Revision-Date: 2013-08-07 09:25+0200\n"
 "Last-Translator: Hans Fredrik Nordhaug <hans@nordhaug.priv.no>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
-"Language: \n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -258,9 +258,8 @@ msgstr "Opprette logisk dataområde"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 msgid "Create root file system"
-msgstr "Opprett %s filsystem"
+msgstr "Opprett rotfilsystemet"
 
 #. Type: text
 #. Description
@@ -359,7 +358,6 @@ msgstr "Sammendrag av gjeldende ZFS-oppsett:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -370,7 +368,8 @@ msgstr ""
 " Frie fysiske områder:   ${FREE_PVS}\n"
 " Brukte fysiske områder: ${USED_PVS}\n"
 " ZFS-pool:               ${VGS}\n"
-" ZFS logiske områder:    ${LVS}"
+" ZFS logiske områder:    ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -802,25 +801,23 @@ msgstr "Nåværende kjerne støtter ikke ZFS. Kanskje du må laste zfs-modulen."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "Ugyldig navn på logisk dataområde eller ZFS-pool"
+msgstr "Ugyldig navn på logisk dataområde, ZFS-pool eller ZFS-filsystem."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Navn på logiske dataområder eller ZFS-pool kan bare inneholde alfanumeriske "
-"tegn, bindestrek, pluss, punktum og understrek. De må være høyst 255 tegn "
-"lange og må begynne med et alfanumeriske tegn. Navnene «mirror», «raidz», "
-"«spare» og «log» er ikke tillatt. "
+"Navn på logiske dataområder, ZFS-pool og ZFS-filsystem kan bare inneholde "
+"alfanumeriske tegn, bindestrek, kolon, punktum og understrek. De må være "
+"høyst 255 tegn lange og må begynne med et alfanumeriske tegn. Navnene "
+"«mirror», «raidz», «spare» og «log» er ikke tillatt. "
 
 #. Type: error
 #. Description
@@ -931,23 +928,21 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Pool som skal endres:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "ZFS boot file system name:"
-msgstr "Navn på ZFS-pool:"
+msgstr "Navn på ZFS-oppstartsfilsystem:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "Skriv inn vertsnavnet for dette systemet."
+msgstr "Skriv inn navnet på oppstartsfilsystemet blant følgende:"
 
 #. Type: string
 #. Description
@@ -955,36 +950,32 @@ msgstr "Skriv inn vertsnavnet for dette systemet."
 #: ../partman-zfs.templates:52001
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
-msgstr ""
+msgstr "Dette vil ha ${VG}/ROOT som prefiks og bli montert som rotfilsystemet."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No file system name entered"
-msgstr "Intet filsystem er montert på /target"
+msgstr "Intet filsystemnavn oppgitt"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "Det er ikke oppgitt noe navn for ZFS-poolen. Skriv inn et navn."
+msgstr "Det er ikke oppgitt noe navn for rotfilsystemet. Skriv inn et navn."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 msgid "ZFS boot"
-msgstr "ZFS-pool:"
+msgstr "ZFS oppstart"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "Registrerer moduler ..."
+msgstr "Laster ZFS-moduler ..."
