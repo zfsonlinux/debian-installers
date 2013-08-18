@@ -60,7 +60,8 @@ pv_allowed () {
 	cd $dev
 
 	# sparc can not have ZFS starting at 0 or it will destroy the partition table
-	if [ "$(udpkg --print-architecture)" = kfreebsd-sparc ] && \
+	if ([ "$(udpkg --print-architecture)" = sparc ] || \
+	   [ "$(udpkg --print-architecture)" = kfreebsd-sparc ] && \
 	   [ "${id%%-*}" = 0 ]; then
 		return 1
 	fi
