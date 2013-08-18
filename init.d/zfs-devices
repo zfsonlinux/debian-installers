@@ -12,11 +12,16 @@ if [ ! -f /var/lib/partman/zfs ] && [ "$(udpkg --print-os)" = kfreebsd -o "$(udp
 	    kldload zfs >/dev/null 2>&1
 	else
 	    modprobe zfs >/dev/null 2>&1
-	    [ "$?" -ne 1 ] && sleep 5 # Give it some time to settle. Might be a little excessive, but...
 	fi
 
 	# Make sure that zfs is available - not a critical error.
-	test -e /dev/zfs || exit 0
+        # Wait up to 10 seconds as ZoL module may need time to settle down.
+        local zfs_load_timeout
+        zfs_load_timeout=0
+        while ! [ -e /dev/zfs ] && ! [ "$zfs_load_timeout" -eq "10" ]; do
+            sleep 1
+            let zfs_load_timeout++
+        done
 
 	# Just to make sure...
 	if ! test -d /boot/zfs ; then
