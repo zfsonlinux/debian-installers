@@ -17,16 +17,16 @@
 #   Ossama M. Khayat <okhayat@yahoo.com>, 2006, 2008, 2010.
 #   Tobias Quathamer <toddy@debian.org>, 2007.
 #   Mohammad Gamal <f2c2001@yahoo.com>, 2001.
-# Ossama Khayat <okhayat@yahoo.com>, 2011, 2012.
+# Ossama Khayat <okhayat@yahoo.com>, 2011, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ar\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2012-10-23 14:04+0300\n"
-"Last-Translator: Ossama Khayat <okhayat@yahoo.com>\n"
-"Language-Team: American English <support@arabeyes.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2013-08-27 16:06+0300\n"
+"Last-Translator: Ossama Khayat <okhayat@gmail.com>\n"
+"Language-Team: American English <okhayat@gmail.com>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -240,9 +240,8 @@ msgstr "إنشاء كتلة افتراضية"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 msgid "Create root file system"
-msgstr "إنشاء نظام الملفات %s"
+msgstr "إنشاء نظام الملفات الجذر"
 
 #. Type: text
 #. Description
@@ -340,7 +339,6 @@ msgstr "ملخّث تهئية ZFS الحالية:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -348,10 +346,11 @@ msgid ""
 " ZFS logical volumes:    ${LVS}\n"
 " ${BOOTFS}"
 msgstr ""
-" الكتل الماديّة المتوفّرة:  ${FREE_PVS}\n"
-" الكتل الماديّة المستخدمة:  ${USED_PVS}\n"
-" مُجمّعات ZFS:              ${VGS}\n"
-" كتل ZFS الافتراضيّة:    ${LVS}"
+" الكتل المادية الشاغرة:  ${FREE_PVS}\n"
+" الكتل المادية المستخدمة:  ${USED_PVS}\n"
+" مجمّعات ZFS:              ${VGS}\n"
+" كتل ZFS الافتراضية:    ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -576,7 +575,7 @@ msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
-"تعذر حذف مُجمّع ZFS المُحدّد. قد تكون أحد الكُتل الماديّة حالياً قيد الاستخدام."
+"تعذر حذف مُجمّع ZFS المُحدّد. قد تكون أحد الكُتل الافتراضية حالياً قيد الاستخدام."
 
 #. Type: error
 #. Description
@@ -593,7 +592,7 @@ msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"لا يوجد أية مُجمّعات ZFS شاغرة لإنشاء كتلة ماديّة جديدة. رجاءً أنشئ مُجمّع ZFS "
+"لا يوجد أية مُجمّعات ZFS شاغرة لإنشاء كتلة افتراضية جديدة. رجاءً أنشئ مُجمّع ZFS "
 "جديد، أو وفّر مساحةً على أي من المُجمّعات الحالية."
 
 #. Type: string
@@ -623,7 +622,7 @@ msgstr "مُجمّع ZFS:"
 #: ../partman-zfs.templates:37001
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
-msgstr "رجاءً اختر مُجمّع ZFS حيث تريد إنشاء كتلة ماديّة جديدة."
+msgstr "رجاءً اختر مُجمّع ZFS حيث تريد إنشاء كتلة افتراضية جديدة."
 
 #. Type: error
 #. Description
@@ -776,25 +775,23 @@ msgstr "لا تدعم النواة الحالية نظام ZFS. قد تحتاج 
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "اسم كتلة افتراضية أو مُجمّع ZFS غير صالح"
+msgstr "اسم كتلة افتراضية، أو مجمّع ZFS أو نظام ملفات ZFS غير صالح"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"يجب أن تتألف أسماء الكتل الافتراضية أو مُجمّعات ZFS فقط من الأحرف والأرقام "
-"والشرطة العرضية (-) أو الأفقية (|) أو النقطة أو الشرطة السفلية (_). كما تكون "
-"بطول 255 حرف أو أقل ويجب أن تبدأ بحرف أو رقم. كما لا يمكن استخدام أي من "
-"الكلمات \"mirror\" أو \"raidz\" أو \"spare\" أو \"log\"."
+"يجب أن تتألف أسماء الكتل الافتراضية أو مُجمّعات وأنظمة ملفات ZFS فقط من الأحرف "
+"والأرقام والشرطة العرضية (-) أو الأفقية (|) أو النقطة أو الشرطة السفلية (_). "
+"كما تكون بطول 255 حرف أو أقل ويجب أن تبدأ بحرف أو رقم. كما لا يمكن استخدام "
+"أي من الكلمات \"mirror\" أو \"raidz\" أو \"spare\" أو \"log\"."
 
 #. Type: error
 #. Description
@@ -818,7 +815,7 @@ msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"يحتوي الجهاز المُحدّد على كتل ZFS الافتراضيةومُجمّعات ZFS والتي هي على وشك أن "
+"يحتوي الجهاز المُحدّد على كتل ZFS الافتراضية ومُجمّعات ZFS والتي هي على وشك أن "
 "تُحذف:"
 
 #. Type: boolean
@@ -902,23 +899,21 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "المجمّع المطلوب تعديله:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "ZFS boot file system name:"
-msgstr "اسم مُجمّع ZFS:"
+msgstr "اسم نظام ملفات ZFS للإقلاع:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "الرجاء إدخال اسم المضيف لهذا النظام."
+msgstr "رجاءً أدخل اسم نظام ملفات الإقلاع من ما يلي:"
 
 #. Type: string
 #. Description
@@ -926,36 +921,32 @@ msgstr "الرجاء إدخال اسم المضيف لهذا النظام."
 #: ../partman-zfs.templates:52001
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
-msgstr ""
+msgstr "سيتم إضافة سابقة ${VG}/ROOT للإسم وتركيبه كنظام ملفات جذر."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No file system name entered"
-msgstr "لا نظام ملفّات مركّب عند /target"
+msgstr "لم تكتب اسم نظام الملفات"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "لم تكتب أي اسم لمُجمّع ZFS. رجاءً اكتب الاسم."
+msgstr "لم تكتب اسم نظام الملفات الجذر. رجاء اكتب الاسم."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 msgid "ZFS boot"
-msgstr "مُجمّع ZFS:"
+msgstr "ZFS للإقلاع"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "تسجيل الوحدات..."
+msgstr "تحميل وحدة ZFS..."
