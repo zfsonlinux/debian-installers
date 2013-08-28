@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2013-08-25 21:46+0500\n"
+"PO-Revision-Date: 2013-08-28 11:07+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik <victor.ibragimov@gmail.com>\n"
 "Language: Tajik\n"
@@ -302,7 +302,7 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:18001
 msgid "ZFS configuration failure"
-msgstr ""
+msgstr "Танзими ZFS қатъ шудааст"
 
 #. Type: error
 #. Description
@@ -316,28 +316,28 @@ msgstr "Ҳангоми ба дискҳо навиштани тағйирот х�
 #. :sl4:
 #: ../partman-zfs.templates:18001
 msgid "ZFS configuration has been aborted."
-msgstr ""
+msgstr "Танзими ZFS қатъ карда шудааст."
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:19001
 msgid "physical volume for ZFS"
-msgstr ""
+msgstr "ҳаҷми ҷисмонӣ барои ZFS"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
 msgid "ZFS configuration action:"
-msgstr ""
+msgstr "Амали танзими ZFS:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
 msgid "Summary of current ZFS configuration:"
-msgstr ""
+msgstr "Хулосаи танзими ҷории ZFS:"
 
 #. Type: select
 #. Description
@@ -350,27 +350,32 @@ msgid ""
 " ZFS logical volumes:    ${LVS}\n"
 " ${BOOTFS}"
 msgstr ""
+" Ҳаҷмҳои ҷисмонии озод:  ${FREE_PVS}\n"
+" Ҳаҷмҳои ҷисмонии истифодашуда:  ${USED_PVS}\n"
+" Ҳавзаҳои ZFS:              ${VGS}\n"
+" Ҳаҷмҳои мантиқии ZFS:    ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
 msgid "Current ZFS configuration:"
-msgstr ""
+msgstr "Танзими ҷории ZFS:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
 msgid "Devices for the new ZFS pool:"
-msgstr ""
+msgstr "Дастгоҳҳо барои ҳавзаи нави ZFS:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
 msgid "Please select devices for the new ZFS pool."
-msgstr ""
+msgstr "Лутфан, дастгоҳҳоро барои ҳавзаи нави ZFS интихоб намоед."
 
 #. Type: multiselect
 #. Description
@@ -384,7 +389,7 @@ msgstr "Шумо метавонед як ё зиёда дастгоҳро инт
 #. :sl4:
 #: ../partman-zfs.templates:24001
 msgid "Multidisk mode for this ZFS pool:"
-msgstr ""
+msgstr "Ҳолати мултидиск барои ин ҳавзаи ZFS:"
 
 #. Type: select
 #. Description
@@ -399,13 +404,23 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Лутфан, барои ин ҳавзаи ZFS ҳолати лозимиро барои амалҳои мултидиск интихоб "
+"намоед:\n"
+" * Striped: Ба RAID 0 (пешфарз) ҳаммонанд аст - маълумот дар ҳаҷмҳои "
+"ҷисмонӣ\n"
+"            паҳн карда мешавад;\n"
+" * Mirror:  Ба RAID 1 ҳаммонанд аст - маълумот ба ҳар як ҳаҷми ҷисмонӣ\n"
+"            нусхабардорӣ карда мешавад;\n"
+" * RAID-Z:  Ба RAID 5 ё RAID 6 ҳаммонанд аст - баъзе ҳаҷмҳои ҷисмонӣ битҳоро "
+"бо назорати ҷуфтӣ\n"
+"            нигоҳ медоранд ва маълумот ба ҳаҷмҳои дигар паҳн карда мешавад."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "Parity level for RAID-Z:"
-msgstr ""
+msgstr "Сатҳи ҷуфти барои RAID-Z:"
 
 #. Type: select
 #. Description
@@ -415,6 +430,8 @@ msgid ""
 "Please choose the number of physical volumes that will be used to store "
 "parity bits."
 msgstr ""
+"Лутфан, миқдори ҳаҷмҳои ҷисмониеро, ки барои нигоҳ доштани битҳои тавозун "
+"истифода мешавад, интихоб кунед."
 
 #. Type: string
 #. Description
@@ -429,6 +446,8 @@ msgstr "Номи ҳавзаи ZFS:"
 #: ../partman-zfs.templates:26001
 msgid "Please enter the name you would like to use for the new ZFS pool."
 msgstr ""
+"Лутфан, номеро, ки шумо мехоҳед барои ҳавзаи нави ZFS истифода баред, "
+"интихоб кунед."
 
 #. Type: error
 #. Description
@@ -445,6 +464,8 @@ msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
 msgstr ""
+"Ягон ҳаҷми ҷисмонӣ интихоб нашудааст. Эҷодкунии ҳавзаи нави ZFS қатъ карда "
+"шудааст."
 
 #. Type: error
 #. Description
@@ -458,14 +479,14 @@ msgstr "Номи ҳавзаи ZFS нест"
 #. :sl4:
 #: ../partman-zfs.templates:28001
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr ""
+msgstr "Ягон ном барои ҳавзаи ZFS ворид нашудааст. Лутфан, номеро ворид кунед."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
 msgid "ZFS pool name already in use"
-msgstr ""
+msgstr "Номи ҳавзаи ZFS аллакай истифода шуда истодааст"
 
 #. Type: error
 #. Description
@@ -474,20 +495,22 @@ msgstr ""
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
 msgstr ""
+"Номи интихобшудаи ҳавзаи ZFS аллакай истифода шуда истодааст. Лутфан, номи "
+"дигареро интихоб кунед."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
 msgid "Error while creating ZFS pool"
-msgstr ""
+msgstr "Ҳангоми эҷодкунии ҳавзаи ZFS хатогӣ ба вуҷуд омад"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
 msgid "The ZFS pool ${VG} could not be created."
-msgstr ""
+msgstr "Ҳавзаи ZFS-и ${VG} эҷод карда нашуд."
 
 #. Type: error
 #. Description
@@ -517,7 +540,7 @@ msgstr "Ҳавзаи ZFS барои несткунӣ:"
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "Please select the ZFS pool you wish to delete."
-msgstr ""
+msgstr "Лутфан, ҳавзаи ZFS-ро, ки мехоҳед нест кунед, интихоб намоед."
 
 #. Type: error
 #. Description
@@ -538,7 +561,7 @@ msgstr "Ягон ҳавзаи ZFS ёфт нашудааст."
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "The ZFS pool may have already been deleted."
-msgstr ""
+msgstr "Эҳтимол аст, ки ин ҳавзаи ZFS аллакай нест карда шудааст."
 
 #. Type: boolean
 #. Description
@@ -552,14 +575,14 @@ msgstr "Дар ҳақиқат мехоҳед ҳавзаи ZFS-ро нест ку
 #. :sl4:
 #: ../partman-zfs.templates:33001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "Лутфан, тозакунии ҳавзаи ZFS-и ${VG}-ро тасдиқ кунед."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
 msgid "Error while deleting ZFS pool"
-msgstr ""
+msgstr "Ҳангоми несткунии ҳавзаи ZFS хатогӣ ба вуҷуд омад"
 
 #. Type: error
 #. Description
@@ -810,7 +833,7 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:49001
 msgid "Logical volume(s): ${LVTARGETS}"
-msgstr ""
+msgstr "Ҳаҷм(ҳо)и мантиқӣ: ${LVTARGETS}"
 
 #. Type: boolean
 #. Description
@@ -876,7 +899,7 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Ҳавзае, ки тағйир дода мешавад:"
 
 #. Type: string
 #. Description
@@ -905,7 +928,7 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:53001
 msgid "No file system name entered"
-msgstr ""
+msgstr "Ягон номи системаи файлӣ ворид нашудааст"
 
 #. Type: error
 #. Description
@@ -926,4 +949,4 @@ msgstr "Роҳандозии ZFS"
 #. :sl4:
 #: ../partman-zfs.templates:55001
 msgid "Loading ZFS module..."
-msgstr ""
+msgstr "Модули ZFS бор шуда истодааст..."
