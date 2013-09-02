@@ -7,7 +7,7 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 #
 # This file is distributed under the same license as debian-installer.
-# Holger Wansing <linux@wansing-online.de>, 2008, 2009, 2010, 2011, 2012.
+# Holger Wansing <linux@wansing-online.de>, 2008, 2009, 2010, 2011, 2012, 2013.
 # Jens Seidel <jensseidel@users.sf.net>, 2005, 2006, 2007, 2008.
 # Dennis Stampfer <seppy@debian.org>, 2003, 2004, 2005.
 # Alwin Meschede <ameschede@gmx.de>, 2003, 2004.
@@ -39,7 +39,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2012-12-31 21:08+0100\n"
+"PO-Revision-Date: 2013-09-02 16:18+0200\n"
 "Last-Translator: Holger Wansing <linux@wansing-online.de>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "Language: de\n"
@@ -270,9 +270,8 @@ msgstr "Logisches Volume erstellen"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 msgid "Create root file system"
-msgstr "Erstellen des %s-Dateisystems"
+msgstr "Ein root-Dateisystem erzeugen"
 
 #. Type: text
 #. Description
@@ -374,7 +373,6 @@ msgstr "Übersicht der aktuellen ZFS-Konfiguration:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -385,7 +383,7 @@ msgstr ""
 " Freie physikalische Volumes:      ${FREE_PVS}\n"
 " Verwendete physikalische Volumes: ${USED_PVS}\n"
 " ZFS-Pools:                        ${VGS}\n"
-" Logische ZFS-Volumes:             ${LVS}"
+" Logische ZFS-Volumes:             ${LVS} ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -836,26 +834,24 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "Ungültiger Name für logisches Volume oder ZFS-Pool"
+msgstr "Ungültiger Name für logisches Volume, ZFS-Pool oder ZFS-Dateisystem"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Namen für logische Volumes oder ZFS-Pools dürfen nur alphanumerische "
-"Zeichen, Bindestriche, Doppelpunkte, Punkte und Unterstriche enthalten. Sie "
-"dürfen nicht mehr als 255 Zeichen enthalten und müssen mit einem "
-"alphanumerischen Zeichen beginnen. Die Namen »mirror«, »raidz«, »spare« und "
-"»log« sind nicht erlaubt."
+"Namen für logische Volumes, ZFS-Pools oder ZFS-Dateisysteme dürfen nur "
+"alphanumerische Zeichen, Bindestriche, Doppelpunkte, Punkte und Unterstriche "
+"enthalten. Sie dürfen nicht mehr als 255 Zeichen enthalten und müssen mit "
+"einem alphanumerischen Zeichen beginnen. Die Namen »mirror«, »raidz«, "
+"»spare« und »log« sind nicht erlaubt."
 
 #. Type: error
 #. Description
@@ -969,23 +965,22 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Zu verändernder Pool:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "ZFS boot file system name:"
-msgstr "ZFS-Pool-Name:"
+msgstr "Name des ZFS-boot-Dateisystems:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "Bitte geben Sie den Namen dieses Rechners ein."
+msgstr ""
+"Bitte geben Sie den Namen des boot-Dateisystems unter den folgenden ein:"
 
 #. Type: string
 #. Description
@@ -994,37 +989,35 @@ msgstr "Bitte geben Sie den Namen dieses Rechners ein."
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
 msgstr ""
+"Diesem wird ${VG}/ROOT vorangestellt und es wird als root-Dateisystem "
+"eingebunden."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No file system name entered"
-msgstr "Kein Dateisystem nach /target eingebunden"
+msgstr "Kein Dateisystem-Name eingegeben"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No name has been entered for the root file system. Please enter a name."
 msgstr ""
-"Es wurde kein Name für den ZFS-Pool angegeben. Bitte geben Sie einen Namen "
-"ein."
+"Es wurde kein Name für das root-Dateisystem angegeben. Bitte geben Sie einen "
+"Namen ein."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 msgid "ZFS boot"
-msgstr "ZFS-Pool:"
+msgstr "ZFS-boot"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "Registrieren der Module ..."
+msgstr "Laden der ZFS-Module ..."
