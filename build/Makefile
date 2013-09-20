@@ -55,6 +55,7 @@
 
 # Add to PATH so dpkg will always work, and so local programs will be found.
 PATH := util:$(PATH):/usr/sbin:/sbin
+EATMYDATA = $(shell which eatmydata 2>/dev/null)
 
 # We don't want this to be run each time we re-enter.
 ifndef DEB_HOST_ARCH
@@ -340,7 +341,7 @@ endif
 	oldsize=0; oldblocks=0; oldcount=0; for udeb in $(UDEBDIR)/*.udeb ; do \
 		if [ -f "$$udeb" ]; then \
 			pkg=`basename $$udeb` ; \
-			dpkg $(DPKG_UNPACK_OPTIONS) --path-include='*' --log=/dev/null --root=$(TREE) --unpack $$udeb ; \
+			$(EATMYDATA) dpkg $(DPKG_UNPACK_OPTIONS) --path-include='*' --log=/dev/null --root=$(TREE) --unpack $$udeb ; \
 			newsize=`du -bs $(TREE) | awk '{print $$1}'` ; \
 			newblocks=`du -s $(TREE) | awk '{print $$1}'` ; \
 			newcount=`find $(TREE) -type f | wc -l | awk '{print $$1}'` ; \
