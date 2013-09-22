@@ -10,7 +10,7 @@
 # Debian Installer translators, please read the D-I i18n documentation
 # in doc/i18n/i18n.txt
 # Contributor:
-# Kartik Mistry <kartik.mistry@gmail.com>, 2006-2011
+# Kartik Mistry <kartik.mistry@gmail.com>, 2006-2013
 #
 #
 # Translations from iso-codes:
@@ -242,9 +242,8 @@ msgstr "તાર્કિક સમૂહ બનાવો"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 msgid "Create root file system"
-msgstr "%s ફાઈલ સિસ્ટમ બનાવો"
+msgstr "રૂટ ફાઈલ સિસ્ટમ બનાવો"
 
 #. Type: text
 #. Description
@@ -342,7 +341,6 @@ msgstr "હાલનાં ZFS રૂપરેખાંકનનો સાર:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -353,7 +351,8 @@ msgstr ""
 " ખાલી ભૌતિક કદો:    ${FREE_PVS}\n"
 " વપરાયેલ ભૌતિક કદો:  ${USED_PVS}\n"
 " ZFS પૂલ્સ:         ${VGS}\n"
-" ZFS તાર્કિક કદો:     ${LVS}"
+" ZFS તાર્કિક કદો:     ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -779,25 +778,23 @@ msgstr "હાલનું કર્નલ ZFSને આધાર આપતુ�
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "અયોગ્ય તાર્કિક કદ અથવા ZFS પૂલ નામ"
+msgstr "અયોગ્ય તાર્કિક કદ, ZFS પૂલ નામ અથવા ZFS ફાઇલ સિસ્ટમ નામ"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"તાર્કિક કદ અથવા ZFS પૂલ ફક્ત આંકડાઓ અને અંગ્રેજી અક્ષરો, આડી લીટી, પૂર્ણવિરામ અને "
-"અન્ડરસ્કોર જ ધરાવી શકે છે. તે ૨૫૫ કે તેથી ઓછા અક્ષરોનાં જ હોવા જોઇએ અને અંગ્રેજી અક્ષરો "
-"અથવા આંકડાથી શરુ થવા જોઇએ. નામો જેવાં કે \"mirror\", \"raidz\", \"spare\", and "
-"\"log\" માન્ય નથી."
+"તાર્કિક કદ, ZFS પૂલ નામો અને ZFS ફાઇલ સિસ્ટમ ફક્ત આંકડાઓ અને અંગ્રેજી અક્ષરો, આડી લીટી, "
+"પૂર્ણવિરામ અને અન્ડરસ્કોર જ ધરાવી શકે છે. તે ૨૫૫ કે તેથી ઓછા અક્ષરોનાં જ હોવા જોઇએ અને "
+"અંગ્રેજી અક્ષરો અથવા આંકડાથી શરુ થવા જોઇએ. નામો જેવાં કે \"mirror\", \"raidz\", "
+"\"spare\", and \"log\" માન્ય નથી."
 
 #. Type: error
 #. Description
@@ -905,23 +902,21 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "બદલવા માટેનું પૂલ:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "ZFS boot file system name:"
-msgstr "ZFS પૂલ નામ:"
+msgstr "ZFS બૂટ ફાઇલ સિસ્ટમ નામ:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "આ સિસ્ટમ માટે યજમાનનામ દાખલ કરો."
+msgstr "મહેરબાની કરી નીચેનાંની સાથે બૂટ ફાઇલ સિસ્ટમનું નામ દાખલ કરો:"
 
 #. Type: string
 #. Description
@@ -929,36 +924,32 @@ msgstr "આ સિસ્ટમ માટે યજમાનનામ દાખ�
 #: ../partman-zfs.templates:52001
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
-msgstr ""
+msgstr "આ ${VG}/ROOT વડે પૂવર્ગ થશે અને રૂટ ફાઇલ સિસ્ટમ વડે માઉન્ટ કરાશે."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No file system name entered"
-msgstr "/target પર કોઇ ફાઇલ સિસ્ટમ માઉન્ટ કરેલ નથી"
+msgstr "કોઇ ફાઇલ સિસ્ટમ નામ દાખલ કરેલ નથી"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "ZFS પૂલ માટે કોઇ નામ દાખલ કરવામાં આવેલ નથી. મહેરબાની કરી નામ દાખલ કરો."
+msgstr "રૂટ ફાઇલ સિસ્ટમ માટે કોઇ નામ દાખલ કરેલ નથી. મહેરબાની કરી નામ દાખલ કરો."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 msgid "ZFS boot"
-msgstr "ZFS પૂલ:"
+msgstr "ZFS બૂટ"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "મોડ્યુલોની નોંધણી કરે છે..."
+msgstr "ZFS મોડ્યુલ લાવે છે..."
