@@ -241,9 +241,8 @@ msgstr "Cruthaigh imleabhar loighciúil"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 msgid "Create root file system"
-msgstr "Cruthaigh córas comhad %s"
+msgstr "Cruthaigh fréamhchóras comhad"
 
 #. Type: text
 #. Description
@@ -342,7 +341,6 @@ msgstr "Achoimre ar an gcumraíocht reatha ZFS:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -353,7 +351,8 @@ msgstr ""
 " Imleabhair shaora fhisiceacha:   ${FREE_PVS}\n"
 " Imleabhair úsáidte fhisiceacha:  ${USED_PVS}\n"
 " Linnte ZFS:                      ${VGS}\n"
-" Imleabhair loighciúla ZFS:       ${LVS}"
+" Imleabhair loighciúla ZFS:       ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -797,26 +796,26 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "Imleabhar loighciúil neamhbhailí nó ainm neamhbhailí ar linn ZFS"
+msgstr ""
+"Imleabhar loighciúil neamhbhailí nó ainm neamhbhailí ar linn ZFS nó ar "
+"chóras comhad ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Seo iad na carachtair atá ceadaithe in ainmneacha ar imleabhair loighciúla "
-"nó ar linnte ZFS: carachtair alfauimhriúla, fleiscín, comhartha móide, ponc "
-"agus folíne.  Caithfidh siad a bheith 255 carachtar ar a mhéad agus ní mór "
-"don chéad charachtar a bheith alfauimhriúil. Ní cheadaítear na hainmneacha "
-"\"mirrir\", \"raidz\", \"spare\", nó \"log\"."
+"Seo iad na carachtair atá ceadaithe in ainmneacha ar imleabhair loighciúla, "
+"linnte ZFS, agus ar chórais chomhad ZFS: carachtair alfauimhriúla, fleiscín, "
+"comhartha móide, ponc agus folíne.  Caithfidh siad a bheith 255 carachtar ar "
+"a mhéad agus ní mór don chéad charachtar a bheith alfauimhriúil. Ní "
+"cheadaítear na hainmneacha \"mirror\", \"raidz\", \"spare\", nó \"log\"."
 
 #. Type: error
 #. Description
@@ -930,23 +929,21 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Linn le hathrú:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "ZFS boot file system name:"
-msgstr "Ainm na linne ZFS:"
+msgstr "Ainm an chórais comhad tosaithe ZFS:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "Iontráil óstainm an chórais seo."
+msgstr "Cuir ainm ar an gcóras comhad tosaithe ó na roghanna seo a leanas:"
 
 #. Type: string
 #. Description
@@ -955,35 +952,35 @@ msgstr "Iontráil óstainm an chórais seo."
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
 msgstr ""
+"Cuirfear ${VG}/ROOT leis an ainm seo mar réimír, agus beidh sé feistithe mar "
+"fhréamhchóras comhad."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No file system name entered"
-msgstr "Níl aon chóras comhad feistithe ar /target"
+msgstr "Caithfidh tú ainm an chórais comhad a chur isteach"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "Níor tugadh ainm ar an linn ZFS. Tabhair uait ainm, le do thoil."
+msgstr ""
+"Caithfidh tú ainm a chur ar an bhfréamhchóras comhad. Cuir ainm isteach "
+"anois."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 msgid "ZFS boot"
-msgstr "Linn ZFS:"
+msgstr "Córas tosaithe ZFS"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "Modúil á gclárú..."
+msgstr "Modúl ZFS á luchtú..."
