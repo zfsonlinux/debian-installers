@@ -22,11 +22,11 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2012-11-16 20:37+0530\n"
+"PO-Revision-Date: 2013-10-01 20:48+0530\n"
 "Last-Translator: sampada <sampadanakhare@gmail.com>\n"
 "Language-Team: Marathi, janabhaaratii, C-DAC, Mumbai, India "
 "<janabhaaratii@cdacmumbai.in>\n"
-"Language: \n"
+"Language: mr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -242,9 +242,8 @@ msgstr "तार्किक खंड बनवा"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 msgid "Create root file system"
-msgstr "%s फाईल प्रणाली बनवा"
+msgstr "मूल फाईल प्रणाली बनवा"
 
 #. Type: text
 #. Description
@@ -342,7 +341,6 @@ msgstr "सध्याच्या ZFS संरचनेचा सारां
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -353,7 +351,7 @@ msgstr ""
 " मोकळे भौतिक खंड:  ${FREE_PVS}\n"
 " वापरलेले भौतिक खंड: ${USED_PVS}\n"
 " ZFS पूल्स:         ${VGS}\n"
-" ZFS तार्किक खंड:        ${LVS}"
+" ZFS तार्किक खंड:        ${LVS} ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -779,25 +777,23 @@ msgstr "हा कर्नेल ZFS ला पाठबळ देऊ शकत
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "तार्किक खंड वा ZFS पूलचे नाव अवैध"
+msgstr "तार्किक खंड, ZFS पूलचे नाव वा ZFS फाईल प्रणालीचे नाव अवैध"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"तार्किक खंड वा ZFS पूल यांच्या नावात फक्त अंकअक्षर चिन्हे, संयोगचिन्ह, अधिकचिन्ह, "
-"पूर्णविराम आणी अधोरेखा असू शकतात. ती २५५ वा त्यापेक्षा कमी चिन्हांनी बनलेली असणे आवश्यक "
-"आहे, व संयोगचिन्हाने त्यांची सुरुवात असू नये. \"mirror\", \"raidz\", \"spare\" आणी "
-"\"log\" या नावांना परवानगी नाही."
+"तार्किक खंड, ZFS पूलचे नाव व ZFS फाईल प्रणाली यांच्या नावात फक्त अंकअक्षर चिन्हे, "
+"संयोगचिन्ह, अधिकचिन्ह, पूर्णविराम आणी अधोरेखा असू शकतात. ती २५५ वा त्यापेक्षा कमी "
+"चिन्हांनी बनलेली असणे आवश्यक आहे, व संयोगचिन्हाने त्यांची सुरुवात असू नये. \"mirror\", "
+"\"raidz\", \"spare\" आणी \"log\" या नावांना परवानगी नाही."
 
 #. Type: error
 #. Description
@@ -906,23 +902,21 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "बदल करण्यासाठी पूल:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "ZFS boot file system name:"
-msgstr "ZFS पूल नाव:"
+msgstr "ZFS आरंभ फाईल प्रणाली नाव:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "या प्रणालीकरिता यजमाननाम द्या."
+msgstr "खालीलपैकी आरंभ फाईल प्रणालीचे नाव प्रविष्ट करा."
 
 #. Type: string
 #. Description
@@ -930,36 +924,32 @@ msgstr "या प्रणालीकरिता यजमाननाम द
 #: ../partman-zfs.templates:52001
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
-msgstr ""
+msgstr "याच्या आधी ${VG}/ROOT जोडले जाईल व मूल फाईल प्रणाली म्हणून आरोहीत होईल."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No file system name entered"
-msgstr "/target वर कोणतीही फाइल प्रणाली आरोहित नाही"
+msgstr "कोणतेही फाइल प्रणाली नाव प्रविष्ट केले नाही"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "ZFS पूलला कोणतेही नाव दिलेले नाही. कृपया नाव द्या."
+msgstr "मूल फाईल प्रणालीसाठी कोणतेही नाव दिलेले नाही. कृपया नाव द्या."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 msgid "ZFS boot"
-msgstr "ZFS पूल:"
+msgstr "ZFS आरंभ"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "मॉडयुल्सची नोंदणी होत आहे..."
+msgstr "ZFS मॉडयुल लोड होत आहे..."
