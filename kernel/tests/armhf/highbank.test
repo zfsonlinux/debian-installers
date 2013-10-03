@@ -1,13 +1,12 @@
-subarch mx5
-cpuinfo efikamx.cpuinfo
-majors 2.6
-flavour mx5 armmp
-kernel-2.6 linux-image-mx5 linux-image-armmp
+subarch generic
+cpuinfo highbank.cpuinfo
+majors 3.10
+flavour armmp
+kernel-3.10 \
+  linux-image-armmp
 usable \
-  linux-image-mx5 \
-  linux-image-2.6.38-4-mx5 \
   linux-image-armmp \
-  linux-image-2.6.38-4-armmp
+  linux-image-3.10-3-armmp
 unusable \
   linux-image-iop32x \
   linux-image-netwinder \
@@ -16,4 +15,5 @@ unusable \
   linux-image-s3c2410 \
   linux-image-ixp4xx \
   linux-image-kirkwood \
+  linux-image-mx5 \
   linux-image-vexpress
