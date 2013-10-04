@@ -20,7 +20,7 @@
 # quad-nrg.net <yodesy@quad-nrg.net>, 2006, 2008.
 # QUAD-nrg.net <yodesy@quad-nrg.net>, 2006.
 # galaxico@quad-nrg.net <galaxico@quad-nrg.net>, 2009, 2011.
-# Emmanuel Galatoulas <galaxico@quad-nrg.net>, 2009, 2010.
+# Emmanuel Galatoulas <galaxico@quad-nrg.net>, 2009, 2010, 2013.
 #   Tobias Quathamer <toddy@debian.org>, 2007.
 #   Free Software Foundation, Inc., 2004.
 #   Alastair McKinstry <mckinstry@computer.org>, 2001.
@@ -33,7 +33,7 @@ msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2012-10-08 16:37+0300\n"
+"PO-Revision-Date: 2013-10-04 08:47+0300\n"
 "Last-Translator: galaxico <galaxico@quad-nrg.net>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
 "Language: el\n"
@@ -264,9 +264,8 @@ msgstr "Δημιουργία λογικού τόμου"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 msgid "Create root file system"
-msgstr "Δημιουργία του συστήματος αρχείων %s "
+msgstr "Δημιουργία του ριζικού συστήματος αρχείων"
 
 #. Type: text
 #. Description
@@ -366,7 +365,6 @@ msgstr "Σύνοψη της τρέχουσας ρύθμισης του ZFS:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -374,10 +372,11 @@ msgid ""
 " ZFS logical volumes:    ${LVS}\n"
 " ${BOOTFS}"
 msgstr ""
-" Ελεύθεροι φυσικοί τόμοι:  ${FREE_PVS}\n"
-" Φυσικοί τόμοι σε χρήση:  ${USED_PVS}\n"
+"Ελεύθεροι φυσικοί τόμοι:  ${FREE_PVS}\n"
+"Φυσικοί τόμοι σε χρήση:  ${USED_PVS}\n"
 " ZFS pools:              ${VGS}\n"
-" Λογικοί τόμοι ZFS:    ${LVS}"
+" Λογικοί τόμοι ZFS :    ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -831,26 +830,25 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "Μη έκυρο όνομα λογικού τόμου ή του ZFS pool"
+msgstr ""
+"Μη έγκυρος λογικός τόμος, όνομα του ZFS pool ή όνομα συστήματος αρχείων ZFS "
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Τα ονόματα των λογικών τόμων ή του ZFS pool μπορούν να περιέχουν μόνο "
-"αλφαριθμητικούς χαρακτήρες, παύλες, άνω τελείες, τελείες και υποδείκτες. "
-"Πρέπει να έχουν 255 χαρακτήρες ή λιγότερους και θα πρέπει να ξεκινούν με "
-"έναν αλφαριθμητικό χαρακτήρα. Δεν επιτρέπονται τα ονόματα \"mirror\", \"raidz"
-"\", \"spare\" και \"log\"."
+"Λογικοί τόμοι, ονόματα ZFS pool και συστημάτων αρχείων ZFS μπορούν να "
+"περιέχουν μόνο αλφαριθμητικούς χαρακτήρες, παύλες, ερωτηματικά, άνω-κάτω "
+"τελείες και κάτω παύλες. Πρέπει να έχουν 255 χαρακτήρες ή λιγότερους και να "
+"ξεκινούν με έναν αλφαριθμητικό χαρακτήρα.  Δεν επιτρέπονται τα ονόματα "
+"\"mirror\", \"raidz\", \"spare\" και \"log\"."
 
 #. Type: error
 #. Description
@@ -965,23 +963,23 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Pool προς τροποποίηση:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "ZFS boot file system name:"
-msgstr "Όνομα του ZFS pool:"
+msgstr "Όνομα του ZFS συστήματος αρχείων εκκίνησης:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "Παρακαλώ, εισάγετε το όνομα γι' αυτόν τον υπολογιστή."
+msgstr ""
+"Παρακαλώ, εισάγετε το όνομα του συστήματος αρχείων εκκίνησης ανάμεσα στα "
+"επόμενα:"
 
 #. Type: string
 #. Description
@@ -990,35 +988,35 @@ msgstr "Παρακαλώ, εισάγετε το όνομα γι' αυτόν το
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
 msgstr ""
+"Αυτό θα έχει το πρόθεμα ${VG}/ROOT και θα προσαρτηθεί σαν το ριζικό σύστημα "
+"αρχείων."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No file system name entered"
-msgstr "Δεν έχει προσαρτηθεί σύστημα αρχείων στο /target"
+msgstr "Δεν έχει εισαχθεί όνομα του συστήματος αρχείων"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "Δεν δώθηκε κάποιο όνομα για το ZFS pool. Παρακαλώ, εισάγετε ένα όνομα."
+msgstr ""
+"Δεν έχετε εισαγάγει κάποιο όνομα για το ριζικό σύστημα αρχείων. Παρακαλώ, "
+"εισάγετε ένα όνομα."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 msgid "ZFS boot"
-msgstr "ZFS pool:"
+msgstr "ZFS boot"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "Καταγραφή αρθρωμάτων λογισμικού ..."
+msgstr "Φόρτωση του αρθρώματος ZFS..."

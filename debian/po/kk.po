@@ -23,9 +23,9 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2012-10-18 16:54+0600\n"
+"PO-Revision-Date: 2013-10-04 12:19+0600\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
-"Language-Team: Kazakh \n"
+"Language-Team: Kazakh\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -248,9 +248,8 @@ msgstr "Логикалық том құру"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 msgid "Create root file system"
-msgstr "Файлдық жүйені құру мүмкін болмады"
+msgstr "Түбірлік файлдық жүйені жасау"
 
 #. Type: text
 #. Description
@@ -348,7 +347,6 @@ msgstr "Ағымдағы ZFS конфигурациясының қорытынд
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -359,7 +357,8 @@ msgstr ""
 " Бос физикалық томдар:  ${FREE_PVS}\n"
 " Қолданыстағы физикалық томдар:  ${USED_PVS}\n"
 " ZFS пулдары:            ${VGS}\n"
-" ZFS логикалық томдары:  ${LVS}"
+" ZFS логикалық томдары:  ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -790,25 +789,23 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "Логикалық томның не ZFS пулының аты жарамсыз"
+msgstr "Логикалық томның, ZFS пулының не ZFS файлдық жүйесінің атауы жарамсыз"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Логикалық том не ZFS пул аттары құрамында тек сандық-әріптік таңбалар, "
-"дефис, үтір, нүкте мен астыңғы сызық болуы мүмкін. Олардың ұзындығы 255 "
-"таңбадан аспай, сан не әріптен басталуы тиіс. Келесі аттарды қолдануға "
-"болмайды: \"mirror\", \"raidz\", \"spare\", және \"log\"."
+"Логикалық том, ZFS пулы және ZFS файлдық жүйе атауларының құрамында тек "
+"сандық-әріптік таңбалар, дефис, үтір, нүкте мен астыңғы сызық болуы мүмкін. "
+"Олардың ұзындығы 255 таңбадан аспай, сан не әріптен басталуы тиіс. Келесі "
+"аттарды қолдануға болмайды: \"mirror\", \"raidz\", \"spare\", және \"log\"."
 
 #. Type: error
 #. Description
@@ -917,23 +914,21 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Түрлендіру үшін пул:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "ZFS boot file system name:"
-msgstr "ZFS пул аты:"
+msgstr "ZFS жүктелетін файлдық жүйесінің атауы:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "Осы компьютердің атын енгізіңіз."
+msgstr "Жүктелетін файлдық жүйесінің атауын енгізіңіз, басқалардың ортасында:"
 
 #. Type: string
 #. Description
@@ -942,35 +937,33 @@ msgstr "Осы компьютердің атын енгізіңіз."
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
 msgstr ""
+"Бұның алдына ${VG}/ROOT қосылады және ол түбірлік файлдық жүйе ретінде "
+"тіркеледі."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No file system name entered"
-msgstr "/target нүктесіне файлдық жүйе тіркелмеген"
+msgstr "Файлдық жүйе атауы көрсетілмеген"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "ZFS пулының аты көрсетілмеген. Атын енгізіңіз."
+msgstr "Түбірлік файлдық жүйенің атауы көрсетілмеген. Атын енгізіңіз."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 msgid "ZFS boot"
-msgstr "ZFS пулы:"
+msgstr "ZFS жүктелетін"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "Модульдерді тіркеу..."
+msgstr "ZFS модулін жүктеу..."
