@@ -22,17 +22,18 @@
 #   Andras TIMAR <timar@gnome.hu>, 2000-2001.
 # SZERVÁC Attila <sas@321.hu>, 2012.
 # Dr. Nagy Elemér Károly <eknagy@omikk.bme.hu>, 2012.
+# Judit Gyimesi <judit.gyimesi.x@gmail.com>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: grub-installer@packages.debian.org\n"
 "POT-Creation-Date: 2013-04-29 22:04+0000\n"
-"PO-Revision-Date: 2012-12-08 16:47+0100\n"
-"Last-Translator: Dr. Nagy Elemér Károly <eknagy@omikk.bme.hu>\n"
+"PO-Revision-Date: 2013-11-18 21:15+0100\n"
+"Last-Translator: Judit Gyimesi <judit.gyimesi.x@gmail.com>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
 "org>\n"
-"Language: \n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,7 +47,8 @@ msgstr ""
 #. :sl1:
 #: ../grub-installer.templates:1001 ../grub-installer.templates:2001
 msgid "Install the GRUB boot loader to the master boot record?"
-msgstr "A GRUB rendszerbetöltőt a fő boot rekordba telepíted?"
+msgstr ""
+"A GRUB rendszerbetöltőt a partíciós szektorba (master boot record) telepíti?"
 
 #. Type: boolean
 #. Description
@@ -69,8 +71,9 @@ msgid ""
 "operating systems or your new system."
 msgstr ""
 "Ha a gépen lévő összes operációs rendszer a listában van, a boot betöltő "
-"nyugodtan telepíthető az 1. merevlemez MBR-jébe. A gép indulásakor lehet "
-"majd választani az új rendszer vagy netán e régebbiek között."
+"nyugodtan telepíthető az első merevlemez partíciós szektorába (MBR). A gép "
+"indulásakor lehet majd választani az új rendszer vagy netán e régebbiek "
+"között."
 
 #. Type: boolean
 #. Description
@@ -82,8 +85,8 @@ msgid ""
 "master boot record of your first hard drive."
 msgstr ""
 "Úgy tűnik, e gépen a most telepített Debian lesz az egyetlen operációs "
-"rendszer. Ha így van, a GRUB boot betöltő célszerűen telepíthető az első "
-"merevlemez MBR-jébe."
+"rendszer. Ha így van, a GRUB boot betöltő nyugodtan telepíthető az első "
+"merevlemez partíciós szektorába (MBR)."
 
 #. Type: boolean
 #. Description
@@ -95,9 +98,9 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
-"Figyelem: Ha a telepítő nem lelte meg a gépen lévő más operációs rendszert, "
-"az MBR módosításával az átmenetileg nem lesz indítható, de a GRUB-bal ez már "
-"beállítható."
+"Figyelem: Ha a gépen van más operációs rendszer, melyet a telepítő nem "
+"talált meg, a partíciós szektor (MBR) módosításával az átmenetileg nem lesz "
+"indítható. Azonban a GRUB később kézzel beállítható úgy, hogy elindítsa."
 
 #. Type: boolean
 #. Description
@@ -292,7 +295,7 @@ msgstr "Ha nem akarunk GRUB jelszót adni, hagyjuk üresen e mezőt."
 #. :sl2:
 #: ../grub-installer.templates:10001
 msgid "Re-enter password to verify:"
-msgstr "A jelszó ellenőrző ismétlése:"
+msgstr "Írja be újra a jelszavát megerősítés végett:"
 
 #. Type: password
 #. Description
@@ -425,7 +428,7 @@ msgstr "'${GRUB}' csomag telepítése..."
 #. :sl1:
 #: ../grub-installer.templates:21001
 msgid "Determining GRUB boot device..."
-msgstr "A GRUB eszköz meghatározása..."
+msgstr "A GRUB boot eszköz meghatározása..."
 
 #. Type: text
 #. Description
