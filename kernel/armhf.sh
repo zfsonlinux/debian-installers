@@ -1,6 +1,6 @@
 arch_get_kernel_flavour () {
 	case "$SUBARCH" in
-	    mx5|vexpress)
+	    omap|mx5|vexpress)
 		echo "$SUBARCH armmp"
 		return 0 ;;
 	    generic)
