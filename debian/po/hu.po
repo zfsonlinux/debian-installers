@@ -139,6 +139,15 @@ msgstr ""
 msgid "The GRUB root device is: ${GRUBROOT}."
 msgstr "A GRUB gyökér eszköz: ${GRUBROOT}."
 
+# Type: error
+# Description
+# :sl3:
+# Type: error
+# Description
+# :sl3:
+# Type: error
+# Description
+# :sl2:
 #. Type: error
 #. Description
 #. :sl3:
@@ -204,6 +213,17 @@ msgstr ""
 msgid "An error occurred while setting up GRUB for the multipath device."
 msgstr "Hiba történt a GRUB beállításakor a mutipath lemezen."
 
+# #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+# Type: string
+# Description
+# :sl2:
+# Type: select
+# Description
+# :sl2:
+# #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+# Type: select
+# Description
+# :sl4:
 #. Type: string
 #. Description
 #. :sl2:
@@ -214,6 +234,12 @@ msgstr "Hiba történt a GRUB beállításakor a mutipath lemezen."
 msgid "Device for boot loader installation:"
 msgstr "A rendszerbetöltő erre az eszközre kerül:"
 
+# Type: string
+# Description
+# :sl2:
+# Type: select
+# Description
+# :sl2:
 #. Type: string
 #. Description
 #. :sl2:
@@ -230,9 +256,12 @@ msgid ""
 msgstr ""
 "Az újonnan telepített Debian rendszert a GRUB boot betöltő egy indítható "
 "eszközre telepítésével indíthatóvá kell tenni. Általában az 1. merevlemez "
-"MBR-jébe telepítjük a GRUB-ot, de a meghajtó más helyére vagy más meghajtóra "
+"MBR-jébe telepítjük a GRUB-ot, de a meghajtó más helyére, más meghajtóra "
 "vagy akár flopira is telepíthető."
 
+# Type: string
+# Description
+# :sl2:
 #. Type: string
 #. Description
 #. :sl2:
@@ -259,6 +288,9 @@ msgstr ""
 msgid "Enter device manually"
 msgstr "Eszköz kézi megadása"
 
+# Type: password
+# Description
+# :sl2:
 #. Type: password
 #. Description
 #. :sl2:
@@ -266,6 +298,9 @@ msgstr "Eszköz kézi megadása"
 msgid "GRUB password:"
 msgstr "GRUB jelszó:"
 
+# Type: password
+# Description
+# :sl2:
 #. Type: password
 #. Description
 #. :sl2:
@@ -283,12 +318,15 @@ msgstr ""
 "szerkesztésekor vagy a GRUB parancs-soros felületébe való belépéskor kért "
 "jelszó megadásával. Alapban ez az indításra nem vonatkozik."
 
+# Type: password
+# Description
+# :sl2:
 #. Type: password
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:9001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
-msgstr "Ha nem akarunk GRUB jelszót adni, hagyjuk üresen e mezőt."
+msgstr "Ha nem akar GRUB jelszót adni, hagyja üresen e mezőt."
 
 #. Type: password
 #. Description
@@ -297,6 +335,9 @@ msgstr "Ha nem akarunk GRUB jelszót adni, hagyjuk üresen e mezőt."
 msgid "Re-enter password to verify:"
 msgstr "Írja be újra a jelszavát megerősítés végett:"
 
+# Type: password
+# Description
+# :sl2:
 #. Type: password
 #. Description
 #. :sl2:
@@ -304,8 +345,11 @@ msgstr "Írja be újra a jelszavát megerősítés végett:"
 msgid ""
 "Please enter the same GRUB password again to verify that you have typed it "
 "correctly."
-msgstr "A GRUB jelszó ellenőrzése céljából ismét be kell írni."
+msgstr "A GRUB jelszó ellenőrzése céljából kérem, írja be ismét."
 
+# Type: error
+# Description
+# :sl2:
 #. Type: error
 #. Description
 #. :sl2:
@@ -313,13 +357,19 @@ msgstr "A GRUB jelszó ellenőrzése céljából ismét be kell írni."
 msgid "Password input error"
 msgstr "Jelszóbeviteli hiba"
 
+# Type: error
+# Description
+# :sl2:
 #. Type: error
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:11001
 msgid "The two passwords you entered were not the same. Please try again."
-msgstr "A két megadott jelszó eltér. Most próbáld újra."
+msgstr "A két megadott jelszó eltér. Próbálja újra."
 
+# Type: error
+# Description
+# :sl2:
 #. Type: error
 #. Description
 #. :sl2:
@@ -327,6 +377,9 @@ msgstr "A két megadott jelszó eltér. Most próbáld újra."
 msgid "GRUB installation failed"
 msgstr "A GRUB telepítése meghiúsult"
 
+# Type: error
+# Description
+# :sl2:
 #. Type: error
 #. Description
 #. :sl2:
@@ -335,9 +388,12 @@ msgid ""
 "The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
 "loader, the installed system will not boot."
 msgstr ""
-"A '${GRUB}' csomag nem települt a /target/ könyvtárba. A GRUB nélkül, a "
-"telepített rendszer nem indul magától."
+"A '${GRUB}' csomag nem települt a /target/ könyvtárba. A GRUB boot betöltő "
+"nélkül a telepített rendszer nem indul magától."
 
+# Type: error
+# Description
+# :sl2:
 #. Type: error
 #. Description
 #. :sl2:
@@ -345,13 +401,22 @@ msgstr ""
 msgid "Unable to install GRUB in ${BOOTDEV}"
 msgstr "A GRUB ${BOOTDEV} eszközre telepítése sikertelenül zárult"
 
+# Type: error
+# Description
+# :sl2:
 #. Type: error
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:14001
 msgid "Executing 'grub-install ${BOOTDEV}' failed."
-msgstr "A 'grub-install ${BOOTDEV}' hibát adott."
+msgstr "A 'grub-install ${BOOTDEV}' végrehajtása meghiúsult."
 
+# Type: error
+# Description
+# :sl2:
+# Type: error
+# Description
+# :sl2:
 #. Type: error
 #. Description
 #. :sl2:
@@ -362,6 +427,9 @@ msgstr "A 'grub-install ${BOOTDEV}' hibát adott."
 msgid "This is a fatal error."
 msgstr "Ez egy végzetes hiba."
 
+# Type: error
+# Description
+# :sl2:
 #. Type: error
 #. Description
 #. :sl2:
@@ -459,6 +527,10 @@ msgstr "A /etc/kernel-img.conf frissítése..."
 msgid "Install the GRUB boot loader on a hard disk"
 msgstr "A GRUB rendszerbetöltő merevlemezre telepítése"
 
+# Type: text
+# Description
+# Rescue menu item
+# :sl2:
 #. Type: text
 #. Description
 #. Rescue menu item
@@ -481,12 +553,116 @@ msgstr "/target/proc csatolása sikertelen"
 msgid "Mounting the proc file system on /target/proc failed."
 msgstr "A proc fájlrendszer csatolása /target/proc-ra nem sikerült."
 
+# #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+# Type: error
+# Description
+# :sl2:
+# #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+# Type: boolean
+# Description
+# :sl2:
+# #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+# Type: error
+# Description
+# :sl2:
+# Type: error
+# Description
+# :sl2:
+# Type: error
+# Description
+# :sl2:
+# Type: error
+# Description
+# :sl2:
+# Type: error
+# Description
+# :sl2:
+# Type: error
+# Description
+# :sl2:
+# #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+# Type: error
+# Description
+# :sl4:
+# #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+# Type: error
+# Description
+# :sl4:
+# #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+# Type: error
+# Description
+# :sl4:
+# Type: error
+# Description
+# :sl4:
+# Type: error
+# Description
+# :sl4:
+# #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+# Type: error
+# Description
+# :sl4:
+# Type: error
+# Description
+# :sl4:
+# Type: error
+# Description
+# :sl4:
+# #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+# Type: error
+# Description
+# :sl3:
+# #-#-#-#-#  templates.pot (partman-zfs)  #-#-#-#-#
+# Type: error
+# Description
+# :sl4:
+# Type: error
+# Description
+# :sl4:
+# Type: error
+# Description
+# :sl4:
+# #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+# Type: error
+# Description
+# :sl3:
+# Type: error
+# Description
+# :sl3:
+# Type: error
+# Description
+# :sl3:
+# #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+# Type: error
+# Description
+# :sl3:
+# Type: error
+# Description
+# :sl3:
+# Type: error
+# Description
+# :sl3:
+# Type: error
+# Description
+# :sl3:
+# Type: error
+# Description
+# :sl3:
+# #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+# Type: error
+# Description
+# :sl3:
+# #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+# Type: error
+# Description
+# :sl3:
 #. Type: error
 #. Description
 #. :sl4:
 #: ../grub-installer.templates:29001
 msgid "Check /var/log/syslog or see virtual console 4 for the details."
-msgstr "A /var/log/syslog vagy a 4. virtuális konzol adja a részleteket."
+msgstr ""
+"Részletek a /var/log/syslog-ban vagy a 4. virtuális konzolon találhatók."
 
 #. Type: error
 #. Description
