@@ -381,6 +381,13 @@ ifdef EXTRAFILES
 	done
 endif
 
+ifdef SSL_CERTS
+	# Copy in any SSL certificates.
+	mkdir -p $(TREE)/usr/lib/ssl/certs
+	cp -a $(SSL_CERTS) $(TREE)/usr/lib/ssl/certs/
+	c_rehash $(TREE)/usr/lib/ssl/certs/
+endif
+
 ifeq ($(DEB_HOST_ARCH_OS),linux)
 ifdef KERNELVERSION
 	# Set up modules.dep, ensure there is at least one standard dir (kernel

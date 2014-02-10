@@ -145,9 +145,10 @@ Build-Depends:
 	mkvmlinuz [powerpc],
 #		Used to make powerpc images that can boot direct from
 #		firmware w/o using a boot loader.
-	openssl [armel],
+	openssl,
 #		Used to encrypt a firmware image so an ARM based device
-#		(Thecus N2100) will accept it.
+#		(Thecus N2100) will accept it. Also useful on other
+#		architectures if SSL_CERTS has been set locally.
 	win32-loader (>= 0.7.2) [i386 amd64 kfreebsd-i386 kfreebsd-amd64 hurd-i386],
 #		Alternative boot method for win32 platforms.
 	makefs [kfreebsd-any],
