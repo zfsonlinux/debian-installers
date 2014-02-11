@@ -386,6 +386,8 @@ ifdef SSL_CERTS
 	mkdir -p $(TREE)/usr/lib/ssl/certs
 	cp -a $(SSL_CERTS) $(TREE)/usr/lib/ssl/certs/
 	c_rehash $(TREE)/usr/lib/ssl/certs/
+	mkdir -p $(TREE)/etc/ssl
+	ln -nsf ../../usr/lib/ssl/certs $(TREE)/etc/ssl/certs
 endif
 
 ifeq ($(DEB_HOST_ARCH_OS),linux)
