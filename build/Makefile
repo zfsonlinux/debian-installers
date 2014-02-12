@@ -383,11 +383,11 @@ endif
 
 ifdef SSL_CERTS
 	# Copy in any SSL certificates.
-	mkdir -p $(TREE)/usr/lib/ssl/certs
-	cp -a $(SSL_CERTS) $(TREE)/usr/lib/ssl/certs/
-	c_rehash $(TREE)/usr/lib/ssl/certs/
-	mkdir -p $(TREE)/etc/ssl
-	ln -nsf ../../usr/lib/ssl/certs $(TREE)/etc/ssl/certs
+	mkdir -p $(TREE)/etc/ssl/certs
+	cp -a $(SSL_CERTS) $(TREE)/etc/ssl/certs/
+	c_rehash $(TREE)/etc/ssl/certs
+	mkdir -p $(TREE)/usr/lib/ssl
+	ln -nsf ../../../etc/ssl/certs $(TREE)/usr/lib/ssl/certs
 endif
 
 ifeq ($(DEB_HOST_ARCH_OS),linux)
