@@ -83,6 +83,10 @@ install_base_system () {
 		else
 			warning "gpgv not found, not authenticating archive"
 		fi
+	elif [ "$PROTOCOL" = https ]; then
+		if db_get debian-installer/allow_unauthenticated_ssl && [ "$RET" = true ]; then
+			sigcheck="$sigcheck --no-check-certificate"
+		fi
 	fi
 
 	test -d $ETCDIR || mkdir -p $ETCDIR
@@ -102,6 +106,12 @@ install_base_system () {
 		http_proxy="$RET" || true
 		if [ "$http_proxy" ]; then
 			export http_proxy
+		fi
+	elif [ "$PROTOCOL" = "https" ]; then
+		db_get mirror/https/proxy
+		https_proxy="$RET" || true
+		if [ "$https_proxy" ]; then
+			export https_proxy
 		fi
 	fi
 
@@ -130,6 +140,15 @@ install_base_system () {
 
 	if [ "$debootstrap_failed" ]; then
 		exit_error base-installer/debootstrap-failed
+	fi
+
+	# If we need SSL certificates, copy them in now.
+	if [ "$PROTOCOL" = "https" ] && [ -d /etc/ssl/certs ]; then
+		if find /etc/ssl/certs/ -name \*.crt | grep -q .; then
+			mkdir -p /target/usr/local/share/ca-certificates
+			cp -a /etc/ssl/certs/*.crt /target/usr/local/share/ca-certificates/
+			chroot /target update-ca-certificates || true
+		fi
 	fi
 
 	# Progress bar is now stepped to 100
