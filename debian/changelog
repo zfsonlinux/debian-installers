@@ -1,8 +1,13 @@
 debian-installer (20140210) UNRELEASED; urgency=medium
 
+  [ Colin Watson ]
   * Add SSL_CERTS variable, which can be used to build images with embedded
     SSL certificates with c_rehash run over them so that OpenSSL can see
     them (LP: #833994).
+
+  [ Cyril Brulebois ]
+  * build/Makefile: Use $(GZIP) instead of gzip, and prefer pigz over
+    gzip if it's available, which can give a nice speed-up.
 
  -- Colin Watson <cjwatson@debian.org>  Mon, 10 Feb 2014 19:41:38 +0000
 

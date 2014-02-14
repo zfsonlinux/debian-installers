@@ -56,6 +56,7 @@
 # Add to PATH so dpkg will always work, and so local programs will be found.
 PATH := util:$(PATH):/usr/sbin:/sbin
 EATMYDATA = $(shell which eatmydata 2>/dev/null)
+GZIP = $(shell which pigz gzip | head -1)
 
 # We don't want this to be run each time we re-enter.
 ifndef DEB_HOST_ARCH
@@ -713,18 +714,18 @@ endif
 	ext2) \
 		$(genext2fs) $(TEMP)/initrd; \
 		$(e2fsck) $(TEMP)/initrd || true; \
-		gzip -v9f $(TEMP)/initrd; \
+		$(GZIP) -v9f $(TEMP)/initrd; \
 	;; \
 	initramfs) \
 		$(mkinitramfs) $(TEMP)/initrd; \
-		gzip -v9f $(TEMP)/initrd; \
+		$(GZIP) -v9f $(TEMP)/initrd; \
 	;; \
 	jffs2) \
 		$(mkjffs2) $(TEMP_INITRD); \
 	;; \
 	ufs1) \
 		$(mkfs.ufs1) $(TEMP)/initrd; \
-		gzip -v9f $(TEMP)/initrd; \
+		$(GZIP) -v9f $(TEMP)/initrd; \
 	;; \
 	*) \
 		echo "Unsupported filesystem type"; \
@@ -836,7 +837,7 @@ $(TEMP_EXTRA): $(STAMPS)extra-$(targetstring)-stamp
 		echo "Unsupported filesystem type"; \
 		exit 1 ;; \
 	esac
-	$(if $(GZIPPED),gzip -v9f $(TEMP_EXTRA))
+	$(if $(GZIPPED),$(GZIP) -v9f $(TEMP_EXTRA))
 
 $(STAMPS)extra-$(targetstring)-stamp: $(STAMPS)get_udebs-$(targetstring)-stamp
 	@rm -f $@
