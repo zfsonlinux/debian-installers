@@ -384,7 +384,7 @@ DESKTOP (x86 only)
   Allows to specify that a specific desktop environment should be installed
   when that option is selected in pkgsel. Modifies the syslinux configuration.
   Ignored unless SYSLINUX_CFG is set to 'prompt' or 'standard'; the default
-  (gnome) does not need to be specified.
+  (xfce) does not need to be specified.
 
 BOOTMENU_BEEP
   Set to y to produce a beep when the boot menu is ready to accept commands
@@ -468,6 +468,10 @@ EXTRAS
 
 EXTRAFILES
   Add additional files to the target image.
+
+SSL_CERTS
+  Add SSL certificates to the target image. For this to be useful, you will
+  also need to supply d-i with GNU wget.
 
 MIRROR
   The mirror to get .deb and .udeb packages from. Defaults to the same

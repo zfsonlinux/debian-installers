@@ -44,7 +44,7 @@ add_desktop_configs() {
 
 	cp "$SRC"/dtmenu.cfg "$DST"/
 
-	for desktop in kde xfce lxde; do
+	for desktop in gnome kde lxde; do
 		mkdir "$DST"/$desktop
 
 		cp "$SRC"/desktop/menu.cfg "$SRC"/desktop/prompt.cfg \
@@ -57,8 +57,8 @@ add_desktop_configs() {
 		fi
 
 		case $desktop in
+			gnome)	title=GNOME ;;
 			kde)	title=KDE ;;
-			xfce)	title=Xfce ;;
 			lxde)	title=LXDE ;;
 		esac
 		sed -i "s/%desktop%/$desktop/

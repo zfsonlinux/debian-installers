@@ -1,4 +1,24 @@
-debian-installer (201312xx) UNRELEASED; urgency=low
+debian-installer (20140210) UNRELEASED; urgency=medium
+
+  [ Colin Watson ]
+  * Add SSL_CERTS variable, which can be used to build images with embedded
+    SSL certificates with c_rehash run over them so that OpenSSL can see
+    them (LP: #833994).
+
+  [ Cyril Brulebois ]
+  * build/Makefile: Use $(GZIP) instead of gzip, and prefer pigz over
+    gzip if it's available, which can give a nice speed-up.
+  * Update boot config/screens for the default desktop change (GNOME → Xfce)
+    in tasksel 3.19 (Closes: #738602).
+  * Update copyright years in boot screens.
+
+  [ Robert Millan ]
+  * Enable kfreebsd-10 builds.
+  * Bump kfreebsd-10 from unstable ABI to 10.0-1.
+
+ -- Colin Watson <cjwatson@debian.org>  Mon, 10 Feb 2014 19:41:38 +0000
+
+debian-installer (20140208) unstable; urgency=low
 
   [ Martin Michlmayr ]
   * Remove Cobalt images.
@@ -7,6 +27,7 @@ debian-installer (201312xx) UNRELEASED; urgency=low
   * Bump linux kernel version from 3.11-2 to 3.12-1.
   * Update hppa config (for debian-ports), thanks to Helge Deller
     for the patch (Closes: #736966).
+  * Update translation-status for the release.
 
   [ Aurelien Jarno ]
   * Add MIPS Octeon images.
@@ -16,7 +37,7 @@ debian-installer (201312xx) UNRELEASED; urgency=low
   * Remove gPXE workaround on kfreebsd and hurd (fixed already in
     GRUB 2.00 as #635877)
 
- -- Martin Michlmayr <tbm@cyrius.com>  Sat, 14 Dec 2013 10:13:09 +0000
+ -- Cyril Brulebois <kibi@debian.org>  Sat, 08 Feb 2014 19:27:33 +0300
 
 debian-installer (20131211) unstable; urgency=low
 
