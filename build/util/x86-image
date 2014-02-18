@@ -18,7 +18,7 @@ set -e
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
-# Make an EFI boot image.
+# Make an x86 boot image.
 
 if [ -z "$1" ] || [ -z "$2" ]; then
 	echo "usage: $0 OUTPUT-DIRECTORY GRUB-PLATFORM EFI-NAME"
@@ -41,39 +41,16 @@ trap cleanup EXIT HUP INT QUIT TERM
 rm -rf "$outdir"
 mkdir -p "$outdir"
 
-memdisk_img="$(mktemp efi-image.XXXXXX)"
-workdir="$(mktemp -d efi-image.XXXXXX)"
-
-# Skeleton configuration file which finds the real boot disk.
-mkdir -p "$workdir/boot/grub"
-cat >"$workdir/boot/grub/grub.cfg" <<EOF
-search --file --set=root /.disk/info
-set prefix=(\$root)/boot/grub
-source \$prefix/$platform/grub.cfg
-EOF
+memdisk_img="$(mktemp x86-image.XXXXXX)"
+workdir="$(mktemp -d x86-image.XXXXXX)"
 
 mkdir -p "$outdir/boot/grub/$platform"
-(for i in /usr/lib/grub/$platform/part_*.mod; do
-    i=`echo $i | sed 's?^.*/??g;s?\.mod$??g;'`
-	echo "insmod $i"
- done; \
- echo "source /boot/grub/grub.cfg") >"$outdir/boot/grub/$platform/grub.cfg"
 
 # Build the core image.
-(cd "$workdir"; tar -cf - boot) >"$memdisk_img"
-grub-mkimage -O "$platform" -m "$memdisk_img" \
-	-o "$workdir/boot$efi_name.efi" -p '(memdisk)/boot/grub' \
-	search iso9660 configfile normal memdisk tar part_msdos fat
+grub-mkimage -O "$platform" -o "$workdir/core.img" iso9660 biosdisk
 
-# Stuff it into a FAT filesystem, making it as small as possible.  24KiB
-# headroom seems to be enough; (x+31)/32*32 rounds up to multiple of 32.
-mkfs.msdos -C "$outdir/efi.img" \
-	$(( ($(stat -c %s "$workdir/boot$efi_name.efi") / 1024 + 55) \
-	    / 32 * 32 ))
-mmd -i "$outdir/efi.img" ::efi
-mmd -i "$outdir/efi.img" ::efi/boot
-mcopy -i "$outdir/efi.img" "$workdir/boot$efi_name.efi" \
-	"::efi/boot/boot$efi_name.efi"
+cat "/usr/lib/grub/$platform/cdboot.img" "$workdir/core.img" > "$outdir/boot/grub/grub_eltorito"
+cat "/usr/lib/grub/$platform/boot.img" "$workdir/core.img" > "$outdir/boot/grub/grub_embed"
 
 grub-cpmodules "$outdir" "$platform"
 
