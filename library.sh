@@ -181,6 +181,8 @@ Acquire::https::Verify-Peer "false";
 EOT
 	fi
 
+	[ ! -d "$DPKG_CONFDIR" ] && mkdir -p "$DPKG_CONFDIR"
+
 	# Disable all syncing; it's unnecessary in an installation context,
 	# and can slow things down quite a bit.
 	# This file will be left in place until the end of the install.
