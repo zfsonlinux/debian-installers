@@ -27,6 +27,11 @@ if [ ! -e /usr/share/debootstrap/scripts/"$DEBOOTSTRAP_SCRIPT" ]; then
 	error "debootstrap script '$DEBOOTSTRAP_SCRIPT' doesn't exist"
 fi
 
+# Check if a specific variant should be used
+if db_get base-installer/debootstrap_variant && [ "$RET" ]; then
+	DEBOOTSTRAP_VARIANT="--variant=$RET"
+fi
+
 # Avoid debconf sending email during the base install process
 DEBCONF_ADMIN_EMAIL=""
 export DEBCONF_ADMIN_EMAIL
@@ -128,6 +133,7 @@ install_base_system () {
 			--resolve-deps \
 			${include} ${exclude} \
 			${sigcheck} \
+			${DEBOOTSTRAP_VARIANT} \
 			${DISTRIBUTION} /target \
 			"$PROTOCOL://$MIRROR$DIRECTORY" \
 			${DEBOOTSTRAP_SCRIPT} \
