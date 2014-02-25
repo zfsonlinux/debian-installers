@@ -674,7 +674,7 @@ while : ; do
 			exit 10
 		fi
 		db_get $q
-		if [ "$RET" = true ]; then
+		if [ "$RET" = true ] && ! db_get grub-installer/bootdev; then
 			# default_bootdev can be guessed incorrectly.
 			# If the user supplied a value for bootdev,
 			# ask them to resolve any conflict.
