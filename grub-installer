@@ -665,8 +665,11 @@ while : ; do
 
 	[ "X" = "X${DEBCONF_DEBUG}" ] || \
 	    log "q='$q' state='$state' defbd='$default_bootdev' bd='$bootdev'"
-
-	if [ "$state" = 1 ]; then
+	db_fget grub-installer/bootdev seen
+	if [ "$RET" = true ] && db_get grub-installer/bootdev && [ "$RET" ] ; then
+		bootdev=$RET
+		break
+	elif [ "$state" = 1 ]; then
 		db_input high $q || true
 		if ! db_go; then
 			# back up to menu
