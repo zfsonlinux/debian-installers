@@ -2,6 +2,11 @@ base-installer (1.144) UNRELEASED; urgency=medium
 
   [ Colin Watson ]
   * Remove some unused variables from tests.
+  * Set Acquire::https::Verify-Host "false" as well as
+    Acquire::https::Verify-Peer "false" if
+    debian-installer/allow_unauthenticated_ssl=true, to match the behaviour
+    of "wget --no-check-certificate" (thanks to Mark Russell for the
+    report).
 
   [ Paul Wise ]
   * Allow preseeding the debootstrap variant to use
