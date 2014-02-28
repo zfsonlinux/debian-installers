@@ -12,6 +12,9 @@ debian-installer (20140210) UNRELEASED; urgency=medium
     in tasksel 3.19 (Closes: #738602).
   * Update copyright years in boot screens.
   * Bump linux kernel version from 3.12-1 to 3.13-1.
+  * build/config/{amd64,i386}.cfg: Remove old "video=vesa:ywrap,mtrr" option
+    from VIDEO_MODE_GTK (See: #395040). DirectFB apparently needed those at
+    some point. Let's see whether letting the kernel do its job just works.
 
   [ Robert Millan ]
   * Enable kfreebsd-10 builds.
