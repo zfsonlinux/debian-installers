@@ -15,6 +15,8 @@ debian-installer (20140210) UNRELEASED; urgency=medium
   * build/config/{amd64,i386}.cfg: Remove old "video=vesa:ywrap,mtrr" option
     from VIDEO_MODE_GTK (See: #395040). DirectFB apparently needed those at
     some point. Let's see whether letting the kernel do its job just works.
+  * build/Makefile: Add “| sort” after some find calls, to reduce entropy
+    and notably to make build logs more easily post-processable.
 
   [ Robert Millan ]
   * Enable kfreebsd-10 builds.

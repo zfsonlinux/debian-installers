@@ -126,7 +126,7 @@ define recurse
 endef
 
 define mkinitramfs
-  (cd $(TREE) && find . | cpio --quiet -o -H newc) > 
+  (cd $(TREE) && find . | sort | cpio --quiet -o -H newc) > 
 endef
 
 # Limit on mfsroot size. It is determined by NKPT (in <machine/pmap.h).
@@ -288,8 +288,8 @@ release:
 	egrep '^[[:space:]]' $(BASE_DEST)/MANIFEST.udebs | \
 		sed 's/^[[:space:]]*//' | sort | uniq > $(BASE_DEST)/udeb.list
 	rm -f $(BASE_DEST)/MD5SUMS $(BASE_DEST)/SHA256SUMS
-	cd $(BASE_DEST) && md5sum `find -L . -type f` > MD5SUMS # XXX remove this
-	cd $(BASE_DEST) && sha256sum `find -L . -type f` > SHA256SUMS
+	cd $(BASE_DEST) && md5sum `find -L . -type f | sort` > MD5SUMS # XXX remove this
+	cd $(BASE_DEST) && sha256sum `find -L . -type f | sort` > SHA256SUMS
 
 # The general tree target.
 $(STAMPS)tree-unpack-$(targetstring)-stamp: $(STAMPS)get_udebs-$(targetstring)-stamp
@@ -601,7 +601,7 @@ endif
 	set -e; \
 	for file in `find $(TREE)/var/lib/dpkg/info -name '*.md5sums' -o \
 	    -name '*.postrm' -o -name '*.prerm' -o -name '*.preinst' -o \
-	    -name '*.list'`; do \
+	    -name '*.list' | sort`; do \
 		if echo $$file | grep -qv '\.list'; then \
 			echo "** Removing unnecessary control file $$file"; \
 		fi; \
