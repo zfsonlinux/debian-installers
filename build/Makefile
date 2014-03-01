@@ -763,6 +763,16 @@ $(KERNEL): $(realpath $(dir $(KERNEL))/$(SYMLINK_KERNEL))
 	update-manifest $@ $(MANIFEST-KERNEL)
 endif
 
+$(DTBS): $(TEMP_KERNEL)
+	mkdir -p $(SOME_DEST)/$(EXTRANAME)
+	set -ex ; for dtb in $(TEMP_DTBS)/*.dtb ; do \
+		tgt=$(SOME_DEST)/$(EXTRANAME)$$(basename $$dtb); \
+		cp $$dtb $$tgt ; \
+		update-manifest $$tgt "Device Tree Blob: $$(basename $$dtb)";\
+	done
+	cp boot/README.device-tree $@
+	update-manifest $@ "Device Tree Blobs README"
+
 # bootable images
 $(BOOT): $(TEMP_BOOT)
 	install -m 644 -D $(TEMP_BOOT)$(GZIPPED) $@
