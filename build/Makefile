@@ -68,6 +68,15 @@ DEB_HOST_MULTIARCH = $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 export DEB_HOST_ARCH DEB_HOST_ARCH_OS DEB_HOST_GNU_CPU DEB_HOST_GNU_SYSTEM DEB_HOST_MULTIARCH
 endif
 
+define drop_lang
+	@echo "Dropping languages: $(1)"
+	@set -e; \
+	for FILE in $$(find $(TREE)/var/lib/dpkg -name "*.templates"); do \
+		perl -e 'my $$status=0; my $$drop=shift; while (<>) { if (/^[A-Z]/ || /^$$/) { if (/^(Choices|Description|Indices|Default)-($$drop)/ && ! /^Choices-C:/) { $$status = 0 } else { $$status = 1 } } print if ($$status); }' $(1) < $$FILE > temp; \
+		mv temp $$FILE; \
+	done
+endef
+
 # We loop over all needed combinations of ARCH, SUBARCH, MEDIUM, FLAVOUR
 # via recursive make calls. ARCH is constant, we don't support
 # crosscompiling.
@@ -554,15 +563,6 @@ endif
 ifdef OMIT_DPKG
 	rm -rf $(DPKGDIR)
 endif
-
-define drop_lang
-	@echo "Dropping languages: $(1)"
-	@set -e; \
-	for FILE in $$(find $(TREE)/var/lib/dpkg -name "*.templates"); do \
-		perl -e 'my $$status=0; my $$drop=shift; while (<>) { if (/^[A-Z]/ || /^$$/) { if (/^(Choices|Description|Indices|Default)-($$drop)/ && ! /^Choices-C:/) { $$status = 0 } else { $$status = 1 } } print if ($$status); }' $(1) < $$FILE > temp; \
-		mv temp $$FILE; \
-	done
-endef
 
 ifndef KEEP_GI_LANGS
 	# It makes no sense to include languages only supported by the

@@ -17,6 +17,9 @@ debian-installer (20140210) UNRELEASED; urgency=medium
     some point. Let's see whether letting the kernel do its job just works.
   * build/Makefile: Add “| sort” after some find calls, to reduce entropy
     and notably to make build logs more easily post-processable.
+  * build/Makefile: Move the drop_lang definition to the top of the file to
+    deal with incompatible changes in make 3.82 leading to the following
+    error: “recipe commences before first target” (Closes: #720719).
 
   [ Robert Millan ]
   * Enable kfreebsd-10 builds.
