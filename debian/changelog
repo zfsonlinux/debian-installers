@@ -11,6 +11,17 @@ debian-installer (20140210) UNRELEASED; urgency=medium
   * Update boot config/screens for the default desktop change (GNOME → Xfce)
     in tasksel 3.19 (Closes: #738602).
   * Update copyright years in boot screens.
+  * Bump linux kernel version from 3.12-1 to 3.13-1.
+  * build/config/{amd64,i386}.cfg: Remove old "video=vesa:ywrap,mtrr" option
+    from VIDEO_MODE_GTK (See: #395040). DirectFB apparently needed those at
+    some point. Let's see whether letting the kernel do its job just works.
+  * build/Makefile: Add “| sort” after some find calls, to reduce entropy
+    and notably to make build logs more easily post-processable.
+  * build/Makefile: Move the drop_lang definition to the top of the file to
+    deal with incompatible changes in make 3.82 leading to the following
+    error: “recipe commences before first target” (Closes: #720719).
+  * build/README: Mention USE_UDEBS_FROM in the recipe at the top, and add a
+    pointer to debian/rules in its documentation (Closes: #653513).
 
   [ Robert Millan ]
   * Enable kfreebsd-10 builds.
@@ -24,6 +35,10 @@ debian-installer (20140210) UNRELEASED; urgency=medium
     minimal grub images with iso9660 and biosdisk support, and put GRUB modules
     on the ISO image.  grub.cfg thus now has to explicitly load modules.
   * Also build initrd for hurd Xen target.
+
+  [ Didier Raboud ]
+  * Add a comment documenting the need to keep the video modes in sync
+    between d-i and win32-loader
 
  -- Colin Watson <cjwatson@debian.org>  Mon, 10 Feb 2014 19:41:38 +0000
 

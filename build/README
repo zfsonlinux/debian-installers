@@ -16,7 +16,8 @@ Recipe:
    sources.list is taken as a template for sources.list.udeb.
  - Run "make" to get a list of available targets.
  - Build an image using one of the build_ targets (build_netboot,
-   all_build, etc).
+   all_build, etc). You may want to set the USE_UDEBS_FROM variable,
+   documented below.
  - Look in dest/ for the completed images.
  
 Note that this does not create full debian ISO images; that is left to the
@@ -352,7 +353,8 @@ DEBIAN_VERSION
 
 USE_UDEBS_FROM
   Normally the codename of the release to use for the build. Defaults to
-  unstable for daily builds.
+  unstable for daily builds. Set from debian/rules when building through
+  dpkg-buildpackage.
   Included in /etc/udebs-source in most initrds.
 
 USE_PROPOSED_UPDATES
