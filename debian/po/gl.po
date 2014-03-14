@@ -16,13 +16,13 @@
 # Marce Villarino <mvillarino@users.sourceforge.net>, 2009.
 # marce villarino <mvillarino@users.sourceforge.net>, 2009.
 # Marce Villarino <mvillarino@gmail.com>, 2009.
-# Jorge Barreiro <yortx.barry@gmail.com>, 2010, 2011, 2012.
+# Jorge Barreiro <yortx.barry@gmail.com>, 2010, 2011, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2012-10-19 02:03+0200\n"
+"PO-Revision-Date: 2014-03-13 23:26+0100\n"
 "Last-Translator: Jorge Barreiro <yortx.barry@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -249,9 +249,8 @@ msgstr "Crear un volume lóxico"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 msgid "Create root file system"
-msgstr "Crear un sistema de ficheiros %s"
+msgstr "Crear o sistema de ficheiros raíz"
 
 #. Type: text
 #. Description
@@ -350,7 +349,6 @@ msgstr "Resumo da configuración actual de ZFS:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -361,7 +359,8 @@ msgstr ""
 " Volumes físicos libres: ${FREE_PVS}\n"
 " Volumes físicos en uso: ${USED_PVS}\n"
 " Grupos ZFS:             ${VGS}\n"
-" Volumes lóxicos ZFS:    ${LVS}"
+" Volumes lóxicos ZFS:    ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -795,25 +794,24 @@ msgstr "O núcleo actual non admite ZFS. Pode ter que cargar o módulo zfs."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "Nome de volume lóxico ou grupo ZFS non válido"
+msgstr ""
+"Nome de volume lóxico, grupo ZFS ou sistema de ficheiros ZFS non válido"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Os nomes dos volumes lóxicos ou dos grupos ZFS só poden conter caracteres "
-"alfanuméricos, guións, comas, puntos e guións baixos. Deben ter 255 "
-"caracteres ou menos e deben comezar por un carácter alfanumérico. Non se "
-"admiten os nomes «mirror», «raidz», «spare» nin «log»."
+"Os nomes dos volumes lóxicos, dos grupos ZFS e dos sistemas de ficheiros ZFS "
+"só poden conter caracteres alfanuméricos, guións, comas, puntos e guións "
+"baixos. Deben ter 255 caracteres ou menos e deben comezar por un carácter "
+"alfanumérico. Non se admiten os nomes «mirror», «raidz», «spare» nin «log»."
 
 #. Type: error
 #. Description
@@ -925,23 +923,22 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Grupo a modificar:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "ZFS boot file system name:"
-msgstr "Nome do grupo ZFS:"
+msgstr "Nome do sistema de ficheiros ZFS de arranque:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "Por favor, escriba o nome para o sistema."
+msgstr ""
+"Escolla o nome do sistema de ficheiros de arranque de entre os seguintes:"
 
 #. Type: string
 #. Description
@@ -950,35 +947,35 @@ msgstr "Por favor, escriba o nome para o sistema."
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
 msgstr ""
+"Poráselle ${VG}/ROOT como prefixo e montarase como o sistema de ficheiros "
+"raíz."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No file system name entered"
-msgstr "Non hai ningún sistema de ficheiros montado en /target"
+msgstr "Non se introduciu ningún nome de sistema de ficheiros"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "Non se introduciu ningún nome para o grupo ZFS. Introduza un nome."
+msgstr ""
+"Non se introduciu ningún nome para o sistema de ficheiros raíz. Introduza un "
+"nome."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 msgid "ZFS boot"
-msgstr "Grupo ZFS:"
+msgstr "Arranque ZFS"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "Estanse a rexistrar os módulos"
+msgstr "Cargando o módulo ZFS..."
