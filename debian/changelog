@@ -24,6 +24,8 @@ debian-installer (20140210) UNRELEASED; urgency=medium
     pointer to debian/rules in its documentation (Closes: #653513).
   * Remove iop32x flavour on armel since support has been dropped from the
     linux package (in 3.13-1~exp1).
+  * config/kfreebsd.cfg: Put xorriso's -J flag after “--” to work around
+    grub-mkrescue's change in option handling (See: #741656).
 
   [ Robert Millan ]
   * Enable kfreebsd-10 builds.
