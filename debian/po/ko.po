@@ -7,7 +7,7 @@
 # Copyright (C) 2003,2004,2005,2008 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
-# Changwoo Ryu <cwryu@debian.org>, 2010, 2011.
+# Changwoo Ryu <cwryu@debian.org>, 2010, 2011, 2012, 2014.
 #
 # Translations from iso-codes:
 # Copyright (C)
@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2012-10-19 13:10+0900\n"
+"PO-Revision-Date: 2014-03-16 15:04+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team:  Korean <debian-l10n-korean@lists.debian.org>\n"
 "Language: ko\n"
@@ -246,9 +246,8 @@ msgstr "논리 볼륨 만들기"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 msgid "Create root file system"
-msgstr "%s 파일 시스템을 만듭니다"
+msgstr "루트 파일 시스템 만들기"
 
 #. Type: text
 #. Description
@@ -346,7 +345,6 @@ msgstr "현재 ZFS 설정 요약:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -357,7 +355,8 @@ msgstr ""
 " 남은 물리 볼륨:     ${FREE_PVS}\n"
 " 사용한 물리 볼륨 :  ${USED_PVS}\n"
 " ZFS 풀:             ${VGS}\n"
-" ZFS 논리 볼륨:      ${LVS}"
+" ZFS 논리 볼륨:      ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -788,25 +787,24 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "사용할 수 없는 논리 볼륨 이름이거나 ZFS 풀 이름입니다"
+msgstr ""
+"논리 볼륨 이름, ZFS 풀 이름, ZFS 파일 시스템 이름이 사용할 수 없는 이름입니다"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"논리 볼륨이나 ZFS 풀의 이름에는 영문자, 숫자, 빼기(-), 더하기(+), 마침표(.), "
-"밑줄기호(_)만 사용할 수 있습니다. 길이는 255 글자 이내이고, 알파벳이나 숫자"
-"로 시작해야 합니다. 이름으로 \"mirror\", \"raidz\", \"spare\", \"log\"는 사용"
-"할 수 없습니다."
+"논리 볼륨, ZFS 풀 이름, ZFS 파일 시스템에는 영문자, 숫자, 빼기(-), 더하기"
+"(+), 마침표(.), 밑줄기호(_)만 사용할 수 있습니다. 길이는 255 글자 이내이고, "
+"알파벳이나 숫자로 시작해야 합니다. 이름으로 \"mirror\", \"raidz\", \"spare"
+"\", \"log\"는 사용할 수 없습니다."
 
 #. Type: error
 #. Description
@@ -912,23 +910,21 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "수정할 ZFS 풀:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "ZFS boot file system name:"
-msgstr "ZFS 풀 이름:"
+msgstr "ZFS 부팅 파일 시스템 이름:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "이 시스템의 호스트 이름을 입력하십시오."
+msgstr "다음 중 부팅 파일 시스템의 이름을 입력하십시오:"
 
 #. Type: string
 #. Description
@@ -936,36 +932,32 @@ msgstr "이 시스템의 호스트 이름을 입력하십시오."
 #: ../partman-zfs.templates:52001
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
-msgstr ""
+msgstr "${VG}/ROOT로 시작하고 루트 파일 시스템으로 마운트합니다."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No file system name entered"
-msgstr "/target에 마운트한 파일 시스템이 없습니다"
+msgstr "파일 시스템 이름을 입력하지 않았습니다"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "ZFS 풀의 이름을 입력하지 않았습니다. 이름을 입력하십시오."
+msgstr "루트 파일 시스템의 이름을 입력하지 않았습니다. 이름을 입력하십시오."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 msgid "ZFS boot"
-msgstr "ZFS 풀:"
+msgstr "ZFS 부팅"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "모듈을 등록하는 중입니다..."
+msgstr "ZFS 모듈을 읽어들이는 중입니다..."
