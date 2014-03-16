@@ -35,7 +35,10 @@ build-images:
 		USE_PROPOSED_UPDATES=$(USE_PROPOSED_UPDATES) \
 		TRANSSTATUS=$(TRANSSTATUS) BOOTMENU_BEEP=$(BOOTMENU_BEEP)
 
-build: build-stamp
+build: build-arch build-indep
+build-arch: build-stamp
+build-indep: build-stamp
+
 build-stamp:
 	rm -f $@
 	$(MAKE) -C doc/devel/internals
