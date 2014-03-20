@@ -1,10 +1,16 @@
 debian-installer (201403XX) UNRELEASED; urgency=low
 
+  [ Cyril Brulebois ]
   * debian/rules: Introduce build-{arch,indep} targets, depending on
     build-stamp, and depended upon by build.
   * debian/control: Bump Standards-Version to 3.9.5, no further changes
     required.
   * Remove Otavio from Uploaders, with many thanks for his past work.
+
+  [ Samuel Thibault ]
+  * Add a separate Hurd boot option for CJK support in pseudo-graphical mode, so
+    the default can use 720x400 resolution, instead of using 640x400 which is
+    not supported by some screens...
 
  -- Cyril Brulebois <kibi@debian.org>  Sun, 16 Mar 2014 16:20:52 +0100
 
