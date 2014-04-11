@@ -1,0 +1,366 @@
+--- a/doc/zpool.8
++++ b/doc/zpool.8
+@@ -14,12 +14,12 @@ zpool \- configures ZFS storage pools
+ 
+ .LP
+ .nf
+-\fBzpool add\fR [\fB-fn\fR] \fIpool\fR \fIvdev\fR ...
++\fBzpool add\fR [\fB-fn\fR] [\fB-o\fR \fIproperty=value\fR] \fIpool\fR \fIvdev\fR ...
+ .fi
+ 
+ .LP
+ .nf
+-\fBzpool attach\fR [\fB-f\fR] \fIpool\fR \fIdevice\fR \fInew_device\fR
++\fBzpool attach\fR [\fB-f\fR] [\fB-o\fR \fIproperty=value\fR] \fIpool\fR \fIdevice\fR \fInew_device\fR
+ .fi
+ 
+ .LP
+@@ -534,6 +534,29 @@ Total size of the storage pool.
+ .sp
+ .LP
+ These space usage properties report actual physical space available to the storage pool. The physical space can be different from the total amount of space that any contained datasets can actually use. The amount of space used in a \fBraidz\fR configuration depends on the characteristics of the data being written. In addition, \fBZFS\fR reserves some space for internal accounting that the \fBzfs\fR(1M) command takes into account, but the \fBzpool\fR command does not. For non-full pools of a reasonable size, these effects should be invisible. For small pools, or pools that are close to being completely full, these discrepancies may become more noticeable.
++The following property can be set at creation time:
++.sp
++.ne 2
++.mk
++.na
++\fB\fBashift\fR\fR
++.ad
++.sp .6
++.RS 4n
++Pool sector size exponent, to the power of 2 (internally referred to
++as "ashift"). I/O operations will be aligned to the specified size
++boundaries. Additionally, the minimum (disk) write size will be set to
++the specified size, so this represents a space vs. performance
++trade-off. The typical case for setting this property is when
++performance is important and the underlying disks use 4KiB sectors but
++report 512B sectors to the OS (for compatibility reasons); in that
++case, set \fBashift=12\fR (which is 1<<12 = 4096).  Since most large
++disks have had 4K sectors since 2011, ZFS defaults to ashift=12 for
++all disks larger than 512 GB.
++.LP
++For optimal performance, the pool sector size should be greater than or equal to the sector size of the underlying disks. Since the property cannot be changed after pool creation, if in a given pool, you \fIever\fR want to use drives that \fIreport\fR 4KiB sectors, you must set \fBashift=12\fR at pool creation time.
++.RE
++
+ .sp
+ .LP
+ The following property can be set at creation time and import time:
+@@ -696,7 +719,7 @@ Displays a help message.
+ .ne 2
+ .mk
+ .na
+-\fB\fBzpool add\fR [\fB-fn\fR] \fIpool\fR \fIvdev\fR ...\fR
++\fB\fBzpool add\fR [\fB-fn\fR]  [\fB-o\fR \fIproperty=value\fR] \fIpool\fR \fIvdev\fR ...\fR
+ .ad
+ .sp .6
+ .RS 4n
+@@ -723,6 +746,17 @@ Forces use of \fBvdev\fRs, even if they
+ Displays the configuration that would be used without actually adding the \fBvdev\fRs. The actual pool creation can still fail due to insufficient privileges or device sharing.
+ .RE
+ 
++.sp
++.ne 2
++.mk
++.na
++\fB\fB-o\fR \fIproperty=value\fR
++.ad
++.sp .6
++.RS 4n
++Sets the given pool properties. See the "Properties" section for a list of valid properties that can be set. The only property supported at the moment is "ashift".
++.RE
++
+ Do not add a disk that is currently configured as a quorum device to a zpool. After a disk is in the pool, that disk can then be configured as a quorum device.
+ .RE
+ 
+@@ -730,7 +764,7 @@ Do not add a disk that is currently conf
+ .ne 2
+ .mk
+ .na
+-\fB\fBzpool attach\fR [\fB-f\fR] \fIpool\fR \fIdevice\fR \fInew_device\fR\fR
++\fB\fBzpool attach\fR [\fB-f\fR]  [\fB-o\fR \fIproperty=value\fR] \fIpool\fR \fIdevice\fR \fInew_device\fR\fR
+ .ad
+ .sp .6
+ .RS 4n
+@@ -746,6 +780,17 @@ Attaches \fInew_device\fR to an existing
+ Forces use of \fInew_device\fR, even if its appears to be in use. Not all devices can be overridden in this manner.
+ .RE
+ 
++.sp
++.ne 2
++.mk
++.na
++\fB\fB-o\fR \fIproperty=value\fR
++.ad
++.sp .6
++.RS 4n
++Sets the given pool properties. See the "Properties" section for a list of valid properties that can be set. The only property supported at the moment is "ashift".
++.RE
++
+ .RE
+ 
+ .sp
+--- a/src/cmd/zpool/zpool_main.c
++++ b/src/cmd/zpool/zpool_main.c
+@@ -185,10 +185,11 @@ static const char *
+ get_usage(zpool_help_t idx) {
+ 	switch (idx) {
+ 	case HELP_ADD:
+-		return (gettext("\tadd [-fn] <pool> <vdev> ...\n"));
++		return (gettext("\tadd [-fn] [-o property=value] "
++		    "<pool> <vdev> ...\n"));
+ 	case HELP_ATTACH:
+-		return (gettext("\tattach [-f] <pool> <device> "
+-		    "<new-device>\n"));
++		return (gettext("\tattach [-f] [-o property=value] "
++		    "<pool> <device> <new-device>\n"));
+ 	case HELP_CLEAR:
+ 		return (gettext("\tclear [-nF] <pool> [device]\n"));
+ 	case HELP_CREATE:
+@@ -222,7 +223,7 @@ get_usage(zpool_help_t idx) {
+ 	case HELP_ONLINE:
+ 		return (gettext("\tonline <pool> <device> ...\n"));
+ 	case HELP_REPLACE:
+-		return (gettext("\treplace [-f] <pool> <device> "
++		return (gettext("\treplace [-f] [-o property=value] <pool> <device> "
+ 		    "[new-device]\n"));
+ 	case HELP_REMOVE:
+ 		return (gettext("\tremove <pool> <device> ...\n"));
+@@ -434,9 +435,11 @@ zpool_do_add(int argc, char **argv)
+ 	int ret;
+ 	zpool_handle_t *zhp;
+ 	nvlist_t *config;
++	nvlist_t *props = NULL;
++	char *propval;
+ 
+ 	/* check options */
+-	while ((c = getopt(argc, argv, "fn")) != -1) {
++	while ((c = getopt(argc, argv, "fno:")) != -1) {
+ 		switch (c) {
+ 		case 'f':
+ 			force = B_TRUE;
+@@ -444,6 +447,21 @@ zpool_do_add(int argc, char **argv)
+ 		case 'n':
+ 			dryrun = B_TRUE;
+ 			break;
++
++		case 'o':
++			if ((propval = strchr(optarg, '=')) == NULL) {
++				(void) fprintf(stderr, gettext("missing "
++				    "'=' for -o option\n"));
++				usage(B_FALSE);
++			}
++			*propval = '\0';
++			propval++;
++
++			if ((strcmp(optarg, ZPOOL_CONFIG_ASHIFT) != 0) ||
++			    (add_prop_list(optarg, propval, &props, B_TRUE)))
++				usage(B_FALSE);
++			break;
++
+ 		case '?':
+ 			(void) fprintf(stderr, gettext("invalid option '%c'\n"),
+ 			    optopt);
+@@ -480,7 +498,7 @@ zpool_do_add(int argc, char **argv)
+ 	}
+ 
+ 	/* pass off to get_vdev_spec for processing */
+-	nvroot = make_root_vdev(zhp, force, !force, B_FALSE, dryrun,
++	nvroot = make_root_vdev(zhp, props, force, !force, B_FALSE, dryrun,
+ 	    argc, argv);
+ 	if (nvroot == NULL) {
+ 		zpool_close(zhp);
+@@ -681,7 +699,7 @@ zpool_do_create(int argc, char **argv)
+ 	}
+ 
+ 	/* pass off to get_vdev_spec for bulk processing */
+-	nvroot = make_root_vdev(NULL, force, !force, B_FALSE, dryrun,
++	nvroot = make_root_vdev(NULL, props, force, !force, B_FALSE, dryrun,
+ 	    argc - 1, argv + 1);
+ 	if (nvroot == NULL)
+ 		goto errout;
+@@ -2568,14 +2586,31 @@ zpool_do_attach_or_replace(int argc, cha
+ 	nvlist_t *nvroot;
+ 	char *poolname, *old_disk, *new_disk;
+ 	zpool_handle_t *zhp;
++	nvlist_t *props = NULL;
++	char *propval;
+ 	int ret;
+ 
+ 	/* check options */
+-	while ((c = getopt(argc, argv, "f")) != -1) {
++	while ((c = getopt(argc, argv, "fo:")) != -1) {
+ 		switch (c) {
+ 		case 'f':
+ 			force = B_TRUE;
+ 			break;
++
++		case 'o':
++			if ((propval = strchr(optarg, '=')) == NULL) {
++				(void) fprintf(stderr, gettext("missing "
++				    "'=' for -o option\n"));
++				usage(B_FALSE);
++			}
++			*propval = '\0';
++			propval++;
++
++			if ((strcmp(optarg, ZPOOL_CONFIG_ASHIFT) != 0) ||
++			    (add_prop_list(optarg, propval, &props, B_TRUE)))
++				usage(B_FALSE);
++			break;
++
+ 		case '?':
+ 			(void) fprintf(stderr, gettext("invalid option '%c'\n"),
+ 			    optopt);
+@@ -2632,7 +2667,7 @@ zpool_do_attach_or_replace(int argc, cha
+ 		return (1);
+ 	}
+ 
+-	nvroot = make_root_vdev(zhp, force, B_FALSE, replacing, B_FALSE,
++	nvroot = make_root_vdev(zhp, props, force, B_FALSE, replacing, B_FALSE,
+ 	    argc, argv);
+ 	if (nvroot == NULL) {
+ 		zpool_close(zhp);
+--- a/src/cmd/zpool/zpool_util.h
++++ b/src/cmd/zpool/zpool_util.h
+@@ -44,7 +44,7 @@ uint_t num_logs(nvlist_t *nv);
+  * Virtual device functions
+  */
+ 
+-nvlist_t *make_root_vdev(zpool_handle_t *zhp, int force, int check_rep,
++nvlist_t *make_root_vdev(zpool_handle_t *zhp, nvlist_t *props, int force, int check_rep,
+     boolean_t isreplace, boolean_t dryrun, int argc, char **argv);
+ nvlist_t *split_mirror_vdev(zpool_handle_t *zhp, char *newname,
+     nvlist_t *props, splitflags_t flags, int argc, char **argv);
+--- a/src/cmd/zpool/zpool_vdev.c
++++ b/src/cmd/zpool/zpool_vdev.c
+@@ -397,13 +397,14 @@ is_whole_disk(const char *arg)
+  * 	xxx		Shorthand for /dev/xxx
+  */
+ static nvlist_t *
+-make_leaf_vdev(const char *arg, uint64_t is_log)
++make_leaf_vdev(nvlist_t *props, const char *arg, uint64_t is_log)
+ {
+ 	char path[MAXPATHLEN];
+ 	struct stat64 statbuf;
+ 	nvlist_t *vdev = NULL;
+ 	char *type = NULL;
+ 	boolean_t wholedisk = B_FALSE;
++	uint64_t ashift = 0;
+ 
+ 	/*
+ 	 * Determine what type of vdev this is, and put the full path into
+@@ -520,6 +521,37 @@ make_leaf_vdev(const char *arg, uint64_t
+ 		(void) close(fd);
+ 	}
+ 
++	/*
++	 * Override defaults if custom properties are provided.
++	 */
++	if (props != NULL) {
++		char *value = NULL;
++
++		if (nvlist_lookup_string(props,
++		    zpool_prop_to_name(ZPOOL_PROP_ASHIFT), &value) == 0)
++			zfs_nicestrtonum(NULL, value, &ashift);
++	}
++
++	/* If the disk is large, assume it is 4K sector size.  */
++#define THRESH_4K (512 * 1024LL*1024*1024)      /* 512 GB */
++#define THRESH_4K (128 * 1024LL*1024)           /* 128 MB for testing */
++	if (ashift == 0) {
++	   if (S_ISBLK(statbuf.st_mode)) { /* If it's a device, get the size. */
++	      int fd;
++
++	      if ((fd = open(path, O_RDONLY)) >= 0) {
++		 fstat64(fd, &statbuf);
++		 close(fd);
++	      }
++	   }
++	   if (statbuf.st_size >= THRESH_4K) {
++	      fprintf(stderr, "Defaulting to 4K blocksize (ashift=12) for '%s'\n", path);
++	      ashift = 12;
++	   }
++	}
++
++	if (ashift > 0)
++		nvlist_add_uint64(vdev, ZPOOL_CONFIG_ASHIFT, ashift);
+ 	return (vdev);
+ }
+ 
+@@ -1161,7 +1193,7 @@ is_grouping(const char *type, int *minde
+  * because the program is just going to exit anyway.
+  */
+ nvlist_t *
+-construct_spec(int argc, char **argv)
++construct_spec(nvlist_t *props, int argc, char **argv)
+ {
+ 	nvlist_t *nvroot, *nv, **top, **spares, **l2cache;
+ 	int t, toplevels, mindev, maxdev, nspares, nlogs, nl2cache;
+@@ -1250,7 +1282,7 @@ construct_spec(int argc, char **argv)
+ 				    children * sizeof (nvlist_t *));
+ 				if (child == NULL)
+ 					zpool_no_memory();
+-				if ((nv = make_leaf_vdev(argv[c], B_FALSE))
++				if ((nv = make_leaf_vdev(props, argv[c], B_FALSE))
+ 				    == NULL)
+ 					return (NULL);
+ 				child[children - 1] = nv;
+@@ -1306,7 +1338,7 @@ construct_spec(int argc, char **argv)
+ 			 * We have a device.  Pass off to make_leaf_vdev() to
+ 			 * construct the appropriate nvlist describing the vdev.
+ 			 */
+-			if ((nv = make_leaf_vdev(argv[0], is_log)) == NULL)
++			if ((nv = make_leaf_vdev(props, argv[0], is_log)) == NULL)
+ 				return (NULL);
+ 			if (is_log)
+ 				nlogs++;
+@@ -1372,7 +1404,7 @@ split_mirror_vdev(zpool_handle_t *zhp, c
+ 	uint_t c, children;
+ 
+ 	if (argc > 0) {
+-		if ((newroot = construct_spec(argc, argv)) == NULL) {
++		if ((newroot = construct_spec(props, argc, argv)) == NULL) {
+ 			(void) fprintf(stderr, gettext("Unable to build a "
+ 			    "pool from the specified devices\n"));
+ 			return (NULL);
+@@ -1422,7 +1454,7 @@ split_mirror_vdev(zpool_handle_t *zhp, c
+  * added, even if they appear in use.
+  */
+ nvlist_t *
+-make_root_vdev(zpool_handle_t *zhp, int force, int check_rep,
++make_root_vdev(zpool_handle_t *zhp, nvlist_t *props, int force, int check_rep,
+     boolean_t isreplacing, boolean_t dryrun, int argc, char **argv)
+ {
+ 	nvlist_t *newroot;
+@@ -1434,7 +1466,7 @@ make_root_vdev(zpool_handle_t *zhp, int
+ 	 * that we have a valid specification, and that all devices can be
+ 	 * opened.
+ 	 */
+-	if ((newroot = construct_spec(argc, argv)) == NULL)
++	if ((newroot = construct_spec(props, argc, argv)) == NULL)
+ 		return (NULL);
+ 
+ 	if (zhp && ((poolconfig = zpool_get_config(zhp, NULL)) == NULL))
+--- a/src/lib/libzfscommon/include/sys/fs/zfs.h
++++ b/src/lib/libzfscommon/include/sys/fs/zfs.h
+@@ -158,6 +158,7 @@ typedef enum {
+ 	ZPOOL_PROP_DEDUPRATIO,
+ 	ZPOOL_PROP_FREE,
+ 	ZPOOL_PROP_ALLOCATED,
++	ZPOOL_PROP_ASHIFT,
+ 	ZPOOL_NUM_PROPS
+ } zpool_prop_t;
+ 
+--- a/src/lib/libzfscommon/zpool_prop.c
++++ b/src/lib/libzfscommon/zpool_prop.c
+@@ -87,6 +87,10 @@ zpool_prop_init(void)
+ 	register_number(ZPOOL_PROP_DEDUPRATIO, "dedupratio", 0, PROP_READONLY,
+ 	    ZFS_TYPE_POOL, "<1.00x or higher if deduped>", "DEDUP");
+ 
++	/* readonly onetime number properties */
++	register_number(ZPOOL_PROP_ASHIFT, "ashift", 0, PROP_ONETIME,
++	    ZFS_TYPE_POOL, "<ashift, 9-13, or 0=default>", "ASHIFT");
++
+ 	/* default number properties */
+ 	register_number(ZPOOL_PROP_VERSION, "version", SPA_VERSION,
+ 	    PROP_DEFAULT, ZFS_TYPE_POOL, "<version>", "VERSION");

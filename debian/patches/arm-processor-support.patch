@@ -1,0 +1,127 @@
+#### Must applu this manually.  dpkg-build -S doesn't like it/
+#--- zfs-fuse-0.7.0-orig/debian/control	2012-08-16 23:58:23.000000000 -0500
+#+++ zfs-fuse_0.7.0/debian/control	2014-04-06 15:06:11.377679336 -0500
+@@ -10,7 +10,7 @@
+ DM-Upload-Allowed: yes
+ 
+ Package: zfs-fuse
+-Architecture: i386 amd64 sparc powerpc
++Architecture: i386 amd64 sparc powerpc armel
+ Depends: ${shlibs:Depends}, ${misc:Depends}, fuse (>=2.8.7-2) , lsb-base
+ Suggests: nfs-kernel-server, kpartx
+ Description: ZFS on FUSE
+--- a/src/lib/libsolcompat/include/sys/isa_defs.h
++++ b/src/lib/libsolcompat/include/sys/isa_defs.h
+@@ -537,6 +537,20 @@ extern "C" {
+ 
+ #endif
+ 
++#elif defined(__ARMEL__)
++// From https://bitbucket.org/cli/zfs-fuse-arm/src/865c93c81a95/src/lib/libsolcompat/include/sys/isa_defs.h
++/*
++ * Define processor specifications for ARM platform (little endian)
++ */
++#define _LITTLE_ENDIAN
++#define _LONG_LONG_LTOH
++#define _BIT_FIELDS_LTOH
++
++/*
++ * Define the appropriate "implementation choices" for ARM (little endian)
++ */
++#define _SUNOS_VTOC_16
++
+ /*
+  * #error is strictly ansi-C, but works as well as anything for K&R systems.
+  *  */
+--- a/src/lib/libumem/malloc.c
++++ b/src/lib/libumem/malloc.c
+@@ -453,7 +453,11 @@ static void __attribute__((constructor))
+ 	}
+ }
+ 
++#if __GLIBC_PREREQ(2, 14)
+ void (* __volatile __malloc_initialize_hook)(void) = umem_malloc_init_hook;
++#else
++void (* __malloc_initialize_hook)(void) = umem_malloc_init_hook;
++#endif
+ 
+ #else
+ void __attribute__((constructor))
+--- a/src/lib/libumem/sol_compat.h
++++ b/src/lib/libumem/sol_compat.h
+@@ -185,6 +185,57 @@ static INLINE uint_t ec_atomic_cas(uint_
+   return with;
+ }
+ # endif
++#if defined(__arm__)
++
++//#include <asm-arm/irqflags.h>
++
++//typedef struct { volatile int counter; } atomic_t;
++/*
++ * Save the current interrupt enable state & disable IRQs
++ */
++#define raw_local_irq_save(x)					\
++	({							\
++		unsigned long temp;				\
++		(void) (&temp == &x);				\
++	__asm__ __volatile__(					\
++	"mrs	%0, cpsr		@ local_irq_save\n"	\
++"	orr	%1, %0, #128\n"					\
++"	msr	cpsr_c, %1"					\
++	: "=r" (x), "=r" (temp)					\
++	:							\
++	: "memory", "cc");					\
++	})
++
++/*
++ * restore saved IRQ & FIQ state
++ */
++#define raw_local_irq_restore(x)				\
++	__asm__ __volatile__(					\
++	"msr	cpsr_c, %0		@ local_irq_restore\n"	\
++	:							\
++	: "r" (x)						\
++	: "memory", "cc")
++
++typedef uint_t atomic_t;
++static inline uint_t atomic_add_return(int i, atomic_t *v)
++{
++	unsigned long flags;
++	uint_t val;
++
++	raw_local_irq_save(flags);
++//	val = v->counter;
++//	v->counter = val += i;
++	val = *v;
++	*v = val += i;
++	raw_local_irq_restore(flags);
++
++	return val;
++}
++
++#define atomic_inc(v)	 atomic_add_return(1, v)
++#define ec_atomic_inc(v) atomic_inc(v)
++
++#endif
+ 
+ #endif
+ 
+@@ -221,6 +272,7 @@ static INLINE uint_t ec_atomic_inc(uint_
+ #define atomic_add_64(lvalptr, delta) ec_atomic_inc64(lvalptr)
+ #define atomic_add_32_nv(a, b)  	  ec_atomic_inc(a) 
+ #elif defined(__powerpc) || defined(__powerpc__) ||\
++      defined(__arm__) || \
+       defined(__powerpc64) || defined(__powerpc64__)
+ # ifndef ec_atomic_inc64
+ #  define ec_atomic_inc64(a)  (*a)++
+--- a/src/zfs-fuse/SConscript
++++ b/src/zfs-fuse/SConscript
+@@ -5,5 +5,7 @@ cpppath = Split('#lib/libavl/include #li
+ ccflags = Split('-D_KERNEL')
+ 
+ libs = Split('rt pthread fuse dl z aio crypto')
++# use static AIO library.  Yes, you have to have double up the ".a"
++libs[libs.index('aio')] = ':libaio.a.a'
+ 
+ env.Program('zfs-fuse', objects, CPPPATH = env['CPPPATH'] + cpppath, LIBS = libs, CCFLAGS = env['CCFLAGS'] + ccflags)
