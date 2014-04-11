@@ -1,3 +1,15 @@
+zfs-fuse (0.7.0-11) unstable; urgency=low
+
+  * Switch to use my Debian mail
+  * Import two patches from Ray Vantassle
+    - Added support for ARM processor. For Pogoplug & Raspberry PI
+      Note: Ray included an incrmental fix to the __malloc_initialize_hook
+      issue on top of fix-malloc-for-newer-glibc.patch patch.
+      Let's drop these patches when all goes to upstream.
+    - Added ashift option, for optimizing for 4K sector disks.
+
+ -- Asias He <asias@debian.org>  Fri, 11 Apr 2014 08:35:49 +0800
+
 zfs-fuse (0.7.0-10.1) unstable; urgency=low
 
   * Non-maintainer upload.
