@@ -14,6 +14,8 @@ debian-installer (201403XX) UNRELEASED; urgency=low
      - x86.cfg: Adjust paths to isolinux.bin and pxelinux.0
      - x86.cfg: Adjust path to vesamenu.c32 and add its new dependencies
                 (libcom32.c32, libutil.c32, and also ldlinux.c32).
+  * Exclude .gitignore files in the dh_installdocs call to avoid spurious
+    files when building from a git checkout.
 
   [ Samuel Thibault ]
   * Add a separate Hurd boot option for CJK support in pseudo-graphical mode, so
