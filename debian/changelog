@@ -16,6 +16,9 @@ debian-installer (201403XX) UNRELEASED; urgency=low
                 (libcom32.c32, libutil.c32, and also ldlinux.c32).
   * Exclude .gitignore files in the dh_installdocs call to avoid spurious
     files when building from a git checkout.
+  * Disable translation-status check when proposed-updates is enabled.
+    This file isn't going to be updated during stable's lifecycle, so
+    avoid pointless warning and sleeping.
 
   [ Samuel Thibault ]
   * Add a separate Hurd boot option for CJK support in pseudo-graphical mode, so

@@ -323,18 +323,20 @@ ifdef TRANSSTATUS
 	# Do this first to make possible warnings more visible.
 	@echo; \
 	if [ -f "$(TRANSSTATUS)" ]; then \
-		olddate=$$(grep "^# Generated on:" $(TRANSSTATUS) | sed "s/.*: //"); \
-		if [ "$$olddate" ]; then \
-			if [ $$(( $$(date -u "+%s") - \
-			          $$(date -d "$$olddate" "+%s") \
-			       )) -gt 1209600 ]; then \
-				echo "WARNING: The data in '$(TRANSSTATUS)' is older than 2 weeks."; \
-				echo "         Should it maybe be updated?"; \
+		if [ "$(USE_PROPOSED_UPDATES)" != 1 ]; then \
+			olddate=$$(grep "^# Generated on:" $(TRANSSTATUS) | sed "s/.*: //"); \
+			if [ "$$olddate" ]; then \
+				if [ $$(( $$(date -u "+%s") - \
+				          $$(date -d "$$olddate" "+%s") \
+				       )) -gt 1209600 ]; then \
+					echo "WARNING: The data in '$(TRANSSTATUS)' is older than 2 weeks."; \
+					echo "         Should it maybe be updated?"; \
+					sleep 15; \
+				fi; \
+			else \
+				echo "WARNING: no timestamp found in $(TRANSSTATUS)."; \
 				sleep 15; \
 			fi; \
-		else \
-			echo "WARNING: no timestamp found in $(TRANSSTATUS)."; \
-			sleep 15; \
 		fi; \
 		mkdir -p $(TREE)/usr/share/localechooser; \
 		cp $(TRANSSTATUS) $(TREE)/usr/share/localechooser/translation-status; \
