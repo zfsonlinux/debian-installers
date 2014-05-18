@@ -7,6 +7,13 @@ debian-installer (201403XX) UNRELEASED; urgency=low
     required.
   * Remove Otavio from Uploaders, with many thanks for his past work.
   * Bump linux kernel version from 3.13-1 to 3.14-1.
+  * Adjust and apply patch from Daniel Baumann to deal with incompatible
+    changes in syslinux 6 (Closes: #746743):
+     - Bump syslinux-common versioned build-dep to >= 3:6
+     - Add isolinux and pxelinux build-deps.
+     - x86.cfg: Adjust paths to isolinux.bin and pxelinux.0
+     - x86.cfg: Adjust path to vesamenu.c32 and add its new dependencies
+                (libcom32.c32, libutil.c32, and also ldlinux.c32).
 
   [ Samuel Thibault ]
   * Add a separate Hurd boot option for CJK support in pseudo-graphical mode, so
