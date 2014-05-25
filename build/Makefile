@@ -560,6 +560,14 @@ endif
 	echo "Description: debian installation image" >> $(DPKGDIR)/status
 	echo >> $(DPKGDIR)/status
 
+ifeq ($(DEB_HOST_ARCH_OS),hurd)
+        # There is a dependency loop which prevents d-i from being able to
+        # configure these.  Since there is actually nothing to do to configure
+        # them, they can as well be just marked installed already.
+	sed -i -e '/Package: hurd-libs/,+1s/install ok unpacked/install ok installed/' $(DPKGDIR)/status
+	sed -i -e '/Package: libparted/,+1s/install ok unpacked/install ok installed/' $(DPKGDIR)/status
+endif
+
 ifdef OMIT_DPKG
 	rm -rf $(DPKGDIR)
 endif
