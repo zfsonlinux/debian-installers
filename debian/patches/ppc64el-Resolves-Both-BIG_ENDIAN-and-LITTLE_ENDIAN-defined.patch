@@ -1,0 +1,36 @@
+From 78c7b80f3f3c76752408df7d458f9889890b944a Mon Sep 17 00:00:00 2001
+From: Nageswara R Sastry <nasastry@in.ibm.com>
+Date: Fri, 18 Apr 2014 01:57:21 -0500
+Subject: [PATCH 2/3] Resolves Both BIG_ENDIAN and LITTLE_ENDIAN defined
+
+Power architecture can be big endian or little endian.
+Corrected the defines.
+
+Signed-off-by: Nageswara R Sastry <nasastry@in.ibm.com>
+---
+ src/lib/libsolcompat/include/sys/isa_defs.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/src/lib/libsolcompat/include/sys/isa_defs.h b/src/lib/libsolcompat/include/sys/isa_defs.h
+index 1555975..3ad1961 100644
+--- a/src/lib/libsolcompat/include/sys/isa_defs.h
++++ b/src/lib/libsolcompat/include/sys/isa_defs.h
+@@ -475,9 +475,15 @@ extern "C" {
+ /*
+  * Next defines common features between 32 and 64 bit PowerPC
+  */
++#ifdef __BIG_ENDIAN__
+ #ifndef _BIG_ENDIAN
+ #define _BIG_ENDIAN
+ #endif
++#elif defined(__LITTLE_ENDIAN__)
++#ifndef _LITTLE_ENDIAN
++#define _LITTLE_ENDIAN
++#endif
++#endif
+ #define _STACK_GROWS_DOWNWARD
+ #define _LONG_LONG_HTOL
+ #define _BIT_FIELDS_HTOL
+-- 
+1.9.1
+
