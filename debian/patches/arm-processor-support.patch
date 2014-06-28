@@ -1,15 +1,3 @@
-#### Must applu this manually.  dpkg-build -S doesn't like it/
-#--- zfs-fuse-0.7.0-orig/debian/control	2012-08-16 23:58:23.000000000 -0500
-#+++ zfs-fuse_0.7.0/debian/control	2014-04-06 15:06:11.377679336 -0500
-@@ -10,7 +10,7 @@
- DM-Upload-Allowed: yes
- 
- Package: zfs-fuse
--Architecture: i386 amd64 sparc powerpc
-+Architecture: i386 amd64 sparc powerpc armel
- Depends: ${shlibs:Depends}, ${misc:Depends}, fuse (>=2.8.7-2) , lsb-base
- Suggests: nfs-kernel-server, kpartx
- Description: ZFS on FUSE
 --- a/src/lib/libsolcompat/include/sys/isa_defs.h
 +++ b/src/lib/libsolcompat/include/sys/isa_defs.h
 @@ -537,6 +537,20 @@ extern "C" {
