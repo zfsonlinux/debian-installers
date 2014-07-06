@@ -110,7 +110,6 @@ operations:
 |           Size:                  995.2 MB                               |
 |                                                                         |
 |           Finished setting up partition                                 |
-|           Copy here data from another partition                         |
 |           Delete the partition                                          |
 |                                                                         |
 |      &lt;Go Back&gt;                                          &lt;Continue&gt;      |
@@ -956,7 +955,7 @@ The rest arguments are arguments for the command.
 terminate the communication dialog.
 
 <p> When you send <prgn>parted_server</prgn> an order to do some
-long operation (check, create, resize or copy file system) the user
+long operation (check, create or resize file system) the user
 will be shown a progress bar.  You may give name to it by the function
 <prgn>name_progress_bar</prgn>.  It may be used right before the
 command <prgn>open_dialog</prgn> and accepts only one argument &ndash;
@@ -1540,24 +1539,6 @@ close_dialog
 This command returns the minimal and the maximal size that can be
 achieved by using the command RESIZE_PARTITION.  $minimal_size,
 $current_size and $maximal_size are measured in bytes.
-
-<sect> Copy the contents of one partition into another
-
-<p> Synopsis:
-<example>
-cd <var>destination_device_directory</var>
-name_progress_bar <var>some/debconf/template</var>
-open_dialog COPY <var>destination_id</var> <var>source_device</var> <var>source_id</var>
-close_dialog
-</example>
-This command copies into the partition with id
-<var><tt>destination_id</tt></var> the contents of the partition with
-id <var><tt>source_id</tt></var>.  <var><tt>source_device</tt></var>
-is <tt>$(basename <var>source_device_directory</var>)</tt>.
-
-<p> The command <prgn>name_progress_bar</prgn> may be omitted.  The
-debconf template must have type text.  It will be used to give the user
-information of what is being done.
 
 
 <chapt> Bugs and limitations
