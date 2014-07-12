@@ -1,6 +1,6 @@
 arch_get_kernel_flavour () {
 	case "$SUBARCH" in
-	    4kc-malta|5kc-malta|loongson-2e|loongson-2f|loongson-3a|sb1-bcm91250a|sb1a-bcm91480b)
+	    4kc-malta|5kc-malta|loongson-2e|loongson-2f|loongson-3|sb1-bcm91250a|sb1a-bcm91480b)
 		echo "$SUBARCH"
 		return 0 ;;
 	    *)
