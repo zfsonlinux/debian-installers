@@ -331,6 +331,9 @@ case $ARCH in
 	grub_package="grub-ieee1275"
 	experimental_arch
 	;;
+    ppc64el/*)
+	grub_package="grub-ieee1275"
+	;;
     mipsel/loongson-2f)
 	grub_package="grub-yeeloong"
 	;;
@@ -581,6 +584,14 @@ case $ARCH:$grub_package in
 		fi
 	fi
 	;;
+    ppc64el/*:grub-ieee1275)
+	# Hack to pick the right boot device.  This should really be done in
+	# grub-install instead, and will need to be done there in order to
+	# support major GRUB upgrades properly, but this will tide us over
+	# for now.
+	bootdev="$(/usr/lib/grub-installer/prep-bootdev)"
+	state=3
+	;;
     *)
 	# No need for install device selection on other platforms.
 	bootdev=dummy
@@ -768,9 +779,16 @@ if [ -z "$frdisk" ]; then
 			grub_install_params="$grub_install_params --force"
 		fi
 
+		case $ARCH:$grub_package in
+		    ppc64el/*:grub-ieee1275)
+			info "Wiping PReP partition $bootdev"
+			log-output -t grub-installer dd if=/dev/zero of="$bootdev" bs=512 count="$(blockdev --getsz "$bootdev")"
+			;;
+		esac
+
 		CODE=0
 		case $ARCH:$grub_package in
-		    *:grub|*:grub-pc|*:grub-efi|sparc:grub-ieee1275)
+		    *:grub|*:grub-pc|*:grub-efi|sparc:grub-ieee1275|ppc64el/*:grub-ieee1275)
 			info "Running $chroot $ROOT grub-install $grub_install_params \"$bootdev\""
 			log-output -t grub-installer $chroot $ROOT grub-install $grub_install_params "$bootdev" || CODE=$?
 			;;
@@ -783,7 +801,7 @@ if [ -z "$frdisk" ]; then
 			info "grub-install ran successfully"
 		else
 			case $ARCH:$grub_package in
-			    *:grub|*:grub-pc|*:grub-efi|sparc:grub-ieee1275)
+			    *:grub|*:grub-pc|*:grub-efi|sparc:grub-ieee1275|ppc64el/*:grub-ieee1275)
 				error "Running 'grub-install $grub_install_params \"$bootdev\"' failed."
 				;;
 			    *)
