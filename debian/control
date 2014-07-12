@@ -11,7 +11,7 @@ Package: grub-installer
 Architecture: i386 hurd-i386 amd64 kfreebsd-i386 kfreebsd-amd64 powerpc mipsel
 XB-Subarchitecture: ${subarch}
 Provides: bootable-system
-Depends: cdebconf-udeb, kernel-installer, created-fstab, di-utils (>= 1.15), di-utils-mapdevfs, os-prober, partman-utils
+Depends: ${shlibs:Depends}, ${misc:Depends}, kernel-installer, created-fstab, di-utils (>= 1.15), di-utils-mapdevfs, os-prober, partman-utils
 XB-Installer-Menu-Item: 7400
 Package-Type: udeb
 Description: Install GRUB on a hard disk
