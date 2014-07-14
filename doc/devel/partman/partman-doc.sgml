@@ -151,12 +151,11 @@ do the partitioning (manual, automatic, etc.)
 
 <p> The GNU Parted disk partitioning library provides high-level,
   architecture independent functions for operations such as creating,
-  deleting, resizing and moving of partitions as well as creating some
-  kinds of file systems.  Most of the functions of libparted work in a
-  non nondestructive way.  The partition table is written in data
-  structures and any change in the partition table happens only in
-  these data structures rather than directly on the disk.  This makes
-  possible to implement partitioning tools based on
+  deleting, resizing and moving of partitions.  Most of the functions of
+  libparted work in a nondestructive way.  The partition table is
+  written in data structures and any change in the partition table
+  happens only in these data structures rather than directly on the
+  disk.  This makes possible to implement partitioning tools based on
   <package>libparted</package> that support undoing of the editing
   operations.
 
@@ -955,8 +954,8 @@ The rest arguments are arguments for the command.
 terminate the communication dialog.
 
 <p> When you send <prgn>parted_server</prgn> an order to do some
-long operation (check, create or resize file system) the user
-will be shown a progress bar.  You may give name to it by the function
+long operation (e.g. resize a file system) the user will be shown a
+progress bar.  You may give a name to it by the function
 <prgn>name_progress_bar</prgn>.  It may be used right before the
 command <prgn>open_dialog</prgn> and accepts only one argument &ndash;
 a template with type text that describes what is being done.
@@ -1406,55 +1405,6 @@ Libparted uses it to determine automatically the type of the partition
 in some partition tables.  For example with msdos partition tables the
 partitions with file system `ext2' receive type 83.  The partitions
 that are swap spaces receive type 82.
-
-<sect> Check the filesystem in a partition for errors
-
-<p> Synopsis:
-<example>
-cd <var>device_directory</var>
-name_progress_bar <var>some/debconf/template</var>
-open_dialog CHECK_FILE_SYSTEM <var>partition_id</var>
-read_line result
-close_dialog
-case $result in
-    good)
-        # The file system is in good state
-        ;;
-    bad)
-        # The file system has uncorrected errors
-        ;;
-    n/c)
-        # No file system is detected
-        ;;
-esac
-</example>
-
-The command <prgn>name_progress_bar</prgn> may be omitted.  The debconf
-template must have type text.  It will be used to give the user
-information of what is being done.
-
-<sect> Create a file system in a partition
-
-<p> Synopsis:
-<example>
-cd <var>device_directory</var>
-name_progress_bar <var>some/debconf/template</var>
-open_dialog CREATE_FILE_SYSTEM <var>partition_id</var> <var>new_filesystem</var>
-read_line result
-close_dialog
-case $result in
-    OK)
-        # the file system is successfully created
-        ;;
-    failed)
-        # wasn't able to create a file system
-        ;;
-esac
-</example>
-
-The command <prgn>name_progress_bar</prgn> may be omitted.  The debconf
-template must have type text.  It is used to give the user some
-information of what is being done.
 
 <sect> Create a new partition
 
