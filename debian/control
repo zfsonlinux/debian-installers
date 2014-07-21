@@ -13,8 +13,4 @@ Package-Type: udeb
 Architecture: kfreebsd-any
 Depends: ${misc:Depends}, zfsutils-udeb (>= 8.1-4), zfs-modules, partman-basicfilesystems (>= 59), partman-base (>= 134),
  cdebconf-udeb (>= 0.133), di-utils (>= 1.14),
-# partman-base already depends on libparted0-udeb, but we need a version
-# that supports ZVOL (see #635384).  Otherwise this dependency could be
-# removed.
- libparted0-udeb (>= 2.3-8),
 Description: Add to partman support for ZFS
