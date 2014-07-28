@@ -24,6 +24,10 @@ debian-installer (2014XXXX) UNRELEASED; urgency=low
     happens anyway, and warnings go away accordingly.
   * Add fonts-lohit-guru-udeb to gtk images, fixing rendering for Punjabi
     (Closes: #761573).
+  * Apply patch from Ron and Chris Kuehl to fix lib location and search
+    path for syslinux >= 5. Some constraints include having ldlinux.c32
+    in the tftp root, and being able to find some support libraries
+    thanks to a defined path (Closes: #756275). Many thanks!
 
   [ Frederic Bonnard / Aurelien Jarno ]
   * Add ppc64el support installing sid (Closes: #754093).
