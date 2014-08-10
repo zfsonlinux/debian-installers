@@ -85,15 +85,18 @@ for dev in /var/lib/partman/devices/*; do
 			open_dialog PARTITIONS
 			free_space=''
 			while { read_line num id size type fs path name; [ "$id" ]; }; do
-				if [ "$fs" = free ]; then
+				case $fs in
+				    free|unknown)
 					free_space=$id
 					free_size=$size
-				fi
+					free_fs=$fs
+					;;
+				esac
 			done
 			close_dialog
 			# create partition in the free space
 			if [ "$free_space" ]; then
-				create_new_partition primary $free_space full $free_size "zfs"
+				create_new_partition primary $free_space full $free_size $free_fs "zfs"
 			fi
 			open_dialog DISK_UNCHANGED
 			close_dialog

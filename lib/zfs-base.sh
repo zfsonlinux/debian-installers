@@ -465,11 +465,18 @@ vg_get_info() {
 # A request was sent to export this function so that partman-zfs
 # can use it (see #636400).
 create_new_partition () {
-	open_dialog NEW_PARTITION $1 ext2 $2 $3 $4
 	local num id fs mp mplist mpcurrent numparts device
-	id=''
-	read_line num id x1 x2 x3 x4 x5
-	close_dialog
+	if [ "$5" = unknown ]; then
+		# parted >= 3.2 gives us a partition automatically.
+		num=1
+		id=$free_space
+	else
+		# With parted < 3.2 we must create a partition manually.
+		open_dialog NEW_PARTITION $1 ext2 $2 $3 $4
+		id=''
+		read_line num id x1 x2 x3 x4 x5
+		close_dialog
+	fi
 
 	partitions=''
 	numparts=1
@@ -483,8 +490,8 @@ create_new_partition () {
 	db_progress START 0 $numparts partman/text/please_wait
 	db_progress INFO partman-partitioning/new_state
 
-	if [ "$5" ]; then
-		default_fs="$5"
+	if [ "$6" ]; then
+		default_fs="$6"
 	else
 		db_get partman/default_filesystem
 		default_fs="$RET"
@@ -706,22 +713,33 @@ create_partition () {
 	open_dialog PARTITIONS
 	free_space=''
 	while { read_line num id size type fs path name; [ "$id" ]; }; do
-		if [ "$fs" = free ]; then
+		case $fs in
+		    free|unknown)
 			free_space=$id
 			free_size=$size
+			free_fs=$fs
 			# we can't break here
-		fi
+			;;
+		esac
 	done
 	close_dialog
 
 	# create partition in the free space
 	if [ "$free_space" ]; then
-		open_dialog NEW_PARTITION primary $filesystem $free_space full $free_size
-		read_line num id size type fs path name
-		close_dialog
-		if [ -z "$id" ]; then
-			log "error: NEW_PARTITION returned no id"
-			return
+		id=
+		if [ "$free_fs" = unknown ]; then
+			# parted >= 3.2 gives us a partition automatically.
+			id=$free_space
+		else
+			# With parted < 3.2 we must create a partition
+			# manually.
+			open_dialog NEW_PARTITION primary $filesystem $free_space full $free_size
+			read_line num id size type fs path name
+			close_dialog
+			if [ -z "$id" ]; then
+				log "error: NEW_PARTITION returned no id"
+				return
+			fi
 		fi
 	fi
 	open_dialog DISK_UNCHANGED
