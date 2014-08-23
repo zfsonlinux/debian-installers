@@ -50,10 +50,14 @@ add_desktop_configs() {
 		cp "$SRC"/desktop/menu.cfg "$SRC"/desktop/prompt.cfg \
 		   "$SRC"/desktop/prmenu.cfg "$DST"/$desktop/
 		cp "$SRC"/{,ad}txt.cfg "$DST"/$desktop/
+		cp "$SRC"/spk.cfg "$DST"/$desktop/
 		cp "$SRC"/desktop/{,ad}txtdt.cfg "$DST"/$desktop/
+		cp "$SRC"/desktop/spkdt.cfg "$DST"/$desktop/
 		if [ -n "$INCLUDE_GTK" ]; then
 			cp "$SRC"/{,ad}gtk.cfg "$DST"/$desktop/
+			cp "$SRC"/spkgtk.cfg "$DST"/$desktop/
 			cp "$SRC"/desktop/{,ad}gtkdt.cfg "$DST"/$desktop/
+			cp "$SRC"/desktop/spkgtkdt.cfg "$DST"/$desktop/
 		fi
 
 		case $desktop in
