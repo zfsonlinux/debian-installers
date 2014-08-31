@@ -8,6 +8,26 @@ debian-installer (2014XXXX) UNRELEASED; urgency=low
   * Depend on mklibs >= 0.1.40 for ARM EABI fixes relating to the handling
     of__aeabi_* symbols (Closes: #758581).
 
+  [ Cyril Brulebois ]
+  * Deal with even more incompatible changes on the syslinux side by
+    adding a syslinux-utils build-dep (Closes: #751731), no thanks to its
+    maintainer as far as cooperation is concerned (See: #751724, #759189).
+
+  [ Frederic Bonnard / Aurelien Jarno ]
+  * Add netboot ppc64el support installing sid.
+
+  [ Steven Chamberlain ]
+  * On kfreebsd and hurd, which use GRUB for PXE booting, request two
+    additional modules in the grub-mkimage step: (Closes: #759686)
+    - tftp: required since GRUB 2.02 otherwise PXE boot will crash/hang
+    - gfxterm_background: required since GRUB 2.02 for the boot splash
+      image functionality to be available
+    - raise the grub-pc (and indirectly grub-common) build dependency to
+      >= 2.02~beta2~ on these architectures, because module
+      gfxterm_background did not exist in GRUB 2.00
+    - raise the xorriso build dependency to >= 1.3.2-1~ on these
+      architectures, for compatibility with grub-mkrescue in GRUB 2.02
+
  -- Cyril Brulebois <kibi@debian.org>  Sat, 02 Aug 2014 02:59:35 +0200
 
 debian-installer (20140802) unstable; urgency=low
