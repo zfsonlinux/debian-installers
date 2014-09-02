@@ -312,6 +312,9 @@ experimental_arch () {
 }
 
 case $ARCH in
+    arm64/efi)
+	grub_package="grub-efi-arm64"
+	;;
     i386/mac|amd64/mac)
 	# Note: depends on partman-efi to load the efivars module!
 	if [ -d /sys/firmware/efi ]; then
