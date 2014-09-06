@@ -49,8 +49,7 @@ A more detailed overview of how the installer is built:
   subarchitecture there (<arch>/<subarch>.cfg).  All of these files can
   have #include lines to include files from pkg-lists. Also,
   ${kernel:Version} in these files is replaced with the kernel version,
-  as set in the KERNELIMAGEVERSION variable (plus the KERNEL_FLAVOUR
-  variable).
+  as set in the KERNELVERSION variable (plus the KERNEL_FLAVOUR variable).
 * Anything listed in pkg-lists/local and pkg-lists/*/local is included in
   the image that is built. This is to provide an easy way to add extra
   udebs to a test image.
@@ -151,7 +150,6 @@ SUBARCH_SUPPORTED = r4k-ip22 r5k-ip22 sb1-bcm91250a miniiso
 KERNELMAJOR = 2.4
 KERNELMINOR = 25
 KERNEL_FLAVOUR = di
-KERNELIMAGEVERSION = $(KERNELVERSION)
 KERNELNAME = $(foreach ver,$(KERNELVERSION),vmlinux-$(ver))
 
 VERSIONED_SYSTEM_MAP = t
@@ -198,9 +196,6 @@ KERNELMAJOR
 
 KERNELVERSION
   The version of the kernel .udeb package, like "2.4.26-r4k-ip22"
-
-KERNELIMAGEVERSION
-  The version part of the kernel image's name.
 
 KERNELNAME
   The full name of the kernel image. If you build an EXTRA target (e.g.
