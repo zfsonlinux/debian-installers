@@ -634,14 +634,6 @@ $(STAMPS)get_udebs-$(targetstring)-stamp: sources.list.udeb
 	dh_testroot
 	@rm -f $@
 
-	# Ensure that sources.list.udeb has trusted=yes.
-	# Only needed for a while to ensure all build systems get the new
-	# version of the file, then can be removed.
-	if ! grep -q -L 'trusted=yes' sources.list.udeb; then \
-		rm -f sources.list.udeb; \
-		$(MAKE) sources.list.udeb; \
-	fi
-
 	get-packages udeb $(UDEBS)
 	@touch $@
 
