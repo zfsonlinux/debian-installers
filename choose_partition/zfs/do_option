@@ -439,7 +439,10 @@ while [ 1 ]; do
 	fi
 	# Other options only if there is at least one VG
 	if [ $vgs -gt 0 ]; then
-		zfs_menu_add createfs
+		if [ $(udpkg --print-os) != "kfreebsd" ]; then
+			# GNU/kFreeBSD maintainers prefer not to enable this feature yet
+			zfs_menu_add createfs
+		fi
 
 		# First check, then add so the order is constant
 		do_deletevg=""
