@@ -119,7 +119,7 @@ endif
 
 # Useful command sequences
 define submake
-  $(ROOTCMD) $(MAKE) --no-print-directory
+  $(ROOTCMD) $(MAKE) --no-print-directory -j1
 endef
 
 define recurse_once
