@@ -696,7 +696,7 @@ while : ; do
 			# If the user supplied a value for bootdev,
 			# ask them to resolve any conflict.
 			if [ "$bootdev" != "$default_bootdev" ] ; then
-				bootdev="$(select_bootdev "$bootdev")"
+				bootdev="$(select_bootdev "${bootdev:-$default_bootdev}")"
 				previous_state=1
 			fi
 			if [ -e "$bootdev" ] ; then
