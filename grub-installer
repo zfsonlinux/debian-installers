@@ -33,6 +33,10 @@ info() {
 	log "info: $@"
 }
 
+debug () {
+	[ -z "${DEBCONF_DEBUG}" ] || log "debug: $@"
+}
+
 ARCH="$(archdetect)"
 info "architecture: $ARCH"
 
@@ -606,7 +610,7 @@ db_progress STEP 1
 db_progress INFO grub-installer/progress/step_bootdev
 
 select_bootdev() {
-	[ "X" = "X${DEBCONF_DEBUG}" ] || log "select_bootdev: arg='$1'"
+	debug "select_bootdev: arg='$1'"
 
 	local dev_list dev_descr grubdev devices disk_id dev descr
 	local default_choice chosen result
@@ -635,8 +639,8 @@ select_bootdev() {
 		fi
 	done
 
-	[ "X" = "X${DEBCONF_DEBUG}" ] || log "Bootdev Choices: '$dev_list'"
-	[ "X" = "X${DEBCONF_DEBUG}" ] || log "Bootdev Descriptions: '$dev_descr'"
+	debug "Bootdev Choices: '$dev_list'"
+	debug "Bootdev Descriptions: '$dev_descr'"
 
 	db_subst grub-installer/choose_bootdev DEVICES_LIST "$dev_list"
 	db_subst grub-installer/choose_bootdev DESCRIPTIONS "$dev_descr"
@@ -663,7 +667,7 @@ select_bootdev() {
 		result="$(echo "$RET" | cut -d' ' -f1)"
 	fi
 
-	[ "X" = "X${DEBCONF_DEBUG}" ] || log "select_bootdev: result='$result'"
+	debug "select_bootdev: result='$result'"
 	echo "$result"
 }
 
@@ -677,8 +681,7 @@ fi
 
 while : ; do
 
-	[ "X" = "X${DEBCONF_DEBUG}" ] || \
-	    log "q='$q' state='$state' defbd='$default_bootdev' bd='$bootdev'"
+	debug "q='$q' state='$state' defbd='$default_bootdev' bd='$bootdev'"
 	db_fget grub-installer/bootdev seen
 	if [ "$RET" = true ] && db_get grub-installer/bootdev && [ "$RET" ] ; then
 		bootdev=$RET
