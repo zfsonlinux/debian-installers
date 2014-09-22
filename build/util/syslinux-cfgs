@@ -5,7 +5,7 @@ set -e
 # If called with two arguments (source and destination dir), the script will
 # create a syslinux configuration; if called with only one argument, it will
 # list the files for the created configuration.
-# The variables TYPE, DESKTOP and INCLUDE_GTK - which determine the contents
+# The variables TYPE and INCLUDE_GTK - which determine the contents
 # of the created syslinux configuration - should be set in the environment.
 
 # See also the x86_syslinux target in build/config/x86.cfg and the
@@ -38,45 +38,11 @@ create_standard_config() {
 	fi
 }
 
-# Add config for alternative desktop environments
-add_desktop_configs() {
-	local desktop title
-
-	cp "$SRC"/dtmenu.cfg "$DST"/
-
-	for desktop in gnome kde lxde; do
-		mkdir "$DST"/$desktop
-
-		cp "$SRC"/desktop/menu.cfg "$SRC"/desktop/prompt.cfg \
-		   "$SRC"/desktop/prmenu.cfg "$DST"/$desktop/
-		cp "$SRC"/{,ad}txt.cfg "$DST"/$desktop/
-		cp "$SRC"/spk.cfg "$DST"/$desktop/
-		cp "$SRC"/desktop/{,ad}txtdt.cfg "$DST"/$desktop/
-		cp "$SRC"/desktop/spkdt.cfg "$DST"/$desktop/
-		if [ -n "$INCLUDE_GTK" ]; then
-			cp "$SRC"/{,ad}gtk.cfg "$DST"/$desktop/
-			cp "$SRC"/spkgtk.cfg "$DST"/$desktop/
-			cp "$SRC"/desktop/{,ad}gtkdt.cfg "$DST"/$desktop/
-			cp "$SRC"/desktop/spkgtkdt.cfg "$DST"/$desktop/
-		fi
-
-		case $desktop in
-			gnome)	title=GNOME ;;
-			kde)	title=KDE ;;
-			lxde)	title=LXDE ;;
-		esac
-		sed -i "s/%desktop%/$desktop/
-			s/%dt-name%/$title/" "$DST"/$desktop/*.cfg
-	done
-}
-
 case $TYPE in
     template)
 	cp -r "$SRC"/*.cfg "$DST"/
-	mkdir "$DST"/desktop
-	cp -r "$SRC"/desktop/*.cfg "$DST"/desktop/
 	if [ -z "$INCLUDE_GTK" ]; then
-		rm -f "$DST"/*gtk.cfg "$DST"/desktop/*{gtk,ag}dt.cfg
+		rm -f "$DST"/*gtk.cfg
 		rm -f "$DST"/*spkgtk.cfg
 	else
 		rm -f "$DST"/*spk.cfg
@@ -92,19 +58,7 @@ case $TYPE in
     standard)
 	create_standard_config
 	;;
-    all-desktop)
-	create_standard_config
-	add_desktop_configs
-	;;
     *)
 	exit 1
 	;;
 esac
-
-# Set the default desktop environment, or remove if not applicable
-if ([ "$TYPE" = prompt ] || [ "$TYPE" = standard ]) && \
-   [ -n "$DESKTOP" ]; then
-	sed -i "s/%desktop%/$DESKTOP/" "$DST"/*.cfg
-else
-	sed -i "s/desktop=%desktop% //" "$DST"/*.cfg
-fi
