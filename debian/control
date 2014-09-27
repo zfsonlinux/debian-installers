@@ -68,7 +68,7 @@ Build-Depends:
 #		default.)
 	hfsutils [powerpc],
 #		For making bootable HFS USB sticks for powerpc.
-	dosfstools [i386 ia64 m68k amd64],
+	dosfstools [i386 ia64 m68k amd64 arm64],
 #		For creating FAT filesystems with mkfs.msdos.
 #		Of course i386/amd64 use this for floppies, CDs etc.
 #		ia64 uses it for floppies (?)
@@ -128,8 +128,8 @@ Build-Depends:
 #		Bootloader for m68k/mac machines.
 	apex-nslu2 [armeb armel],
 #		2nd stage bootloader for Linksys NSLU2.
-	grub-efi-amd64-bin [amd64], grub-efi-ia32-bin [i386],
-	grub-common [amd64 i386], xorriso,
+	grub-efi-amd64-bin [amd64], grub-efi-arm64-bin [arm64], grub-efi-ia32-bin [i386],
+	grub-common [amd64 arm64 i386], xorriso,
 #		Used to make EFI bootable images
 	grub-ieee1275-bin [ppc64el],
 #		IEEE1275 bootloader support.
@@ -138,7 +138,7 @@ Build-Depends:
 	tofrodos [i386 amd64 kfreebsd-i386 kfreebsd-amd64],
 #		For todos, used on files that need to be accessible from
 #		DOS.
-	mtools [i386 ia64 m68k amd64 kfreebsd-i386 kfreebsd-amd64 hurd-i386],
+	mtools [i386 ia64 m68k amd64 arm64 kfreebsd-i386 kfreebsd-amd64 hurd-i386],
 #		mcopy is used to put files onto FAT filesystems w/o
 #		mounting them.
 # 
