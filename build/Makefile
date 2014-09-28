@@ -424,6 +424,7 @@ ifdef KERNELVERSION
 
 	# These files depmod makes are used by udev.
 	find $(TREE)/lib/modules/ -maxdepth 2 -name 'modules*.bin' \
+		-not -name 'modules.builtin.bin' \
 		-not -type d | while read f; do rm -f $${f%.bin}; done
 
 	# These files are used to build special kernel images for some
