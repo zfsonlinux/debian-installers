@@ -1,3 +1,12 @@
+grub-installer (1.99) UNRELEASED; urgency=medium
+
+  * Revert using default_bootdev as the default when bootdev is unset (see
+    1.98 upload) since it brings back the infamous default-to-/dev/sda
+    issue (Closes: #763580). Always asking seems safer until someone does
+    the needed work to improve detection.
+
+ -- Cyril Brulebois <kibi@debian.org>  Wed, 01 Oct 2014 06:14:54 +0200
+
 grub-installer (1.98) unstable; urgency=medium
 
   [ Philip Hands ]
