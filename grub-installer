@@ -370,8 +370,9 @@ esac
 
 case $ARCH:$grub_package in
     ppc64el/*:grub-ieee1275)
-	info "Wiping PReP partition $bootdev"
-	log-output -t grub-installer dd if=/dev/zero of="$bootdev" bs=512 count="$(blockdev --getsz "$bootdev")"
+	wipe_bootdev="$(/usr/lib/grub-installer/prep-bootdev)"
+	info "Wiping PReP partition $wipe_bootdev"
+	log-output -t grub-installer dd if=/dev/zero of="$wipe_bootdev" bs=512 count="$(blockdev --getsz "$wipe_bootdev")"
 	;;
 esac
 
