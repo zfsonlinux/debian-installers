@@ -1,3 +1,15 @@
+partman-zfs (39) UNRELEASED; urgency=high
+
+  * Team upload.
+  * When creating new zpools, disable optional features including
+    lz4_compress, because that will require grub-pc >> 2.02~, which is
+    in sid but not jessie yet. (Closes: #764287)
+    Please revert this after grub-pc >> 2.02~ migrates.
+  * Bump zfsutils dependency to upstream version 9.2 or later, with
+    support for the zpool create -d flag required for the above
+
+ -- Steven Chamberlain <steven@pyro.eu.org>  Mon, 06 Oct 2014 22:11:21 +0100
+
 partman-zfs (38) unstable; urgency=low
 
   [ Updated translations ]
