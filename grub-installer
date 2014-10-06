@@ -368,6 +368,13 @@ case "$frtype:$bootfstype:$bootfslabel:$grub_package" in
 	;;
 esac
 
+case $ARCH:$grub_package in
+    ppc64el/*:grub-ieee1275)
+	info "Wiping PReP partition $bootdev"
+	log-output -t grub-installer dd if=/dev/zero of="$bootdev" bs=512 count="$(blockdev --getsz "$bootdev")"
+	;;
+esac
+
 case $grub_package in
     grub)
 	grub_version="grub"
@@ -784,13 +791,6 @@ if [ -z "$frdisk" ]; then
 			# install even if it requires blocklists
 			grub_install_params="$grub_install_params --force"
 		fi
-
-		case $ARCH:$grub_package in
-		    ppc64el/*:grub-ieee1275)
-			info "Wiping PReP partition $bootdev"
-			log-output -t grub-installer dd if=/dev/zero of="$bootdev" bs=512 count="$(blockdev --getsz "$bootdev")"
-			;;
-		esac
 
 		CODE=0
 		case $ARCH:$grub_package in
