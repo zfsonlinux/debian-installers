@@ -386,7 +386,7 @@ vg_create() {
 	vg="$1"
 	shift
 
-	log-output -t partman-zfs zpool create -f -m none -d -o altroot=/target "$vg" $* || return 1
+	log-output -t partman-zfs zpool create -f -m none -o altroot=/target "$vg" $* || return 1
 
 	# Some ZFS versions don't create cachefile when "-o altroot" is used.
 	# Request it explicitly.
