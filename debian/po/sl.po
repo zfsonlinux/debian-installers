@@ -34,7 +34,7 @@ msgstr ""
 "Project-Id-Version: sl\n"
 "Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2012-10-18 12:56+0100\n"
+"PO-Revision-Date: 2014-10-21 14:42+0100\n"
 "Last-Translator: Vanja Cvelbar <cvelbar@gmail.com>\n"
 "Language-Team: Slovenian <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
@@ -258,9 +258,8 @@ msgstr "Ustvari logični nosilec"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 msgid "Create root file system"
-msgstr "Ustvari %s datotečni sistem"
+msgstr "Ustvari korenski datotečni sistem"
 
 #. Type: text
 #. Description
@@ -358,7 +357,6 @@ msgstr "Povzetek trenutne nastavitve ZFS:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -369,7 +367,7 @@ msgstr ""
 " Prosti fizični nosilci:  ${FREE_PVS}\n"
 " Uporabljeni fizični nosilci:  ${USED_PVS}\n"
 " Zaloge ZFS:          ${VGS}\n"
-" Logični nosilci ZFS:        ${LVS}"
+" Logični nosilci ZFS:        ${LVS} ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -804,25 +802,25 @@ msgstr "Trenutno jedro ne podpira ZFS. Mogoče morate naložiti modul zfs."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "Neveljaven logični nosilec ali neveljavno ime zaloge ZFS."
+msgstr ""
+"Neveljaven logični nosilec, neveljavno ime zaloge ZFS ali datotečnega "
+"sistema ZFS."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Imena logičnih enot ali zalog ZFS lahko vsebujejo le alfanumerične znake ter "
-"znake pomišljaj, plus, vejica ali podčrtaj. Imena so lahko dolga največ 255 "
-"znakov in se ne smejo začeti s pomišljajem. Imena  \"mirror\", \"raidz\", "
-"\"spare\" in \"log\" niso dovoljena."
+"Imena logičnih enot, zalog ZFS ali datotečnih sistemov ZFS lahko vsebujejo "
+"le alfanumerične znake ter znake pomišljaj, dvopičje, vejica ali podčrtaj. "
+"Imena so lahko dolga največ 255 znakov in morajo začeti z alfanumeričnim "
+"znakom. Imena  \"mirror\", \"raidz\", \"spare\" in \"log\" niso dovoljena."
 
 #. Type: error
 #. Description
@@ -931,23 +929,21 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Zaloga za spreminjanje:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "ZFS boot file system name:"
-msgstr "Ime zaloge ZFS:"
+msgstr "Ime zagonskega datotečnega sistema ZFS:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "Prosim vnesite gostiteljsko ime za ta sistem."
+msgstr "Prosim vpišite ime zagonskega datotečnega sistema izmed sledečih:"
 
 #. Type: string
 #. Description
@@ -955,36 +951,34 @@ msgstr "Prosim vnesite gostiteljsko ime za ta sistem."
 #: ../partman-zfs.templates:52001
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
-msgstr ""
+msgstr "S predpono ${VG}/ROOT bo priklopljeno kot korenski datotečni sistem."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No file system name entered"
-msgstr "Na /target ni bil priklopljen noben datotečni sistem."
+msgstr "Vpisali niste nobenega imena datotečnega sistema."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "Niste vnesli nobenega imena zaloge ZFS. Prosim vnesite ime."
+msgstr ""
+"Niste vnesli nobenega imena korenskega datotečnega sistema. Prosim vnesite "
+"ime."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 msgid "ZFS boot"
-msgstr "Zaloga ZFS:"
+msgstr "Zagon ZFS"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 msgid "Loading ZFS module..."
-msgstr "Vpisovanje modulov ..."
+msgstr "Nalaganje modula ZFS ..."
