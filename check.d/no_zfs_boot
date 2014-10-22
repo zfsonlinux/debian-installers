@@ -33,8 +33,15 @@ get_zfs_root_boot () {
 		esac
 	done
 }
-eval "$(get_zfs_root_boot)"
 
+# For Linux, we're all good..
+if [ "$(udpkg --print-os)" = linux ]; then
+    db_set partman/confirm_nochanges true
+    db_fset partman/confirm_nochanges seen true || true
+    exit 0
+fi
+
+eval "$(get_zfs_root_boot)"
 
 if [ "$boot_st" = bad ]; then
 	db_subst partman-bad/multipv_other MNT "/boot"

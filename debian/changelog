@@ -1,3 +1,38 @@
+partman-zfs (43.ZOL5) wheezy; urgency=medium
+
+   * Revert the 'zpool import ... -N' part. Not availible on kFreeBSD and
+     zfs-fuse.
+   * Record the pool information for later use by grub-installer.
+
+ -- Turbo Fredriksson <turbo@bayour.com>  Fri, 17 Apr 2015 18:20:43 +0200
+
+partman-zfs (43.ZOL4) wheezy; urgency=medium
+
+   * Create /home at the top of the pool instead of below the root fs.
+     Simplifies recursive snapshotting (/home should not be used when
+     booting from a snapshot).
+
+ -- Turbo Fredriksson <turbo@bayour.com>  Thu, 26 Mar 2015 04:04:57 +0100
+
+partman-zfs (43.ZOL3) wheezy; urgency=medium
+
+   * All pv_prepare() with a third option - the real path to device.
+     Use this (on Linux) to see if we want to use full device or partition..
+
+ -- Turbo Fredriksson <turbo@bayour.com>  Wed, 25 Mar 2015 19:14:28 +0100
+
+partman-zfs (43.ZOL2) wheezy; urgency=medium
+
+   * On Linux, let "zpool" create the partitions (if 'whole disk' selected).
+
+ -- Turbo Fredriksson <turbo@bayour.com>  Thu, 19 Mar 2015 13:55:49 +0100
+
+partman-zfs (43.ZOL1) wheezy; urgency=medium
+
+   * Put back ZoL stuff
+
+ -- Turbo Fredriksson <turbo@bayour.com>  Wed, 22 Oct 2014 21:07:51 +0200
+
 partman-zfs (43) unstable; urgency=medium
 
   * Do not enable zpool features by default, except those that are

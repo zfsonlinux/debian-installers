@@ -186,9 +186,22 @@ pv_list_free() {
 pv_prepare() {
 	local dev="$1"
 	local id="$2"
+	local real_dev="$3"
 	local size parttype fs path
 
 	cd "$dev"
+
+#	# We don't want to partition the disk from here
+#	# on Linux - we prefer to use the whole disk (if
+#	# so specified). Let 'zpool create' do the partitioning
+#	# instead.
+#	tmp=$(echo "$real_dev" | sed 's/[0-9]$//')
+#	if [ "$(udpkg --print-os)" = "linux" -a "$tmp" = "$real_dev" ]
+#	then
+#		echo "$(cat device)"
+#		return 1
+#	fi
+
 	open_dialog PARTITION_INFO "$id"
 	read_line x1 id size freetype fs path x7
 	close_dialog
@@ -286,7 +299,11 @@ fs_create() {
     local fs=$1
     local code
 
-    zfs create -o mountpoint=none $fs ; code=$?
+    # Make sure $fs isn't already created/mounted/choosen
+    # For example, having /boot on separate extX/xfs/etc.
+    check_mountpoint $fs && return 0
+
+    zfs create -p -o mountpoint=none -o canmount=noauto $fs ; code=$?
     if [ "$code" -ne 0 ]; then
 	logger -t partman-zfs "ERROR: create $fs failed"
     else
@@ -382,25 +399,46 @@ vg_lock_pvs() {
 
 # Create a volume group
 vg_create() {
-	local vg pv
+	local vg pv vers
 	vg="$1"
 	shift
 
-	# Feature explicitly supported by grub-pc >> 2.02~, see
-	# spa_feature_names[] in grub-core/fs/zfs/zfs.c
-	features="-o feature@lz4_compress=enabled"
+	local extra_opts
+	if [ "$(udpkg --print-os)" != linux ]; then
+		# Feature explicitly supported by grub-pc >> 2.02~, see
+		# spa_feature_names[] in grub-core/fs/zfs/zfs.c
+		extra_opts="-d -o feature@lz4_compress=enabled"
 
-	# Read-only compatible features, according to zpool-features(7)
-	for feature in async_destroy empty_bpobj spacemap_histogram
-	do
-		features="$features -o feature@${feature}=enabled"
-	done
+		# Read-only compatible features, according to zpool-features(7)
+		for feature in async_destroy empty_bpobj spacemap_histogram
+		do
+			extra_opts="$extra_opts -o feature@${feature}=enabled"
+		done
+	else
+		# Record information for later use by grub-probe (because of
+		# slight incompabilities between ZoL and zfs-fuse).
+		if echo $* | grep -q ^/; then
+			devs="$*"
+		else
+			# Remove the first word ('mirror', 'raidZ' etc).
+			devs="`echo $* | cut -d " " -f2-`"
+		fi
 
-	log-output -t partman-zfs zpool create -f -m none -d $features -o altroot=/target "$vg" $* || return 1
+		cat <<EOF > /var/lib/partman/zfs
+POOL_NAME="$vg"
+POOL_DEVS="$devs"
+POOL_OPTS="$extra_opts"
+EOF
+	fi
 
-	# Some ZFS versions don't create cachefile when "-o altroot" is used.
-	# Request it explicitly.
-	log-output -t partman-zfs zpool set cachefile=/boot/zfs/zpool.cache "$vg" || return 1
+	log-output -t partman-zfs zpool create -f -m none $extra_opts -o altroot=/target "$vg" $* || return 1
+
+	if [ "$(udpkg --print-os)" != linux ]; then
+		# Some ZFS versions don't create cachefile when "-o altroot" is used.
+		# Request it explicitly.
+		# Recommendation is NOT to use cache file on Linux.
+		log-output -t partman-zfs zpool set cachefile=/boot/zfs/zpool.cache "$vg" || return 1
+	fi
 
 	return 0
 }
@@ -616,9 +654,7 @@ get_lv_value() {
 	local property=$2
 	local val
 
-	set -- `zfs get $property $fs | grep -E "^$fs"`
-	val=$3
-
+	val=`zfs get -H -ovalue $property $fs`
 	if [ "$val" = "on" ]; then
 		db_metaget partman-zfs/text/in_use description
 		if [ -n "$RET" ]; then
@@ -643,18 +679,27 @@ create_bootfs() {
 	local fs=$2
 	local code subfs
 
-	if ! fs_check_exists $pool/ROOT; then
-	    if ! fs_create $pool/ROOT; then
-		# ERROR: Can't create FS! Why not!?
-		return
-	    fi
-	fi
-
+	mountpoint=legacy
 	if ! fs_check_exists $pool/ROOT/$fs; then
-	    if ! fs_create $pool/ROOT/$fs; then
-		# ERROR: Can't create FS! Why not!?
-		return
+	    for subfs in home var usr; do
+		# We don't want to create the home dataset here on Linux.
+		[ "$(udpkg --print-os)" = "linux" -a "$subfs" = "home" ] && continue
+		if fs_create $pool/ROOT/$fs/$subfs; then
+		    [ "$(udpkg --print-os)" = "linux" ] && mountpoint=/$subfs
+		    log-output -t partman-zfs zfs set mountpoint=$mountpoint $pool/ROOT/$fs/$subfs
+		fi
+	    done
+
+	    if [ "$(udpkg --print-os)" ]; then
+		# On linux, /home isn't really part of the OS, so we put it in the
+		# root of the pool to avoid getting an old version of it if/when
+		# we boot from a snapshot (which recursivly mounts a clone of all
+		# snapshots).
+		if fs_create $pool/home; then
+		    log-output -t partman-zfs zfs set mountpoint=/home $pool/home
+		fi
 	    fi
+
 	    zfs set mountpoint=/ $pool/ROOT/$fs
 
 	    zpool set bootfs=$pool/ROOT/$fs $pool
@@ -664,12 +709,6 @@ create_bootfs() {
 	    else
 		logger -t partman-zfs "set bootfs=$pool/ROOT/$fs on $pool FAILED"
 	    fi
-
-	    for subfs in boot home var usr; do
-		if fs_create $pool/ROOT/$fs/$subfs; then
-		    log-output -t partman-zfs zfs set mountpoint=legacy $pool/ROOT/$fs/$subfs
-		fi
-	    done
 	else
 	    # FS already exists - use it as root fs
 	    zpool set bootfs=$pool/ROOT/$fs $pool
@@ -757,4 +796,35 @@ create_partition () {
 
 	mkdir -p $id
 	echo $id
+}
+
+check_mountpoint () {
+    mntpt=$1
+    local dev partitions num id size type fs path name fs
+
+    for dev in /var/lib/partman/devices/*; do
+	[ -d "$dev" ] || continue
+	cd $dev
+
+	partitions=
+	open_dialog PARTITIONS
+	while { read_line num id size type fs path name; [ "$id" ]; }; do
+		if [ "$fs" != free ]; then
+			partitions="$partitions $id"
+		fi
+	done
+	close_dialog
+
+	# Check if device/partitions are used for ZFS (PV)
+	for id in $partitions; do
+		[ -f $id/mountpoint ] && mountpoint=$(cat $id/mountpoint)
+		[ -z "$mountpoint" ] && continue
+
+		if echo "$mntpt" | grep -qE "$mountpoint$"; then
+		    return 0
+		fi
+	done
+    done
+
+    return 1
 }

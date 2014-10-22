@@ -10,4 +10,8 @@ fi
 
 if [ "$zfs" = yes ]; then
 	apt-install zfsutils || true
+
+	if [ "$(udpkg --print-os)" = "linux" ]; then
+	        apt-install zfs-initramfs || true
+	fi
 fi

@@ -34,15 +34,15 @@ done
 
 # NOTE: This won't work if filesystems isn't created in tree format.
 local vg lv val mp rootfs
-for vg in $(vg_list); do
-	for lv in $(vg_list_lvs $vg); do
+for vg in $(vg_list); do # for each pool.
+	for lv in $(vg_list_lvs $vg); do # for each (z)fs/(z)vol
 		val=`get_lv_value $lv mountpoint`
 		if [ "$val" = "/" -o "$val" = "/target" ]; then
 			# This is the root FS.
 			rootfs=$lv
 			echo "$lv / zfs defaults 0 0"
 		elif [ "$val" = "legacy" -a -n "$rootfs" ]; then
-			mp=$(echo "$lv" | sed "s@$rootfs@@")
+			mp=${lv##$rootfs}
 			[ -n "$mp" ] && echo "$lv $mp zfs defaults 0 0"
 		fi
 	done

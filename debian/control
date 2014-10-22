@@ -11,7 +11,8 @@ Vcs-Git: git://anonscm.debian.org/d-i/partman-zfs.git
 
 Package: partman-zfs
 Package-Type: udeb
-Architecture: kfreebsd-any
-Depends: ${misc:Depends}, zfsutils-udeb (>= 9.2~), zfs-modules, partman-basicfilesystems (>= 59), partman-base (>= 134),
- cdebconf-udeb (>= 0.133), di-utils (>= 1.14),
+Architecture: kfreebsd-any linux-any
+Depends: ${misc:Depends}, zfsutils-udeb (>= 9.2~) [kfreebsd-any], zfs-fuse-udeb (>= 0.7.0-12) [linux-any],
+ zfs-modules [kfreebsd-any], partman-basicfilesystems (>= 59), partman-base (>= 134), cdebconf-udeb (>= 0.133),
+ di-utils (>= 1.14),
 Description: Add to partman support for ZFS

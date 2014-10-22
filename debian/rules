@@ -1,3 +1,9 @@
 #! /usr/bin/make -f
 %:
 	dh $@ --with d-i
+
+override_dh_auto_build:
+	$(MAKE) genhostid
+
+override_dh_auto_install:
+	dh_install

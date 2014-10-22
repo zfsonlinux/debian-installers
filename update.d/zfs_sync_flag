@@ -13,6 +13,10 @@ type=$5
 fs=$6
 path=$7
 
+# On Linux, we let 'zpool create' do the partitioning.
+[ "$(udpkg --print-os)" = linux ] && [ "$num" = "-1" ] && \
+    [ "$fs" = "free" ] && exit 0
+
 cd $dev
 
 if [ $fs = free ]; then

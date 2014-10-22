@@ -1,7 +1,12 @@
-#! /bin/sh
+#!/bin/sh
+
 set -e
 
-if [ -e /proc/mdstat ] && grep -q ^md /proc/mdstat && $(udpkg --print-os) != "kfreebsd"
-then
-        apt-install zfs-initramfs
+if [ "$(udpkg --print-os)" = "linux" ]; then
+	if [ -d "/boot/zfs" ]; then
+		cp -r /boot/zfs /target/boot/
+	fi
+	if [ -f "/etc/hostid" ]; then
+		cp /etc/hostid /target/etc/
+	fi
 fi

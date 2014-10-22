@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. /lib/partman/lib/zfs-base.sh
+
 set -- $1
 
 fs=$1
@@ -47,7 +49,19 @@ case $type in
 		cp -r /usr/lib /target/usr
 	    fi
 
-	    log_exec mount -t zfs $fs /target/$mp
+	    if [ "$(udpkg --print-os)" = "linux" ]; then
+		local vg lv val
+		for vg in $(vg_list); do # for each pool.
+		    for lv in $(vg_list_lvs $vg); do # for each (z)fs/(z)vol
+			val=`get_lv_value $lv mountpoint`
+			[ -n "$val" ] && \
+			    echo "$val" | grep -q "^/" && \
+			    log_exec zfs mount $lv
+		    done
+		done
+	    else
+		log_exec mount -t zfs $fs /target/$mp
+	    fi
 	fi
 	exit 0
 	;;

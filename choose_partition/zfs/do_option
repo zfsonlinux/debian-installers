@@ -98,6 +98,10 @@ do_vg_create() {
 	IFS="$NL"
 	for line in $(pv_list_allowed_free); do
 		restore_ifs
+		# Hack for Linux - remove ' free #X'.
+		# => line='/var/lib/partman/devices/=dev=sda	32256-8589934591	8589902336	/dev/sda free #1'
+		# No idea where it comes from though...
+		[ "$(udpkg --print-os)" = linux ] && line=${line%% free *}
 		local dev="${line%%$TAB*}"
 		line="${line#*$TAB}"
 		local id="${line%%$TAB*}"
@@ -193,6 +197,12 @@ do_vg_create() {
 					#if [ "$numdev" -ge 5 ]; then
 					#	choices="${choices}, 3"
 					#fi
+					if [ "$(udpkg --print-os)" = linux ]; then
+					    # Is availible on Linux though...
+					    if [ "$numdev" -ge 5 ]; then
+						choices="${choices}, 3"
+					    fi
+					fi
 					db_subst partman-zfs/vgcreate_raidz_parity RAIDZ_PARITY "${choices}"
 					db_input critical partman-zfs/vgcreate_raidz_parity
 					db_go || return
@@ -213,7 +223,7 @@ do_vg_create() {
 			if [ "${line%%$TAB*}" = "$pv" ]; then
 				local devid="${line#*$TAB}"
 				local path
-				if path="$(pv_prepare "${devid%//*}" "${devid#*//}")"; then
+				if path="$(pv_prepare "${devid%//*}" "${devid#*//}" "$pv")"; then
 					need_commit=true
 				fi
 				newpvs="${newpvs:+$newpvs }$path"
@@ -230,6 +240,7 @@ do_vg_create() {
 		do_initial_setup
 	fi
 
+	# Create the pool
 	if ! vg_create "$vg" $mode $pvs; then
 		db_subst partman-zfs/vgcreate_error VG "$vg"
 		db_input critical partman-zfs/vgcreate_error

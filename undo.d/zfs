@@ -9,11 +9,14 @@
 
 log-output -t partman zpool import -a -f -o altroot=/target
 
-# Some ZFS versions don't create cachefile when "-o altroot" is used.
-# Request it explicitly.
-for vg in $(zpool list -H -o name) ; do
-	log-output -t partman-zfs zpool set cachefile=/boot/zfs/zpool.cache "$vg" || return 1
-done
+if [ "$(udpkg --print-os)" != linux ]; then
+	# Some ZFS versions don't create cachefile when "-o altroot" is used.
+	# Request it explicitly.
+	# Recommendation is NOT to use cache file on Linux.
+	for vg in $(zpool list -H -o name) ; do
+		log-output -t partman-zfs zpool set cachefile=/boot/zfs/zpool.cache "$vg" || return 1
+	done
+fi
 
 if [ -x /sbin/zpool ]; then
 	vgroups=$(/sbin/zpool list -H 2>/dev/null | \
