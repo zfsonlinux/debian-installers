@@ -15,9 +15,17 @@ arch_get_kernel_flavour () {
 }
 
 arch_check_usable_kernel () {
-	# Subarchitecture must match exactly
-	if echo "$1" | grep -Eq -- "-$2(-.*)?$"; then return 0; fi
-	return 1
+	case "$1" in
+	    *-dbg)
+		return 1
+		;;
+	    *-$2|*-$2-*)
+		return 0
+		;;
+	    *)
+		return 1
+		;;
+	esac
 }
 
 arch_get_kernel () {

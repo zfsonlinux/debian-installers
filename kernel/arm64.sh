@@ -4,7 +4,14 @@ arch_get_kernel_flavour () {
 }
 
 arch_check_usable_kernel () {
-	return 0
+	case "$1" in
+	    *-dbg)
+		return 1
+		;;
+	    *)
+		return 0
+		;;
+	esac
 }
 
 arch_get_kernel () {

@@ -34,6 +34,9 @@ arch_check_usable_kernel () {
         while [ $# -ge 1 ]; do
                 TRY="$1"
                 case "$NAME" in
+		    *-dbg)
+			return 1
+			;;
 		    *-"$TRY"-lpae | *-"$TRY"-lpae-*)
                         # Allow any other hyphenated suffix
 			if test `arch_has_lpae` = y ; then
