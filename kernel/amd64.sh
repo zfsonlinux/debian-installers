@@ -3,9 +3,18 @@ arch_get_kernel_flavour () {
 }
 
 arch_check_usable_kernel () {
-	if echo "$1" | grep -Eq -- "-amd64(-.*)?$"; then return 0; fi
-
-	return 1
+	case "$1" in
+	    *-dbg)
+		return 1
+		;;
+	    *-amd64 | *-amd64-*)
+		# Allow any other hyphenated suffix
+		return 0
+		;;
+	    *)
+		return 1
+		;;
+	esac
 }
 
 arch_get_kernel () {

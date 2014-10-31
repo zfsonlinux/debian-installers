@@ -39,6 +39,9 @@ arch_check_usable_kernel () {
 	set -- $2
 	while [ $# -ge 1 ]; do
 		case "$NAME" in
+		    *-dbg)
+			return 1
+			;;
 		    *-"$1" | *-"$1"-*)
 			# Allow any other hyphenated suffix
 			return 0
