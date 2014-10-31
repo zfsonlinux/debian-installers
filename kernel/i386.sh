@@ -17,18 +17,18 @@ arch_get_kernel_flavour () {
 
 	case "$HAVE_LM$HAVE_PAE" in
 	    yy)
-		echo 686-pae 686-bigmem amd64 486
+		echo 686-pae 686-bigmem amd64 586 486
 		return 0
 		;;
 	    yn)
 		warning "Processor with LM but no PAE???"
 		;;
 	    ny)
-		echo 686-pae 686-bigmem 486
+		echo 686-pae 686-bigmem 586 486
 		return 0
 		;;
 	    nn)
-		echo 486
+		echo 586 486
 		;;
 	esac
 }
