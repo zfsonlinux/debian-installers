@@ -329,7 +329,11 @@ case $ARCH in
 	fi
 	;;
     i386/efi|amd64/efi)
-	grub_package="grub-efi"
+	if [ -f /var/lib/partman/ignore_uefi ]; then
+		grub_package="grub-pc"
+	else
+		grub_package="grub-efi"
+	fi
 	;;
     i386/*|amd64/*)
 	grub_package="grub-pc"
