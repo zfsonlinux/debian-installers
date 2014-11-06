@@ -21,13 +21,14 @@ set -e
 # Make an EFI boot image.
 
 if [ -z "$1" ] || [ -z "$2" ]; then
-	echo "usage: $0 OUTPUT-DIRECTORY GRUB-PLATFORM EFI-NAME"
+	echo "usage: $0 OUTPUT-DIRECTORY GRUB-PLATFORM EFI-NAME NETBOOT-PREFIX"
 	exit 1
 fi
 
 outdir="$1"
 platform="$2"
 efi_name="$3"
+netboot_prefix="$4"
 
 memdisk_img=
 workdir=
@@ -64,6 +65,10 @@ mkdir -p "$outdir/boot/grub/$platform"
 grub-mkimage -O "$platform" -m "$memdisk_img" \
 	-o "$workdir/boot$efi_name.efi" -p '(memdisk)/boot/grub' \
 	search iso9660 configfile normal memdisk tar part_msdos fat
+
+grub-mkimage -O "$platform" \
+	-o "$outdir/bootnet$efi_name.efi" -p "$netboot_prefix/grub" \
+	search configfile normal efinet tftp net
 
 # Stuff it into a FAT filesystem, making it as small as possible.  24KiB
 # headroom seems to be enough; (x+31)/32*32 rounds up to multiple of 32.
