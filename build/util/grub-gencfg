@@ -144,7 +144,7 @@ sub menuentry ($;%)
     push @cmdline, @OPTS;
     push @cmdline, "rescue/enable=true" if $xattr{Rescue};
     push @cmdline, "speakup.synth=soft" if $xattr{Speach};
-    push @cmdline, "--";
+    push @cmdline, "---";
     push @cmdline, "quiet" if $xattr{Quiet};
 
     my $cmdline = join(" ", @cmdline);
