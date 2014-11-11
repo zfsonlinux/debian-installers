@@ -93,11 +93,24 @@ grub_serial_console() {
 serial="$(get_serial_console)"
 
 grub_probe () {
+	local opts=""
+
 	if [ "$is_grub_common_installed" != true ]; then
 		apt-install grub-common
 		is_grub_common_installed=true
 	fi
-	$chroot $ROOT grub-probe $@
+
+	# Because of slight incompabilities between zfs-fuse (which we
+	# need to use in the installer because of not being able to
+	# distribute binary modules) and ZoL (which is installed in
+	# the target), we need to call grub-probe with device names
+	# of/in the pool.
+	if [ "$(udpkg --print-os)" = "linux" -a -f /var/lib/partman/zfs ]; then
+		. /var/lib/partman/zfs
+		[ -n "$POOL_DEVS" ] && opts="-d $POOL_DEVS"
+	fi
+
+	$chroot $ROOT grub-probe $opts $@
 }
 
 # Usage: convert os_device
@@ -155,7 +168,7 @@ update_grub () {
 }
 
 findfs () {
-	if ! grub_probe -t device $1; then
+	if ! grub_probe -t device $1 | head -n1; then
 		mount | grep "on $ROOT${1%/} " | tail -n1 | cut -d' ' -f1
 	fi
 }
@@ -296,7 +309,7 @@ elif type multipath >/dev/null 2>&1; then
 		$chroot $ROOT dmsetup mknodes
 	fi
 elif type lvdisplay >/dev/null 2>&1 && \
-     (lvdisplay "$disc_offered" | grep -q 'LV Name' 2>/dev/null || \
+     (lvdisplay "$disc_offered" 2>&1 | grep -q 'LV Name' 2>/dev/null || \
       [ -e "$(dirname "$disc_offered")/control" ]); then
 	# Don't set frdev/frdisk here, otherwise you'll end up in different
 	# code paths below ...
@@ -911,6 +924,11 @@ make_active_partition () {
 			bootdev_split="$(split_device "$bootdev")"
 			bootdisk="${bootdev_split%% *}"
 			bootpart="${bootdev_split#* }"
+			if [ "$bootfstype" = "zfs" ] || [ "$rootfstype" = "zfs" ] ; then
+			    # Grub needs a device.map to be able to find a filesystem
+			    # on a partition which is part of a ZFS pool
+			    make_device_map "$bootdev"
+			fi
 			;;
 		\([hf]d[0-9]*\))
 			make_device_map "$bootdev"
@@ -981,7 +999,8 @@ db_progress INFO grub-installer/progress/step_config_loader
 if [ "$bootfstype" = "zfs" ] || [ "$rootfstype" = "zfs" ] ; then
 	# Required by update-grub on ZFS
 	mkdir -p $ROOT/boot/zfs
-	cp /boot/zfs/zpool.cache $ROOT/boot/zfs/
+	[ -f /boot/zfs/zpool.cache ] && \
+	    cp /boot/zfs/zpool.cache $ROOT/boot/zfs/
 fi
 
 # Delete for idempotency

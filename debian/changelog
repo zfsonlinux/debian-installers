@@ -1,3 +1,18 @@
+grub-installer (1.101.ZOL1) unstable; urgency=medium
+
+  * ZoL additions and modifications:
+    + Get first line of grub-probe only (to avoid multiple lines
+      feed to mkmapfs).
+    + Only copy the zpool.cache file if it exists.
+    + STDERR from lvdisplay in pipe to grep.
+    + Grub needs a device.map to be able to find a filesystem on a
+      partition which is part of a ZFS pool
+    + Because of slight incompabilities between zfs-fuse (which needs
+      to be used becaused in the installer) and ZoL (which is installed
+      in the target), we need to call grub-probe with '-d <devs_in_pool>'.
+
+ -- Turbo Fredriksson <turbo@bayour.com>  Tue, 11 Nov 2014 16:07:06 +0100
+
 grub-installer (1.101) unstable; urgency=medium
 
   [ Steve McIntyre ]
