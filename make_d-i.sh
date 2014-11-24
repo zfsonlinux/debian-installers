@@ -2,9 +2,6 @@
 
 set -x
 
-DIDIR=/usr/src/Debian/debian-installer/build
-cd $DIDIR || exit 1
-
 if echo "$*" | grep -q "clean"; then
     make reallyclean
 fi
@@ -95,7 +92,7 @@ d-i pkgsel/include string spl spl-dkms zfs-dkms zfsonlinux zfs-initramfs
 EOF
 
 # --------------------------------------------------------
-pushd $DIDIR/tmp/netboot/tree
+pushd tmp/netboot/tree
     rm lib64
     ln -s lib lib64
     cd lib
