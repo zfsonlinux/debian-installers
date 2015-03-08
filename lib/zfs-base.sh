@@ -386,7 +386,17 @@ vg_create() {
 	vg="$1"
 	shift
 
-	log-output -t partman-zfs zpool create -f -m none -o altroot=/target "$vg" $* || return 1
+	# Feature explicitly supported by grub-pc >> 2.02~, see
+	# spa_feature_names[] in grub-core/fs/zfs/zfs.c
+	features="-o feature@lz4_compress=enabled"
+
+	# Read-only compatible features, according to zpool-features(7)
+	for feature in async_destroy empty_bpobj spacemap_histogram
+	do
+		features="$features -o feature@${feature}=enabled"
+	done
+
+	log-output -t partman-zfs zpool create -f -m none -d $features -o altroot=/target "$vg" $* || return 1
 
 	# Some ZFS versions don't create cachefile when "-o altroot" is used.
 	# Request it explicitly.
