@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Debian Installer Parameters
+# https://www.debian.org/releases/jessie/i386/ch05s03.html.en
+
 set -x
 
 if echo "$*" | grep -q "clean"; then
@@ -17,20 +20,14 @@ export LINUX_KERNEL_ABI DEBIAN_RELEASE DEBIAN_VERSION USE_UDEBS_FROM
 # --------------------------------------------------------
 cat <<EOF > sources.list.udeb.local
 # Local udeb packages
-deb [trusted=yes] copy:/usr/src/Debian/debian-installer/build/ localudebs/
+deb [trusted=yes] copy:`pwd`/ localudebs/
 
 # Official packages
 deb http://ftp.se.debian.org/debian wheezy main main/debian-installer
 
 # ZoL packages
 deb [trusted=yes] http://archive.zfsonlinux.org/debian wheezy main
-deb [trusted=yes] http://archive.zfsonlinux.org/debian wheezy-daily main main/debian-installer
-EOF
-
-# I need this for my card...
-cat <<EOF > pkg-lists/local
-nic-extra-modules-\${kernel:Version}
-multiarch-support
+deb [trusted=yes] http://archive.zfsonlinux.org/debian wheezy-daily main
 EOF
 
 make build_netboot
@@ -49,6 +46,8 @@ echo wheezy-daily > tmp/netboot/tree/etc/udebs-source
 
 # --------------------------------------------------------
 cat <<EOF > tmp/netboot/tree/preseed.cfg
+# https://www.debian.org/releases/wheezy/example-preseed.txt
+
 # Make sure we use a GPT label!
 # One of these should work...
 d-i partman-basicfilesystems/choose_label string gpt
@@ -65,12 +64,12 @@ d-i mirror/udeb/components multiselect main
 
 # Main repo
 # => This is used for the first part of the installation
-d-i mirror/protocol string http
 d-i mirror/country string manual
-d-i mirror/suite string wheezy-daily
-d-i mirror/components multiselect main
+d-i mirror/protocol string http
 d-i mirror/http/hostname string archive.zfsonlinux.org
 d-i mirror/http/directory string /debian
+d-i mirror/suite string wheezy-daily
+d-i mirror/components multiselect main
 
 # Additional repositories, local[0-9] available
 # => Used for the later part of the installation
@@ -93,19 +92,21 @@ EOF
 
 # --------------------------------------------------------
 pushd tmp/netboot/tree
+    if [ ! -f "4D5843EA.asc" ]; then
+	wget http://archive.zfsonlinux.org/debian/4D5843EA.asc
+    fi
+
     rm lib64
     ln -s lib lib64
     cd lib
     cp /lib64/ld-linux-x86-64.so.2 ld-2.13.so
     ln -s ld-2.13.so ld-linux-x86-64.so.2
-
-    wget http://archive.zfsonlinux.org/debian/4D5843EA.asc
 popd
 
 # --------------------------------------------------------
 chroot tmp/netboot/tree /bin/ls > /dev/null 2>&1
-if [ "$?" -gt 0 ]; then
-    echo "ERROR: chroot broken"
+if [ "$?" -gt 0 -o ! -f dest/netboot/mini.iso ]; then
+    echo "ERROR: chroot broken || no dest/netboot/mini.iso"
 
     sync
     make build_netboot
@@ -115,8 +116,4 @@ fi
 
 rm /lib/ld-linux-x86-64.so.2 # 'fuckup' by build_netboot.
 
-#install -m 644 -D ./tmp/netboot/mini.iso dest/netboot/mini.iso
-#./util/update-manifest dest/netboot/mini.iso "tiny CD image that boots the netboot installer" ./tmp/netboot/udeb.list
-
-scp dest/netboot/mini.iso negotia:/root/mini_turbo.iso
 exit 0
