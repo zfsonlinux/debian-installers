@@ -20,7 +20,7 @@ the following repos:
 
     pkg-spl           git://github.com/zfsonlinux/pkg-spl.git
     pkg-zfs           git://github.com/zfsonlinux/pkg-zfs.git
-    grub              git://github.com:zfsonlinux/grub.git
+    grub              git://github.com/zfsonlinux/grub.git
 
 
 Packages needs to be created from all of these repos, then checkout
