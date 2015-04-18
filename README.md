@@ -7,20 +7,13 @@ had changes that is related to ZoL:
     debian-installer  git://anonscm.debian.org/d-i/debian-installer.git
     grub-installer    git://anonscm.debian.org/d-i/grub-installer.git
     partman-zfs       git://anonscm.debian.org/d-i/partman-zfs.git
+    zfs-fuse          git://git.debian.org/collab-maint/zfs-fuse.git
 
 The repo is NOT intended for casual use, it is merely intended to be
 used by people wanting to help perfecting the Debian GNU/Linux installer.
 
 Once Debian GNU/Linux have accepted ZoL into it's repository, this
 repository will be deleted.
-
-
-In addition to the repos above, you'll also need the latest tags from
-the following repos:
-
-    pkg-spl           git://github.com/zfsonlinux/pkg-spl.git
-    pkg-zfs           git://github.com/zfsonlinux/pkg-zfs.git
-    grub              git://github.com:zfsonlinux/grub.git
 
 
 Packages needs to be created from all of these repos, then checkout
